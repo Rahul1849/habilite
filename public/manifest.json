@@ -1,0 +1,10 @@
+{
+  "name": "Habilite Clinics",
+  "short_name": "Habilite",
+  "description": "Leading laparoscopic and robotic surgery center in Delhi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a91b9",
+  "icons": []
+}
