@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <div className="pt-20 pb-16">
-      <div className="bg-gradient-primary text-white py-16">
+      <div className="bg-gradient-primary py-16">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Health Blog</h1>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Health Blog</h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Insights, tips, and updates about surgical care and patient wellness
           </p>
         </div>
@@ -46,14 +46,14 @@ export default function BlogPage() {
                   <Clock className="mr-2" size={16} />
                   <span>{post.readTime} min read</span>
                 </div>
-                <div className="text-sm text-primary-600 font-semibold mb-2">{post.category}</div>
+                <div className="text-sm text-[#f56336] font-semibold mb-2">{post.category}</div>
                 <h2 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">
                   {post.title}
                 </h2>
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center text-primary-500 font-semibold">
+                <div className="flex items-center text-[#f56336] font-semibold group-hover:text-[#ff8c5a] transition-colors">
                   Read More
                   <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={20} />
                 </div>

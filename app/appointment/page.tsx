@@ -1,422 +1,500 @@
 'use client'
 
 import { useState } from 'react'
-import { Calendar, User, CreditCard, CheckCircle2, X } from 'lucide-react'
-import { services } from '@/data/services'
-import { doctors } from '@/data/doctors'
-import { motion, AnimatePresence } from 'framer-motion'
-
-type AppointmentStep = 'patient' | 'treatment' | 'payment'
+import { Calendar, CheckCircle2, Phone, MessageCircle, CreditCard, Wallet, X } from 'lucide-react'
 
 interface AppointmentData {
   name: string
-  email: string
   phone: string
-  age: string
-  gender: string
-  serviceId: string
-  doctorId: string
+  email: string
+  query: string
+  category: string
   date: string
-  time: string
-  message: string
 }
 
+type Step = 'details' | 'payment' | 'confirmation'
+
 export default function AppointmentPage() {
-  const [step, setStep] = useState<AppointmentStep>('patient')
+  const [step, setStep] = useState<Step>('details')
   const [formData, setFormData] = useState<AppointmentData>({
     name: '',
-    email: '',
     phone: '',
-    age: '',
-    gender: '',
-    serviceId: '',
-    doctorId: '',
+    email: '',
+    query: '',
+    category: '',
     date: '',
-    time: '',
-    message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [paymentStatus, setPaymentStatus] = useState<'pending' | 'success' | 'failed' | null>(null)
+  const [paymentMethod, setPaymentMethod] = useState<'online' | 'reception' | null>(null)
 
-  const selectedService = services.find(s => s.id === formData.serviceId)
-  const selectedDoctor = doctors.find(d => d.id === formData.doctorId)
+  const consultationFee = 1500 // Standard consultation fee
+  const discountAmount = Math.round(consultationFee * 0.3) // 30% discount
+  const discountedFee = consultationFee - discountAmount
 
   const handleInputChange = (field: keyof AppointmentData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
   const handleNext = () => {
-    if (step === 'patient') {
-      if (formData.name && formData.email && formData.phone && formData.age && formData.gender) {
-        setStep('treatment')
+    if (step === 'details') {
+      if (!formData.name.trim() || !formData.phone.trim()) {
+        alert('Please fill in your name and phone number')
+        return
       }
-    } else if (step === 'treatment') {
-      if (formData.serviceId && formData.doctorId && formData.date && formData.time) {
-        setStep('payment')
-      }
+      setStep('payment')
     }
   }
 
   const handlePayment = async (method: 'razorpay' | 'stripe') => {
-    // Simulate payment processing
+    setPaymentMethod('online')
     setPaymentStatus('pending')
+    
+    // Simulate payment processing
     setTimeout(() => {
-      // Simulate success/failure
       const success = Math.random() > 0.3 // 70% success rate
-      setPaymentStatus(success ? 'success' : 'failed')
+      if (success) {
+        setPaymentStatus('success')
+        setTimeout(() => {
+          setStep('confirmation')
+        }, 1500)
+      } else {
+        setPaymentStatus('failed')
+      }
     }, 2000)
   }
 
-  const steps = [
-    { id: 'patient', label: 'Patient Details', icon: User },
-    { id: 'treatment', label: 'Treatment Selection', icon: Calendar },
-    { id: 'payment', label: 'Payment', icon: CreditCard },
+  const handleSkipPayment = () => {
+    setPaymentMethod('reception')
+    setStep('confirmation')
+  }
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+    }, 1000)
+  }
+
+  const handleReset = () => {
+    setStep('details')
+    setPaymentStatus(null)
+    setPaymentMethod(null)
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      query: '',
+      category: '',
+      date: '',
+    })
+  }
+
+  const categories = [
+    'Laparoscopic Surgery',
+    'Laser Surgery',
+    'Bariatric Surgery',
+    'General Consultation',
+    'Follow-up',
+    'Other',
   ]
+
+  // Get minimum date (today)
+  const today = new Date().toISOString().split('T')[0]
+  // Get maximum date (3 months from now)
+  const maxDate = new Date()
+  maxDate.setMonth(maxDate.getMonth() + 3)
+  const maxDateStr = maxDate.toISOString().split('T')[0]
 
   return (
     <div className="pt-20 pb-16 min-h-screen bg-gray-50">
-      <div className="bg-gradient-primary text-white py-16">
+      <div className="bg-gradient-primary py-16">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Book Appointment</h1>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto">
-            Fill in your details to schedule a consultation
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Book Appointment</h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            Quick & Easy Appointment Booking with Online Payment Options
           </p>
         </div>
       </div>
 
       <div className="container-custom section-padding">
-        {/* Progress Steps */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="flex items-center justify-between">
-            {steps.map((stepItem, index) => {
-              const Icon = stepItem.icon
-              const isActive = step === stepItem.id
-              const isCompleted = steps.findIndex(s => s.id === step) > index
-              
-              return (
-                <div key={stepItem.id} className="flex items-center flex-1">
-                  <div className="flex flex-col items-center flex-1">
-                    <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
-                        isActive || isCompleted
-                          ? 'bg-primary-500 text-white'
-                          : 'bg-gray-300 text-gray-600'
-                      }`}
-                    >
-                      <Icon size={24} />
-                    </div>
-                    <div className={`mt-2 text-sm font-medium ${isActive ? 'text-primary-600' : 'text-gray-600'}`}>
-                      {stepItem.label}
-                    </div>
-                  </div>
-                  {index < steps.length - 1 && (
-                    <div className={`flex-1 h-1 mx-4 ${isCompleted ? 'bg-primary-500' : 'bg-gray-300'}`} />
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* Form Content */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <AnimatePresence mode="wait">
-              {/* Step 1: Patient Details */}
-              {step === 'patient' && (
-                <motion.div
-                  key="patient"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
+          {/* Step 1: Patient Details & Date */}
+          {step === 'details' && (
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <div className="mb-6">
+                <div className="flex items-center justify-center space-x-2 mb-4">
+                  <Calendar className="text-[#f56336]" size={24} />
+                  <h2 className="text-2xl font-bold text-gray-900">Appointment Details</h2>
+                </div>
+                <p className="text-gray-600 text-center">
+                  Fill in your details and select your preferred date
+                </p>
+              </div>
+
+              <form onSubmit={(e) => { e.preventDefault(); handleNext(); }} className="space-y-6">
+                {/* Name - Required */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-transparent"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+
+                {/* Phone - Required */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-transparent"
+                    placeholder="+91 98765 43210"
+                    required
+                  />
+                </div>
+
+                {/* Email - Optional */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Email Address <span className="text-gray-400 text-sm">(Optional)</span>
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-transparent"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                {/* Date Selection - Required */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Preferred Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => handleInputChange('date', e.target.value)}
+                    min={today}
+                    max={maxDateStr}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-transparent"
+                    required
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Select a date within the next 3 months</p>
+                </div>
+
+                {/* Category - Optional */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Consultation Type <span className="text-gray-400 text-sm">(Optional)</span>
+                  </label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => handleInputChange('category', e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-transparent"
+                  >
+                    <option value="">Select consultation type (optional)</option>
+                    {categories.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Query/Message - Optional */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Brief Message or Query <span className="text-gray-400 text-sm">(Optional)</span>
+                  </label>
+                  <textarea
+                    value={formData.query}
+                    onChange={(e) => handleInputChange('query', e.target.value)}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-transparent"
+                    placeholder="Tell us about your concern or any specific requirements..."
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
-                  <h2 className="text-2xl font-bold mb-6">Patient Information</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Email *</label>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Phone *</label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Age *</label>
-                      <input
-                        type="number"
-                        value={formData.age}
-                        onChange={(e) => handleInputChange('age', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-gray-700 font-medium mb-2">Gender *</label>
-                      <select
-                        value={formData.gender}
-                        onChange={(e) => handleInputChange('gender', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                      </select>
+                  <Calendar className="mr-2" size={22} />
+                  Continue to Payment
+                </button>
+              </form>
+            </div>
+          )}
+
+          {/* Step 2: Payment Options */}
+          {step === 'payment' && (
+            <div className="bg-white rounded-xl shadow-lg p-8 space-y-6 animate-fade-in">
+              <h2 className="text-2xl font-bold mb-6">Payment Options</h2>
+              
+              {/* Appointment Summary */}
+              <div className="bg-gray-50 rounded-lg p-6 space-y-3">
+                <h3 className="font-semibold text-gray-900 mb-3">Appointment Summary</h3>
+                <div className="space-y-2 text-gray-700 text-sm">
+                  <div><strong>Name:</strong> {formData.name}</div>
+                  <div><strong>Phone:</strong> {formData.phone}</div>
+                  {formData.email && <div><strong>Email:</strong> {formData.email}</div>}
+                  <div><strong>Date:</strong> {new Date(formData.date).toLocaleDateString('en-IN', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}</div>
+                  {formData.category && <div><strong>Type:</strong> {formData.category}</div>}
+                </div>
+              </div>
+
+              {/* Payment Status */}
+              {paymentStatus === null && (
+                <>
+                  {/* Online Payment Discount Banner */}
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-6">
+                    <div className="flex items-start space-x-3">
+                      <div className="bg-green-500 text-white rounded-full p-2">
+                        <CreditCard size={20} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-green-800 mb-1">Pay Online & Save 30%!</h3>
+                        <p className="text-sm text-green-700 mb-3">
+                          Get instant 30% discount when you pay online. Limited time offer!
+                        </p>
+                        <div className="bg-white rounded-lg p-4 space-y-2">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-600">Consultation Fee:</span>
+                            <span className="text-gray-500 line-through">₹{consultationFee.toLocaleString('en-IN')}</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-green-600 font-semibold">Discount (30%):</span>
+                            <span className="text-green-600 font-semibold">-₹{discountAmount.toLocaleString('en-IN')}</span>
+                          </div>
+                          <div className="flex justify-between items-center pt-2 border-t">
+                            <span className="font-bold text-gray-900">Pay Now:</span>
+                            <span className="text-2xl font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <button onClick={handleNext} className="btn-primary w-full">
-                    Next: Treatment Selection
-                  </button>
-                </motion.div>
-              )}
 
-              {/* Step 2: Treatment Selection */}
-              {step === 'treatment' && (
-                <motion.div
-                  key="treatment"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
-                >
-                  <h2 className="text-2xl font-bold mb-6">Treatment & Appointment Details</h2>
+                  {/* Payment Options */}
                   <div className="space-y-4">
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Select Treatment *</label>
-                      <select
-                        value={formData.serviceId}
-                        onChange={(e) => handleInputChange('serviceId', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select a treatment</option>
-                        {services.map((service) => (
-                          <option key={service.id} value={service.id}>
-                            {service.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Select Doctor *</label>
-                      <select
-                        value={formData.doctorId}
-                        onChange={(e) => handleInputChange('doctorId', e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select a doctor</option>
-                        {doctors.map((doctor) => (
-                          <option key={doctor.id} value={doctor.id}>
-                            {doctor.name} - {doctor.designation}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                    <h3 className="font-semibold text-gray-900">Select Payment Method</h3>
+                    
+                    {/* Online Payment Options */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2">Preferred Date *</label>
-                        <input
-                          type="date"
-                          value={formData.date}
-                          onChange={(e) => handleInputChange('date', e.target.value)}
-                          min={new Date().toISOString().split('T')[0]}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2">Preferred Time *</label>
-                        <select
-                          value={formData.time}
-                          onChange={(e) => handleInputChange('time', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          required
-                        >
-                          <option value="">Select time</option>
-                          <option value="10:00">10:00 AM</option>
-                          <option value="11:00">11:00 AM</option>
-                          <option value="12:00">12:00 PM</option>
-                          <option value="14:00">2:00 PM</option>
-                          <option value="15:00">3:00 PM</option>
-                          <option value="16:00">4:00 PM</option>
-                          <option value="17:00">5:00 PM</option>
-                        </select>
-                      </div>
+                      <button
+                        onClick={() => handlePayment('razorpay')}
+                        className="border-2 border-[#f56336] bg-[#f56336]/5 rounded-lg p-6 hover:bg-[#f56336]/10 transition-all text-left relative group"
+                      >
+                        <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
+                          30% OFF
+                        </div>
+                        <div className="font-semibold mb-2 text-[#f56336]">Pay Online (Razorpay)</div>
+                        <div className="text-sm text-gray-600 mb-2">UPI, Cards, Net Banking</div>
+                        <div className="text-lg font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</div>
+                        <div className="text-xs text-gray-500 line-through mt-1">₹{consultationFee.toLocaleString('en-IN')}</div>
+                      </button>
+                      <button
+                        onClick={() => handlePayment('stripe')}
+                        className="border-2 border-[#f56336] bg-[#f56336]/5 rounded-lg p-6 hover:bg-[#f56336]/10 transition-all text-left relative group"
+                      >
+                        <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
+                          30% OFF
+                        </div>
+                        <div className="font-semibold mb-2 text-[#f56336]">Pay Online (Stripe)</div>
+                        <div className="text-sm text-gray-600 mb-2">Credit/Debit Cards</div>
+                        <div className="text-lg font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</div>
+                        <div className="text-xs text-gray-500 line-through mt-1">₹{consultationFee.toLocaleString('en-IN')}</div>
+                      </button>
                     </div>
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Additional Message</label>
-                      <textarea
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        rows={4}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="Any additional information or concerns..."
-                      />
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <button onClick={() => setStep('patient')} className="btn-outline flex-1">
-                      Back
-                    </button>
-                    <button onClick={handleNext} className="btn-primary flex-1">
-                      Next: Payment
+
+                    {/* Pay at Reception Option */}
+                    <button
+                      onClick={handleSkipPayment}
+                      className="w-full border-2 border-gray-300 rounded-lg p-6 hover:border-gray-400 hover:bg-gray-50 transition-all text-left flex items-center space-x-4"
+                    >
+                      <div className="bg-gray-100 rounded-full p-3">
+                        <Wallet size={24} className="text-gray-600" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-semibold mb-1 text-gray-900">Pay at Reception</div>
+                        <div className="text-sm text-gray-600">
+                          Pay the full consultation fee (₹{consultationFee.toLocaleString('en-IN')}) when you visit the clinic
+                        </div>
+                      </div>
                     </button>
                   </div>
-                </motion.div>
+
+                  {/* Back Button */}
+                  <button
+                    onClick={() => setStep('details')}
+                    className="btn-outline w-full"
+                  >
+                    Back to Details
+                  </button>
+                </>
               )}
 
-              {/* Step 3: Payment */}
-              {step === 'payment' && (
-                <motion.div
-                  key="payment"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
-                >
-                  <h2 className="text-2xl font-bold mb-6">Confirm & Pay</h2>
-                  
-                  {/* Summary */}
-                  <div className="bg-gray-50 rounded-lg p-6 space-y-4">
-                    <h3 className="font-semibold text-gray-900">Appointment Summary</h3>
-                    <div className="space-y-2 text-gray-700">
-                      <div><strong>Patient:</strong> {formData.name}</div>
-                      <div><strong>Treatment:</strong> {selectedService?.name}</div>
-                      <div><strong>Doctor:</strong> {selectedDoctor?.name}</div>
-                      <div><strong>Date:</strong> {new Date(formData.date).toLocaleDateString()}</div>
-                      <div><strong>Time:</strong> {formData.time}</div>
-                      <div className="pt-2 border-t">
-                        <strong>Consultation Fee:</strong> {selectedDoctor?.consultationFee}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Payment Methods */}
-                  {paymentStatus === null && (
-                    <div className="space-y-4">
-                      <h3 className="font-semibold text-gray-900">Select Payment Method</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <button
-                          onClick={() => handlePayment('razorpay')}
-                          className="border-2 border-gray-300 rounded-lg p-6 hover:border-primary-500 hover:bg-primary-50 transition-all text-left"
-                        >
-                          <div className="font-semibold mb-2">Razorpay</div>
-                          <div className="text-sm text-gray-600">Pay using UPI, Cards, Net Banking</div>
-                        </button>
-                        <button
-                          onClick={() => handlePayment('stripe')}
-                          className="border-2 border-gray-300 rounded-lg p-6 hover:border-primary-500 hover:bg-primary-50 transition-all text-left"
-                        >
-                          <div className="font-semibold mb-2">Stripe</div>
-                          <div className="text-sm text-gray-600">Pay using Credit/Debit Cards</div>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Payment Status */}
-                  <AnimatePresence>
-                    {paymentStatus === 'pending' && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-center py-8"
-                      >
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
-                        <p className="text-gray-600">Processing payment...</p>
-                      </motion.div>
-                    )}
-                    
-                    {paymentStatus === 'success' && (
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="text-center py-8"
-                      >
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <CheckCircle2 className="text-green-600" size={32} />
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
-                        <p className="text-gray-600 mb-6">Your appointment has been confirmed.</p>
-                        <button
-                          onClick={() => {
-                            setPaymentStatus(null)
-                            setStep('patient')
-                            // Reset form
-                            setFormData({
-                              name: '',
-                              email: '',
-                              phone: '',
-                              age: '',
-                              gender: '',
-                              serviceId: '',
-                              doctorId: '',
-                              date: '',
-                              time: '',
-                              message: '',
-                            })
-                          }}
-                          className="btn-primary"
-                        >
-                          Book Another Appointment
-                        </button>
-                      </motion.div>
-                    )}
-                    
-                    {paymentStatus === 'failed' && (
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="text-center py-8"
-                      >
-                        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <X className="text-red-600" size={32} />
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Failed</h3>
-                        <p className="text-gray-600 mb-6">Please try again or use a different payment method.</p>
-                        <button
-                          onClick={() => setPaymentStatus(null)}
-                          className="btn-primary"
-                        >
-                          Try Again
-                        </button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {paymentStatus === null && (
-                    <button onClick={() => setStep('treatment')} className="btn-outline w-full">
-                      Back
-                    </button>
-                  )}
-                </motion.div>
+              {/* Payment Processing */}
+              {paymentStatus === 'pending' && (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#f56336] mx-auto mb-4"></div>
+                  <p className="text-gray-600">Processing payment...</p>
+                </div>
               )}
-            </AnimatePresence>
-          </div>
+              
+              {/* Payment Success */}
+              {paymentStatus === 'success' && (
+                <div className="text-center py-8 animate-fade-in">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="text-green-600" size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
+                  <p className="text-gray-600 mb-2">You saved ₹{discountAmount.toLocaleString('en-IN')} with online payment!</p>
+                  <p className="text-gray-600 mb-6">Your appointment has been confirmed.</p>
+                </div>
+              )}
+              
+              {/* Payment Failed */}
+              {paymentStatus === 'failed' && (
+                <div className="text-center py-8 animate-fade-in">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <X className="text-red-600" size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Failed</h3>
+                  <p className="text-gray-600 mb-6">Please try again or choose to pay at reception.</p>
+                  <div className="flex gap-4 justify-center">
+                    <button
+                      onClick={() => setPaymentStatus(null)}
+                      className="btn-primary"
+                    >
+                      Try Again
+                    </button>
+                    <button
+                      onClick={handleSkipPayment}
+                      className="btn-outline"
+                    >
+                      Pay at Reception
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Step 3: Confirmation */}
+          {step === 'confirmation' && (
+            <div className="bg-white rounded-xl shadow-lg p-8 text-center animate-fade-in">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="text-green-600" size={40} />
+              </div>
+              
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Appointment Confirmed!</h2>
+              
+              {paymentMethod === 'online' && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
+                  <p className="text-green-800 font-semibold mb-2">✓ Payment Successful</p>
+                  <p className="text-sm text-green-700">
+                    You saved ₹{discountAmount.toLocaleString('en-IN')} with online payment!
+                  </p>
+                </div>
+              )}
+
+              {paymentMethod === 'reception' && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
+                  <p className="text-blue-800 font-semibold mb-2">Payment at Reception</p>
+                  <p className="text-sm text-blue-700">
+                    Please pay ₹{consultationFee.toLocaleString('en-IN')} when you visit the clinic.
+                  </p>
+                </div>
+              )}
+
+              <div className="bg-gray-50 rounded-lg p-6 mb-6 text-left max-w-md mx-auto space-y-3">
+                <div className="pb-3 border-b">
+                  <div className="text-sm text-gray-600 mb-1">Name</div>
+                  <div className="font-semibold text-gray-900">{formData.name}</div>
+                </div>
+                <div className="pb-3 border-b">
+                  <div className="text-sm text-gray-600 mb-1">Phone</div>
+                  <div className="font-semibold text-gray-900">{formData.phone}</div>
+                </div>
+                {formData.email && (
+                  <div className="pb-3 border-b">
+                    <div className="text-sm text-gray-600 mb-1">Email</div>
+                    <div className="font-semibold text-gray-900">{formData.email}</div>
+                  </div>
+                )}
+                <div className="pb-3 border-b">
+                  <div className="text-sm text-gray-600 mb-1">Date</div>
+                  <div className="font-semibold text-gray-900">
+                    {new Date(formData.date).toLocaleDateString('en-IN', { 
+                      weekday: 'long', 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </div>
+                </div>
+                {formData.category && (
+                  <div>
+                    <div className="text-sm text-gray-600 mb-1">Consultation Type</div>
+                    <div className="font-semibold text-gray-900">{formData.category}</div>
+                  </div>
+                )}
+              </div>
+
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
+                <div className="flex items-start space-x-3">
+                  <Phone className="text-yellow-600 mt-0.5" size={20} />
+                  <div className="text-sm text-yellow-800 text-left">
+                    <p className="font-semibold mb-1">Important:</p>
+                    <ul className="list-disc list-inside space-y-1 text-yellow-700">
+                      <li>You will receive a confirmation SMS and email shortly</li>
+                      <li>Please arrive 15 minutes before your appointment time</li>
+                      {paymentMethod === 'reception' && <li>Don't forget to bring your payment when you visit</li>}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
+                <div className="flex items-start space-x-3">
+                  <MessageCircle className="text-blue-600 mt-0.5" size={20} />
+                  <div className="text-sm text-blue-800 text-left">
+                    <p className="font-semibold mb-1">Need to reschedule?</p>
+                    <p className="text-blue-700">
+                      Call us at <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a> or{' '}
+                      <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={handleReset}
+                className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-md hover:shadow-lg"
+              >
+                Book Another Appointment
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -9,18 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Habilite Clinics Brand Colors
+        // Habilite Clinics Brand Colors - Matching Dr. Parag Telang
         primary: {
-          50: '#e8f4f8',
-          100: '#d1e9f1',
-          200: '#a3d3e3',
-          300: '#75bdd5',
-          400: '#47a7c7',
-          500: '#1a91b9', // Primary brand color
-          600: '#157494',
-          700: '#10576f',
-          800: '#0a3a4a',
-          900: '#051d25',
+          50: '#e8f0f7',
+          100: '#d1e1ef',
+          200: '#a3c3df',
+          300: '#75a5cf',
+          400: '#4787bf',
+          500: '#1a4d7a', // Primary brand color
+          600: '#153e62',
+          700: '#102f4a',
+          800: '#0a1f32',
+          900: '#051019',
+        },
+        accent: {
+          red: '#e74c3c',
+          'red-dark': '#c0392b',
+          gold: '#ffd700',
         },
         secondary: {
           50: '#f0f9f5',
@@ -49,7 +54,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'serif'],
       },
       spacing: {
         '18': '4.5rem',

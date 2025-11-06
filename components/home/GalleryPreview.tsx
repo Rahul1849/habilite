@@ -33,6 +33,7 @@ export default function GalleryPreview() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, 33vw"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <span className="text-white font-semibold">Before</span>
@@ -45,8 +46,9 @@ export default function GalleryPreview() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, 33vw"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-primary-500/40 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#1a4d7a]/40 flex items-center justify-center">
                     <span className="text-white font-semibold">After</span>
                   </div>
                 </div>

@@ -1,21 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import WhatsAppFloat from '@/components/common/WhatsAppFloat'
+import dynamic from 'next/dynamic'
+
+const WhatsAppFloat = dynamic(() => import('@/components/common/WhatsAppFloat'), {
+  ssr: false,
+})
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
   preload: true,
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
+  fallback: ['system-ui', 'arial'],
 })
 
 export const metadata: Metadata = {
@@ -81,7 +80,7 @@ const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+91-98765-43210',
+    telephone: '+91-99100-24564',
     contactType: 'customer service',
     areaServed: 'IN',
     availableLanguage: ['English', 'Hindi'],
@@ -99,18 +98,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-x-hidden`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          suppressHydrationWarning
         />
         <Header />
-        <main className="min-h-screen">
+        {/* Spacer to prevent content from going under fixed header */}
+        {/* Mobile: 80px (main header only), Tablet: 128px (top nav + main header), Desktop: 188px (all bars) */}
+        <div className="h-20 md:h-32 lg:h-[188px]"></div>
+        <main className="min-h-screen relative z-0">
           {children}
         </main>
         <Footer />

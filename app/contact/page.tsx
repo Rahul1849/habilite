@@ -10,22 +10,22 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pt-20 pb-16">
-      <div className="bg-gradient-primary text-white py-16">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto">
+      <div className="bg-gradient-primary py-12 sm:py-16 overflow-hidden">
+        <div className="container-custom text-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900 break-words">Contact Us</h1>
+          <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto break-words">
             Get in touch with our team. We're here to help with your healthcare needs.
           </p>
         </div>
       </div>
 
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-              <p className="text-gray-600 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 break-words">Get in Touch</h2>
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 break-words">
                 We're here to answer your questions and help you schedule your appointment. 
                 Reach out to us through any of the following channels.
               </p>
@@ -52,12 +52,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <a href="tel:+919876543210" className="text-primary-600 hover:text-primary-700">
-                    +91 98765 43210
+                  <a href="tel:+919910024564" className="text-primary-600 hover:text-primary-700">
+                    +91 99100 24564
                   </a>
                   <br />
-                  <a href="tel:+919876543211" className="text-primary-600 hover:text-primary-700">
-                    +91 98765 43211
+                  <a href="tel:+919999456455" className="text-primary-600 hover:text-primary-700">
+                    +91 99994 56455
                   </a>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">WhatsApp</h3>
                   <a
-                    href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello, I would like to get in touch.')}`}
+                    href={`https://wa.me/919910024564?text=${encodeURIComponent('Hello, I would like to get in touch.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700"

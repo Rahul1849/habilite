@@ -1,52 +1,52 @@
-import { Award, Clock, Users, Shield, Stethoscope, Heart } from 'lucide-react'
+import { Award, Users, Shield, Heart, Briefcase, GraduationCap } from 'lucide-react'
 
 const features = [
   {
     icon: Award,
-    title: 'Expert Surgeons',
-    description: 'Board-certified surgeons with 15+ years of experience',
+    title: '23 Years of Expertise',
+    description: 'Renowned laparoscopic and robotic surgeon with extensive experience in complex cases',
   },
   {
-    icon: Clock,
-    title: 'Fast Recovery',
-    description: 'Minimally invasive techniques for quicker healing',
+    icon: Briefcase,
+    title: 'Senior Consultant at Apollo',
+    description: 'Associated with Apollo Group of Hospitals - India\'s leading healthcare network',
   },
   {
     icon: Users,
-    title: '5000+ Happy Patients',
-    description: 'Trusted by thousands of patients across India',
+    title: '7000+ Successful Surgeries',
+    description: 'Trusted by thousands of patients across Delhi NCR and India',
+  },
+  {
+    icon: GraduationCap,
+    title: 'International Training',
+    description: 'MRCS from London, U.K., and MMED from Singapore - globally recognized qualifications',
   },
   {
     icon: Shield,
-    title: 'Advanced Technology',
-    description: 'State-of-the-art robotic and laparoscopic equipment',
-  },
-  {
-    icon: Stethoscope,
-    title: 'Comprehensive Care',
-    description: 'End-to-end treatment from consultation to recovery',
+    title: 'Advanced Techniques',
+    description: 'Expert in robotic, single-port, and traditional laparoscopic procedures',
   },
   {
     icon: Heart,
-    title: 'Patient-Centered',
-    description: 'Personalized care tailored to your needs',
+    title: 'Patient-Centered Care',
+    description: 'Compassionate approach with personalized treatment plans for each patient',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-gradient-to-b from-white via-orange-50/30 to-white">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why Choose <span className="text-gradient">Habilite Clinics?</span>
+        <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 break-words">
+            Why Choose <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Dr. Kapil Agrawal?</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We combine expertise, technology, and compassionate care to deliver exceptional surgical outcomes
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto break-words">
+            Dr. Kapil Agrawal combines 23 years of expertise, advanced technology, and compassionate care to deliver exceptional surgical outcomes
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
@@ -54,8 +54,8 @@ export default function WhyChoose() {
                 key={index}
                 className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                  <Icon className="text-primary-600" size={32} />
+                <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-md">
+                  <Icon className="text-white" size={32} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   {feature.title}

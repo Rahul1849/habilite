@@ -29,13 +29,13 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container-custom py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gray-900 text-gray-300 overflow-hidden">
+      <div className="container-custom py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* About */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">Habilite Clinics</h3>
-            <p className="text-gray-400 mb-4">
+          <div className="px-4 sm:px-0">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 break-words">Habilite Clinics</h3>
+            <p className="text-sm sm:text-base text-gray-400 mb-4 break-words">
               Leading laparoscopic and robotic surgery center in Delhi. Expert care with advanced technology for better outcomes.
             </p>
             <div className="flex space-x-4">
@@ -56,14 +56,14 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+          <div className="px-4 sm:px-0">
+            <h4 className="text-white font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-500 transition-colors"
+                    className="text-sm sm:text-base text-gray-400 hover:text-primary-500 transition-colors break-words"
                   >
                     {link.label}
                   </Link>
@@ -73,14 +73,14 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
+          <div className="px-4 sm:px-0">
+            <h4 className="text-white font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Services</h4>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="text-gray-400 hover:text-primary-500 transition-colors"
+                    className="text-sm sm:text-base text-gray-400 hover:text-primary-500 transition-colors break-words"
                   >
                     {service.label}
                   </Link>
@@ -90,8 +90,8 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
+          <div className="px-4 sm:px-0">
+            <h4 className="text-white font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="text-primary-500 mt-1 flex-shrink-0" />
@@ -102,12 +102,20 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="text-primary-500 flex-shrink-0" />
-                <a
-                  href="tel:+919876543210"
-                  className="text-gray-400 hover:text-primary-500 transition-colors"
-                >
-                  +91 98765 43210
-                </a>
+                <div className="flex flex-col space-y-1">
+                  <a
+                    href="tel:+919910024564"
+                    className="text-gray-400 hover:text-primary-500 transition-colors"
+                  >
+                    +91 99100 24564
+                  </a>
+                  <a
+                    href="tel:+919999456455"
+                    className="text-gray-400 hover:text-primary-500 transition-colors"
+                  >
+                    +91 99994 56455
+                  </a>
+                </div>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-primary-500 flex-shrink-0" />
@@ -122,8 +130,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} Habilite Clinics. All rights reserved.</p>
+        <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 px-4 sm:px-0">
+          <p className="text-sm sm:text-base break-words">&copy; {currentYear} Habilite Clinics. All rights reserved.</p>
         </div>
       </div>
     </footer>

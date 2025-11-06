@@ -26,7 +26,7 @@ export interface FAQ {
 export const services: Service[] = [
   {
     id: '1',
-    name: 'Laparoscopic Gallbladder Surgery',
+    name: 'Laparoscopic Surgery',
     slug: 'laparoscopic-gallbladder-surgery',
     category: 'Laparoscopic Surgery',
     shortDescription: 'Minimally invasive gallbladder stone removal with faster recovery.',
@@ -70,7 +70,7 @@ export const services: Service[] = [
   },
   {
     id: '2',
-    name: 'Hernia Surgery',
+    name: 'Laser Surgery',
     slug: 'hernia-surgery',
     category: 'Laparoscopic Surgery',
     shortDescription: 'Advanced laparoscopic hernia repair with minimal downtime.',
@@ -108,7 +108,7 @@ export const services: Service[] = [
   },
   {
     id: '3',
-    name: 'Robotic Surgery',
+    name: 'Bariatrics Surgery',
     slug: 'robotic-surgery',
     category: 'Robotic Surgery',
     shortDescription: 'State-of-the-art robotic-assisted surgery for precision and accuracy.',

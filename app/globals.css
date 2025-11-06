@@ -4,38 +4,52 @@
 
 :root {
   --font-inter: 'Inter', system-ui, sans-serif;
-  --font-playfair: 'Playfair Display', serif;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   
   body {
     @apply bg-white text-gray-900 antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
+  }
+  
+  * {
+    box-sizing: border-box;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold;
+    word-wrap: break-word;
+  }
+  
+  img, video {
+    max-width: 100%;
+    height: auto;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply bg-[#e74c3c] hover:bg-[#c0392b] text-white font-semibold px-6 py-3 rounded transition-colors duration-200 shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-semibold px-6 py-3 rounded transition-colors duration-200;
   }
   
   .btn-outline {
-    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    @apply border-2 border-[#1a4d7a] text-[#1a4d7a] hover:bg-[#1a4d7a] hover:text-white font-semibold px-6 py-3 rounded transition-colors duration-200;
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-16 md:py-20;
   }
   
   .container-custom {
@@ -43,20 +57,105 @@
   }
   
   .gradient-primary {
-    @apply bg-gradient-to-r from-primary-500 to-primary-700;
-  }
-  
-  .gradient-secondary {
-    @apply bg-gradient-to-r from-secondary-500 to-secondary-700;
+    @apply bg-gradient-to-r from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a];
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#f56336] to-[#ff8c5a];
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 300% 0;
+    }
+    100% {
+      background-position: -300% 0;
+    }
+  }
+
+  @keyframes gradient-shift-smooth {
+    0% {
+      background-position: 300% 0;
+    }
+    100% {
+      background-position: -300% 0;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 100%;
+    animation: gradient-shift 3s linear infinite;
+  }
+
+  .animate-gradient-smooth {
+    background-size: 300% 100%;
+    animation: gradient-shift-smooth 4s linear infinite;
+  }
+
+  /* Hide scrollbar for horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Ensure no horizontal overflow */
+  .container-custom {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Responsive text wrapping */
+  .break-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Ensure prose elements don't overflow */
+  .prose {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  /* Prevent iframe overflow */
+  iframe {
+    max-width: 100%;
   }
 }
