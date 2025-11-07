@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calendar, Play } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -73,20 +73,13 @@ export default function Hero() {
               <span className="text-gray-700 font-medium">23 Years Experience | 7000+ Successful Surgeries</span>
             </p>
           
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+            <div className="flex justify-center lg:justify-start">
               <Link 
                 href="/appointment" 
-                className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-bold text-base sm:text-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center justify-center w-full sm:w-auto"
+                className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
               >
                 <Calendar className="mr-2" size={20} />
                 Book Appointment
-              </Link>
-              <Link
-                href="#video"
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold text-base sm:text-lg transition-all duration-200 inline-flex items-center justify-center w-full sm:w-auto"
-              >
-                <Play className="mr-2" size={20} />
-                Watch Video
               </Link>
             </div>
           </div>

@@ -136,7 +136,7 @@ export default function AppointmentPage() {
                 {/* Name - Required */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Full Name <span className="text-red-500">*</span>
+                    Full Name <span className="text-[#f56336]">*</span>
                   </label>
                   <input
                     type="text"
@@ -151,7 +151,7 @@ export default function AppointmentPage() {
                 {/* Phone - Required */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Phone Number <span className="text-red-500">*</span>
+                    Phone Number <span className="text-[#f56336]">*</span>
                   </label>
                   <input
                     type="tel"
@@ -180,7 +180,7 @@ export default function AppointmentPage() {
                 {/* Date Selection - Required */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Preferred Date <span className="text-red-500">*</span>
+                    Preferred Date <span className="text-[#f56336]">*</span>
                   </label>
                   <input
                     type="date"
@@ -230,10 +230,10 @@ export default function AppointmentPage() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                  className="w-full bg-[#f56336] hover:bg-[#ff8c5a] text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   <Calendar className="mr-2" size={22} />
-                  Continue to Payment
+                  Continue to Booking
                 </button>
               </form>
             </div>
@@ -466,7 +466,9 @@ export default function AppointmentPage() {
                   <div className="text-sm text-yellow-800 text-left">
                     <p className="font-semibold mb-1">Important:</p>
                     <ul className="list-disc list-inside space-y-1 text-yellow-700">
-                      <li>You will receive a confirmation SMS and email shortly</li>
+                      <li>
+                        You will receive a confirmation message{formData.email ? ' and email' : ''} shortly
+                      </li>
                       <li>Please arrive 15 minutes before your appointment time</li>
                       {paymentMethod === 'reception' && <li>Don't forget to bring your payment when you visit</li>}
                     </ul>
@@ -489,7 +491,7 @@ export default function AppointmentPage() {
 
               <button
                 onClick={handleReset}
-                className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-md hover:shadow-lg"
+                className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-md hover:shadow-lg"
               >
                 Book Another Appointment
               </button>

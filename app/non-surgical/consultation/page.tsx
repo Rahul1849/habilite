@@ -45,7 +45,7 @@ export default function ConsultationPage() {
             <p className="text-blue-100 mb-6">Book your appointment today and take the first step towards better health</p>
             <Link
               href="/appointment"
-              className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-4 rounded font-bold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center"
+              className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-8 py-4 rounded font-bold text-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center"
             >
               <Calendar className="mr-2" size={22} />
               Book Appointment

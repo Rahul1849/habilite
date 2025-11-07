@@ -40,8 +40,9 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                   <p className="text-gray-600">
                     Habilite Clinics<br />
-                    Delhi, India<br />
-                    Pin Code: 110001
+                    M 11, Block M, Lajpat Nagar Road<br />
+                    Lajpat Nagar 2, Lajpat Nagar<br />
+                    New Delhi, Delhi 110024
                   </p>
                 </div>
               </div>
@@ -69,7 +70,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                   <a href="mailto:info@habiliteclinics.com" className="text-primary-600 hover:text-primary-700">
-                    info@habiliteclinics.com
+                    contact@habiliteclinics.com
                   </a>
                   <br />
                   <a href="mailto:appointments@habiliteclinics.com" className="text-primary-600 hover:text-primary-700">
@@ -85,7 +86,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Operating Hours</h3>
                   <p className="text-gray-600">
-                    Monday - Saturday: 10:00 AM - 6:00 PM<br />
+                    Monday - Saturday: 4:00 PM - 7:30 PM<br />
                     Sunday: Closed<br />
                     Emergency: 24/7 Available
                   </p>
@@ -122,15 +123,26 @@ export default function ContactPage() {
           <h2 className="text-3xl font-bold mb-6 text-center">Find Us</h2>
           <div className="rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.1234567890!2d77.2090!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              src="https://www.google.com/maps?q=Habilite+Clinics,+M+11,+Block+M,+Lajpat+Nagar+Road,+Lajpat+Nagar+2,+Lajpat+Nagar,+New+Delhi,+Delhi+110024&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="450"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Habilite Clinics Location"
+              title="Habilite Clinics Location - M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2, Lajpat Nagar, New Delhi, Delhi 110024"
             />
+          </div>
+          <div className="mt-4 text-center">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Habilite+Clinics,+M+11,+Block+M,+Lajpat+Nagar+Road,+Lajpat+Nagar+2,+Lajpat+Nagar,+New+Delhi,+Delhi+110024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-[#f56336] hover:text-[#ff8c5a] font-semibold transition-colors"
+            >
+              <MapPin className="mr-2" size={20} />
+              View on Google Maps
+            </a>
           </div>
         </div>
       </div>

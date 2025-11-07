@@ -111,7 +111,7 @@ export default function MeetDoctor() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
               <Link
                 href="/doctors/dr-kapil-agrawal"
-                className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-colors duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg w-full sm:w-auto"
+                className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-colors duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg w-full sm:w-auto"
               >
                 Know More About Dr. Kapil Agrawal
                 <ArrowRight className="ml-2" size={20} />

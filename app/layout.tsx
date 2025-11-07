@@ -3,9 +3,10 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import MobileStickyFooter from '@/components/layout/MobileStickyFooter'
 import dynamic from 'next/dynamic'
 
-const WhatsAppFloat = dynamic(() => import('@/components/common/WhatsAppFloat'), {
+const ScrollToTop = dynamic(() => import('@/components/common/ScrollToTop'), {
   ssr: false,
 })
 
@@ -113,11 +114,12 @@ export default function RootLayout({
         {/* Spacer to prevent content from going under fixed header */}
         {/* Mobile: 80px (main header only), Tablet: 128px (top nav + main header), Desktop: 188px (all bars) */}
         <div className="h-20 md:h-32 lg:h-[188px]"></div>
-        <main className="min-h-screen relative z-0">
+        <main className="min-h-screen relative z-0 pb-20 lg:pb-0">
           {children}
         </main>
         <Footer />
-        <WhatsAppFloat />
+        <MobileStickyFooter />
+        <ScrollToTop />
       </body>
     </html>
   )

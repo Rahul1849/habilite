@@ -1,4 +1,4 @@
-import { GraduationCap, Award, Briefcase, Users, Globe, CheckCircle2 } from 'lucide-react'
+import { GraduationCap, Award, Briefcase, Users, Globe } from 'lucide-react'
 
 const education = [
   {
@@ -57,25 +57,6 @@ const affiliations = [
     organization: 'Trained in London, U.K. and Singapore',
     description: 'Global expertise in advanced surgical techniques',
     icon: Globe,
-  },
-]
-
-const careerHighlights = [
-  {
-    title: '23+ Years of Clinical Experience',
-    description: 'Senior Consultant in General and Laparoscopic Surgery',
-  },
-  {
-    title: '7000+ Successful Surgeries',
-    description: 'Performed complex cases with excellent outcomes',
-  },
-  {
-    title: 'International Recognition',
-    description: 'MRCS from London, U.K. and MMED from Singapore',
-  },
-  {
-    title: 'Apollo Hospitals',
-    description: 'Senior Consultant at multiple Apollo Hospital locations',
   },
 ]
 
@@ -158,34 +139,6 @@ export default function EducationAffiliations() {
                 )
               })}
             </div>
-          </div>
-        </div>
-
-          {/* Career Highlights */}
-        <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-2xl p-6 sm:p-8 md:p-12 mb-8 sm:mb-12 overflow-hidden">
-          <div className="text-center mb-6 sm:mb-8 px-4 sm:px-0">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 break-words">
-              Dr. Kapil Agrawal's Career Highlights
-            </h3>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {careerHighlights.map((highlight, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start space-x-3">
-                  <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-full p-2 flex-shrink-0">
-                    <CheckCircle2 className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-2">{highlight.title}</h4>
-                    <p className="text-gray-600 text-sm">{highlight.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 

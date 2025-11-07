@@ -1,11 +1,43 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Hero from '@/components/home/Hero'
 import MeetDoctor from '@/components/home/MeetDoctor'
 import EducationAffiliations from '@/components/home/EducationAffiliations'
+import CareerHighlightsAndServices from '@/components/home/CareerHighlightsAndServices'
 import LaparoscopicServices from '@/components/home/LaparoscopicServices'
 import BariatricServices from '@/components/home/BariatricServices'
 import LaserServices from '@/components/home/LaserServices'
 import WhyChoose from '@/components/home/WhyChoose'
+import BlogPreview from '@/components/home/BlogPreview'
+
+import HealthCalculators from '@/components/home/HealthCalculators'
+
+// Dynamically import TestimonialsSlider to defer loading and improve initial page load
+const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsSlider'), {
+  ssr: false,
+  loading: () => (
+    <section id="testimonials" className="section-padding bg-gradient-to-b from-white via-orange-50/30 to-white">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            Patient <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Testimonials</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Real stories from patients who trusted us with their care
+          </p>
+        </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="animate-pulse">
+              <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ),
+})
 export const metadata: Metadata = {
   title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi | 23 Years Experience',
   description: 'Dr. Kapil Agrawal - Best Laparoscopic and Robotic Surgeon in Delhi with 23 years experience. 7000+ successful surgeries. Senior Consultant at Apollo Hospitals. MBBS, MS, MRCS (London), MMED (Singapore).',
@@ -71,12 +103,16 @@ export default function HomePage() {
         suppressHydrationWarning
       />
       <Hero />
+      <HealthCalculators />
       <MeetDoctor />
       <EducationAffiliations />
+      <CareerHighlightsAndServices />
       <LaparoscopicServices />
       <BariatricServices />
       <LaserServices />
       <WhyChoose />
+      <TestimonialsSlider />
+      <BlogPreview />
     </>
   )
 }

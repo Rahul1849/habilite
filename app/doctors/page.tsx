@@ -125,7 +125,7 @@ export default function DoctorsPage() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
                     href="/appointment"
-                    className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg"
+                    className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg"
                   >
                     <Phone className="mr-2" size={18} />
                     Book Appointment
@@ -300,7 +300,7 @@ export default function DoctorsPage() {
             <div className="mt-8 text-center">
               <Link
                 href="/appointment"
-                className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 inline-flex items-center shadow-lg hover:shadow-xl"
+                className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 inline-flex items-center shadow-lg hover:shadow-xl"
               >
                 <Phone className="mr-2" size={20} />
                 Book Your Consultation Now

@@ -56,7 +56,7 @@ export default function HospitalAffiliations() {
           {hospitals.map((hospital, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-[#f56336]/30"
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-[#f56336]/30"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] w-16 h-16 rounded-xl flex items-center justify-center shadow-md">

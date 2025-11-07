@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 
@@ -10,6 +10,7 @@ export default function Header() {
   const [mounted, setMounted] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null)
+  const closeDropdownTimeout = useRef<number | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -21,12 +22,39 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    return () => {
+      if (closeDropdownTimeout.current) {
+        window.clearTimeout(closeDropdownTimeout.current)
+      }
+    }
+  }, [])
+
+  const handleDropdownEnter = (label: string) => {
+    if (closeDropdownTimeout.current) {
+      window.clearTimeout(closeDropdownTimeout.current)
+      closeDropdownTimeout.current = null
+    }
+    setActiveDropdown(label)
+  }
+
+  const handleDropdownLeave = () => {
+    if (closeDropdownTimeout.current) {
+      window.clearTimeout(closeDropdownTimeout.current)
+    }
+    closeDropdownTimeout.current = window.setTimeout(() => {
+      setActiveDropdown(null)
+      closeDropdownTimeout.current = null
+    }, 180)
+  }
+
   const topNavLinks = [
     { href: '/', label: 'Home' },
     { href: '/doctors', label: 'About Doctor' },
     { href: '/about', label: 'About Clinic' },
     { href: '/awards', label: 'Awards' },
-    { href: '/blog', label: 'Blogs' },
+    { href: '/#testimonials', label: 'Testimonials' },
+    { href: '/#blog', label: 'Blogs' },
   ]
 
   const mainNavLinks = [
@@ -65,7 +93,6 @@ export default function Header() {
       ]
     },
     { href: '/hospital-affiliations', label: 'Hospital Affiliations' },
-    { href: '/testimonials', label: 'Testimonials' },
     { href: '/contact', label: 'Contact Us' },
   ]
 
@@ -127,9 +154,9 @@ export default function Header() {
               </div>
               <Link 
                 href="/appointment" 
-                className="relative text-white px-4 xl:px-7 py-2.5 xl:py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-[#e74c3c]/40 hover:scale-105 transform active:scale-95 will-change-transform overflow-hidden group whitespace-nowrap"
+                className="relative text-white px-4 xl:px-7 py-2.5 xl:py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-[#f56336]/40 hover:scale-105 transform active:scale-95 will-change-transform overflow-hidden group whitespace-nowrap"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#8b2415] via-[#a93226] via-[#c0392b] via-[#e74c3c] via-[#c0392b] via-[#a93226] to-[#8b2415] bg-[length:300%_100%] animate-gradient-smooth"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#d4512a] via-[#e05a2f] via-[#f56336] via-[#ff8c5a] via-[#f56336] via-[#e05a2f] to-[#d4512a] bg-[length:300%_100%] animate-gradient-smooth"></span>
                 <span className="relative z-10">Book an Appointment</span>
               </Link>
             </div>
@@ -151,8 +178,8 @@ export default function Header() {
                 <div
                   key={link.href}
                   className="relative group flex-shrink-0"
-                  onMouseEnter={() => link.submenu && setActiveDropdown(link.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => link.submenu && handleDropdownEnter(link.label)}
+                  onMouseLeave={() => link.submenu && handleDropdownLeave()}
                 >
                   <Link
                     href={link.href}
@@ -173,8 +200,8 @@ export default function Header() {
                           ? 'opacity-100 visible translate-y-0' 
                           : 'opacity-0 invisible -translate-y-2 pointer-events-none'
                       }`}
-                      onMouseEnter={() => setActiveDropdown(link.label)}
-                      onMouseLeave={() => setActiveDropdown(null)}
+                      onMouseEnter={() => handleDropdownEnter(link.label)}
+                      onMouseLeave={handleDropdownLeave}
                     >
                       {link.submenu.map((subItem) => (
                         <Link
@@ -283,7 +310,7 @@ export default function Header() {
                   className="relative block w-full text-white px-4 py-3 rounded-lg font-bold text-center transition-all duration-300 hover:scale-105 hover:shadow-lg transform active:scale-95 overflow-hidden group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#8b2415] via-[#a93226] via-[#c0392b] via-[#e74c3c] via-[#c0392b] via-[#a93226] to-[#8b2415] bg-[length:300%_100%] animate-gradient-smooth"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#d4512a] via-[#e05a2f] via-[#f56336] via-[#ff8c5a] via-[#f56336] via-[#e05a2f] to-[#d4512a] bg-[length:300%_100%] animate-gradient-smooth"></span>
                   <span className="relative z-10">Book an Appointment</span>
                 </Link>
               </div>

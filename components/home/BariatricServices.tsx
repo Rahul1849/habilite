@@ -34,7 +34,7 @@ export default function BariatricServices() {
     <section className="section-padding bg-gradient-to-b from-white via-orange-50/20 to-white">
       <div className="container-custom">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-gray-900 px-4 sm:px-0 break-words">
-          Bariatric Surgery by <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Dr. Kapil Agrawal</span>
+          Weight Loss Solutions 
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
