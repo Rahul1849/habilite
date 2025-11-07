@@ -14,7 +14,7 @@ export default function ContactPage() {
         <div className="container-custom text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900 break-words">Contact Us</h1>
           <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto break-words">
-            Get in touch with our team. We're here to help with your healthcare needs.
+            Get in touch with our team. We&apos;re here to help with your healthcare needs.
           </p>
         </div>
       </div>
@@ -26,7 +26,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 break-words">Get in Touch</h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 break-words">
-                We're here to answer your questions and help you schedule your appointment. 
+                We&apos;re here to answer your questions and help you schedule your appointment. 
                 Reach out to us through any of the following channels.
               </p>
             </div>

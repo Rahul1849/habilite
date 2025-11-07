@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function CalorieCalculatorPage() {
   const [age, setAge] = useState('')
-  const [gender, setGender] = useState<'male' | 'female' | 'other'>('')
+  const [gender, setGender] = useState<'male' | 'female' | 'other' | ''>('')
   const [height, setHeight] = useState('')
   const [weight, setWeight] = useState('')
   const [activity, setActivity] = useState('')
@@ -18,14 +18,14 @@ export default function CalorieCalculatorPage() {
     const w = parseFloat(weight)
     const act = parseFloat(activity)
     
-    if (a > 0 && h > 0 && w > 0 && act > 0 && gender && gender !== '') {
+    if (a > 0 && h > 0 && w > 0 && act > 0 && gender !== '') {
       // Mifflin-St Jeor Equation
       let bmr = 0
       if (gender === 'male') {
         bmr = 10 * w + 6.25 * h - 5 * a + 5
       } else if (gender === 'female') {
         bmr = 10 * w + 6.25 * h - 5 * a - 161
-      } else {
+      } else if (gender === 'other') {
         // For 'other', use average of male and female formulas
         const maleBMR = 10 * w + 6.25 * h - 5 * a + 5
         const femaleBMR = 10 * w + 6.25 * h - 5 * a - 161
@@ -99,13 +99,13 @@ export default function CalorieCalculatorPage() {
                   <label htmlFor="gender" className="block text-sm font-semibold text-gray-700 mb-2">
                     Gender <span className="text-[#f56336]">*</span>
                   </label>
-                <select
-                  id="gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value as 'male' | 'female' | 'other')}
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-base transition-all bg-white"
-                >
+                  <select
+                    id="gender"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value as 'male' | 'female' | 'other' | '')}
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-base transition-all bg-white"
+                  >
                   <option value="">Select gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>

@@ -67,7 +67,7 @@ export default function EducationAffiliations() {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 break-words">
-            Dr. Kapil Agrawal's <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Education and Affiliations</span>
+            Dr. Kapil Agrawal&apos;s <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Education and Affiliations</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto break-words">
             Dr. Kapil Agrawal is an Eminent Senior Consultant and Laparoscopic Surgeon with extensive qualifications and international training

@@ -82,7 +82,7 @@ export default function TestimonialsPage() {
                 </div>
               )}
               <p className="text-gray-700 mb-4 italic line-clamp-4">
-                "{testimonial.text}"
+                &quot;{testimonial.text}&quot;
               </p>
               <div className="flex items-center">
                 {testimonial.image && (

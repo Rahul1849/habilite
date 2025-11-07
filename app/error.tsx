@@ -21,7 +21,7 @@ export default function Error({
         <h1 className="text-6xl font-bold text-primary-600 mb-4">Oops!</h1>
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Something went wrong</h2>
         <p className="text-gray-600 mb-8">
-          We're sorry, but something unexpected happened. Please try again.
+          We&apos;re sorry, but something unexpected happened. Please try again.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button

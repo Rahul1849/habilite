@@ -75,7 +75,7 @@ export default function TestimonialsSlider() {
                 ))}
               </div>
               <p className="text-lg text-gray-700 mb-6 italic">
-                "{currentTestimonial.text}"
+                &quot;{currentTestimonial.text}&quot;
               </p>
               <div className="flex items-center">
                 {currentTestimonial.image && (

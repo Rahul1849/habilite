@@ -25,7 +25,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                 />
               ))}
             </div>
-            <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
+            <p className="text-gray-700 mb-4 italic">&quot;{testimonial.text}&quot;</p>
             <div className="flex items-center">
               {testimonial.image && (
                 <div className="relative w-12 h-12 rounded-full overflow-hidden mr-3">

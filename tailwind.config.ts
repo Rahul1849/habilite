@@ -22,11 +22,6 @@ const config: Config = {
           800: '#0a1f32',
           900: '#051019',
         },
-        accent: {
-          red: '#e74c3c',
-          'red-dark': '#c0392b',
-          gold: '#ffd700',
-        },
         secondary: {
           50: '#f0f9f5',
           100: '#e1f3eb',

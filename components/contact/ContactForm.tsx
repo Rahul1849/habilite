@@ -40,7 +40,7 @@ export default function ContactForm() {
           <CheckCircle2 className="text-green-600" size={32} />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-        <p className="text-gray-600">We'll get back to you soon.</p>
+        <p className="text-gray-600">We&apos;ll get back to you soon.</p>
       </motion.div>
     )
   }

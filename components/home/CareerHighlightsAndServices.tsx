@@ -97,7 +97,7 @@ function AppointmentForm() {
             <CheckCircle2 size={32} />
           </div>
           <h4 className="text-xl font-bold text-green-800 mb-2">Appointment Request Sent!</h4>
-          <p className="text-green-700 text-sm">We'll contact you shortly to confirm your appointment.</p>
+          <p className="text-green-700 text-sm">We&apos;ll contact you shortly to confirm your appointment.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -262,7 +262,7 @@ export default function CareerHighlightsAndServices() {
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 break-words">
-            Dr. Kapil Agrawal's <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Career Highlights & Services</span>
+            Dr. Kapil Agrawal&apos;s <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Career Highlights & Services</span>
           </h2>
         </div>
 

@@ -470,7 +470,7 @@ export default function AppointmentPage() {
                         You will receive a confirmation message{formData.email ? ' and email' : ''} shortly
                       </li>
                       <li>Please arrive 15 minutes before your appointment time</li>
-                      {paymentMethod === 'reception' && <li>Don't forget to bring your payment when you visit</li>}
+                      {paymentMethod === 'reception' && <li>Don&apos;t forget to bring your payment when you visit</li>}
                     </ul>
                   </div>
                 </div>

@@ -101,7 +101,7 @@ export default function HospitalAffiliations() {
         <div className="mt-16 pt-12 border-t border-gray-200">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-center mb-6 text-gray-900">
-              About Dr. Kapil Agrawal's Hospital Affiliations
+              About Dr. Kapil Agrawal&apos;s Hospital Affiliations
             </h3>
             <p className="text-gray-700 leading-relaxed mb-4 text-center">
               Dr. Kapil Agrawal is associated with leading hospitals across Delhi NCR, providing world-class surgical care 
