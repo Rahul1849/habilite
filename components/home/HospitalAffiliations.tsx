@@ -45,7 +45,7 @@ export default function HospitalAffiliations() {
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Hospital <span className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Affiliations</span>
+            Hospital <span className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Affiliations</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Dr. Kapil Agrawal is associated with leading hospitals in Delhi NCR, providing world-class surgical care
@@ -59,7 +59,7 @@ export default function HospitalAffiliations() {
                   className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-[#0891b2]/30"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] w-16 h-16 rounded-xl flex items-center justify-center shadow-md">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] w-16 h-16 rounded-xl flex items-center justify-center shadow-md">
                   <Building2 className="text-white" size={32} />
                 </div>
                 <span className="text-xs font-semibold text-[#0891b2] bg-[#0891b2]/10 px-3 py-1 rounded-full">

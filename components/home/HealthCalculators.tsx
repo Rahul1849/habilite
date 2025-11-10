@@ -9,7 +9,7 @@ export default function HealthCalculators() {
           {/* BMI Calculator */}
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100 hover:shadow-xl transition-shadow">
             <div className="flex items-center mb-4">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <Calculator className="text-white" size={24} />
               </div>
               <h3 className="text-xl font-bold text-gray-900">BMI Calculator</h3>
@@ -19,7 +19,7 @@ export default function HealthCalculators() {
             </p>
             <Link
               href="/bariatrics/bmi-calculator"
-              className="block w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
+              className="block w-full bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
             >
               Calculate
             </Link>
@@ -28,7 +28,7 @@ export default function HealthCalculators() {
           {/* Calorie Calculator */}
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100 hover:shadow-xl transition-shadow">
             <div className="flex items-center mb-4">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <Flame className="text-white" size={24} />
               </div>
               <h3 className="text-xl font-bold text-gray-900">Calorie Calculator</h3>
@@ -38,7 +38,7 @@ export default function HealthCalculators() {
             </p>
             <Link
               href="/bariatrics/calorie-calculator"
-              className="block w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
+              className="block w-full bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
             >
               Calculate
             </Link>
@@ -47,7 +47,7 @@ export default function HealthCalculators() {
           {/* Exercise Calculator */}
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100 hover:shadow-xl transition-shadow">
             <div className="flex items-center mb-4">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <Dumbbell className="text-white" size={24} />
               </div>
               <h3 className="text-xl font-bold text-gray-900">Exercise Calculator</h3>
@@ -57,7 +57,7 @@ export default function HealthCalculators() {
             </p>
             <Link
               href="/bariatrics/exercise-calculator"
-              className="block w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
+              className="block w-full bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
             >
               Calculate
             </Link>

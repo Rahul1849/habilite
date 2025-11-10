@@ -57,7 +57,7 @@ export default function ExerciseCalculatorPage() {
         <div className="max-w-2xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <Dumbbell className="text-white" size={24} />
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Calculate Calories Burned</h2>
@@ -155,7 +155,7 @@ export default function ExerciseCalculatorPage() {
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
+                className="w-full bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
               >
                 Calculate Calories Burned
               </button>

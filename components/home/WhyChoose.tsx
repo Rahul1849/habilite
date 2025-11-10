@@ -54,7 +54,7 @@ export default function WhyChoose() {
                 key={index}
                 className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-md">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-md">
                   <Icon className="text-white" size={32} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">

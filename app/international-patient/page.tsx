@@ -70,14 +70,14 @@ export default function InternationalPatientPage() {
         {/* Why Choose Habilite Clinics */}
         <div className="max-w-6xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
-            Choosing <span className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Habilite Clinics</span> for Treatment
+            Choosing <span className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Habilite Clinics</span> for Treatment
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Affordable Comprehensive Healthcare */}
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100">
               <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Award className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Affordable Comprehensive Health Care</h3>
@@ -90,7 +90,7 @@ export default function InternationalPatientPage() {
             {/* Providing Accommodation */}
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100">
               <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Building2 className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Providing Accommodation</h3>
@@ -112,7 +112,7 @@ export default function InternationalPatientPage() {
                 className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-center mb-4">
-                  <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-2 mr-3">
+                  <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-2 mr-3">
                     <service.icon className="text-white" size={20} />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900">{service.title}</h3>
@@ -127,7 +127,7 @@ export default function InternationalPatientPage() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-gradient-to-br from-cyan-50 via-cyan-100/50 to-cyan-50 rounded-xl p-8 border-2 border-[#0891b2]/30">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <CheckCircle2 className="text-white" size={24} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">All Inclusive Service</h3>
@@ -142,7 +142,7 @@ export default function InternationalPatientPage() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <Users className="text-white" size={24} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">What to Expect</h3>
@@ -157,7 +157,7 @@ export default function InternationalPatientPage() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <MessageCircle className="text-white" size={24} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Communication</h3>
@@ -173,7 +173,7 @@ export default function InternationalPatientPage() {
 
         {/* Contact Section */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-xl p-8 text-white text-center">
+          <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-xl p-8 text-white text-center">
             <h3 className="text-2xl font-bold mb-6">Ready to Begin Your Journey?</h3>
             <p className="text-lg mb-6 text-cyan-50">
               Contact us today to learn more about our international patient services

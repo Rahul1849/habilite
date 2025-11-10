@@ -85,7 +85,7 @@ function AppointmentForm() {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100">
       <div className="flex items-center mb-6">
-        <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+        <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
           <Calendar className="text-white" size={24} />
         </div>
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Book Your Appointment</h3>
@@ -199,7 +199,7 @@ function AppointmentForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
@@ -270,7 +270,7 @@ export default function CareerHighlightsAndServices() {
           {/* Column 1: Career Highlights */}
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <CheckCircle2 className="text-white" size={24} />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Career Highlights</h3>
@@ -292,7 +292,7 @@ export default function CareerHighlightsAndServices() {
           {/* Column 2: General and Laparoscopic Surgeries & Treatments */}
           <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-xl shadow-lg p-6 sm:p-8 border border-[#f56336]/20">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <CheckCircle2 className="text-white" size={24} />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900">General and Laparoscopic Surgeries & Treatments</h3>

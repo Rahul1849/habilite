@@ -169,7 +169,7 @@ export default async function DoctorDetailPage({ params }: Props) {
                     href={doctor.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-105 transform active:scale-95"
+                    className="inline-flex items-center justify-center bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-105 transform active:scale-95"
                     aria-label={`Watch ${doctor.name} video introduction on YouTube`}
                   >
                     <Video className="mr-2" size={24} />

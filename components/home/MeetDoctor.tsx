@@ -70,7 +70,7 @@ export default function MeetDoctor() {
             {/* Qualifications & Highlights */}
             <div className="space-y-4 mb-8">
               <div className="flex items-start space-x-3">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-full p-2 mt-1">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-full p-2 mt-1">
                   <GraduationCap className="text-white" size={20} />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export default function MeetDoctor() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-full p-2 mt-1">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-full p-2 mt-1">
                   <Award className="text-white" size={20} />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export default function MeetDoctor() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-full p-2 mt-1">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-full p-2 mt-1">
                   <Briefcase className="text-white" size={20} />
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default function MeetDoctor() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
               <Link
                 href="/doctors/dr-kapil-agrawal"
-                className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg hover:shadow-cyan-500/50 w-full sm:w-auto"
+                className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg hover:shadow-cyan-500/50 w-full sm:w-auto"
               >
                 Know More About Dr. Kapil Agrawal
                 <ArrowRight className="ml-2" size={20} />

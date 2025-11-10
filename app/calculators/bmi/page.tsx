@@ -110,7 +110,7 @@ export default function BMICalculatorPage() {
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transform hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 Calculate BMI
               </button>

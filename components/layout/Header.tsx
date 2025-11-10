@@ -101,7 +101,7 @@ export default function Header() {
       {/* Fixed Header Container */}
       <div className="fixed top-0 left-0 right-0 z-[9999] w-full">
               {/* Top Navigation Bar */}
-              <div className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white py-3 hidden md:block overflow-x-hidden">
+              <div className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] text-white py-3 hidden md:block overflow-x-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 lg:gap-8 text-sm sm:text-base">
               {topNavLinks.map((link) => (
@@ -156,7 +156,7 @@ export default function Header() {
                 href="/appointment" 
                 className="relative text-white px-4 xl:px-7 py-2.5 xl:py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105 transform active:scale-95 will-change-transform overflow-hidden group whitespace-nowrap"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] to-[#0e7490] bg-[length:300%_100%] animate-gradient-smooth"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth"></span>
                 <span className="relative z-10">Book an Appointment</span>
               </Link>
             </div>
@@ -310,7 +310,7 @@ export default function Header() {
                   className="relative block w-full text-white px-4 py-3 rounded-lg font-bold text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 transform active:scale-95 overflow-hidden group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] to-[#0e7490] bg-[length:300%_100%] animate-gradient-smooth"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth"></span>
                   <span className="relative z-10">Book an Appointment</span>
                 </Link>
               </div>

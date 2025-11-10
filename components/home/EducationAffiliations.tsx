@@ -78,7 +78,7 @@ export default function EducationAffiliations() {
           {/* Education Section */}
           <div>
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <GraduationCap className="text-white" size={28} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Education</h3>
@@ -111,7 +111,7 @@ export default function EducationAffiliations() {
           {/* Affiliations Section */}
           <div>
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-lg p-3 mr-4">
+              <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <Briefcase className="text-white" size={28} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Affiliations & Memberships</h3>

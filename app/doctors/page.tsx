@@ -125,7 +125,7 @@ export default function DoctorsPage() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
                     href="/appointment"
-                    className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
+                    className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
                   >
                     <Phone className="mr-2" size={18} />
                     Book Appointment
@@ -176,7 +176,7 @@ export default function DoctorsPage() {
             {/* Qualifications */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <GraduationCap className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Education & Qualifications</h3>
@@ -198,7 +198,7 @@ export default function DoctorsPage() {
             {/* Specializations */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Stethoscope className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Specializations</h3>
@@ -222,7 +222,7 @@ export default function DoctorsPage() {
             {/* Achievements */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Award className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Key Achievements</h3>
@@ -230,7 +230,7 @@ export default function DoctorsPage() {
               <ul className="space-y-3">
                 {achievements.map((achievement, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-full p-1 mt-1 flex-shrink-0">
+                    <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-full p-1 mt-1 flex-shrink-0">
                       <CheckCircle2 className="text-white" size={16} />
                     </div>
                     <span className="text-gray-700">{achievement}</span>
@@ -242,7 +242,7 @@ export default function DoctorsPage() {
             {/* Hospital Affiliations */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Briefcase className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Hospital Affiliations</h3>
@@ -300,7 +300,7 @@ export default function DoctorsPage() {
             <div className="mt-8 text-center">
               <Link
                 href="/appointment"
-                className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl hover:shadow-cyan-500/50"
+                className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl hover:shadow-cyan-500/50"
               >
                 <Phone className="mr-2" size={20} />
                 Book Your Consultation Now

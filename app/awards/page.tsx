@@ -53,7 +53,7 @@ export default function AwardsPage() {
               className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
             >
               <div className="flex items-start">
-                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] text-white p-3 rounded-full mr-4">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] text-white p-3 rounded-full mr-4">
                   <Award size={24} />
                 </div>
                 <div className="flex-1">

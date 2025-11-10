@@ -45,7 +45,7 @@ export default function ConsultationPage() {
             <p className="text-blue-100 mb-6">Book your appointment today and take the first step towards better health</p>
             <Link
               href="/appointment"
-              className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 inline-flex items-center"
+              className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 inline-flex items-center"
             >
               <Calendar className="mr-2" size={22} />
               Book Appointment

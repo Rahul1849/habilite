@@ -34,7 +34,7 @@ export default function ServicesOverview() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
                 />
-                <div className="absolute top-4 left-4 bg-gradient-to-br from-[#0891b2] to-[#06b6d4] text-white px-4 py-2 rounded-full text-2xl shadow-md">
+                <div className="absolute top-4 left-4 bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] text-white px-4 py-2 rounded-full text-2xl shadow-md">
                   {service.icon}
                 </div>
               </div>
