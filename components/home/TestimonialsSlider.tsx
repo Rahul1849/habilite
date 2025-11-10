@@ -64,7 +64,7 @@ export default function TestimonialsSlider() {
             key={currentIndex}
             className="bg-white rounded-2xl shadow-xl p-8 md:p-12 animate-fade-in"
           >
-            <Quote className="text-[#f56336] opacity-30 mb-4" size={40} />
+            <Quote className="text-[#0891b2] opacity-30 mb-4" size={40} />
               <div className="flex items-center mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -110,7 +110,7 @@ export default function TestimonialsSlider() {
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all ${
                   index === currentIndex
-                    ? 'bg-[#f56336] w-8'
+                    ? 'bg-[#0891b2] w-8'
                     : 'bg-gray-300 w-2'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -122,7 +122,7 @@ export default function TestimonialsSlider() {
           <div className="text-center mt-8">
             <Link
               href="/testimonials"
-              className="inline-flex items-center text-[#f56336] hover:text-[#ff8c5a] font-semibold transition-colors"
+              className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors"
             >
               View All Testimonials
               <ArrowRight className="ml-2" size={20} />

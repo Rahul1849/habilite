@@ -54,6 +54,7 @@ export default function Header() {
     { href: '/about', label: 'About Clinic' },
     { href: '/awards', label: 'Awards' },
     { href: '/#testimonials', label: 'Testimonials' },
+    { href: '/international-patient', label: 'International Patient' },
     { href: '/#blog', label: 'Blogs' },
   ]
 
@@ -92,7 +93,6 @@ export default function Header() {
         { href: '/bariatrics/spatz-balloon', label: 'Spatz Balloon' },
       ]
     },
-    { href: '/hospital-affiliations', label: 'Hospital Affiliations' },
     { href: '/contact', label: 'Contact Us' },
   ]
 
@@ -100,15 +100,15 @@ export default function Header() {
     <>
       {/* Fixed Header Container */}
       <div className="fixed top-0 left-0 right-0 z-[9999] w-full">
-        {/* Top Navigation Bar */}
-        <div className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] text-white py-3 hidden md:block overflow-x-hidden">
+              {/* Top Navigation Bar */}
+              <div className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white py-3 hidden md:block overflow-x-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 lg:gap-8 text-sm sm:text-base">
               {topNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="hover:text-orange-100 transition-colors font-semibold whitespace-nowrap"
+                  className="hover:text-cyan-100 transition-colors font-semibold whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
@@ -154,9 +154,9 @@ export default function Header() {
               </div>
               <Link 
                 href="/appointment" 
-                className="relative text-white px-4 xl:px-7 py-2.5 xl:py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-[#f56336]/40 hover:scale-105 transform active:scale-95 will-change-transform overflow-hidden group whitespace-nowrap"
+                className="relative text-white px-4 xl:px-7 py-2.5 xl:py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105 transform active:scale-95 will-change-transform overflow-hidden group whitespace-nowrap"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#d4512a] via-[#e05a2f] via-[#f56336] via-[#ff8c5a] via-[#f56336] via-[#e05a2f] to-[#d4512a] bg-[length:300%_100%] animate-gradient-smooth"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] to-[#0e7490] bg-[length:300%_100%] animate-gradient-smooth"></span>
                 <span className="relative z-10">Book an Appointment</span>
               </Link>
             </div>
@@ -183,13 +183,13 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    className="px-3 xl:px-5 py-2.5 text-gray-700 hover:text-[#f56336] font-semibold text-sm xl:text-base transition-colors duration-200 relative flex items-center whitespace-nowrap"
+                    className="px-3 xl:px-5 py-2.5 text-[#0891b2] hover:text-[#06b6d4] font-semibold text-sm xl:text-base transition-colors duration-200 relative flex items-center whitespace-nowrap"
                   >
                     {link.label}
                     {link.submenu && (
                       <ChevronDown size={14} className={`xl:w-4 xl:h-4 ml-1 transition-transform duration-200 ${activeDropdown === link.label ? 'rotate-180' : ''}`} />
                     )}
-                    <span className="absolute bottom-0 left-3 xl:left-5 right-3 xl:right-5 h-0.5 bg-[#f56336] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+                    <span className="absolute bottom-0 left-3 xl:left-5 right-3 xl:right-5 h-0.5 bg-[#0891b2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
                   </Link>
                   
                   {/* Dropdown Menu */}
@@ -207,7 +207,7 @@ export default function Header() {
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className="block px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-[#f56336] transition-colors duration-150 text-sm font-medium"
+                          className="block px-4 py-2.5 text-gray-700 hover:bg-cyan-50 hover:text-[#0891b2] transition-colors duration-150 text-sm font-medium"
                           onClick={() => setActiveDropdown(null)}
                         >
                           {subItem.label}
@@ -247,7 +247,7 @@ export default function Header() {
                   {link.submenu ? (
                     <>
                       <button
-                        className="flex items-center justify-between w-full px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md font-medium transition-colors"
+                        className="flex items-center justify-between w-full px-4 py-2.5 text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-medium transition-colors"
                         onClick={() => {
                           setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)
                         }}
@@ -261,7 +261,7 @@ export default function Header() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-cyan-50 hover:text-[#0891b2] rounded-md transition-colors"
                               onClick={() => {
                                 setIsOpen(false)
                                 setOpenMobileDropdown(null)
@@ -276,7 +276,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md font-medium transition-colors"
+                      className="block px-4 py-2.5 text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-medium transition-colors"
                       onClick={() => {
                         setIsOpen(false)
                         setOpenMobileDropdown(null)
@@ -307,10 +307,10 @@ export default function Header() {
                 </a>
                 <Link
                   href="/appointment"
-                  className="relative block w-full text-white px-4 py-3 rounded-lg font-bold text-center transition-all duration-300 hover:scale-105 hover:shadow-lg transform active:scale-95 overflow-hidden group"
+                  className="relative block w-full text-white px-4 py-3 rounded-lg font-bold text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 transform active:scale-95 overflow-hidden group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#d4512a] via-[#e05a2f] via-[#f56336] via-[#ff8c5a] via-[#f56336] via-[#e05a2f] to-[#d4512a] bg-[length:300%_100%] animate-gradient-smooth"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] to-[#0e7490] bg-[length:300%_100%] animate-gradient-smooth"></span>
                   <span className="relative z-10">Book an Appointment</span>
                 </Link>
               </div>

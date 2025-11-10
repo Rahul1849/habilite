@@ -33,9 +33,16 @@ export default function BariatricServices() {
   return (
     <section className="section-padding bg-gradient-to-b from-white via-orange-50/20 to-white">
       <div className="container-custom">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-gray-900 px-4 sm:px-0 break-words">
-          Weight Loss Solutions 
-        </h2>
+        <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 break-words">
+            <span className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Weight Loss Solutions</span>
+          </h2>
+          <div className="flex items-center justify-center gap-3 max-w-md mx-auto">
+            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-[#0891b2] to-[#06b6d4]"></div>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4]"></div>
+            <div className="h-0.5 flex-1 bg-gradient-to-r from-[#06b6d4] via-[#0891b2] to-transparent"></div>
+          </div>
+        </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {bariatricServices.map((service, index) => (

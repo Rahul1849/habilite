@@ -138,7 +138,7 @@ export default function ContactPage() {
               href="https://www.google.com/maps/search/?api=1&query=Habilite+Clinics,+M+11,+Block+M,+Lajpat+Nagar+Road,+Lajpat+Nagar+2,+Lajpat+Nagar,+New+Delhi,+Delhi+110024"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-[#f56336] hover:text-[#ff8c5a] font-semibold transition-colors"
+              className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors"
             >
               <MapPin className="mr-2" size={20} />
               View on Google Maps

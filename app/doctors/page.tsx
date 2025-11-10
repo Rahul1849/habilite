@@ -90,7 +90,7 @@ export default function DoctorsPage() {
               {/* Doctor Info */}
               <div className="lg:col-span-2 text-center lg:text-left">
                 <div className="inline-flex items-center bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-                  <Award className="text-[#f56336] mr-2" size={18} />
+                  <Award className="text-[#0891b2] mr-2" size={18} />
                   <span className="text-sm font-semibold text-gray-700">23 Years Experience</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">
@@ -125,14 +125,14 @@ export default function DoctorsPage() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
                     href="/appointment"
-                    className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg"
+                    className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 inline-flex items-center justify-center shadow-md hover:shadow-lg hover:shadow-cyan-500/50"
                   >
                     <Phone className="mr-2" size={18} />
                     Book Appointment
                   </Link>
                   <Link
                     href="/contact"
-                    className="border-2 border-[#f56336] text-[#f56336] hover:bg-[#f56336] hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center justify-center"
+                    className="border-2 border-[#0891b2] text-[#0891b2] hover:bg-gradient-to-r hover:from-[#0891b2] hover:to-[#06b6d4] hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 inline-flex items-center justify-center"
                   >
                     Contact Doctor
                   </Link>
@@ -176,7 +176,7 @@ export default function DoctorsPage() {
             {/* Qualifications */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <GraduationCap className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Education & Qualifications</h3>
@@ -185,7 +185,7 @@ export default function DoctorsPage() {
                 {qualifications.map((qual, index) => (
                   <div
                     key={index}
-                    className="border-l-4 border-[#f56336] pl-4 py-2"
+                    className="border-l-4 border-[#0891b2] pl-4 py-2"
                   >
                     <h4 className="font-bold text-gray-900 mb-1">{qual.degree}</h4>
                     <p className="text-gray-700 text-sm mb-1">{qual.institution}</p>
@@ -198,7 +198,7 @@ export default function DoctorsPage() {
             {/* Specializations */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Stethoscope className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Specializations</h3>
@@ -209,7 +209,7 @@ export default function DoctorsPage() {
                     key={index}
                     className="flex items-center space-x-2 bg-orange-50 rounded-lg p-3"
                   >
-                    <CheckCircle2 className="text-[#f56336] flex-shrink-0" size={18} />
+                    <CheckCircle2 className="text-[#0891b2] flex-shrink-0" size={18} />
                     <span className="text-sm font-medium text-gray-700">{spec}</span>
                   </div>
                 ))}
@@ -222,7 +222,7 @@ export default function DoctorsPage() {
             {/* Achievements */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Award className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Key Achievements</h3>
@@ -230,7 +230,7 @@ export default function DoctorsPage() {
               <ul className="space-y-3">
                 {achievements.map((achievement, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-full p-1 mt-1 flex-shrink-0">
+                    <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-full p-1 mt-1 flex-shrink-0">
                       <CheckCircle2 className="text-white" size={16} />
                     </div>
                     <span className="text-gray-700">{achievement}</span>
@@ -242,7 +242,7 @@ export default function DoctorsPage() {
             {/* Hospital Affiliations */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-lg p-3 mr-4">
+                <div className="bg-gradient-to-br from-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                   <Briefcase className="text-white" size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Hospital Affiliations</h3>
@@ -250,14 +250,14 @@ export default function DoctorsPage() {
               <ul className="space-y-3">
                 {hospitalAffiliations.map((hospital, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <MapPin className="text-[#f56336] mt-1 flex-shrink-0" size={18} />
+                    <MapPin className="text-[#0891b2] mt-1 flex-shrink-0" size={18} />
                     <span className="text-gray-700">{hospital}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href="/hospital-affiliations"
-                className="mt-6 inline-flex items-center text-[#f56336] font-semibold hover:text-[#ff8c5a] transition-colors"
+                className="mt-6 inline-flex items-center text-[#0891b2] font-semibold hover:text-[#06b6d4] transition-colors"
               >
                 View All Hospital Affiliations
                 <Briefcase className="ml-2" size={18} />
@@ -270,7 +270,7 @@ export default function DoctorsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center md:text-left">
                 <div className="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto md:mx-0 mb-4 shadow-md">
-                  <Clock className="text-[#f56336]" size={24} />
+                  <Clock className="text-[#0891b2]" size={24} />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Consultation Hours</h4>
                 <p className="text-gray-700 text-sm">Mon-Sat: 10 AM - 6 PM</p>
@@ -278,19 +278,19 @@ export default function DoctorsPage() {
               </div>
               <div className="text-center md:text-left">
                 <div className="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto md:mx-0 mb-4 shadow-md">
-                  <Phone className="text-[#f56336]" size={24} />
+                  <Phone className="text-[#0891b2]" size={24} />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Contact</h4>
-                <a href="tel:+919910024564" className="text-gray-700 text-sm hover:text-[#f56336] block">
+                <a href="tel:+919910024564" className="text-gray-700 text-sm hover:text-[#0891b2] block">
                   +91 99100 24564
                 </a>
-                <a href="tel:+919999456455" className="text-gray-700 text-sm hover:text-[#f56336] block">
+                <a href="tel:+919999456455" className="text-gray-700 text-sm hover:text-[#0891b2] block">
                   +91 99994 56455
                 </a>
               </div>
               <div className="text-center md:text-left">
                 <div className="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto md:mx-0 mb-4 shadow-md">
-                  <Award className="text-[#f56336]" size={24} />
+                  <Award className="text-[#0891b2]" size={24} />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Consultation Fee</h4>
                 <p className="text-gray-700 text-sm">₹1,500</p>
@@ -300,7 +300,7 @@ export default function DoctorsPage() {
             <div className="mt-8 text-center">
               <Link
                 href="/appointment"
-                className="bg-[#f56336] hover:bg-[#ff8c5a] text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 inline-flex items-center shadow-lg hover:shadow-xl"
+                className="bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 inline-flex items-center shadow-lg hover:shadow-xl hover:shadow-cyan-500/50"
               >
                 <Phone className="mr-2" size={20} />
                 Book Your Consultation Now

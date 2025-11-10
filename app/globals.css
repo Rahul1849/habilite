@@ -37,7 +37,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-[#f56336] hover:bg-[#ff8c5a] text-white font-semibold px-6 py-3 rounded transition-colors duration-200 shadow-md hover:shadow-lg;
+    @apply bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white font-semibold px-6 py-3 rounded transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50;
   }
   
   .btn-secondary {

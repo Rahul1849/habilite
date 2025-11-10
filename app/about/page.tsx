@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import HospitalAffiliations from '@/components/home/HospitalAffiliations'
 
 export const metadata: Metadata = {
   title: 'About Clinic',
@@ -31,23 +32,23 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold mb-6 text-gray-900">Why Choose Us</h2>
             <ul className="space-y-4 text-gray-700">
               <li className="flex items-start">
-                <span className="text-[#f56336] font-bold mr-3">✓</span>
+                <span className="text-[#0891b2] font-bold mr-3">✓</span>
                 <span>State-of-the-art surgical facilities with advanced robotic systems</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#f56336] font-bold mr-3">✓</span>
+                <span className="text-[#0891b2] font-bold mr-3">✓</span>
                 <span>Experienced surgeons with 23+ years of expertise</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#f56336] font-bold mr-3">✓</span>
+                <span className="text-[#0891b2] font-bold mr-3">✓</span>
                 <span>Minimally invasive procedures for faster recovery</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#f56336] font-bold mr-3">✓</span>
+                <span className="text-[#0891b2] font-bold mr-3">✓</span>
                 <span>Comprehensive patient care from consultation to recovery</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#f56336] font-bold mr-3">✓</span>
+                <span className="text-[#0891b2] font-bold mr-3">✓</span>
                 <span>Patient-centered approach with personalized treatment plans</span>
               </li>
             </ul>
@@ -61,6 +62,9 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* Hospital Affiliations Section */}
+      <HospitalAffiliations />
     </div>
   )
 }

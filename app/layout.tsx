@@ -114,7 +114,7 @@ export default function RootLayout({
         {/* Spacer to prevent content from going under fixed header */}
         {/* Mobile: 80px (main header only), Tablet: 128px (top nav + main header), Desktop: 188px (all bars) */}
         <div className="h-20 md:h-32 lg:h-[188px]"></div>
-        <main className="min-h-screen relative z-0 pb-20 lg:pb-0">
+        <main className="min-h-screen relative z-0 pb-28 lg:pb-0">
           {children}
         </main>
         <Footer />

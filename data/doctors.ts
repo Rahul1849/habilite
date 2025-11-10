@@ -30,12 +30,13 @@ export const doctors: Doctor[] = [
     slug: 'dr-kapil-agrawal',
     designation: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
     qualifications: [
-      'MBBS - Maulana Azad Medical College, Delhi',
-      'MS (General Surgery) - AIIMS, Delhi',
-      'MCh (Minimal Access Surgery) - AIIMS, Delhi',
-      'Fellowship in Robotic Surgery - USA'
+      'MBBS - Institute of Medical Sciences, BHU, Varanasi',
+      'MS (Surgery) - Institute of Medical Sciences, BHU, Varanasi',
+      'MRCS (London, U.K) - Royal College of Surgeons, London',
+      'MMED (Singapore) - National University of Singapore',
+      'FMAS - Fellowship in Minimal Access Surgery'
     ],
-    experience: '15+ years',
+    experience: '23 years',
     specialization: [
       'Laparoscopic Surgery',
       'Robotic Surgery',
@@ -44,9 +45,9 @@ export const doctors: Doctor[] = [
       'Gastrointestinal Surgery',
       'Bariatric Surgery'
     ],
-    bio: 'Dr. Kapil Agrawal is a renowned laparoscopic and robotic surgeon with over 15 years of experience. He has performed thousands of successful surgeries and is known for his expertise in minimally invasive procedures. He is committed to providing the highest quality care with a patient-centered approach.',
-    image: 'https://picsum.photos/600/600?random=10',
-    videoUrl: 'https://www.youtube.com/embed/example',
+    bio: 'Dr. Kapil Agrawal is a leading and one of the best Robotic and Laparoscopic Surgeon in Delhi, India. He has an overall experience of 23 years and has been working as a Senior Consultant Surgeon at Apollo Group of Hospitals, New Delhi, India. He is performing advanced laparoscopic and robotic surgeries for various conditions, which include Gallbladder stones, Hernia, Appendicitis, Rectal prolapse, and pseudo-pancreatic cyst. He is also offering a complete range of bariatric or weight loss surgeries, which are performed both by laparoscopic and robotic approaches.',
+    image: '/images/dr-kapil-agrawal.png',
+    videoUrl: 'https://www.youtube.com/watch?v=example',
     treatments: [
       'Laparoscopic Gallbladder Surgery',
       'Hernia Surgery',
@@ -56,26 +57,38 @@ export const doctors: Doctor[] = [
       'Bariatric Surgery'
     ],
     achievements: [
-      'Performed 5000+ successful laparoscopic surgeries',
-      'Awarded Best Laparoscopic Surgeon 2023',
-      'Published 50+ research papers',
-      'International speaker and trainer'
+      'Performed 7000+ successful laparoscopic and robotic surgeries',
+      'Senior Consultant at Apollo Group of Hospitals, Delhi NCR',
+      'International training from London, U.K. and Singapore',
+      'Expert in single-port laparoscopic surgery',
+      'Leading surgeon for complex bariatric procedures',
+      'Recognized for excellence in minimally invasive techniques'
     ],
     education: [
       {
         degree: 'MBBS',
-        institution: 'Maulana Azad Medical College, Delhi',
+        institution: 'Institute of Medical Sciences, BHU, Varanasi',
+        year: '2002'
+      },
+      {
+        degree: 'MS (Surgery)',
+        institution: 'Institute of Medical Sciences, BHU, Varanasi',
         year: '2005'
       },
       {
-        degree: 'MS (General Surgery)',
-        institution: 'AIIMS, Delhi',
-        year: '2010'
+        degree: 'MRCS (London, U.K)',
+        institution: 'Royal College of Surgeons, London',
+        year: '2007'
       },
       {
-        degree: 'MCh (Minimal Access Surgery)',
-        institution: 'AIIMS, Delhi',
-        year: '2013'
+        degree: 'MMED (Singapore)',
+        institution: 'National University of Singapore',
+        year: '2009'
+      },
+      {
+        degree: 'FMAS',
+        institution: 'Fellowship in Minimal Access Surgery',
+        year: '2010'
       }
     ],
     languages: ['English', 'Hindi'],

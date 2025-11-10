@@ -46,14 +46,14 @@ export default function BlogPage() {
                   <Clock className="mr-2" size={16} />
                   <span>{post.readTime} min read</span>
                 </div>
-                <div className="text-sm text-[#f56336] font-semibold mb-2">{post.category}</div>
+                <div className="text-sm text-[#0891b2] font-semibold mb-2">{post.category}</div>
                 <h2 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">
                   {post.title}
                 </h2>
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center text-[#f56336] font-semibold group-hover:text-[#ff8c5a] transition-colors">
+                <div className="flex items-center text-[#0891b2] font-semibold group-hover:text-[#06b6d4] transition-colors">
                   Read More
                   <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={20} />
                 </div>

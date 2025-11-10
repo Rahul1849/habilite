@@ -50,14 +50,14 @@ export default function BlogPreview() {
                     <span className="text-xs">{post.readTime} min read</span>
                   </div>
                 </div>
-                <div className="text-sm text-[#f56336] font-semibold mb-2">{post.category}</div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#f56336] transition-colors">
+                <div className="text-sm text-[#0891b2] font-semibold mb-2">{post.category}</div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">
                   {post.title}
                 </h3>
                 <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center text-[#f56336] font-semibold group-hover:text-[#ff8c5a] transition-colors">
+                <div className="flex items-center text-[#0891b2] font-semibold group-hover:text-[#06b6d4] transition-colors">
                   Read More
                   <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={18} />
                 </div>
@@ -69,7 +69,7 @@ export default function BlogPreview() {
         <div className="text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center text-[#f56336] hover:text-[#ff8c5a] font-semibold transition-colors"
+            className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors"
           >
             View All Blog Posts
             <ArrowRight className="ml-2" size={20} />

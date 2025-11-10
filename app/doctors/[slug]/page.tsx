@@ -22,6 +22,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${doctor.name} - ${doctor.designation} | Habilite Clinics`,
     description: doctor.bio,
+    keywords: [
+      doctor.name,
+      doctor.designation,
+      'laparoscopic surgeon',
+      'robotic surgeon',
+      'Delhi',
+      'Apollo Hospitals',
+      ...doctor.specialization.map(spec => spec.toLowerCase()),
+    ],
+    openGraph: {
+      title: `${doctor.name} - ${doctor.designation} | Habilite Clinics`,
+      description: doctor.bio,
+      type: 'profile',
+      images: [
+        {
+          url: doctor.image.startsWith('http') ? doctor.image : `https://www.habiliteclinics.com${doctor.image}`,
+          width: 800,
+          height: 1000,
+          alt: `${doctor.name} - ${doctor.designation}`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${doctor.name} - ${doctor.designation}`,
+      description: doctor.bio,
+    },
+    alternates: {
+      canonical: `https://www.habiliteclinics.com/doctors/${slug}`,
+    },
   }
 }
 
@@ -36,29 +66,31 @@ export default async function DoctorDetailPage({ params }: Props) {
 
   return (
     <div className="pt-20 pb-16">
-      <div className="bg-gradient-primary text-white py-16">
+      <div className="bg-gradient-primary py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            <div className="relative w-64 h-64 mx-auto md:mx-0">
+            <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto md:mx-0">
               <Image
                 src={doctor.image}
                 alt={doctor.name}
                 fill
-                className="object-cover rounded-full border-4 border-white"
-                sizes="256px"
+                className="object-cover rounded-full border-4 border-white shadow-2xl"
+                sizes="(max-width: 768px) 320px, 384px"
+                priority
+                quality={90}
               />
             </div>
             <div className="md:col-span-2 text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold mb-2">{doctor.name}</h1>
-              <p className="text-xl text-gray-100 mb-4">{doctor.designation}</p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">{doctor.name}</h1>
+              <p className="text-xl md:text-2xl text-gray-800 font-semibold mb-4">{doctor.designation}</p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <div className="flex items-center">
-                  <Award className="mr-2" size={20} />
-                  <span>{doctor.experience} Experience</span>
+                <div className="flex items-center bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md">
+                  <Award className="mr-2 text-[#0891b2]" size={20} />
+                  <span className="text-gray-900 font-semibold">{doctor.experience} Experience</span>
                 </div>
-                <div className="flex items-center">
-                  <Clock className="mr-2" size={20} />
-                  <span>{doctor.availability}</span>
+                <div className="flex items-center bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md">
+                  <Clock className="mr-2 text-[#0891b2]" size={20} />
+                  <span className="text-gray-900 font-semibold">{doctor.availability}</span>
                 </div>
               </div>
             </div>
@@ -126,18 +158,26 @@ export default async function DoctorDetailPage({ params }: Props) {
             {doctor.videoUrl && (
               <section>
                 <h2 className="text-3xl font-bold mb-4 flex items-center">
-                  <Video className="mr-2 text-primary-500" size={28} />
+                  <Video className="mr-2 text-[#0891b2]" size={28} />
                   Video Introduction
                 </h2>
-                <div className="aspect-video rounded-lg overflow-hidden">
-                  <iframe
-                    src={doctor.videoUrl}
-                    title={`${doctor.name} - Video Introduction`}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  />
+                <div className="bg-gradient-to-br from-cyan-50 via-cyan-100/50 to-cyan-50 rounded-xl p-8 border-2 border-[#0891b2]/30">
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Watch Dr. {doctor.name.split(' ').pop()}&apos;s video introduction to learn more about his expertise, approach to patient care, and surgical techniques.
+                  </p>
+                  <a
+                    href={doctor.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-gradient-to-r from-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-105 transform active:scale-95"
+                    aria-label={`Watch ${doctor.name} video introduction on YouTube`}
+                  >
+                    <Video className="mr-2" size={24} />
+                    Watch on YouTube
+                    <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                    </svg>
+                  </a>
                 </div>
               </section>
             )}

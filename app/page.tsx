@@ -10,8 +10,6 @@ import LaserServices from '@/components/home/LaserServices'
 import WhyChoose from '@/components/home/WhyChoose'
 import BlogPreview from '@/components/home/BlogPreview'
 
-import HealthCalculators from '@/components/home/HealthCalculators'
-
 // Dynamically import TestimonialsSlider to defer loading and improve initial page load
 const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsSlider'), {
   ssr: false,
@@ -103,7 +101,6 @@ export default function HomePage() {
         suppressHydrationWarning
       />
       <Hero />
-      <HealthCalculators />
       <MeetDoctor />
       <EducationAffiliations />
       <CareerHighlightsAndServices />
