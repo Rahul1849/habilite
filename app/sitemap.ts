@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog',
     '/appointment',
     '/contact',
+    '/laparoscopic-surgery',
+    '/bariatrics',
+    '/laser-surgery',
+    '/about',
+    '/awards',
+    '/international-patient',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -43,5 +49,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...routes, ...serviceRoutes, ...doctorRoutes, ...blogRoutes]
+  // Service detail pages
+  const laparoscopicServiceRoutes = [
+    { slug: 'gallbladder-surgery', priority: 0.9 },
+    { slug: 'hernia-surgery', priority: 0.9 },
+    { slug: 'appendix-surgery', priority: 0.8 },
+    { slug: 'rectal-prolapse-surgery', priority: 0.8 },
+  ].map((service) => ({
+    url: `${baseUrl}/laparoscopic-surgery/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: service.priority as 0.8 | 0.9,
+  }))
+
+  const bariatricServiceRoutes = [
+    { slug: 'bariatric-surgery', priority: 0.9 },
+    { slug: 'non-surgical-weight-loss', priority: 0.8 },
+    { slug: 'surgery-for-diabetes', priority: 0.8 },
+    { slug: 'intragastric-balloon', priority: 0.7 },
+    { slug: 'allurion-balloon', priority: 0.7 },
+    { slug: 'spatz-balloon', priority: 0.7 },
+  ].map((service) => ({
+    url: `${baseUrl}/bariatrics/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: service.priority as 0.7 | 0.8 | 0.9,
+  }))
+
+  const laserServiceRoutes = [
+    { slug: 'hemorrhoids-piles', priority: 0.9 },
+    { slug: 'anal-fistula', priority: 0.8 },
+    { slug: 'anal-fissure', priority: 0.8 },
+    { slug: 'pilonidal-sinus', priority: 0.8 },
+    { slug: 'lipoma', priority: 0.7 },
+    { slug: 'circumcision', priority: 0.7 },
+  ].map((service) => ({
+    url: `${baseUrl}/laser-surgery/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: service.priority as 0.7 | 0.8 | 0.9,
+  }))
+
+  return [
+    ...routes,
+    ...serviceRoutes,
+    ...doctorRoutes,
+    ...blogRoutes,
+    ...laparoscopicServiceRoutes,
+    ...bariatricServiceRoutes,
+    ...laserServiceRoutes,
+  ]
 }

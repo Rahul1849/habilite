@@ -6,7 +6,7 @@ import { CheckCircle2, Calendar, Send, Phone } from 'lucide-react'
 
 const careerHighlights = [
   {
-    text: 'Senior Consultant in General and Laparoscopic Surgery at Apollo Group of Hospitals, Delhi NCR. 23+ years of clinical experience in General and Laparoscopic Surgery',
+    text: 'Senior Consultant in General and Laparoscopic Surgery at Apollo Group of Hospitals, Delhi NCR. 27+ years of clinical experience in General and Laparoscopic Surgery',
   },
   {
     text: 'Conducted more than 7,000+ successful surgeries, and has served as Senior Consultant at Apollo Group of Hospitals - Sarita Vihar, Greater Kailash, and Noida',

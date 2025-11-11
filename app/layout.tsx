@@ -23,8 +23,22 @@ export const metadata: Metadata = {
     default: 'Habilite Clinics - Leading Laparoscopic & Robotic Surgery in Delhi',
     template: '%s | Habilite Clinics'
   },
-  description: 'Expert laparoscopic and robotic surgeries by Dr. Kapil Agrawal in Delhi. Advanced treatment for gallbladder, hernia, and gastrointestinal conditions.',
-  keywords: ['laparoscopic surgery', 'robotic surgery', 'gallbladder surgery', 'hernia surgery', 'Delhi', 'Dr. Kapil Agrawal'],
+  description: 'Expert laparoscopic and robotic surgeries by Dr. Kapil Agrawal in Delhi, India. Best laparoscopic surgeon in Delhi and India. Advanced treatment for gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery. 27+ years experience, 7000+ successful surgeries.',
+  keywords: [
+    'best laparoscopic surgeon delhi',
+    'best laparoscopic surgeon india',
+    'laparoscopic surgery delhi',
+    'robotic surgery delhi',
+    'gallbladder surgery delhi',
+    'hernia surgery delhi',
+    'bariatric surgery delhi',
+    'laser surgery delhi',
+    'weight loss surgery delhi',
+    'Dr. Kapil Agrawal',
+    'top surgeon delhi',
+    'best surgeon india',
+    'laparoscopic surgeon delhi ncr',
+  ],
   authors: [{ name: 'Habilite Clinics' }],
   creator: 'Habilite Clinics',
   publisher: 'Habilite Clinics',
@@ -73,23 +87,75 @@ const organizationSchema = {
   name: 'Habilite Clinics',
   url: 'https://www.habiliteclinics.com',
   logo: 'https://www.habiliteclinics.com/logo.png',
-  description: 'Leading laparoscopic and robotic surgery center in Delhi',
+  description: 'Leading laparoscopic and robotic surgery center in Delhi, India. Expert surgical services by Dr. Kapil Agrawal with 27+ years experience.',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Delhi',
+    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
+    addressLocality: 'Lajpat Nagar',
+    addressRegion: 'Delhi',
+    postalCode: '110024',
     addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '28.5675',
+    longitude: '77.2430',
   },
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+91-99100-24564',
     contactType: 'customer service',
-    areaServed: 'IN',
+    areaServed: ['IN', 'Delhi', 'Delhi NCR', 'Noida', 'Gurgaon'],
     availableLanguage: ['English', 'Hindi'],
   },
   sameAs: [
     'https://www.facebook.com/habiliteclinics',
     'https://www.twitter.com/habiliteclinics',
     'https://www.linkedin.com/company/habiliteclinics',
+  ],
+}
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: 'Habilite Clinics',
+  image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+  '@id': 'https://www.habiliteclinics.com',
+  url: 'https://www.habiliteclinics.com',
+  telephone: '+91-99100-24564',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
+    addressLocality: 'Lajpat Nagar',
+    addressRegion: 'Delhi',
+    postalCode: '110024',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '28.5675',
+    longitude: '77.2430',
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '10:00',
+    closes: '18:00',
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Delhi',
+    },
+    {
+      '@type': 'State',
+      name: 'Delhi',
+    },
+    {
+      '@type': 'Country',
+      name: 'India',
+    },
   ],
 }
 
@@ -108,6 +174,11 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          suppressHydrationWarning
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
           suppressHydrationWarning
         />
         <Header />

@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { Award, GraduationCap, Briefcase, Clock, Phone, Mail, MapPin, CheckCircle2, Globe, Users, Stethoscope } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi | 23 Years Experience',
-  description: 'Dr. Kapil Agrawal - Senior Consultant Laparoscopic and Robotic Surgeon at Apollo Hospitals, Delhi. 23 years experience, 7000+ successful surgeries. MBBS, MS, MRCS (London), MMED (Singapore), FMAS.',
+  title: 'About Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi | 27+ Years Experience',
+  description: 'Dr. Kapil Agrawal - Senior Consultant Laparoscopic and Robotic Surgeon at Apollo Hospitals, Delhi. 27+ years experience, 7000+ successful surgeries. MBBS, MS, MRCS (London), MMED (Singapore), FMAS.',
 }
 
 const qualifications = [
@@ -91,7 +91,7 @@ export default function DoctorsPage() {
               <div className="lg:col-span-2 text-center lg:text-left">
                 <div className="inline-flex items-center bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
                   <Award className="text-[#0891b2] mr-2" size={18} />
-                  <span className="text-sm font-semibold text-gray-700">23 Years Experience</span>
+                  <span className="text-sm font-semibold text-gray-700">27+ Years Experience</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">
                   Dr. <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Kapil Agrawal</span>
@@ -153,7 +153,7 @@ export default function DoctorsPage() {
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 Dr. Kapil Agrawal is a leading and one of the best Robotic and Laparoscopic Surgeon in Delhi, India. 
-                He has an overall experience of <strong className="text-gray-900">23 years</strong> and has been working 
+                He has an overall experience of <strong className="text-gray-900">27+ years</strong> and has been working 
                 as a Senior Consultant Surgeon at Apollo Group of Hospitals, New Delhi, India.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -165,7 +165,7 @@ export default function DoctorsPage() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 Dr. Kapil Agrawal completed his graduation and post-graduation from the Institute of Medical Sciences, 
                 BHU, Varanasi. He has also been trained at some of the best hospitals in London, U.K., and he received 
-                his MRCS degree from London, U.K., in 2007. In the span of 23 years, he has been associated with some 
+                his MRCS degree from London, U.K., in 2007. In the span of 27+ years, he has been associated with some 
                 of the best hospitals in New Delhi, India, and has performed some of the most complex cases with 
                 excellent outcomes.
               </p>

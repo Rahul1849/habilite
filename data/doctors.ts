@@ -36,7 +36,7 @@ export const doctors: Doctor[] = [
       'MMED (Singapore) - National University of Singapore',
       'FMAS - Fellowship in Minimal Access Surgery'
     ],
-    experience: '23 years',
+    experience: '27+ years',
     specialization: [
       'Laparoscopic Surgery',
       'Robotic Surgery',
@@ -45,7 +45,7 @@ export const doctors: Doctor[] = [
       'Gastrointestinal Surgery',
       'Bariatric Surgery'
     ],
-    bio: 'Dr. Kapil Agrawal is a leading and one of the best Robotic and Laparoscopic Surgeon in Delhi, India. He has an overall experience of 23 years and has been working as a Senior Consultant Surgeon at Apollo Group of Hospitals, New Delhi, India. He is performing advanced laparoscopic and robotic surgeries for various conditions, which include Gallbladder stones, Hernia, Appendicitis, Rectal prolapse, and pseudo-pancreatic cyst. He is also offering a complete range of bariatric or weight loss surgeries, which are performed both by laparoscopic and robotic approaches.',
+    bio: 'Dr. Kapil Agrawal is a leading and one of the best Robotic and Laparoscopic Surgeon in Delhi, India. He has an overall experience of 27+ years and has been working as a Senior Consultant Surgeon at Apollo Group of Hospitals, New Delhi, India. He is performing advanced laparoscopic and robotic surgeries for various conditions, which include Gallbladder stones, Hernia, Appendicitis, Rectal prolapse, and pseudo-pancreatic cyst. He is also offering a complete range of bariatric or weight loss surgeries, which are performed both by laparoscopic and robotic approaches.',
     image: '/images/dr-kapil-agrawal.png',
     videoUrl: 'https://www.youtube.com/watch?v=example',
     treatments: [

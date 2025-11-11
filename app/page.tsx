@@ -37,11 +37,29 @@ const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsS
   ),
 })
 export const metadata: Metadata = {
-  title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi | 23 Years Experience',
-  description: 'Dr. Kapil Agrawal - Best Laparoscopic and Robotic Surgeon in Delhi with 23 years experience. 7000+ successful surgeries. Senior Consultant at Apollo Hospitals. MBBS, MS, MRCS (London), MMED (Singapore).',
+  title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India | Top Surgeon | 27+ Years Experience',
+  description: 'Dr. Kapil Agrawal is the best laparoscopic surgeon in Delhi and India with 27+ years experience and 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery. Senior Consultant at Apollo Hospitals, Delhi NCR. Book appointment for laparoscopic surgery, robotic surgery, weight loss surgery in Delhi.',
+  keywords: [
+    'best laparoscopic surgeon delhi',
+    'laparoscopic surgeon delhi',
+    'Dr. Kapil Agrawal',
+    'robotic surgery delhi',
+    'gallbladder surgery delhi',
+    'hernia surgery delhi',
+    'bariatric surgery delhi',
+    'laser surgery delhi',
+    'Apollo hospitals surgeon',
+    'minimally invasive surgery delhi',
+    'laparoscopic surgery delhi ncr',
+    'best surgeon in delhi',
+  ],
   openGraph: {
     title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
-    description: 'Dr. Kapil Agrawal - Leading laparoscopic and robotic surgeon with 23 years experience and 7000+ successful surgeries at Apollo Hospitals, Delhi.',
+    description: 'Dr. Kapil Agrawal - Leading laparoscopic and robotic surgeon with 27+ years experience and 7000+ successful surgeries at Apollo Hospitals, Delhi.',
+    url: 'https://www.habiliteclinics.com',
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com',
   },
 }
 
@@ -49,15 +67,33 @@ const homePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
   name: 'Dr. Kapil Agrawal',
-  description: 'Best Laparoscopic and Robotic Surgeon in Delhi with 23 years experience. Senior Consultant at Apollo Group of Hospitals.',
+  description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 27+ years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
   url: 'https://www.habiliteclinics.com',
   telephone: '+91-99100-24564',
+  image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Delhi',
+    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
+    addressLocality: 'Lajpat Nagar',
+    addressRegion: 'Delhi',
+    postalCode: '110024',
     addressCountry: 'IN',
   },
-  medicalSpecialty: ['Laparoscopic Surgery', 'Robotic Surgery', 'Bariatric Surgery', 'Laser Surgery'],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '28.5675',
+    longitude: '77.2430',
+  },
+  medicalSpecialty: [
+    'Laparoscopic Surgery',
+    'Robotic Surgery',
+    'Bariatric Surgery',
+    'Laser Surgery',
+    'Gallbladder Surgery',
+    'Hernia Surgery',
+    'Weight Loss Surgery',
+    'Metabolic Surgery',
+  ],
   alumniOf: [
     {
       '@type': 'EducationalOrganization',
@@ -89,7 +125,130 @@ const homePageSchema = {
   worksFor: {
     '@type': 'Hospital',
     name: 'Apollo Group of Hospitals, Delhi NCR'
-  }
+  },
+  knowsAbout: [
+    'Best Laparoscopic Surgeon in Delhi',
+    'Best Laparoscopic Surgeon in India',
+    'Laparoscopic Surgery Delhi',
+    'Robotic Surgery Delhi',
+    'Bariatric Surgery Delhi',
+    'Weight Loss Surgery Delhi',
+    'Gallbladder Surgery Delhi',
+    'Hernia Surgery Delhi',
+    'Laser Surgery Delhi',
+  ],
+  jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
+  award: '27+ Years Experience | 7000+ Successful Surgeries',
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Delhi',
+    },
+    {
+      '@type': 'State',
+      name: 'Delhi',
+    },
+    {
+      '@type': 'Country',
+      name: 'India',
+    },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Medical Service',
+  provider: {
+    '@type': 'Physician',
+    name: 'Dr. Kapil Agrawal',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'India',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Surgical Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Laparoscopic Surgery in Delhi',
+          description: 'Expert laparoscopic surgery for gallbladder, hernia, appendix, and rectal prolapse',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Bariatric Surgery in Delhi',
+          description: 'Comprehensive weight loss surgery including sleeve gastrectomy, gastric bypass, and metabolic surgery',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Laser Surgery in Delhi',
+          description: 'Advanced laser treatments for hemorrhoids, anal fissure, anal fistula, and pilonidal sinus',
+        },
+      },
+    ],
+  },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.habiliteclinics.com',
+    },
+  ],
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Who is the best laparoscopic surgeon in Delhi?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dr. Kapil Agrawal is one of the best laparoscopic surgeons in Delhi and India with 27+ years of experience and 7000+ successful surgeries. He is a Senior Consultant at Apollo Group of Hospitals, Delhi NCR.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What services does Dr. Kapil Agrawal provide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dr. Kapil Agrawal provides comprehensive surgical services including laparoscopic surgery, robotic surgery, bariatric surgery (weight loss surgery), and laser surgery. He specializes in gallbladder surgery, hernia surgery, appendix surgery, and various laser treatments.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is Habilite Clinics located?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Habilite Clinics is located at M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2, Lajpat Nagar, New Delhi, Delhi 110024. The clinic is easily accessible in South Delhi.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the qualifications of Dr. Kapil Agrawal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dr. Kapil Agrawal holds MBBS, MS (Surgery), MRCS (London, U.K), MMED (Singapore), and FMAS qualifications. He has trained across 3 continents and has 27+ years of surgical experience.',
+      },
+    },
+  ],
 }
 
 export default function HomePage() {
@@ -98,6 +257,21 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         suppressHydrationWarning
       />
       <Hero />

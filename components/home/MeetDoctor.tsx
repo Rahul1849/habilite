@@ -12,7 +12,7 @@ export default function MeetDoctor() {
             <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/dr-kapil-agrawal.png"
-                alt="Dr. Kapil Agrawal - Senior Consultant Laparoscopic and Robotic Surgeon at Apollo Hospitals, Delhi with 23 years experience and 7000+ successful surgeries"
+                alt="Dr. Kapil Agrawal - Senior Consultant Laparoscopic and Robotic Surgeon at Apollo Hospitals, Delhi with 27+ years experience and 7000+ successful surgeries"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -40,7 +40,7 @@ export default function MeetDoctor() {
               </h2>
               <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed break-words">
                 Dr. Kapil Agrawal is a leading and one of the best Robotic and Laparoscopic Surgeon in Delhi, India. 
-                He has an overall experience of <strong>23 years</strong> and has been working as a Senior Consultant 
+                He has an overall experience of <strong>27+ years</strong> and has been working as a Senior Consultant 
                 Surgeon at Apollo Group of Hospitals, New Delhi, India.
               </p>
               <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed break-words">
@@ -61,7 +61,7 @@ export default function MeetDoctor() {
               </div>
               <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100">
                 <div className="text-3xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-1">
-                  23 Years
+                  27+ Years
                 </div>
                 <div className="text-sm text-gray-600 font-medium">Experience</div>
               </div>

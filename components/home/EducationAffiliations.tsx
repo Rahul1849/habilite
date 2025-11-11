@@ -162,7 +162,7 @@ export default function EducationAffiliations() {
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
-                23+
+                27+
               </div>
               <div className="text-sm font-semibold text-gray-700">Years Experience</div>
             </div>

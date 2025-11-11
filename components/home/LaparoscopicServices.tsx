@@ -35,7 +35,7 @@ export default function LaparoscopicServices() {
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 break-words">
-            <span className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Laparoscopic and Robotic Surgery</span>
+            <span className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] bg-clip-text text-transparent">Laparoscopic and Robotic Surgery in Delhi, India</span>
           </h2>
           <div className="flex items-center justify-center gap-3 max-w-md mx-auto">
             <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-[#0891b2] to-[#06b6d4]"></div>
@@ -53,7 +53,7 @@ export default function LaparoscopicServices() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} - Expert laparoscopic surgery in Delhi, India by Dr. Kapil Agrawal`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="relative w-full h-full">
           <Image
             src="/images/dr-kapil-agrawal.png"
-            alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi"
+            alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Senior Consultant at Apollo Hospitals with 27+ years experience in laparoscopic surgery, robotic surgery, bariatric surgery, and laser surgery."
             fill
             className="object-cover object-center"
             sizes="100vw"
@@ -26,15 +26,15 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left: Doctor Image - Desktop */}
           <div className="hidden lg:block order-2">
             <div className="relative w-full max-w-md mx-auto flex justify-center">
               <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/80 ring-4 ring-white/30">
                 <Image
                   src="/images/dr.png"
-                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi with 23 years experience, 7000+ successful surgeries"
+                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 27+ years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1280px) 320px, 384px"
@@ -46,42 +46,55 @@ export default function Hero() {
           </div>
 
           {/* Right: Content */}
-          <div className="text-center lg:text-left order-1">
+          <div className="text-center lg:text-left order-1 space-y-4 sm:space-y-5 lg:space-y-6">
             {/* Doctor Image - Mobile/Tablet */}
-            <div className="mb-8 lg:hidden flex justify-center">
-              <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/50">
+            <div className="mb-6 sm:mb-8 lg:hidden flex justify-center">
+              <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/50">
                 <Image
                   src="/images/dr.png"
-                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi"
+                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Expert surgeon with 27+ years experience and 7000+ successful surgeries."
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 1024px) 192px, 0px"
+                  sizes="(max-width: 640px) 160px, 192px"
                   priority
                   quality={90}
                 />
               </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-gray-900 break-words">
-              Dr. <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Kapil Agrawal</span>
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 break-words" style={{ color: '#0d4a5a' }}>
-              Best Laparoscopic Surgeon in Delhi
-            </p>
-            <p className="text-base sm:text-lg md:text-xl mb-2 break-words px-2 sm:px-0" style={{ color: '#0d4a5a' }}>
-              MBBS, MS (Surgery), MRCS (London, U.K), MMED (Singapore), FMAS
-            </p>
-            <p className="text-sm sm:text-base md:text-lg mb-8 max-w-2xl lg:max-w-none mx-auto lg:mx-0 break-words px-2 sm:px-0">
-              <span style={{ color: '#0d4a5a' }}>Senior Consultant at Apollo Group of Hospitals, Delhi NCR</span><br />
-              <span className="font-medium" style={{ color: '#0d4a5a' }}>23 Years Experience | 7000+ Successful Surgeries</span>
-            </p>
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight sm:leading-tight text-gray-900 break-words px-2 sm:px-0">
+                Dr. <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Kapil Agrawal</span>
+              </h1>
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-snug text-gray-900 break-words px-2 sm:px-0">
+                Best Laparoscopic Surgeon in <span className="text-[#0d4a5a]">Delhi, India</span>
+              </h2>
+            </div>
+
+            <div className="space-y-2 sm:space-y-3 px-2 sm:px-0">
+              <p className="text-base sm:text-lg md:text-xl font-medium leading-relaxed break-words" style={{ color: '#0d4a5a' }}>
+                Leading Laparoscopic and Robotic Surgeon
+              </p>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed break-words" style={{ color: '#0d4a5a' }}>
+                MBBS, MS (Surgery), MRCS (London, U.K), MMED (Singapore), FMAS
+              </p>
+            </div>
+
+            <div className="space-y-2 sm:space-y-3 px-2 sm:px-0 max-w-2xl lg:max-w-none mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed break-words" style={{ color: '#0d4a5a' }}>
+                Senior Consultant at Apollo Group of Hospitals, Delhi NCR
+              </p>
+              <p className="text-sm sm:text-base md:text-lg font-semibold leading-relaxed break-words" style={{ color: '#0d4a5a' }}>
+                27+ Years Experience | 7000+ Successful Surgeries
+              </p>
+            </div>
           
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
               <Link 
                 href="/appointment" 
-                className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 inline-flex items-center justify-center"
+                className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-sm sm:text-base md:text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 inline-flex items-center justify-center"
               >
-                <Calendar className="mr-2" size={20} />
+                <Calendar className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Book Appointment
               </Link>
             </div>
@@ -89,18 +102,18 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
+        <div className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
           {[
             { number: '7000+', label: 'Successful Surgeries' },
-            { number: '23 Years', label: 'Experience' },
+            { number: '27+ Years', label: 'Experience' },
             { number: '98%', label: 'Success Rate' },
             { number: 'Apollo', label: 'Senior Consultant' },
           ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 break-words drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
+            <div key={index} className="text-center px-2 sm:px-0">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 break-words drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
                 {stat.number}
               </div>
-              <div className="text-gray-900 text-sm sm:text-base md:text-lg font-semibold break-words px-1" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.8)' }}>
+              <div className="text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg font-semibold break-words" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.8)' }}>
                 {stat.label}
               </div>
             </div>

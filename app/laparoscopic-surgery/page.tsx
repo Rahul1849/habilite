@@ -1,12 +1,6 @@
-import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Laparoscopic Surgery - Habilite Clinics',
-  description: 'Expert laparoscopic surgery services including gallbladder, hernia, rectal prolapse, and appendix surgery by Dr. Kapil Agrawal in Delhi.',
-}
 
 const laparoscopicServices = [
   {

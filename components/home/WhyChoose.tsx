@@ -3,7 +3,7 @@ import { Award, Users, Shield, Heart, Briefcase, GraduationCap } from 'lucide-re
 const features = [
   {
     icon: Award,
-    title: '23 Years of Expertise',
+    title: '27+ Years of Expertise',
     description: 'Renowned laparoscopic and robotic surgeon with extensive experience in complex cases',
   },
   {
@@ -42,7 +42,7 @@ export default function WhyChoose() {
             Why Choose <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Dr. Kapil Agrawal?</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto break-words">
-            Dr. Kapil Agrawal combines 23 years of expertise, advanced technology, and compassionate care to deliver exceptional surgical outcomes
+            Dr. Kapil Agrawal combines 27+ years of expertise, advanced technology, and compassionate care to deliver exceptional surgical outcomes
           </p>
         </div>
 

@@ -37,7 +37,7 @@ export default function AboutPage() {
               </li>
               <li className="flex items-start">
                 <span className="text-[#0891b2] font-bold mr-3">✓</span>
-                <span>Experienced surgeons with 23+ years of expertise</span>
+                <span>Experienced surgeons with 27+ years of expertise</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#0891b2] font-bold mr-3">✓</span>

@@ -1,12 +1,6 @@
-import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Laser Surgery - Habilite Clinics',
-  description: 'Advanced laser surgery treatments for hemorrhoids, anal fissure, anal fistula, pilonidal sinus, lipoma, and circumcision by Dr. Kapil Agrawal in Delhi.',
-}
 
 const laserServices = [
   {
