@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="relative w-full h-full">
           <Image
             src="/images/dr-kapil-agrawal.png"
-            alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Senior Consultant at Apollo Hospitals with 27+ years experience in laparoscopic surgery, robotic surgery, bariatric surgery, and laser surgery."
+            alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Senior Consultant at Apollo Hospitals with 23 years experience in laparoscopic surgery, robotic surgery, bariatric surgery, and laser surgery."
             fill
             className="object-cover object-center"
             sizes="100vw"
@@ -34,7 +34,7 @@ export default function Hero() {
               <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/80 ring-4 ring-white/30">
                 <Image
                   src="/images/dr.png"
-                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 27+ years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
+                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1280px) 320px, 384px"
@@ -52,7 +52,7 @@ export default function Hero() {
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/50">
                 <Image
                   src="/images/dr.png"
-                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Expert surgeon with 27+ years experience and 7000+ successful surgeries."
+                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Expert surgeon with 23 years experience and 7000+ successful surgeries."
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 640px) 160px, 192px"
@@ -85,7 +85,7 @@ export default function Hero() {
                 Senior Consultant at Apollo Group of Hospitals, Delhi NCR
               </p>
               <p className="text-sm sm:text-base md:text-lg font-semibold leading-relaxed break-words" style={{ color: '#0d4a5a' }}>
-                27+ Years Experience | 7000+ Successful Surgeries
+                23 Years Experience | 7000+ Successful Surgeries
               </p>
             </div>
           
@@ -105,7 +105,7 @@ export default function Hero() {
         <div className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
           {[
             { number: '7000+', label: 'Successful Surgeries' },
-            { number: '27+ Years', label: 'Experience' },
+            { number: '23 Years', label: 'Experience' },
             { number: '98%', label: 'Success Rate' },
             { number: 'Apollo', label: 'Senior Consultant' },
           ].map((stat, index) => (

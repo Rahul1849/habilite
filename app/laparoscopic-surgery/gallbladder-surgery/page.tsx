@@ -5,7 +5,7 @@ import ConsultationForm from '@/components/forms/ConsultationForm'
 
 export const metadata: Metadata = {
   title: 'Gallbladder Surgery in Delhi | Best Gallbladder Surgeon Dr. Kapil Agrawal',
-  description: 'Expert gallbladder surgery in Delhi, India by Dr. Kapil Agrawal. Leading gallbladder stone removal surgeon with robotic, single-port, and traditional laparoscopic cholecystectomies. 27+ years experience, 7000+ successful surgeries. Book consultation for gallbladder surgery in Delhi.',
+  description: 'Expert gallbladder surgery in Delhi, India by Dr. Kapil Agrawal. Leading gallbladder stone removal surgeon with robotic, single-port, and traditional laparoscopic cholecystectomies. 23 years experience, 7000+ successful surgeries. Book consultation for gallbladder surgery in Delhi.',
   keywords: [
     'gallbladder surgery delhi',
     'best gallbladder surgeon delhi',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Gallbladder Surgery in Delhi | Best Gallbladder Surgeon Dr. Kapil Agrawal',
-    description: 'Expert gallbladder surgery by Dr. Kapil Agrawal in Delhi. Leading gallbladder stone removal surgeon with 27+ years experience.',
+    description: 'Expert gallbladder surgery by Dr. Kapil Agrawal in Delhi. Leading gallbladder stone removal surgeon with 23 years experience.',
     url: 'https://www.habiliteclinics.com/laparoscopic-surgery/gallbladder-surgery',
   },
   alternates: {
@@ -53,7 +53,7 @@ export default function GallbladderSurgeryPage() {
                 Gallbladder surgery, also known as cholecystectomy, is a procedure to remove the gallbladder. Dr. Kapil Agrawal specializes in minimally invasive laparoscopic techniques that offer faster recovery, minimal scarring, and excellent outcomes.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With over 27+ years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal is recognized as one of the best gallbladder surgeons in Delhi and India. He performs robotic, single-port, and traditional laparoscopic cholecystectomies tailored to each patient's needs.
+                With over 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal is recognized as one of the best gallbladder surgeons in Delhi and India. He performs robotic, single-port, and traditional laparoscopic cholecystectomies tailored to each patient&#39;s needs.
               </p>
             </section>
 

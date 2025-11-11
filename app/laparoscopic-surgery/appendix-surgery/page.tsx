@@ -4,7 +4,7 @@ import ConsultationForm from '@/components/forms/ConsultationForm'
 
 export const metadata: Metadata = {
   title: 'Appendix Surgery in Delhi | Best Appendicitis Surgeon Dr. Kapil Agrawal',
-  description: 'Expert appendix surgery in Delhi, India by Dr. Kapil Agrawal. Best laparoscopic surgeon for appendicitis with excellent outcomes. 27+ years experience, 7000+ successful surgeries. Book consultation for appendicitis surgery in Delhi.',
+  description: 'Expert appendix surgery in Delhi, India by Dr. Kapil Agrawal. Best laparoscopic surgeon for appendicitis with excellent outcomes. 23 years experience, 7000+ successful surgeries. Book consultation for appendicitis surgery in Delhi.',
   keywords: [
     'appendix surgery delhi',
     'appendicitis surgery delhi',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Appendix Surgery in Delhi | Best Appendicitis Surgeon Dr. Kapil Agrawal',
-    description: 'Expert appendix surgery by Dr. Kapil Agrawal in Delhi. Best laparoscopic surgeon for appendicitis with 27+ years experience.',
+    description: 'Expert appendix surgery by Dr. Kapil Agrawal in Delhi. Best laparoscopic surgeon for appendicitis with 23 years experience.',
     url: 'https://www.habiliteclinics.com/laparoscopic-surgery/appendix-surgery',
   },
   alternates: {
@@ -49,7 +49,7 @@ export default function AppendixSurgeryPage() {
                 Appendicitis is the inflammation of the appendix, requiring prompt surgical removal. Dr. Kapil Agrawal specializes in laparoscopic appendectomy, a minimally invasive procedure that offers faster recovery and minimal scarring.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With 27+ years of experience, Dr. Kapil Agrawal has successfully performed complex appendicectomies laparoscopically, making him one of the best appendicitis surgeons in Delhi and India.
+                With 23 years of experience, Dr. Kapil Agrawal has successfully performed complex appendicectomies laparoscopically, making him one of the best appendicitis surgeons in Delhi and India.
               </p>
             </section>
 

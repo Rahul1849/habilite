@@ -105,7 +105,7 @@ export default function HospitalAffiliations() {
             </h3>
             <p className="text-gray-700 leading-relaxed mb-4 text-center">
               Dr. Kapil Agrawal is associated with leading hospitals across Delhi NCR, providing world-class surgical care 
-              with state-of-the-art facilities and advanced technology. With over <strong>27+ years of experience</strong> and 
+              with state-of-the-art facilities and advanced technology. With over <strong>23 years of experience</strong> and 
               <strong> 7000+ successful surgeries</strong>, Dr. Kapil Agrawal ensures the highest quality of care for all patients 
               at these premier healthcare institutions.
             </p>

@@ -4,7 +4,7 @@ import ConsultationForm from '@/components/forms/ConsultationForm'
 
 export const metadata: Metadata = {
   title: 'Rectal Prolapse Surgery in Delhi | Expert Surgeon Dr. Kapil Agrawal',
-  description: 'Expert rectal prolapse surgery in Delhi, India by Dr. Kapil Agrawal. Advanced surgical treatment using minimally invasive techniques. 27+ years experience, 7000+ successful surgeries. Book consultation for rectal prolapse treatment in Delhi.',
+  description: 'Expert rectal prolapse surgery in Delhi, India by Dr. Kapil Agrawal. Advanced surgical treatment using minimally invasive techniques. 23 years experience, 7000+ successful surgeries. Book consultation for rectal prolapse treatment in Delhi.',
   keywords: [
     'rectal prolapse surgery delhi',
     'rectal prolapse treatment delhi',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Rectal Prolapse Surgery in Delhi | Expert Surgeon Dr. Kapil Agrawal',
-    description: 'Expert rectal prolapse surgery by Dr. Kapil Agrawal in Delhi. Advanced minimally invasive treatment with 27+ years experience.',
+    description: 'Expert rectal prolapse surgery by Dr. Kapil Agrawal in Delhi. Advanced minimally invasive treatment with 23 years experience.',
     url: 'https://www.habiliteclinics.com/laparoscopic-surgery/rectal-prolapse-surgery',
   },
   alternates: {
@@ -48,7 +48,7 @@ export default function RectalProlapseSurgeryPage() {
                 Rectal prolapse occurs when the rectum slips out of place and protrudes from the anus. Dr. Kapil Agrawal specializes in expert surgical treatment for rectal prolapse using minimally invasive techniques.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With 27+ years of experience, Dr. Kapil Agrawal offers advanced laparoscopic and robotic procedures for rectal prolapse, ensuring optimal outcomes and faster recovery.
+                With 23 years of experience, Dr. Kapil Agrawal offers advanced laparoscopic and robotic procedures for rectal prolapse, ensuring optimal outcomes and faster recovery.
               </p>
             </section>
 

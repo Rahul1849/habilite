@@ -4,7 +4,7 @@ import ConsultationForm from '@/components/forms/ConsultationForm'
 
 export const metadata: Metadata = {
   title: 'Laser Piles Treatment in Delhi | Best Piles Surgeon Dr. Kapil Agrawal',
-  description: 'Expert laser piles treatment in Delhi, India by Dr. Kapil Agrawal. Latest Stapler, Laser, and DGHAL procedures for best management of piles with no recurrence. 27+ years experience, 7000+ successful surgeries. Book consultation for piles treatment in Delhi.',
+  description: 'Expert laser piles treatment in Delhi, India by Dr. Kapil Agrawal. Latest Stapler, Laser, and DGHAL procedures for best management of piles with no recurrence. 23 years experience, 7000+ successful surgeries. Book consultation for piles treatment in Delhi.',
   keywords: [
     'laser piles treatment delhi',
     'piles surgery delhi',
@@ -49,7 +49,7 @@ export default function HemorrhoidsPilesPage() {
                 Hemorrhoids, commonly known as piles, are swollen veins in the lower rectum and anus. Dr. Kapil Agrawal specializes in advanced laser and minimally invasive procedures for effective piles treatment with no recurrence.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With 27+ years of experience, Dr. Kapil Agrawal is recognized as one of the best piles surgeons in Delhi and India, offering the latest treatment options for optimal patient outcomes.
+                With 23 years of experience, Dr. Kapil Agrawal is recognized as one of the best piles surgeons in Delhi and India, offering the latest treatment options for optimal patient outcomes.
               </p>
             </section>
 

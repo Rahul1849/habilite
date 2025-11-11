@@ -4,7 +4,7 @@ import ConsultationForm from '@/components/forms/ConsultationForm'
 
 export const metadata: Metadata = {
   title: 'Hernia Surgery in Delhi | Expert Hernia Surgeon Dr. Kapil Agrawal',
-  description: 'Expert hernia surgery in Delhi, India by Dr. Kapil Agrawal. Well-known hernia specialist surgeon offering laparoscopic and robotic hernia repair with excellent outcomes. 27+ years experience, 7000+ successful surgeries. Book consultation for hernia surgery in Delhi.',
+  description: 'Expert hernia surgery in Delhi, India by Dr. Kapil Agrawal. Well-known hernia specialist surgeon offering laparoscopic and robotic hernia repair with excellent outcomes. 23 years experience, 7000+ successful surgeries. Book consultation for hernia surgery in Delhi.',
   keywords: [
     'hernia surgery delhi',
     'best hernia surgeon delhi',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Hernia Surgery in Delhi | Expert Hernia Surgeon Dr. Kapil Agrawal',
-    description: 'Expert hernia surgery by Dr. Kapil Agrawal in Delhi. Well-known hernia specialist with 27+ years experience.',
+    description: 'Expert hernia surgery by Dr. Kapil Agrawal in Delhi. Well-known hernia specialist with 23 years experience.',
     url: 'https://www.habiliteclinics.com/laparoscopic-surgery/hernia-surgery',
   },
   alternates: {
@@ -52,7 +52,7 @@ export default function HerniaSurgeryPage() {
                 A hernia occurs when an organ or fatty tissue squeezes through a weak spot in a surrounding muscle or connective tissue. Dr. Kapil Agrawal specializes in advanced laparoscopic and robotic techniques for hernia repair, ensuring minimal discomfort and faster recovery.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With 27+ years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal is recognized as one of the best hernia surgeons in Delhi and India, offering comprehensive treatment for all types of hernias.
+                With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal is recognized as one of the best hernia surgeons in Delhi and India, offering comprehensive treatment for all types of hernias.
               </p>
             </section>
 

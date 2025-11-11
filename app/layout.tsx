@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: 'Habilite Clinics - Leading Laparoscopic & Robotic Surgery in Delhi',
     template: '%s | Habilite Clinics'
   },
-  description: 'Expert laparoscopic and robotic surgeries by Dr. Kapil Agrawal in Delhi, India. Best laparoscopic surgeon in Delhi and India. Advanced treatment for gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery. 27+ years experience, 7000+ successful surgeries.',
+  description: 'Expert laparoscopic and robotic surgeries by Dr. Kapil Agrawal in Delhi, India. Best laparoscopic surgeon in Delhi and India. Advanced treatment for gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery. 23 years experience, 7000+ successful surgeries.',
   keywords: [
     'best laparoscopic surgeon delhi',
     'best laparoscopic surgeon india',
@@ -87,7 +87,7 @@ const organizationSchema = {
   name: 'Habilite Clinics',
   url: 'https://www.habiliteclinics.com',
   logo: 'https://www.habiliteclinics.com/logo.png',
-  description: 'Leading laparoscopic and robotic surgery center in Delhi, India. Expert surgical services by Dr. Kapil Agrawal with 27+ years experience.',
+  description: 'Leading laparoscopic and robotic surgery center in Delhi, India. Expert surgical services by Dr. Kapil Agrawal with 23 years experience.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',

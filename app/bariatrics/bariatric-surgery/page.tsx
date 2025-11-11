@@ -4,7 +4,7 @@ import ConsultationForm from '@/components/forms/ConsultationForm'
 
 export const metadata: Metadata = {
   title: 'Bariatric Surgery in Delhi | Best Bariatric Surgeon Dr. Kapil Agrawal',
-  description: 'Expert bariatric surgery in Delhi, India by Dr. Kapil Agrawal. Best bariatric surgeon offering sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. 27+ years experience, 7000+ successful surgeries. Book consultation for weight loss surgery in Delhi.',
+  description: 'Expert bariatric surgery in Delhi, India by Dr. Kapil Agrawal. Best bariatric surgeon offering sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. 23 years experience, 7000+ successful surgeries. Book consultation for weight loss surgery in Delhi.',
   keywords: [
     'bariatric surgery delhi',
     'best bariatric surgeon delhi',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Bariatric Surgery in Delhi | Best Bariatric Surgeon Dr. Kapil Agrawal',
-    description: 'Expert bariatric surgery by Dr. Kapil Agrawal in Delhi. Best bariatric surgeon with 27+ years experience.',
+    description: 'Expert bariatric surgery by Dr. Kapil Agrawal in Delhi. Best bariatric surgeon with 23 years experience.',
     url: 'https://www.habiliteclinics.com/bariatrics/bariatric-surgery',
   },
   alternates: {
@@ -49,7 +49,7 @@ export default function BariatricSurgeryPage() {
                 Bariatric surgery, also known as weight loss surgery, helps people with severe obesity lose weight and improve their health. Dr. Kapil Agrawal is recognized as one of the best bariatric surgeons in Delhi and India, with extensive experience in various bariatric procedures.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                With 27+ years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal offers personalized bariatric surgery solutions tailored to each patient's needs and medical condition.
+                With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal offers personalized bariatric surgery solutions tailored to each patient&#39;s needs and medical condition.
               </p>
             </section>
 
