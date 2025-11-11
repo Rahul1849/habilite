@@ -5,8 +5,6 @@ import { Calendar } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] z-0">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#f56336]/10 via-transparent to-[#f56336]/5" />
-
       {/* Doctor Image - Background */}
       <div className="absolute inset-0 opacity-20 md:opacity-30">
         <div className="relative w-full h-full">
@@ -21,20 +19,25 @@ export default function Hero() {
           />
         </div>
       </div>
+      
+      {/* Round Gradient Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full bg-gradient-to-r from-[#f56336]/10 via-transparent to-[#f56336]/5"></div>
+      </div>
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left: Doctor Image - Desktop */}
           <div className="hidden lg:block order-2">
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative w-full max-w-md mx-auto flex justify-center">
+              <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/80 ring-4 ring-white/30">
                 <Image
-                  src="/images/dr-kapil-agrawal.png"
+                  src="/images/dr.png"
                   alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi with 23 years experience, 7000+ successful surgeries"
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 1024px) 0px, 400px"
+                  sizes="(max-width: 1280px) 320px, 384px"
                   priority
                   quality={90}
                 />
@@ -48,7 +51,7 @@ export default function Hero() {
             <div className="mb-8 lg:hidden flex justify-center">
               <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/50">
                 <Image
-                  src="/images/dr-kapil-agrawal.png"
+                  src="/images/dr.png"
                   alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi"
                   fill
                   className="object-cover object-center"
@@ -62,15 +65,15 @@ export default function Hero() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-gray-900 break-words">
               Dr. <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Kapil Agrawal</span>
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 text-gray-800 break-words">
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 break-words" style={{ color: '#0d4a5a' }}>
               Best Laparoscopic Surgeon in Delhi
             </p>
-            <p className="text-base sm:text-lg md:text-xl mb-2 text-gray-700 break-words px-2 sm:px-0">
+            <p className="text-base sm:text-lg md:text-xl mb-2 break-words px-2 sm:px-0" style={{ color: '#0d4a5a' }}>
               MBBS, MS (Surgery), MRCS (London, U.K), MMED (Singapore), FMAS
             </p>
-            <p className="text-sm sm:text-base md:text-lg mb-8 text-gray-600 max-w-2xl lg:max-w-none mx-auto lg:mx-0 break-words px-2 sm:px-0">
-              Senior Consultant at Apollo Group of Hospitals, Delhi NCR<br />
-              <span className="text-gray-700 font-medium">23 Years Experience | 7000+ Successful Surgeries</span>
+            <p className="text-sm sm:text-base md:text-lg mb-8 max-w-2xl lg:max-w-none mx-auto lg:mx-0 break-words px-2 sm:px-0">
+              <span style={{ color: '#0d4a5a' }}>Senior Consultant at Apollo Group of Hospitals, Delhi NCR</span><br />
+              <span className="font-medium" style={{ color: '#0d4a5a' }}>23 Years Experience | 7000+ Successful Surgeries</span>
             </p>
           
             <div className="flex justify-center lg:justify-start">
