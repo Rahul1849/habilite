@@ -227,12 +227,12 @@ export default function Header() {
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-1">
               {/* Top Navigation */}
               <div className="pb-4 border-b mb-4">
-                <div className="text-sm font-semibold text-gray-500 mb-2">Quick Links</div>
+                <div className="text-base font-semibold text-gray-500 mb-3">Quick Links</div>
                 {topNavLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
+                    className="block px-4 py-3 text-base text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
@@ -241,19 +241,19 @@ export default function Header() {
               </div>
 
               {/* Main Navigation */}
-              <div className="text-sm font-semibold text-gray-500 mb-2">Main Menu</div>
+              <div className="text-base font-semibold text-gray-500 mb-3">Main Menu</div>
               {mainNavLinks.map((link) => (
                 <div key={link.href} className="mb-1">
                   {link.submenu ? (
                     <>
                       <button
-                        className="flex items-center justify-between w-full px-4 py-2.5 text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-medium transition-colors"
+                        className="flex items-center justify-between w-full px-4 py-3 text-base text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-semibold transition-colors"
                         onClick={() => {
                           setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)
                         }}
                       >
                         {link.label}
-                        <ChevronDown size={16} className={`transition-transform ${openMobileDropdown === link.label ? 'rotate-180' : ''}`} />
+                        <ChevronDown size={18} className={`transition-transform ${openMobileDropdown === link.label ? 'rotate-180' : ''}`} />
                       </button>
                       {openMobileDropdown === link.label && (
                         <div className="ml-4 mt-1 space-y-1">
@@ -261,7 +261,7 @@ export default function Header() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-cyan-50 hover:text-[#0891b2] rounded-md transition-colors"
+                              className="block px-4 py-3 text-base text-gray-600 hover:bg-cyan-50 hover:text-[#0891b2] rounded-md transition-colors font-medium"
                               onClick={() => {
                                 setIsOpen(false)
                                 setOpenMobileDropdown(null)
@@ -276,7 +276,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block px-4 py-2.5 text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-medium transition-colors"
+                      className="block px-4 py-3 text-base text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-semibold transition-colors"
                       onClick={() => {
                         setIsOpen(false)
                         setOpenMobileDropdown(null)
@@ -291,23 +291,23 @@ export default function Header() {
               <div className="pt-4 border-t mt-4 space-y-3">
                 <a
                   href="tel:+919910024564"
-                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
+                  className="flex items-center space-x-2 px-4 py-3.5 text-base text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Phone size={20} />
+                  <Phone size={22} />
                   <span>+91 99100 24564</span>
                 </a>
                 <a
                   href="tel:+919999456455"
-                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
+                  className="flex items-center space-x-2 px-4 py-3.5 text-base text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Phone size={20} />
+                  <Phone size={22} />
                   <span>+91 99994 56455</span>
                 </a>
                 <Link
                   href="/appointment"
-                  className="relative block w-full text-white px-4 py-3 rounded-lg font-bold text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 transform active:scale-95 overflow-hidden group"
+                  className="relative block w-full text-white px-4 py-3.5 rounded-lg font-bold text-base text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 transform active:scale-95 overflow-hidden group"
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth"></span>
