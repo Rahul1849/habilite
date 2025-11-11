@@ -28,7 +28,7 @@ export default function AppointmentPage() {
   const [paymentStatus, setPaymentStatus] = useState<'pending' | 'success' | 'failed' | null>(null)
   const [paymentMethod, setPaymentMethod] = useState<'online' | 'reception' | null>(null)
 
-  const consultationFee = 1500 // Standard consultation fee
+  const consultationFee = 1000 // Standard consultation fee
   const discountAmount = Math.round(consultationFee * 0.3) // 30% discount
   const discountedFee = consultationFee - discountAmount
 
@@ -57,7 +57,7 @@ export default function AppointmentPage() {
         setPaymentStatus('success')
         setTimeout(() => {
           setStep('confirmation')
-        }, 1500)
+        }, 1000)
       } else {
         setPaymentStatus('failed')
       }

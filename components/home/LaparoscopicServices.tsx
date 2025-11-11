@@ -7,25 +7,25 @@ const laparoscopicServices = [
     title: 'Leading Gallbladder Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is one of the topmost and leading gallbladder stone removal surgeon in Delhi and India. He is offering robotic, single-port, and traditional laparoscopic cholecystectomies for the management of gallbladder stones.',
     link: '/laparoscopic-surgery/gallbladder-surgery',
-    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&auto=format&q=80',
+    image: '/images/gallblader.jpg',
   },
   {
     title: 'Expert Hernia Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is a well-known hernia specialist surgeon in Delhi and India who is offering a complete range of hernia surgeries. He performs laparoscopic and robotic hernia repair with excellent outcomes.',
     link: '/laparoscopic-surgery/hernia-surgery',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop&auto=format&q=80',
+    image: '/images/herniapain.jpg',
   },
   {
     title: 'Appendicitis Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for appendicitis. He has performed some of the most difficult appendicectomies laparoscopically with excellent outcomes.',
     link: '/laparoscopic-surgery/appendix-surgery',
-    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop&auto=format&q=80',
+    image: '/images/appendicitis.jpg',
   },
   {
     title: 'GERD & Hiatus Hernia Treatment in Delhi',
     description: 'Dr Kapil Agrawal performs advanced laparoscopic and robotic surgeries for the management of hiatus hernia and gastro-oesophageal reflux disease, who fails to respond to medical management.',
     link: '/laparoscopic-surgery/rectal-prolapse-surgery',
-    image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=600&fit=crop&auto=format&q=80',
+    image: '/images/gerdhernia.jpg',
   },
 ]
 
