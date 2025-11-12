@@ -13,13 +13,13 @@ const laparoscopicServices = [
     title: 'Expert Hernia Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is a well-known hernia specialist surgeon in Delhi and India who is offering a complete range of hernia surgeries. He performs laparoscopic and robotic hernia repair with excellent outcomes.',
     link: '/laparoscopic-surgery/hernia-surgery',
-    image: '/images/herniapain.jpg',
+    image: '/images/herniaimage.jpg',
   },
   {
     title: 'Appendicitis Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for appendicitis. He has performed some of the most difficult appendicectomies laparoscopically with excellent outcomes.',
     link: '/laparoscopic-surgery/appendix-surgery',
-    image: '/images/appendicitis.jpg',
+    image: '/images/appendix.jpg',
   },
   {
     title: 'GERD & Hiatus Hernia Treatment in Delhi',
