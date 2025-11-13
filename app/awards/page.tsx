@@ -1,37 +1,38 @@
-import { Metadata } from 'next'
+import Image from 'next/image'
 import { Award } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Awards & Recognition',
-  description: 'Awards and recognition received by Habilite Clinics and Dr. Kapil Agrawal.',
-}
+import AwardCard from './AwardCard'
 
 const awards = [
   {
-    title: 'Best Laparoscopic Surgeon 2023',
-    organization: 'Delhi Medical Association',
-    year: '2023',
-    description: 'Recognized for excellence in laparoscopic surgical procedures',
+    title: 'One of the Top-3 Laparoscopic Surgeons in Delhi',
+    organization: '',
+    year: '2018',
+    description: 'Recognized as one of the top 3 laparoscopic surgeons in Delhi',
+    logo: '/images/top3-best-laparoscopic-award.webp',
   },
   {
-    title: 'Excellence in Robotic Surgery',
-    organization: 'Indian Association of Surgeons',
-    year: '2022',
-    description: 'Awarded for outstanding contribution to robotic surgery in India',
+    title: 'Best in Laparoscopic Surgery in India',
+    organization: 'HT Healthcare Awards',
+    year: '2016',
+    description: 'Awarded for excellence in laparoscopic surgery across India',
+    logo: '/images/hthelthcare-best-laaproscopic-award.webp',
   },
   {
-    title: 'Patient Care Excellence',
-    organization: 'Healthcare Excellence Awards',
-    year: '2021',
-    description: 'Recognized for exceptional patient care and satisfaction',
+    title: 'Laparoscopic Surgeon of the Year',
+    organization: 'Page3 Awards',
+    year: '2015',
+    description: 'Recognized as the laparoscopic surgeon of the year',
+    logo: '/images/page3-best-laparoscopic-award.webp',
   },
   {
-    title: 'Innovation in Minimally Invasive Surgery',
-    organization: 'Surgical Innovation Forum',
-    year: '2020',
-    description: 'Awarded for innovative techniques in minimally invasive procedures',
+    title: 'Excellence in Laparoscopic Surgery',
+    organization: 'IndiaToday Excellence Healthcare Awards',
+    year: '2017',
+    description: 'Awarded for excellence in laparoscopic surgical procedures',
+    logo: '/images/Indiatoday-best-laparosocpic-surgeon.webp',
   },
 ]
+
 
 export default function AwardsPage() {
   return (
@@ -50,19 +51,9 @@ export default function AwardsPage() {
           {awards.map((award, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100"
             >
-              <div className="flex items-start">
-                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] text-white p-3 rounded-full mr-4">
-                  <Award size={24} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{award.title}</h3>
-                  <p className="text-[#0891b2] font-semibold mb-1">{award.organization}</p>
-                  <p className="text-gray-600 text-sm mb-2">{award.year}</p>
-                  <p className="text-gray-700">{award.description}</p>
-                </div>
-              </div>
+              <AwardCard award={award} />
             </div>
           ))}
         </div>
