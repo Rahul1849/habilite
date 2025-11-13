@@ -6,40 +6,28 @@ import { ArrowRight, Calculator, Flame, Dumbbell } from 'lucide-react'
 
 const bariatricServices = [
   {
-    name: 'Bariatric Surgery',
-    slug: 'bariatric-surgery',
-    description: 'Sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass tailored to your needs.',
-    image: 'https://picsum.photos/600/400?random=11',
+    title: 'Best Bariatric Surgeon in Delhi',
+    description: 'Dr Kapil Agrawal offers a comprehensive range of bariatric surgeries, which include sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. The surgeries are tailored according to indications and patient preferences.',
+    link: '/bariatrics/bariatric-surgery',
+    image: '/images/bariatric-surgery-delhi.jpg',
   },
   {
-    name: 'Non-Surgical Weight Loss Program',
-    slug: 'non-surgical-weight-loss',
-    description: 'Medical weight loss programs with expert nutritionists for non-surgical weight management.',
-    image: 'https://picsum.photos/600/400?random=12',
+    title: 'Surgery for Diabetes',
+    description: 'Metabolic surgery performed in patients suffering from diabetes is extremely beneficial if performed after proper patient selection, fulfilling all the criteria to undergo this surgery. Dr Kapil Agrawal has been delivering excellent results.',
+    link: '/bariatrics/surgery-for-diabetes',
+    image: '/images/diabetes-surgery-delhi.jpg',
   },
   {
-    name: 'Surgery for Diabetes',
-    slug: 'surgery-for-diabetes',
-    description: 'Metabolic surgery for diabetes management with excellent results after proper patient selection.',
-    image: 'https://picsum.photos/600/400?random=13',
+    title: 'Intra Gastric Balloon Expert in Delhi',
+    description: 'Dr Kapil Agrawal specializes in the gastric balloon treatment for patients looking for a moderate amount of weight loss. He specializes in both Allurion and Spatz balloon treatment.',
+    link: '/bariatrics/intragastric-balloon',
+    image: '/images/instragastricballoon-surgery-delhi.jpg',
   },
   {
-    name: 'IntraGastric Balloon',
-    slug: 'intragastric-balloon',
-    description: 'Gastric balloon treatment for moderate weight loss with non-surgical approach.',
-    image: 'https://picsum.photos/600/400?random=14',
-  },
-  {
-    name: 'Allurion Balloon',
-    slug: 'allurion-balloon',
-    description: 'Swallowable gastric balloon for weight loss without endoscopy or anesthesia.',
-    image: 'https://picsum.photos/600/400?random=15',
-  },
-  {
-    name: 'Spatz Balloon',
-    slug: 'spatz-balloon',
-    description: 'Adjustable gastric balloon system for extended treatment duration and better results.',
-    image: 'https://picsum.photos/600/400?random=16',
+    title: 'Medical Weight Loss Program',
+    description: 'Dr Kapil Agrawal houses some of the best nutritionists who offer medical weight loss programs for patients looking for non-surgical methods for weight loss.',
+    link: '/bariatrics/non-surgical-weight-loss',
+    image: '/images/weightloss-program-delhi.jpg',
   },
 ]
 
@@ -132,32 +120,34 @@ export default function BariatricsPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bariatricServices.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/bariatrics/${service.slug}`}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {bariatricServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src={service.image}
-                    alt={service.name}
+                    alt={`${service.title} - Expert bariatric surgery and weight loss treatment in Delhi, India by Dr. Kapil Agrawal`}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     loading="lazy"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.name}</h3>
-                  <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
-                  <div className="flex items-center text-[#0891b2] font-semibold group-hover:text-[#06b6d4] transition-colors">
-                    Learn More
-                    <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={20} />
-                  </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold mb-3 text-gray-900">{service.title}</h3>
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-3">{service.description}</p>
+                  <Link
+                    href={service.link}
+                    className="inline-flex items-center text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
+                  >
+                    View More
+                    <ArrowRight size={16} className="ml-1" />
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

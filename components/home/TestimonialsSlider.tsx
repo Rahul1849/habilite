@@ -3,8 +3,32 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star, Quote, ArrowRight } from 'lucide-react'
+import { Star, Quote, ArrowRight, Play } from 'lucide-react'
 import { testimonials } from '@/data/testimonials'
+
+// Helper function to extract YouTube video ID from various URL formats
+function getYouTubeVideoId(url: string): string | null {
+  if (!url) return null
+  
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+    /youtube\.com\/.*[?&]v=([^&\n?#]+)/,
+  ]
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern)
+    if (match && match[1]) {
+      return match[1]
+    }
+  }
+  
+  return null
+}
+
+// Helper function to get YouTube thumbnail URL
+function getYouTubeThumbnail(videoId: string, quality: 'maxresdefault' | 'hqdefault' = 'maxresdefault'): string {
+  return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`
+}
 
 export default function TestimonialsSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -35,8 +59,9 @@ export default function TestimonialsSlider() {
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               <div className="animate-pulse">
+                <div className="aspect-video bg-gray-200 rounded-xl mb-4"></div>
                 <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
                 <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
               </div>
@@ -62,45 +87,121 @@ export default function TestimonialsSlider() {
         <div className="max-w-4xl mx-auto">
           <div
             key={currentIndex}
-            className="bg-white rounded-2xl shadow-xl p-8 md:p-12 animate-fade-in"
+            className="bg-white rounded-2xl shadow-xl p-6 md:p-8 animate-fade-in"
           >
-            <Quote className="text-[#0891b2] opacity-30 mb-4" size={40} />
-              <div className="flex items-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="text-yellow-400 fill-yellow-400"
-                    size={20}
-                  />
-                ))}
-              </div>
-              <p className="text-lg text-gray-700 mb-6 italic">
-                &quot;{currentTestimonial.text}&quot;
-              </p>
-              <div className="flex items-center">
-                {currentTestimonial.image && (
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
-                    <Image
-                      src={currentTestimonial.image}
-                      alt={currentTestimonial.patientName}
-                      fill
-                      className="object-cover"
-                      sizes="64px"
-                      loading="lazy"
-                      quality={85}
+            {currentTestimonial.videoUrl ? (
+              // Video Testimonial with Thumbnail
+              <div>
+                <a
+                  href={currentTestimonial.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group relative aspect-video rounded-xl overflow-hidden mb-6 cursor-pointer"
+                  aria-label={`Watch ${currentTestimonial.patientName}'s testimonial video`}
+                >
+                  {(() => {
+                    const videoId = getYouTubeVideoId(currentTestimonial.videoUrl)
+                    if (!videoId) return null
+                    
+                    return (
+                      <>
+                        <Image
+                          src={getYouTubeThumbnail(videoId)}
+                          alt={`${currentTestimonial.patientName} - ${currentTestimonial.treatment} testimonial video`}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 896px"
+                          loading="lazy"
+                          quality={85}
+                          onError={(e) => {
+                            // Fallback to lower quality thumbnail if maxresdefault fails
+                            const target = e.target as HTMLImageElement
+                            if (target.src.includes('maxresdefault')) {
+                              target.src = getYouTubeThumbnail(videoId, 'hqdefault')
+                            }
+                          }}
+                        />
+                        {/* Play Button Overlay */}
+                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                          <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 md:p-5 group-hover:scale-110 transition-transform shadow-lg">
+                            <Play className="text-[#0891b2] ml-1" size={32} fill="#0891b2" />
+                          </div>
+                        </div>
+                        {/* Video Duration/Info Badge */}
+                        <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                          Watch Video
+                        </div>
+                      </>
+                    )
+                  })()}
+                </a>
+                
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="text-yellow-400 fill-yellow-400"
+                      size={18}
                     />
-                  </div>
-                )}
-                <div>
-                  <div className="font-semibold text-gray-900">
+                  ))}
+                </div>
+                
+                <div className="mb-4">
+                  <div className="font-semibold text-gray-900 text-lg mb-1">
                     {currentTestimonial.patientName}
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-gray-600 mb-2">
                     {currentTestimonial.treatment}
+                  </div>
+                  {currentTestimonial.text && (
+                    <p className="text-base text-gray-700 italic line-clamp-2">
+                      &quot;{currentTestimonial.text}&quot;
+                    </p>
+                  )}
+                </div>
+              </div>
+            ) : (
+              // Text Testimonial (Fallback)
+              <div>
+                <Quote className="text-[#0891b2] opacity-30 mb-4" size={40} />
+                <div className="flex items-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="text-yellow-400 fill-yellow-400"
+                      size={20}
+                    />
+                  ))}
+                </div>
+                <p className="text-lg text-gray-700 mb-6 italic">
+                  &quot;{currentTestimonial.text}&quot;
+                </p>
+                <div className="flex items-center">
+                  {currentTestimonial.image && (
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
+                      <Image
+                        src={currentTestimonial.image}
+                        alt={currentTestimonial.patientName}
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                        loading="lazy"
+                        quality={85}
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-semibold text-gray-900">
+                      {currentTestimonial.patientName}
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {currentTestimonial.treatment}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
+          </div>
 
           {/* Dots */}
           <div className="flex justify-center mt-8 space-x-2">

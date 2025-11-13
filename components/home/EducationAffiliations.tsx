@@ -35,28 +35,34 @@ const education = [
 
 const affiliations = [
   {
-    title: 'Senior Consultant',
-    organization: 'Apollo Group of Hospitals, Delhi NCR',
-    description: 'Sarita Vihar, Greater Kailash, and Noida',
-    icon: Briefcase,
-  },
-  {
-    title: 'Member',
-    organization: 'Association of Surgeons of India',
-    description: 'Active member since 2005',
-    icon: Users,
-  },
-  {
-    title: 'Member',
+    title: 'AMASI',
     organization: 'Association of Minimal Access Surgeons of India',
     description: 'Expert in laparoscopic and robotic surgery',
     icon: Award,
   },
   {
-    title: 'International Training',
-    organization: 'Trained in London, U.K. and Singapore',
-    description: 'Global expertise in advanced surgical techniques',
+    title: 'IAGES',
+    organization: 'Indian Association of Gastro and Endoscopic Surgeons',
+    description: 'Member of premier gastrointestinal surgery association',
+    icon: Users,
+  },
+  {
+    title: 'Member',
+    organization: 'Royal College of Surgeons, London',
+    description: 'MRCS certified from Royal College of Surgeons',
     icon: Globe,
+  },
+  {
+    title: 'Member',
+    organization: 'Association of Surgeons of India (ASI)',
+    description: 'Active member of India&apos;s premier surgical association',
+    icon: Users,
+  },
+  {
+    title: 'Member',
+    organization: 'Obesity Surgery Society of India (OSSI)',
+    description: 'Expert in bariatric and metabolic surgery',
+    icon: Award,
   },
 ]
 
@@ -156,27 +162,27 @@ export default function EducationAffiliations() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
+                10000+
+              </div>
+              <div className="text-sm font-semibold text-gray-700">Happy Patients</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
                 7000+
               </div>
               <div className="text-sm font-semibold text-gray-700">Successful Surgeries</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
+                3000+
+              </div>
+              <div className="text-sm font-semibold text-gray-700">International Patients</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
                 23+
               </div>
               <div className="text-sm font-semibold text-gray-700">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
-                98%
-              </div>
-              <div className="text-sm font-semibold text-gray-700">Success Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent mb-2">
-                3
-              </div>
-              <div className="text-sm font-semibold text-gray-700">Continents Trained</div>
             </div>
           </div>
         </div>

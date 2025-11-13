@@ -55,22 +55,95 @@ export default function IntragastricBalloonPage() {
 
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Types of Gastric Balloons</h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: 'Allurion Balloon',
-                    description: 'A swallowable gastric balloon that doesn&apos;t require endoscopy. It automatically deflates and passes naturally after 16 weeks, making it a convenient option for weight loss.',
-                  },
-                  {
-                    title: 'Spatz Balloon',
-                    description: 'An adjustable gastric balloon that can be filled or deflated as needed. It can remain in place for up to 12 months, allowing for longer-term weight loss support.',
-                  },
-                ].map((balloon, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-5 border-l-4 border-[#0891b2]">
-                    <h3 className="font-bold text-gray-900 mb-2">{balloon.title}</h3>
-                    <p className="text-gray-700 text-sm">{balloon.description}</p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Dr. Kapil Agrawal offers three types of gastric balloon treatments, each designed to meet different patient needs and preferences. All procedures are non-surgical and provide effective weight loss solutions.
+              </p>
+              <div className="space-y-6">
+                {/* Allurion Balloon */}
+                <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0891b2]">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Allurion Balloon</h3>
+                  <p className="text-gray-700 mb-4">
+                    The Allurion Balloon is a revolutionary swallowable gastric balloon that doesn&apos;t require endoscopy, anesthesia, or surgical procedures. It offers the most convenient and comfortable gastric balloon experience.
+                  </p>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">How It Works:</h4>
+                      <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 ml-2">
+                        <li>The balloon is swallowed as a pill with water - no endoscopy needed</li>
+                        <li>Once in the stomach, it&apos;s filled with a safe liquid through a thin tube under X-ray guidance</li>
+                        <li>The procedure takes approximately 20 minutes</li>
+                        <li>Remains in the stomach for approximately 16 weeks</li>
+                        <li>Automatically deflates and passes naturally through your digestive system after 16 weeks</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Key Benefits:</h4>
+                      <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 ml-2">
+                        <li>No endoscopy or anesthesia required</li>
+                        <li>Most convenient and comfortable procedure</li>
+                        <li>Natural removal - no removal procedure needed</li>
+                        <li>Ideal for patients seeking a non-invasive weight loss solution</li>
+                      </ul>
+                    </div>
                   </div>
-                ))}
+                </div>
+
+                {/* Spatz Balloon */}
+                <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0891b2]">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Spatz Balloon</h3>
+                  <p className="text-gray-700 mb-4">
+                    The Spatz Balloon is an advanced adjustable gastric balloon system that offers flexibility and extended treatment duration. It can be adjusted in size during the treatment period for personalized weight loss management.
+                  </p>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">How It Works:</h4>
+                      <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 ml-2">
+                        <li>Placed in the stomach through a simple endoscopic procedure under mild sedation</li>
+                        <li>Unique adjustable feature - can be filled or deflated as needed during treatment</li>
+                        <li>Can remain in place for up to 12 months for longer-term weight loss support</li>
+                        <li>Removed through a simple endoscopic procedure after the treatment period</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Key Benefits:</h4>
+                      <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 ml-2">
+                        <li>Adjustable volume for personalized treatment</li>
+                        <li>Extended treatment duration (up to 12 months)</li>
+                        <li>Better long-term weight loss results</li>
+                        <li>Ideal for patients needing longer-term weight loss support</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Traditional Intragastric Balloon */}
+                <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0891b2]">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Traditional Intragastric Balloon</h3>
+                  <p className="text-gray-700 mb-4">
+                    Traditional intragastric balloons are a well-established non-surgical weight loss option. They are placed endoscopically and provide effective weight loss support for patients seeking moderate weight reduction.
+                  </p>
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">How It Works:</h4>
+                      <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 ml-2">
+                        <li>Placed in the stomach through an endoscopic procedure under mild sedation</li>
+                        <li>Filled with saline solution to occupy space in the stomach</li>
+                        <li>Helps you feel full faster and eat smaller portions</li>
+                        <li>Typically remains in place for 6 months</li>
+                        <li>Removed through an endoscopic procedure after the treatment period</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Key Benefits:</h4>
+                      <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 ml-2">
+                        <li>Proven track record with years of clinical use</li>
+                        <li>Effective for moderate weight loss</li>
+                        <li>Non-surgical and reversible</li>
+                        <li>Suitable for patients who prefer traditional, well-established procedures</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 

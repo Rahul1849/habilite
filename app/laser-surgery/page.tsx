@@ -4,40 +4,28 @@ import { ArrowRight } from 'lucide-react'
 
 const laserServices = [
   {
-    name: 'Hemorrhoids / Piles',
-    slug: 'hemorrhoids-piles',
-    description: 'Latest laser, stapler, and DGHAL procedures for effective piles treatment with no recurrence.',
-    image: 'https://picsum.photos/600/400?random=5',
+    title: 'Laser Piles Surgeon in Delhi',
+    description: 'Dr Kapil Agrawal offers the latest and most advanced Stapler, Laser, and DGHAL procedures for the best management of piles. Dr. Kapil Agrawal always ensures that his patients get the best results with no recurrence.',
+    link: '/laser-surgery/hemorrhoids-piles',
+    image: '/images/piles-surgery-delhi.jpg',
   },
   {
-    name: 'Anal Fistula',
-    slug: 'anal-fistula',
-    description: 'Advanced laser surgery and VAAFT technology for faster recovery and effective treatment.',
-    image: 'https://picsum.photos/600/400?random=6',
+    title: 'Anal Fissure Treatment in Delhi',
+    description: 'Dr. Kapil Agrawal offers non-surgical treatment, Botox injections, and Laser surgery for the management of both acute and chronic anal fissures with the best and permanent outcomes.',
+    link: '/laser-surgery/anal-fissure',
+    image: '/images/analfissure-surgery-delhi.jpg',
   },
   {
-    name: 'Pilonidal Sinus',
-    slug: 'pilonidal-sinus',
-    description: 'Advanced pilonidal sinus treatment using laser technology and FLAP surgeries.',
-    image: 'https://picsum.photos/600/400?random=7',
+    title: 'Anal Fistula Surgeon in Delhi',
+    description: 'Dr Kapil Agrawal performs all the latest and advanced treatment options for the management of anal fistula. His procedures include Laser surgery & VAAFT technology which ensures faster recovery.',
+    link: '/laser-surgery/anal-fistula',
+    image: '/images/analfistula-surgery-delhi.jpg',
   },
   {
-    name: 'Anal Fissure',
-    slug: 'anal-fissure',
-    description: 'Non-surgical treatment, Botox injections, and laser surgery for both acute and chronic anal fissures.',
-    image: 'https://picsum.photos/600/400?random=8',
-  },
-  {
-    name: 'Lipoma',
-    slug: 'lipoma',
-    description: 'Laser-assisted removal of lipomas with minimal scarring and quick recovery.',
-    image: 'https://picsum.photos/600/400?random=9',
-  },
-  {
-    name: 'Circumcision',
-    slug: 'circumcision',
-    description: 'Laser circumcision procedure for precise, painless, and quick recovery.',
-    image: 'https://picsum.photos/600/400?random=10',
+    title: 'Pilonidal Sinus Treatment in Delhi',
+    description: 'Dr Kapil Agrawal offers advanced pilonidal sinus treatment depending upon the complexity of the disease. The treatment includes laser technology, open conventional techniques and FLAP surgeries.',
+    link: '/laser-surgery/pilonidal-sinus',
+    image: '/images/pilonidalsinus-surgery-delhi.jpg',
   },
 ]
 
@@ -54,32 +42,34 @@ export default function LaserSurgeryPage() {
       </div>
 
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {laserServices.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/laser-surgery/${service.slug}`}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {laserServices.map((service, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <Image
                   src={service.image}
-                  alt={service.name}
+                  alt={`${service.title} - Expert laser surgery treatment in Delhi, India by Dr. Kapil Agrawal`}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   loading="lazy"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.name}</h3>
-                <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
-                <div className="flex items-center bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent font-semibold group-hover:translate-x-2 transition-transform">
-                  Learn More
-                  <ArrowRight className="ml-2 text-[#f56336]" size={20} />
-                </div>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-sm text-gray-600 mb-4 line-clamp-3">{service.description}</p>
+                <Link
+                  href={service.link}
+                  className="inline-flex items-center text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
+                >
+                  View More
+                  <ArrowRight size={16} className="ml-1" />
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

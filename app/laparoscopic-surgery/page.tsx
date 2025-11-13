@@ -4,28 +4,28 @@ import { ArrowRight } from 'lucide-react'
 
 const laparoscopicServices = [
   {
-    name: 'Gallbladder Surgery',
-    slug: 'gallbladder-surgery',
-    description: 'Minimally invasive gallbladder stone removal with faster recovery and minimal scarring.',
-    image: 'https://picsum.photos/600/400?random=1',
+    title: 'Leading Gallbladder Surgeon in Delhi',
+    description: 'Dr Kapil Agrawal is one of the topmost and leading gallbladder stone removal surgeon in Delhi and India. He is offering robotic, single-port, and traditional laparoscopic cholecystectomies for the management of gallbladder stones.',
+    link: '/laparoscopic-surgery/gallbladder-surgery',
+    image: '/images/gallbladder-surgery-delhi.jpg',
   },
   {
-    name: 'Hernia Surgery',
-    slug: 'hernia-surgery',
-    description: 'Advanced laparoscopic and robotic hernia repair with excellent outcomes.',
-    image: 'https://picsum.photos/600/400?random=2',
+    title: 'Expert Hernia Surgeon in Delhi',
+    description: 'Dr Kapil Agrawal is a well-known hernia specialist surgeon in Delhi and India who is offering a complete range of hernia surgeries. He performs laparoscopic and robotic hernia repair with excellent outcomes.',
+    link: '/laparoscopic-surgery/hernia-surgery',
+    image: '/images/hernia-surgery-delhi.jpg',
   },
   {
-    name: 'Rectal Prolapse Surgery',
-    slug: 'rectal-prolapse-surgery',
-    description: 'Expert surgical treatment for rectal prolapse using minimally invasive techniques.',
-    image: 'https://picsum.photos/600/400?random=3',
+    title: 'Appendicitis Surgeon in Delhi',
+    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for appendicitis. He has performed some of the most difficult appendicectomies laparoscopically with excellent outcomes.',
+    link: '/laparoscopic-surgery/appendix-surgery',
+    image: '/images/appendix-surgery-delhi.jpg',
   },
   {
-    name: 'Appendix Surgery',
-    slug: 'appendix-surgery',
-    description: 'Laparoscopic appendectomy for appendicitis with quick recovery.',
-    image: 'https://picsum.photos/600/400?random=4',
+    title: 'GERD & Hiatus Hernia Treatment in Delhi',
+    description: 'Dr Kapil Agrawal performs advanced laparoscopic and robotic surgeries for the management of hiatus hernia and gastro-oesophageal reflux disease, who fails to respond to medical management.',
+    link: '/laparoscopic-surgery/rectal-prolapse-surgery',
+    image: '/images/gerdhiatushernia-surgery-delhi.jpg',
   },
 ]
 
@@ -42,32 +42,34 @@ export default function LaparoscopicSurgeryPage() {
       </div>
 
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {laparoscopicServices.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/laparoscopic-surgery/${service.slug}`}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {laparoscopicServices.map((service, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <Image
                   src={service.image}
-                  alt={service.name}
+                  alt={`${service.title} - Expert laparoscopic surgery in Delhi, India by Dr. Kapil Agrawal`}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   loading="lazy"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900">{service.name}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <div className="flex items-center bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent font-semibold group-hover:translate-x-2 transition-transform">
-                  Learn More
-                  <ArrowRight className="ml-2 text-[#f56336]" size={20} />
-                </div>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-sm text-gray-600 mb-4 line-clamp-3">{service.description}</p>
+                <Link
+                  href={service.link}
+                  className="inline-flex items-center text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
+                >
+                  View More
+                  <ArrowRight size={16} className="ml-1" />
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

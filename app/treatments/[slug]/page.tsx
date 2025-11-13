@@ -5,9 +5,7 @@ import Link from 'next/link'
 import { getServiceBySlug, services } from '@/data/services'
 import { Calendar, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 import { getTestimonialsByTreatment } from '@/data/testimonials'
-import { getGalleryByTreatment } from '@/data/gallery'
 import TestimonialsSection from '@/components/treatments/TestimonialsSection'
-import GallerySection from '@/components/treatments/GallerySection'
 import FAQSection from '@/components/treatments/FAQSection'
 
 type Props = {
@@ -35,7 +33,6 @@ export default async function TreatmentDetailPage({ params }: Props) {
   if (!service) notFound()
 
   const testimonials = getTestimonialsByTreatment(service.name)
-  const gallery = getGalleryByTreatment(service.name)
 
   return (
     <div className="pt-20 pb-16">
@@ -105,11 +102,6 @@ export default async function TreatmentDetailPage({ params }: Props) {
               </h2>
               <p className="text-gray-700">{service.recoveryTime}</p>
             </section>
-
-            {/* Before/After Gallery */}
-            {gallery.length > 0 && (
-              <GallerySection gallery={gallery} />
-            )}
 
             {/* Testimonials */}
             {testimonials.length > 0 && (

@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Award, GraduationCap, Briefcase, Clock, Phone, Mail, MapPin, CheckCircle2, Globe, Users, Stethoscope } from 'lucide-react'
+import { Award, GraduationCap, Briefcase, Clock, Phone, Mail, MapPin, CheckCircle2, Globe, Users, Stethoscope, BookOpen, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi | 23 Years Experience',
@@ -62,6 +62,48 @@ const hospitalAffiliations = [
   'Apollo Hospital, Noida',
   'Aarogya Hospital, Chitra Vihar',
   'Dharamshila Narayana Superspeciality Hospital, Vasundhara Enclave',
+]
+
+const publications = [
+  {
+    title: 'Pure Red Cell Aplasia Associated with Thymoma',
+    journal: 'Indian Journal of Chest Diseases & Allied Sciences',
+    year: '2002',
+  },
+  {
+    title: 'Chest Wall Reconstruction in Primary Tumors and Impalement Injury',
+    journal: 'The Antiseptic',
+    year: 'May 2002',
+  },
+  {
+    title: 'Thoracic Outlet Syndrome – An Update',
+    journal: 'The Antiseptic',
+    year: 'Sep 2000',
+  },
+  {
+    title: 'Primary Chest Wall Tumors',
+    journal: 'Indian Journal of Clinical Practice',
+    year: 'April 1999',
+  },
+]
+
+const researchProjects = [
+  {
+    title: 'Duodenal Switch Surgery & Hypoproteinemia',
+    institution: 'Arrow Park Hospital, Liverpool, U.K.',
+  },
+  {
+    title: 'Cost-Effectiveness of Laparoscopic Appendectomy',
+    institution: 'Arrow Park Hospital, Wirral, Liverpool',
+  },
+  {
+    title: 'TEP Patients and Subcutaneous Emphysema',
+    institution: 'Dr. RML Hospital, New Delhi',
+  },
+  {
+    title: 'Evaluation of Bronchogenic Carcinoma Diagnostics',
+    institution: 'BHU, Varanasi',
+  },
 ]
 
 export default function DoctorsPage() {
@@ -262,6 +304,58 @@ export default function DoctorsPage() {
                 View All Hospital Affiliations
                 <Briefcase className="ml-2" size={18} />
               </Link>
+            </div>
+          </div>
+
+          {/* Journals & Publications & Research */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            {/* Journals & Publications */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-center mb-6">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                  <BookOpen className="text-white" size={28} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Journals & Publications</h3>
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed text-sm">
+                Dr. Agrawal has contributed to several notable research publications
+              </p>
+              <div className="space-y-4">
+                {publications.map((pub, index) => (
+                  <div
+                    key={index}
+                    className="border-l-4 border-[#0891b2] pl-4 py-3 bg-gray-50 rounded-r-lg"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-1 text-sm">{pub.title}</h4>
+                    <p className="text-gray-700 text-xs mb-1">{pub.journal}</p>
+                    <p className="text-gray-500 text-xs">{pub.year}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Research & Projects */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-center mb-6">
+                <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                  <FileText className="text-white" size={28} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Research & Projects</h3>
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed text-sm">
+                Dr. Kapil Agrawal has performed extensive clinical research
+              </p>
+              <div className="space-y-4">
+                {researchProjects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="border-l-4 border-[#0891b2] pl-4 py-3 bg-gray-50 rounded-r-lg"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-1 text-sm">{project.title}</h4>
+                    <p className="text-gray-700 text-xs">{project.institution}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

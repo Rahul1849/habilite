@@ -25,8 +25,9 @@ const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsS
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
             <div className="animate-pulse">
+              <div className="aspect-video bg-gray-200 rounded-xl mb-4"></div>
               <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
               <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
             </div>

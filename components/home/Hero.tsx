@@ -89,13 +89,22 @@ export default function Hero() {
               </p>
             </div>
           
-            <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2 sm:pt-4">
               <Link 
                 href="/appointment" 
                 className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-sm sm:text-base md:text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 inline-flex items-center justify-center"
               >
                 <Calendar className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Book Appointment
+              </Link>
+              <Link 
+                href="/video-consultation" 
+                className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-sm sm:text-base md:text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 inline-flex items-center justify-center"
+              >
+                <svg className="mr-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Video Consultation
               </Link>
             </div>
           </div>
@@ -104,10 +113,10 @@ export default function Hero() {
         {/* Stats */}
         <div className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
           {[
+            { number: '10000+', label: 'Happy Patients' },
             { number: '7000+', label: 'Successful Surgeries' },
-            { number: '23 Years', label: 'Experience' },
-            { number: '98%', label: 'Success Rate' },
-            { number: 'Apollo', label: 'Senior Consultant' },
+            { number: '3000+', label: 'International Patients' },
+            { number: '23+ Years', label: 'Experience' },
           ].map((stat, index) => (
             <div key={index} className="text-center px-2 sm:px-0">
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 break-words drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>

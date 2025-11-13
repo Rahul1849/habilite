@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { CheckCircle2, Clock } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 
@@ -27,16 +28,31 @@ export const metadata: Metadata = {
 export default function BariatricSurgeryPage() {
   return (
     <div className="pt-20 pb-16">
-      <div className="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 border-b border-gray-200">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Best Bariatric Surgeon in <span className="text-[#0891b2]">Delhi, India</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-              Dr. Kapil Agrawal offers a comprehensive range of bariatric surgeries, which include sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. The surgeries are tailored according to indications and patient preferences.
-            </p>
-          </div>
+      {/* Hero Image */}
+      <div className="relative w-full aspect-video sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/7] mb-8 overflow-hidden">
+        <Image
+          src="/images/bariatric-surgeon-delhi.png"
+          alt="Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal | Expert Weight Loss Surgery | 23 Years Experience"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+          quality={95}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+        />
+      </div>
+
+      {/* Hero Content */}
+      <div className="container-custom mb-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">bariatric-surgeon-delhi</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            Best Bariatric Surgeon in <span className="text-[#0891b2]">Delhi, India</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
+            Dr. Kapil Agrawal offers a comprehensive range of bariatric surgeries, which include sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. The surgeries are tailored according to indications and patient preferences.
+          </p>
         </div>
       </div>
 

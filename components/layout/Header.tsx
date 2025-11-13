@@ -89,8 +89,6 @@ export default function Header() {
         { href: '/bariatrics/non-surgical-weight-loss', label: 'Non-Surgical Weight Loss Program' },
         { href: '/bariatrics/surgery-for-diabetes', label: 'Surgery for Diabetes' },
         { href: '/bariatrics/intragastric-balloon', label: 'IntraGastric Balloon' },
-        { href: '/bariatrics/allurion-balloon', label: 'Allurion Balloon' },
-        { href: '/bariatrics/spatz-balloon', label: 'Spatz Balloon' },
       ]
     },
     { href: '/contact', label: 'Contact Us' },

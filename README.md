@@ -15,14 +15,10 @@ A modern, performance-optimized website for Habilite Clinics, built with Next.js
 
 ## Pages
 
-- **Home** - Hero, services overview, testimonials, gallery preview, video section
-- **Doctors** - Doctor profiles with qualifications and treatments
-- **Treatments** - Service listings with detail pages (styled like Dr. Parag Telang)
-- **Gallery** - Before/After gallery with filters and lightbox
-- **Testimonials** - Video and text testimonials with carousel
-- **Blog** - Blog listing and detail pages with SEO structure
-- **Appointment** - 3-step booking form (Practo-style) with payment UI placeholder
-- **Contact** - Contact form, address, map, and contact details
+- **Home** - Hero, services overview, testimonials, video section
+- **Treatments** - Detailed service pages with benefits, FAQs, and consultation CTA
+- **Doctors** - Profiles with experience, qualifications, and achievements
+- **Blog** - Educational articles and patient stories
 
 ## Getting Started
 
@@ -67,7 +63,6 @@ habilite-clinics/
 │   ├── page.tsx           # Home page
 │   ├── doctors/           # Doctors pages
 │   ├── treatments/        # Treatments pages
-│   ├── gallery/          # Gallery page
 │   ├── testimonials/     # Testimonials page
 │   ├── blog/             # Blog pages
 │   ├── appointment/      # Appointment booking
@@ -82,7 +77,6 @@ habilite-clinics/
 │   ├── services.ts
 │   ├── doctors.ts
 │   ├── testimonials.ts
-│   ├── gallery.ts
 │   └── blog.ts
 └── public/               # Static assets
 ```

@@ -10,10 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/doctors',
     '/treatments',
-    '/gallery',
     '/testimonials',
     '/blog',
     '/appointment',
+    '/video-consultation',
     '/contact',
     '/laparoscopic-surgery',
     '/bariatrics',
@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1 : route === '/video-consultation' ? 0.9 : 0.8,
   }))
 
   const serviceRoutes = services.map((service) => ({
@@ -66,9 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: 'bariatric-surgery', priority: 0.9 },
     { slug: 'non-surgical-weight-loss', priority: 0.8 },
     { slug: 'surgery-for-diabetes', priority: 0.8 },
-    { slug: 'intragastric-balloon', priority: 0.7 },
-    { slug: 'allurion-balloon', priority: 0.7 },
-    { slug: 'spatz-balloon', priority: 0.7 },
+    { slug: 'intragastric-balloon', priority: 0.8 },
   ].map((service) => ({
     url: `${baseUrl}/bariatrics/${service.slug}`,
     lastModified: new Date(),
