@@ -56,7 +56,7 @@ export default function Footer() {
             </Link>
             <Link
               href="/video-consultation"
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-primary-500 px-6 py-3 text-sm font-semibold text-primary-200 hover:bg-primary-500/10 transition"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-primary-500 px-6 py-3 text-sm font-semibold text-primary-200 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition"
             >
               Video Consultation
             </Link>
