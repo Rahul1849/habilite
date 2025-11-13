@@ -17,7 +17,7 @@ export default function MeetDoctor() {
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 loading="lazy"
-                quality={85}
+                quality={95}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

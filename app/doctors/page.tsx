@@ -124,7 +124,7 @@ export default function DoctorsPage() {
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     priority
-                    quality={90}
+                    quality={95}
                   />
                 </div>
               </div>
