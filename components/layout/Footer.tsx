@@ -36,8 +36,11 @@ export default function Footer() {
       <div className="container-custom py-12 lg:py-16">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 border-b border-gray-800 pb-10">
           <div className="space-y-3 max-w-2xl">
-            <Link href="/" className="inline-flex items-center text-white">
-              <span className="text-xs uppercase tracking-[0.45em] text-primary-200">HABILITE CLINICS</span>
+            <Link href="/" className="inline-flex items-center">
+              <div className="text-2xl md:text-3xl font-bold">
+                <span className="text-[#f56336]">HABiLiTE</span>
+                <span className="text-gray-300"> CLINICS</span>
+              </div>
             </Link>
             <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
               Dr. Kapil Agrawal &mdash; Senior Consultant, Apollo Hospitals. 23+ years in advanced laparoscopic, robotic,
