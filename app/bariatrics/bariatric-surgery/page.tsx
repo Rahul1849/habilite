@@ -31,7 +31,7 @@ export default function BariatricSurgeryPage() {
       {/* Hero Image */}
       <div className="relative w-full aspect-video sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/7] mb-8 overflow-hidden">
         <Image
-          src="/images/bariatric-surgeon-delhi.png"
+          src="/images/bariatric-surgeon-delhi-india.png"
           alt="Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal | Expert Weight Loss Surgery | 23 Years Experience"
           fill
           className="object-cover object-center"
