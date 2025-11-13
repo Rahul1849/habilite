@@ -7,25 +7,25 @@ const bariatricServices = [
     title: 'Best Bariatric Surgeon in Delhi',
     description: 'Dr Kapil Agrawal offers a comprehensive range of bariatric surgeries, which include sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. The surgeries are tailored according to indications and patient preferences.',
     link: '/bariatrics/bariatric-surgery',
-    image: '/images/bariatricsurgery.jpg',
+    image: '/images/bariatric-surgery-delhi.jpg',
   },
   {
     title: 'Surgery for Diabetes',
     description: 'Metabolic surgery performed in patients suffering from diabetes is extremely beneficial if performed after proper patient selection, fulfilling all the criteria to undergo this surgery. Dr Kapil Agrawal has been delivering excellent results.',
     link: '/bariatrics/surgery-for-diabetes',
-    image: '/images/diabetes.jpg',
+    image: '/images/diabetes-surgery-delhi.jpg',
   },
   {
     title: 'Intra Gastric Balloon Expert in Delhi',
     description: 'Dr Kapil Agrawal specializes in the gastric balloon treatment for patients looking for a moderate amount of weight loss. He specializes in both Allurion and Spatz balloon treatment.',
     link: '/bariatrics/intragastric-balloon',
-    image: '/images/AllurionBalloon.jpg',
+    image: '/images/instragastricballoon-surgery-delhi.jpg',
   },
   {
     title: 'Medical Weight Loss Program',
     description: 'Dr Kapil Agrawal houses some of the best nutritionists who offer medical weight loss programs for patients looking for non-surgical methods for weight loss.',
     link: '/bariatrics/non-surgical-weight-loss',
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop&auto=format&q=80',
+    image: '/images/weightloss-program-delhi.jpg',
   },
 ]
 
