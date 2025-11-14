@@ -179,12 +179,6 @@ export default function SpatzBalloonPage() {
                 </div>
               </div>
             </section>
-
-            {/* Post-operative Care Section */}
-            <PostOperativeCare />
-
-            {/* WhatsApp Expert Chat */}
-            <WhatsAppExpertChat serviceName="Spatz Balloon" />
           </div>
 
           <div className="lg:col-span-1">
@@ -196,6 +190,12 @@ export default function SpatzBalloonPage() {
             </div>
           </div>
         </div>
+
+        {/* Post-operative Care Section - Full Width Centered */}
+        <PostOperativeCare />
+
+        {/* WhatsApp Expert Chat - Full Width Centered */}
+        <WhatsAppExpertChat serviceName="Spatz Balloon" />
       </div>
     </div>
   )

@@ -27,15 +27,16 @@ export default function PostOperativeCare() {
   ]
 
   return (
-    <div className="bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-50 rounded-xl p-8 md:p-12 border-2 border-[#0891b2] shadow-lg my-12">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Habilite Clinics&apos; Free Post-operative Care
-        </h2>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          We provide comprehensive free post-operative care to ensure your smooth recovery and optimal results. Our dedicated team is committed to your well-being throughout your healing journey.
-        </p>
-      </div>
+    <div className="w-full my-12">
+      <div className="bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-50 rounded-xl p-8 md:p-12 border-2 border-[#0891b2] shadow-lg max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Habilite Clinics&apos; Free Post-operative Care
+          </h2>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            We provide comprehensive free post-operative care to ensure your smooth recovery and optimal results. Our dedicated team is committed to your well-being throughout your healing journey.
+          </p>
+        </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {features.map((feature, index) => {
@@ -85,6 +86,7 @@ export default function PostOperativeCare() {
             </ul>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )

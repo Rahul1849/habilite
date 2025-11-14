@@ -195,12 +195,6 @@ export default function IntragastricBalloonPage() {
                 </div>
               </div>
             </section>
-
-            {/* Post-operative Care Section */}
-            <PostOperativeCare />
-
-            {/* WhatsApp Expert Chat */}
-            <WhatsAppExpertChat serviceName="Intragastric Balloon" />
           </div>
 
           <div className="lg:col-span-1">
@@ -212,6 +206,12 @@ export default function IntragastricBalloonPage() {
             </div>
           </div>
         </div>
+
+        {/* Post-operative Care Section - Full Width Centered */}
+        <PostOperativeCare />
+
+        {/* WhatsApp Expert Chat - Full Width Centered */}
+        <WhatsAppExpertChat serviceName="Intragastric Balloon" />
       </div>
     </div>
   )

@@ -151,12 +151,6 @@ export default function GallbladderSurgeryPage() {
                 </div>
               </div>
             </section>
-
-            {/* Post-operative Care Section */}
-            <PostOperativeCare />
-
-            {/* WhatsApp Expert Chat */}
-            <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
           </div>
 
           {/* Sidebar - Consultation Form */}
@@ -169,6 +163,12 @@ export default function GallbladderSurgeryPage() {
             </div>
           </div>
         </div>
+
+        {/* Post-operative Care Section - Full Width Centered */}
+        <PostOperativeCare />
+
+        {/* WhatsApp Expert Chat - Full Width Centered */}
+        <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
       </div>
     </div>
   )

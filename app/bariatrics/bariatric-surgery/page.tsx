@@ -135,12 +135,6 @@ export default function BariatricSurgeryPage() {
                 </div>
               </div>
             </section>
-
-            {/* Post-operative Care Section */}
-            <PostOperativeCare />
-
-            {/* WhatsApp Expert Chat */}
-            <WhatsAppExpertChat serviceName="Bariatric Surgery" />
           </div>
 
           <div className="lg:col-span-1">
@@ -152,6 +146,12 @@ export default function BariatricSurgeryPage() {
             </div>
           </div>
         </div>
+
+        {/* Post-operative Care Section - Full Width Centered */}
+        <PostOperativeCare />
+
+        {/* WhatsApp Expert Chat - Full Width Centered */}
+        <WhatsAppExpertChat serviceName="Bariatric Surgery" />
       </div>
     </div>
   )

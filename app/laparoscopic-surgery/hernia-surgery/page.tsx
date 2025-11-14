@@ -136,12 +136,6 @@ export default function HerniaSurgeryPage() {
                 </div>
               </div>
             </section>
-
-            {/* Post-operative Care Section */}
-            <PostOperativeCare />
-
-            {/* WhatsApp Expert Chat */}
-            <WhatsAppExpertChat serviceName="Hernia Surgery" />
           </div>
 
           {/* Sidebar - Consultation Form */}
@@ -154,6 +148,12 @@ export default function HerniaSurgeryPage() {
             </div>
           </div>
         </div>
+
+        {/* Post-operative Care Section - Full Width Centered */}
+        <PostOperativeCare />
+
+        {/* WhatsApp Expert Chat - Full Width Centered */}
+        <WhatsAppExpertChat serviceName="Hernia Surgery" />
       </div>
     </div>
   )
