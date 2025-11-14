@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Rectal Prolapse Surgery in Delhi | Expert Surgeon Dr. Kapil Agrawal',
@@ -35,6 +39,7 @@ export default function RectalProlapseSurgeryPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal performs advanced laparoscopic and robotic surgeries for the management of hiatus hernia and gastro-oesophageal reflux disease, who fails to respond to medical management.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -47,9 +52,14 @@ export default function RectalProlapseSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Rectal prolapse occurs when the rectum slips out of place and protrudes from the anus. Dr. Kapil Agrawal specializes in expert surgical treatment for rectal prolapse using minimally invasive techniques.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience, Dr. Kapil Agrawal offers advanced laparoscopic and robotic procedures for rectal prolapse, ensuring optimal outcomes and faster recovery.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Rectal Prolapse Surgery" />
+              </div>
             </section>
 
             <section>
@@ -83,6 +93,12 @@ export default function RectalProlapseSurgeryPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Rectal Prolapse Surgery" />
           </div>
 
           <div className="lg:col-span-1">

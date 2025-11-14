@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Lipoma Removal in Delhi | Expert Lipoma Surgeon Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function LipomaPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal offers expert lipoma removal using advanced laser and surgical techniques. Lipomas are benign fatty tumors that can be safely removed with minimal scarring and quick recovery.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function LipomaPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 A lipoma is a benign (non-cancerous) tumor made up of fat tissue. It usually appears as a soft, movable lump under the skin. While lipomas are generally harmless, they can cause discomfort or cosmetic concerns, especially if they grow large.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal specializes in safe and effective lipoma removal using advanced techniques, ensuring minimal scarring and quick recovery.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Lipoma Removal" />
+              </div>
             </section>
 
             <section>
@@ -116,6 +126,12 @@ export default function LipomaPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Lipoma Removal" />
           </div>
 
           <div className="lg:col-span-1">

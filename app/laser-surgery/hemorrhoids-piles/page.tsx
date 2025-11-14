@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Laser Piles Treatment in Delhi | Best Piles Surgeon Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function HemorrhoidsPilesPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal offers the latest and most advanced Stapler, Laser, and DGHAL procedures for the best management of piles. Dr. Kapil Agrawal always ensures that his patients get the best results with no recurrence.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function HemorrhoidsPilesPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Hemorrhoids, commonly known as piles, are swollen veins in the lower rectum and anus. Dr. Kapil Agrawal specializes in advanced laser and minimally invasive procedures for effective piles treatment with no recurrence.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience, Dr. Kapil Agrawal is recognized as one of the best piles surgeons in Delhi and India, offering the latest treatment options for optimal patient outcomes.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Laser Piles Treatment" />
+              </div>
             </section>
 
             <section>
@@ -109,6 +119,12 @@ export default function HemorrhoidsPilesPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Laser Piles Treatment" />
           </div>
 
           <div className="lg:col-span-1">

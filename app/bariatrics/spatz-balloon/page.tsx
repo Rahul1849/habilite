@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Spatz Balloon in Delhi | Adjustable Gastric Balloon Expert Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function SpatzBalloonPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal specializes in Spatz Balloon treatment - an adjustable gastric balloon system that can be filled or deflated as needed. It can remain in place for up to 12 months, allowing for longer-term weight loss support and better results.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function SpatzBalloonPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 The Spatz Balloon is an advanced adjustable gastric balloon system that offers flexibility and extended treatment duration for effective weight loss. Unlike fixed-volume balloons, the Spatz Balloon can be adjusted in size during the treatment period, allowing for personalized weight loss management.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 Dr. Kapil Agrawal specializes in Spatz Balloon treatment, providing patients with a flexible and effective non-surgical weight loss solution. With 23 years of experience and 7000+ successful procedures, Dr. Kapil Agrawal ensures optimal results and patient satisfaction.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Spatz Balloon" />
+              </div>
             </section>
 
             <section>
@@ -169,6 +179,12 @@ export default function SpatzBalloonPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Spatz Balloon" />
           </div>
 
           <div className="lg:col-span-1">

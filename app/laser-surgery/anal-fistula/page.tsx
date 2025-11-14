@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Anal Fistula Treatment in Delhi | Expert Anal Fistula Surgeon Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function AnalFistulaPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal performs all the latest and advanced treatment options for the management of anal fistula. His procedures include Laser surgery & VAAFT technology which ensures faster recovery.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function AnalFistulaPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Dr. Kapil Agrawal performs all the latest and advanced treatment options for the management of anal fistula. His procedures include Laser surgery & VAAFT technology which ensures faster recovery.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal uses the latest techniques to ensure faster recovery and excellent outcomes for his patients, with minimal discomfort and lower recurrence rates.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Anal Fistula Treatment" />
+              </div>
             </section>
 
             <section>
@@ -120,6 +130,12 @@ export default function AnalFistulaPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Anal Fistula Treatment" />
           </div>
 
           <div className="lg:col-span-1">

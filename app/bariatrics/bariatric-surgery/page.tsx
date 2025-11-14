@@ -2,6 +2,10 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { CheckCircle2, Clock } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Bariatric Surgery in Delhi | Best Bariatric Surgeon Dr. Kapil Agrawal',
@@ -53,6 +57,7 @@ export default function BariatricSurgeryPage() {
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
             Dr. Kapil Agrawal offers a comprehensive range of bariatric surgeries, which include sleeve gastrectomy, gastric bypass, and duodenal jejunal bypass. The surgeries are tailored according to indications and patient preferences.
           </p>
+          <CallUsButton />
         </div>
       </div>
 
@@ -64,9 +69,14 @@ export default function BariatricSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Bariatric surgery, also known as weight loss surgery, helps people with severe obesity lose weight and improve their health. Dr. Kapil Agrawal is recognized as one of the best bariatric surgeons in Delhi and India, with extensive experience in various bariatric procedures.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal offers personalized bariatric surgery solutions tailored to each patient&#39;s needs and medical condition.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Bariatric Surgery" />
+              </div>
             </section>
 
             <section>
@@ -125,6 +135,12 @@ export default function BariatricSurgeryPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Bariatric Surgery" />
           </div>
 
           <div className="lg:col-span-1">

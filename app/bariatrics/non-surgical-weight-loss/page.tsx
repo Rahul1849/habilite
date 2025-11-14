@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Medical Weight Loss Program in Delhi | Non-Surgical Weight Loss Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function NonSurgicalWeightLossPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal houses some of the best nutritionists who offer medical weight loss programs for patients looking for non-surgical methods for weight loss.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function NonSurgicalWeightLossPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Dr. Kapil Agrawal houses some of the best nutritionists who offer medical weight loss programs for patients looking for non-surgical methods for weight loss.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience in weight management, Dr. Kapil Agrawal ensures that every patient receives expert care and support throughout their weight loss journey, helping them achieve sustainable results without surgery.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Medical Weight Loss Program" />
+              </div>
             </section>
 
             <section>
@@ -120,6 +130,12 @@ export default function NonSurgicalWeightLossPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Medical Weight Loss Program" />
           </div>
 
           <div className="lg:col-span-1">

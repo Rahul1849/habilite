@@ -221,7 +221,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200">
+          <div className="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-80px)] overflow-y-auto">
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-1">
               {/* Top Navigation */}
               <div className="pb-4 border-b mb-4">

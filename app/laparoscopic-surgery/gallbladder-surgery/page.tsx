@@ -2,6 +2,10 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { CheckCircle2, Clock, User, Calendar } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Gallbladder Surgery in Delhi | Best Gallbladder Surgeon Dr. Kapil Agrawal',
@@ -53,6 +57,7 @@ export default function GallbladderSurgeryPage() {
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
             Dr. Kapil Agrawal is one of the topmost and leading gallbladder stone removal surgeon in Delhi and India. He offers robotic, single-port, and traditional laparoscopic cholecystectomies for the management of gallbladder stones.
           </p>
+          <CallUsButton />
         </div>
       </div>
 
@@ -66,9 +71,14 @@ export default function GallbladderSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Gallbladder surgery, also known as cholecystectomy, is a procedure to remove the gallbladder. Dr. Kapil Agrawal specializes in minimally invasive laparoscopic techniques that offer faster recovery, minimal scarring, and excellent outcomes.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With over 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal is recognized as one of the best gallbladder surgeons in Delhi and India. He performs robotic, single-port, and traditional laparoscopic cholecystectomies tailored to each patient&#39;s needs.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Gallbladder Surgery" />
+              </div>
             </section>
 
             {/* Procedure Types */}
@@ -141,6 +151,12 @@ export default function GallbladderSurgeryPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
           </div>
 
           {/* Sidebar - Consultation Form */}

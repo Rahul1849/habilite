@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Appendix Surgery in Delhi | Best Appendicitis Surgeon Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function AppendixSurgeryPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal is one of the best laparoscopic surgeons for appendicitis. He has performed some of the most difficult appendicectomies laparoscopically with excellent outcomes.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function AppendixSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Appendicitis is the inflammation of the appendix, requiring prompt surgical removal. Dr. Kapil Agrawal specializes in laparoscopic appendectomy, a minimally invasive procedure that offers faster recovery and minimal scarring.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience, Dr. Kapil Agrawal has successfully performed complex appendicectomies laparoscopically, making him one of the best appendicitis surgeons in Delhi and India.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Appendix Surgery" />
+              </div>
             </section>
 
             <section>
@@ -84,6 +94,12 @@ export default function AppendixSurgeryPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Appendix Surgery" />
           </div>
 
           <div className="lg:col-span-1">

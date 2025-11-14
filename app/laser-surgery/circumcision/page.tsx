@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Circumcision in Delhi | Expert Circumcision Surgeon Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function CircumcisionPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal offers expert circumcision using advanced laser and surgical techniques. The procedure is performed with precision, ensuring minimal pain, quick recovery, and excellent outcomes.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function CircumcisionPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Circumcision is a surgical procedure to remove the foreskin covering the head of the penis. It may be performed for medical, religious, or personal reasons. Dr. Kapil Agrawal specializes in safe and effective circumcision procedures.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal uses advanced techniques including laser circumcision to ensure minimal pain, quick recovery, and excellent cosmetic results.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Circumcision" />
+              </div>
             </section>
 
             <section>
@@ -116,6 +126,12 @@ export default function CircumcisionPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Circumcision" />
           </div>
 
           <div className="lg:col-span-1">

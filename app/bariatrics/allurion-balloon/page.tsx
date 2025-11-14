@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 
 export const metadata: Metadata = {
   title: 'Allurion Balloon in Delhi | Swallowable Gastric Balloon Expert Dr. Kapil Agrawal',
@@ -36,6 +40,7 @@ export default function AllurionBalloonPage() {
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
               Dr. Kapil Agrawal specializes in Allurion Balloon treatment - a revolutionary swallowable gastric balloon that doesn&apos;t require endoscopy or anesthesia. It automatically deflates and passes naturally after 16 weeks, making it a convenient and effective option for weight loss.
             </p>
+            <CallUsButton />
           </div>
         </div>
       </div>
@@ -48,9 +53,14 @@ export default function AllurionBalloonPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 The Allurion Balloon is a revolutionary non-surgical weight loss solution that offers a convenient and effective approach to weight management. Unlike traditional gastric balloons, the Allurion Balloon is swallowable and doesn&apos;t require endoscopy, anesthesia, or surgical procedures.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 Dr. Kapil Agrawal specializes in Allurion Balloon treatment, providing patients with a safe, convenient, and effective non-surgical weight loss option. With 23 years of experience and 7000+ successful procedures, Dr. Kapil Agrawal ensures optimal results and patient satisfaction.
               </p>
+              
+              {/* Cost Calculator */}
+              <div className="my-8">
+                <CostCalculator serviceName="Allurion Balloon" />
+              </div>
             </section>
 
             <section>
@@ -144,6 +154,12 @@ export default function AllurionBalloonPage() {
                 </div>
               </div>
             </section>
+
+            {/* Post-operative Care Section */}
+            <PostOperativeCare />
+
+            {/* WhatsApp Expert Chat */}
+            <WhatsAppExpertChat serviceName="Allurion Balloon" />
           </div>
 
           <div className="lg:col-span-1">
