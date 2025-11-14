@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
@@ -31,18 +32,34 @@ export const metadata: Metadata = {
 export default function HerniaSurgeryPage() {
   return (
     <div className="pt-20 pb-16">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 border-b border-gray-200">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Expert Hernia Surgeon in <span className="text-[#0891b2]">Delhi, India</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-              Dr. Kapil Agrawal is a well-known hernia specialist surgeon in Delhi and India who offers a complete range of hernia surgeries. He performs laparoscopic and robotic hernia repair with excellent outcomes.
-            </p>
-            <CallUsButton />
-          </div>
+      {/* Hero Image */}
+      <div className="container-custom mb-8">
+        <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+          <Image
+            src="/images/hernia-surgeon-delhi-india.webp"
+            alt="Expert Hernia Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic Hernia Repair | Robotic Hernia Surgery"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+            priority
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          />
+        </div>
+      </div>
+
+      {/* Hero Content */}
+      <div className="container-custom mb-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">hernia-surgeon-delhi</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            Expert Hernia Surgeon in <span className="text-[#0891b2]">Delhi, India</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
+            Dr. Kapil Agrawal is a well-known hernia specialist surgeon in Delhi and India who offers a complete range of hernia surgeries. He performs laparoscopic and robotic hernia repair with excellent outcomes.
+          </p>
+          <CallUsButton />
         </div>
       </div>
 

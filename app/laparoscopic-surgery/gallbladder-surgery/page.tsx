@@ -36,7 +36,7 @@ export default function GallbladderSurgeryPage() {
       <div className="container-custom mb-8">
         <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
           <Image
-            src="/images/gallbladder-surgeon-delhi.png"
+            src="/images/gallbladder-surgeon-delhi-india.webp"
             alt="Leading Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | Expert Gallbladder Stone Removal | 23 Years Experience"
             fill
             className="object-cover object-center"
