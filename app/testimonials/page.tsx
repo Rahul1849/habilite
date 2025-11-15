@@ -45,10 +45,10 @@ export default function TestimonialsPage() {
 
   return (
     <div className="pt-20 pb-16">
-      <div className="bg-gradient-primary text-white py-16">
+      <div className="bg-gradient-primary py-16">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Patient Testimonials</h1>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Patient Testimonials</h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Real stories from patients who trusted us with their care
           </p>
         </div>
