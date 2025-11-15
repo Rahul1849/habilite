@@ -103,6 +103,9 @@ export default function TestimonialsSlider() {
                     const videoId = getYouTubeVideoId(currentTestimonial.videoUrl)
                     if (!videoId) return null
                     
+                    // Priority loading for first testimonial, lazy for others
+                    const isFirstTestimonial = currentIndex === 0
+                    
                     return (
                       <>
                         <Image
@@ -111,7 +114,8 @@ export default function TestimonialsSlider() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, 896px"
-                          loading="lazy"
+                          loading={isFirstTestimonial ? "eager" : "lazy"}
+                          priority={isFirstTestimonial}
                           quality={85}
                           onError={(e) => {
                             // Fallback to lower quality thumbnail if maxresdefault fails

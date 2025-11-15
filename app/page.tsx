@@ -10,6 +10,7 @@ import LaserServices from '@/components/home/LaserServices'
 import WhyChoose from '@/components/home/WhyChoose'
 import FAQ from '@/components/home/FAQ'
 import BlogPreview from '@/components/home/BlogPreview'
+import { testimonials } from '@/data/testimonials'
 
 // Dynamically import TestimonialsSlider to defer loading and improve initial page load
 const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsSlider'), {
@@ -317,6 +318,47 @@ const faqSchema = {
   ],
 }
 
+// Helper function to extract YouTube video ID
+function getYouTubeVideoId(url: string): string | null {
+  if (!url) return null
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/)
+  return match && match[1] ? match[1] : null
+}
+
+// VideoObject schema for video testimonials
+const videoTestimonialsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Patient Video Testimonials',
+  description: 'Video testimonials from patients who received treatment from Dr. Kapil Agrawal at Habilite Clinics',
+  itemListElement: testimonials
+    .filter((t) => t.videoUrl)
+    .map((testimonial, index) => {
+      const videoId = getYouTubeVideoId(testimonial.videoUrl || '')
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'VideoObject',
+          name: `${testimonial.patientName} - ${testimonial.treatment} Testimonial`,
+          description: testimonial.text,
+          thumbnailUrl: videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : undefined,
+          uploadDate: testimonial.date,
+          contentUrl: testimonial.videoUrl,
+          embedUrl: videoId ? `https://www.youtube.com/embed/${videoId}` : undefined,
+          publisher: {
+            '@type': 'Organization',
+            name: 'Habilite Clinics',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://www.habiliteclinics.com/logo.png',
+            },
+          },
+        },
+      }
+    }),
+}
+
 export default function HomePage() {
   return (
     <>
@@ -340,6 +382,13 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         suppressHydrationWarning
       />
+      {testimonials.filter((t) => t.videoUrl).length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoTestimonialsSchema) }}
+          suppressHydrationWarning
+        />
+      )}
       <Hero />
       <MeetDoctor />
       <EducationAffiliations />

@@ -41,7 +41,7 @@ export const testimonials: Testimonial[] = [
     treatment: 'Robotic Surgery',
     rating: 5,
     text: 'The robotic surgery experience was excellent. Less pain, faster recovery, and minimal scarring. Dr. Kapil Agrawal is truly an expert in his field. The hospital facilities are top-notch.',
-    videoUrl: 'https://www.youtube.com/embed/example1',
+    videoUrl: 'https://www.youtube.com/watch?v=N09RpTwI_HY',
     date: '2024-03-10',
     verified: true
   },
@@ -73,7 +73,7 @@ export const testimonials: Testimonial[] = [
     treatment: 'Gastrointestinal Surgery',
     rating: 5,
     text: 'Dr. Agrawal\'s expertise in gastrointestinal surgery is unmatched. My recovery was smooth, and the follow-up care was thorough. Grateful for the excellent treatment.',
-    videoUrl: 'https://www.youtube.com/embed/example2',
+    videoUrl: 'https://www.youtube.com/watch?v=LTGyPysXqH4',
     date: '2024-03-05',
     verified: true
   }
