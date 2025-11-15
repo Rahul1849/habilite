@@ -20,7 +20,7 @@ export default function Footer() {
 
   const insights = [
     { href: '/testimonials', label: 'Patient Testimonials' },
-    { href: '/blog', label: 'Insights & Outcomes' },
+    { href: '/post', label: 'Insights & Outcomes' },
     { href: '/international-patient', label: 'International Patients' },
     { href: '/contact', label: 'Contact & Locations' },
   ]

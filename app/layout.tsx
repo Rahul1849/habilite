@@ -79,9 +79,9 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   icons: {
-    icon: '/images/habiliteclinicsicon.webp',
-    shortcut: '/images/habiliteclinicsicon.webp',
-    apple: '/images/habiliteclinicsicon.webp',
+    icon: '/images/habiliteclinics-tab-icon.webp',
+    shortcut: '/images/habiliteclinics-tab-icon.webp',
+    apple: '/images/habiliteclinics-tab-icon.webp',
   },
   alternates: {
     canonical: 'https://www.habiliteclinics.com',

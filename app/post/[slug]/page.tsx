@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Main Content */}
           <article className="lg:col-span-3">
             <Link
-              href="/blog"
+              href="/post"
               className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-6"
             >
               <ArrowLeft className="mr-2" size={20} />
@@ -165,7 +165,7 @@ export default async function BlogPostPage({ params }: Props) {
                   {relatedPosts.map((relatedPost) => (
                     <li key={relatedPost.id}>
                       <Link
-                        href={`/blog/${relatedPost.slug}`}
+                        href={`/post/${relatedPost.slug}`}
                         className="text-primary-600 hover:text-primary-700 hover:underline font-medium"
                       >
                         {relatedPost.title}
@@ -186,3 +186,4 @@ export default async function BlogPostPage({ params }: Props) {
     </div>
   )
 }
+

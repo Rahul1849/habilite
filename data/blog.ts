@@ -86,7 +86,7 @@ Laparoscopic surgery offers significant advantages for patients requiring surgic
     authorImage: 'https://picsum.photos/150/150?random=50',
     publishedDate: '2024-01-15',
     image: 'https://picsum.photos/1200/600?random=60',
-    category: 'Surgery',
+    category: 'Laparoscopic Surgery',
     tags: ['Laparoscopic Surgery', 'Minimally Invasive', 'Recovery'],
     readTime: 5,
     seoTitle: 'Understanding Laparoscopic Surgery: Benefits and Recovery Guide',
@@ -168,7 +168,7 @@ Hernia surgery is a common and highly successful procedure. Modern techniques of
     authorImage: 'https://picsum.photos/150/150?random=50',
     publishedDate: '2024-02-10',
     image: 'https://picsum.photos/1200/600?random=61',
-    category: 'Surgery',
+    category: 'Hernia',
     tags: ['Hernia', 'Surgery', 'Recovery'],
     readTime: 7,
     faqSchema: [
@@ -216,7 +216,7 @@ As technology advances, robotic surgery continues to evolve, offering even bette
     authorImage: 'https://picsum.photos/150/150?random=50',
     publishedDate: '2024-03-01',
     image: 'https://picsum.photos/1200/600?random=62',
-    category: 'Technology',
+    category: 'Laparoscopic Surgery',
     tags: ['Robotic Surgery', 'Technology', 'Innovation'],
     readTime: 6
   }

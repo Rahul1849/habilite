@@ -22,7 +22,7 @@ export default function BlogPreview() {
           {previewPosts.map((post) => (
             <Link
               key={post.id}
-              href={`/blog/${post.slug}`}
+              href={`/post/${post.slug}`}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
             >
               <div className="relative h-48 overflow-hidden">
@@ -68,7 +68,7 @@ export default function BlogPreview() {
 
         <div className="text-center">
           <Link
-            href="/blog"
+            href="/post"
             className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors"
           >
             View All Blog Posts

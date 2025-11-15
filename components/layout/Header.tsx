@@ -55,7 +55,7 @@ export default function Header() {
     { href: '/awards', label: 'Awards' },
     { href: '/#testimonials', label: 'Testimonials' },
     { href: '/international-patient', label: 'International Patient' },
-    { href: '/#blog', label: 'Blogs' },
+    { href: '/post', label: 'Blogs' },
   ]
 
   const mainNavLinks = [

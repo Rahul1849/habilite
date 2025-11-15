@@ -8,7 +8,7 @@
   "theme_color": "#1a91b9",
   "icons": [
     {
-      "src": "/images/habiliteclinicsicon.webp",
+      "src": "/images/habiliteclinics-tab-icon.webp",
       "sizes": "any",
       "type": "image/webp",
       "purpose": "any maskable"
