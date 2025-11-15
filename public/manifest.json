@@ -6,5 +6,12 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1a91b9",
-  "icons": []
+  "icons": [
+    {
+      "src": "/images/habiliteclinicsicon.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
 }
