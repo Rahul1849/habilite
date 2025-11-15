@@ -32,11 +32,17 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react'],
+    optimizeCss: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   swcMinify: true,
+  // Performance optimizations
+  poweredByHeader: false,
+  reactStrictMode: true,
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
 }
 
 module.exports = nextConfig

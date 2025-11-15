@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Star, Play, Quote } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { testimonials, getVideoTestimonials } from '@/data/testimonials'
 
 // Helper function to extract YouTube video ID from various URL formats
@@ -242,22 +241,15 @@ export default function TestimonialsPage() {
       </div>
 
       {/* Video Modal */}
-      <AnimatePresence>
-        {selectedVideo && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-            onClick={() => setSelectedVideo(null)}
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full aspect-video animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              className="relative max-w-4xl w-full aspect-video"
-              onClick={(e) => e.stopPropagation()}
-            >
               <button
                 onClick={() => setSelectedVideo(null)}
                 className="absolute -top-12 right-0 text-white hover:text-gray-300 text-xl font-semibold"
@@ -278,10 +270,9 @@ export default function TestimonialsPage() {
                   />
                 )
               })()}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
     </div>
   )
 }

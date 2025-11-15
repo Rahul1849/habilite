@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -31,11 +30,7 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-white rounded-xl shadow-lg p-8 text-center"
-      >
+      <div className="bg-white rounded-xl shadow-lg p-8 text-center animate-fade-in">
         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="text-green-600" size={32} />
         </div>

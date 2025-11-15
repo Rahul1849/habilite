@@ -4,13 +4,32 @@ import Hero from '@/components/home/Hero'
 import MeetDoctor from '@/components/home/MeetDoctor'
 import EducationAffiliations from '@/components/home/EducationAffiliations'
 import CareerHighlightsAndServices from '@/components/home/CareerHighlightsAndServices'
-import LaparoscopicServices from '@/components/home/LaparoscopicServices'
-import BariatricServices from '@/components/home/BariatricServices'
-import LaserServices from '@/components/home/LaserServices'
-import WhyChoose from '@/components/home/WhyChoose'
-import FAQ from '@/components/home/FAQ'
-import BlogPreview from '@/components/home/BlogPreview'
 import { testimonials } from '@/data/testimonials'
+
+// Dynamically import below-the-fold components to improve initial page load
+const LaparoscopicServices = dynamic(() => import('@/components/home/LaparoscopicServices'), {
+  ssr: true,
+})
+
+const BariatricServices = dynamic(() => import('@/components/home/BariatricServices'), {
+  ssr: true,
+})
+
+const LaserServices = dynamic(() => import('@/components/home/LaserServices'), {
+  ssr: true,
+})
+
+const WhyChoose = dynamic(() => import('@/components/home/WhyChoose'), {
+  ssr: true,
+})
+
+const FAQ = dynamic(() => import('@/components/home/FAQ'), {
+  ssr: true,
+})
+
+const BlogPreview = dynamic(() => import('@/components/home/BlogPreview'), {
+  ssr: true,
+})
 
 // Dynamically import TestimonialsSlider to defer loading and improve initial page load
 const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsSlider'), {
