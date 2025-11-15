@@ -53,7 +53,7 @@ export default function Header() {
     { href: '/doctors', label: 'About Doctor' },
     { href: '/about', label: 'About Clinic' },
     { href: '/awards', label: 'Awards' },
-    { href: '/#testimonials', label: 'Testimonials' },
+    { href: '/testimonials', label: 'Testimonials' },
     { href: '/international-patient', label: 'International Patient' },
     { href: '/post', label: 'Blogs' },
   ]

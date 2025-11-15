@@ -219,6 +219,369 @@ As technology advances, robotic surgery continues to evolve, offering even bette
     category: 'Laparoscopic Surgery',
     tags: ['Robotic Surgery', 'Technology', 'Innovation'],
     readTime: 6
+  },
+  {
+    id: '4',
+    title: 'Bariatric Surgery: A Complete Guide to Weight Loss Surgery',
+    slug: 'bariatric-surgery-complete-guide-weight-loss',
+    excerpt: 'Discover everything you need to know about bariatric surgery, including types of procedures, benefits, risks, and what to expect during your weight loss journey.',
+    content: `
+# Bariatric Surgery: A Complete Guide to Weight Loss Surgery
+
+Bariatric surgery, also known as weight loss surgery, is a life-changing procedure for individuals struggling with severe obesity. This comprehensive guide covers all aspects of bariatric surgery.
+
+## Types of Bariatric Surgery
+
+### Sleeve Gastrectomy
+The most popular procedure, where about 80% of the stomach is removed, creating a banana-shaped sleeve.
+
+### Gastric Bypass
+Creates a small pouch from the stomach and connects it directly to the small intestine, bypassing most of the stomach.
+
+### Mini Gastric Bypass
+A simplified version of gastric bypass with fewer connections and shorter operation time.
+
+## Benefits
+
+- Significant and sustained weight loss
+- Improvement or resolution of type 2 diabetes
+- Better cardiovascular health
+- Improved mobility and quality of life
+- Resolution of sleep apnea
+
+## Who is a Candidate?
+
+- BMI of 40 or higher
+- BMI of 35-40 with obesity-related health conditions
+- Failed attempts at non-surgical weight loss
+- Commitment to lifestyle changes
+
+## Recovery and Lifestyle Changes
+
+Post-surgery, patients must follow a strict diet progression and commit to regular exercise and follow-up appointments.
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-03-15',
+    image: 'https://picsum.photos/1200/600?random=63',
+    category: 'Bariatric Surgery',
+    tags: ['Bariatric Surgery', 'Weight Loss', 'Obesity', 'Gastric Bypass'],
+    readTime: 8
+  },
+  {
+    id: '5',
+    title: 'Gallbladder Stone Treatment: Symptoms, Diagnosis, and Surgery Options',
+    slug: 'gallbladder-stone-treatment-symptoms-diagnosis-surgery',
+    excerpt: 'Learn about gallbladder stones, their symptoms, diagnostic methods, and the various treatment options including laparoscopic cholecystectomy.',
+    content: `
+# Gallbladder Stone Treatment: Symptoms, Diagnosis, and Surgery Options
+
+Gallbladder stones, or gallstones, are hardened deposits that form in the gallbladder. This article covers everything about their treatment.
+
+## What are Gallstones?
+
+Gallstones are solid particles that form from bile cholesterol and bilirubin in the gallbladder. They can range from tiny grains to golf ball-sized stones.
+
+## Symptoms
+
+- Sudden and intense pain in the upper right abdomen
+- Back pain between shoulder blades
+- Nausea and vomiting
+- Jaundice (yellowing of skin)
+- Fever and chills
+
+## Diagnosis
+
+- Ultrasound scan
+- CT scan
+- Blood tests
+- HIDA scan
+
+## Treatment Options
+
+### Laparoscopic Cholecystectomy
+Minimally invasive removal of the gallbladder through small incisions. This is the gold standard treatment.
+
+### Open Cholecystectomy
+Traditional surgery with a larger incision, used in complex cases.
+
+## Recovery
+
+Most patients recover within 1-2 weeks after laparoscopic surgery and can return to normal activities quickly.
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-04-01',
+    image: 'https://picsum.photos/1200/600?random=64',
+    category: 'Gall Bladder Stone',
+    tags: ['Gallbladder', 'Gallstones', 'Cholecystectomy', 'Laparoscopic Surgery'],
+    readTime: 6
+  },
+  {
+    id: '6',
+    title: 'Lipoma Removal: Understanding Benign Fatty Tumors',
+    slug: 'lipoma-removal-understanding-benign-fatty-tumors',
+    excerpt: 'Everything you need to know about lipomas, benign fatty tumors, including when removal is necessary and the surgical options available.',
+    content: `
+# Lipoma Removal: Understanding Benign Fatty Tumors
+
+Lipomas are benign (non-cancerous) fatty tumors that develop under the skin. This guide explains when and how they should be removed.
+
+## What is a Lipoma?
+
+A lipoma is a slow-growing, fatty lump that's most often situated between the skin and the underlying muscle layer. They are soft, movable, and usually painless.
+
+## Characteristics
+
+- Soft and doughy to touch
+- Movable under the skin
+- Usually painless
+- Slow-growing
+- Most commonly found on neck, shoulders, back, and arms
+
+## When to Consider Removal
+
+- If the lipoma is painful
+- If it's growing rapidly
+- If it's in a cosmetically sensitive area
+- If it's causing functional problems
+- If there's uncertainty about the diagnosis
+
+## Removal Methods
+
+### Surgical Excision
+Traditional removal through a small incision, ensuring complete removal.
+
+### Liposuction
+Less invasive method using suction to remove fatty tissue.
+
+### Laser Removal
+Advanced technique using laser technology for minimal scarring.
+
+## Recovery
+
+Recovery is typically quick, with most patients resuming normal activities within a few days.
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-04-10',
+    image: 'https://picsum.photos/1200/600?random=65',
+    category: 'Lipoma',
+    tags: ['Lipoma', 'Benign Tumor', 'Surgery', 'Removal'],
+    readTime: 5
+  },
+  {
+    id: '7',
+    title: 'Non-Surgical Weight Loss Programs: A Comprehensive Approach',
+    slug: 'non-surgical-weight-loss-programs-comprehensive-approach',
+    excerpt: 'Explore effective non-surgical weight loss programs including medical supervision, diet plans, exercise routines, and lifestyle modifications.',
+    content: `
+# Non-Surgical Weight Loss Programs: A Comprehensive Approach
+
+For those not ready for surgery, non-surgical weight loss programs offer a structured approach to achieving and maintaining a healthy weight.
+
+## Components of Non-Surgical Programs
+
+### Medical Supervision
+Regular monitoring by healthcare professionals to ensure safe and effective weight loss.
+
+### Personalized Diet Plans
+Customized nutrition plans based on individual needs, preferences, and medical conditions.
+
+### Exercise Programs
+Structured physical activity routines designed to burn calories and build muscle.
+
+### Behavioral Counseling
+Support to address emotional eating, stress management, and lifestyle changes.
+
+## Medical Weight Loss Options
+
+### Prescription Medications
+FDA-approved medications that can aid weight loss when combined with diet and exercise.
+
+### Meal Replacement Programs
+Structured programs using shakes, bars, and prepared meals.
+
+### Intragastric Balloons
+Non-surgical procedure where a balloon is placed in the stomach to reduce capacity.
+
+## Success Factors
+
+- Commitment to lifestyle changes
+- Regular follow-up appointments
+- Support system
+- Realistic goals
+- Long-term maintenance plan
+
+## Expected Results
+
+With proper adherence, patients can expect to lose 5-10% of body weight over 6-12 months.
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-04-20',
+    image: 'https://picsum.photos/1200/600?random=66',
+    category: 'Non-Surgical Weight Loss',
+    tags: ['Weight Loss', 'Non-Surgical', 'Medical Program', 'Lifestyle'],
+    readTime: 7
+  },
+  {
+    id: '8',
+    title: 'Piles Treatment: Understanding Hemorrhoids and Modern Treatment Options',
+    slug: 'piles-treatment-understanding-hemorrhoids-modern-options',
+    excerpt: 'Comprehensive guide to piles (hemorrhoids), including symptoms, causes, and modern treatment options including laser surgery.',
+    content: `
+# Piles Treatment: Understanding Hemorrhoids and Modern Treatment Options
+
+Piles, medically known as hemorrhoids, are swollen veins in the lower rectum and anus. This article covers modern treatment approaches.
+
+## What are Piles?
+
+Piles are swollen and inflamed veins in the rectum and anus that can cause discomfort, bleeding, and pain during bowel movements.
+
+## Types of Piles
+
+### Internal Hemorrhoids
+Located inside the rectum, usually painless but may cause bleeding.
+
+### External Hemorrhoids
+Located under the skin around the anus, can be painful and itchy.
+
+## Symptoms
+
+- Bright red blood after bowel movements
+- Itching or irritation in anal region
+- Pain or discomfort
+- Swelling around anus
+- A lump near anus
+
+## Treatment Options
+
+### Conservative Treatment
+- Dietary changes (high fiber)
+- Topical creams
+- Sitz baths
+- Lifestyle modifications
+
+### Minimally Invasive Procedures
+- Rubber band ligation
+- Sclerotherapy
+- Infrared coagulation
+
+### Laser Surgery
+Modern laser treatment offers minimal pain, faster recovery, and excellent results for piles.
+
+## Prevention
+
+- High-fiber diet
+- Stay hydrated
+- Regular exercise
+- Avoid straining during bowel movements
+- Don't sit on toilet for extended periods
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-05-01',
+    image: 'https://picsum.photos/1200/600?random=67',
+    category: 'Piles',
+    tags: ['Piles', 'Hemorrhoids', 'Laser Surgery', 'Treatment'],
+    readTime: 6
+  },
+  {
+    id: '9',
+    title: 'Advanced Bariatric Surgery Techniques: What You Need to Know',
+    slug: 'advanced-bariatric-surgery-techniques-what-you-need-to-know',
+    excerpt: 'Explore the latest advances in bariatric surgery including robotic-assisted procedures and single-incision techniques for better outcomes.',
+    content: `
+# Advanced Bariatric Surgery Techniques: What You Need to Know
+
+Modern bariatric surgery has evolved significantly, offering safer procedures with better outcomes and faster recovery times.
+
+## Robotic-Assisted Bariatric Surgery
+
+Robotic technology enhances precision in bariatric procedures, allowing for:
+- Enhanced 3D visualization
+- Greater surgical precision
+- Reduced complications
+- Faster recovery
+
+## Single-Incision Laparoscopic Surgery (SILS)
+
+SILS offers:
+- Single small incision
+- Virtually scarless surgery
+- Reduced post-operative pain
+- Faster recovery
+
+## Revisional Bariatric Surgery
+
+For patients who haven't achieved desired results, revisional surgery offers:
+- Correction of previous procedures
+- Conversion to different techniques
+- Improved weight loss outcomes
+
+## Pre-Surgery Preparation
+
+- Comprehensive medical evaluation
+- Nutritional counseling
+- Psychological assessment
+- Lifestyle modification planning
+
+## Post-Surgery Care
+
+- Follow-up appointments
+- Nutritional guidance
+- Exercise programs
+- Support groups
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-05-15',
+    image: 'https://picsum.photos/1200/600?random=68',
+    category: 'Bariatric Surgery',
+    tags: ['Bariatric Surgery', 'Robotic Surgery', 'Advanced Techniques'],
+    readTime: 7
+  },
+  {
+    id: '10',
+    title: 'Laparoscopic Hernia Repair: Modern Approach to Hernia Treatment',
+    slug: 'laparoscopic-hernia-repair-modern-approach-treatment',
+    excerpt: 'Learn about laparoscopic hernia repair, a minimally invasive technique that offers faster recovery and less post-operative pain.',
+    content: `
+# Laparoscopic Hernia Repair: Modern Approach to Hernia Treatment
+
+Laparoscopic hernia repair represents a significant advancement in hernia surgery, offering patients a less invasive option with excellent outcomes.
+
+## Advantages of Laparoscopic Repair
+
+- Smaller incisions
+- Less post-operative pain
+- Faster recovery
+- Reduced risk of infection
+- Better cosmetic results
+
+## Procedure Overview
+
+The surgeon makes small incisions and uses a laparoscope to view the hernia and surrounding structures. Mesh is placed to reinforce the weakened area.
+
+## Recovery Timeline
+
+- Day 1: Light activities, can go home
+- Week 1: Return to desk work
+- Week 2-3: Resume normal activities
+- Month 2-3: Full recovery
+
+## Success Rates
+
+Laparoscopic hernia repair has success rates of over 95% with low recurrence rates when performed by experienced surgeons.
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: 'https://picsum.photos/150/150?random=50',
+    publishedDate: '2024-05-20',
+    image: 'https://picsum.photos/1200/600?random=69',
+    category: 'Hernia',
+    tags: ['Hernia', 'Laparoscopic Surgery', 'Minimally Invasive'],
+    readTime: 5
   }
 ]
 

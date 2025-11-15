@@ -265,8 +265,24 @@ export default function BlogPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">No blogs found for this category.</p>
+            <div className="text-center py-16">
+              <div className="max-w-md mx-auto">
+                <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">No Blogs Found</h3>
+                <p className="text-gray-600 mb-6">
+                  We couldn&apos;t find any blogs for &quot;{selectedCategory}&quot; category. Try selecting a different category or check back later.
+                </p>
+                <button
+                  onClick={() => setSelectedCategory('All')}
+                  className="inline-flex items-center px-6 py-3 bg-[#0891b2] text-white font-semibold rounded-lg hover:bg-[#06b6d4] transition-colors"
+                >
+                  View All Blogs
+                </button>
+              </div>
             </div>
           )}
         </section>
