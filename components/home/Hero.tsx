@@ -5,20 +5,6 @@ import { Calendar } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] z-0">
-      {/* Doctor Image - Background */}
-      <div className="absolute inset-0 opacity-20 md:opacity-30">
-        <div className="relative w-full h-full">
-          <Image
-            src="/images/dr-kapil-agrawal.png"
-            alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Senior Consultant at Apollo Hospitals with 23 years experience in laparoscopic surgery, robotic surgery, bariatric surgery, and laser surgery."
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-            priority
-            quality={95}
-          />
-        </div>
-      </div>
       
       {/* Round Gradient Overlay */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -38,8 +24,8 @@ export default function Hero() {
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1280px) 320px, 384px"
-                  priority
-                  quality={95}
+                    priority
+                    quality={80}
                 />
               </div>
             </div>
@@ -56,8 +42,8 @@ export default function Hero() {
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 640px) 160px, 192px"
-                  priority
-                  quality={95}
+                    priority
+                    quality={80}
                 />
               </div>
             </div>

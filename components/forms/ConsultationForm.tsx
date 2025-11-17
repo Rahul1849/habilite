@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Calendar, CheckCircle2, Phone, MessageCircle } from 'lucide-react'
+import { Calendar, CheckCircle2, Phone } from 'lucide-react'
 
 interface ConsultationFormProps {
   serviceName?: string
@@ -13,7 +13,6 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
     name: '',
     phone: '',
     email: '',
-    query: '',
     date: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -45,7 +44,6 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
       name: '',
       phone: '',
       email: '',
-      query: '',
       date: '',
     })
   }
@@ -196,20 +194,6 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all"
           />
           <p className="text-xs text-gray-500 mt-1">Select a date within the next 3 months</p>
-        </div>
-
-        {/* Query/Message - Optional */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
-            Brief Message or Query <span className="text-gray-400 text-xs">(Optional)</span>
-          </label>
-          <textarea
-            value={formData.query}
-            onChange={(e) => handleInputChange('query', e.target.value)}
-            rows={4}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all resize-none"
-            placeholder="Tell us about your concern or any specific requirements..."
-          />
         </div>
 
         {/* Submit Button */}
