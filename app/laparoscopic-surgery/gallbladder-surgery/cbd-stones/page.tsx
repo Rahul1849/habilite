@@ -221,7 +221,7 @@ export default function CBDStonesPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-center text-gray-700 font-semibold">That's why early diagnosis and timely treatment are critical.</p>
+              <p className="text-center text-gray-700 font-semibold">That&rsquo;s why early diagnosis and timely treatment are critical.</p>
             </section>
 
             <section className="space-y-4">
@@ -266,7 +266,7 @@ export default function CBDStonesPage() {
                 ))}
               </div>
               <p className="text-gray-700">
-                Once the presence of stones is confirmed, we proceed with the best-suited treatment based on the patient's symptoms, age, anatomy, and overall health.
+                Once the presence of stones is confirmed, we proceed with the best-suited treatment based on the patient&rsquo;s symptoms, age, anatomy, and overall health.
               </p>
             </section>
 

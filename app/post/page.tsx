@@ -294,7 +294,7 @@ export default function BlogPage() {
               <TrendingUp className="text-[#0891b2] mr-3" size={32} />
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Trending Blogs</h2>
-                <p className="text-gray-600 mt-1">Explore What Everyone's Talking About.</p>
+                <p className="text-gray-600 mt-1">Explore What Everyone&rsquo;s Talking About.</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
