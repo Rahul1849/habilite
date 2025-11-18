@@ -174,7 +174,7 @@ export default function LipomaPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Dr. Kapil Agrawal - Best Lipoma Specialist Doctor in Delhi</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Dr Kapil Agrawal offers the best lipoma treatment in Delhi. His vast experience and expertise to perform complete range of lipoma procedures makes him one of the best specialist surgeon in Delhi for the management of lipomas. Depending upon the patient's requirement, he provides treatment at top hospitals as well as at Habilite Clinics with affordable packages and cashless facilities.
+                Dr Kapil Agrawal offers the best lipoma treatment in Delhi. His vast experience and expertise to perform complete range of lipoma procedures makes him one of the best specialist surgeon in Delhi for the management of lipomas. Depending upon the patient&rsquo;s requirement, he provides treatment at top hospitals as well as at Habilite Clinics with affordable packages and cashless facilities.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 He has performed more than 3000 lipoma procedures with excellent cosmetic results. Customized treatment plans ensure that each patient receives the most appropriate technique based on the size, location, and consistency of lipomas.
@@ -234,7 +234,7 @@ export default function LipomaPage() {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
-                    <span><strong>Underlying Conditions:</strong> Adiposis dolorosa, Madelung's disease, Gardner's syndrome, or Cowden syndrome increase lipoma formation.</span>
+                    <span><strong>Underlying Conditions:</strong> Adiposis dolorosa, Madelung&rsquo;s disease, Gardner&rsquo;s syndrome, or Cowden syndrome increase lipoma formation.</span>
                   </li>
                 </ul>
               </div>

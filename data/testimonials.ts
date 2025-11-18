@@ -9,6 +9,7 @@ export interface Testimonial {
   videoUrl?: string
   date: string
   verified: boolean
+  tags?: string[]
 }
 
 export const testimonials: Testimonial[] = [
