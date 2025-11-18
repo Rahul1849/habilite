@@ -375,8 +375,8 @@ export default function AppointmentPage() {
               {/* Payment Failed */}
               {paymentStatus === 'failed' && (
                 <div className="text-center py-8 animate-fade-in">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <X className="text-red-600" size={32} />
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <X className="text-orange-600" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Failed</h3>
                   <p className="text-gray-600 mb-6">Please try again or choose to pay at reception.</p>
@@ -482,8 +482,8 @@ export default function AppointmentPage() {
                   <div className="text-sm text-blue-800 text-left">
                     <p className="font-semibold mb-1">Need to reschedule?</p>
                     <p className="text-blue-700">
-                      Call us at <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a> or{' '}
-                      <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a>
+                      Call us at <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a> or{' '}
+                      <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a>
                     </p>
                   </div>
                 </div>

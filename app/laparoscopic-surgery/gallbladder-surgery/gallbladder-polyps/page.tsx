@@ -201,14 +201,14 @@ export default function GallbladderPolypsPage() {
                   <div
                     key={indication.size}
                     className={`rounded-lg p-5 border-l-4 ${
-                      indication.urgency === 'High' ? 'bg-red-50 border-red-500' : indication.urgency === 'Monitor' ? 'bg-yellow-50 border-yellow-500' : 'bg-gray-50 border-gray-300'
+                      indication.urgency === 'High' ? 'bg-orange-50 border-orange-500' : indication.urgency === 'Monitor' ? 'bg-yellow-50 border-yellow-500' : 'bg-gray-50 border-gray-300'
                     }`}
                   >
                     <div className="flex items-start justify-between mb-2">
                       <h3 className="font-semibold text-gray-900">{indication.size}</h3>
                       <span
                         className={`text-xs px-2 py-1 rounded ${
-                          indication.urgency === 'High' ? 'bg-red-100 text-red-700' : indication.urgency === 'Monitor' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
+                          indication.urgency === 'High' ? 'bg-orange-100 text-orange-700' : indication.urgency === 'Monitor' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
                         }`}
                       >
                         {indication.urgency}

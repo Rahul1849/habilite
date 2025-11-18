@@ -51,7 +51,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
 
   const handleGetActualCost = () => {
     // Call Habilite number
-    window.location.href = 'tel:+919910024564'
+    window.location.href = 'tel:+919999456455'
   }
 
   const handleResendOtp = () => {
@@ -101,7 +101,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
         <form onSubmit={handleOtpSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 font-medium mb-2">
-              Enter OTP <span className="text-red-500">*</span>
+              Enter OTP <span className="text-[#0891b2]">*</span>
             </label>
             <input
               type="text"
@@ -163,7 +163,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
       <form onSubmit={handleFormSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700 font-medium mb-2">
-            Patient Name <span className="text-red-500">*</span>
+            Patient Name <span className="text-[#0891b2]">*</span>
           </label>
           <input
             type="text"
@@ -177,7 +177,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
         
         <div>
           <label className="block text-gray-700 font-medium mb-2">
-            Select Country <span className="text-red-500">*</span>
+            Select Country <span className="text-[#0891b2]">*</span>
           </label>
           <select
             value={formData.country}
@@ -196,7 +196,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
         
         <div>
           <label className="block text-gray-700 font-medium mb-2">
-            Mobile Number <span className="text-red-500">*</span>
+            Mobile Number <span className="text-[#0891b2]">*</span>
           </label>
           <input
             type="tel"

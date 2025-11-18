@@ -1,6 +1,9 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const laparoscopicServices = [
   {
@@ -27,9 +30,24 @@ const laparoscopicServices = [
     link: '/laparoscopic-surgery/rectal-prolapse-surgery',
     image: '/images/gerdhiatushernia-surgery-delhi.jpg',
   },
+  {
+    title: 'Pseudopancreatic Cyst Surgery in Delhi',
+    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for pseudopancreatic cyst treatment. He performs complex pseudocyst drainage and marsupialization procedures laparoscopically with excellent outcomes.',
+    link: '/laparoscopic-surgery/pseudopancreatic-cyst',
+    image: '/images/laparoscopic-surgery-delhi.jpg',
+  },
+  {
+    title: 'Achalasia Cardia Surgery in Delhi',
+    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for achalasia cardia treatment. He performs advanced laparoscopic Heller myotomy and fundoplication procedures with excellent outcomes.',
+    link: '/laparoscopic-surgery/achalasia-cardia',
+    image: '/images/laparoscopic-surgery-delhi.jpg',
+  },
 ]
 
 export default function LaparoscopicSurgeryPage() {
+  const [showAll, setShowAll] = useState(false)
+  const displayedServices = showAll ? laparoscopicServices : laparoscopicServices.slice(0, 4)
+
   return (
     <div className="pt-20 pb-16">
       <div className="bg-gray-50 py-16 border-b border-gray-200">
@@ -43,7 +61,7 @@ export default function LaparoscopicSurgeryPage() {
 
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {laparoscopicServices.map((service, index) => (
+          {displayedServices.map((service, index) => (
             <div
               key={index}
               className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -72,6 +90,18 @@ export default function LaparoscopicSurgeryPage() {
             </div>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white font-semibold rounded-lg hover:from-[#06b6d4] hover:to-[#22d3ee] transition-all duration-200 shadow-md hover:shadow-lg"
+            >
+              View All Services
+              <ChevronDown size={20} className="ml-2" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

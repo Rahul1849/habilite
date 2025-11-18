@@ -118,8 +118,8 @@ export default function Footer() {
               <a href="mailto:contact@habiliteclinics.com" className="inline-flex items-center gap-3 hover:text-primary-200 transition">
                 <Mail size={18} className="text-primary-400" /> contact@habiliteclinics.com
               </a>
-              <a href="tel:+919910024564" className="inline-flex items-center gap-3 hover:text-primary-200 transition">
-                <Phone size={18} className="text-primary-400" /> +91 99100 24564
+              <a href="tel:+919999456455" className="inline-flex items-center gap-3 hover:text-primary-200 transition">
+                <Phone size={18} className="text-primary-400" /> +91 99994 56455
               </a>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary-400 mt-0.5" />

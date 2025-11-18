@@ -4,7 +4,7 @@ import { Phone, Calendar, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 
 export default function MobileStickyFooter() {
-  const whatsappNumber = '919910024564'
+  const whatsappNumber = '919999456455'
   const whatsappMessage = encodeURIComponent('Hello, I would like to book an appointment with Dr. Kapil Agrawal.')
 
   return (
@@ -12,7 +12,7 @@ export default function MobileStickyFooter() {
       <div className="grid grid-cols-3 relative">
         {/* Call Button */}
         <a
-          href="tel:+919910024564"
+          href="tel:+919999456455"
           className="flex flex-col items-center justify-center py-3 px-2 bg-transparent hover:bg-[#0891b2]/20 text-white transition-all duration-200 active:bg-[#0891b2]/30 active:scale-95"
           aria-label="Call us"
         >

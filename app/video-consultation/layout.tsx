@@ -36,7 +36,7 @@ const videoConsultationSchema = {
     name: 'Dr. Kapil Agrawal',
     description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals.',
     url: 'https://www.habiliteclinics.com',
-    telephone: '+91-99100-24564',
+    telephone: '+91-99994-56455',
     medicalSpecialty: [
       'Laparoscopic Surgery',
       'Robotic Surgery',

@@ -195,7 +195,7 @@ export default async function DoctorDetailPage({ params }: Props) {
                 </div>
                 <div className="flex items-center text-gray-700">
                   <Phone className="mr-2 text-primary-500" size={20} />
-                  <span>+91 99100 24564</span>
+                  <span>+91 99994 56455</span>
                 </div>
                 <div className="text-2xl font-bold text-primary-600">
                   Consultation Fee: {doctor.consultationFee}

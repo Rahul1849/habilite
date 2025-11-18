@@ -375,11 +375,11 @@ export default function DoctorsPage() {
                   <Phone className="text-[#0891b2]" size={24} />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Contact</h4>
-                <a href="tel:+919910024564" className="text-gray-700 text-sm hover:text-[#0891b2] block">
-                  +91 99100 24564
-                </a>
                 <a href="tel:+919999456455" className="text-gray-700 text-sm hover:text-[#0891b2] block">
                   +91 99994 56455
+                </a>
+                <a href="tel:+919910024564" className="text-gray-700 text-sm hover:text-[#0891b2] block">
+                  +91 99100 24564
                 </a>
               </div>
               <div className="text-center md:text-left">

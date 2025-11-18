@@ -180,18 +180,18 @@ export default function InternationalPatientPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="tel:+919910024564"
-                className="flex items-center bg-white text-[#0891b2] px-6 py-3 rounded-lg font-bold hover:bg-cyan-50 transition-colors"
-              >
-                <Phone size={20} className="mr-2" />
-                +91 99100 24564
-              </a>
-              <a
                 href="tel:+919999456455"
                 className="flex items-center bg-white text-[#0891b2] px-6 py-3 rounded-lg font-bold hover:bg-cyan-50 transition-colors"
               >
                 <Phone size={20} className="mr-2" />
                 +91 99994 56455
+              </a>
+              <a
+                href="tel:+919910024564"
+                className="flex items-center bg-white text-[#0891b2] px-6 py-3 rounded-lg font-bold hover:bg-cyan-50 transition-colors"
+              >
+                <Phone size={20} className="mr-2" />
+                +91 99100 24564
               </a>
               <a
                 href="mailto:contact@habiliteclinics.com"

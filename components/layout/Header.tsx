@@ -67,6 +67,8 @@ export default function Header() {
         { href: '/laparoscopic-surgery/hernia-surgery', label: 'Hernia Surgery' },
         { href: '/laparoscopic-surgery/rectal-prolapse-surgery', label: 'Rectal Prolapse Surgery' },
         { href: '/laparoscopic-surgery/appendix-surgery', label: 'Appendix Surgery' },
+        { href: '/laparoscopic-surgery/pseudopancreatic-cyst', label: 'Pseudopancreatic Cyst' },
+        { href: '/laparoscopic-surgery/achalasia-cardia', label: 'Achalasia Cardia' },
       ]
     },
     { 
@@ -135,19 +137,19 @@ export default function Header() {
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-6 flex-shrink-0">
               <div className="flex items-center space-x-2 xl:space-x-4">
                 <a
-                  href="tel:+919910024564"
-                  className="flex items-center space-x-1 xl:space-x-2 text-gray-700 hover:text-[#f56336] transition-colors font-bold text-sm xl:text-base"
-                >
-                  <Phone size={18} className="xl:w-5 xl:h-5" />
-                  <span className="text-base xl:text-xl whitespace-nowrap">+91 99100 24564</span>
-                </a>
-                <span className="text-gray-400 hidden xl:inline">|</span>
-                <a
                   href="tel:+919999456455"
                   className="flex items-center space-x-1 xl:space-x-2 text-gray-700 hover:text-[#f56336] transition-colors font-bold text-sm xl:text-base"
                 >
                   <Phone size={18} className="xl:w-5 xl:h-5" />
                   <span className="text-base xl:text-xl whitespace-nowrap">+91 99994 56455</span>
+                </a>
+                <span className="text-gray-400 hidden xl:inline">|</span>
+                <a
+                  href="tel:+919910024564"
+                  className="flex items-center space-x-1 xl:space-x-2 text-gray-700 hover:text-[#f56336] transition-colors font-bold text-sm xl:text-base"
+                >
+                  <Phone size={18} className="xl:w-5 xl:h-5" />
+                  <span className="text-base xl:text-xl whitespace-nowrap">+91 99100 24564</span>
                 </a>
               </div>
               <Link 
@@ -288,20 +290,20 @@ export default function Header() {
               
               <div className="pt-4 border-t mt-4 space-y-3">
                 <a
-                  href="tel:+919910024564"
-                  className="flex items-center space-x-2 px-4 py-3.5 text-base text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Phone size={22} />
-                  <span>+91 99100 24564</span>
-                </a>
-                <a
                   href="tel:+919999456455"
                   className="flex items-center space-x-2 px-4 py-3.5 text-base text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <Phone size={22} />
                   <span>+91 99994 56455</span>
+                </a>
+                <a
+                  href="tel:+919910024564"
+                  className="flex items-center space-x-2 px-4 py-3.5 text-base text-gray-700 font-semibold hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Phone size={22} />
+                  <span>+91 99100 24564</span>
                 </a>
                 <Link
                   href="/appointment"

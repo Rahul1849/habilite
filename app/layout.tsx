@@ -108,13 +108,22 @@ const organizationSchema = {
     latitude: '28.5675',
     longitude: '77.2430',
   },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+91-99100-24564',
-    contactType: 'customer service',
-    areaServed: ['IN', 'Delhi', 'Delhi NCR', 'Noida', 'Gurgaon'],
-    availableLanguage: ['English', 'Hindi'],
-  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-99994-56455',
+      contactType: 'customer service',
+      areaServed: ['IN', 'Delhi', 'Delhi NCR', 'Noida', 'Gurgaon'],
+      availableLanguage: ['English', 'Hindi'],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-99100-24564',
+      contactType: 'support',
+      areaServed: ['IN', 'Delhi', 'Delhi NCR', 'Noida', 'Gurgaon'],
+      availableLanguage: ['English', 'Hindi'],
+    },
+  ],
   sameAs: [
     'https://www.facebook.com/habiliteclinics',
     'https://www.twitter.com/habiliteclinics',
@@ -129,7 +138,7 @@ const localBusinessSchema = {
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
   '@id': 'https://www.habiliteclinics.com',
   url: 'https://www.habiliteclinics.com',
-  telephone: '+91-99100-24564',
+  telephone: '+91-99994-56455',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',

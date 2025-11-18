@@ -149,7 +149,7 @@ export default function CBDStonesPage() {
                 obstruct the flow of bile. These are referred to as common bile duct stones or secondary stones. Less commonly, the stones may
                 form directly in the duct (primary stones).
               </p>
-              <div className="bg-red-50 border-l-4 border-red-500 rounded-lg p-5 text-gray-800 font-semibold">
+              <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-5 text-gray-800 font-semibold">
                 The obstruction to the flow of bile can lead to severe complications such as jaundice, biliary infections, or pancreatitis.
               </div>
             </section>
@@ -215,7 +215,7 @@ export default function CBDStonesPage() {
                   { title: 'Persistent Jaundice', desc: 'Long-term yellowing of skin and eyes' },
                   { title: 'Malnutrition', desc: 'Due to impaired bile flow and digestion' },
                 ].map((item) => (
-                  <div key={item.title} className="bg-red-50 border border-red-100 rounded-lg p-4">
+                  <div key={item.title} className="bg-orange-50 border border-orange-100 rounded-lg p-4">
                     <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
                     <p className="text-gray-700 text-sm">{item.desc}</p>
                   </div>

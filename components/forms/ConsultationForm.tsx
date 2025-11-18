@@ -104,8 +104,8 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
             <div className="text-sm text-blue-800 text-left">
               <p className="font-semibold mb-1">Need immediate assistance?</p>
               <p className="text-blue-700">
-                Call us at <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a> or{' '}
-                <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a>
+                Call us at <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a> or{' '}
+                <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a>
               </p>
             </div>
           </div>

@@ -7,7 +7,7 @@ interface WhatsAppExpertChatProps {
 }
 
 export default function WhatsAppExpertChat({ serviceName }: WhatsAppExpertChatProps) {
-  const whatsappNumber = '919910024564'
+  const whatsappNumber = '919999456455'
   const defaultMessage = serviceName 
     ? `Hello, I would like to know more about ${serviceName} and chat with an expert.`
     : 'Hello, I would like to chat with an expert about my treatment options.'

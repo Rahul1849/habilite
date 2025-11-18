@@ -378,10 +378,10 @@ export default function VideoConsultationPage() {
                   </div>
 
                   {/* Mandatory Payment Notice */}
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
+                  <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4">
                     <div className="flex items-start gap-3">
-                      <CreditCard className="text-red-600 mt-0.5 flex-shrink-0" size={20} />
-                      <div className="text-sm text-red-800">
+                      <CreditCard className="text-amber-600 mt-0.5 flex-shrink-0" size={20} />
+                      <div className="text-sm text-amber-800">
                         <p className="font-semibold mb-1">Payment is Mandatory</p>
                         <p>Your video consultation slot will only be confirmed after successful payment. The video call link will be sent to your email and phone number.</p>
                       </div>
@@ -454,8 +454,8 @@ export default function VideoConsultationPage() {
               {/* Payment Failed */}
               {paymentStatus === 'failed' && (
                 <div className="text-center py-8 animate-fade-in">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <X className="text-red-600" size={32} />
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <X className="text-orange-600" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Failed</h3>
                   <p className="text-gray-600 mb-6">Please try again. Payment is required to confirm your video consultation.</p>
@@ -551,8 +551,8 @@ export default function VideoConsultationPage() {
                   <div className="text-sm text-blue-800 text-left">
                     <p className="font-semibold mb-1">Need to reschedule?</p>
                     <p className="text-blue-700">
-                      Call us at <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a> or{' '}
-                      <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a>
+                      Call us at <a href="tel:+919999456455" className="font-bold underline">+91 99994 56455</a> or{' '}
+                      <a href="tel:+919910024564" className="font-bold underline">+91 99100 24564</a>
                     </p>
                   </div>
                 </div>

@@ -27,6 +27,18 @@ const laparoscopicServices = [
     link: '/laparoscopic-surgery/rectal-prolapse-surgery',
     image: '/images/gerdhiatushernia-surgery-delhi.jpg',
   },
+  {
+    title: 'Pseudopancreatic Cyst Surgery in Delhi',
+    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for pseudopancreatic cyst treatment. He performs complex pseudocyst drainage and marsupialization procedures laparoscopically with excellent outcomes.',
+    link: '/laparoscopic-surgery/pseudopancreatic-cyst',
+    image: '/images/laparoscopic-surgery-delhi.jpg',
+  },
+  {
+    title: 'Achalasia Cardia Surgery in Delhi',
+    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for achalasia cardia treatment. He performs advanced laparoscopic Heller myotomy and fundoplication procedures with excellent outcomes.',
+    link: '/laparoscopic-surgery/achalasia-cardia',
+    image: '/images/laparoscopic-surgery-delhi.jpg',
+  },
 ]
 
 export default function LaparoscopicServices() {
@@ -45,7 +57,7 @@ export default function LaparoscopicServices() {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {laparoscopicServices.map((service, index) => (
+          {laparoscopicServices.slice(0, 4).map((service, index) => (
             <div
               key={index}
               className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -73,6 +85,16 @@ export default function LaparoscopicServices() {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-8">
+          <Link
+            href="/laparoscopic-surgery"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white font-semibold rounded-lg hover:from-[#06b6d4] hover:to-[#22d3ee] transition-all duration-200 shadow-md hover:shadow-lg"
+          >
+            View All Services
+            <ArrowRight size={20} className="ml-2" />
+          </Link>
         </div>
       </div>
     </section>

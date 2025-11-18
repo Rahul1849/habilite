@@ -91,7 +91,7 @@ const homePageSchema = {
   name: 'Dr. Kapil Agrawal',
   description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
   url: 'https://www.habiliteclinics.com',
-  telephone: '+91-99100-24564',
+  telephone: '+91-99994-56455',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
   address: {
     '@type': 'PostalAddress',
@@ -411,10 +411,10 @@ export default function HomePage() {
       <Hero />
       <MeetDoctor />
       <EducationAffiliations />
-      <CareerHighlightsAndServices />
       <LaparoscopicServices />
       <BariatricServices />
       <LaserServices />
+      <CareerHighlightsAndServices />
       <WhyChoose />
       <TestimonialsSlider />
       <FAQ />

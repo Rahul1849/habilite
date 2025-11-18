@@ -270,11 +270,11 @@ export default function BMICalculatorPage() {
                       <td className="border border-gray-300 px-3 py-2 text-gray-700">27.5 - 32.5</td>
                       <td className="border border-gray-300 px-3 py-2 text-gray-700">Obese</td>
                     </tr>
-                    <tr className="bg-red-50">
+                    <tr className="bg-orange-50">
                       <td className="border border-gray-300 px-3 py-2 text-gray-700">32.5 - 37.5</td>
                       <td className="border border-gray-300 px-3 py-2 text-gray-700">Severely obese</td>
                     </tr>
-                    <tr className="bg-red-100">
+                    <tr className="bg-orange-100">
                       <td className="border border-gray-300 px-3 py-2 text-gray-700">37.5 and over</td>
                       <td className="border border-gray-300 px-3 py-2 text-gray-700">Morbidly obese</td>
                     </tr>

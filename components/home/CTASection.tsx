@@ -21,14 +21,14 @@ export default function CTASection() {
             Book Appointment
           </Link>
           <Link
-            href="tel:+919910024564"
+            href="tel:+919999456455"
             className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-semibold px-8 py-4 rounded transition-all duration-200 inline-flex items-center text-lg"
           >
             <Phone className="mr-2" size={22} />
             Call Us Now
           </Link>
           <Link
-            href={`https://wa.me/919910024564?text=${encodeURIComponent('Hello, I would like to book an appointment.')}`}
+            href={`https://wa.me/919999456455?text=${encodeURIComponent('Hello, I would like to book an appointment.')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold px-8 py-4 rounded transition-colors duration-200 inline-flex items-center text-lg"

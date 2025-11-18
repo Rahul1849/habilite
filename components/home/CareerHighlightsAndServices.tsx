@@ -23,23 +23,23 @@ const careerHighlights = [
 ]
 
 const treatments = [
-  'Laparoscopic Gallbladder Surgery',
-  'Laparoscopic Hernia Surgery',
-  'Laparoscopic Appendix Surgery',
-  'Laparoscopic Rectal Prolapse Surgery',
-  'Robotic Surgery',
-  'Bariatric Surgery',
-  'Non-Surgical Weight Loss Program',
-  'Surgery for Diabetes',
-  'IntraGastric Balloon',
-  'Allurion Balloon',
-  'Spatz Balloon',
-  'Laser Hemorrhoids / Piles Surgery',
-  'Laser Anal Fistula Surgery',
-  'Laser Pilonidal Sinus Surgery',
-  'Laser Anal Fissure Surgery',
-  'Laser Lipoma Surgery',
-  'Laser Circumcision',
+  { label: 'Laparoscopic Gallbladder Surgery', href: '/laparoscopic-surgery/gallbladder-surgery' },
+  { label: 'Laparoscopic Hernia Surgery', href: '/laparoscopic-surgery/hernia-surgery' },
+  { label: 'Laparoscopic Appendix Surgery', href: '/laparoscopic-surgery/appendix-surgery' },
+  { label: 'Laparoscopic Rectal Prolapse Surgery', href: '/laparoscopic-surgery/rectal-prolapse-surgery' },
+  { label: 'Robotic Surgery', href: '/laparoscopic-surgery' },
+  { label: 'Bariatric Surgery', href: '/bariatrics/bariatric-surgery' },
+  { label: 'Non-Surgical Weight Loss Program', href: '/bariatrics/non-surgical-weight-loss' },
+  { label: 'Surgery for Diabetes', href: '/bariatrics/surgery-for-diabetes' },
+  { label: 'IntraGastric Balloon', href: '/bariatrics/intragastric-balloon' },
+  { label: 'Allurion Balloon', href: '/bariatrics/allurion-balloon' },
+  { label: 'Spatz Balloon', href: '/bariatrics/spatz-balloon' },
+  { label: 'Laser Hemorrhoids / Piles Surgery', href: '/laser-surgery/hemorrhoids-piles' },
+  { label: 'Laser Anal Fistula Surgery', href: '/laser-surgery/anal-fistula' },
+  { label: 'Laser Pilonidal Sinus Surgery', href: '/laser-surgery/pilonidal-sinus' },
+  { label: 'Laser Anal Fissure Surgery', href: '/laser-surgery/anal-fissure' },
+  { label: 'Laser Lipoma Surgery', href: '/laser-surgery/lipoma' },
+  { label: 'Laser Circumcision', href: '/laser-surgery/circumcision' },
 ]
 
 function AppointmentForm() {
@@ -235,18 +235,18 @@ function AppointmentForm() {
             <p className="text-xs text-gray-600 mb-2 font-semibold">Or call us today!</p>
             <div className="flex flex-col gap-2">
               <a
-                href="tel:+919910024564"
-                className="flex items-center text-sm font-bold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
-              >
-                <Phone size={16} className="mr-2" />
-                +91 99100 24564
-              </a>
-              <a
                 href="tel:+919999456455"
                 className="flex items-center text-sm font-bold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
               >
                 <Phone size={16} className="mr-2" />
                 +91 99994 56455
+              </a>
+              <a
+                href="tel:+919910024564"
+                className="flex items-center text-sm font-bold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
+              >
+                <Phone size={16} className="mr-2" />
+                +91 99100 24564
               </a>
             </div>
           </div>
@@ -303,7 +303,12 @@ export default function CareerHighlightsAndServices() {
                   <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-full p-1.5 mr-3 mt-1 flex-shrink-0">
                     <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                   </div>
-                  <span className="text-sm sm:text-base text-gray-700 break-words">{treatment}</span>
+                  <Link
+                    href={treatment.href}
+                    className="text-sm sm:text-base text-[#f56336] hover:text-[#ff8c5a] font-semibold transition-colors break-words focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff8c5a]"
+                  >
+                    {treatment.label}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -9,6 +9,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import Link from 'next/link'
 import GallbladderFAQ from './GallbladderFAQ'
 import GallbladderTestimonials from './GallbladderTestimonials'
+import { blogPosts } from '@/data/blog'
 
 export const metadata: Metadata = {
   title: 'Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries',
@@ -242,6 +243,9 @@ const serviceSchema = {
 }
 
 export default function GallbladderSurgeryPage() {
+  const gallbladderBlogs = blogPosts
+    .filter((post) => post.category.toLowerCase().includes('gall') || post.tags.some((tag) => tag.toLowerCase().includes('gall')))
+    .slice(0, 3)
 
   return (
     <>
@@ -372,27 +376,27 @@ export default function GallbladderSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 According to Dr. Kapil Agrawal, the best doctor for gallbladder surgery, there are no noticeable symptoms of gallstones in many cases. When small stones restrict flow of bile juice, they can result in biliary colic—identified by sudden upper abdominal pain, nausea, and digestive discomfort.
               </p>
-              <div className="bg-red-50 border-l-4 border-red-500 rounded-lg p-6 mb-4">
+              <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6 mb-4">
                 <h3 className="font-semibold text-gray-900 mb-3">Few identifying symptoms are as follows:</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-red-600 mr-2 mt-1 flex-shrink-0" size={18} />
+                    <CheckCircle2 className="text-amber-600 mr-2 mt-1 flex-shrink-0" size={18} />
                     <span><strong>Abdominal Pain:</strong> Pain can be in the right upper abdomen, central referred to back or general all over the abdomen.</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-red-600 mr-2 mt-1 flex-shrink-0" size={18} />
+                    <CheckCircle2 className="text-amber-600 mr-2 mt-1 flex-shrink-0" size={18} />
                     <span><strong>Nausea or Vomiting:</strong> These symptoms can be generated as the stones block the ducts.</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-red-600 mr-2 mt-1 flex-shrink-0" size={18} />
+                    <CheckCircle2 className="text-amber-600 mr-2 mt-1 flex-shrink-0" size={18} />
                     <span><strong>Bloating of the Abdomen:</strong> Gallstones can result in symptoms like indigestion that further led to formation and accumulation of gases in your intestines, resulting in abdominal bloating.</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-red-600 mr-2 mt-1 flex-shrink-0" size={18} />
+                    <CheckCircle2 className="text-amber-600 mr-2 mt-1 flex-shrink-0" size={18} />
                     <span><strong>Jaundice:</strong> A yellowish tinge in your eyes and urine, which occurs when stones outflow from the gallbladder into main ducts, blocking bile flow.</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle2 className="text-red-600 mr-2 mt-1 flex-shrink-0" size={18} />
+                    <CheckCircle2 className="text-amber-600 mr-2 mt-1 flex-shrink-0" size={18} />
                     <span><strong>High-grade Fever with Chills:</strong> Fever and shivers or chills may be a sign of infection in the gallbladder including that in either central bile duct.</span>
                   </li>
                 </ul>
@@ -546,6 +550,51 @@ export default function GallbladderSurgeryPage() {
           <div className="max-w-5xl mx-auto space-y-12">
             <GallbladderTestimonials />
             <GallbladderFAQ />
+            {gallbladderBlogs.length > 0 && (
+              <section>
+                <div className="flex items-center mb-6">
+                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Latest Gallbladder Blogs</h2>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base">
+                      Expert advice on gallstones, recovery diets, and minimally invasive surgery options
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {gallbladderBlogs.map((post) => (
+                    <Link
+                      key={post.id}
+                      href={`/post/${post.slug}`}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                    >
+                      <div className="relative h-40 overflow-hidden">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          loading="lazy"
+                          quality={80}
+                        />
+                      </div>
+                      <div className="p-5">
+                        <div className="text-xs text-[#0891b2] font-semibold mb-2">{post.category}</div>
+                        <h3 className="text-base font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <span>{new Date(post.publishedDate).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                          <span>By {post.author}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
             <section className="bg-gray-50 rounded-xl p-6">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
               <div className="space-y-3">
