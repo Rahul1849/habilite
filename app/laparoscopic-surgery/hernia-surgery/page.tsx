@@ -383,7 +383,7 @@ export default function HerniaSurgeryPage() {
                   {
                     title: 'Gallbladder Surgery',
                     description: 'Painless laparoscopic cholecystectomy for gallstones with 24-hour discharge.',
-                    href: '/laparoscopic-surgery/gallbladder-surgery',
+                    href: '/best-gallbladder-stone-surgeon-delhi',
                   },
                   {
                     title: 'Appendix Surgery',

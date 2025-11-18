@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
     description: 'Expert laparoscopic and robotic gallbladder surgeon in Delhi. 7000+ successful surgeries. Painless surgery, fast recovery, 24-hour discharge. Book consultation.',
-    url: 'https://www.habiliteclinics.com/laparoscopic-surgery/gallbladder-surgery',
+    url: 'https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi',
     images: [
       {
         url: 'https://www.habiliteclinics.com/images/gallbladder-surgeon-delhi-india.webp',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/laparoscopic-surgery/gallbladder-surgery',
+    canonical: 'https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi',
   },
 }
 
@@ -212,7 +212,7 @@ const physicianSchema = {
   name: 'Dr. Kapil Agrawal',
   jobTitle: 'Best Gallbladder Surgeon in Delhi',
   description: 'Expert laparoscopic and robotic gallbladder surgeon with 23+ years of experience and 7000+ successful gallbladder surgeries.',
-  url: 'https://www.habiliteclinics.com/laparoscopic-surgery/gallbladder-surgery',
+  url: 'https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.jpg',
   medicalSpecialty: 'Laparoscopic Surgery, Gallbladder Surgery, Cholecystectomy',
   knowsAbout: ['Laparoscopic Cholecystectomy', 'Robotic Gallbladder Surgery', 'Single Port Surgery', 'Gallbladder Stone Removal'],

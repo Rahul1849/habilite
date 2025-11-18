@@ -9,7 +9,7 @@ const laparoscopicServices = [
   {
     title: 'Leading Gallbladder Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is one of the topmost and leading gallbladder stone removal surgeon in Delhi and India. He is offering robotic, single-port, and traditional laparoscopic cholecystectomies for the management of gallbladder stones.',
-    link: '/laparoscopic-surgery/gallbladder-surgery',
+    link: '/best-gallbladder-stone-surgeon-delhi',
     image: '/images/gallbladder-surgery-delhi.jpg',
   },
   {

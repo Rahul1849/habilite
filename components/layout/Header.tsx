@@ -60,10 +60,9 @@ export default function Header() {
 
   const mainNavLinks = [
     { 
-      href: '/laparoscopic-surgery', 
       label: 'Laparoscopic Surgery',
       submenu: [
-        { href: '/laparoscopic-surgery/gallbladder-surgery', label: 'Gallbladder Surgery' },
+        { href: '/best-gallbladder-stone-surgeon-delhi', label: 'Gallbladder Surgery' },
         { href: '/laparoscopic-surgery/hernia-surgery', label: 'Hernia Surgery' },
         { href: '/laparoscopic-surgery/rectal-prolapse-surgery', label: 'Rectal Prolapse Surgery' },
         { href: '/laparoscopic-surgery/appendix-surgery', label: 'Appendix Surgery' },
@@ -72,7 +71,6 @@ export default function Header() {
       ]
     },
     { 
-      href: '/laser-surgery', 
       label: 'Laser Surgery',
       submenu: [
         { href: '/laser-surgery/hemorrhoids-piles', label: 'Hemorrhoids / Piles' },
@@ -84,7 +82,6 @@ export default function Header() {
       ]
     },
     { 
-      href: '/bariatrics', 
       label: 'Bariatrics',
       submenu: [
         { href: '/bariatrics/bariatric-surgery', label: 'Bariatric Surgery' },
@@ -176,21 +173,38 @@ export default function Header() {
             <nav className="flex items-center pt-5 pb-5 space-x-1 xl:space-x-2 relative overflow-visible">
               {mainNavLinks.map((link) => (
                 <div
-                  key={link.href}
+                  key={link.label}
                   className="relative group flex-shrink-0"
                   onMouseEnter={() => link.submenu && handleDropdownEnter(link.label)}
                   onMouseLeave={() => link.submenu && handleDropdownLeave()}
                 >
-                  <Link
-                    href={link.href}
-                    className="px-3 xl:px-5 py-2.5 text-[#0891b2] hover:text-[#06b6d4] font-semibold text-sm xl:text-base transition-colors duration-200 relative flex items-center whitespace-nowrap"
-                  >
-                    {link.label}
-                    {link.submenu && (
-                      <ChevronDown size={14} className={`xl:w-4 xl:h-4 ml-1 transition-transform duration-200 ${activeDropdown === link.label ? 'rotate-180' : ''}`} />
-                    )}
-                    <span className="absolute bottom-0 left-3 xl:left-5 right-3 xl:right-5 h-0.5 bg-[#0891b2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-                  </Link>
+                  {link.submenu ? (
+                    <button
+                      type="button"
+                      className="px-3 xl:px-5 py-2.5 text-[#0891b2] hover:text-[#06b6d4] font-semibold text-sm xl:text-base transition-colors duration-200 relative flex items-center whitespace-nowrap focus:outline-none"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleDropdownEnter(link.label)
+                      }}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={14}
+                        className={`xl:w-4 xl:h-4 ml-1 transition-transform duration-200 ${
+                          activeDropdown === link.label ? 'rotate-180' : ''
+                        }`}
+                      />
+                      <span className="absolute bottom-0 left-3 xl:left-5 right-3 xl:right-5 h-0.5 bg-[#0891b2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="px-3 xl:px-5 py-2.5 text-[#0891b2] hover:text-[#06b6d4] font-semibold text-sm xl:text-base transition-colors duration-200 relative flex items-center whitespace-nowrap"
+                    >
+                      {link.label}
+                      <span className="absolute bottom-0 left-3 xl:left-5 right-3 xl:right-5 h-0.5 bg-[#0891b2] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+                    </Link>
+                  )}
                   
                   {/* Dropdown Menu */}
                   {link.submenu && (
@@ -243,7 +257,7 @@ export default function Header() {
               {/* Main Navigation */}
               <div className="text-base font-semibold text-gray-500 mb-3">Main Menu</div>
               {mainNavLinks.map((link) => (
-                <div key={link.href} className="mb-1">
+                <div key={link.label} className="mb-1">
                   {link.submenu ? (
                     <>
                       <button
@@ -275,7 +289,7 @@ export default function Header() {
                     </>
                   ) : (
                     <Link
-                      href={link.href}
+                      href={link.href || '#'}
                       className="block px-4 py-3 text-base text-[#0891b2] hover:bg-cyan-50 hover:text-[#06b6d4] rounded-md font-semibold transition-colors"
                       onClick={() => {
                         setIsOpen(false)

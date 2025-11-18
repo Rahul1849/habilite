@@ -36,7 +36,7 @@ const careerHighlights = [
 ]
 
 const treatments = [
-  { label: 'Laparoscopic Gallbladder Surgery', href: '/laparoscopic-surgery/gallbladder-surgery' },
+  { label: 'Laparoscopic Gallbladder Surgery', href: '/best-gallbladder-stone-surgeon-delhi' },
   { label: 'Laparoscopic Hernia Surgery', href: '/laparoscopic-surgery/hernia-surgery' },
   { label: 'Laparoscopic Appendix Surgery', href: '/laparoscopic-surgery/appendix-surgery' },
   { label: 'Laparoscopic Rectal Prolapse Surgery', href: '/laparoscopic-surgery/rectal-prolapse-surgery' },
