@@ -14,40 +14,23 @@ export default function Hero() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-          {/* Left: Doctor Image - Desktop */}
-          <div className="hidden lg:block order-2">
-            <div className="relative w-full max-w-md mx-auto flex justify-center">
-              <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/80 ring-4 ring-white/30">
-                <Image
-                  src="/images/dr.png"
-                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1280px) 320px, 384px"
-                    priority
-                    quality={80}
-                />
-              </div>
+          {/* Doctor Image */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/70 ring-4 ring-white/20">
+              <Image
+                src="/images/dr.png"
+                alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 640px) 180px, (max-width: 1024px) 220px, 384px"
+                priority
+                quality={70}
+              />
             </div>
           </div>
 
-          {/* Right: Content */}
-          <div className="text-center lg:text-left order-1 space-y-4 sm:space-y-5 lg:space-y-6">
-            {/* Doctor Image - Mobile/Tablet */}
-            <div className="mb-6 sm:mb-8 lg:hidden flex justify-center">
-              <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/50">
-                <Image
-                  src="/images/dr.png"
-                  alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India. Expert surgeon with 23 years experience and 7000+ successful surgeries."
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 640px) 160px, 192px"
-                    priority
-                    quality={80}
-                />
-              </div>
-            </div>
-
+          {/* Content */}
+          <div className="text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-5 lg:space-y-6">
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight sm:leading-tight text-gray-900 break-words px-2 sm:px-0">
                 Dr. <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Kapil Agrawal</span>

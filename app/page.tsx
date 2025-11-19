@@ -410,15 +410,33 @@ export default function HomePage() {
       )}
       <Hero />
       <MeetDoctor />
-      <EducationAffiliations />
-      <LaparoscopicServices />
-      <BariatricServices />
-      <LaserServices />
-      <CareerHighlightsAndServices />
-      <WhyChoose />
-      <TestimonialsSlider />
-      <FAQ />
-      <BlogPreview />
+      <div className="defer-section">
+        <EducationAffiliations />
+      </div>
+      <div className="defer-section">
+        <LaparoscopicServices />
+      </div>
+      <div className="defer-section">
+        <BariatricServices />
+      </div>
+      <div className="defer-section">
+        <LaserServices />
+      </div>
+      <div className="defer-section">
+        <CareerHighlightsAndServices />
+      </div>
+      <div className="defer-section">
+        <WhyChoose />
+      </div>
+      <div className="defer-section">
+        <TestimonialsSlider />
+      </div>
+      <div className="defer-section">
+        <FAQ />
+      </div>
+      <div className="defer-section">
+        <BlogPreview />
+      </div>
     </>
   )
 }

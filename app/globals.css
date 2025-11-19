@@ -70,6 +70,11 @@
     text-wrap: balance;
   }
 
+  .defer-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
