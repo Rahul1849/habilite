@@ -296,11 +296,11 @@ export default function PilonidalSinusPage() {
                     <p className="font-semibold text-gray-900 mb-2 text-sm">Treatment:</p>
                     <ul className="space-y-1 text-sm text-gray-700">
                       <li className="flex items-start">
-                        <CheckCircle2 className="text-orange-600 mr-2 mt-1 flex-shrink-0" size={16} />
+                        <CheckCircle2 className="text-[#0891b2] mr-2 mt-1 flex-shrink-0" size={16} />
                         <span>Laser surgery (SiLaC procedure, LA-EPSIT procedure) is highly effective for treating such a condition</span>
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle2 className="text-orange-600 mr-2 mt-1 flex-shrink-0" size={16} />
+                        <CheckCircle2 className="text-[#0891b2] mr-2 mt-1 flex-shrink-0" size={16} />
                         <span>Sometimes flap based repairs are advised for extensive disease</span>
                       </li>
                     </ul>
@@ -314,11 +314,11 @@ export default function PilonidalSinusPage() {
                     <p className="font-semibold text-gray-900 mb-2 text-sm">Management:</p>
                     <ul className="space-y-1 text-sm text-gray-700">
                       <li className="flex items-start">
-                        <CheckCircle2 className="text-orange-600 mr-2 mt-1 flex-shrink-0" size={16} />
+                        <CheckCircle2 className="text-[#0891b2] mr-2 mt-1 flex-shrink-0" size={16} />
                         <span>The best way to prevent or lower the recurrence rate is the early and timely intervention of the primary disease</span>
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle2 className="text-orange-600 mr-2 mt-1 flex-shrink-0" size={16} />
+                        <CheckCircle2 className="text-[#0891b2] mr-2 mt-1 flex-shrink-0" size={16} />
                         <span>A flap-based repair (cleft lift repair, Limburg flap repair) is done in complex, recurrent pilonidal disease</span>
                       </li>
                     </ul>

@@ -50,8 +50,8 @@ export default function Header() {
 
   const topNavLinks = [
     { href: '/', label: 'Home' },
-    { href: '/doctors', label: 'About Doctor' },
-    { href: '/about', label: 'About Clinic' },
+    { href: '/dr-kapil-agrawal', label: 'About Doctor' },
+    { href: '/habilite-clinic', label: 'About Clinic' },
     { href: '/awards', label: 'Awards' },
     { href: '/testimonials', label: 'Testimonials' },
     { href: '/international-patient', label: 'International Patient' },
@@ -63,31 +63,30 @@ export default function Header() {
       label: 'Laparoscopic Surgery',
       submenu: [
         { href: '/best-gallbladder-stone-surgeon-delhi', label: 'Gallbladder Surgery' },
-        { href: '/laparoscopic-surgery/hernia-surgery', label: 'Hernia Surgery' },
-        { href: '/laparoscopic-surgery/rectal-prolapse-surgery', label: 'Rectal Prolapse Surgery' },
-        { href: '/laparoscopic-surgery/appendix-surgery', label: 'Appendix Surgery' },
-        { href: '/laparoscopic-surgery/pseudopancreatic-cyst', label: 'Pseudopancreatic Cyst' },
-        { href: '/laparoscopic-surgery/achalasia-cardia', label: 'Achalasia Cardia' },
+        { href: '/best-hernia-surgeon-in-delhi', label: 'Hernia Surgery' },
+        { href: '/best-hiatus-hernia-surgeon-in-delhi', label: 'GERD & Hiatus Surgery' },
+        { href: '/best-rectal-prolapse-surgeon-in-delhi', label: 'Rectal Prolapse Surgery' },
+        { href: '/best-appendix-surgeon-in-delhi', label: 'Appendix Surgery' },
       ]
     },
     { 
       label: 'Laser Surgery',
       submenu: [
-        { href: '/laser-surgery/hemorrhoids-piles', label: 'Hemorrhoids / Piles' },
-        { href: '/laser-surgery/anal-fistula', label: 'Anal Fistula' },
-        { href: '/laser-surgery/pilonidal-sinus', label: 'Pilonidal Sinus' },
+        { href: '/best-laser-piles-surgeon-in-delhi', label: 'Hemorrhoids / Piles' },
+        { href: '/best-laser-fistula-treatment', label: 'Anal Fistula' },
+        { href: '/best-laser-pilonidal-sinus-treatment', label: 'Pilonidal Sinus' },
         { href: '/laser-surgery/anal-fissure', label: 'Anal Fissure' },
-        { href: '/laser-surgery/lipoma', label: 'Lipoma' },
-        { href: '/laser-surgery/circumcision', label: 'Circumcision' },
+        { href: '/lipoma-treatment', label: 'Lipoma' },
+        { href: '/laser-zsr-circumcision', label: 'Circumcision' },
       ]
     },
     { 
       label: 'Bariatrics',
       submenu: [
-        { href: '/bariatrics/bariatric-surgery', label: 'Bariatric Surgery' },
-        { href: '/bariatrics/non-surgical-weight-loss', label: 'Non-Surgical Weight Loss Program' },
-        { href: '/bariatrics/surgery-for-diabetes', label: 'Surgery for Diabetes' },
-        { href: '/bariatrics/intragastric-balloon', label: 'IntraGastric Balloon' },
+        { href: '/bariatric-surgeon-in-delhi-india', label: 'Bariatric Surgery' },
+            { href: '/medical-weight-loss-program', label: 'Non-Surgical Weight Loss Program' },
+        { href: '/surgery-for-diabetes', label: 'Surgery for Diabetes' },
+        { href: '/endoscopic-intra-gastric-balloon', label: 'IntraGastric Balloon' },
       ]
     },
     { href: '/contact', label: 'Contact Us' },

@@ -15,32 +15,20 @@ const laparoscopicServices = [
   {
     title: 'Expert Hernia Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is a well-known hernia specialist surgeon in Delhi and India who is offering a complete range of hernia surgeries. He performs laparoscopic and robotic hernia repair with excellent outcomes.',
-    link: '/laparoscopic-surgery/hernia-surgery',
+    link: '/best-hernia-surgeon-in-delhi',
     image: '/images/hernia-surgery-delhi.jpg',
   },
   {
     title: 'Appendicitis Surgeon in Delhi',
     description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for appendicitis. He has performed some of the most difficult appendicectomies laparoscopically with excellent outcomes.',
-    link: '/laparoscopic-surgery/appendix-surgery',
+    link: '/best-appendix-surgeon-in-delhi',
     image: '/images/appendix-surgery-delhi.jpg',
   },
   {
-    title: 'GERD & Hiatus Hernia Treatment in Delhi',
-    description: 'Dr Kapil Agrawal performs advanced laparoscopic and robotic surgeries for the management of hiatus hernia and gastro-oesophageal reflux disease, who fails to respond to medical management.',
-    link: '/laparoscopic-surgery/rectal-prolapse-surgery',
-    image: '/images/gerdhiatushernia-surgery-delhi.jpg',
-  },
-  {
-    title: 'Pseudopancreatic Cyst Surgery in Delhi',
-    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for pseudopancreatic cyst treatment. He performs complex pseudocyst drainage and marsupialization procedures laparoscopically with excellent outcomes.',
-    link: '/laparoscopic-surgery/pseudopancreatic-cyst',
-    image: '/images/laparoscopic-surgery-delhi.jpg',
-  },
-  {
-    title: 'Achalasia Cardia Surgery in Delhi',
-    description: 'Dr Kapil Agrawal is one of the best laparoscopic surgeons for achalasia cardia treatment. He performs advanced laparoscopic Heller myotomy and fundoplication procedures with excellent outcomes.',
-    link: '/laparoscopic-surgery/achalasia-cardia',
-    image: '/images/laparoscopic-surgery-delhi.jpg',
+    title: 'GERD & Hiatus Hernia Surgery in Delhi',
+    description: 'Dedicated reflux management program offering diagnostics, laparoscopic repair, robotic assistance, and guided recovery.',
+    link: '/best-hiatus-hernia-surgeon-in-delhi',
+    image: '/images/gerd-hiatus-hernia-surgery-delhi.webp',
   },
 ]
 
@@ -91,7 +79,7 @@ export default function LaparoscopicSurgeryPage() {
           ))}
         </div>
 
-        {!showAll && (
+        {!showAll && laparoscopicServices.length > 4 && (
           <div className="text-center mt-8">
             <button
               onClick={() => setShowAll(true)}

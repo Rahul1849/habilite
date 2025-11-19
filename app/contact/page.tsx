@@ -40,9 +40,9 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                   <p className="text-gray-600">
                     Habilite Clinics<br />
-                    M 11, Block M, Lajpat Nagar Road<br />
-                    Lajpat Nagar 2, Lajpat Nagar<br />
-                    New Delhi, Delhi 110024
+                    M-11, Block M, Lajpat Nagar Road<br />
+                    Lajpat Nagar II, New Delhi – 110024<br />
+                    Delhi, India
                   </p>
                 </div>
               </div>
@@ -73,9 +73,9 @@ export default function ContactPage() {
                     contact@habiliteclinics.com
                   </a>
                   <br />
-                  <a href="mailto:appointments@habiliteclinics.com" className="text-primary-600 hover:text-primary-700">
+                  {/* <a href="mailto:appointments@habiliteclinics.com" className="text-primary-600 hover:text-primary-700">
                     appointments@habiliteclinics.com
-                  </a>
+                  </a> */}
                 </div>
               </div>
 

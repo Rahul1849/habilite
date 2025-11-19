@@ -455,7 +455,7 @@ export default function VideoConsultationPage() {
               {paymentStatus === 'failed' && (
                 <div className="text-center py-8 animate-fade-in">
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <X className="text-orange-600" size={32} />
+                    <X className="text-[#0891b2]" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Failed</h3>
                   <p className="text-gray-600 mb-6">Please try again. Payment is required to confirm your video consultation.</p>

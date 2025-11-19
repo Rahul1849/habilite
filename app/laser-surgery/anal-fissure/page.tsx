@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { CheckCircle2, Clock, User } from 'lucide-react'
+import { Award, CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
@@ -56,6 +56,10 @@ export default function AnalFissurePage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Anal Fissure Treatment in <span className="text-[#0891b2]">Delhi, India</span>
           </h1>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fef3c7] border border-[#f59e0b]/40 text-sm font-semibold text-[#92400e] mb-4">
+            <Award size={16} className="text-[#f59e0b]" />
+            <span>Delhi&apos;s Best Anal Fissure Surgeon</span>
+          </div>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
             Dr. Kapil Agrawal offers non-surgical treatment, Botox injections, and Laser surgery for the management of both acute and chronic anal fissures with the best and permanent outcomes.
           </p>

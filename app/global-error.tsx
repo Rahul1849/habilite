@@ -12,7 +12,7 @@ export default function GlobalError({
       <body>
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <div className="text-center max-w-md mx-auto px-4">
-            <h1 className="text-6xl font-bold text-orange-600 mb-4">Error</h1>
+            <h1 className="text-6xl font-bold text-[#0891b2] mb-4">Error</h1>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Something went wrong</h2>
             <p className="text-gray-600 mb-8">
               An unexpected error occurred. Please refresh the page.

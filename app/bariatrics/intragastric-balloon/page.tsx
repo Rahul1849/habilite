@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { CheckCircle2, Clock, User } from 'lucide-react'
+import { Award, CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Intragastric Balloon in Delhi | Gastric Balloon Expert Dr. Kapil Agrawal',
     description: 'Expert intragastric balloon treatment by Dr. Kapil Agrawal in Delhi. Specializes in Allurion and Spatz balloon for weight loss.',
-    url: 'https://www.habiliteclinics.com/bariatrics/intragastric-balloon',
+    url: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/bariatrics/intragastric-balloon',
+    canonical: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon',
   },
 }
 
@@ -56,6 +56,10 @@ export default function IntragastricBalloonPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Intra Gastric Balloon Expert in <span className="text-[#0891b2]">Delhi, India</span>
           </h1>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fef3c7] border border-[#f59e0b]/40 text-sm font-semibold text-[#92400e] mb-4">
+            <Award size={16} className="text-[#f59e0b]" />
+            <span>Delhi&apos;s Best Endoscopic Gastric Balloon Specialist</span>
+          </div>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
             Dr. Kapil Agrawal specializes in the gastric balloon treatment for patients looking for a moderate amount of weight loss. He specializes in both Allurion and Spatz balloon treatment.
           </p>

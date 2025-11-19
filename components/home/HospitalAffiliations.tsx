@@ -37,6 +37,14 @@ const hospitals = [
     type: 'Super Specialty Hospital',
     pinCode: '110096',
   },
+  {
+    name: 'Indraprastha Apollo Hospitals',
+    location: 'Sarita Vihar',
+    address: 'Delhi–Mathura Road, Sarita Vihar, New Delhi, Delhi 110076',
+    type: 'Apollo Hospital',
+    pinCode: '110076',
+  },
+
 ]
 
 export default function HospitalAffiliations() {
@@ -84,7 +92,7 @@ export default function HospitalAffiliations() {
 
               <div className="pt-4 border-t border-gray-100">
                 <Link
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hospital.address)}`}
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${hospital.name}, ${hospital.address}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-sm font-semibold text-[#0891b2] hover:text-[#06b6d4] transition-colors"

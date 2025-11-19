@@ -6,7 +6,7 @@ const laserServices = [
   {
     title: 'Laser Piles Surgeon in Delhi',
     description: 'Dr Kapil Agrawal offers the latest and most advanced Stapler, Laser, and DGHAL procedures for the best management of piles. Dr. Kapil Agrawal always ensures that his patients get the best results with no recurrence.',
-    link: '/laser-surgery/hemorrhoids-piles',
+    link: '/best-laser-piles-surgeon-in-delhi',
     image: '/images/piles-surgery-delhi.jpg',
   },
   {
@@ -18,13 +18,13 @@ const laserServices = [
   {
     title: 'Anal Fistula Surgeon in Delhi',
     description: 'Dr Kapil Agrawal performs all the latest and advanced treatment options for the management of anal fistula. His procedures include Laser surgery & VAAFT technology which ensures faster recovery.',
-    link: '/laser-surgery/anal-fistula',
+    link: '/best-laser-fistula-treatment',
     image: '/images/analfistula-surgery-delhi.jpg',
   },
   {
     title: 'Pilonidal Sinus Treatment in Delhi',
     description: 'Dr Kapil Agrawal offers advanced pilonidal sinus treatment depending upon the complexity of the disease. The treatment includes laser technology, open conventional techniques and FLAP surgeries.',
-    link: '/laser-surgery/pilonidal-sinus',
+    link: '/best-laser-pilonidal-sinus-treatment',
     image: '/images/pilonidalsinus-surgery-delhi.jpg',
   },
 ]

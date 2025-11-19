@@ -66,7 +66,7 @@ export default function DoctorsPreview() {
         </div>
 
         <div className="text-center">
-          <Link href="/doctors" className="btn-outline inline-flex items-center">
+          <Link href="/dr-kapil-agrawal" className="btn-outline inline-flex items-center">
             View All Doctors
             <ArrowRight className="ml-2" size={20} />
           </Link>
