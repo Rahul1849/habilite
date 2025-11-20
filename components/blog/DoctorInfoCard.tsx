@@ -17,6 +17,7 @@ const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 type DoctorInfoCardProps = {
   authorImage: string
+  category?: string
 }
 
 const laparoscopicServices = [
@@ -29,6 +30,22 @@ const laparoscopicServices = [
   { label: 'Rectal Prolapse Surgery', href: '/laparoscopic-surgery/rectal-prolapse-surgery' },
 ]
 
+const bariatricServices = [
+  { label: 'Bariatric Surgery', href: '/bariatric-surgeon-in-delhi-india' },
+  { label: 'Surgery for Diabetes', href: '/surgery-for-diabetes' },
+  { label: 'IntraGastric Balloon', href: '/endoscopic-intra-gastric-balloon' },
+  { label: 'Medical Weight Loss Program', href: '/medical-weight-loss-program' },
+]
+
+const getServiceLinks = (category?: string) => {
+  if (!category) return laparoscopicServices
+  const normalized = category.toLowerCase()
+  if (normalized.includes('bariatric') || normalized.includes('weight') || normalized.includes('obesity')) {
+    return bariatricServices
+  }
+  return laparoscopicServices
+}
+
 const socialLinks = [
   { label: 'Facebook', href: 'https://www.facebook.com/habiliteclinics/', icon: Facebook },
   { label: 'X (Twitter)', href: 'https://x.com/habilitecare', icon: Twitter },
@@ -37,7 +54,9 @@ const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/habiliteclinics', icon: Linkedin },
 ]
 
-export default function DoctorInfoCard({ authorImage }: DoctorInfoCardProps) {
+export default function DoctorInfoCard({ authorImage, category }: DoctorInfoCardProps) {
+  const serviceLinks = getServiceLinks(category)
+
   return (
     <div className="my-10 rounded-3xl border border-gray-100 bg-white shadow-sm p-6 md:p-8 hover:shadow-lg transition-shadow duration-200">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
@@ -54,7 +73,7 @@ export default function DoctorInfoCard({ authorImage }: DoctorInfoCardProps) {
           </p>
 
           <div className="mt-4 flex flex-wrap gap-3 justify-center lg:justify-start">
-            {laparoscopicServices.map((service) => (
+            {serviceLinks.map((service) => (
               <Link
                 key={service.href}
                 href={service.href}

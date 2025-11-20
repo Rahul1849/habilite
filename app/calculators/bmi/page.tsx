@@ -135,6 +135,40 @@ export default function BMICalculatorPage() {
                 </div>
               </div>
             )}
+
+            <div className="mt-10">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">BMI Categories & Reference Ranges</h3>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                <table className="w-full text-sm sm:text-base">
+                  <thead>
+                    <tr className="bg-gray-50 text-left text-gray-600 uppercase text-xs tracking-wide">
+                      <th className="px-4 py-3 border-b border-gray-200">BMI Range</th>
+                      <th className="px-4 py-3 border-b border-gray-200">Category</th>
+                      <th className="px-4 py-3 border-b border-gray-200">What it Means</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { range: '< 18.5', label: 'Underweight', desc: 'Need to gain weight with dietary support' },
+                      { range: '18.5 - 24.9', label: 'Normal weight', desc: 'Healthy range, maintain diet & activity' },
+                      { range: '25 - 29.9', label: 'Overweight', desc: 'Consider lifestyle changes & monitoring' },
+                      { range: '30 - 34.9', label: 'Obesity Class I', desc: 'Talk to a specialist about weight control' },
+                      { range: '35 - 39.9', label: 'Obesity Class II', desc: 'High risk; medical supervision recommended' },
+                      { range: '≥ 40', label: 'Obesity Class III', desc: 'Severe risk; bariatric evaluation advised' },
+                    ].map((row, index) => (
+                      <tr key={row.range} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/70'}>
+                        <td className="px-4 py-3 border-t border-gray-100 font-semibold text-gray-900">{row.range}</td>
+                        <td className="px-4 py-3 border-t border-gray-100 text-gray-800">{row.label}</td>
+                        <td className="px-4 py-3 border-t border-gray-100 text-gray-600">{row.desc}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-xs text-gray-500 mt-3">
+                *BMI is a screening tool, not a diagnostic measure. Consult a qualified healthcare professional for personalised guidance.
+              </p>
+            </div>
           </div>
         </div>
       </div>

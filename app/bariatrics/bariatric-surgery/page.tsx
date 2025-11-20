@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { CheckCircle2, Clock, User, Award, Users, TrendingUp } from 'lucide-react'
+import { CheckCircle2, Clock, User, Award, Users, TrendingUp, ArrowRight, Calculator, Flame, Dumbbell } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
@@ -236,6 +236,110 @@ export default function BariatricSurgeryPage() {
                     Bariatric surgery can affect the release of hormones that regulate appetite, sugar metabolism, and carbohydrate metabolism. For example, a sleeve gastrectomy reduces the production of hunger-stimulating hormone ghrelin. As a result, appetite is suppressed. Specific bariatric procedures alter the output of various gut hormones, which helps to maintain better sugar levels, resulting in a cure for diabetes.
                   </p>
                 </div>
+              </div>
+            </section>
+
+            {/* BMI Calculator */}
+            <section className="bg-gradient-to-br from-[#ecfeff] via-white to-[#f0f9ff] border border-[#0891b2]/20 rounded-2xl p-6 sm:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Check Your BMI Before Surgery</h2>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Knowing your Body Mass Index (BMI) helps determine whether you qualify for bariatric surgery and guides the best treatment approach. Use our BMI Calculator to understand your current health status and plan next steps with Dr. Kapil Agrawal.
+                  </p>
+                  <div className="space-y-3 text-sm text-gray-700">
+                    <div className="flex items-start">
+                      <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                      <span>BMI ≥ 37.5 typically indicates Grade III obesity and eligibility for bariatric surgery.</span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                      <span>BMI ≥ 32.5 with diabetes, hypertension, or sleep apnea may also qualify.</span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                      <span>Track changes over time to measure progress before and after surgery.</span>
+                    </div>
+                  </div>
+                  <Link
+                    href="/bmi-calculator"
+                    className="inline-flex items-center gap-2 mt-6 px-5 py-3 rounded-full bg-[#0891b2] text-white font-semibold hover:bg-[#06b6d4] transition-colors"
+                  >
+                    Calculate Your BMI
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">BMI Categories</h3>
+                  <div className="space-y-3">
+                    {[
+                      { range: '18.5 – 22.9', label: 'Healthy Weight' },
+                      { range: '23 – 24.9', label: 'Overweight (At Risk)' },
+                      { range: '25 – 32.4', label: 'Obese Class I & II' },
+                      { range: '≥ 32.5', label: 'Severe Obesity (Consider Bariatric Surgery)' },
+                    ].map((item) => (
+                      <div key={item.range} className="flex items-center justify-between bg-[#ecfeff] rounded-lg px-4 py-3">
+                        <span className="text-gray-700 font-medium">{item.range}</span>
+                        <span className="text-sm text-[#0891b2] font-semibold">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-gray-500 mt-4">
+                    *Based on Asian BMI classification used for bariatric surgery eligibility in India.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* Health Calculators */}
+            <section className="space-y-6">
+              <div className="text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-900">Plan with Health Calculators</h2>
+                <p className="text-gray-600 max-w-3xl mx-auto">
+                  Use these tools to understand your health metrics before meeting Dr. Kapil Agrawal. Accurate BMI, calorie, and activity data help us customise your bariatric journey.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    href: '/bmi-calculator',
+                    title: 'BMI Calculator',
+                    description: 'Check your Body Mass Index using Asian criteria to know if you qualify for bariatric surgery.',
+                    icon: Calculator,
+                    cta: 'Calculate BMI',
+                  },
+                  {
+                    href: '/bariatrics/calorie-calculator',
+                    title: 'Calorie Calculator',
+                    description: 'Estimate daily calorie needs to plan your nutrition goals with our bariatric dieticians.',
+                    icon: Flame,
+                    cta: 'Calculate Calories',
+                  },
+                  {
+                    href: '/bariatrics/exercise-calculator',
+                    title: 'Exercise Calculator',
+                    description: 'Track calories burnt during different activities to align your fitness plan post-surgery.',
+                    icon: Dumbbell,
+                    cta: 'Track Activity',
+                  },
+                ].map((tool) => (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col h-full"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
+                        <tool.icon className="text-white" size={24} />
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900">{tool.title}</h3>
+                    </div>
+                    <p className="text-sm text-gray-600 flex-1">{tool.description}</p>
+                    <div className="mt-6 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#0891b2] text-white font-semibold text-sm hover:bg-[#06b6d4] transition-colors">
+                      {tool.cta}
+                    </div>
+                  </Link>
+                ))}
               </div>
             </section>
 

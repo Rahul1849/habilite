@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: Props) {
                       if (nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994')) {
                         skipNext = true
                       }
-                      return <DoctorInfoCard key={`cta-${index}`} authorImage={post.authorImage} />
+                      return <DoctorInfoCard key={`cta-${index}`} authorImage={post.authorImage} category={post.category} />
                     }
                   }
                   
