@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: 'https://www.habiliteclinics.com/best-hiatus-hernia-surgeon-in-delhi',
     images: [
       {
-        url: 'https://www.habiliteclinics.com/images/gerd-hiatus-hernia-surgery-delhi.webp',
+        url: 'https://www.habiliteclinics.com/images/gerdhiatushernia-surgery-delhi.jpg',
         width: 1200,
         height: 630,
         alt: 'GERD & Hiatus Hernia Surgery in Delhi',
@@ -215,7 +215,7 @@ export default function BestHiatusHerniaSurgeonPage() {
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
             <Image
-              src="/images/gerd-hiatus-hernia-surgery-delhi.webp"
+              src="/images/gerdhiatushernia-surgery-delhi.jpg"
               alt="Best Hiatus Hernia Surgeon in Delhi"
               fill
               className="object-cover object-center"

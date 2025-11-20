@@ -50,8 +50,19 @@ export default function Header() {
 
   const topNavLinks = [
     { href: '/', label: 'Home' },
-    { href: '/dr-kapil-agrawal', label: 'About Doctor' },
-    { href: '/habilite-clinic', label: 'About Clinic' },
+    {
+      label: 'About Us',
+      submenu: [
+        { href: '/dr-kapil-agrawal', label: 'About Dr. Kapil Agrawal' },
+        { href: '/habilite-clinic', label: 'About Clinic' },
+        { href: '/hospital-affiliations', label: 'Hospital Affiliations' },
+        { href: '/contact', label: 'Our Clinic Locations' },
+      ],
+    },
+    {
+      label: 'Resources',
+      submenu: [{ href: '/resources/gallbladder-complete-guide', label: 'Gallbladder – A Complete Guide' }],
+    },
     { href: '/awards', label: 'Awards' },
     { href: '/testimonials', label: 'Testimonials' },
     { href: '/international-patient', label: 'International Patient' },
@@ -84,7 +95,7 @@ export default function Header() {
       label: 'Bariatrics',
       submenu: [
         { href: '/bariatric-surgeon-in-delhi-india', label: 'Bariatric Surgery' },
-            { href: '/medical-weight-loss-program', label: 'Non-Surgical Weight Loss Program' },
+        { href: '/medical-weight-loss-program', label: 'Non-Surgical Weight Loss Program' },
         { href: '/surgery-for-diabetes', label: 'Surgery for Diabetes' },
         { href: '/endoscopic-intra-gastric-balloon', label: 'IntraGastric Balloon' },
       ]
@@ -97,17 +108,54 @@ export default function Header() {
       {/* Fixed Header Container */}
       <div className="fixed top-0 left-0 right-0 z-[9999] w-full">
               {/* Top Navigation Bar */}
-              <div className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] text-white py-3 hidden md:block overflow-x-hidden">
+      <div className="bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] text-white py-3 hidden md:block overflow-visible">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 lg:gap-8 text-sm sm:text-base">
               {topNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="hover:text-cyan-100 transition-colors font-semibold whitespace-nowrap"
+                <div
+                  key={link.label}
+                  className="relative"
+                  onMouseEnter={() => link.submenu && handleDropdownEnter(link.label)}
+                  onMouseLeave={() => link.submenu && handleDropdownLeave()}
                 >
-                  {link.label}
-                </Link>
+                  {link.submenu ? (
+                    <>
+                      <button
+                        type="button"
+                        className="hover:text-cyan-100 transition-colors font-semibold whitespace-nowrap inline-flex items-center gap-1"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          handleDropdownEnter(link.label)
+                        }}
+                      >
+                        {link.label}
+                      </button>
+                      <div
+                        className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-60 bg-white text-gray-800 rounded-lg shadow-2xl border border-gray-100 py-2 ${
+                          activeDropdown === link.label ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+                        } transition-all duration-200 z-[10000]`}
+                      >
+                        {link.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-sm font-medium hover:bg-cyan-50 hover:text-[#0891b2]"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href!}
+                      className="hover:text-cyan-100 transition-colors font-semibold whitespace-nowrap"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </nav>
           </div>
@@ -119,7 +167,7 @@ export default function Header() {
             mounted && isScrolled ? 'shadow-md' : ''
           }`}
         >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible relative z-[9999]">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
@@ -242,14 +290,49 @@ export default function Header() {
               <div className="pb-4 border-b mb-4">
                 <div className="text-base font-semibold text-gray-500 mb-3">Quick Links</div>
                 {topNavLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block px-4 py-3 text-base text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
+                  <div key={link.label} className="mb-1">
+                    {link.submenu ? (
+                      <>
+                        <button
+                          className="flex items-center justify-between w-full px-4 py-3 text-base text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md font-medium transition-colors"
+                          onClick={() => {
+                            setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)
+                          }}
+                        >
+                          {link.label}
+                          <ChevronDown
+                            size={18}
+                            className={`transition-transform ${openMobileDropdown === link.label ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+                        {openMobileDropdown === link.label && (
+                          <div className="ml-4 mt-1 space-y-1">
+                            {link.submenu.map((subItem) => (
+                              <Link
+                                key={subItem.href}
+                                href={subItem.href}
+                                className="block px-4 py-3 text-base text-gray-600 hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors font-medium"
+                                onClick={() => {
+                                  setIsOpen(false)
+                                  setOpenMobileDropdown(null)
+                                }}
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={link.href!}
+                        className="block px-4 py-3 text-base text-gray-700 hover:bg-orange-50 hover:text-[#f56336] rounded-md transition-colors font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </div>
                 ))}
               </div>
 

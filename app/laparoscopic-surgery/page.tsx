@@ -28,7 +28,7 @@ const laparoscopicServices = [
     title: 'GERD & Hiatus Hernia Surgery in Delhi',
     description: 'Dedicated reflux management program offering diagnostics, laparoscopic repair, robotic assistance, and guided recovery.',
     link: '/best-hiatus-hernia-surgeon-in-delhi',
-    image: '/images/gerd-hiatus-hernia-surgery-delhi.webp',
+    image: '/images/gerdhiatushernia-surgery-delhi.jpg',
   },
 ]
 

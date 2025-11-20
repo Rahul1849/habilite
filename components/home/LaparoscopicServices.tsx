@@ -25,7 +25,7 @@ const laparoscopicServices = [
     title: 'GERD & Hiatus Hernia Surgery in Delhi',
     description: 'Comprehensive reflux clinic for diagnostics, laparoscopic hiatus hernia repair, fundoplication, and enhanced recovery under one roof.',
     link: '/best-hiatus-hernia-surgeon-in-delhi',
-    image: '/images/gerd-hiatus-hernia-surgery-delhi.webp',
+    image: '/images/gerdhiatushernia-surgery-delhi.jpg',
   },
 ]
 
