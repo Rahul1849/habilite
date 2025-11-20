@@ -2,9 +2,12 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getBlogPostBySlug, getRelatedPosts, blogPosts } from '@/data/blog'
+import React from 'react'
+import { getBlogPostBySlug, getRelatedPosts, getRecentPosts, blogPosts } from '@/data/blog'
 import { Calendar, Clock, ArrowLeft } from 'lucide-react'
 import TableOfContents from '@/components/blog/TableOfContents'
+import RecentPosts from '@/components/blog/RecentPosts'
+import DoctorInfoCard from '@/components/blog/DoctorInfoCard'
 import FAQSchema from '@/components/blog/FAQSchema'
 
 type Props = {
@@ -23,10 +26,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
+    authors: [{ name: 'Dr. Kapil Agrawal', url: 'https://www.habiliteclinics.com/dr-kapil-agrawal' }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
       images: [post.image],
+      authors: ['Dr. Kapil Agrawal'],
+      type: 'article',
+    },
+    alternates: {
+      canonical: `https://www.habiliteclinics.com/post/${slug}`,
     },
   }
 }
@@ -37,6 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const relatedPosts = getRelatedPosts(slug)
+  const recentPosts = getRecentPosts(slug, 5)
 
   return (
     <div className="pt-20 pb-16">
@@ -54,7 +64,10 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="container-custom relative z-10 h-full flex items-end pb-8">
           <div className="text-white">
             <div className="text-primary-300 mb-2">{post.category}</div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3">{post.title}</h1>
+            <p className="text-lg md:text-xl font-semibold text-white/90 mb-4">
+              By <span className="text-white font-bold">Dr. Kapil Agrawal</span> - Best Laparoscopic Surgeon in Delhi, India
+            </p>
             <div className="flex items-center text-gray-300">
               <Calendar className="mr-2" size={16} />
               <span>{new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
@@ -80,41 +93,203 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Content */}
             <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
-              {post.content.split('\n').map((paragraph, index) => {
-                if (!paragraph.trim()) return null
+              {(() => {
+                const lines = post.content.split('\n')
+                let skipNext = false
                 
-                if (paragraph.startsWith('##')) {
-                  const title = paragraph.replace(/^##+\s/, '').trim()
-                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                  return (
-                    <h2 key={index} id={id} className="text-2xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
-                      {title}
-                    </h2>
-                  )
-                } else if (paragraph.startsWith('#')) {
-                  const title = paragraph.replace(/^#+\s/, '').trim()
-                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                  return (
-                    <h1 key={index} id={id} className="text-3xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
-                      {title}
-                    </h1>
-                  )
-                } else if (paragraph.startsWith('###')) {
-                  const title = paragraph.replace(/^###+\s/, '').trim()
+                return lines.map((line, index) => {
+                  if (skipNext) {
+                    skipNext = false
+                    return null
+                  }
+                  
+                  if (!line.trim()) return <br key={index} />
+                  
+                  // Check for appointment booking section
+                  const lowerLine = line.toLowerCase()
+                  const hasAppointmentText = lowerLine.includes('book an appointment') || lowerLine.includes('to book an appointment')
+                  
+                  if (hasAppointmentText) {
+                    // Check if current or next line has phone numbers
+                    const nextLine = lines[index + 1] || ''
+                    const hasPhoneNumbers = line.includes('+91') || line.includes('99100') || line.includes('99994') ||
+                                           nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994')
+                    
+                    if (hasPhoneNumbers) {
+                      // If phone numbers are in next line, skip it
+                      if (nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994')) {
+                        skipNext = true
+                      }
+                      return <DoctorInfoCard key={`cta-${index}`} authorImage={post.authorImage} />
+                    }
+                  }
+                  
+                  // Skip if this line only has phone numbers and previous was appointment
+                  if (index > 0) {
+                    const prevLine = lines[index - 1] || ''
+                    const prevLower = prevLine.toLowerCase()
+                    if ((prevLower.includes('book an appointment') || prevLower.includes('to book an appointment')) && 
+                        (line.includes('+91') || line.includes('99100') || line.includes('99994')) &&
+                        !line.toLowerCase().includes('book')) {
+                      return null
+                    }
+                  }
+                
+                // Headers
+                if (line.startsWith('###')) {
+                  const title = line.replace(/^###+\s/, '').trim()
                   const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
                   return (
                     <h3 key={index} id={id} className="text-xl font-bold mt-6 mb-3 text-gray-900 scroll-mt-24">
                       {title}
                     </h3>
                   )
-                } else {
+                } else if (line.startsWith('##')) {
+                  const title = line.replace(/^##+\s/, '').trim()
+                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+                  return (
+                    <h2 key={index} id={id} className="text-2xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
+                      {title}
+                    </h2>
+                  )
+                } else if (line.startsWith('#')) {
+                  const title = line.replace(/^#+\s/, '').trim()
+                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+                  return (
+                    <h1 key={index} id={id} className="text-3xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
+                      {title}
+                    </h1>
+                  )
+                }
+                // Lists
+                else if (line.trim().startsWith('- ')) {
+                  const content = line.replace(/^-\s/, '').trim()
+                  // Parse markdown in list items
+                  const parseMarkdown = (text: string) => {
+                    let result: React.ReactNode[] = []
+                    let currentIndex = 0
+                    // Handle bold **text**
+                    const boldRegex = /\*\*(.*?)\*\*/g
+                    let match
+                    let lastIndex = 0
+                    
+                    while ((match = boldRegex.exec(text)) !== null) {
+                      if (match.index > lastIndex) {
+                        result.push(text.substring(lastIndex, match.index))
+                      }
+                      result.push(<strong key={`bold-${currentIndex++}`} className="font-semibold text-gray-900">{match[1]}</strong>)
+                      lastIndex = match.index + match[0].length
+                    }
+                    if (lastIndex < text.length) {
+                      result.push(text.substring(lastIndex))
+                    }
+                    return result.length > 0 ? result : text
+                  }
+                  
+                  // Handle links [text](url)
+                  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+                  const linkParts: React.ReactNode[] = []
+                  let linkMatch
+                  let linkLastIndex = 0
+                  const textToParse = typeof parseMarkdown(content) === 'string' ? content : content
+                  
+                  while ((linkMatch = linkRegex.exec(textToParse)) !== null) {
+                    if (linkMatch.index > linkLastIndex) {
+                      const beforeLink = textToParse.substring(linkLastIndex, linkMatch.index)
+                      linkParts.push(parseMarkdown(beforeLink))
+                    }
+                    linkParts.push(
+                      <Link key={`link-${currentIndex++}`} href={linkMatch[2]} className="text-primary-600 hover:text-primary-700 underline">
+                        {linkMatch[1]}
+                      </Link>
+                    )
+                    linkLastIndex = linkMatch.index + linkMatch[0].length
+                  }
+                  if (linkLastIndex < textToParse.length) {
+                    const afterLink = textToParse.substring(linkLastIndex)
+                    linkParts.push(parseMarkdown(afterLink))
+                  }
+                  
+                  return (
+                    <ul key={index} className="list-disc list-inside mb-4 ml-4 space-y-2">
+                      <li className="text-gray-700 leading-relaxed">
+                        {linkParts.length > 0 ? linkParts : parseMarkdown(content)}
+                      </li>
+                    </ul>
+                  )
+                }
+                // Regular paragraphs
+                else {
+                  // Parse markdown in paragraphs
+                  const parseMarkdown = (text: string) => {
+                    const parts: React.ReactNode[] = []
+                    let currentIndex = 0
+                    
+                    // Handle links [text](url)
+                    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+                    let linkMatch
+                    let lastIndex = 0
+                    
+                    while ((linkMatch = linkRegex.exec(text)) !== null) {
+                      if (linkMatch.index > lastIndex) {
+                        const beforeLink = text.substring(lastIndex, linkMatch.index)
+                        // Handle bold in text before link
+                        const boldRegex = /\*\*(.*?)\*\*/g
+                        let boldMatch
+                        let boldLastIndex = 0
+                        const boldParts: React.ReactNode[] = []
+                        
+                        while ((boldMatch = boldRegex.exec(beforeLink)) !== null) {
+                          if (boldMatch.index > boldLastIndex) {
+                            boldParts.push(beforeLink.substring(boldLastIndex, boldMatch.index))
+                          }
+                          boldParts.push(<strong key={`bold-${currentIndex++}`} className="font-semibold text-gray-900">{boldMatch[1]}</strong>)
+                          boldLastIndex = boldMatch.index + boldMatch[0].length
+                        }
+                        if (boldLastIndex < beforeLink.length) {
+                          boldParts.push(beforeLink.substring(boldLastIndex))
+                        }
+                        parts.push(...(boldParts.length > 0 ? boldParts : [beforeLink]))
+                      }
+                      parts.push(
+                        <Link key={`link-${currentIndex++}`} href={linkMatch[2]} className="text-primary-600 hover:text-primary-700 underline">
+                          {linkMatch[1]}
+                        </Link>
+                      )
+                      lastIndex = linkMatch.index + linkMatch[0].length
+                    }
+                    if (lastIndex < text.length) {
+                      const afterLink = text.substring(lastIndex)
+                      // Handle bold in remaining text
+                      const boldRegex = /\*\*(.*?)\*\*/g
+                      let boldMatch
+                      let boldLastIndex = 0
+                      const boldParts: React.ReactNode[] = []
+                      
+                      while ((boldMatch = boldRegex.exec(afterLink)) !== null) {
+                        if (boldMatch.index > boldLastIndex) {
+                          boldParts.push(afterLink.substring(boldLastIndex, boldMatch.index))
+                        }
+                        boldParts.push(<strong key={`bold-${currentIndex++}`} className="font-semibold text-gray-900">{boldMatch[1]}</strong>)
+                        boldLastIndex = boldMatch.index + boldMatch[0].length
+                      }
+                      if (boldLastIndex < afterLink.length) {
+                        boldParts.push(afterLink.substring(boldLastIndex))
+                      }
+                      parts.push(...(boldParts.length > 0 ? boldParts : [afterLink]))
+                    }
+                    
+                    return parts.length > 0 ? parts : text
+                  }
+                  
                   return (
                     <p key={index} className="mb-4 text-gray-700 leading-relaxed">
-                      {paragraph}
+                      {parseMarkdown(line)}
                     </p>
                   )
                 }
-              })}
+                })
+              })()}
             </div>
 
             {/* Author */}
@@ -157,6 +332,9 @@ export default async function BlogPostPage({ params }: Props) {
               <TableOfContents items={post.tableOfContents} />
             )}
 
+            {/* Recent Posts */}
+            <RecentPosts posts={recentPosts} />
+
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
               <div className="bg-gray-50 rounded-xl p-6">
@@ -183,6 +361,42 @@ export default async function BlogPostPage({ params }: Props) {
       {post.faqSchema && post.faqSchema.length > 0 && (
         <FAQSchema faqs={post.faqSchema} />
       )}
+
+      {/* Article Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.title,
+            description: post.excerpt,
+            image: post.image.startsWith('http') ? post.image : `https://www.habiliteclinics.com${post.image}`,
+            datePublished: post.publishedDate,
+            dateModified: post.updatedDate || post.publishedDate,
+            author: {
+              '@type': 'Person',
+              name: 'Dr. Kapil Agrawal',
+              jobTitle: 'Best Laparoscopic Surgeon in Delhi, India',
+              description: 'Senior Consultant - Laparoscopic & Robotic Surgeon at Apollo Group of Hospitals, Delhi NCR. 23+ years experience, 7000+ successful surgeries.',
+              url: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Habilite Clinics',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.habiliteclinics.com/logo.png',
+              },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://www.habiliteclinics.com/post/${post.slug}`,
+            },
+          }),
+        }}
+        suppressHydrationWarning
+      />
     </div>
   )
 }

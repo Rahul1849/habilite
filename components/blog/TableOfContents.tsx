@@ -53,6 +53,21 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
     }
   }, [items])
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    const element = document.getElementById(id)
+    if (element) {
+      const headerOffset = 100
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 sticky top-24">
       <h3 className="text-xl font-bold mb-4 text-gray-900">Table of Contents</h3>
@@ -61,7 +76,8 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className={`block py-2 px-3 rounded transition-colors ${
+              onClick={(e) => handleClick(e, item.id)}
+              className={`block py-2 px-3 rounded transition-colors cursor-default ${
                 activeId === item.id
                   ? 'bg-primary-100 text-primary-700 font-semibold'
                   : 'text-gray-600 hover:bg-gray-100'
