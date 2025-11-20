@@ -192,6 +192,7 @@ export default async function BlogPostPage({ params }: Props) {
                   let linkMatch
                   let linkLastIndex = 0
                   const textToParse = typeof parseMarkdown(content) === 'string' ? content : content
+                  let linkIndex = 0
                   
                   while ((linkMatch = linkRegex.exec(textToParse)) !== null) {
                     if (linkMatch.index > linkLastIndex) {
@@ -199,7 +200,7 @@ export default async function BlogPostPage({ params }: Props) {
                       linkParts.push(parseMarkdown(beforeLink))
                     }
                     linkParts.push(
-                      <Link key={`link-${currentIndex++}`} href={linkMatch[2]} className="text-primary-600 hover:text-primary-700 underline">
+                      <Link key={`list-link-${index}-${linkIndex++}`} href={linkMatch[2]} className="text-primary-600 hover:text-primary-700 underline">
                         {linkMatch[1]}
                       </Link>
                     )
