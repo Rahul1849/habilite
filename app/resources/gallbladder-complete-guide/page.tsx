@@ -5,6 +5,7 @@ import { CheckCircle2, PhoneCall, Leaf } from 'lucide-react'
 import UploadReportCard from './UploadReportCard'
 import WhatsAppOptInCard from './WhatsAppOptInCard'
 import PeopleAlsoAsk from './PeopleAlsoAsk'
+import AskSurgeonForm from './AskSurgeonForm'
 
 export const metadata: Metadata = {
   title: 'Gallbladder – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
@@ -292,41 +293,7 @@ export default function GallbladderCompleteGuidePage() {
                 Ask Dr. Kapil Agrawal directly. Share your concern, and his team will get back to you with a personalised response.
               </p>
             </div>
-            <form className="mt-8 grid gap-4 md:grid-cols-2">
-              <div className="md:col-span-1">
-                <label className="block text-sm font-semibold mb-2 text-white/90">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60"
-                />
-              </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-semibold mb-2 text-white/90">Phone / Email</label>
-                <input
-                  type="text"
-                  placeholder="Best way to reach you"
-                  className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60"
-                />
-              </div>
-              <div className="md:col-span-2">
-                <label className="block text-sm font-semibold mb-2 text-white/90">Your Question</label>
-                <textarea
-                  placeholder="Describe your symptoms or question..."
-                  rows={4}
-                  className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60"
-                />
-              </div>
-              <div className="md:col-span-2 flex flex-col sm:flex-row items-center gap-4 justify-between">
-                <p className="text-sm text-white/80">Our team will reach out to you soon</p>
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center rounded-2xl bg-white text-[#0e7490] font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition"
-                >
-                  Submit Question
-                </button>
-              </div>
-            </form>
+            <AskSurgeonForm />
           </div>
         </div>
       </section>
