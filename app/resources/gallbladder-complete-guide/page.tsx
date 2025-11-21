@@ -98,6 +98,22 @@ const detailedVideo = {
   url: 'https://youtu.be/NBP2vClykfs?si=WMdIMppYC8P6sPId'
 }
 
+const procedureVideo = {
+  id: 'lfhv5H9VVJ8',
+  title: 'How Gallbladder Surgery Is Done Step by Step | Complete Laparoscopic Procedure Explained',
+  description:
+    'Walk through the exact steps of laparoscopic gallbladder removal—from anaesthesia and port placement to suturing and discharge.',
+  url: 'https://youtu.be/lfhv5H9VVJ8?si=0BdUwl0QIV22rA39'
+}
+
+const roboticCompareVideo = {
+  id: 'FZHmnGH0Frw',
+  title: 'Robotic vs Laparoscopic Gallbladder Stone Surgery — Which Is Better for Fast, Safe Recovery?',
+  description:
+    'Dr. Kapil compares robotic precision with advanced laparoscopy, explaining how he selects the safest option for each patient.',
+  url: 'https://youtu.be/FZHmnGH0Frw?si=xcEwZ5l10eJayEew'
+}
+
 export default function GallbladderCompleteGuidePage() {
   return (
     <div className="bg-gradient-to-b from-white via-[#f8fbff] to-white">
@@ -393,7 +409,7 @@ export default function GallbladderCompleteGuidePage() {
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li>• Understand metabolic reasons behind stone formation</li>
                   <li>• Spot critical symptoms that need urgent evaluation</li>
-                  <li>•Compare medical, endoscopic, and surgical treatment</li>
+                  <li>• Compare medical, endoscopic, and surgical treatment</li>
                 </ul>
                 <Link
                   href={detailedVideo.url}
@@ -409,6 +425,96 @@ export default function GallbladderCompleteGuidePage() {
         </div>
       </section>
 
+      {/* Procedure Video */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden">
+            <div className="grid md:grid-cols-2">
+              <div className="relative min-h-[250px] bg-gray-100">
+                <Link href={procedureVideo.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Image
+                    src={`https://img.youtube.com/vi/${procedureVideo.id}/hqdefault.jpg`}
+                    alt={procedureVideo.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
+                      Watch on YouTube
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="p-6 sm:p-8 space-y-4">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Procedure video</p>
+                <h2 className="text-2xl font-bold text-gray-900">{procedureVideo.title}</h2>
+                <p className="text-gray-600 text-sm leading-relaxed">{procedureVideo.description}</p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Step-by-step overview of laparoscopic gallbladder removal</li>
+                  <li>• Stone and gallbladder removal through keyhole incisions</li>
+                  <li>• Recovery timeline, safety tips, and advantages</li>
+                </ul>
+                <Link
+                  href={procedureVideo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0f172a] to-[#0891b2] text-white font-semibold px-5 py-3 shadow hover:shadow-lg transition"
+                >
+                  Watch Procedure Video
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Robotic vs Laparoscopic Video */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden">
+            <div className="grid md:grid-cols-2">
+              <div className="relative min-h-[250px] bg-gray-100">
+                <Link href={roboticCompareVideo.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Image
+                    src={`https://img.youtube.com/vi/${roboticCompareVideo.id}/hqdefault.jpg`}
+                    alt={roboticCompareVideo.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
+                      Watch on YouTube
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="p-6 sm:p-8 space-y-4">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Technology insights</p>
+                <h2 className="text-2xl font-bold text-gray-900">{roboticCompareVideo.title}</h2>
+                <p className="text-gray-600 text-sm leading-relaxed">{roboticCompareVideo.description}</p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Key differences in precision, incision size, pain, and recovery</li>
+                  <li>• Cost comparison and suitability for different patient conditions</li>
+                  <li>• When doctors recommend robotic surgery over laparoscopic — and why</li>
+                </ul>
+                <Link
+                  href={roboticCompareVideo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0f172a] to-[#0891b2] text-white font-semibold px-5 py-3 shadow hover:shadow-lg transition"
+                >
+                  Watch Comparison Video
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Featured Blogs */}
       <section className="pb-12 sm:pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
