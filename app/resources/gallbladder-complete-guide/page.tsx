@@ -120,7 +120,7 @@ export default function GallbladderCompleteGuidePage() {
       <section className="pt-24 pb-12 sm:pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="text-center space-y-4 max-w-3xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#0891b2]">Gallbladder Awareness Hub</p>
+            <p className="text-base uppercase tracking-[0.5em] font-bold  text-[#0891b2]">Gallbladder Awareness Hub</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
               Gallbladder – A Complete Guide by Dr. Kapil Agrawal
             </h1>
@@ -163,12 +163,12 @@ export default function GallbladderCompleteGuidePage() {
             <div className="rounded-3xl bg-gradient-to-br from-[#0891b2] via-[#06b6d4] to-[#22d3ee] text-white p-5 sm:p-6 lg:p-7 shadow-2xl flex items-center">
               <div className="w-full flex flex-col items-center text-center gap-4">
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.4em] text-white/60">Need Immediate Support?</p>
+                  <p className="text-base uppercase tracking-[0.4em] font-bold text-white/90">Need Immediate Support?</p>
                   <h3 className="text-2xl font-semibold leading-snug">
                     👉 Share your symptoms for a personalised review.
                   </h3>
                   <p className="text-white/85 text-sm max-w-md mx-auto">
-                    Dr. Kapil Agrawal&apos;s gallbladder team will study your responses and call you within 12 working hours with next steps.
+                    Dr. Kapil Agrawal&apos;s gallbladder team will study your responses and our team will reach out to you soon.
                   </p>
                 </div>
                 <Link
@@ -179,7 +179,7 @@ export default function GallbladderCompleteGuidePage() {
                   <PhoneCall size={20} />
                   Share Symptoms on WhatsApp
                 </Link>
-                <p className="text-xs text-white/75">
+                <p className="text-base font-bold text-white/90">
                   Prefer email?{' '}
                   <a href="mailto:contact@habiliteclinics.com" className="underline">
                     contact@habiliteclinics.com
@@ -233,7 +233,7 @@ export default function GallbladderCompleteGuidePage() {
           <div className="rounded-3xl bg-white border border-gray-100 shadow-xl p-6 sm:p-8 lg:p-10 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
             <div className="space-y-6">
               <div className="space-y-2">
-                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Surgery Necessity Checker</p>
+                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Surgery Necessity Checker</p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Need Gallbladder Surgery? Answer These 5 Questions</h2>
                 <p className="text-gray-600">
                   This framework is what we use during clinic consultations. Answer honestly to understand whether surgery is the safer path or if monitoring is possible.
@@ -254,8 +254,8 @@ export default function GallbladderCompleteGuidePage() {
                 </p>
               </div>
             </div>
-            <div className="rounded-3xl bg-slate-900 text-white p-6 space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
+            <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-10 space-y-5 flex flex-col justify-center items-center text-center">
+              <div className="space-y-3 max-w-md">
                 <p className="text-sm uppercase tracking-[0.4em] text-white/60">Need confirmation?</p>
                 <h3 className="text-2xl font-semibold leading-snug">👉 Send your report for confirmation.</h3>
                 <p className="text-sm text-white/80">
@@ -286,8 +286,8 @@ export default function GallbladderCompleteGuidePage() {
         <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#0e7490] to-[#06b6d4] text-white shadow-2xl p-6 sm:p-10">
             <div className="space-y-3 text-center">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/70">Ask the Surgeon</p>
-              <h2 className="text-2xl sm:text-3xl font-bold">Have a question about gallbladder problems?</h2>
+              <p className="text-base uppercase tracking-[0.6em] font-bold text-white/100">Ask the Surgeon</p>
+              <h2 className="text-2xl sm:text-3xl font-bold">Have A Question About Gallbladder Problems?</h2>
               <p className="text-white/90 text-base">
                 Ask Dr. Kapil Agrawal directly. Share your concern, and his team will get back to you with a personalised response.
               </p>
@@ -318,7 +318,7 @@ export default function GallbladderCompleteGuidePage() {
                 />
               </div>
               <div className="md:col-span-2 flex flex-col sm:flex-row items-center gap-4 justify-between">
-                <p className="text-sm text-white/80">Response time: within 12 working hours</p>
+                <p className="text-sm text-white/80">Our team will reach out to you soon</p>
                 <button
                   type="submit"
                   className="inline-flex items-center justify-center rounded-2xl bg-white text-[#0e7490] font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition"
@@ -337,7 +337,7 @@ export default function GallbladderCompleteGuidePage() {
       <section className="pb-12 sm:pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-center space-y-2">
-            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Success stories</p>
+            <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Success stories</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Patients Who Trusted Dr. Kapil Agrawal</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Real experiences from patients who overcame gallbladder problems with personalised care and advanced laparoscopic surgery.
@@ -403,7 +403,7 @@ export default function GallbladderCompleteGuidePage() {
                 </Link>
               </div>
               <div className="p-6 sm:p-8 space-y-4">
-                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Expert video</p>
+                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Expert video</p>
                 <h2 className="text-2xl font-bold text-gray-900">{detailedVideo.title}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{detailedVideo.description}</p>
                 <ul className="space-y-2 text-sm text-gray-700">
@@ -448,7 +448,7 @@ export default function GallbladderCompleteGuidePage() {
                 </Link>
               </div>
               <div className="p-6 sm:p-8 space-y-4">
-                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Procedure video</p>
+                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Procedure video</p>
                 <h2 className="text-2xl font-bold text-gray-900">{procedureVideo.title}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{procedureVideo.description}</p>
                 <ul className="space-y-2 text-sm text-gray-700">
@@ -493,7 +493,7 @@ export default function GallbladderCompleteGuidePage() {
                 </Link>
               </div>
               <div className="p-6 sm:p-8 space-y-4">
-                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Technology insights</p>
+                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Technology insights</p>
                 <h2 className="text-2xl font-bold text-gray-900">{roboticCompareVideo.title}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{roboticCompareVideo.description}</p>
                 <ul className="space-y-2 text-sm text-gray-700">
@@ -519,7 +519,7 @@ export default function GallbladderCompleteGuidePage() {
       <section className="pb-12 sm:pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-center space-y-2">
-            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Featured blogs</p>
+            <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Featured blogs</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Additional Reading on Gallbladder Care</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Dive deeper into recovery, surgery options, and financial planning with curated guides from our blog.

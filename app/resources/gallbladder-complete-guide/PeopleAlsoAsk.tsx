@@ -51,7 +51,7 @@ export default function PeopleAlsoAsk({ faqs = defaultFaqs }: PeopleAlsoAskProps
     <section className="pb-12 sm:pb-16">
       <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="text-center space-y-2">
-          <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">People also ask</p>
+          <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">People also ask</p>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">FAQs about Gallbladder Health</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Expand each question to learn the answers Dr. Kapil Agrawal shares with his patients.
