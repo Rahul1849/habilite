@@ -32,21 +32,16 @@ const symptomChecklist: ChecklistItem[] = [
   { label: 'Pain lasting more than 30–60 minutes?' },
 ]
 
-const ultrasoundTerms: InsightCard[] = [
-  { title: 'Sludge', description: 'Thickened bile that can irritate the gallbladder and trigger inflammation.' },
-  { title: 'Wall thickening', description: 'Indicates chronic inflammation and higher risk of complications.' },
-  { title: 'Calculi', description: 'Medical term for stones – can be single or multiple in number.' },
-  { title: 'Impacted stone', description: 'Stone stuck in the neck or duct, often requiring urgent surgery.' },
-  { title: 'CBD dilation', description: 'Widened common bile duct, usually due to a lodged stone.' },
-  { title: 'Polyp', description: 'Small growth on the wall. Size and growth rate determine treatment.' },
-  { title: 'Multiple stones', description: 'Several stones increase chances of recurring pain and infection.' },
-  { title: '3–5 mm polyp', description: 'Typically monitored; rapid growth or symptoms need intervention.' },
-  { title: 'When stones are dangerous', description: 'Persistent pain, fever, jaundice, or duct blockage.' },
-  { title: 'When surgery is urgent', description: 'Impacted stones, infection, or repeated painful attacks.' },
-]
-
 const avoidFoods = ['Oily', 'Fried', 'Butter / cream', 'Red meat', 'Heavy dairy']
 const eatFoods = ['Fruits', 'Vegetables', 'Khichdi', 'Dal', 'Low-fat milk', 'Lemon water']
+
+const surgeryQuestions = [
+  'Are your stones causing pain?',
+  'Has the pain repeated more than twice?',
+  'Are stones larger than 10 mm?',
+  'Is the gallbladder wall thick on ultrasound?',
+  'Is there sludge or infection noted?',
+]
 
 export default function GallbladderCompleteGuidePage() {
   return (
@@ -158,16 +153,59 @@ export default function GallbladderCompleteGuidePage() {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {ultrasoundTerms.map((term) => (
-              <div
-                key={term.title}
-                className="rounded-2xl border border-gray-100 bg-white shadow-sm p-4 flex flex-col gap-2 hover:shadow-lg transition"
-              >
-                <h4 className="text-base font-semibold text-gray-900">{term.title}</h4>
-                <p className="text-sm text-gray-600">{term.description}</p>
+        </div>
+      </section>
+
+      {/* Surgery Necessity Checker */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white border border-gray-100 shadow-xl p-6 sm:p-8 lg:p-10 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Surgery Necessity Checker</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Need Gallbladder Surgery? Answer These 5 Questions</h2>
+                <p className="text-gray-600">
+                  This framework is what we use during clinic consultations. Answer honestly to understand whether surgery is the safer path or if monitoring is possible.
+                </p>
               </div>
-            ))}
+              <div className="space-y-3">
+                {surgeryQuestions.map((question) => (
+                  <div key={question} className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-gradient-to-r from-white to-[#f8fbff] px-4 py-3 shadow-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#ecfeff] flex items-center justify-center text-[#0891b2] text-sm font-semibold">?</div>
+                    <p className="text-gray-800 text-sm font-medium">{question}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-2xl bg-[#ecfeff] border border-[#0891b2]/30 px-4 py-4 text-sm text-gray-700">
+                <p className="font-semibold text-[#0891b2] mb-1">Interpreting your answers:</p>
+                <p>
+                  If you answered “Yes” to two or more questions, surgery prevents repeated attacks and complications. If all answers are “No”, continue a strict diet and repeat ultrasound in 6 months.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-3xl bg-slate-900 text-white p-6 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <p className="text-sm uppercase tracking-[0.4em] text-white/60">Need confirmation?</p>
+                <h3 className="text-2xl font-semibold leading-snug">👉 Send your report for confirmation.</h3>
+                <p className="text-sm text-white/80">
+                  We will review your ultrasound, blood reports, and symptom history, then tell you if surgery is the safest route or if you can wait.
+                </p>
+              </div>
+              <Link
+                href="https://wa.me/919999456455?text=I%20want%20an%20opinion%20on%20gallbladder%20surgery"
+                target="_blank"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-slate-900 font-semibold px-5 py-3 shadow-lg hover:shadow-xl transition"
+              >
+                <PhoneCall size={20} />
+                Share Reports on WhatsApp
+              </Link>
+              <p className="text-xs text-white/70">
+                Prefer email?{' '}
+                <a href="mailto:contact@habiliteclinics.com" className="underline">
+                  contact@habiliteclinics.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
