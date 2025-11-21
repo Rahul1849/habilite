@@ -210,6 +210,56 @@ export default function GallbladderCompleteGuidePage() {
         </div>
       </section>
 
+      {/* Ask the Surgeon */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#0e7490] to-[#06b6d4] text-white shadow-2xl p-6 sm:p-10">
+            <div className="space-y-3 text-center">
+              <p className="text-xs uppercase tracking-[0.5em] text-white/70">Ask the Surgeon</p>
+              <h2 className="text-2xl sm:text-3xl font-bold">Have a question about gallbladder problems?</h2>
+              <p className="text-white/90 text-base">
+                Ask Dr. Kapil Agrawal directly. Share your concern, and his team will get back to you with a personalised response.
+              </p>
+            </div>
+            <form className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="md:col-span-1">
+                <label className="block text-sm font-semibold mb-2 text-white/90">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60"
+                />
+              </div>
+              <div className="md:col-span-1">
+                <label className="block text-sm font-semibold mb-2 text-white/90">Phone / Email</label>
+                <input
+                  type="text"
+                  placeholder="Best way to reach you"
+                  className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-semibold mb-2 text-white/90">Your Question</label>
+                <textarea
+                  placeholder="Describe your symptoms or question..."
+                  rows={4}
+                  className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60"
+                />
+              </div>
+              <div className="md:col-span-2 flex flex-col sm:flex-row items-center gap-4 justify-between">
+                <p className="text-sm text-white/80">Response time: within 12 working hours</p>
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center rounded-2xl bg-white text-[#0e7490] font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition"
+                >
+                  Submit Question
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* Diet Chart */}
       <section className="pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
