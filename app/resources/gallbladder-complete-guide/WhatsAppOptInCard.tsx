@@ -35,7 +35,7 @@ export default function WhatsAppOptInCard() {
           <MessageCircle size={26} />
         </div>
         <div>
-          <p className="text-sm uppercase tracking-[0.4em] text-[#0891b2]">Need Help Staying on Track?</p>
+          <p className="text-sm uppercase tracking-[0.4em] text-[#0891b2]">For Personalised Diet Plan, Contact Us</p>
           <h3 className="text-2xl font-semibold text-gray-900 mt-2">📩 Enter Your WhatsApp Number</h3>
           <p className="text-gray-600 mt-2">
             Receive the complete diet chart and weekly reminders from our clinical nutrition team.

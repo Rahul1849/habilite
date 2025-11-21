@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { CheckCircle2, PhoneCall, Leaf } from 'lucide-react'
 import UploadReportCard from './UploadReportCard'
 import WhatsAppOptInCard from './WhatsAppOptInCard'
+import PeopleAlsoAsk from './PeopleAlsoAsk'
 
 export const metadata: Metadata = {
   title: 'Gallbladder – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
@@ -42,6 +44,59 @@ const surgeryQuestions = [
   'Is the gallbladder wall thick on ultrasound?',
   'Is there sludge or infection noted?',
 ]
+
+const featuredBlogs = [
+  {
+    title: 'Life After Gallbladder Removal: What to Expect in 6 Months',
+    description: 'Understand the recovery timeline, diet changes, and long-term lifestyle tips after cholecystectomy.',
+    href: '/post/life-after-gallbladder-removal-what-to-expect-in-6-months'
+  },
+  {
+    title: 'Gallbladder Stone Operation Cost in Delhi',
+    description: 'Detailed cost breakdown, hospital choices, and financial planning tips for gallbladder surgery.',
+    href: '/post/gallbladder-stone-operation-cost-delhi'
+  },
+  {
+    title: 'Laparoscopic vs Open Gallbladder Surgery: What’s Right for You?',
+    description: 'Compare both approaches, recovery timelines, and risk profiles to make an informed choice.',
+    href: '/post/laparoscopic-vs-open-gallbladder-surgery-whats-right-for-you'
+  }
+]
+
+const successStories = [
+  {
+    id: 'N09RpTwI_HY',
+    title: 'Pain-free life after complex gallstone surgery',
+    description: 'Patient shares her journey from repeated attacks to a smooth laparoscopic recovery with Dr. Kapil.',
+    url: 'https://youtu.be/N09RpTwI_HY?si=Jff75poDunpnVd0Y'
+  },
+  {
+    id: 'sBfXG1Miajs',
+    title: 'Rapid recovery and minimal scars',
+    description: 'A working professional explains how he returned to work within days after gallbladder removal.',
+    url: 'https://youtu.be/sBfXG1Miajs?si=JU9Ysdjk6CBXPHNA'
+  },
+  {
+    id: '-Lq2NxW1d1s',
+    title: 'International patient experience',
+    description: 'Hear how a patient travelling from abroad received seamless diagnosis, surgery, and follow-up care.',
+    url: 'https://youtu.be/-Lq2NxW1d1s?si=oqA2-yTLrgcGoAJv'
+  },
+  {
+    id: 'DxoM1_39Xec',
+    title: 'From anxiety to confidence',
+    description: 'This success story highlights pre-op counselling, precision surgery, and post-op support.',
+    url: 'https://youtu.be/DxoM1_39Xec?si=8c7s1zF06HD5qJoY'
+  }
+]
+
+const detailedVideo = {
+  id: 'NBP2vClykfs',
+  title: 'Gallbladder Stones: Causes, Symptoms, Risk Factors & Treatment Options',
+  description:
+    'Dr. Kapil explains why stones form, how to identify warning signs early, and when surgery becomes essential.',
+  url: 'https://youtu.be/NBP2vClykfs?si=WMdIMppYC8P6sPId'
+}
 
 export default function GallbladderCompleteGuidePage() {
   return (
@@ -260,11 +315,135 @@ export default function GallbladderCompleteGuidePage() {
         </div>
       </section>
 
+      <PeopleAlsoAsk />
+
+      {/* Success Stories */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center space-y-2">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Success stories</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Patients Who Trusted Dr. Kapil Agrawal</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Real experiences from patients who overcame gallbladder problems with personalised care and advanced laparoscopic surgery.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {successStories.map((story) => (
+              <Link
+                key={story.id}
+                href={story.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="relative h-56 w-full bg-gray-100">
+                  <Image
+                    src={`https://img.youtube.com/vi/${story.id}/hqdefault.jpg`}
+                    alt={story.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-[#b91c1c] shadow">
+                      Watch Story
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-1 p-6 space-y-3">
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-[#0891b2]">{story.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{story.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <p className="text-center text-xs text-gray-500">
+            Videos hosted on YouTube. Clicking a card opens the testimonial in a new tab.
+          </p>
+        </div>
+      </section>
+
+      {/* Educational Video */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden">
+            <div className="grid md:grid-cols-2">
+              <div className="relative min-h-[250px] bg-gray-100">
+                <Link href={detailedVideo.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Image
+                    src={`https://img.youtube.com/vi/${detailedVideo.id}/hqdefault.jpg`}
+                    alt={detailedVideo.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
+                      Watch on YouTube
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="p-6 sm:p-8 space-y-4">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Expert video</p>
+                <h2 className="text-2xl font-bold text-gray-900">{detailedVideo.title}</h2>
+                <p className="text-gray-600 text-sm leading-relaxed">{detailedVideo.description}</p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Understand metabolic reasons behind stone formation</li>
+                  <li>• Spot critical symptoms that need urgent evaluation</li>
+                  <li>•Compare medical, endoscopic, and surgical treatment</li>
+                </ul>
+                <Link
+                  href={detailedVideo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0f172a] to-[#0891b2] text-white font-semibold px-5 py-3 shadow hover:shadow-lg transition"
+                >
+                  Open Video in New Tab
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Blogs */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center space-y-2">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]">Featured blogs</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Additional Reading on Gallbladder Care</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Dive deeper into recovery, surgery options, and financial planning with curated guides from our blog.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {featuredBlogs.map((blog) => (
+              <Link
+                key={blog.href}
+                href={blog.href}
+                className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="flex-1 p-6 space-y-3">
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0891b2]">{blog.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{blog.description}</p>
+                </div>
+                <div className="px-6 py-3 border-t border-gray-100 text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94]">
+                  Read article →
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Diet Chart */}
       <section className="pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Gallbladder Diet Chart — What to Eat & Avoid</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Have Gallstones? — What to Eat & Avoid</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               A gentle, low-fat diet keeps attacks under control until surgery. Follow these doctor-approved guidelines.
             </p>
