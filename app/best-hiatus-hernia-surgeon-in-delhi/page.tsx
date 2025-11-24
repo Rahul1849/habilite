@@ -7,6 +7,7 @@ import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Hiatus Hernia Surgeon in Delhi | Dr. Kapil Agrawal',
@@ -392,6 +393,7 @@ export default function BestHiatusHerniaSurgeonPage() {
                 </div>
               </div>
             </section>
+            <RecoveryTimeline />
 
             <section className="space-y-6">
               <div className="text-center space-y-2">

@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import AppendixFAQ from '@/app/laparoscopic-surgery/appendix-surgery/AppendixFAQ'
 import AppendixTestimonials from '@/app/laparoscopic-surgery/appendix-surgery/AppendixTestimonials'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Appendicitis Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic Appendectomy | 23 Years Experience',
@@ -543,6 +544,7 @@ export default function BestAppendixSurgeonPage() {
                 </div>
               </div>
             </section>
+            <RecoveryTimeline />
           </div>
         </div>
 

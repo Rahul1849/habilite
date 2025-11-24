@@ -24,9 +24,10 @@ Create a `.env.local` file in the root directory:
 
 ```bash
 EMAIL_HOST=secure.emailsrvr.com
-EMAIL_PORT=587
+EMAIL_PORT=465
 EMAIL_USER=contact@habiliteclinics.com
 EMAIL_PASS=your-rackspace-email-password
+EMAIL_SECURE=true
 ```
 
 **Important**: Never commit `.env.local` to version control.
@@ -37,12 +38,13 @@ EMAIL_PASS=your-rackspace-email-password
 2. Navigate to **Settings** → **Environment Variables**
 3. Add the following variables:
 
-| Variable Name | Value                         | Environments                     |
-| ------------- | ----------------------------- | -------------------------------- |
-| `EMAIL_HOST`  | `secure.emailsrvr.com`        | Production, Preview, Development |
-| `EMAIL_PORT`  | `587`                         | Production, Preview, Development |
-| `EMAIL_USER`  | `contact@habiliteclinics.com` | Production, Preview, Development |
-| `EMAIL_PASS`  | `[your-rackspace-password]`   | Production, Preview, Development |
+| Variable Name  | Value                         | Environments                     |
+| -------------- | ----------------------------- | -------------------------------- |
+| `EMAIL_HOST`   | `secure.emailsrvr.com`        | Production, Preview, Development |
+| `EMAIL_PORT`   | `465`                         | Production, Preview, Development |
+| `EMAIL_USER`   | `contact@habiliteclinics.com` | Production, Preview, Development |
+| `EMAIL_PASS`   | `[your-rackspace-password]`   | Production, Preview, Development |
+| `EMAIL_SECURE` | `true`                        | Production, Preview, Development |
 
 4. Click **Save** for each variable
 5. Redeploy your application for changes to take effect
@@ -100,8 +102,8 @@ EMAIL_PASS=your-rackspace-email-password
 **SMTP Settings**:
 
 - Host: `secure.emailsrvr.com`
-- Port: `587`
-- Security: TLS (not SSL)
+- Port: `465`
+- Security: SSL (set `EMAIL_SECURE=true`)
 - Authentication: Username/Password from env vars
 
 **Email Recipient**: `contact@habiliteclinics.com`

@@ -130,7 +130,7 @@ function checkRateLimit(ip: string): { allowed: boolean; resetTime?: number } {
 // Initialize Nodemailer transporter
 function createTransporter() {
   const host = process.env.EMAIL_HOST
-  const port = process.env.EMAIL_PORT
+  const port = parseInt(process.env.EMAIL_PORT || '465', 10)
   const user = process.env.EMAIL_USER
   const pass = process.env.EMAIL_PASS
 
@@ -140,16 +140,30 @@ function createTransporter() {
 
   return nodemailer.createTransport({
     host,
-    port: parseInt(port, 10),
-    secure: false, // Use TLS
+    port,
+    secure: process.env.EMAIL_SECURE === 'true',
     auth: {
       user,
       pass,
     },
+    requireTLS: true,
     tls: {
       rejectUnauthorized: false, // Accept self-signed certificates if needed
     },
   })
+}
+
+function extractSmtpErrorDetails(error: unknown) {
+  if (typeof error !== 'object' || error === null) {
+    return {}
+  }
+
+  const err = error as Record<string, unknown>
+  return {
+    code: typeof err.code === 'string' ? err.code : undefined,
+    command: typeof err.command === 'string' ? err.command : undefined,
+    response: typeof err.response === 'string' ? err.response : undefined,
+  }
 }
 
 // Placeholder for WhatsApp Cloud API (Phase 2)
@@ -171,6 +185,17 @@ async function sendEmail(name: string, phone: string, message: string): Promise<
   const sanitizedName = escapeHtml(name)
   const sanitizedPhone = escapeHtml(phone)
   const sanitizedMessage = escapeHtml(message)
+
+  try {
+    await transporter.verify()
+  } catch (error) {
+    const details = extractSmtpErrorDetails(error)
+    console.error('[SMTP] Verification failed', {
+      code: details.code,
+      command: details.command,
+    })
+    throw new Error('SMTP_CONNECTION_FAILED')
+  }
 
   const htmlContent = `
     <!DOCTYPE html>
@@ -236,17 +261,31 @@ ${message}
 This consultation request was submitted through the Habilite Clinics website.
   `
 
-  await transporter.sendMail({
-    from: `"Habilite Clinics Website" <${process.env.EMAIL_USER}>`,
-    to: 'contact@habiliteclinics.com',
-    subject: `New Consultation Request from ${sanitizedName}`,
-    text: textContent,
-    html: htmlContent,
-  })
+  try {
+    await transporter.sendMail({
+      from: `"Habilite Clinics Website" <${process.env.EMAIL_USER}>`,
+      to: 'contact@habiliteclinics.com',
+      subject: `New Consultation Request from ${sanitizedName}`,
+      text: textContent,
+      html: htmlContent,
+    })
+    console.log('SMTP SUCCESS')
+  } catch (error) {
+    const details = extractSmtpErrorDetails(error)
+    console.error('[SMTP] Send error', {
+      code: details.code,
+      response: details.response,
+      command: details.command,
+    })
+    throw error
+  }
 }
 
 export async function POST(request: NextRequest) {
   try {
+    const requestUrl = new URL(request.url)
+    const isTestRequest = requestUrl.searchParams.get('test') === 'true'
+
     // Get client IP for rate limiting
     const clientIP = getClientIP(request)
 
@@ -278,7 +317,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { name, phone, message } = body
+    let { name, phone, message } = body
+
+    if (isTestRequest) {
+      name = name || 'Test User'
+      phone = phone || '9999999999'
+      message = message || 'SMTP test message'
+    }
 
     // Validate fields
     const nameValidation = validateName(name)
@@ -315,8 +360,22 @@ export async function POST(request: NextRequest) {
       await sendEmail(sanitizedName, sanitizedPhone, sanitizedMessage)
       console.log(`[Email] Successfully sent consultation request from ${sanitizedName} (${sanitizedPhone})`)
     } catch (emailError) {
-      // Log error but don't expose details to client
-      console.error('[Email] Failed to send consultation email:', emailError)
+      if ((emailError as Error).message === 'SMTP_CONNECTION_FAILED') {
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'SMTP connection failed. Please verify your email configuration.',
+          },
+          { status: 500 }
+        )
+      }
+
+      const details = extractSmtpErrorDetails(emailError)
+      console.error('[Email] Failed to send consultation email:', {
+        code: details.code,
+        response: details.response,
+        command: details.command,
+      })
       return NextResponse.json(
         {
           success: false,
@@ -326,15 +385,24 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send WhatsApp notification (Phase 2 - non-blocking)
-    try {
-      await sendWhatsAppNotification(sanitizedName, sanitizedPhone, sanitizedMessage)
-    } catch (whatsappError) {
-      // Log but don't fail the request
-      console.error('[WhatsApp] Failed to send notification (non-blocking):', whatsappError)
+    if (!isTestRequest) {
+      try {
+        await sendWhatsAppNotification(sanitizedName, sanitizedPhone, sanitizedMessage)
+      } catch (whatsappError) {
+        console.error('[WhatsApp] Failed to send notification (non-blocking):', whatsappError)
+      }
     }
 
-    // Success response
+    if (isTestRequest) {
+      return NextResponse.json(
+        {
+          success: true,
+          test: true,
+        },
+        { status: 200 }
+      )
+    }
+
     return NextResponse.json(
       {
         success: true,

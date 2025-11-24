@@ -10,6 +10,7 @@ import Link from 'next/link'
 import GallbladderFAQ from './GallbladderFAQ'
 import GallbladderTestimonials from './GallbladderTestimonials'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries',
@@ -614,6 +615,7 @@ export default function GallbladderSurgeryPage() {
                 </div>
               </div>
             </section>
+            <RecoveryTimeline />
           </div>
         </div>
 

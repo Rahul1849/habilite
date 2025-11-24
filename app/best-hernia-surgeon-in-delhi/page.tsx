@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import HerniaTestimonials from '@/app/laparoscopic-surgery/hernia-surgery/HerniaTestimonials'
 import HerniaFAQ from '@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Hernia Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic & Robotic Hernia Repair',
@@ -463,6 +464,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
               </div>
             </section>
+            <RecoveryTimeline />
           </div>
         </div>
 

@@ -10,9 +10,10 @@ The following environment variables are required for the consultation form email
 
 ```bash
 EMAIL_HOST=secure.emailsrvr.com
-EMAIL_PORT=587
+EMAIL_PORT=465
 EMAIL_USER=your-rackspace-email@habiliteclinics.com
 EMAIL_PASS=your-rackspace-email-password
+EMAIL_SECURE=true
 ```
 
 #### Description:
@@ -45,10 +46,11 @@ EMAIL_PASS=your-actual-password-here
 
    | Name | Value | Environment |
    |------|-------|-------------|
-   | `EMAIL_HOST` | `secure.emailsrvr.com` | Production, Preview, Development |
-   | `EMAIL_PORT` | `587` | Production, Preview, Development |
-   | `EMAIL_USER` | `contact@habiliteclinics.com` | Production, Preview, Development |
-   | `EMAIL_PASS` | `[your-password]` | Production, Preview, Development |
+| `EMAIL_HOST` | `secure.emailsrvr.com` | Production, Preview, Development |
+| `EMAIL_PORT` | `465` | Production, Preview, Development |
+| `EMAIL_USER` | `contact@habiliteclinics.com` | Production, Preview, Development |
+| `EMAIL_PASS` | `[your-password]` | Production, Preview, Development |
+| `EMAIL_SECURE` | `true` | Production, Preview, Development |
 
 4. Click **Save** for each variable
 5. Redeploy your application for changes to take effect

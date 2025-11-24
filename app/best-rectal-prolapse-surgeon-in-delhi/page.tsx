@@ -8,6 +8,7 @@ import CostCalculator from '@/components/lead-generation/CostCalculator'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Rectal Prolapse Surgeon in Delhi | Laparoscopic & STARR Repair | Dr. Kapil Agrawal',
@@ -356,6 +357,7 @@ export default function BestRectalProlapseSurgeonPage() {
               ))}
             </div>
           </section>
+          <RecoveryTimeline />
 
           <div className="max-w-5xl mx-auto">
             <CostCalculator serviceName="Rectal Prolapse Surgery" />
