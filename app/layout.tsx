@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileStickyFooter from '@/components/layout/MobileStickyFooter'
+import ToastContainer from '@/components/ui/Toast'
 import dynamic from 'next/dynamic'
 
 const ScrollToTop = dynamic(() => import('@/components/common/ScrollToTop'), {
@@ -207,6 +208,7 @@ export default function RootLayout({
         <Footer />
         <MobileStickyFooter />
         <ScrollToTop />
+        <ToastContainer />
       </body>
     </html>
   )

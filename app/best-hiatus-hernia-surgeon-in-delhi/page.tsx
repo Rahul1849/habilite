@@ -431,7 +431,15 @@ export default function BestHiatusHerniaSurgeonPage() {
                       <p className="text-xs uppercase tracking-widest text-[#0891b2] mb-2">{post.category}</p>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
                       <p className="text-sm text-gray-600 line-clamp-3 mb-4">{post.excerpt}</p>
-                      <span className="text-sm font-semibold text-[#f56336]">Read Article →</span>
+                      <span className="text-sm font-semibold text-[#f56336]">
+                        {post.title.toLowerCase().includes('cost') || post.title.toLowerCase().includes('price')
+                          ? `Discover ${post.title.toLowerCase()}`
+                          : post.title.toLowerCase().includes('surgery') || post.title.toLowerCase().includes('treatment')
+                          ? `Learn about ${post.title.toLowerCase()}`
+                          : post.title.toLowerCase().includes('guide') || post.title.toLowerCase().includes('how to')
+                          ? `Read complete guide on ${post.title.toLowerCase()}`
+                          : `Explore ${post.title.toLowerCase()}`} →
+                      </span>
                     </a>
                   ))}
                 </div>

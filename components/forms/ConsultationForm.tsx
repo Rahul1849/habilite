@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone } from 'lucide-react'
+import { submitConsultation } from '@/lib/api/consultation'
+import { toast } from '@/lib/utils/toast'
 
 interface ConsultationFormProps {
   serviceName?: string
@@ -14,6 +16,7 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
     phone: '',
     email: '',
     date: '',
+    message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -24,18 +27,59 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validate required fields
     if (!formData.name.trim() || !formData.phone.trim()) {
-      alert('Please fill in your name and phone number')
+      toast.error('Please fill in your name and phone number')
       return
+    }
+
+    // Create message from form data
+    let message = formData.message.trim()
+    if (!message) {
+      // Build message from available fields if message is empty
+      const parts: string[] = []
+      if (serviceName) {
+        parts.push(`Service: ${serviceName}`)
+      }
+      if (formData.email) {
+        parts.push(`Email: ${formData.email}`)
+      }
+      if (formData.date) {
+        const dateStr = new Date(formData.date).toLocaleDateString('en-IN', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+        parts.push(`Preferred Date: ${dateStr}`)
+      }
+      message = parts.length > 0 
+        ? `Consultation request for ${serviceName || 'general consultation'}. ${parts.join('. ')}.`
+        : `Consultation request for ${serviceName || 'general consultation'}.`
     }
     
     setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await submitConsultation({
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        message: message,
+      })
+
+      if (response.success) {
+        setIsSubmitted(true)
+        toast.success(response.message || 'Your consultation request has been submitted successfully!')
+      } else {
+        toast.error(response.error || 'Failed to submit consultation request. Please try again.')
+      }
+    } catch (error) {
+      console.error('Consultation submission error:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
       setIsSubmitting(false)
-      setIsSubmitted(true)
-    }, 1500)
+    }
   }
 
   const handleReset = () => {
@@ -194,6 +238,24 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all"
           />
           <p className="text-xs text-gray-500 mt-1">Select a date within the next 3 months</p>
+        </div>
+
+        {/* Message - Optional but recommended */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Message <span className="text-gray-400 text-xs">(Optional)</span>
+          </label>
+          <textarea
+            value={formData.message}
+            onChange={(e) => handleInputChange('message', e.target.value)}
+            rows={4}
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all resize-none"
+            placeholder="Please share any additional details about your consultation needs..."
+            maxLength={2000}
+          />
+          <p className="text-xs text-gray-500 mt-1">
+            {formData.message.length}/2000 characters
+          </p>
         </div>
 
         {/* Submit Button */}

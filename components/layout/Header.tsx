@@ -61,7 +61,12 @@ export default function Header() {
     },
     {
       label: 'Resources',
-      submenu: [{ href: '/resources/gallbladder-complete-guide', label: 'Gallbladder – A Complete Guide' }],
+      submenu: [
+        { href: '/resources/gallbladder-complete-guide', label: 'Gallbladder – A Complete Guide' },
+        { href: '/resources/hernia-complete-guide', label: 'Hernia – A Complete Guide' },
+        { href: '/resources/obesity-complete-guide', label: 'Obesity – A Complete Guide' },
+        { href: '/resources/piles-complete-guide', label: 'Piles – A Complete Guide' },
+      ],
     },
     { href: '/awards', label: 'Awards' },
     { href: '/testimonials', label: 'Testimonials' },

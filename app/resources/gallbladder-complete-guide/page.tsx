@@ -6,6 +6,26 @@ import UploadReportCard from './UploadReportCard'
 import WhatsAppOptInCard from './WhatsAppOptInCard'
 import PeopleAlsoAsk from './PeopleAlsoAsk'
 import AskSurgeonForm from './AskSurgeonForm'
+import {
+  webPageSchema,
+  medicalOrganizationSchema,
+  physicianSchema,
+  getLocalBusinessSchema,
+  serviceSchema,
+  breadcrumbSchema,
+  getFAQSchema,
+  getHowToSchema,
+  getVideoObjectSchema,
+  getArticleSchema,
+  medicalConditionSchema,
+  medicalProcedureSchema,
+  getItemListSchema,
+  organizationSchema,
+  personSchema,
+  medicalSpecialtySchema,
+  offerSchema,
+  contactPointSchema
+} from './schemas'
 
 export const metadata: Metadata = {
   title: 'Gallbladder – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
@@ -311,7 +331,7 @@ export default function GallbladderCompleteGuidePage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {successStories.map((story) => (
+            {successStories.map((story, index) => (
               <Link
                 key={story.id}
                 href={story.url}
@@ -326,7 +346,8 @@ export default function GallbladderCompleteGuidePage() {
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    quality={85}
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                     <div className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-[#b91c1c] shadow">
@@ -361,6 +382,7 @@ export default function GallbladderCompleteGuidePage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                     loading="lazy"
+                    quality={85}
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                     <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
@@ -406,6 +428,7 @@ export default function GallbladderCompleteGuidePage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                     loading="lazy"
+                    quality={85}
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                     <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
@@ -451,6 +474,7 @@ export default function GallbladderCompleteGuidePage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                     loading="lazy"
+                    quality={85}
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                     <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
@@ -504,7 +528,13 @@ export default function GallbladderCompleteGuidePage() {
                   <p className="text-sm text-gray-600 leading-relaxed">{blog.description}</p>
                 </div>
                 <div className="px-6 py-3 border-t border-gray-100 text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94]">
-                  Read article →
+                  {blog.title.toLowerCase().includes('cost') || blog.title.toLowerCase().includes('price')
+                    ? `Discover ${blog.title.toLowerCase()}`
+                    : blog.title.toLowerCase().includes('surgery') || blog.title.toLowerCase().includes('treatment')
+                    ? `Learn about ${blog.title.toLowerCase()}`
+                    : blog.title.toLowerCase().includes('guide') || blog.title.toLowerCase().includes('how to')
+                    ? `Read complete guide on ${blog.title.toLowerCase()}`
+                    : `Explore ${blog.title.toLowerCase()}`} →
                 </div>
               </Link>
             ))}
@@ -530,6 +560,35 @@ export default function GallbladderCompleteGuidePage() {
           <WhatsAppOptInCard />
         </div>
       </section>
+
+      {/* Comprehensive Structured Data Schemas for SEO - 20 Schemas */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getFAQSchema()) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getHowToSchema()) }} suppressHydrationWarning />
+      {successStories.map((story) => (
+        <script key={`video-${story.id}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoObjectSchema(story)) }} suppressHydrationWarning />
+      ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoObjectSchema({ id: detailedVideo.id, title: detailedVideo.title, description: detailedVideo.description, url: detailedVideo.url })) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoObjectSchema({ id: procedureVideo.id, title: procedureVideo.title, description: procedureVideo.description, url: procedureVideo.url })) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoObjectSchema({ id: roboticCompareVideo.id, title: roboticCompareVideo.title, description: roboticCompareVideo.description, url: roboticCompareVideo.url })) }} suppressHydrationWarning />
+      {featuredBlogs.map((blog) => (
+        <script key={`article-${blog.href}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getArticleSchema(blog)) }} suppressHydrationWarning />
+      ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalConditionSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalProcedureSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Gallbladder Stone Symptoms Checklist', 'Common symptoms of gallbladder stones that require medical attention', symptomChecklist.map(item => item.label))) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Foods to Avoid with Gallstones', 'Foods that should be avoided if you have gallbladder stones', avoidFoods)) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Foods to Eat with Gallstones', 'Recommended foods for people with gallbladder stones', eatFoods)) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalSpecialtySchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPointSchema) }} suppressHydrationWarning />
     </div>
   )
 }

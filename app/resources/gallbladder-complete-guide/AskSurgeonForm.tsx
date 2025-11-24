@@ -36,6 +36,7 @@ export default function AskSurgeonForm() {
         <p className="text-white/85 text-sm mb-6">
           Our surgical coordinator will review your note and connect you with Dr. Kapil Agrawal&apos;s team shortly.
         </p>
+      
         <button
           type="button"
           onClick={() => setIsSubmitted(false)}
@@ -43,6 +44,17 @@ export default function AskSurgeonForm() {
         >
           Ask Another Question
         </button>
+
+        {/* a
+             <button
+             type="button"
+             onClick={() => setIsSubmitted(false)}
+             className="inline"
+
+
+
+
+        a */}
       </div>
     )
   }
@@ -95,7 +107,6 @@ export default function AskSurgeonForm() {
         />
       </div>
       <div className="md:col-span-2 flex flex-col sm:flex-row items-center gap-4 justify-center">
-        {/* <p className="text-sm text-white/80">Our team will reach out to you soon</p> */}
         <button
           type="submit"
           className="inline-flex items-center justify-center rounded-2xl bg-white text-[#0e7490] font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition"

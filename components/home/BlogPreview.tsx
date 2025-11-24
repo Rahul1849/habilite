@@ -58,7 +58,15 @@ export default function BlogPreview() {
                   {post.excerpt}
                 </p>
                 <div className="flex items-center text-[#0891b2] font-semibold group-hover:text-[#06b6d4] transition-colors">
-                  Read More
+                  <span className="line-clamp-1">
+                    {post.title.toLowerCase().includes('cost') || post.title.toLowerCase().includes('price')
+                      ? `Discover ${post.title.toLowerCase()}`
+                      : post.title.toLowerCase().includes('surgery') || post.title.toLowerCase().includes('treatment')
+                      ? `Learn about ${post.title.toLowerCase()}`
+                      : post.title.toLowerCase().includes('guide') || post.title.toLowerCase().includes('how to')
+                      ? `Read complete guide on ${post.title.toLowerCase()}`
+                      : `Explore ${post.title.toLowerCase()}`}
+                  </span>
                   <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={18} />
                 </div>
               </div>
