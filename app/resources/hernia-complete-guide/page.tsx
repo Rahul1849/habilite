@@ -217,7 +217,7 @@ export default function HerniaCompleteGuidePage() {
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Confused About Your Hernia Ultrasound Report? We'll Explain It Clearly.
+              Confused About Your Hernia Ultrasound Report? We&apos;ll Explain It Clearly.
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Upload your ultrasound report and receive a plain-English explanation of every finding from our medical team.
@@ -230,7 +230,7 @@ export default function HerniaCompleteGuidePage() {
             <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white p-6 sm:p-10 shadow-2xl">
               <h3 className="text-xl font-semibold mb-4">What we decode for you</h3>
               <p className="text-white/80 mb-6">
-                Every term in your ultrasound can change the treatment plan. Here's what we interpret and explain in simple language.
+                Every term in your ultrasound can change the treatment plan. Here&apos;s what we interpret and explain in simple language.
               </p>
               <ul className="space-y-3 text-sm">
                 {['Hernia size and location', 'Type of hernia (inguinal, umbilical, incisional)', 'Contents of hernia sac', 'Signs of strangulation or obstruction', 'Muscle wall defect size', 'Recurrence risk factors', 'Mesh placement evaluation', 'Post-operative healing assessment', 'When surgery cannot wait', 'When monitoring is possible'].map(
@@ -271,7 +271,7 @@ export default function HerniaCompleteGuidePage() {
               <div className="rounded-2xl bg-[#ecfeff] border border-[#0891b2]/30 px-4 py-4 text-sm text-gray-700">
                 <p className="font-semibold text-[#0891b2] mb-1">Interpreting your answers:</p>
                 <p>
-                  If you answered "Yes" to two or more questions, surgery prevents complications and improves quality of life. If all answers are "No", continue monitoring and avoid activities that increase abdominal pressure.
+                  If you answered &quot;Yes&quot; to two or more questions, surgery prevents complications and improves quality of life. If all answers are &quot;No&quot;, continue monitoring and avoid activities that increase abdominal pressure.
                 </p>
               </div>
             </div>
