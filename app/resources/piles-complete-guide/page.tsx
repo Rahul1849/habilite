@@ -132,13 +132,16 @@ export default function PilesCompleteGuidePage() {
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="text-center space-y-4 max-w-3xl mx-auto">
             <p className="text-base uppercase tracking-[0.5em] font-bold  text-[#0891b2]">Piles Awareness Hub</p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Piles – A Complete Guide by Dr. Kapil Agrawal</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Best Piles Treatment in Delhi – A Complete Guide</h1>
             <p className="text-lg text-gray-600">
               From self-check tips to laser/stapler comparisons, use this resource to remove fear and act decisively on piles treatment.
             </p>
           </header>
         </div>
       </section>
+
+
+
 
       <section className="pb-12 sm:pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

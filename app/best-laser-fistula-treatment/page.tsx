@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import FistulaFAQ from '@/app/laser-surgery/anal-fistula/FistulaFAQ'
 import FistulaTestimonials from '@/app/laser-surgery/anal-fistula/FistulaTestimonials'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Laser Fistula Treatment in Delhi - Dr. Kapil Agrawal | VAAFT Technology | 23 Years Experience',
@@ -435,6 +436,7 @@ export default function BestLaserFistulaTreatmentPage() {
             <div className="max-w-5xl mx-auto space-y-12">
               <FistulaTestimonials />
               <FistulaFAQ />
+              <RecoveryTimeline />
               {fistulaBlogs.length > 0 && (
                 <section>
                   <div className="flex items-center mb-6">

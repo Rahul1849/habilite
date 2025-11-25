@@ -86,37 +86,37 @@ const featuredBlogs = featuredBlogSlugs.map(slug => {
 
 const successStories = [
   {
-    id: 'N09RpTwI_HY',
-    title: 'Pain-free life after complex hernia surgery',
-    description: 'Patient shares her journey from repeated discomfort to a smooth laparoscopic recovery with Dr. Kapil.',
-    url: 'https://youtu.be/N09RpTwI_HY?si=Jff75poDunpnVd0Y'
+    id: 'mx-JNlf8qOE',
+    title: 'Life after complex abdominal wall reconstruction',
+    description: 'Watch how a patient overcame years of pain with a single-stage robotic hernia repair and regained confidence.',
+    url: 'https://youtu.be/mx-JNlf8qOE?si=hBuNT7oFzWUOaJqT'
   },
   {
-    id: 'sBfXG1Miajs',
-    title: 'Rapid recovery and minimal scars',
-    description: 'A working professional explains how he returned to work within days after hernia repair.',
-    url: 'https://youtu.be/sBfXG1Miajs?si=JU9Ysdjk6CBXPHNA'
+    id: '4-mCfI4pnss',
+    title: 'Desk job to deadlifts in weeks',
+    description: 'A young executive explains her laparscopic hernia journey, from first consultation to returning to fitness training.',
+    url: 'https://youtu.be/4-mCfI4pnss?si=VimgnvmoFpGRs9OO'
   },
   {
-    id: '-Lq2NxW1d1s',
-    title: 'International patient experience',
-    description: 'Hear how a patient travelling from abroad received seamless diagnosis, surgery, and follow-up care.',
-    url: 'https://youtu.be/-Lq2NxW1d1s?si=oqA2-yTLrgcGoAJv'
+    id: 'QRxW20rp-AI',
+    title: 'Minimally invasive fix for recurrent hernia',
+    description: 'Detailed account of how recurrent symptoms were resolved with a tailored mesh repair and enhanced recovery.',
+    url: 'https://youtu.be/QRxW20rp-AI?si=9_etS9IRPFq1KLl6'
   },
   {
-    id: 'DxoM1_39Xec',
-    title: 'From anxiety to confidence',
-    description: 'This success story highlights pre-op counselling, precision surgery, and post-op support.',
-    url: 'https://youtu.be/DxoM1_39Xec?si=8c7s1zF06HD5qJoY'
+    id: 'LTGyPysXqH4',
+    title: 'Bilateral hernia repair success story',
+    description: 'Hear how a senior patient experienced a pain-free, scar-conscious outcome after bilateral robotic surgery.',
+    url: 'https://youtu.be/LTGyPysXqH4?si=u6ce4B5EYj1ciKP9'
   }
 ]
 
 const detailedVideo = {
-  id: 'NBP2vClykfs',
-  title: 'Hernia: Causes, Symptoms, Risk Factors & Treatment Options',
+  id: '42vI3uOJSQI',
+  title: 'Complete Hernia Treatment Journey: Evaluation, Surgery & Rehab',
   description:
-    'Dr. Kapil explains why hernias occur, how to identify warning signs early, and when surgery becomes essential.',
-  url: 'https://youtu.be/NBP2vClykfs?si=WMdIMppYC8P6sPId'
+    'Dr. Kapil Agrawal explains how hernias are diagnosed, how to choose the right surgical approach, and what to expect during recovery.',
+  url: 'https://youtu.be/42vI3uOJSQI?si=IhUHlr2B1hlNlpYI'
 }
 
 const procedureVideo = {

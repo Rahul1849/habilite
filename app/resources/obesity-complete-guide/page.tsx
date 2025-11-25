@@ -6,6 +6,7 @@ import UploadReportCard from './UploadReportCard'
 import WhatsAppOptInCard from './WhatsAppOptInCard'
 import PeopleAlsoAsk from './PeopleAlsoAsk'
 import AskSurgeonForm from './AskSurgeonForm'
+import BestTreatmentForm from './BestTreatmentForm'
 import { blogPosts } from '@/data/blog'
 import {
   webPageSchema,
@@ -47,6 +48,25 @@ const surgeryQuestions = [
   'Do you require high insulin doses or multiple diabetes drugs?',
   'Has a doctor advised bariatric/ metabolic surgery previously?',
   'Is your quality of life or mobility severely limited?',
+]
+
+const weightLossSolutions = [
+  {
+    title: 'Bariatric Surgery',
+    description: 'Gold-standard for severe obesity with diabetes or sleep apnea when lifestyle care alone is not enough.',
+  },
+  {
+    title: 'Gastric Balloon for Weight Loss',
+    description: 'Non-surgical 6-12 month option that reduces appetite and jumpstarts disciplined eating habits.',
+  },
+  {
+    title: 'Medical Weight Loss Program',
+    description: 'Physician-led nutrition, behaviour therapy, and GLP-1/other medications tailored to your lab profile.',
+  },
+  {
+    title: 'Weight Loss Injections',
+    description: 'GLP-1 and metabolic injectables used under supervision to control hunger and insulin resistance.',
+  },
 ]
 
 const featuredBlogSlugs = [
@@ -150,7 +170,7 @@ export default function ObesityCompleteGuidePage() {
           <header className="text-center space-y-4 max-w-3xl mx-auto">
             <p className="text-base uppercase tracking-[0.5em] font-bold  text-[#0891b2]">Obesity Awareness Hub</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-              Obesity & Weight Loss – A Complete Guide by Dr. Kapil Agrawal
+              Best Obesity & Weight Loss Treatment in Delhi – A Complete Guide 
             </h1>
             <p className="text-lg text-gray-600">
               Evaluate your metabolic risks, explore evidence-based weight loss therapies, and understand when injectables or bariatric surgery make sense.
@@ -306,6 +326,33 @@ export default function ObesityCompleteGuidePage() {
         </div>
       </section>
 
+            
+      
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white border border-gray-100 shadow-xl p-6 sm:p-10 grid gap-10 lg:grid-cols-2">
+            <div className="space-y-5">
+              <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Best Weight Loss Solutions in India</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Personalised Pathways You Can Explore</h2>
+              <p className="text-gray-600">
+                Whether you need a surgical reset or medication-assisted care, our multidisciplinary team in Delhi helps you select the safest,
+                most effective route after evaluating labs, BMI, and comorbidities.
+              </p>
+              <div className="space-y-4">
+                {weightLossSolutions.map((solution) => (
+                  <div key={solution.title} className="rounded-2xl border border-gray-100 bg-gradient-to-r from-[#ecfeff] to-white p-4 shadow-sm">
+                    <h3 className="text-lg font-semibold text-gray-900">{solution.title}</h3>
+                    <p className="text-sm text-gray-600 mt-1">{solution.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <BestTreatmentForm />
+          </div>
+        </div>
+      </section>
+
+      
       <section className="pb-12 sm:pb-16">
         <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#0e7490] to-[#06b6d4] text-white shadow-2xl p-6 sm:p-10">
@@ -570,19 +617,6 @@ export default function ObesityCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="pb-12 sm:pb-16">
-        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="text-center space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Want to Talk to the Care Team?</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Fill the form, call, or WhatsApp us. We’ll guide you through GLP-1 therapy, bariatric prep, or medical weight-loss coaching.
-            </p>
-          </div>
-          <div className="rounded-3xl bg-white shadow-xl border border-gray-100 p-6 sm:p-8">
-            <CallToAction />
-          </div>
-        </div>
-      </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} suppressHydrationWarning />
       <script
@@ -619,36 +653,6 @@ function DietCard({ title, accent, iconColor, items }: { title: string; accent: 
           </li>
         ))}
       </ul>
-    </div>
-  )
-}
-
-function CallToAction() {
-  return (
-    <div className="grid gap-6 md:grid-cols-3 text-center md:text-left">
-      <div className="space-y-1">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80">Call</p>
-        <a href="tel:+919919024564" className="text-2xl font-bold text-gray-900 block">
-          +91 99190 24564
-        </a>
-        <p className="text-gray-500 text-sm">Mon–Sat, 9 AM – 9 PM IST</p>
-      </div>
-      <div className="space-y-1">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80">WhatsApp</p>
-        <a
-          href="https://wa.me/919999456455?text=I%20need%20help%20for%20weight%20loss"
-          target="_blank"
-          className="text-2xl font-bold text-gray-900 block"
-        >
-          +91 99994 56455
-        </a>
-        <p className="text-gray-500 text-sm">Share reports, questions, and daily logs.</p>
-      </div>
-      <div className="space-y-1">
-        <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80">Visit</p>
-        <p className="text-gray-900 font-semibold">Habilite Clinics, M-11, Lajpat Nagar 2, New Delhi</p>
-        <p className="text-gray-500 text-sm">By appointment only</p>
-      </div>
     </div>
   )
 }

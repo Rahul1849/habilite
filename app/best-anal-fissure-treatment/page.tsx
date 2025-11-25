@@ -12,6 +12,7 @@ import FissureTestimonials from '@/app/laser-surgery/anal-fissure/FissureTestimo
 import { blogPosts } from '@/data/blog'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Anal Fissure Treatment in Delhi - Dr. Kapil Agrawal | Laser Surgery & Botox | 23 Years Experience',
@@ -488,6 +489,7 @@ export default function BestAnalFissureTreatmentPage() {
             <div className="max-w-5xl mx-auto space-y-12">
               <FissureTestimonials />
               <FissureFAQ />
+              <RecoveryTimeline />
               {fissureBlogs.length > 0 && (
                 <section>
                   <div className="flex items-center mb-6">
@@ -552,6 +554,7 @@ export default function BestAnalFissureTreatmentPage() {
                   </div>
                 </div>
               </section>
+              <RecoveryTimeline />
             </div>
           </div>
         </div>

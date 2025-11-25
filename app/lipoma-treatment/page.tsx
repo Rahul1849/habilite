@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import LipomaFAQ from '@/app/laser-surgery/lipoma/LipomaFAQ'
 import LipomaTestimonials from '@/app/laser-surgery/lipoma/LipomaTestimonials'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Lipoma Treatment in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 3000+ Procedures',

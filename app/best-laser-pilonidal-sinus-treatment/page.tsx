@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import PilonidalSinusFAQ from '@/app/laser-surgery/pilonidal-sinus/PilonidalSinusFAQ'
 import PilonidalSinusTestimonials from '@/app/laser-surgery/pilonidal-sinus/PilonidalSinusTestimonials'
 import { blogPosts } from '@/data/blog'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Laser Pilonidal Sinus Treatment in Delhi - Dr. Kapil Agrawal | SiLaC & LA-EPSIT | 23 Years Experience',
@@ -582,6 +583,7 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
                   </div>
                 </div>
               </section>
+              <RecoveryTimeline />
             </div>
           </div>
         </div>

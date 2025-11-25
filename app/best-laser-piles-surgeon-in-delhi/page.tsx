@@ -11,6 +11,7 @@ import PilesFAQ from '@/app/laser-surgery/hemorrhoids-piles/PilesFAQ'
 import PilesTestimonials from '@/app/laser-surgery/hemorrhoids-piles/PilesTestimonials'
 import { blogPosts } from '@/data/blog'
 import StructuredData from '@/components/seo/StructuredData'
+import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
@@ -377,7 +378,8 @@ export default function BestLaserPilesSurgeonPage() {
                     </div>
                   </div>
                 </div>
-              </section>
+            </section>
+            <RecoveryTimeline />
             </div>
           </div>
         </div>
