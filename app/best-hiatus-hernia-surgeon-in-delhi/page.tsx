@@ -8,6 +8,8 @@ import CostCalculator from '@/components/lead-generation/CostCalculator'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Hiatus Hernia Surgeon in Delhi | Dr. Kapil Agrawal',
@@ -37,53 +39,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.habiliteclinics.com/best-hiatus-hernia-surgeon-in-delhi',
   },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is a hiatus hernia and how is it treated?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A hiatus hernia occurs when part of the stomach slides into the chest through the diaphragm. Small hernias respond to lifestyle changes and medicines, while symptomatic or large paraesophageal hernias require laparoscopic repair combined with fundoplication to reinforce the anti-reflux valve.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How effective is laparoscopic Nissen fundoplication?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'More than 90% of patients report long-term relief after laparoscopic Nissen fundoplication. The hiatal defect is repaired, the stomach is wrapped around the lower oesophagus, and recovery is usually within a week with minimal restrictions.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long is the hospital stay after GERD surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most patients walk within hours, shift to liquids the same day, and are discharged within 24–36 hours. Desk work can resume in 5–7 days with guided diet progression and breathing exercises.',
-      },
-    },
-  ],
-}
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Laparoscopic GERD & Hiatus Hernia Surgery',
-  description:
-    'Advanced laparoscopic and robotic program covering endoscopy, manometry, hiatal repair, tailored fundoplication, and structured recovery for GERD and hiatus hernia patients.',
-  provider: {
-    '@type': 'MedicalOrganization',
-    name: 'Habilite Clinics',
-  },
-  areaServed: 'Delhi NCR & International Patients',
-  procedureType: 'Laparoscopic / Robotic Fundoplication',
-  preparation: 'Upper GI endoscopy, barium swallow, esophageal manometry, pH monitoring, and CT or MRI for large hernias.',
-  followup: 'Soft-diet counselling for three weeks, posture training, breathing drills, and virtual follow-ups.',
 }
 
 const heroHighlights = [
@@ -184,6 +139,21 @@ const reasonsToChoose = [
 
 const faqItems = [
   {
+    question: 'What is a hiatus hernia and how is it treated?',
+    answer:
+      'A hiatus hernia occurs when part of the stomach slides into the chest through the diaphragm. Medicines and lifestyle changes help small hernias, but symptomatic or paraesophageal ones need laparoscopic repair plus fundoplication.',
+  },
+  {
+    question: 'How effective is laparoscopic Nissen fundoplication?',
+    answer:
+      'Over 90% of patients report long-term reflux relief. The hiatal defect is repaired, the stomach is wrapped around the oesophagus, and recovery takes about a week with minimal restrictions.',
+  },
+  {
+    question: 'How long is the hospital stay after GERD surgery?',
+    answer:
+      'Patients walk within hours, start liquids the same day, and are discharged within 24–36 hours. Desk work resumes in about a week with guided diet advancement.',
+  },
+  {
     question: 'Can medicines cure a hiatus hernia?',
     answer: 'Medicines suppress acid and reduce irritation but cannot repair the anatomical defect. Symptomatic or large hernias eventually need surgery.',
   },
@@ -197,6 +167,34 @@ const faqItems = [
   },
 ]
 
+const faqSchema = getFAQSchema({
+  title: 'GERD & Hiatus Hernia FAQs',
+  description: 'Expert guidance on diagnosis, fundoplication outcomes, hospital stay, medication, and post-op lifestyle.',
+  faqs: faqItems,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Laparoscopic GERD & Hiatus Hernia Surgery',
+  description:
+    'Advanced laparoscopic and robotic anti-reflux program featuring hiatal repair, mesh reinforcement, and tailored fundoplication with rapid recovery.',
+  url: '/best-hiatus-hernia-surgeon-in-delhi',
+  procedureType: 'Laparoscopic/Robotic Fundoplication',
+  bodyLocation: 'Diaphragm and Lower Esophagus',
+  medicalSpecialty: ['LaparoscopicSurgery', 'ThoracicSurgery'],
+  preparation:
+    'Upper GI endoscopy, barium swallow, esophageal manometry, 24-hour pH monitoring, and cross-sectional imaging for large hernias.',
+  followup: 'Soft diet for 3 weeks, breathing exercises, posture training, and virtual follow-ups at 1, 3, and 6 weeks.',
+  howPerformed:
+    'The hiatus is tightened laparoscopically, the stomach fundus is wrapped around the oesophagus, and high-quality mesh is used when needed to prevent recurrence.',
+  areaServed: ['Delhi', 'Gurgaon', 'Noida', 'International Patients'],
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'GERD & Hiatus Hernia Surgery', url: '/best-hiatus-hernia-surgeon-in-delhi' },
+])
+
 export default function BestHiatusHerniaSurgeonPage() {
   const relatedBlogs = blogPosts
     .filter(
@@ -209,8 +207,9 @@ export default function BestHiatusHerniaSurgeonPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">

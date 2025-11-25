@@ -10,6 +10,8 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import FissureFAQ from '@/app/laser-surgery/anal-fissure/FissureFAQ'
 import FissureTestimonials from '@/app/laser-surgery/anal-fissure/FissureTestimonials'
 import { blogPosts } from '@/data/blog'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Anal Fissure Treatment in Delhi - Dr. Kapil Agrawal | Laser Surgery & Botox | 23 Years Experience',
@@ -43,92 +45,74 @@ export const metadata: Metadata = {
   },
 }
 
-// FAQ Schema for SEO
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Is Laser Surgery the most appropriate treatment for my specific anal fissure?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laser surgery is usually recommended for severe acute anal fissures and chronic or recurrent anal fissures that do not respond to conservative treatments. Your surgeon will evaluate your condition and determine if laser surgery is the most suitable option for you.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are there any alternative treatments I should consider before opting for surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, there are several non-surgical treatments for anal fissures. It depends upon the condition of the anal fissure and the pain and spasm associated with it. Discuss all available options with your doctor to find the best approach for your situation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the expected success rate of Laser surgery for anal fissures?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The success rate of laser surgery varies, but it is generally very high for resolving symptoms of anal fissures. The success rate also depends upon the surgeon\'s expertise and the quality of the laser machines. We boast of an almost 100% success rate in the management of anal fissures following laser surgery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long is the recovery period after the Laser procedure?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You can expect a significant decrease in pain following laser surgery, and pain completely subsides in four days during the passage of stools. However, recovery may vary depending on the condition and chronicity of the anal fissure.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the duration of stay after laser surgery for anal fissure?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most of the patients can be discharged within 12 hours of surgery. You do not require bed rest and can gradually resume your normal activities within 24-48 hours of surgery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long do I have to stay in hospital after Botox treatment for anal fissure?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The Botox treatment for anal fissure is a simple procedure and the patients get discharged within 3 hours of procedure. The recovery is very fast and the results are excellent with almost zero risk of complications.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the best treatment for anal fissure?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The best treatment for anal fissure depends upon the pain, severity of symptoms and the complexity of fissure. Depending upon these factors, the surgeon can recommend you non-surgical options, Botox injections or laser surgery. We strongly believe that treatment should be customized and tailored according to the condition of the patient.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are the chances of fissure coming back after treatment?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Proper diagnosis, choosing the right modality of treatment, avoiding constipation and maintaining a healthy life style ensures almost zero chances of recurrence. However, prolonged constipation and inadequate treatment of anal fissure can result anal fissure coming back in 2-3% of patients.',
-      },
-    },
-  ],
-}
-
-// Service Schema
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Best Anal Fissure Treatment',
-  description: 'Expert anal fissure treatment by Dr. Kapil Agrawal in Delhi. Non-surgical, Botox, and Laser surgery options with permanent outcomes.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
+const fissureFaqs = [
+  {
+    question: 'Is laser surgery the most appropriate treatment for my specific anal fissure?',
+    answer:
+      'Laser surgery is generally recommended for severe, chronic, or recurrent fissures that fail medical therapy. Your surgeon evaluates your symptoms to decide the best approach.',
   },
+  {
+    question: 'Are there alternative treatments before opting for surgery?',
+    answer:
+      'Yes. Lifestyle changes, topical ointments, sitz baths, stool softeners, and Botox injections are considered before surgery depending on pain and spasm.',
+  },
+  {
+    question: 'What is the success rate of laser surgery for anal fissures?',
+    answer:
+      'Laser surgery offers a very high success rate, especially when performed with advanced equipment and experienced surgeons—Habilite Clinics reports near 100% resolution.',
+  },
+  {
+    question: 'How long is the recovery period after the laser procedure?',
+    answer:
+      'Pain reduces drastically within 48 hours and subsides fully within four days during bowel movements. Recovery time varies with chronicity but is typically under a week.',
+  },
+  {
+    question: 'What is the duration of stay after laser surgery?',
+    answer:
+      'Most patients are discharged within 12 hours and can resume normal activities over the next 24–48 hours without lengthy bed rest.',
+  },
+  {
+    question: 'How long is the hospital stay after Botox treatment?',
+    answer:
+      'Botox injections are daycare procedures with discharge in about three hours, fast recovery, and negligible complications.',
+  },
+  {
+    question: 'What is the best treatment for anal fissure?',
+    answer:
+      'Treatment is customised—acute fissures respond to medicines, persistent spasm benefits from Botox, and chronic fissures are best treated with laser surgery.',
+  },
+  {
+    question: 'What are the chances of fissure coming back after treatment?',
+    answer:
+      'With proper diagnosis, tailored therapy, and constipation prevention, recurrence is under 2–3%. Poor bowel habits increase recurrence risk.',
+  },
+]
+
+const faqSchema = getFAQSchema({
+  title: 'Anal Fissure Treatment FAQs',
+  description: 'Get clarity on medical, Botox, and laser options along with recovery expectations for anal fissure care.',
+  faqs: fissureFaqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Laser Anal Fissure Treatment',
+  description:
+    'Comprehensive fissure treatment program combining medical therapy, Botox injections, and advanced laser surgery for painless recovery.',
+  url: '/best-anal-fissure-treatment',
   procedureType: 'Laser Anal Fissure Surgery',
-  followup: 'Regular follow-up appointments and post-operative care',
-  preparation: 'Pre-surgery consultation, medical evaluation, and preparation instructions',
-}
+  bodyLocation: 'Anal Canal',
+  medicalSpecialty: ['ColorectalSurgery', 'LaserSurgery'],
+  followup: 'Custom diet plan, stool regulation, pelvic floor rehab, and reviews at week 1 and week 4.',
+  preparation: 'Proctoscopy, blood tests, anaesthesia clearance, and counselling on fibre intake.',
+  howPerformed:
+    'Laser fibres are used to ablate fissure edges and relieve sphincter spasm without cutting muscle, often supplemented with Botox for spasm control.',
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Anal Fissure Treatment', url: '/best-anal-fissure-treatment' },
+])
 
 export default function BestAnalFissureTreatmentPage() {
   const fissureBlogs = blogPosts
@@ -137,8 +121,9 @@ export default function BestAnalFissureTreatmentPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         {/* Hero Image */}

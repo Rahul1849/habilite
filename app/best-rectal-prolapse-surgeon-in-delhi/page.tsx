@@ -9,6 +9,8 @@ import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Rectal Prolapse Surgeon in Delhi | Laparoscopic & STARR Repair | Dr. Kapil Agrawal',
@@ -33,76 +35,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.habiliteclinics.com/best-rectal-prolapse-surgeon-in-delhi',
   },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Can rectal prolapse be managed without surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Dietary changes, pelvic floor therapy and avoiding constipation may slow the progression of mild prolapse, but most patients eventually require surgery for long-term relief.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which surgery is best for rectal prolapse?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Dr. Kapil Agrawal evaluates age, fitness, prolapse length and constipation to choose between STARR, Delorme, Altemeier, laparoscopic or robotic rectopexy with mesh support.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long is the hospital stay?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most minimally invasive procedures at Habilite Clinics offer 24–36 hour hospital stay with early mobilisation and home-based recovery plan.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is rectal prolapse surgery covered by insurance?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Our insurance desk supports cashless approvals, reimbursement paperwork and 0% EMI if required.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Will rectal prolapse recur after surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Recurrence risk is minimal when the right procedure is selected and mesh-supported laparoscopic or robotic rectopexy is performed by an experienced surgeon.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is recovery like?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Patients usually walk within 24 hours, resume office work in 7–10 days and follow customised diet plus pelvic floor rehab supervised by our team.',
-      },
-    },
-  ],
-}
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Rectal Prolapse Surgery',
-  description:
-    'STARR, Delorme, Altemeier, laparoscopic and robotic rectopexy performed by Dr. Kapil Agrawal for durable rectal prolapse relief with rapid recovery.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
-  },
-  procedureType: 'Laparoscopic/Robotic Rectopexy & Perineal Procedures',
-  followup: 'Structured follow-up visits with nutrition counselling, pelvic floor therapy and tele-support',
-  preparation: 'Comprehensive evaluation, bowel prep, anaesthesia clearance and pelvic floor guidance',
 }
 
 const highlightChips = [
@@ -178,6 +110,36 @@ const testimonials = [
 
 const faqs = [
   {
+    question: 'Can rectal prolapse be managed without surgery?',
+    answer:
+      'Dietary changes, pelvic floor therapy, and treating constipation may slow early prolapse, but most patients eventually need surgery for lasting relief.',
+  },
+  {
+    question: 'Which surgery is best for rectal prolapse?',
+    answer:
+      'Procedure selection depends on age, fitness, bowel habits, and prolapse length. Options include STARR, Delorme, Altemeier, laparoscopic or robotic rectopexy with mesh.',
+  },
+  {
+    question: 'How long is the hospital stay?',
+    answer:
+      'Minimally invasive rectal prolapse procedures typically require a 24–36 hour stay with early mobilisation and home-based recovery protocols.',
+  },
+  {
+    question: 'Is rectal prolapse surgery covered by insurance?',
+    answer:
+      'Yes. The Habilite Clinics insurance desk assists with cashless approvals, reimbursement files, and optional zero-interest EMIs.',
+  },
+  {
+    question: 'Will rectal prolapse recur after surgery?',
+    answer:
+      'Recurrence is rare when the right technique is chosen and mesh-supported laparoscopic or robotic rectopexy is performed by an experienced surgeon.',
+  },
+  {
+    question: 'What is recovery like?',
+    answer:
+      'Patients walk within 24 hours, resume desk work in 7–10 days, and follow a customised diet plus pelvic floor rehabilitation supervised by our care team.',
+  },
+  {
     question: 'Can medicines cure rectal prolapse?',
     answer:
       'Medicines cannot reverse rectal prolapse. However, stool softeners, diet changes and pelvic floor therapy may slow progression till you are ready for surgery.',
@@ -203,6 +165,32 @@ const faqs = [
   },
 ]
 
+const faqSchema = getFAQSchema({
+  title: 'Rectal Prolapse Surgery FAQs',
+  description: 'Answers from Dr. Kapil Agrawal on STARR, laparoscopic rectopexy, recovery, and insurance support.',
+  faqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Rectal Prolapse Surgery (STARR, Delorme, Laparoscopic Rectopexy)',
+  description:
+    'Comprehensive rectal prolapse program offering STARR, Delorme, Altemeier, laparoscopic and robotic rectopexy with pelvic floor rehab and cashless insurance.',
+  url: '/best-rectal-prolapse-surgeon-in-delhi',
+  procedureType: 'Laparoscopic/Robotic Rectopexy & Perineal Procedures',
+  bodyLocation: 'Rectum and Pelvic Floor',
+  medicalSpecialty: ['ColorectalSurgery', 'LaparoscopicSurgery'],
+  followup: 'Structured visits with nutrition counselling, pelvic floor therapy, and tele-support at weeks 1, 4, and 12.',
+  preparation: 'Comprehensive evaluation, bowel preparation, anaesthesia clearance, and pelvic floor training.',
+  howPerformed:
+    'Depending on indication, the rectum is mobilised laparoscopically and fixed to the sacrum with mesh, or perineal resection is done for high-risk patients.',
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Rectal Prolapse Surgery', url: '/best-rectal-prolapse-surgeon-in-delhi' },
+])
+
 export default function BestRectalProlapseSurgeonPage() {
   const rectalBlogs = blogPosts
     .filter((post) => post.category.toLowerCase().includes('rectal') || post.tags.some((tag) => tag.toLowerCase().includes('rectal')))
@@ -210,8 +198,9 @@ export default function BestRectalProlapseSurgeonPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">

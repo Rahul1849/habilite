@@ -8,8 +8,8 @@ const features = [
   },
   {
     icon: Briefcase,
-    title: 'Senior Consultant at Apollo',
-    description: 'Associated with Apollo Group of Hospitals - India\'s leading healthcare network',
+    title: 'Top Hospital  Network',
+    description: 'Associated with Apollo and leading hospitals in Delhi NCR for best surgical practices',
   },
   {
     icon: Users,

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
 
 // In-memory rate limiting store
 // For production, consider using Vercel KV or Redis
@@ -79,17 +78,6 @@ function validateMessage(message: string): { valid: boolean; error?: string } {
   return { valid: true }
 }
 
-function escapeHtml(text: string): string {
-  const map: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  }
-  return text.replace(/[&<>"']/g, (m) => map[m])
-}
-
 function getClientIP(request: NextRequest): string {
   // Try to get IP from various headers (for Vercel/proxies)
   const forwarded = request.headers.get('x-forwarded-for')
@@ -127,50 +115,10 @@ function checkRateLimit(ip: string): { allowed: boolean; resetTime?: number } {
   return { allowed: true }
 }
 
-// Initialize Nodemailer transporter
-function createTransporter() {
-  const host = process.env.EMAIL_HOST
-  const port = parseInt(process.env.EMAIL_PORT || '465', 10)
-  const user = process.env.EMAIL_USER
-  const pass = process.env.EMAIL_PASS
-
-  if (!host || !port || !user || !pass) {
-    throw new Error('Email configuration is missing. Please check environment variables.')
-  }
-
-  return nodemailer.createTransport({
-    host,
-    port,
-    secure: process.env.EMAIL_SECURE === 'true',
-    auth: {
-      user,
-      pass,
-    },
-    requireTLS: true,
-    tls: {
-      rejectUnauthorized: false, // Accept self-signed certificates if needed
-    },
-  })
-}
-
-function extractSmtpErrorDetails(error: unknown) {
-  if (typeof error !== 'object' || error === null) {
-    return {}
-  }
-
-  const err = error as Record<string, unknown>
-  return {
-    code: typeof err.code === 'string' ? err.code : undefined,
-    command: typeof err.command === 'string' ? err.command : undefined,
-    response: typeof err.response === 'string' ? err.response : undefined,
-  }
-}
-
 // Placeholder for WhatsApp Cloud API (Phase 2)
 async function sendWhatsAppNotification(name: string, phone: string, message: string): Promise<void> {
   // TODO: Implement WhatsApp Cloud API integration
   // This is a placeholder that will be implemented in Phase 2
-  // If this fails, it should not stop the email from being sent
   try {
     // Future implementation here
     console.log('[WhatsApp] Placeholder - Would send notification for:', { name, phone })
@@ -180,112 +128,8 @@ async function sendWhatsAppNotification(name: string, phone: string, message: st
   }
 }
 
-async function sendEmail(name: string, phone: string, message: string): Promise<void> {
-  const transporter = createTransporter()
-  const sanitizedName = escapeHtml(name)
-  const sanitizedPhone = escapeHtml(phone)
-  const sanitizedMessage = escapeHtml(message)
-
-  try {
-    await transporter.verify()
-  } catch (error) {
-    const details = extractSmtpErrorDetails(error)
-    console.error('[SMTP] Verification failed', {
-      code: details.code,
-      command: details.command,
-    })
-    throw new Error('SMTP_CONNECTION_FAILED')
-  }
-
-  const htmlContent = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-          .content { background: #f9fafb; padding: 20px; border: 1px solid #e5e7eb; }
-          .field { margin-bottom: 15px; }
-          .label { font-weight: bold; color: #0891b2; margin-bottom: 5px; display: block; }
-          .value { color: #1f2937; }
-          .message-box { background: white; padding: 15px; border-left: 4px solid #0891b2; margin-top: 10px; }
-          .footer { text-align: center; padding: 20px; color: #6b7280; font-size: 12px; }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h2 style="margin: 0;">New Consultation Request</h2>
-          </div>
-          <div class="content">
-            <div class="field">
-              <span class="label">Name:</span>
-              <span class="value">${sanitizedName}</span>
-            </div>
-            <div class="field">
-              <span class="label">Phone:</span>
-              <span class="value">${sanitizedPhone}</span>
-            </div>
-            <div class="field">
-              <span class="label">Message:</span>
-              <div class="message-box">
-                <p style="margin: 0; white-space: pre-wrap;">${sanitizedMessage}</p>
-              </div>
-            </div>
-            <div class="field" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e5e7eb;">
-              <p style="margin: 0; font-size: 12px; color: #6b7280;">
-                This consultation request was submitted through the Habilite Clinics website.
-              </p>
-            </div>
-          </div>
-          <div class="footer">
-            <p>Habilite Clinics - Consultation Form</p>
-          </div>
-        </div>
-      </body>
-    </html>
-  `
-
-  const textContent = `
-New Consultation Request
-
-Name: ${name}
-Phone: ${phone}
-
-Message:
-${message}
-
----
-This consultation request was submitted through the Habilite Clinics website.
-  `
-
-  try {
-    await transporter.sendMail({
-      from: `"Habilite Clinics Website" <${process.env.EMAIL_USER}>`,
-      to: 'contact@habiliteclinics.com',
-      subject: `New Consultation Request from ${sanitizedName}`,
-      text: textContent,
-      html: htmlContent,
-    })
-    console.log('SMTP SUCCESS')
-  } catch (error) {
-    const details = extractSmtpErrorDetails(error)
-    console.error('[SMTP] Send error', {
-      code: details.code,
-      response: details.response,
-      command: details.command,
-    })
-    throw error
-  }
-}
-
 export async function POST(request: NextRequest) {
   try {
-    const requestUrl = new URL(request.url)
-    const isTestRequest = requestUrl.searchParams.get('test') === 'true'
-
     // Get client IP for rate limiting
     const clientIP = getClientIP(request)
 
@@ -317,13 +161,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    let { name, phone, message } = body
-
-    if (isTestRequest) {
-      name = name || 'Test User'
-      phone = phone || '9999999999'
-      message = message || 'SMTP test message'
-    }
+    const { name, phone, message } = body
 
     // Validate fields
     const nameValidation = validateName(name)
@@ -355,54 +193,18 @@ export async function POST(request: NextRequest) {
     const sanitizedPhone = sanitizeString(phone)
     const sanitizedMessage = sanitizeString(message)
 
-    // Send email (primary action)
+    // Log the consultation request (email integration will be added separately)
+    console.log(`[Consultation] New request from ${sanitizedName} (${sanitizedPhone})`)
+
+    // Send WhatsApp notification (Phase 2 - non-blocking)
     try {
-      await sendEmail(sanitizedName, sanitizedPhone, sanitizedMessage)
-      console.log(`[Email] Successfully sent consultation request from ${sanitizedName} (${sanitizedPhone})`)
-    } catch (emailError) {
-      if ((emailError as Error).message === 'SMTP_CONNECTION_FAILED') {
-        return NextResponse.json(
-          {
-            success: false,
-            error: 'SMTP connection failed. Please verify your email configuration.',
-          },
-          { status: 500 }
-        )
-      }
-
-      const details = extractSmtpErrorDetails(emailError)
-      console.error('[Email] Failed to send consultation email:', {
-        code: details.code,
-        response: details.response,
-        command: details.command,
-      })
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Failed to send consultation request. Please try again later or contact us directly.',
-        },
-        { status: 500 }
-      )
+      await sendWhatsAppNotification(sanitizedName, sanitizedPhone, sanitizedMessage)
+    } catch (whatsappError) {
+      // Log but don't fail the request
+      console.error('[WhatsApp] Failed to send notification (non-blocking):', whatsappError)
     }
 
-    if (!isTestRequest) {
-      try {
-        await sendWhatsAppNotification(sanitizedName, sanitizedPhone, sanitizedMessage)
-      } catch (whatsappError) {
-        console.error('[WhatsApp] Failed to send notification (non-blocking):', whatsappError)
-      }
-    }
-
-    if (isTestRequest) {
-      return NextResponse.json(
-        {
-          success: true,
-          test: true,
-        },
-        { status: 200 }
-      )
-    }
-
+    // Success response
     return NextResponse.json(
       {
         success: true,
@@ -451,4 +253,3 @@ export async function PATCH() {
     { status: 405 }
   )
 }
-

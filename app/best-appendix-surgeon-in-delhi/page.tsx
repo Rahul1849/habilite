@@ -11,6 +11,8 @@ import AppendixFAQ from '@/app/laparoscopic-surgery/appendix-surgery/AppendixFAQ
 import AppendixTestimonials from '@/app/laparoscopic-surgery/appendix-surgery/AppendixTestimonials'
 import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Appendicitis Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic Appendectomy | 23 Years Experience',
@@ -45,66 +47,58 @@ export const metadata: Metadata = {
   },
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is the main cause of appendicitis?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Appendicitis occurs due to blockage in the appendix, due to hardened stool, infection, or swollen lymph tissue. This blockage can cause inflammation and bacterial growth.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I know if I need appendix surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "If you're facing acute lower right abdominal pain, nausea, fever, and vomiting, you may have appendicitis. Surgery is advised soon after diagnosis to prevent rupture.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the recovery time for laparoscopic appendix surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most patients take 3–5 days to recover after laparoscopic appendectomy. You can get back to your normal activities in a week.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is appendix surgery a major surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laparoscopic appendix surgery is regarded as minimally invasive, not major. It is executed with tiny incisions and involves quick recovery and minimal complications.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does appendix surgery cost in Delhi?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'At Habilite Clinics, laparoscopic appendix surgery typically ranges from ₹55,000 to ₹90,000, depending on the complications and services included. The price is transparent and all-inclusive.',
-      },
-    },
-  ],
-}
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Laparoscopic Appendectomy',
-  description: 'Expert laparoscopic appendectomy by Dr. Kapil Agrawal in Delhi. Minimally invasive appendix removal with faster recovery and excellent outcomes.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
+const appendixFaqs = [
+  {
+    question: 'What is the main cause of appendicitis?',
+    answer:
+      'Appendicitis occurs when the appendix is blocked by hardened stool, infection, or swollen lymph tissue, leading to inflammation and bacterial growth.',
   },
+  {
+    question: 'How do I know if I need appendix surgery?',
+    answer:
+      'Acute pain in the lower right abdomen accompanied by fever, nausea, and vomiting warrants immediate evaluation. Surgery is advised soon after diagnosis to prevent rupture.',
+  },
+  {
+    question: 'What is the recovery time for laparoscopic appendix surgery?',
+    answer: 'Most patients recover within 3–5 days and resume normal activity in a week after laparoscopic appendectomy.',
+  },
+  {
+    question: 'Is appendix surgery a major surgery?',
+    answer:
+      'Laparoscopic appendectomy is minimally invasive, performed through tiny incisions, and associated with quick recovery and minimal complications.',
+  },
+  {
+    question: 'How much does appendix surgery cost in Delhi?',
+    answer:
+      'At Habilite Clinics, laparoscopic appendix surgery typically ranges from ₹55,000 to ₹90,000 depending on complexity, hospital choice, and room category.',
+  },
+]
+
+const faqSchema = getFAQSchema({
+  title: 'Appendicitis Surgery FAQs',
+  description: 'Understand causes, symptoms, costs, and recovery timelines for laparoscopic appendectomy by Dr. Kapil Agrawal.',
+  faqs: appendixFaqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Laparoscopic Appendectomy',
+  description:
+    'Single-port and multi-port laparoscopic appendectomy by Dr. Kapil Agrawal featuring 24-hour discharge, cashless insurance, and scar-minimising techniques.',
+  url: '/best-appendix-surgeon-in-delhi',
   procedureType: 'Laparoscopic Appendectomy',
-  followup: 'Regular follow-up appointments and post-operative care',
-  preparation: 'Pre-surgery consultation, medical evaluation, and preparation instructions',
-}
+  bodyLocation: 'Appendix / Lower Right Abdomen',
+  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery'],
+  followup: 'Tele follow-up within 48 hours and clinic visit after 7 days with wound review and diet guidance.',
+  preparation: 'Emergency evaluation, blood work, ultrasound, and anaesthesia clearance with NPO instructions.',
+  howPerformed:
+    'Through keyhole incisions or a single umbilical port, the inflamed appendix is mobilised, clipped, and removed safely with minimal blood loss.',
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Appendix Surgery', url: '/best-appendix-surgeon-in-delhi' },
+])
 
 export default function BestAppendixSurgeonPage() {
   const appendixBlogs = blogPosts
@@ -118,8 +112,9 @@ export default function BestAppendixSurgeonPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">

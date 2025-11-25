@@ -29,11 +29,11 @@ import {
 } from './schemas'
 
 export const metadata: Metadata = {
-  title: 'Gallbladder – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
+  title: 'Hernia – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
   description:
-    'Gallbladder awareness hub by Dr. Kapil Agrawal. Take a 30-second gallbladder self-check, decode ultrasound reports, and follow a doctor-approved diet chart.',
+    'Hernia awareness hub by Dr. Kapil Agrawal. Take a 30-second hernia self-check, decode ultrasound reports, and follow a doctor-approved diet chart.',
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/resources/gallbladder-complete-guide',
+    canonical: 'https://www.habiliteclinics.com/resources/hernia-complete-guide',
   },
 }
 
@@ -47,31 +47,31 @@ type InsightCard = {
 }
 
 const symptomChecklist: ChecklistItem[] = [
-  { label: 'Pain on right side of upper stomach?' },
-  { label: 'Pain after oily/spicy meals?' },
+  { label: 'Visible bulge in abdomen or groin?' },
+  { label: 'Pain or discomfort in affected area?' },
+  { label: 'Heaviness or pressure sensation?' },
+  { label: 'Pain that worsens when standing, coughing, or straining?' },
+  { label: 'Difficulty reducing the bulge?' },
   { label: 'Nausea or vomiting?' },
-  { label: 'Bloating or indigestion?' },
-  { label: 'Back or shoulder pain?' },
-  { label: 'Fever with pain?' },
-  { label: 'Pain lasting more than 30–60 minutes?' },
+  { label: 'Constipation or difficulty with bowel movements?' },
 ]
 
-const avoidFoods = ['Oily', 'Fried', 'Butter / cream', 'Red meat', 'Heavy dairy']
-const eatFoods = ['Fruits', 'Vegetables', 'Khichdi', 'Dal', 'Low-fat milk', 'Lemon water']
+const avoidFoods = ['Heavy lifting', 'Straining during bowel movements', 'Chronic coughing', 'Smoking', 'High-fat foods']
+const eatFoods = ['High-fiber foods', 'Fruits', 'Vegetables', 'Whole grains', 'Lean proteins', 'Plenty of water']
 
 const surgeryQuestions = [
-  'Are your stones causing pain?',
-  'Has the pain repeated more than twice?',
-  'Are stones larger than 10 mm?',
-  'Is the gallbladder wall thick on ultrasound?',
-  'Is there sludge or infection noted?',
+  'Is the hernia causing pain or discomfort?',
+  'Is the hernia enlarging over time?',
+  'Is the hernia becoming irreducible (cannot be pushed back)?',
+  'Do you have signs of strangulation (severe pain, nausea, vomiting)?',
+  'Does the hernia interfere with daily activities?',
 ]
 
 // Get featured blogs with images from blogPosts data
 const featuredBlogSlugs = [
-  'life-after-gallbladder-removal-what-to-expect-in-6-months',
-  'gallbladder-stone-operation-cost-delhi',
-  'laparoscopic-vs-open-gallbladder-surgery-whats-right-for-you'
+  'hernia-surgery-types-treatment-options-recovery',
+  'laparoscopic-hernia-repair-modern-approach-treatment',
+  'signs-you-need-hernia-surgery'
 ]
 
 const featuredBlogs = featuredBlogSlugs.map(slug => {
@@ -80,21 +80,21 @@ const featuredBlogs = featuredBlogSlugs.map(slug => {
     title: blogPost?.title || '',
     description: blogPost?.excerpt || '',
     href: `/post/${slug}`,
-    image: blogPost?.image || '/images/gallbladder-surgery-delhi.jpg'
+    image: blogPost?.image || '/images/hernia-surgery-delhi.jpg'
   }
 }).filter(blog => blog.title) // Remove any that weren't found
 
 const successStories = [
   {
     id: 'N09RpTwI_HY',
-    title: 'Pain-free life after complex gallstone surgery',
-    description: 'Patient shares her journey from repeated attacks to a smooth laparoscopic recovery with Dr. Kapil.',
+    title: 'Pain-free life after complex hernia surgery',
+    description: 'Patient shares her journey from repeated discomfort to a smooth laparoscopic recovery with Dr. Kapil.',
     url: 'https://youtu.be/N09RpTwI_HY?si=Jff75poDunpnVd0Y'
   },
   {
     id: 'sBfXG1Miajs',
     title: 'Rapid recovery and minimal scars',
-    description: 'A working professional explains how he returned to work within days after gallbladder removal.',
+    description: 'A working professional explains how he returned to work within days after hernia repair.',
     url: 'https://youtu.be/sBfXG1Miajs?si=JU9Ysdjk6CBXPHNA'
   },
   {
@@ -113,41 +113,41 @@ const successStories = [
 
 const detailedVideo = {
   id: 'NBP2vClykfs',
-  title: 'Gallbladder Stones: Causes, Symptoms, Risk Factors & Treatment Options',
+  title: 'Hernia: Causes, Symptoms, Risk Factors & Treatment Options',
   description:
-    'Dr. Kapil explains why stones form, how to identify warning signs early, and when surgery becomes essential.',
+    'Dr. Kapil explains why hernias occur, how to identify warning signs early, and when surgery becomes essential.',
   url: 'https://youtu.be/NBP2vClykfs?si=WMdIMppYC8P6sPId'
 }
 
 const procedureVideo = {
   id: 'lfhv5H9VVJ8',
-  title: 'How Gallbladder Surgery Is Done Step by Step | Complete Laparoscopic Procedure Explained',
+  title: 'How Hernia Surgery Is Done Step by Step | Complete Laparoscopic Procedure Explained',
   description:
-    'Walk through the exact steps of laparoscopic gallbladder removal—from anaesthesia and port placement to suturing and discharge.',
+    'Walk through the exact steps of laparoscopic hernia repair—from anaesthesia and port placement to suturing and discharge.',
   url: 'https://youtu.be/lfhv5H9VVJ8?si=0BdUwl0QIV22rA39'
 }
 
 const roboticCompareVideo = {
   id: 'FZHmnGH0Frw',
-  title: 'Robotic vs Laparoscopic Gallbladder Stone Surgery — Which Is Better for Fast, Safe Recovery?',
+  title: 'Robotic vs Laparoscopic Hernia Surgery — Which Is Better for Fast, Safe Recovery?',
   description:
     'Dr. Kapil compares robotic precision with advanced laparoscopy, explaining how he selects the safest option for each patient.',
   url: 'https://youtu.be/FZHmnGH0Frw?si=xcEwZ5l10eJayEew'
 }
 
-export default function GallbladderCompleteGuidePage() {
+export default function HerniaCompleteGuidePage() {
   return (
     <div className="bg-gradient-to-b from-white via-[#f8fbff] to-white">
       <section className="pt-24 pb-12 sm:pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="text-center space-y-4 max-w-3xl mx-auto">
-            <p className="text-base uppercase tracking-[0.5em] font-bold  text-[#0891b2]">Gallbladder Awareness Hub</p>
+            <p className="text-base uppercase tracking-[0.5em] font-bold  text-[#0891b2]">Hernia Awareness Hub</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-              Best Gallbladder Stone Treatment in Delhi - A Complete Guide
+              Best Hernia Treatment in Delhi - A Complete Guide
             </h1>
             <p className="text-lg text-gray-600">
               Educate yourself before you decide. Use these interactive tools to understand symptoms, reports, diet plans,
-              and next steps for gallbladder care.
+              and next steps for hernia care.
             </p>
           </header>
         </div>
@@ -160,10 +160,10 @@ export default function GallbladderCompleteGuidePage() {
             <div className="flex flex-col gap-6">
               <div className="space-y-2">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                  Do You Have Gallbladder Stones? Take This 30-Second Self-Check
+                  Do You Have Hernia? Take This 30-Second Self-Check
                 </h2>
                 <p className="text-gray-600">
-                  Tick all the symptoms that apply to you. If two or more are true, it&apos;s time to speak with our gallbladder
+                  Tick all the symptoms that apply to you. If two or more are true, it&apos;s time to speak with our hernia
                   care team.
                 </p>
               </div>
@@ -189,11 +189,11 @@ export default function GallbladderCompleteGuidePage() {
                     👉 Share your symptoms for a personalised review.
                   </h3>
                   <p className="text-white/85 text-sm max-w-md mx-auto">
-                    Dr. Kapil Agrawal&apos;s gallbladder team will study your responses and our team will reach out to you soon.
+                    Dr. Kapil Agrawal&apos;s hernia team will study your responses and our team will reach out to you soon.
                   </p>
                 </div>
                 <Link
-                  href="https://wa.me/919999456455?text=I%20would%20like%20a%20gallbladder%20symptom%20review"
+                  href="https://wa.me/919999456455?text=I%20would%20like%20a%20hernia%20symptom%20review"
                   target="_blank"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-[#0f172a] font-semibold px-5 py-3 shadow-lg hover:shadow-xl transition"
                 >
@@ -217,7 +217,7 @@ export default function GallbladderCompleteGuidePage() {
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Confused About Your Gallbladder Ultrasound Report? We’ll Explain It Clearly.
+              Confused About Your Hernia Ultrasound Report? We'll Explain It Clearly.
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Upload your ultrasound report and receive a plain-English explanation of every finding from our medical team.
@@ -230,10 +230,10 @@ export default function GallbladderCompleteGuidePage() {
             <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white p-6 sm:p-10 shadow-2xl">
               <h3 className="text-xl font-semibold mb-4">What we decode for you</h3>
               <p className="text-white/80 mb-6">
-                Every term in your ultrasound can change the treatment plan. Here’s what we interpret and explain in simple language.
+                Every term in your ultrasound can change the treatment plan. Here's what we interpret and explain in simple language.
               </p>
               <ul className="space-y-3 text-sm">
-                {['Sludge vs. thick bile', 'Wall thickening = chronic inflammation', 'Calculi size & number', 'Impacted stones needing urgent removal', 'CBD dilation signalling duct blockage', 'Polyps & when they need removal', 'Multiple stones & repeated pain', 'Small polyps that still need monitoring', 'When stones become risky', 'When surgery cannot wait'].map(
+                {['Hernia size and location', 'Type of hernia (inguinal, umbilical, incisional)', 'Contents of hernia sac', 'Signs of strangulation or obstruction', 'Muscle wall defect size', 'Recurrence risk factors', 'Mesh placement evaluation', 'Post-operative healing assessment', 'When surgery cannot wait', 'When monitoring is possible'].map(
                   (feature) => (
                     <li key={feature} className="flex gap-3">
                       <CheckCircle2 size={18} className="text-emerald-300 mt-0.5" />
@@ -255,7 +255,7 @@ export default function GallbladderCompleteGuidePage() {
             <div className="space-y-6">
               <div className="space-y-2">
                 <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Surgery Necessity Checker</p>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Need Gallbladder Surgery? Answer These 5 Questions</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Need Hernia Surgery? Answer These 5 Questions</h2>
                 <p className="text-gray-600">
                   This framework is what we use during clinic consultations. Answer honestly to understand whether surgery is the safer path or if monitoring is possible.
                 </p>
@@ -271,7 +271,7 @@ export default function GallbladderCompleteGuidePage() {
               <div className="rounded-2xl bg-[#ecfeff] border border-[#0891b2]/30 px-4 py-4 text-sm text-gray-700">
                 <p className="font-semibold text-[#0891b2] mb-1">Interpreting your answers:</p>
                 <p>
-                  If you answered “Yes” to two or more questions, surgery prevents repeated attacks and complications. If all answers are “No”, continue a strict diet and repeat ultrasound in 6 months.
+                  If you answered "Yes" to two or more questions, surgery prevents complications and improves quality of life. If all answers are "No", continue monitoring and avoid activities that increase abdominal pressure.
                 </p>
               </div>
             </div>
@@ -284,7 +284,7 @@ export default function GallbladderCompleteGuidePage() {
                 </p>
               </div>
               <Link
-                href="https://wa.me/919999456455?text=I%20want%20an%20opinion%20on%20gallbladder%20surgery"
+                href="https://wa.me/919999456455?text=I%20want%20an%20opinion%20on%20hernia%20surgery"
                 target="_blank"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-slate-900 font-semibold px-5 py-3 shadow-lg hover:shadow-xl transition"
               >
@@ -308,7 +308,7 @@ export default function GallbladderCompleteGuidePage() {
           <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#0e7490] to-[#06b6d4] text-white shadow-2xl p-6 sm:p-10">
             <div className="space-y-3 text-center">
               <p className="text-base uppercase tracking-[0.6em] font-bold text-white/100">Ask the Surgeon</p>
-              <h2 className="text-2xl sm:text-3xl font-bold">Have A Question About Gallbladder Problems?</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold">Have A Question About Hernia Problems?</h2>
               <p className="text-white/90 text-base">
                 Ask Dr. Kapil Agrawal directly. Share your concern, and his team will get back to you with a personalised response.
               </p>
@@ -327,7 +327,7 @@ export default function GallbladderCompleteGuidePage() {
             <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Success stories</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Patients Who Trusted Dr. Kapil Agrawal</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Real experiences from patients who overcame gallbladder problems with personalised care and advanced laparoscopic surgery.
+              Real experiences from patients who overcame hernia problems with personalised care and advanced laparoscopic surgery.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -396,9 +396,9 @@ export default function GallbladderCompleteGuidePage() {
                 <h2 className="text-2xl font-bold text-gray-900">{detailedVideo.title}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{detailedVideo.description}</p>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Understand metabolic reasons behind stone formation</li>
+                  <li>• Understand reasons behind hernia formation</li>
                   <li>• Spot critical symptoms that need urgent evaluation</li>
-                  <li>• Compare medical, endoscopic, and surgical treatment</li>
+                  <li>• Compare conservative management and surgical treatment</li>
                 </ul>
                 <Link
                   href={detailedVideo.url}
@@ -442,8 +442,8 @@ export default function GallbladderCompleteGuidePage() {
                 <h2 className="text-2xl font-bold text-gray-900">{procedureVideo.title}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{procedureVideo.description}</p>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Step-by-step overview of laparoscopic gallbladder removal</li>
-                  <li>• Stone and gallbladder removal through keyhole incisions</li>
+                  <li>• Step-by-step overview of laparoscopic hernia repair</li>
+                  <li>• Mesh placement and hernia reduction through keyhole incisions</li>
                   <li>• Recovery timeline, safety tips, and advantages</li>
                 </ul>
                 <Link
@@ -511,56 +511,48 @@ export default function GallbladderCompleteGuidePage() {
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-center space-y-2">
             <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Featured blogs</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Additional Reading on Gallbladder Care</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Additional Reading on Hernia Care</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Dive deeper into recovery, surgery options, and financial planning with curated guides from our blog.
             </p>
           </div>
-          <div className="space-y-6">
-            {featuredBlogs.map((blog) => (
-              <Link
-                key={blog.href}
-                href={blog.href}
-                className="group flex flex-col md:flex-row rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg overflow-hidden max-w-4xl mx-auto"
-              >
-                {/* Image - Left side (50% width) */}
-                <div className="relative w-full md:w-1/2 h-48 md:h-auto">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    loading="lazy"
-                    quality={85}
-                  />
-                </div>
-                
-                {/* Content - Right side (50% width) */}
-                <div className="w-full md:w-1/2 p-6 md:p-6 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-[#0891b2] transition-colors">
-                      {blog.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                      {blog.description}
-                    </p>
+          <div className="space-y-6 max-w-4xl mx-auto">
+            {featuredBlogs.map((blog) => {
+              const blogPost = blogPosts.find(post => post.slug === blog.href.split('/').pop());
+              if (!blogPost) return null;
+              return (
+                <Link
+                  key={blog.href}
+                  href={blog.href}
+                  className="group flex flex-col md:flex-row rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg overflow-hidden"
+                >
+                  <div className="relative w-full md:w-1/2 h-48 md:h-auto overflow-hidden">
+                    <Image
+                      src={blogPost.image}
+                      alt={blog.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      quality={85}
+                    />
                   </div>
-                  <div className="mt-4 pt-4 border-t border-gray-100">
-                    <span className="inline-flex items-center text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94] transition-colors">
+                  <div className="flex-1 p-6 space-y-3 w-full md:w-1/2">
+                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0891b2]">{blog.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{blog.description}</p>
+                    <div className="text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94]">
                       {blog.title.toLowerCase().includes('cost') || blog.title.toLowerCase().includes('price')
                         ? `Discover ${blog.title.toLowerCase()}`
                         : blog.title.toLowerCase().includes('surgery') || blog.title.toLowerCase().includes('treatment')
                         ? `Learn about ${blog.title.toLowerCase()}`
                         : blog.title.toLowerCase().includes('guide') || blog.title.toLowerCase().includes('how to')
                         ? `Read complete guide on ${blog.title.toLowerCase()}`
-                        : `Explore ${blog.title.toLowerCase()}`}
-                      <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </span>
+                        : `Explore ${blog.title.toLowerCase()}`} →
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -569,14 +561,14 @@ export default function GallbladderCompleteGuidePage() {
       <section className="pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Have Gallstones? — What to Eat & Avoid</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Do You Have Hernia? — What to Eat & Avoid</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              A gentle, low-fat diet keeps attacks under control until surgery. Follow these doctor-approved guidelines.
+              A gentle, high-fiber diet helps prevent constipation and reduces strain. Follow these doctor-approved guidelines.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <DietCard title="Foods to Avoid" accent="from-[#fee2e2] to-white" iconColor="text-rose-500" items={avoidFoods} />
+            <DietCard title="Activities to Avoid" accent="from-[#fee2e2] to-white" iconColor="text-rose-500" items={avoidFoods} />
             <DietCard title="Foods to Eat" accent="from-[#ecfeff] to-white" iconColor="text-emerald-500" items={eatFoods} />
           </div>
 
@@ -604,9 +596,9 @@ export default function GallbladderCompleteGuidePage() {
       ))}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalConditionSchema) }} suppressHydrationWarning />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalProcedureSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Gallbladder Stone Symptoms Checklist', 'Common symptoms of gallbladder stones that require medical attention', symptomChecklist.map(item => item.label))) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Foods to Avoid with Gallstones', 'Foods that should be avoided if you have gallbladder stones', avoidFoods)) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Foods to Eat with Gallstones', 'Recommended foods for people with gallbladder stones', eatFoods)) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Hernia Symptoms Checklist', 'Common symptoms of hernia that require medical attention', symptomChecklist.map(item => item.label))) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Activities to Avoid with Hernia', 'Activities that should be avoided if you have hernia', avoidFoods)) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getItemListSchema('Foods to Eat with Hernia', 'Recommended foods for people with hernia', eatFoods)) }} suppressHydrationWarning />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} suppressHydrationWarning />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} suppressHydrationWarning />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalSpecialtySchema) }} suppressHydrationWarning />

@@ -11,6 +11,8 @@ import GallbladderFAQ from './GallbladderFAQ'
 import GallbladderTestimonials from './GallbladderTestimonials'
 import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries',
@@ -54,194 +56,124 @@ function getYouTubeVideoId(url: string): string | null {
   return match && match[1] ? match[1] : null
 }
 
-// FAQ Schema for SEO
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Can gall bladder and hernia surgery be performed together?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, it is common to perform gallbladder surgery and hernia repair at the same time. This is especially beneficial in cases where both conditions are present, and the patient can undergo both procedures simultaneously. However, the decision depends on the complexity of both surgeries and the experience of the surgeon. Your surgeon is the best person to decide if it is safe to perform both surgeries together.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I live a normal life after gallbladder removal surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, you can live a completely normal life without a gallbladder and resume normal activities within a week. Most people adapt well to life without a gallbladder, and any dietary adjustments are usually temporary.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are there any medicines that can help in dissolving gallstones?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'There are few medicines that may dissolve cholesterol stones, but they are slow and often ineffective. Surgery remains the ultimate and most effective solution for gallstone removal.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Should I go for gallbladder surgery for asymptomatic gallstones?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Surgery is generally not recommended for silent (asymptomatic) stones. However, there are risks for further complications, and thus surgery may be advised in certain cases, especially for larger stones or in patients with specific risk factors.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can gallbladder stones be cancerous?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Gallstones themselves are not cancerous. However, long-lasting or large gallstones can have risks for gallbladder cancer over time, which is why regular monitoring and timely treatment are important.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are gallbladder polyps, and should I remove them?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Gallbladder polyps form on the inner wall of the gallbladder. Polyps larger than 10 mm may require gallbladder removal due to cancer risk. Smaller polyps are usually monitored regularly.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How can I prevent the formation of gallstones?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Maintain a healthy weight, eat a balanced diet with high-fiber and low-fat foods, stay physically active, and stay hydrated. Avoid rapid weight loss or weight gain.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do we confirm a stone in the CBD (common bile duct)?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Stones in the CBD are diagnosed using imaging tests like MRCP (Magnetic Resonance Cholangiopancreatography), ultrasound, or ERCP (Endoscopic Retrograde Cholangiopancreatography).',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What if a stone slips into the common bile duct (CBD)?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Stones in the CBD can cause jaundice, pain, or infection. They are typically removed using ERCP (endoscopic procedure) before or along with gallbladder surgery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Does a 7mm gallstone need surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A 7 mm stone may require surgery if it causes symptoms or complications. The decision depends on symptoms, location, and individual patient factors.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What size gallstones are bad?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Stones larger than 2 cm or multiple small stones that can slip into the bile duct are considered higher risk and may require surgery even if they don\'t have any symptoms.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I remove my gallstones without removing gallbladder?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Non-surgical methods are not very effective and are associated with high recurrence rates. Surgery to remove the gallbladder (cholecystectomy) is the definitive and most effective treatment.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What to avoid after gallbladder removal?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Avoid eating high-fat, greasy, or fried foods for a few weeks. Gradually introduce fiber and fats as per instructions from your nutritionist. Stay hydrated and eat smaller, more frequent meals.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are permanent issues after gallbladder removal?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most people don\'t have long-term problems. Few symptoms like occasional diarrhea or digestive discomfort are manageable with diet and lifestyle changes.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How many days should I rest after gallbladder surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most patients are advised to take rest for 3–5 days. You can resume light work in a week and normal activities in about 10–14 days after laparoscopic gallbladder surgery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does gallbladder surgery cost in Delhi?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laparoscopic gallbladder surgery in Delhi ranges between Rs.60,000 to Rs.1,20,000 based on hospital, surgical experience, and amenities. Costs may vary based on the type of procedure and hospital chosen.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I choose a gallbladder surgeon?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You should look for a surgeon having extensive experience in advanced laparoscopic surgery, good patient reviews, hospital associations, and personalized care. Check credentials, years of experience, and number of successful surgeries.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which gallbladder surgery is best?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laparoscopic cholecystectomy is the gold standard. It is minimally invasive, safe, and offers quicker recovery with minimal scarring compared to open surgery.',
-      },
-    },
-  ],
-}
-
-// Physician Schema
-const physicianSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Physician',
-  name: 'Dr. Kapil Agrawal',
-  jobTitle: 'Best Gallbladder Surgeon in Delhi',
-  description: 'Expert laparoscopic and robotic gallbladder surgeon with 23+ years of experience and 7000+ successful gallbladder surgeries.',
-  url: 'https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi',
-  image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.jpg',
-  medicalSpecialty: 'Laparoscopic Surgery, Gallbladder Surgery, Cholecystectomy',
-  knowsAbout: ['Laparoscopic Cholecystectomy', 'Robotic Gallbladder Surgery', 'Single Port Surgery', 'Gallbladder Stone Removal'],
-  affiliation: {
-    '@type': 'Organization',
-    name: 'Habilite Clinics',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Delhi',
-      addressCountry: 'IN',
-    },
+const gallbladderFaqs = [
+  {
+    question: 'Can gall bladder and hernia surgery be performed together?',
+    answer:
+      'Yes, it is common to perform gallbladder surgery and hernia repair at the same time. This is especially beneficial when both conditions are present, provided the surgeon considers it safe based on complexity and patient profile.',
   },
-}
-
-// Service Schema
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Gallbladder Surgery',
-  description: 'Expert laparoscopic, robotic, and single-port gallbladder surgery by Dr. Kapil Agrawal in Delhi. 23+ years experience, 7000+ successful surgeries.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
+  {
+    question: 'Can I live a normal life after gallbladder removal surgery?',
+    answer:
+      'Absolutely. You can resume routine activities within a week. Most people adapt well without a gallbladder, and dietary changes are usually temporary.',
   },
+  {
+    question: 'Are there medicines that can help dissolve gallstones?',
+    answer:
+      'Medication may dissolve cholesterol stones in select cases but works slowly and has a high recurrence rate. Laparoscopic cholecystectomy remains the definitive treatment.',
+  },
+  {
+    question: 'Should I opt for surgery if I have asymptomatic gallstones?',
+    answer:
+      'Silent stones are monitored, but surgery may be recommended for larger stones or high-risk profiles to prevent acute attacks or complications.',
+  },
+  {
+    question: 'Can gallbladder stones turn cancerous?',
+    answer:
+      'Gallstones are not cancerous but chronic irritation from large or long-standing stones may increase gallbladder cancer risk, making timely treatment important.',
+  },
+  {
+    question: 'What are gallbladder polyps and should I remove them?',
+    answer:
+      'Polyps form on the inner wall of the gallbladder. Lesions over 10 mm or symptomatic ones usually warrant surgery due to cancer risk, while smaller ones are monitored.',
+  },
+  {
+    question: 'How can I prevent gallstones from forming?',
+    answer:
+      'Maintain a healthy weight, eat a balanced low-fat high-fibre diet, stay active, hydrate adequately, and avoid rapid weight fluctuations.',
+  },
+  {
+    question: 'How do we confirm a stone in the common bile duct (CBD)?',
+    answer:
+      'CBD stones are diagnosed through MRCP, ultrasound, or ERCP. Advanced imaging pinpoints obstruction and guides the need for endoscopic removal.',
+  },
+  {
+    question: 'What happens if a stone slips into the common bile duct?',
+    answer:
+      'Stones in the CBD can cause jaundice, severe pain, or infection. They are removed via ERCP before or along with gallbladder surgery to restore bile flow.',
+  },
+  {
+    question: 'Does a 7 mm gallstone need surgery?',
+    answer:
+      'If it causes pain, infection, or repeated attacks, surgery is advised. Size, symptoms, and ultrasound findings collectively guide the decision.',
+  },
+  {
+    question: 'What size gallstones are considered risky?',
+    answer:
+      'Stones larger than 2 cm or numerous small stones that may enter the duct are higher risk and often treated proactively to avoid emergencies.',
+  },
+  {
+    question: 'Can gallstones be removed without removing the gallbladder?',
+    answer:
+      'Non-surgical options are ineffective and have high recurrence. Removing the entire gallbladder (cholecystectomy) prevents future stone formation.',
+  },
+  {
+    question: 'What should I avoid after gallbladder removal?',
+    answer:
+      'Limit greasy or fried food for a few weeks, reintroduce fats gradually, eat smaller meals, and stay hydrated as the body adapts.',
+  },
+  {
+    question: 'Are there permanent issues after gallbladder surgery?',
+    answer:
+      'Most people do not face long-term problems. Mild digestive changes settle with dietary moderation and follow-up support.',
+  },
+  {
+    question: 'How many days of rest are needed after gallbladder surgery?',
+    answer:
+      'Desk work resumes within a week and normal activities in 10–14 days after laparoscopic surgery. Heavy lifting is restricted for about 3–4 weeks.',
+  },
+  {
+    question: 'How much does gallbladder surgery cost in Delhi?',
+    answer:
+      'Laparoscopic gallbladder surgery typically costs ₹60,000–₹1,20,000 depending on hospital infrastructure, technology, and room preference.',
+  },
+  {
+    question: 'How do I choose the best gallbladder surgeon?',
+    answer:
+      'Look for extensive laparoscopic experience, positive patient outcomes, association with accredited hospitals, and personalised care by the surgical team.',
+  },
+  {
+    question: 'Which gallbladder surgery technique is best?',
+    answer:
+      'Laparoscopic cholecystectomy is the gold standard due to minimal pain, tiny scars, lower complications, and quick recovery. Robotic options add precision for complex cases.',
+  },
+]
+
+const faqSchema = getFAQSchema({
+  title: 'Gallbladder Surgery FAQs',
+  description: 'Answers by Dr. Kapil Agrawal on gallbladder stones, laparoscopic cholecystectomy, cost, and recovery timelines.',
+  faqs: gallbladderFaqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Gallbladder Surgery (Laparoscopic Cholecystectomy)',
+  description:
+    'Comprehensive gallbladder stone treatment by Dr. Kapil Agrawal featuring laparoscopic, single-port, and robotic cholecystectomy with 24-hour discharge.',
+  url: '/best-gallbladder-stone-surgeon-delhi',
   procedureType: 'Laparoscopic Cholecystectomy',
-  followup: 'Regular follow-up appointments and post-operative care',
-  preparation: 'Pre-surgery consultation, medical evaluation, and preparation instructions',
-}
+  bodyLocation: 'Gallbladder',
+  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery'],
+  followup: 'Tele-follow up within 48 hours and in-person review after 7–10 days.',
+  preparation: 'Pre-surgery consultation, blood tests, anaesthesia clearance, and 8-hour fasting.',
+  howPerformed:
+    'Keyhole incisions with laparoscope or robotic assistance remove the gallbladder and stones safely with minimal blood loss.',
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Gallbladder Surgery', url: '/best-gallbladder-stone-surgeon-delhi' },
+])
 
 export default function GallbladderSurgeryPage() {
   const gallbladderBlogs = blogPosts
@@ -250,22 +182,9 @@ export default function GallbladderSurgeryPage() {
 
   return (
     <>
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        suppressHydrationWarning
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
-        suppressHydrationWarning
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-        suppressHydrationWarning
-      />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         {/* Hero Image */}

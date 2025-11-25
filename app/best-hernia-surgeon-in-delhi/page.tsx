@@ -11,6 +11,8 @@ import HerniaTestimonials from '@/app/laparoscopic-surgery/hernia-surgery/Hernia
 import HerniaFAQ from '@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ'
 import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Hernia Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic & Robotic Hernia Repair',
@@ -37,91 +39,73 @@ export const metadata: Metadata = {
   },
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How long do I stay in the hospital after laparoscopic hernia repair?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most patients are discharged within 24 hours of laparoscopic or robotic hernia repair and can resume light activities immediately.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can a hernia heal on its own without surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. A hernia is a progressive weakness in the muscle wall and never heals on its own. Surgery is the only definitive treatment.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which hernia surgery method is better—open, laparoscopic or robotic?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laparoscopic and robotic techniques are preferred for most patients because they offer smaller incisions, less pain, faster recovery and minimal scarring. Open surgery is reserved for very large or complex defects.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is hernia surgery covered by insurance in India?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Most health insurance plans cover hernia surgery. Habilite Clinics provides complete cashless coordination as well as zero-interest EMI options.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long does it take to recover after hernia surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laparoscopic and robotic hernia patients usually return to desk work in 7-10 days and normal physical activity in 3-4 weeks. Open abdominal wall reconstructions may take longer.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which diagnostic test is best for hernia detection?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most hernias are diagnosed clinically. Ultrasound, CT scan, or MRI are advised for complicated or recurrent hernias.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What size hernia typically requires surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Any visible, painful, enlarging, or irreducible hernia should be repaired surgically to prevent complications such as obstruction or strangulation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I return to work quickly after hernia surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. With minimally invasive techniques most patients return to light work in 1-2 weeks and to heavy-duty jobs in 3-4 weeks, depending on the repair.',
-      },
-    },
-  ],
-}
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Laparoscopic and Robotic Hernia Surgery',
-  description:
-    'Comprehensive hernia surgery program covering inguinal, femoral, umbilical, epigastric, hiatus and incisional hernias with laparoscopic, robotic and advanced abdominal wall reconstruction techniques.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
+const herniaFaqs = [
+  {
+    question: 'How long do I stay in the hospital after laparoscopic hernia repair?',
+    answer: 'Most patients are discharged within 24 hours and resume light activity immediately after laparoscopic or robotic repair.',
   },
+  {
+    question: 'Can a hernia heal on its own without surgery?',
+    answer: 'No. A hernia is a progressive defect in the muscle wall and requires surgical repair to prevent complications.',
+  },
+  {
+    question: 'Which hernia surgery method is better—open, laparoscopic or robotic?',
+    answer:
+      'Laparoscopic and robotic techniques offer smaller incisions, less pain, faster recovery and minimal scarring. Open surgery is reserved for very large or complex hernias.',
+  },
+  {
+    question: 'Is hernia surgery covered by insurance in India?',
+    answer:
+      'Yes. Most health insurance plans cover hernia surgery. Habilite Clinics supports cashless approvals and flexible EMI assistance.',
+  },
+  {
+    question: 'How long does it take to recover after hernia surgery?',
+    answer:
+      'Desk jobs resume in 7–10 days after minimally invasive repair, while physically demanding work may require 3–4 weeks of rest.',
+  },
+  {
+    question: 'Which diagnostic test is best for hernia detection?',
+    answer:
+      'Clinical examination is usually sufficient. Ultrasound, CT scan, or MRI are ordered for complex, recurrent, or abdominal wall hernias.',
+  },
+  {
+    question: 'What size or type of hernia typically requires surgery?',
+    answer:
+      'Any symptomatic, enlarging, or irreducible hernia should be repaired to avoid obstruction or strangulation of the intestine.',
+  },
+  {
+    question: 'Can I return to work quickly after hernia surgery?',
+    answer:
+      'Yes. Minimally invasive techniques enable return to light work within 1–2 weeks and to strenuous activity in 3–4 weeks, depending on the job.',
+  },
+]
+
+const faqSchema = getFAQSchema({
+  title: 'Hernia Surgery FAQs',
+  description: 'Common questions answered by Dr. Kapil Agrawal related to hernia symptoms, surgery, insurance, and recovery timelines.',
+  faqs: herniaFaqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Laparoscopic & Robotic Hernia Surgery',
+  description:
+    'Advanced hernia program by Dr. Kapil Agrawal covering inguinal, umbilical, femoral, hiatus, and complex incisional hernias with laparoscopic, robotic, and abdominal wall reconstruction techniques.',
+  url: '/best-hernia-surgeon-in-delhi',
   procedureType: 'Laparoscopic Hernia Repair',
-  followup: 'Same-day discharge with structured follow-up visits and digital support',
-  preparation: 'Pre-operative consultation, imaging as needed, anaesthesia clearance',
-}
+  bodyLocation: 'Abdominal Wall / Groin',
+  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery'],
+  followup: 'Same-day discharge with structured physiotherapy, tele-support, and in-person review within 10 days.',
+  preparation: 'Pre-operative imaging, anaesthesia clearance, optimisation of comorbidities, and fasting guidelines.',
+  howPerformed:
+    'Hernia contents are reduced laparoscopically or robotically, followed by placement of high-quality mesh to reinforce the abdominal wall.',
+  areaServed: ['Delhi', 'Gurgaon', 'Noida', 'India'],
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Hernia Surgery', url: '/best-hernia-surgeon-in-delhi' },
+])
 
 export default function BestHerniaSurgeonPage() {
   const herniaBlogs = blogPosts
@@ -130,8 +114,9 @@ export default function BestHerniaSurgeonPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">

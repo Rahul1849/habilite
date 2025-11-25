@@ -6,6 +6,13 @@ import Footer from '@/components/layout/Footer'
 import MobileStickyFooter from '@/components/layout/MobileStickyFooter'
 import ToastContainer from '@/components/ui/Toast'
 import dynamic from 'next/dynamic'
+import StructuredData from '@/components/seo/StructuredData'
+import {
+  getBreadcrumbSchema,
+  getLocalBusinessSchema,
+  getOrganizationSchema,
+  getPhysicianSchema,
+} from '@/lib/seo/schemaBuilders'
 
 const ScrollToTop = dynamic(() => import('@/components/common/ScrollToTop'), {
   ssr: false,
@@ -89,92 +96,15 @@ export const metadata: Metadata = {
   },
 }
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalOrganization',
-  name: 'Habilite Clinics',
-  url: 'https://www.habiliteclinics.com',
-  logo: 'https://www.habiliteclinics.com/logo.png',
-  description: 'Leading laparoscopic and robotic surgery center in Delhi, India. Expert surgical services by Dr. Kapil Agrawal with 23 years experience.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
-    addressLocality: 'Lajpat Nagar',
-    addressRegion: 'Delhi',
-    postalCode: '110024',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: '28.5675',
-    longitude: '77.2430',
-  },
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      telephone: '+91-99994-56455',
-      contactType: 'customer service',
-      areaServed: ['IN', 'Delhi', 'Delhi NCR', 'Noida', 'Gurgaon'],
-      availableLanguage: ['English', 'Hindi'],
-    },
-    {
-      '@type': 'ContactPoint',
-      telephone: '+91-99100-24564',
-      contactType: 'support',
-      areaServed: ['IN', 'Delhi', 'Delhi NCR', 'Noida', 'Gurgaon'],
-      availableLanguage: ['English', 'Hindi'],
-    },
-  ],
-  sameAs: [
-    'https://www.facebook.com/habiliteclinics',
-    'https://www.twitter.com/habiliteclinics',
-    'https://www.linkedin.com/company/habiliteclinics',
-  ],
-}
-
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  name: 'Habilite Clinics',
-  image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-  '@id': 'https://www.habiliteclinics.com',
-  url: 'https://www.habiliteclinics.com',
-  telephone: '+91-99994-56455',
-  priceRange: '$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
-    addressLocality: 'Lajpat Nagar',
-    addressRegion: 'Delhi',
-    postalCode: '110024',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: '28.5675',
-    longitude: '77.2430',
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '10:00',
-    closes: '18:00',
-  },
-  areaServed: [
-    {
-      '@type': 'City',
-      name: 'Delhi',
-    },
-    {
-      '@type': 'State',
-      name: 'Delhi',
-    },
-    {
-      '@type': 'Country',
-      name: 'India',
-    },
-  ],
-}
+const organizationSchema = getOrganizationSchema()
+const localBusinessSchema = getLocalBusinessSchema()
+const physicianSchema = getPhysicianSchema()
+const globalBreadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Doctors', url: '/doctors' },
+  { name: 'Contact', url: '/contact' },
+])
 
 export default function RootLayout({
   children,
@@ -188,16 +118,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          suppressHydrationWarning
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-          suppressHydrationWarning
-        />
+        <StructuredData data={organizationSchema} />
+        <StructuredData data={localBusinessSchema} />
+        <StructuredData data={physicianSchema} />
+        <StructuredData data={globalBreadcrumbSchema} />
         <Header />
         {/* Spacer to prevent content from going under fixed header */}
         {/* Mobile: 80px (main header only), Tablet: 128px (top nav + main header), Desktop: 188px (all bars) */}

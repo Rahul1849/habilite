@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
 
 const laparoscopicServices = [
   {
@@ -65,10 +64,9 @@ export default function LaparoscopicServices() {
                 <p className="text-sm text-gray-600 mb-4 line-clamp-3">{service.description}</p>
                 <Link
                   href={service.link}
-                  className="inline-flex items-center text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
+                  className="inline-flex text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
                 >
-                  View More
-                  <ArrowRight size={16} className="ml-1" />
+                  {`Learn more about ${service.title} in Delhi`}
                 </Link>
               </div>
             </div>

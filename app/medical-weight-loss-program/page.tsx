@@ -10,6 +10,8 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import MedicalWeightLossFAQ from './MedicalWeightLossFAQ'
 import MedicalWeightLossTestimonials from './MedicalWeightLossTestimonials'
 import { blogPosts } from '@/data/blog'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Medical Weight Loss Program in Delhi - Non-Surgical Weight Loss | Habilite Clinics',
@@ -44,48 +46,50 @@ export const metadata: Metadata = {
   },
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How effective is your program in causing weight loss?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Majority of our patients lose 1-2 kgs per week during the initial phase with an average weight loss of 12-15 kgs over a period of 5-6 months. Consistent monitoring and adherence to the plan are key to sustainable results.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are any drugs or appetite suppressants used in your program?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Medications are prescribed only by the bariatric physician when absolutely necessary, and for short durations. The focus remains on nutritional, behavioral, and lifestyle modifications.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is exercise a part of the program?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, exercise is integral. Our exercise physiologists design individualized routines that help maintain muscle mass, enhance metabolism, and support long-term weight maintenance.',
-      },
-    },
-  ],
-}
+const programFaqs = [
+  {
+    question: 'How effective is your medical weight loss program?',
+    answer:
+      'Most patients lose 1–2 kg per week initially with an average of 12–15 kg over 5–6 months when they follow the customised nutrition, exercise, and behaviour plan with regular monitoring.',
+  },
+  {
+    question: 'Do you prescribe medicines or appetite suppressants?',
+    answer:
+      'Medications are used judiciously by the bariatric physician only when clinically indicated and always alongside nutrition, behaviour, and exercise support.',
+  },
+  {
+    question: 'Is exercise compulsory in the program?',
+    answer:
+      'Yes. Exercise physiologists design personalised routines that preserve muscle mass, boost metabolism, and improve long-term weight maintenance.',
+  },
+]
 
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  name: 'Habilite Clinics Medical Weight Loss Program',
+const faqSchema = getFAQSchema({
+  title: 'Medical Weight Loss Program FAQs',
+  description: 'Answers on effectiveness, medication use, and exercise protocols for our supervised weight loss program.',
+  faqs: programFaqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Medically Supervised Weight Loss Program',
   description:
-    'Medically supervised weight loss program in Delhi led by Dr. Kapil Agrawal with a multi-disciplinary team offering customized diet, exercise, and behavior therapy plans.',
-  medicalSpecialty: ['Bariatric', 'Nutrition', 'Endocrinology'],
-  areaServed: 'Delhi NCR',
-  telephone: '+91-9999-456-455',
-  url: 'https://www.habiliteclinics.com/medical-weight-loss-program',
-}
+    'Non-surgical weight loss program led by Dr. Kapil Agrawal with bariatric physicians, nutritionists, physiologists, and psychologists delivering customised plans.',
+  url: '/medical-weight-loss-program',
+  procedureType: 'Medical Weight Loss Therapy',
+  bodyLocation: 'Metabolic / Whole Body',
+  medicalSpecialty: ['BariatricSurgery', 'Nutrition', 'Endocrinology'],
+  followup: 'Weekly check-ins, monthly medical reviews, and maintenance plans extending up to one year.',
+  preparation: 'Comprehensive metabolic panel, body composition, dietary recall, and psychological screening.',
+  howPerformed:
+    'Combines customised diet, monitored exercise, behaviour therapy, and optional medication under a multidisciplinary team with digital accountability.',
+  areaServed: ['Delhi', 'Gurgaon', 'Noida', 'India'],
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Medical Weight Loss Program', url: '/medical-weight-loss-program' },
+])
 
 const availableServices = [
   'Medical assessment and supervision of weight loss',
@@ -133,8 +137,9 @@ export default function MedicalWeightLossProgramPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">

@@ -9,6 +9,8 @@ import TableOfContents from '@/components/blog/TableOfContents'
 import RecentPosts from '@/components/blog/RecentPosts'
 import DoctorInfoCard from '@/components/blog/DoctorInfoCard'
 import FAQSchema from '@/components/blog/FAQSchema'
+import StructuredData from '@/components/seo/StructuredData'
+import { getArticleSchema, getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -47,9 +49,26 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = getRelatedPosts(slug)
   const recentPosts = getRecentPosts(slug, 5)
+  const articleSchema = getArticleSchema({
+    title: post.title,
+    description: post.excerpt,
+    url: `/post/${post.slug}`,
+    image: post.image,
+    datePublished: post.publishedDate,
+    dateModified: post.updatedDate,
+    keywords: post.tags,
+  })
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/post' },
+    { name: post.title, url: `/post/${post.slug}` },
+  ])
 
   return (
-    <div className="pt-20 pb-16">
+    <>
+      <StructuredData data={articleSchema} />
+      <StructuredData data={breadcrumbSchema} />
+      <div className="pt-20 pb-16">
       {/* Hero Image */}
       <div className="relative h-96">
         <Image
@@ -362,43 +381,8 @@ export default async function BlogPostPage({ params }: Props) {
       {post.faqSchema && post.faqSchema.length > 0 && (
         <FAQSchema faqs={post.faqSchema} />
       )}
-
-      {/* Article Schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: post.title,
-            description: post.excerpt,
-            image: post.image.startsWith('http') ? post.image : `https://www.habiliteclinics.com${post.image}`,
-            datePublished: post.publishedDate,
-            dateModified: post.updatedDate || post.publishedDate,
-            author: {
-              '@type': 'Person',
-              name: 'Dr. Kapil Agrawal',
-              jobTitle: 'Best Laparoscopic Surgeon in Delhi, India',
-              description: 'Senior Consultant - Laparoscopic & Robotic Surgeon at Apollo Group of Hospitals, Delhi NCR. 23+ years experience, 7000+ successful surgeries.',
-              url: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
-            },
-            publisher: {
-              '@type': 'Organization',
-              name: 'Habilite Clinics',
-              logo: {
-                '@type': 'ImageObject',
-                url: 'https://www.habiliteclinics.com/logo.png',
-              },
-            },
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `https://www.habiliteclinics.com/post/${post.slug}`,
-            },
-          }),
-        }}
-        suppressHydrationWarning
-      />
-    </div>
+      </div>
+    </>
   )
 }
 

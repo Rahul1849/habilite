@@ -10,6 +10,8 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import PilesFAQ from '@/app/laser-surgery/hemorrhoids-piles/PilesFAQ'
 import PilesTestimonials from '@/app/laser-surgery/hemorrhoids-piles/PilesTestimonials'
 import { blogPosts } from '@/data/blog'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Surgeon for Piles in Delhi - Dr. Kapil Agrawal | Laser Piles Treatment | 23 Years Experience',
@@ -45,66 +47,58 @@ export const metadata: Metadata = {
   },
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is the best treatment for piles?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The best treatment of piles depends upon the grade and stage of piles. While very early stages can be managed with the help of medicines and certain precautions, grades II and III are best managed with the help of laser surgeries. Grade IV haemorrhoids are usually treated by stapler surgery for piles.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are the chances of recurrence after laser surgery of piles?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The chances of recurrence after laser surgery for piles are usually 4-5%. However, recurrences can be prevented by using high-quality laser machines, properly indicating the procedure, and avoiding constipation after surgery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is laser treatment safe for piles?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laser surgery is a highly safe procedure for the management of piles. The excellent quality laser machines are USFDA-approved and do not produce any side effects.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which is the best surgery for piles?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Laser surgery is one of the best and most advanced options. It is painless, minimally invasive, and offers faster recovery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the cost of piles surgery?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The cost of piles surgery in India ranges from ₹30,000 to ₹90,000, depending on the procedure and hospital.',
-      },
-    },
-  ],
-}
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Laser Piles Treatment',
-  description: 'Expert laser piles treatment by Dr. Kapil Agrawal in Delhi. USFDA approved laser technology for painless, minimally invasive piles removal.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
+const pilesFaqs = [
+  {
+    question: 'What is the best treatment for piles?',
+    answer:
+      'Treatment depends on grade. Early stages are managed medically, while grade II–III respond best to laser surgery and grade IV often needs stapler hemorrhoidopexy.',
   },
+  {
+    question: 'What are the chances of recurrence after laser surgery?',
+    answer:
+      'Recurrence rates are around 4–5% and can be minimised by proper patient selection, using premium USFDA-approved lasers, and preventing constipation post-surgery.',
+  },
+  {
+    question: 'Is laser treatment safe for piles?',
+    answer:
+      'Yes. Laser hemorrhoidoplasty is minimally invasive, uses precise USFDA-approved energy, and preserves surrounding tissue with minimal side effects.',
+  },
+  {
+    question: 'Which is the best surgery for piles?',
+    answer:
+      'Laser surgery offers painless recovery and tiny wounds. Stapler or DGHAL options are chosen for advanced grades based on anatomy and symptoms.',
+  },
+  {
+    question: 'What is the cost of piles surgery?',
+    answer: 'Laser piles surgery typically ranges from ₹30,000 to ₹90,000 in India depending on grade, technology, and hospital category.',
+  },
+]
+
+const faqSchema = getFAQSchema({
+  title: 'Laser Piles Treatment FAQs',
+  description: 'Details on suitability, recurrence, safety, and cost for laser piles surgery by Dr. Kapil Agrawal.',
+  faqs: pilesFaqs,
+})
+
+const procedureSchema = getMedicalProcedureSchema({
+  name: 'Laser Piles Treatment',
+  description:
+    'USFDA-approved laser, stapler, and DGHAL procedures for hemorrhoids performed by Dr. Kapil Agrawal with same-day discharge and minimal recurrence.',
+  url: '/best-laser-piles-surgeon-in-delhi',
   procedureType: 'Laser Hemorrhoidectomy',
-  followup: 'Regular follow-up appointments and post-operative care',
-  preparation: 'Pre-surgery consultation, medical evaluation, and preparation instructions',
-}
+  bodyLocation: 'Anal Canal / Rectum',
+  medicalSpecialty: ['ColorectalSurgery', 'LaserSurgery'],
+  followup: 'Structured follow-up calls, fibre-rich diet plans, and pelvic floor guidance for 4 weeks.',
+  preparation: 'Preoperative consultation, proctoscopy, blood work, and bowel preparation.',
+  howPerformed:
+    'Laser fibre is inserted into the hemorrhoidal tissue to shrink it from within, preserving sphincter function and allowing same-day discharge.',
+})
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Treatments', url: '/treatments' },
+  { name: 'Laser Piles Treatment', url: '/best-laser-piles-surgeon-in-delhi' },
+])
 
 export default function BestLaserPilesSurgeonPage() {
   const pilesBlogs = blogPosts
@@ -118,8 +112,9 @@ export default function BestLaserPilesSurgeonPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">
