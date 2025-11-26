@@ -429,6 +429,32 @@ export default function GallbladderSurgeryPage() {
 
           <div className="max-w-5xl mx-auto space-y-12">
             <GallbladderTestimonials />
+            <section className="bg-gray-50 rounded-xl p-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
+                    <p className="text-gray-700 text-sm">Most patients can return to normal activities within 1-2 weeks after laparoscopic gallbladder surgery. Many patients are discharged within 24 hours.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
+                    <p className="text-gray-700 text-sm">Regular follow-up appointments ensure optimal recovery and address any concerns. Dr. Kapil Agrawal provides comprehensive post-operative care.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <RecoveryTimeline />
+            <div className="max-w-5xl mx-auto">
+              <PostOperativeCare />
+            </div>
+            <div className="max-w-5xl mx-auto">
+              <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
+            </div>
             <GallbladderFAQ />
             {gallbladderBlogs.length > 0 && (
               <section>
@@ -475,33 +501,9 @@ export default function GallbladderSurgeryPage() {
                 </div>
               </section>
             )}
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
-                    <p className="text-gray-700 text-sm">Most patients can return to normal activities within 1-2 weeks after laparoscopic gallbladder surgery. Many patients are discharged within 24 hours.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
-                    <p className="text-gray-700 text-sm">Regular follow-up appointments ensure optimal recovery and address any concerns. Dr. Kapil Agrawal provides comprehensive post-operative care.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <RecoveryTimeline />
           </div>
         </div>
 
-        <div className="container-custom space-y-8 mt-12">
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
-        </div>
       </div>
     </>
   )
