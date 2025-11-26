@@ -78,7 +78,6 @@ export const physicianSchema = {
   description: 'Dr. Kapil Agrawal is a renowned laparoscopic and robotic surgeon in Delhi, India, with 23+ years of experience and 7000+ successful surgeries. Specializes in gallbladder surgery, bariatric surgery, and advanced minimally invasive procedures.',
   url: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-  jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
   medicalSpecialty: [
     'Laparoscopic Surgery',
     'Robotic Surgery',
@@ -88,9 +87,6 @@ export const physicianSchema = {
   ],
   telephone: '+91-99994-56455',
   email: 'contact@habiliteclinics.com',
-  worksFor: {
-    '@id': 'https://www.habiliteclinics.com/#organization'
-  },
   knowsAbout: [
     'Gallbladder Stones',
     'Cholecystectomy',
@@ -98,10 +94,6 @@ export const physicianSchema = {
     'Robotic Surgery',
     'Bariatric Surgery'
   ],
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'Apollo Group of Hospitals'
-  },
   award: 'Best Laparoscopic Surgeon in Delhi, India',
   areaServed: {
     '@type': 'Country',

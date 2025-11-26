@@ -124,17 +124,9 @@ export const getPhysicianSchema = () => ({
   description: DOCTOR_INFO.description,
   url: DOCTOR_INFO.url,
   image: absoluteUrl(DOCTOR_INFO.image),
-  jobTitle: DOCTOR_INFO.title,
   medicalSpecialty: ['Laparoscopic Surgery', 'General Surgery', 'Bariatric Surgery', 'Colorectal Surgery'],
   award: DOCTOR_INFO.award,
   sameAs: DOCTOR_INFO.sameAs,
-  worksFor: {
-    '@id': DOCTOR_INFO.worksFor,
-  },
-  alumniOf: DOCTOR_INFO.education.map((institution) => ({
-    '@type': 'EducationalOrganization',
-    name: institution,
-  })),
 })
 
 export const getBreadcrumbSchema = (items: BreadcrumbItem[]) => ({

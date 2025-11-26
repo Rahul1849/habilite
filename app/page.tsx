@@ -94,7 +94,6 @@ const homePageSchema = {
   description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
   url: 'https://www.habiliteclinics.com',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-  jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
   medicalSpecialty: [
     'Laparoscopic Surgery',
     'Robotic Surgery',
@@ -114,12 +113,6 @@ const homePageSchema = {
     postalCode: '110024',
     addressCountry: 'IN',
   },
-  alumniOf: [
-    {
-      '@type': 'EducationalOrganization',
-      name: 'Institute of Medical Sciences, BHU, Varanasi'
-    }
-  ],
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
@@ -142,9 +135,6 @@ const homePageSchema = {
       name: 'FMAS'
     }
   ],
-  worksFor: {
-    '@id': 'https://www.habiliteclinics.com#organization',
-  },
   knowsAbout: [
     'Best Laparoscopic Surgeon in Delhi',
     'Best Laparoscopic Surgeon in India',
