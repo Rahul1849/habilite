@@ -5,6 +5,7 @@ import MeetDoctor from '@/components/home/MeetDoctor'
 import EducationAffiliations from '@/components/home/EducationAffiliations'
 import CareerHighlightsAndServices from '@/components/home/CareerHighlightsAndServices'
 import { testimonials } from '@/data/testimonials'
+import { getOrganizationSchema } from '@/lib/seo/schemaBuilders'
 
 // Dynamically import below-the-fold components to improve initial page load
 const LaparoscopicServices = dynamic(() => import('@/components/home/LaparoscopicServices'), {
@@ -88,24 +89,11 @@ export const metadata: Metadata = {
 const homePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
+  '@id': 'https://www.habiliteclinics.com#physician',
   name: 'Dr. Kapil Agrawal',
   description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
   url: 'https://www.habiliteclinics.com',
-  telephone: '+91-99994-56455',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
-    addressLocality: 'Lajpat Nagar',
-    addressRegion: 'Delhi',
-    postalCode: '110024',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: '28.5675',
-    longitude: '77.2430',
-  },
   medicalSpecialty: [
     'Laparoscopic Surgery',
     'Robotic Surgery',
@@ -116,65 +104,77 @@ const homePageSchema = {
     'Weight Loss Surgery',
     'Metabolic Surgery',
   ],
-  alumniOf: [
-    {
-      '@type': 'EducationalOrganization',
-      name: 'Institute of Medical Sciences, BHU, Varanasi'
-    }
+  sameAs: [
+    'https://www.linkedin.com/in/dr-kapil-agrawal',
+    'https://www.youtube.com/@drkapilagrawal',
+    'https://www.facebook.com/habiliteclinics',
   ],
-  hasCredential: [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'MBBS'
+  person: {
+    '@type': 'Person',
+    name: 'Dr. Kapil Agrawal',
+    jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
+    description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
+    url: 'https://www.habiliteclinics.com',
+    image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+    telephone: '+91-99994-56455',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
+      addressLocality: 'Lajpat Nagar',
+      addressRegion: 'Delhi',
+      postalCode: '110024',
+      addressCountry: 'IN',
     },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'MS (Surgery)'
+    alumniOf: [
+      {
+        '@type': 'EducationalOrganization',
+        name: 'Institute of Medical Sciences, BHU, Varanasi'
+      }
+    ],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'MBBS'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'MS (Surgery)'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'MRCS (London, U.K)'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'MMED (Singapore)'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'FMAS'
+      }
+    ],
+    worksFor: {
+      '@type': 'Hospital',
+      name: 'Apollo Group of Hospitals, Delhi NCR'
     },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'MRCS (London, U.K)'
-    },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'MMED (Singapore)'
-    },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'FMAS'
-    }
-  ],
-  worksFor: {
-    '@type': 'Hospital',
-    name: 'Apollo Group of Hospitals, Delhi NCR'
+    knowsAbout: [
+      'Best Laparoscopic Surgeon in Delhi',
+      'Best Laparoscopic Surgeon in India',
+      'Laparoscopic Surgery Delhi',
+      'Robotic Surgery Delhi',
+      'Bariatric Surgery Delhi',
+      'Weight Loss Surgery Delhi',
+      'Gallbladder Surgery Delhi',
+      'Hernia Surgery Delhi',
+      'Laser Surgery Delhi',
+    ],
+    award: '23 Years Experience | 7000+ Successful Surgeries',
+    sameAs: [
+      'https://www.linkedin.com/in/dr-kapil-agrawal',
+      'https://www.youtube.com/@drkapilagrawal',
+      'https://www.facebook.com/habiliteclinics',
+    ],
   },
-  knowsAbout: [
-    'Best Laparoscopic Surgeon in Delhi',
-    'Best Laparoscopic Surgeon in India',
-    'Laparoscopic Surgery Delhi',
-    'Robotic Surgery Delhi',
-    'Bariatric Surgery Delhi',
-    'Weight Loss Surgery Delhi',
-    'Gallbladder Surgery Delhi',
-    'Hernia Surgery Delhi',
-    'Laser Surgery Delhi',
-  ],
-  jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
-  award: '23 Years Experience | 7000+ Successful Surgeries',
-  areaServed: [
-    {
-      '@type': 'City',
-      name: 'Delhi',
-    },
-    {
-      '@type': 'State',
-      name: 'Delhi',
-    },
-    {
-      '@type': 'Country',
-      name: 'India',
-    },
-  ],
 }
 
 const serviceSchema = {
@@ -384,6 +384,11 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }}
         suppressHydrationWarning
       />
       <script

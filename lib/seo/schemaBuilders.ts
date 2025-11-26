@@ -55,10 +55,13 @@ export const getOrganizationSchema = () => ({
     postalCode: CLINIC_INFO.address.postalCode,
     addressCountry: CLINIC_INFO.address.country,
   },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: CLINIC_INFO.geo.latitude,
-    longitude: CLINIC_INFO.geo.longitude,
+  location: {
+    '@type': 'Place',
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: CLINIC_INFO.geo.latitude,
+      longitude: CLINIC_INFO.geo.longitude,
+    },
   },
   contactPoint: [
     {
@@ -118,20 +121,28 @@ export const getPhysicianSchema = () => ({
   '@type': 'Physician',
   '@id': `${DOCTOR_INFO.url}#physician`,
   name: DOCTOR_INFO.name,
-  jobTitle: DOCTOR_INFO.title,
   description: DOCTOR_INFO.description,
   url: DOCTOR_INFO.url,
   image: absoluteUrl(DOCTOR_INFO.image),
   medicalSpecialty: DOCTOR_INFO.medicalSpecialty,
-  award: DOCTOR_INFO.award,
   sameAs: DOCTOR_INFO.sameAs,
-  worksFor: {
-    '@id': DOCTOR_INFO.worksFor,
+  person: {
+    '@type': 'Person',
+    name: DOCTOR_INFO.name,
+    jobTitle: DOCTOR_INFO.title,
+    description: DOCTOR_INFO.description,
+    url: DOCTOR_INFO.url,
+    image: absoluteUrl(DOCTOR_INFO.image),
+    award: DOCTOR_INFO.award,
+    sameAs: DOCTOR_INFO.sameAs,
+    worksFor: {
+      '@id': DOCTOR_INFO.worksFor,
+    },
+    alumniOf: DOCTOR_INFO.education.map((institution) => ({
+      '@type': 'EducationalOrganization',
+      name: institution,
+    })),
   },
-  alumniOf: DOCTOR_INFO.education.map((institution) => ({
-    '@type': 'EducationalOrganization',
-    name: institution,
-  })),
 })
 
 export const getBreadcrumbSchema = (items: BreadcrumbItem[]) => ({

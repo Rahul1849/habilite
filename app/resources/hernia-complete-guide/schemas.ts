@@ -46,10 +46,13 @@ export const medicalOrganizationSchema = {
     postalCode: '110076',
     addressCountry: 'IN'
   },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: '28.6139',
-    longitude: '77.2090'
+  location: {
+    '@type': 'Place',
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '28.6139',
+      longitude: '77.2090'
+    }
   },
   telephone: '+91-99994-56455',
   email: 'contact@habiliteclinics.com',
@@ -71,18 +74,9 @@ export const physicianSchema = {
   '@type': 'Physician',
   '@id': 'https://www.habiliteclinics.com/dr-kapil-agrawal#physician',
   name: 'Dr. Kapil Agrawal',
-  alternateName: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
-  jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
   description: 'Dr. Kapil Agrawal is a renowned laparoscopic and robotic surgeon in Delhi, India, with 23+ years of experience and 7000+ successful surgeries. Specializes in hernia surgery, bariatric surgery, and advanced minimally invasive procedures.',
   url: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-  telephone: '+91-99994-56455',
-  email: 'contact@habiliteclinics.com',
-  worksFor: {
-    '@type': 'MedicalOrganization',
-    name: 'Habilite Clinics',
-    '@id': 'https://www.habiliteclinics.com/#organization'
-  },
   medicalSpecialty: [
     'Laparoscopic Surgery',
     'Robotic Surgery',
@@ -90,21 +84,47 @@ export const physicianSchema = {
     'Bariatric Surgery',
     'Laser Surgery'
   ],
-  knowsAbout: [
-    'Hernia',
-    'Hernia Repair',
-    'Laparoscopic Surgery',
-    'Robotic Surgery',
-    'Bariatric Surgery'
+  sameAs: [
+    'https://www.linkedin.com/in/dr-kapil-agrawal',
+    'https://www.youtube.com/@drkapilagrawal',
+    'https://www.facebook.com/habiliteclinics',
   ],
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'Apollo Group of Hospitals'
-  },
-  award: 'Best Laparoscopic Surgeon in Delhi, India',
-  areaServed: {
-    '@type': 'Country',
-    name: 'India'
+  person: {
+    '@type': 'Person',
+    name: 'Dr. Kapil Agrawal',
+    alternateName: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
+    jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
+    description: 'Dr. Kapil Agrawal is a renowned laparoscopic and robotic surgeon in Delhi, India, with 23+ years of experience and 7000+ successful surgeries. Specializes in hernia surgery, bariatric surgery, and advanced minimally invasive procedures.',
+    url: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
+    image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+    telephone: '+91-99994-56455',
+    email: 'contact@habiliteclinics.com',
+    worksFor: {
+      '@type': 'MedicalOrganization',
+      name: 'Habilite Clinics',
+      '@id': 'https://www.habiliteclinics.com/#organization'
+    },
+    knowsAbout: [
+      'Hernia',
+      'Hernia Repair',
+      'Laparoscopic Surgery',
+      'Robotic Surgery',
+      'Bariatric Surgery'
+    ],
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: 'Apollo Group of Hospitals'
+    },
+    award: 'Best Laparoscopic Surgeon in Delhi, India',
+    areaServed: {
+      '@type': 'Country',
+      name: 'India'
+    },
+    sameAs: [
+      'https://www.linkedin.com/in/dr-kapil-agrawal',
+      'https://www.youtube.com/@drkapilagrawal',
+      'https://www.facebook.com/habiliteclinics',
+    ],
   }
 }
 
