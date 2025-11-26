@@ -98,10 +98,10 @@ const successStories = [
     url: 'https://youtu.be/4-mCfI4pnss?si=VimgnvmoFpGRs9OO'
   },
   {
-    id: 'QRxW20rp-AI',
+    id: 'J9jeT5h3p_4',
     title: 'Minimally invasive fix for recurrent hernia',
     description: 'Detailed account of how recurrent symptoms were resolved with a tailored mesh repair and enhanced recovery.',
-    url: 'https://youtu.be/QRxW20rp-AI?si=9_etS9IRPFq1KLl6'
+    url: 'https://youtu.be/J9jeT5h3p_4?si=yoyJz24xfRvooR5V'
   },
   {
     id: 'LTGyPysXqH4',
@@ -120,19 +120,19 @@ const detailedVideo = {
 }
 
 const procedureVideo = {
-  id: 'lfhv5H9VVJ8',
+  id: '9ppdksutiqM',
   title: 'How Hernia Surgery Is Done Step by Step | Complete Laparoscopic Procedure Explained',
   description:
     'Walk through the exact steps of laparoscopic hernia repair—from anaesthesia and port placement to suturing and discharge.',
-  url: 'https://youtu.be/lfhv5H9VVJ8?si=0BdUwl0QIV22rA39'
+  url: 'https://youtu.be/9ppdksutiqM?si=RO5f_iQpoBWGw5yt'
 }
 
 const roboticCompareVideo = {
-  id: 'FZHmnGH0Frw',
+  id: 'vQ62bvlTdh8',
   title: 'Robotic vs Laparoscopic Hernia Surgery — Which Is Better for Fast, Safe Recovery?',
   description:
     'Dr. Kapil compares robotic precision with advanced laparoscopy, explaining how he selects the safest option for each patient.',
-  url: 'https://youtu.be/FZHmnGH0Frw?si=xcEwZ5l10eJayEew'
+  url: 'https://youtu.be/vQ62bvlTdh8?si=Ak3W293QfbAUa9Po'
 }
 
 export default function HerniaCompleteGuidePage() {

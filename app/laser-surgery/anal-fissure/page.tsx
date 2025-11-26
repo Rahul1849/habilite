@@ -6,6 +6,7 @@ import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
+import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Anal Fissure Treatment in Delhi | Expert Anal Fissure Surgeon Dr. Kapil Agrawal',
@@ -61,96 +62,46 @@ export default function AnalFissurePage() {
             <span>Delhi&apos;s Best Anal Fissure Surgeon</span>
           </div>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-            Dr. Kapil Agrawal offers non-surgical treatment, Botox injections, and Laser surgery for the management of both acute and chronic anal fissures with the best and permanent outcomes.
+            Comprehensive anal fissure care with customised medicines, advanced Botox injections, and USFDA-approved laser surgery for painless, stitch-free recovery, same-day discharge, and insurance-covered treatment.
           </p>
           <CallUsButton />
         </div>
       </div>
 
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          <div className="lg:col-span-2 space-y-8">
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">About Anal Fissure Treatment</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Dr. Kapil Agrawal offers non-surgical treatment, Botox injections, and Laser surgery for the management of both acute and chronic anal fissures with the best and permanent outcomes.
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 justify-items-center">
+          <div className="lg:col-span-2 space-y-8 flex flex-col items-center w-full max-w-5xl">
+            <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 max-w-4xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Understanding Anal Fissures</h2>
+              <p className="text-gray-700 leading-relaxed mb-4 max-w-3xl mx-auto">
+                Anal fissures are tiny tears in the anal canal that cause pain, bleeding, and intense spasms. Acute fissures resemble a fresh cut and often heal within 2-3 weeks with medicines and dietary changes, whereas chronic fissures persist for more than eight weeks, develop skin tags and scar tissue, and usually require advanced intervention.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                With 23 years of experience and 7000+ successful surgeries, Dr. Kapil Agrawal provides comprehensive treatment options tailored to each patient&apos;s condition, ensuring optimal results and permanent relief.
-              </p>
-              
-              {/* Cost Calculator */}
-              <div className="my-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-4xl mx-auto">
+                {[
+                  {
+                    title: 'Acute Anal Fissure',
+                    description: 'Fresh tear, minimal swelling, usually responds to conservative care in a few weeks.',
+                  },
+                  {
+                    title: 'Chronic Anal Fissure',
+                    description: 'Lasts beyond eight weeks, develops skin tags and muscle spasm, needs Botox or laser surgery.',
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="bg-white shadow-sm rounded-lg p-5 border border-gray-100">
+                    <h3 className="font-semibold text-gray-900 mb-2 text-center">{item.title}</h3>
+                    <p className="text-gray-700 text-sm text-center">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="my-10">
                 <CostCalculator serviceName="Anal Fissure Treatment" />
               </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Treatment Options</h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: 'Non-Surgical Treatment',
-                    description: 'Conservative management with dietary changes, medications, and topical treatments for acute anal fissures.',
-                  },
-                  {
-                    title: 'Botox Injections',
-                    description: 'Botulinum toxin injections help relax the anal sphincter muscles, promoting healing of chronic anal fissures.',
-                  },
-                  {
-                    title: 'Laser Anal Fissure Surgery',
-                    description: 'Advanced laser surgery for chronic anal fissures that don&apos;t respond to conservative treatment, ensuring permanent relief.',
-                  },
-                ].map((treatment, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-5 border-l-4 border-[#0891b2]">
-                    <h3 className="font-bold text-gray-900 mb-2">{treatment.title}</h3>
-                    <p className="text-gray-700 text-sm">{treatment.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Benefits of Laser Anal Fissure Treatment</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  'Permanent relief',
-                  'Minimal pain',
-                  'Quick recovery',
-                  'No recurrence',
-                  'Precise treatment',
-                  'Better outcomes',
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-start">
-                    <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
-                    <p className="text-gray-700 text-sm">Most patients can resume normal activities within 3-5 days after laser anal fissure treatment, with complete healing in 2-4 weeks.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
-                    <p className="text-gray-700 text-sm">Regular follow-up appointments ensure proper healing and address any concerns, ensuring permanent relief from anal fissure symptoms.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
 
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 w-full max-w-md mx-auto">
             <div className="sticky top-24">
               <ConsultationForm 
                 serviceName="Anal Fissure Treatment"
@@ -158,6 +109,140 @@ export default function AnalFissurePage() {
               />
             </div>
           </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto space-y-8 mt-12">
+          <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Common Causes</h2>
+            <p className="text-gray-700 max-w-3xl mx-auto mb-6">
+              Most fissures result from trauma to the anal lining. These everyday triggers increase the risk:
+            </p>
+            <div className="flex flex-col items-center space-y-3 text-gray-700 max-w-3xl mx-auto w-full">
+              {[
+                'Chronic constipation or hard stools causing excessive strain',
+                'Chronic diarrhoea or repeated bowel movements',
+                'Anal intercourse or childbirth-related trauma',
+                'Inflammatory bowel disease, infections, or rarely anal cancer',
+              ].map((cause) => (
+                <div key={cause} className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center w-full">
+                  <span className="text-[#0891b2] font-bold">•</span>
+                  <span className="text-sm sm:text-base text-center">{cause}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Key Symptoms</h2>
+            <p className="text-gray-700 max-w-3xl mx-auto mb-6">
+              If you experience these signs, book an expert evaluation to prevent complications.
+            </p>
+            <div className="flex flex-col items-center space-y-3 text-gray-700 max-w-3xl mx-auto w-full">
+              {[
+                'Sharp pain during and after passing stools',
+                'Bright red blood on toilet paper or stool',
+                'Visible skin tag or small lump near the anal area',
+                'Burning sensation, spasms, or persistent discomfort',
+              ].map((symptom) => (
+                <div key={symptom} className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center w-full">
+                  <span className="text-[#0891b2] font-bold">•</span>
+                  <span className="text-sm sm:text-base text-center">{symptom}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Best Treatment Options</h2>
+            <p className="text-gray-700 max-w-3xl mx-auto mb-6">
+              Dr. Kapil Agrawal tailors the treatment plan based on pain, duration, and muscle spasm to offer the quickest relief with minimum downtime.
+            </p>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              {[
+                {
+                  title: 'Conservative & Non-Surgical Care',
+                  description:
+                    'High-fibre diet, hydration, customised exercise plans, topical anaesthetics, calcium channel blockers, stool softeners, and guided medications heal 60-70% of acute fissures.',
+                },
+                {
+                  title: 'Botox Injections',
+                  description:
+                    'Targets the internal anal sphincter to relieve spasm within hours, offers 80-100% healing, almost zero downtime, and discharge within three hours.',
+                },
+                {
+                  title: 'Laser Lateral Internal Sphincterotomy',
+                  description:
+                    'Gold-standard, USFDA-approved laser procedure for chronic or recurrent fissures with near-100% success, bloodless surgery, no stitches, and same-day discharge.',
+                },
+              ].map((treatment, index) => (
+                <div key={index} className="bg-gray-50 rounded-lg p-5 border border-[#0891b2]/20 text-center mx-auto">
+                  <h3 className="font-bold text-gray-900 mb-2">{treatment.title}</h3>
+                  <p className="text-gray-700 text-sm">{treatment.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Benefits of Laser Treatment</h2>
+            <p className="text-gray-700 max-w-3xl mx-auto mb-6">Experience the most advanced and pain-free fissure management.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              {[
+                'Bloodless, painless procedure',
+                'No cuts, no stitches',
+                'Same-day discharge',
+                'Rapid recovery within days',
+                'Almost zero recurrence',
+                'Insurance & EMI assistance',
+              ].map((benefit, index) => (
+                <div key={index} className="flex flex-col sm:flex-row items-center justify-center bg-gray-50 px-4 py-3 rounded-lg shadow-sm gap-2 text-center">
+                  <CheckCircle2 className="text-[#0891b2]" size={20} />
+                  <span className="text-gray-700 text-sm">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 text-center w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <div className="flex flex-col items-center text-center">
+                <Clock className="text-[#0891b2] mb-2" size={24} />
+                <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
+                <p className="text-gray-700 text-sm">
+                  Resume routine activities within 24-48 hours after laser surgery; pain subsides in four days and complete healing occurs in 2-4 weeks.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <User className="text-[#0891b2] mb-2" size={24} />
+                <p className="font-semibold text-gray-900 mb-1">Follow-up & Nutrition</p>
+                <p className="text-gray-700 text-sm">
+                  Dedicated nutritionists customise fibre-rich diets, and structured follow-up visits ensure long-term comfort with almost zero recurrence.
+                </p>
+              </div>
+            </div>
+          </section>
+            <RecoveryTimeline />
+          
+
+          <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Why Choose Dr. Kapil Agrawal?</h2>
+            <p className="text-gray-700 max-w-3xl mx-auto mb-6">
+              Multi-disciplinary team, latest laser machines, and a 23-year legacy of excellence in treating complex colorectal conditions.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+              {[
+                '7000+ successful surgeries with global training',
+                'Holistic care with customised diet and recovery plans',
+                'Insurance coordination and EMI support',
+                'Dedicated team for international & local patients',
+              ].map((item) => (
+                <div key={item} className="bg-white rounded-lg shadow-sm border border-gray-100 px-4 py-3">
+                  <p className="text-gray-700 text-center">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
         {/* Post-operative Care Section - Full Width Centered */}

@@ -12,6 +12,7 @@ import MedicalWeightLossTestimonials from './MedicalWeightLossTestimonials'
 import { blogPosts } from '@/data/blog'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Medical Weight Loss Program in Delhi - Non-Surgical Weight Loss | Habilite Clinics',
@@ -405,6 +406,8 @@ export default function MedicalWeightLossProgramPage() {
                 </div>
               </div>
             </section>
+            
+              <RecoveryTimeline/>
           </div>
         </div>
 

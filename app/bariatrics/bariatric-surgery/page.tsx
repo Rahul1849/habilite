@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import BariatricFAQ from './BariatricFAQ'
 import BariatricTestimonials from './BariatricTestimonials'
 import { blogPosts } from '@/data/blog'
+import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries',
@@ -620,6 +621,10 @@ export default function BariatricSurgeryPage() {
                 </div>
               </div>
             </section>
+       
+              
+              <RecoveryTimeline/>
+     
           </div>
         </div>
 

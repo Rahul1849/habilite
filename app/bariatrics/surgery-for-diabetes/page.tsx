@@ -21,6 +21,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import DiabetesFAQ from './DiabetesFAQ'
 import DiabetesTestimonials from './DiabetesTestimonials'
 import { blogPosts } from '@/data/blog'
+import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Metabolic Surgery for Diabetes in Delhi - Dr. Kapil Agrawal | 85% Remission Rate',
@@ -416,6 +417,9 @@ export default function SurgeryForDiabetesPage() {
                 </div>
               </div>
             </section>
+            
+              <RecoveryTimeline/>
+          
           </div>
         </div>
 

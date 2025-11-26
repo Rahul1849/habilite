@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import CircumcisionFAQ from './CircumcisionFAQ'
 import CircumcisionTestimonials from './CircumcisionTestimonials'
 import { blogPosts } from '@/data/blog'
+import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Circumcision Surgery in Delhi - Dr. Kapil Agrawal | Laser & ZSR Expert',
@@ -424,6 +425,10 @@ export default function CircumcisionPage() {
                   </div>
                 </div>
               </div>
+            </section>
+            <section className="bg-white rounded-2xl shadow-md border border-[#0891b2]/10 p-8 text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Aftercare Milestones</h2>
+              <RecoveryTimeline title="Circumcision Recovery Timeline" />
             </section>
           </div>
         </div>

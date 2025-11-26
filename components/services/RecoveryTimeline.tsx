@@ -120,3 +120,5 @@ export function RecoveryTimeline({ title = 'Recovery & Aftercare Timeline' }: Re
   )
 }
 
+export default RecoveryTimeline
+

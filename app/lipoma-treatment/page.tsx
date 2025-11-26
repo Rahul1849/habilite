@@ -518,6 +518,10 @@ export default function LipomaTreatmentPage() {
                   </div>
                 </div>
               </section>
+            
+             
+              <RecoveryTimeline/>
+        
             </div>
           </div>
         </div>

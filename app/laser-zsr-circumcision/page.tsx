@@ -10,6 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import CircumcisionFAQ from '@/app/laser-surgery/circumcision/CircumcisionFAQ'
 import CircumcisionTestimonials from '@/app/laser-surgery/circumcision/CircumcisionTestimonials'
 import { blogPosts } from '@/data/blog'
+import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
   title: 'Best Circumcision Surgery in Delhi - Dr. Kapil Agrawal | Laser & ZSR Expert',
@@ -493,6 +494,10 @@ export default function LaserZSRCircumcisionPage() {
                   </div>
                 </div>
               </section>
+            
+              
+              <RecoveryTimeline/>
+            
             </div>
           </div>
         </div>

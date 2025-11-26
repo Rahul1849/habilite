@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import { Award, CheckCircle2, Clock, User } from 'lucide-react'
@@ -6,6 +7,7 @@ import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
+const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline'), { ssr: false })
 
 export const metadata: Metadata = {
   title: 'Intragastric Balloon in Delhi | Gastric Balloon Expert Dr. Kapil Agrawal',
@@ -68,8 +70,8 @@ export default function IntragastricBalloonPage() {
       </div>
 
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 justify-items-center">
+          <div className="lg:col-span-2 space-y-8 w-full max-w-5xl">
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">About Intragastric Balloon</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -83,9 +85,9 @@ export default function IntragastricBalloonPage() {
               <div className="my-8">
                 <CostCalculator serviceName="Intragastric Balloon" />
               </div>
-            </section>
+          </section>
 
-            <section>
+            <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Types of Gastric Balloons</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Dr. Kapil Agrawal offers three types of gastric balloon treatments, each designed to meet different patient needs and preferences. All procedures are non-surgical and provide effective weight loss solutions.
@@ -179,7 +181,7 @@ export default function IntragastricBalloonPage() {
               </div>
             </section>
 
-            <section>
+            <section className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Benefits of Gastric Balloon</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
@@ -198,7 +200,8 @@ export default function IntragastricBalloonPage() {
               </div>
             </section>
 
-            <section className="bg-gray-50 rounded-xl p-6">
+            <div className="flex justify-center">
+              <section className="bg-gray-50 rounded-2xl border border-[#0891b2]/10 p-8 w-full max-w-4xl">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
               <div className="space-y-3">
                 <div className="flex items-start">
@@ -216,7 +219,14 @@ export default function IntragastricBalloonPage() {
                   </div>
                 </div>
               </div>
-            </section>
+              </section>
+            </div>
+            <div className="flex justify-center">
+              <section className="bg-white rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full max-w-5xl text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Aftercare Milestones</h2>
+                <RecoveryTimeline title="Gastric Balloon Recovery Timeline" />
+              </section>
+            </div>
           </div>
 
           <div className="lg:col-span-1">
