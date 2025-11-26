@@ -94,6 +94,7 @@ const homePageSchema = {
   description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
   url: 'https://www.habiliteclinics.com',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+  jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
   medicalSpecialty: [
     'Laparoscopic Surgery',
     'Robotic Surgery',
@@ -104,77 +105,63 @@ const homePageSchema = {
     'Weight Loss Surgery',
     'Metabolic Surgery',
   ],
+  telephone: '+91-99994-56455',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
+    addressLocality: 'Lajpat Nagar',
+    addressRegion: 'Delhi',
+    postalCode: '110024',
+    addressCountry: 'IN',
+  },
+  alumniOf: [
+    {
+      '@type': 'EducationalOrganization',
+      name: 'Institute of Medical Sciences, BHU, Varanasi'
+    }
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'MBBS'
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'MS (Surgery)'
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'MRCS (London, U.K)'
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'MMED (Singapore)'
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'FMAS'
+    }
+  ],
+  worksFor: {
+    '@id': 'https://www.habiliteclinics.com#organization',
+  },
+  knowsAbout: [
+    'Best Laparoscopic Surgeon in Delhi',
+    'Best Laparoscopic Surgeon in India',
+    'Laparoscopic Surgery Delhi',
+    'Robotic Surgery Delhi',
+    'Bariatric Surgery Delhi',
+    'Weight Loss Surgery Delhi',
+    'Gallbladder Surgery Delhi',
+    'Hernia Surgery Delhi',
+    'Laser Surgery Delhi',
+  ],
+  award: '23 Years Experience | 7000+ Successful Surgeries',
   sameAs: [
     'https://www.linkedin.com/in/dr-kapil-agrawal',
     'https://www.youtube.com/@drkapilagrawal',
     'https://www.facebook.com/habiliteclinics',
   ],
-  person: {
-    '@type': 'Person',
-    name: 'Dr. Kapil Agrawal',
-    jobTitle: 'Senior Consultant - Laparoscopic & Robotic Surgeon',
-    description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
-    url: 'https://www.habiliteclinics.com',
-    image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-    telephone: '+91-99994-56455',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
-      addressLocality: 'Lajpat Nagar',
-      addressRegion: 'Delhi',
-      postalCode: '110024',
-      addressCountry: 'IN',
-    },
-    alumniOf: [
-      {
-        '@type': 'EducationalOrganization',
-        name: 'Institute of Medical Sciences, BHU, Varanasi'
-      }
-    ],
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'MBBS'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'MS (Surgery)'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'MRCS (London, U.K)'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'MMED (Singapore)'
-      },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'FMAS'
-      }
-    ],
-    worksFor: {
-      '@type': 'Hospital',
-      name: 'Apollo Group of Hospitals, Delhi NCR'
-    },
-    knowsAbout: [
-      'Best Laparoscopic Surgeon in Delhi',
-      'Best Laparoscopic Surgeon in India',
-      'Laparoscopic Surgery Delhi',
-      'Robotic Surgery Delhi',
-      'Bariatric Surgery Delhi',
-      'Weight Loss Surgery Delhi',
-      'Gallbladder Surgery Delhi',
-      'Hernia Surgery Delhi',
-      'Laser Surgery Delhi',
-    ],
-    award: '23 Years Experience | 7000+ Successful Surgeries',
-    sameAs: [
-      'https://www.linkedin.com/in/dr-kapil-agrawal',
-      'https://www.youtube.com/@drkapilagrawal',
-      'https://www.facebook.com/habiliteclinics',
-    ],
-  },
 }
 
 const serviceSchema = {
