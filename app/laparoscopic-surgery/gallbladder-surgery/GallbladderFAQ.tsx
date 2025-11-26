@@ -10,84 +10,54 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'Can gall bladder and hernia surgery be performed together?',
-    answer: 'Yes, it is common to perform gallbladder surgery and hernia repair at the same time. This is especially beneficial in cases where both conditions are present, and the patient can undergo both procedures simultaneously. However, the decision depends on the complexity of both surgeries and the experience of the surgeon. Your surgeon is the best person to decide if it is safe to perform both surgeries together.',
-  },
-  {
     question: 'Can I live a normal life after gallbladder removal surgery?',
-    answer: 'Yes, you can live a completely normal life without a gallbladder and resume normal activities within a week. Most people adapt well to life without a gallbladder, and any dietary adjustments are usually temporary.',
+    answer:
+      'Yes. Most patients return to normal life within a week after gallbladder removal. Your body adapts quickly, and any dietary adjustments are temporary.',
   },
   {
-    question: 'Are there any medicines that can help in dissolving gallstones?',
-    answer: 'There are few medicines that may dissolve cholesterol stones, but they are slow and often ineffective. Surgery remains the ultimate and most effective solution for gallstone removal.',
+    question: 'Are there medicines that can dissolve gallstones?',
+    answer:
+      'Medicines can dissolve cholesterol gallstones in very selective cases, but the process is slow and stones often return. Laparoscopic cholecystectomy is the most reliable and permanent treatment.',
   },
   {
-    question: 'Should I go for gallbladder surgery for asymptomatic gallstones?',
-    answer: 'Surgery is generally not recommended for silent (asymptomatic) stones. However, there are risks for further complications, and thus surgery may be advised in certain cases, especially for larger stones or in patients with specific risk factors.',
+    question: 'Should I undergo surgery if I have asymptomatic (silent) gallstones?',
+    answer:
+      'Silent gallstones can be monitored, but surgery may be advised for large stones, high-risk patients, or to prevent sudden attacks and complications in the future.',
   },
   {
-    question: 'Can gallbladder stones be cancerous?',
-    answer: 'Gallstones themselves are not cancerous. However, long-lasting or large gallstones can have risks for gallbladder cancer over time, which is why regular monitoring and timely treatment are important.',
+    question: 'Can gallbladder stones increase the risk of cancer?',
+    answer:
+      'Gallstones themselves are not cancerous. However, long-standing or large stones can cause chronic irritation, which slightly increases gallbladder cancer risk. Early treatment reduces this risk.',
   },
   {
-    question: 'What are gallbladder polyps, and should I remove them?',
-    answer: 'Gallbladder polyps form on the inner wall of the gallbladder. Polyps larger than 10 mm may require gallbladder removal due to cancer risk. Smaller polyps are usually monitored regularly.',
+    question: 'What are gallbladder polyps, and do they need removal?',
+    answer:
+      'Gallbladder polyps are growths on the inner wall of the gallbladder. Polyps larger than 10 mm or those causing symptoms usually require surgery due to cancer risk. Smaller polyps are monitored regularly.',
   },
   {
-    question: 'How can I prevent the formation of gallstones?',
-    answer: 'Maintain a healthy weight, eat a balanced diet with high-fiber and low-fat foods, stay physically active, and stay hydrated. Avoid rapid weight loss or weight gain.',
+    question: 'How can I prevent gallstones from forming?',
+    answer:
+      'Maintain a healthy weight, follow a balanced low-fat and high-fibre diet, exercise regularly, stay hydrated, and avoid rapid weight loss to reduce gallstone risk.',
   },
   {
-    question: 'Can gallbladder and hernia surgery be performed together?',
-    answer: 'Yes, laparoscopic gallbladder and hernia surgery can be safely performed together without needing two separate procedures and need a single recovery period.',
+    question: 'What happens if a gallstone enters the common bile duct (CBD)?',
+    answer:
+      'A stone in the CBD can cause severe pain, jaundice, and infection. It is usually removed through ERCP before or during gallbladder surgery to restore normal bile flow.',
   },
   {
-    question: 'How do we confirm a stone in the CBD (common bile duct)?',
-    answer: 'Stones in the CBD are diagnosed using imaging tests like MRCP (Magnetic Resonance Cholangiopancreatography), ultrasound, or ERCP (Endoscopic Retrograde Cholangiopancreatography).',
+    question: 'Can gallstones be removed without removing the gallbladder?',
+    answer:
+      'Non-surgical methods rarely work and have a high recurrence rate. Removing the gallbladder (cholecystectomy) is the only permanent solution to prevent stones from forming again.',
   },
   {
-    question: 'What if a stone slips into the common bile duct (CBD)?',
-    answer: 'Stones in the CBD can cause jaundice, pain, or infection. They are typically removed using ERCP (endoscopic procedure) before or along with gallbladder surgery.',
+    question: 'What should I avoid eating after gallbladder removal?',
+    answer:
+      'Avoid oily, fried, and high-fat foods for a few weeks. Introduce fats slowly, choose smaller meals, and stay well-hydrated to support smooth digestion.',
   },
   {
-    question: 'Does a 7mm gallstone need surgery?',
-    answer: 'A 7 mm stone may require surgery if it causes symptoms or complications. The decision depends on symptoms, location, and individual patient factors.',
-  },
-  {
-    question: 'What size gallstones are bad?',
-    answer: 'Stones larger than 2 cm or multiple small stones that can slip into the bile duct are considered higher risk and may require surgery even if they don\'t have any symptoms.',
-  },
-  {
-    question: 'Can I remove my gallstones without removing gallbladder?',
-    answer: 'Non-surgical methods are not very effective and are associated with high recurrence rates. Surgery to remove the gallbladder (cholecystectomy) is the definitive and most effective treatment.',
-  },
-  {
-    question: 'What to avoid after gallbladder removal?',
-    answer: 'Avoid eating high-fat, greasy, or fried foods for a few weeks. Gradually introduce fiber and fats as per instructions from your nutritionist. Stay hydrated and eat smaller, more frequent meals.',
-  },
-  {
-    question: 'What are permanent issues after gallbladder removal?',
-    answer: 'Most people don\'t have long-term problems. Few symptoms like occasional diarrhea or digestive discomfort are manageable with diet and lifestyle changes.',
-  },
-  {
-    question: 'How to remove gallbladder stone without operation?',
-    answer: 'Non-surgical treatments like medicines are rarely effective and not recommended due to high recurrence. Surgery remains the safest and most effective option.',
-  },
-  {
-    question: 'How many days should I rest after gallbladder surgery?',
-    answer: 'Most patients are advised to take rest for 3–5 days. You can resume light work in a week and normal activities in about 10–14 days after laparoscopic gallbladder surgery.',
-  },
-  {
-    question: 'How much does gallbladder surgery cost in Delhi?',
-    answer: 'Laparoscopic gallbladder surgery in Delhi ranges between Rs.60,000 to Rs.1,20,000 based on hospital, surgical experience, and amenities. Costs may vary based on the type of procedure and hospital chosen.',
-  },
-  {
-    question: 'How do I choose a gallbladder surgeon?',
-    answer: 'You should look for a surgeon having extensive experience in advanced laparoscopic surgery, good patient reviews, hospital associations, and personalized care. Check credentials, years of experience, and number of successful surgeries.',
-  },
-  {
-    question: 'Which gallbladder surgery is best?',
-    answer: 'Laparoscopic cholecystectomy is the gold standard. It is minimally invasive, safe, and offers quicker recovery with minimal scarring compared to open surgery.',
+    question: 'How many days of rest are needed after gallbladder surgery?',
+    answer:
+      'Most patients resume desk work within 5-7 days and normal daily activities within 10-14 days after laparoscopic surgery. Heavy lifting should be avoided for about 3-4 weeks.',
   },
 ]
 

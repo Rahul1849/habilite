@@ -72,11 +72,11 @@ const successStories = [
     id: 'N09RpTwI_HY',
     title: 'Laser piles surgery with zero recurrence',
     description: 'Learn how laser hemorrhoidoplasty provided quick relief with minimal downtime.',
-    url: 'https://youtu.be/N09RpTwI_HY?si=Jff75poDunpnVd0Y',
+    url: 'https://youtu.be/L7wAKZUn3s0?si=IPZFR3bw-5qg4tt8',
   },
   {
     id: 'sBfXG1Miajs',
-    title: 'Stapler surgery for Grade IV piles',
+    title: 'Stapler surgery for Grade III piles',
     description: 'Patient explains painless recovery, day-care admission, and diet transition.',
     url: 'https://youtu.be/sBfXG1Miajs?si=JU9Ysdjk6CBXPHNA',
   },
