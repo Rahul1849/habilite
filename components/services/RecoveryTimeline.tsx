@@ -10,7 +10,7 @@ const recoverySteps: TimelineStep[] = [
   {
     id: 1,
     title: '24 Hours',
-    description: '24 Hours Hospital Stay if done through medical insurance. For non-insurance patients, discharged within 2 Hours',
+    description: '24 Hours Hospital Stay if done through medical insurance. For non-insurance patients, discharged within 2 Hours.',
   },
   {
     id: 2,
