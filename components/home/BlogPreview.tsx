@@ -4,7 +4,19 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react'
 import { blogPosts } from '@/data/blog'
 
 export default function BlogPreview() {
-  const previewPosts = blogPosts.slice(0, 3)
+  // Show these three specific blog posts in order:
+  // 1. Is it Safe to Delay a Hernia Surgery?
+  // 2. Grade 4 Piles: Causes, Symptoms, Treatments, Recover
+  // 3. Bariatric Surgery Myths and Misconceptions Burst by Best Bariatric Surgeon in Delhi
+  const featuredSlugs = [
+    'is-it-safe-to-delay-hernia-surgery',
+    'grade-4-piles-symptoms-treatments',
+    'bariatric-surgery-myths',
+  ]
+  
+  const previewPosts = featuredSlugs
+    .map((slug) => blogPosts.find((post) => post.slug === slug))
+    .filter((post): post is typeof blogPosts[0] => post !== undefined)
 
   return (
     <section id="blog" className="section-padding bg-white">
