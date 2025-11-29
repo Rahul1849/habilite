@@ -10,29 +10,20 @@ const recoverySteps: TimelineStep[] = [
   {
     id: 1,
     title: '24 Hours',
-    description: 'Hospital stay—most patients discharged within 24 hours after surgery.',
+    description: '24 Hours Hospital Stay if done through medical insurance. For non-insurance patients, discharged within 2 Hours',
   },
   {
     id: 2,
     title: '24–36 Hours',
-    description: 'Mild pain managed with oral medications for next 3 days.',
+    description: 'Return to work and normal activities with full recovery.',
   },
   {
     id: 3,
     title: '48 Hours',
     description:
-      'Resume regular diet as per customised plan—fat-free diet recommended for 2–3 weeks.',
+      'Resume regular diet as per customised plan.',
   },
-  {
-    id: 4,
-    title: '5 Days',
-    description: 'Follow-up appointment to ensure smooth healing of surgical site.',
-  },
-  {
-    id: 5,
-    title: '5–7 Days',
-    description: 'Return to work and normal activities with full recovery.',
-  },
+  
 ]
 
 interface RecoveryTimelineProps {
