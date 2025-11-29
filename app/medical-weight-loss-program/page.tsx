@@ -328,8 +328,50 @@ export default function MedicalWeightLossProgramPage() {
 
           <div className="max-w-5xl mx-auto space-y-12">
             <MedicalWeightLossTestimonials />
-            <MedicalWeightLossFAQ />
+            <section className="bg-gray-50 rounded-xl p-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Program Duration & Follow-Up Support</h2>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Program Timeline</p>
+                    <p className="text-gray-700 text-sm">
+                      Initial phases last 3–6 months with weekly reviews. Maintenance plans extend up to a year with gradual tapering of clinic visits.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Dedicated Support</p>
+                    <p className="text-gray-700 text-sm">
+                      Tele-consultations, WhatsApp check-ins, and periodic metabolic assessments keep you accountable and motivated long after the initial weight loss.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <PhoneCall className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Helpline Access</p>
+                    <p className="text-gray-700 text-sm">
+                      Reach our coordinators anytime between 9 AM and 9 PM for appointment assistance, diet clarifications, or motivation boosts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <RecoveryTimeline />
+          </div>
+        </div>
 
+        <div className="container-custom space-y-8 mt-12">
+          <PostOperativeCare />
+          <WhatsAppExpertChat serviceName="Medical Weight Loss Program" />
+        </div>
+
+        <div className="container-custom space-y-12 mt-12">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <MedicalWeightLossFAQ />
             {weightLossBlogs.length > 0 && (
               <section>
                 <div className="flex items-center mb-6">
@@ -373,47 +415,7 @@ export default function MedicalWeightLossProgramPage() {
                 </div>
               </section>
             )}
-
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Program Duration & Follow-Up Support</h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Program Timeline</p>
-                    <p className="text-gray-700 text-sm">
-                      Initial phases last 3–6 months with weekly reviews. Maintenance plans extend up to a year with gradual tapering of clinic visits.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Dedicated Support</p>
-                    <p className="text-gray-700 text-sm">
-                      Tele-consultations, WhatsApp check-ins, and periodic metabolic assessments keep you accountable and motivated long after the initial weight loss.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <PhoneCall className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Helpline Access</p>
-                    <p className="text-gray-700 text-sm">
-                      Reach our coordinators anytime between 9 AM and 9 PM for appointment assistance, diet clarifications, or motivation boosts.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-            
-              <RecoveryTimeline/>
           </div>
-        </div>
-
-        <div className="container-custom space-y-8 mt-12">
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="Medical Weight Loss Program" />
         </div>
       </div>
     </>

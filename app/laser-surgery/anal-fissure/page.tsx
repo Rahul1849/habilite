@@ -1,12 +1,16 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, CheckCircle2, Clock, User } from 'lucide-react'
+import Link from 'next/link'
+import { Award, CheckCircle2, Clock, User, TrendingUp } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import RecoveryTimeline from '@/components/services/RecoveryTimeline'
+import FissureFAQ from './FissureFAQ'
+import FissureTestimonials from './FissureTestimonials'
+import { blogPosts } from '@/data/blog'
 
 export const metadata: Metadata = {
   title: 'Anal Fissure Treatment in Delhi | Expert Anal Fissure Surgeon Dr. Kapil Agrawal',
@@ -31,6 +35,14 @@ export const metadata: Metadata = {
 }
 
 export default function AnalFissurePage() {
+  const fissureBlogs = blogPosts
+    .filter(
+      (post) =>
+        post.category.toLowerCase().includes('fissure') ||
+        post.tags.some((tag) => tag.toLowerCase().includes('fissure')),
+    )
+    .slice(0, 3)
+
   return (
     <div className="pt-20 pb-16">
       {/* Hero Image */}
@@ -203,6 +215,8 @@ export default function AnalFissurePage() {
             </div>
           </section>
 
+          <FissureTestimonials />
+
           <section className="bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 text-center w-full">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
             <div className="space-y-4 max-w-3xl mx-auto">
@@ -222,8 +236,7 @@ export default function AnalFissurePage() {
               </div>
             </div>
           </section>
-            <RecoveryTimeline />
-          
+          <RecoveryTimeline />
 
           <section className="text-center bg-white/90 rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Why Choose Dr. Kapil Agrawal?</h2>
@@ -250,6 +263,57 @@ export default function AnalFissurePage() {
 
         {/* WhatsApp Expert Chat - Full Width Centered */}
         <WhatsAppExpertChat serviceName="Anal Fissure Treatment" />
+
+        <div className="container-custom space-y-12 mt-12">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <FissureFAQ />
+            {fissureBlogs.length > 0 && (
+              <section>
+                <div className="flex items-center mb-6">
+                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Latest Anal Fissure Blogs</h2>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base">
+                      Expert advice on anal fissure treatment, recovery, and laser surgery options
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {fissureBlogs.map((post) => (
+                    <Link
+                      key={post.id}
+                      href={`/post/${post.slug}`}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                    >
+                      <div className="relative h-40 overflow-hidden">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          loading="lazy"
+                          quality={80}
+                        />
+                      </div>
+                      <div className="p-5">
+                        <div className="text-xs text-[#0891b2] font-semibold mb-2">{post.category}</div>
+                        <h3 className="text-base font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <span>{new Date(post.publishedDate).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                          <span>By {post.author}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

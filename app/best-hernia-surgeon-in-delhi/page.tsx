@@ -363,18 +363,20 @@ export default function BestHerniaSurgeonPage() {
                     title: 'Gallbladder Surgery',
                     description: 'Painless laparoscopic cholecystectomy for gallstones with 24-hour discharge.',
                     href: '/best-gallbladder-stone-surgeon-delhi',
+                    linkText: 'Best Gallbladder Surgeon in Delhi for Laparoscopic Cholecystectomy',
                   },
                   {
                     title: 'Appendix Surgery',
                     description: 'Single-incision and laparoscopic appendectomies for fast recovery.',
                     href: '/best-appendix-surgeon-in-delhi',
+                    linkText: 'Best Appendix Surgeon in Delhi for Laparoscopic Appendectomy',
                   },
                 ].map((card) => (
                   <div key={card.title} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                     <h3 className="font-bold text-gray-900 mb-2 text-lg">{card.title}</h3>
                     <p className="text-gray-700 text-sm sm:text-base mb-4">{card.description}</p>
                     <Link href={card.href} className="text-[#0891b2] font-semibold text-sm hover:underline">
-                      Learn More →
+                      {card.linkText} →
                     </Link>
                   </div>
                 ))}
@@ -388,6 +390,36 @@ export default function BestHerniaSurgeonPage() {
 
           <div className="max-w-5xl mx-auto space-y-12">
             <HerniaTestimonials />
+            <section className="bg-gray-50 rounded-xl p-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
+                    <p className="text-gray-700 text-sm">Most patients can resume normal activities within 1-2 weeks after laparoscopic or robotic repair.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
+                    <p className="text-gray-700 text-sm">Structured follow-up visits, physiotherapy guidance, and tele-support help ensure complete recovery.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <RecoveryTimeline />
+          </div>
+        </div>
+
+        <div className="container-custom space-y-8 mt-12">
+          <PostOperativeCare />
+          <WhatsAppExpertChat serviceName="Hernia Surgery" />
+        </div>
+
+        <div className="container-custom space-y-12 mt-12">
+          <div className="max-w-5xl mx-auto space-y-12">
             <HerniaFAQ />
             {herniaBlogs.length > 0 && (
               <section>
@@ -430,32 +462,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
               </section>
             )}
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
-                    <p className="text-gray-700 text-sm">Most patients can resume normal activities within 1-2 weeks after laparoscopic or robotic repair.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
-                    <p className="text-gray-700 text-sm">Structured follow-up visits, physiotherapy guidance, and tele-support help ensure complete recovery.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <RecoveryTimeline />
           </div>
-        </div>
-
-        <div className="container-custom space-y-8 mt-12">
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="Hernia Surgery" />
         </div>
       </div>
     </>

@@ -393,7 +393,20 @@ export default function BestHiatusHerniaSurgeonPage() {
               </div>
             </section>
             <RecoveryTimeline />
+          </div>
 
+          <div className="max-w-5xl mx-auto space-y-12">
+            <CostCalculator serviceName="GERD & Hiatus Hernia Surgery" />
+          </div>
+        </div>
+
+        <div className="container-custom space-y-8 mt-12">
+          <PostOperativeCare />
+          <WhatsAppExpertChat serviceName="GERD & Hiatus Hernia Surgery" />
+        </div>
+
+        <div className="container-custom space-y-12 mt-12">
+          <div className="max-w-5xl mx-auto space-y-12">
             <section className="space-y-6">
               <div className="text-center space-y-2">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
@@ -447,15 +460,6 @@ export default function BestHiatusHerniaSurgeonPage() {
               </section>
             )}
           </div>
-
-          <div className="max-w-5xl mx-auto space-y-12">
-            <CostCalculator serviceName="GERD & Hiatus Hernia Surgery" />
-          </div>
-        </div>
-
-        <div className="container-custom space-y-8 mt-12">
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="GERD & Hiatus Hernia Surgery" />
         </div>
       </div>
     </>

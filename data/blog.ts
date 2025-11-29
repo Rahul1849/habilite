@@ -372,326 +372,550 @@ Recovery is typically quick, with most patients resuming normal activities withi
   },
   {
     id: '7',
-    title: 'Non-Surgical Weight Loss Programs: A Comprehensive Approach',
-    slug: 'non-surgical-weight-loss-programs-comprehensive-approach',
-    excerpt: 'Explore effective non-surgical weight loss programs including medical supervision, diet plans, exercise routines, and lifestyle modifications.',
+    title: 'Grade 4 Piles: Causes, Symptoms, Treatment, Recover',
+    slug: 'grade-4-piles-symptoms-treatments',
+    excerpt: 'Comprehensive guide to Grade 4 piles including causes, symptoms, diagnosis, and treatment options including laser hemorrhoidectomy.',
     content: `
-# Non-Surgical Weight Loss Programs: A Comprehensive Approach
+# Grade 4 Piles: Causes, Symptoms, Treatment, Recover
 
-For those not ready for surgery, non-surgical weight loss programs offer a structured approach to achieving and maintaining a healthy weight.
+## What are Grade 4 Piles?
 
-## Components of Non-Surgical Programs
+Haemorrhoids refer to having swollen blood vessels in the rectal area. 
 
-### Medical Supervision
-Regular monitoring by healthcare professionals to ensure safe and effective weight loss.
+The characteristics of grade 4 piles include the following:
 
-### Personalized Diet Plans
-Customized nutrition plans based on individual needs, preferences, and medical conditions.
+Full prolapse of internal haemorrhoids (sustained)
+No ability to reduce the haemorrhoids manually
 
-### Exercise Programs
-Structured physical activity routines designed to burn calories and build muscle.
+Associated symptoms include pain, bleeding, itching, and burning of the anorectal area.
 
-### Behavioral Counseling
-Support to address emotional eating, stress management, and lifestyle changes.
+This can result in severe discomfort when carrying out day-to-day activities such as sitting, walking, and standing.
 
-## Medical Weight Loss Options
+## What Causes Grade 4 Piles?
 
-### Prescription Medications
-FDA-approved medications that can aid weight loss when combined with diet and exercise.
+The following factors may contribute to the development of grade 4 piles:
 
-### Meal Replacement Programs
-Structured programs using shakes, bars, and prepared meals.
+Chronic constipation or diarrhoea
+Continuous straining during defecation
+Lack of treatment for lower grade piles leading to worsened condition
+Increased pelvic pressure caused by pregnancy
+Natural wear and tear of the anal tissues due to old-ageing
+A poor lifestyle along with a poor diet
+Signs and Symptoms of Grade 4 Piles
 
-### Intragastric Balloons
-Non-surgical procedure where a balloon is placed in the stomach to reduce capacity.
+If the tissue surrounding the anus is grade 4 piles, then the following symptoms will be present:
 
-## Success Factors
+Severe ache around the anus, which can be sharp stabbing or throbbing.
+Heavy bleeding from the anus during bowel movement
+Prolapsed hemorrhoidal tissue
+Reduced control of cleanliness because of protrusion or oedema
+Obstructed defecation syndrome
+Fecal incontinence
 
-- Commitment to lifestyle changes
-- Regular follow-up appointments
-- Support system
-- Realistic goals
-- Long-term maintenance plan
+Without treatment, these symptoms may develop into complications like anemia and skin infections, while adding psychological strife.
 
-## Expected Results
+## How are grade 4 Piles diagnosed?
+A proctologist or colorectal surgeon can diagnose grade 4 piles by:
+Visually inspecting the anal region
+Evaluating the internal haemorrhoids via proctoscopy or anoscopy
+Analyzing the patient’s medical history, symptoms, and associated complaints
 
-With proper adherence, patients can expect to lose 5-10% of body weight over 6-12 months.
+Timely diagnosis is crucial in selecting the appropriate course of treatment.
+
+## Treatment Methods
+
+Non-surgical techniques are ineffective for Grade 4 piles, hence surgical treatment is required. The main approaches involve:
+
+## Laser Hemorrhoidectomy
+
+An outpatient procedure that removes hemorrhoidal tissues using laser technology. 
+
+Benefits include decreased pain, less bleeding, and faster recovery.
+
+## Open Hemorrhoidectomy
+
+This procedure is performed as a day case and involves surgically removing the haemorrhoids. Although it is effective, patients may experience a higher pain level and longer recovery time.
+
+## Stapled Hemorrhoidopexy
+
+In this intervention, hemorrhoidal tissue is repositioned to cut its blood supply and allow for tissue shrinkage. It is associated with reduced postoperative pain and quicker recovery than open surgery.
+
+However, if one’s condition is unbearable, you might need to check with a piles specialist like Dr. Kapil Agarwal for effective and best piles treatment in Delhi. If you are experiencing mild to severe symptoms of piles longer than two weeks, consider getting the best piles and hemorrhoid treatment at Habilite Clinics, Delhi.
+
+Call Now at +91 9999456455 or email us at contact@habiliteclinics.com
+
+## Cost of Piles Treatment in India
+
+In India, expenses for treating Grade 4 piles differ depending on the surgical method selected:
+
+Laser Hemorrhoidectomy: INR ₹45,000 to INR ₹73,400
+
+Open Hemorrhoidectomy: INR 60,000 to INR 72,500
+
+Stapled Hemorrhoidopexy: INR ₹35,000 to INR 1,15,000
+
+Some of the factors affecting the cost include the type of operation, the hospital’s geographical location, surgical specialists’ charges, and other interventions needed.
+
+## Preparing for Laser Piles Surgery
+
+Due to its accuracy, laser surgery is regarded as the most appropriate intervention for grade 4 piles. Here is how to prepare:
+
+Let your provider know of any medications you take, especially anticoagulants.
+Refrain from consuming food or drinks for at least 8 hours before surgery.
+Address any concerns regarding allergies to anaesthetics with your physician.
+Discussions concerning the surgery may be dealt with early to alleviate anxieties.
+Benefits of Laser Treatment for Grade 4 Piles
+
+## Laser surgery for piles has transformed treatment due to their effectiveness and ease for the patient:
+
+There are no cuts, sutures, or open wounds.
+It is less painful than traditional surgery.
+It is a same-day discharge.
+Recovery is rapid.
+There is less bleeding during the procedure.
+Resumption of routine life is after 2-3 days.
+There is a lower risk of post-op infections and complications.
+
+This approach is ideal for any modern-day patient looking for comfort as it offers less invasion to surgeries.
+
+## Recovery After Laser Piles Surgery
+
+When care is taken following the steps, these ensure a rapid and uncomplicated recovery.
+
+## While home remedies can aid in managing pain, they aren’t able to treat grade 4 piles. The suggested methods include:
+
+Taking sitz baths to relieve pain and swelling
+Using ointments or suppositories available at retail pharmacies
+Eating foods high in fibre and drinking enough fluids
+Avoiding straining during bowel movements
+
+
+## Why Choose Habilite Clinics for Grade 4 Piles Treatment?
+
+Habilite Clinics have gained prominence as one of the best clinics for piles treatment due to their:
+
+Senior Proctologist and Surgeon Specialists
+Surgical Laser Treatment Technology Facilities
+Integrated and holistic approach to treatment
+Tailored consultations and treatment strategies
+Well-maintained and sanitized rooms
+Positive testimonials and an impressive success rate
+
+Habilite Clinics guarantees a refined treatment journey, free of, as well as post-surgical recovery stressors, from the initial consultation onward.
+
+## FAQ
+
+### Is Grade 4 Piles Serious?
+
+Yes, grade 4 piles are the severest form of haemorrhoids. The engorged tissues remain outside the anus permanently and frequently result in pain, bleeding, sanitary difficulties, and at times, issues like thrombosis or infections. Strongmedical assistance is urgent.
+
+### Do Grade 4 Hemorrhoids Need Surgery?
+
+In most cases, surgery is the only effective treatment for grade 4 haemorrhoids. Non-surgical approaches like creams, sitz baths, and diet changes may offer some temporary relief, but they do not address the underlying issue of prolapsed tissue. Currently, laser pile surgery is a widely practised, gentle, and non-intrusive treatment.
+
+### Are Grade 4 Hemorrhoids Cancerous?
+
+No, grade 4 haemorrhoids are not cancerous. They are essentially, swollen and inflamed veins located around the anus. However, the symptoms that accompany them like bleeding and pain, can be associated with much more serious illnesses like colorectal cancer, making proper diagnosis by a professional very important.
+
+Nonetheless, consulting an expert to discuss possible surgical options is important for lasting comfort.
+
+At Habilite Clinics, Dr. Kapil Agrawal and our skilled team of medical professionals, including the best appendix surgeon in Delhi, specialize in minimally invasive appendix removal. This means smaller cuts, less pain, and faster recovery.
+    
+## Why Choose Us
+
+- Best Outcomes with discharge within 24 hours.
+- High-quality standards with an almost zero percent rate of infection.
+- Best Post Operative Care with round-the-clock availability of team.
+- A team of dedicated nutritionists to make your recovery faster.
+- No hidden charges and fixed and transparent packages.
+- Complete network of cashless insurance available.
+- All paperwork is handled by an expert team to give you a hassle-free experience.
+- Tie up with various agencies to provide you with EMI options at zero rate of interest.
+- Dr Kapil Agrawal, senior consultant laparoscopic surgeon, affiliated with some of the best and finest hospitals in New Delhi.
+
+## Book an Appointment
+
+To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     `,
     author: 'Dr. Kapil Agrawal',
-    authorImage: 'https://picsum.photos/150/150?random=50',
-    publishedDate: '2024-04-20',
-    image: 'https://picsum.photos/1200/600?random=66',
-    category: 'Non-Surgical Weight Loss',
-    tags: ['Weight Loss', 'Non-Surgical', 'Medical Program', 'Lifestyle'],
-    readTime: 7
+    authorImage: '/images/dr-kapil-agrawal.png',
+    publishedDate: '2025-01-15',
+    image: '/images/grade-4-piles-symptoms-treatments.webp',
+    category: 'Piles',
+    tags: ['Piles', 'Hemorrhoids', 'Grade 4 Piles', 'Laser Surgery', 'Delhi'],
+    readTime: 12
   },
   {
     id: '8',
-    title: 'Piles Treatment: Understanding Hemorrhoids and Modern Treatment Options',
-    slug: 'piles-treatment-understanding-hemorrhoids-modern-options',
-    excerpt: 'Comprehensive guide to piles (hemorrhoids), including symptoms, causes, and modern treatment options including laser surgery.',
+    title: 'What is Appendicitis? Stages, Symptoms & Treatment | Habilite Clinics',
+    slug: 'what-is-appendicitis-stages-symptoms-treatment',
+    excerpt: 'Comprehensive guide to appendicitis including its 4 stages, symptoms, diagnosis, and modern laparoscopic treatment options.',
     content: `
-# Piles Treatment: Understanding Hemorrhoids and Modern Treatment Options
+# What is Appendicitis? Stages, Symptoms & Treatment | Habilite Clinics
 
-Piles, medically known as hemorrhoids, are swollen veins in the lower rectum and anus. This article covers modern treatment approaches.
+Have you ever had pain in your belly that wouldn't just go away? Sometimes, it can cost heavy to ignore even small stomach aches that may lead to some more serious consequences-like appendicitis. If left untreated for a prolonged period, it can become dangerous.
 
-## What are Piles?
+In this blog, you will explore different stages of appendicitis, associated complications and related treatment options.
 
-Piles are swollen and inflamed veins in the rectum and anus that can cause discomfort, bleeding, and pain during bowel movements.
+# What Exactly Is Appendicitis?
 
-## Types of Piles
+The appendix is a small, tube-like structure which is attached to the large intestine, situated in the lower right part of the abdomen. Its exact function in the body is still not understood, yet it plays a minor role in assisting your health by maintaining adequate bacterial count.
 
-### Internal Hemorrhoids
-Located inside the rectum, usually painless but may cause bleeding.
+Appendicitis is a condition causing inflammation of the appendix, mostly due to blockage caused by stool, infection or other form of debris. This inflammation can instantly grow up, resulting in pain and other discomforts.
 
-### External Hemorrhoids
-Located under the skin around the anus, can be painful and itchy.
+When not treated timely, it may rupture and cause bacteria to spread through the entire abdominal cavity. It is a serious condition called peritonitis. Due to risk involved, appendicitis is regarded as a medical emergency and needs prompt surgical treatment, named appendectomy.
 
-## Symptoms
+# 4 Stages of Appendicitis
 
-- Bright red blood after bowel movements
-- Itching or irritation in anal region
-- Pain or discomfort
-- Swelling around anus
-- A lump near anus
+As per the medical breakdown, appendicitis is categorized into four main stages. It depends upon its seriousness and associated problems. Sooner it is treated, better are the chances of mitigating further complications.
 
-## Treatment Options
+# Stage 1: Simple (Early) Appendicitis
 
-### Conservative Treatment
-- Dietary changes (high fiber)
-- Topical creams
-- Sitz baths
-- Lifestyle modifications
+This is the initiating point. At this stage, the appendix gets blocked and starts to swell. The other names for this stage of appendicitis are "simple" and "catarrhal" appendicitis. At this stage, things are pretty mild and manageable. You will notice no major infection and the appendix has not burst yet. It is the best time to treat it on time, before it gets worse.
 
-### Minimally Invasive Procedures
-- Rubber band ligation
-- Sclerotherapy
-- Infrared coagulation
+# Common Symptoms:
+Mild pain near the belly button
+Slight fever
+Nausea
+Abdominal pain shifting to the lower right abdomen
+Pain worsens with movement or coughing
 
-### Laser Surgery
-Modern laser treatment offers minimal pain, faster recovery, and excellent results for piles.
+This stage of appendicitis usually lasts for a few hours, its symptoms become noticeable gradually. Its early treatment involves antibiotics or laparoscopic appendectomy; thus, you can resolve the condition proficiently.
 
-## Prevention
+# Stage 2: Supportive (Phlegmonous) Appendicitis
 
-- High-fiber diet
-- Stay hydrated
-- Regular exercise
-- Avoid straining during bowel movements
-- Don't sit on toilet for extended periods
+When the blockage is still not clear, things can get worse. The appendix gets swollen and irritated. Bacteria residing inside the appendix also start growing rapidly. It can lead to build-up of pus and a local infection. The condition is quite uncomfortable and risky, when not treated well on time.
+
+# Common Symptoms:
+
+Sharp pain in the lower right abdomen
+Higher fever
+Constipation
+Vomiting
+Increased abdominal tenderness
+
+This stage may need a patient to get hospitalized. It requires instant surgical removal of the appendix (appendectomy). Any further delay in the treatment at this point can result in further complications.
+
+# Stage 3: Gangrenous Appendicitis
+
+At this state of appendicitis, the blood flow to the appendix is blocked. Due to a lack of blood supply, tissues start dying. This condition is known as necrosis. The appendix can turn into dark color, and the infection may start spreading to the nearby parts of the abdomen, thus making it more riskier and dangerous.
+
+# Common Symptoms:
+Severe abdominal pain
+High fever
+Fast heart rate
+Vomiting
+Fatigue or confusion in older adults
+
+At this stage of appendicitis, immediate surgery is required. Any further delay can result in a rupture and may further spread the infection, causing risks of peritonitis (infection of the abdominal lining).
+
+# Stage 4: Perforated (Ruptured) Appendicitis
+
+It is one of the most serious stages of appendicitis, in which the appendix may actually burst. When it occurs, it may lead to outflow of pus and spread bacteria into your belly. It can further result in dangerous infection and the scariest thing is that it can occur quickly.
+
+# Common Symptoms:
+Temporary pain relief followed by severe pain
+High fever and chills
+Fast heartbeat
+Abdominal swelling or rigidity
+Confusion or weakness
+Low blood pressure
+
+This state of appendicitis can result in complications such as peritonitis, sepsis, or abscesses. This is just a surgical emergency in which appendix removal is essential and also drainage of the infected fluids along with managing strong antibiotics.
+
+# Types of Appendicitis
+
+There are different types of appendicitis that can vary on the basis of its severity and appearance. Here's a quick breakdown-
+
+# 1. Acute Appendicitis
+
+Acute Appendicitis is the most common type. It starts instantly with pain that moves towards the lower right abdomen. This requires urgent surgery.
+
+# 2. Uncomplicated Appendicitis
+
+The appendix is inflamed at this stage and yet not burst. It can be treated gently with antibiotics, still surgery is considered a better option to avoid recurrence.
+
+# 3. Complicated Appendicitis
+
+The appendix has ruptured or formed an abscess. It needs immediate surgery, antibiotics and sometimes drainage.
+
+# 4. Chronic Appendicitis
+
+This type of appendicitis is rare and can lead to mild, recurring pain over the period of time. Its diagnosis is a little tricky, and surgery is the common treatment recommended.
+
+# Clinical Diagnosis of Appendicitis
+
+Here are few essential steps for diagnosing appendicitis-
+
+Physical Examination
+Lab Tests- It includes tests like- Blood test (CBC), CRP test, Urine test, Pregnancy test.
+Imaging Tests- It includes imaging tests like- Ultrasound, CT scan, & MRI
+Treatment and Recovery
+
+The main treatment for appendicitis is surgery for appendix removal. Most doctors use laparoscopic surgery, including smaller cuts, less pain and faster healing.
+
+# When It Gets More Serious?
+
+When the appendix has rupture or there is an abscess, treatment can take a little longer. As a treatment, doctor may need to drain the infection, provide IV antibiotics and let the patient be in hospital a little longer.
+
+# Possible Complications
+
+When left untreated, appendicitis can result in following symptoms-
+
+Peritonitis
+Sepsis
+Fistula formation
+Bowel obstruction
+Liver abscess or kidney swelling
+
+Early detection and timely treatment can help in preventing the above complications.
+
+# Conclusion
+
+Appendicitis can turn serious faster than you think. When you are dealing with ongoing pain, fever, feeling sick, or may be suddenly feeling loss of appetite, don't ignore these symptoms. It's time to see the doctor right away.
+
+At Habilite Clinics, Dr. Kapil Agrawal and our skilled team of medical professionals, including the best appendix surgeon in Delhi, specialize in minimally invasive appendix removal. This means smaller cuts, less pain, and faster recovery.
+    
+## Why Choose Us
+
+- Best Outcomes with discharge within 24 hours.
+- High-quality standards with an almost zero percent rate of infection.
+- Best Post Operative Care with round-the-clock availability of team.
+- A team of dedicated nutritionists to make your recovery faster.
+- No hidden charges and fixed and transparent packages.
+- Complete network of cashless insurance available.
+- All paperwork is handled by an expert team to give you a hassle-free experience.
+- Tie up with various agencies to provide you with EMI options at zero rate of interest.
+- Dr Kapil Agrawal, senior consultant laparoscopic surgeon, affiliated with some of the best and finest hospitals in New Delhi.
+
+## Book an Appointment
+
+To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     `,
     author: 'Dr. Kapil Agrawal',
-    authorImage: 'https://picsum.photos/150/150?random=50',
-    publishedDate: '2024-05-01',
-    image: 'https://picsum.photos/1200/600?random=67',
-    category: 'Piles',
-    tags: ['Piles', 'Hemorrhoids', 'Laser Surgery', 'Treatment'],
-    readTime: 6
+    authorImage: '/images/dr-kapil-agrawal.png',
+    publishedDate: '2025-01-15',
+    image: '/images/what-is-appendicitis.webp',
+    category: 'Appendicitis',
+    tags: ['Appendicitis', 'Appendix Surgery', 'Laparoscopic Surgery', 'Appendectomy', 'Delhi'],
+    readTime: 12
   },
   {
     id: '9',
-    title: 'Advanced Bariatric Surgery Techniques: What You Need to Know',
-    slug: 'advanced-bariatric-surgery-techniques-what-you-need-to-know',
-    excerpt: 'Explore the latest advances in bariatric surgery including robotic-assisted procedures and single-incision techniques for better outcomes.',
+    title: 'Bariatric Surgery Myths and Misconceptions Burst by Best Bariatric Surgeon in Delhi',
+    slug: 'bariatric-surgery-myths',
+    excerpt: 'Bust common myths about bariatric surgery with insights from Dr. Kapil Agrawal. Learn the truth about weight loss surgery safety, effectiveness, and long-term results.',
     content: `
-# Advanced Bariatric Surgery Techniques: What You Need to Know
+# Bariatric Surgery Myths and Misconceptions Burst by Best Bariatric Surgeon in Delhi
 
-Modern bariatric surgery has evolved significantly, offering safer procedures with better outcomes and faster recovery times.
+Obesity is a growing health concern linked to diabetes, heart issues, infertility, and more. While weight loss demands lifestyle changes, many struggle despite efforts. Bariatric surgery offers a proven medical solution—but common Bariatric Surgery Myths often create fear. Let's bust these myths with insights from Dr. Kapil Agrawal.
 
-## Robotic-Assisted Bariatric Surgery
+# The Role of Bariatric Surgery
 
-Robotic technology enhances precision in bariatric procedures, allowing for:
-- Enhanced 3D visualization
-- Greater surgical precision
-- Reduced complications
-- Faster recovery
+In India, around 135 million people are facing obesity issues, and the numbers are rising rapidly. Here comes the role of bariatric surgery. It's not a shortcut method, but a safe and proven method for weight loss. It works when other weight loss methods fail. 
 
-## Single-Incision Laparoscopic Surgery (SILS)
+In today's advanced techniques, it is an easier, safer, and more effective process than ever. Bariatric surgery not only helps you to reduce weight, but also helps to reverse health issues such as diabetes and high blood pressure.
 
-SILS offers:
-- Single small incision
-- Virtually scarless surgery
-- Reduced post-operative pain
-- Faster recovery
+# Top 6 Bariatric Surgery Myths Burst by Dr. Kapil Agrawal
 
-## Revisional Bariatric Surgery
+People fight with obesity, seek bariatric surgery not just for aesthetic purposes, but take it as a medical necessity. Despite growing awareness, Bariatric surgery myths and misconceptions still place fear in patients. Myths burst by Dr. Kapil Agrawal, best bariatric surgeon in Delhi, reveal that most people consider it a life-threatening procedure with probable risks after the procedure.
 
-For patients who haven't achieved desired results, revisional surgery offers:
-- Correction of previous procedures
-- Conversion to different techniques
-- Improved weight loss outcomes
+# Here is a breakdown of clarification regarding the most common myths to make your decision easy after bariatric surgery:
 
-## Pre-Surgery Preparation
+## Myth 1- Bariatric Surgery Is Only for Looks
 
-- Comprehensive medical evaluation
-- Nutritional counseling
-- Psychological assessment
-- Lifestyle modification planning
+## Truth:
 
-## Post-Surgery Care
+While weight loss surgery is performed to enhance physical appearance, bariatric surgery is considered a medical treatment. 
 
-- Follow-up appointments
-- Nutritional guidance
-- Exercise programs
-- Support groups
+Obesity is a chronic disease that potentially affects your body and can lead to around 40 health conditions that include major diseases such as Type 2 diabetes, high blood pressure, sleep apnea, fatty liver disease, infertility, and joint issues. 
+
+Bariatric surgery effectively helps to reduce and manage most health conditions related to obesity. For instance, around 80% of patients with Type 2 diabetes get their issue resolved post-surgery. Most patients dealing with issues like sleep apnea, hypertension, and high cholesterol experience lasting improvements or get their conditions resolved. 
+
+## Myth 2- Weight Loss Surgery Involves Risk and Danger
+
+## Truth: 
+
+Each surgery has some form of risk involved in it, but bariatric surgery procedures are considered the safest among all forms of surgeries. Thanks to minimally invasive procedures, they have changed the scenario of surgical procedures. Most of them involved tiny incisions, low risk of infection, less blood loss, and post-operative complications. 
+
+Studies have shown that the mortality rate for bariatric surgery is negligible for around 0.1%. It is lower than other surgeries like gallbladder surgery, hip replacement, or even childbirth. Bariatric surgery, when performed by an experienced doctor like Dr. Kapil Agrawal, offers maximum results with minimal risks involved. 
+
+## Myth 3- Bariatric Surgery Is Just an Easy Shortcut
+
+## Truth: 
+
+Bariatric surgery is not a shortcut; it is a medically guided treatment for offering long-term weight solutions. In the treatment, patients undergo 4-6 months of preparation involving psychological evaluation, dietary counselling, and lifestyle changes to prepare the patient for the surgical procedure.
+
+The surgery is only a single aspect; to get sustainable results, there should be an ongoing commitment to healthy eating, regular exercise, and behavioural changes. To get long-term results, patients should strictly obey the instructions of their healthcare provider. 
+
+
+
+## Myth 4- Bariatric Surgery is One-Size-Fits-All
+
+## Truth:
+
+The real truth behind the above myth is that bariatric surgery is not one-size-fits-all. At Habilite Clinics, we provide wide-ranging surgical procedures, each of them designed to cater to individual patient needs. 
+
+Sleeve Gastrectomy- It reduces 75% of the stomach to reduce the capacity of food intake.
+Gastric Bypass (Roux-en-Y) – This bariatric surgery alters the digestive tract to restrict calorie absorption and reduce hunger.
+Mini Gastric Bypass – It involves a streamlined substitute to traditional gastric bypass.
+Duodenal Switch- The surgery includes combining the sleeve gastrectomy and intestinal bypass to achieve effective weight loss.
+
+Dr. Kapil Agrawal performs a detailed assessment to endorse the most suitable option on the basis of medical history, goals, and current health conditions. 
+
+## Myth 5- Bariatric Surgery Is Only for Morbid Obesity
+
+## Truth:
+
+Bariatric surgery is recommended for people with a BMI over 40, or over 35 with obesity related conditions such as type 2 diabetes, hypertension, or sleep apnea.  There is no need to be extremely overweight to be eligible for this surgery. If excess weight is affecting your health, surgical weight loss is an effective option and medically appropriate. Even people with 20-30kg of excess weight can take this option. 
+
+## Myth 6- Weight Regain After Bariatric Surgery
+
+## Truth: 
+
+Bariatric surgery is advised for individuals with having BMI≥40, or ≥35 along with obesity-related conditions such as type 2 diabetes, hypertension, or sleep apnea. Each patient with 20-30 kg of surplus weight and significant comorbidities is eligible for the bariatric surgery as the procedure is not exclusively based on weight; in actual, it affects the patient's overall health.
+
+# Conclusion
+
+Obesity is a complicated medical condition that is caused by factors such as genetics, hormones, lifestyle, and environmental factors, not merely the result of a lack of willpower. Bariatric surgery is a clinically proven and effective solution that helps in offering long-term benefits for weight management and managing obesity-related conditions.
+
+Habilite Clinics offers ethical, safe, and customized weight loss surgical and non-surgical treatments along with holistic support for our patients. When traditional weight loss methods fail, bariatric surgery by Dr. Kapil Agrawal, best bariatric surgeon in Delhi, becomes the right choice for sustainable wellness and effective, long-term weight loss.
+    
+# Why Choose Us
+
+- Best Outcomes with discharge within 24 hours.
+- High-quality standards with an almost zero percent rate of infection.
+- Best Post Operative Care with round-the-clock availability of team.
+- A team of dedicated nutritionists to make your recovery faster.
+- No hidden charges and fixed and transparent packages.
+- Complete network of cashless insurance available.
+- All paperwork is handled by an expert team to give you a hassle-free experience.
+- Tie up with various agencies to provide you with EMI options at zero rate of interest.
+- Dr Kapil Agrawal, senior consultant laparoscopic surgeon, affiliated with some of the best and finest hospitals in New Delhi.
+
+## Book an Appointment
+
+To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     `,
     author: 'Dr. Kapil Agrawal',
-    authorImage: 'https://picsum.photos/150/150?random=50',
-    publishedDate: '2024-05-15',
-    image: 'https://picsum.photos/1200/600?random=68',
+    authorImage: '/images/dr-kapil-agrawal.png',
+    publishedDate: '2025-01-15',
+    image: '/images/bariatric-surgery-myths.webp',
     category: 'Bariatric Surgery',
-    tags: ['Bariatric Surgery', 'Robotic Surgery', 'Advanced Techniques'],
-    readTime: 7
+    tags: ['Bariatric Surgery', 'Weight Loss Surgery', 'Obesity Treatment', 'Sleeve Gastrectomy', 'Delhi'],
+    readTime: 12,
+    seoTitle: 'Bariatric Surgery Myths and Misconceptions Burst by Best Bariatric Surgeon in Delhi',
+    seoDescription: 'Bust common myths about bariatric surgery with insights from Dr. Kapil Agrawal. Learn the truth about weight loss surgery safety, effectiveness, and long-term results.'
+  
   },
   {
     id: '10',
-    title: 'Laparoscopic Hernia Repair: Modern Approach to Hernia Treatment',
-    slug: 'laparoscopic-hernia-repair-modern-approach-treatment',
+    title: 'Is it Safe to Delay a Hernia Surgery?',
+    slug: 'is-it-safe-to-delay-hernia-surgery',
     excerpt: 'Learn about laparoscopic hernia repair, a minimally invasive technique that offers faster recovery and less post-operative pain.',
     content: `
-# Laparoscopic Hernia Repair: Modern Approach to Hernia Treatment
+# Is it Safe to Delay a Hernia Surgery?
 
-Laparoscopic hernia repair represents a significant advancement in hernia surgery, offering patients a less invasive option with excellent outcomes.
+Hernias are more common than many people think. Office employees, athletes, and even individuals with busy lives can get a hernia. While the initial symptoms, such as mild pain and a noticeable protrusion may seem manageable, the real question remains—can one afford to postpone hernia surgery?
 
-## Advantages of Laparoscopic Repair
+The quick answer is: sometimes. But the truth is more complex. Some hernias will remain stable for a time, but others can become worse dramatically. Knowing when it is okay to delay a Hernia surgery and when it is dangerous is very important.
 
-- Smaller incisions
-- Less post-operative pain
-- Faster recovery
-- Reduced risk of infection
-- Better cosmetic results
+# What is Hernia?
 
-## Procedure Overview
+A hernia develops when tissue or an organ comes out through a weakened area in the surrounding muscles or connective tissue. It usually results in a bulge that becomes more prominent when you stand, cough, or strain.
 
-The surgeon makes small incisions and uses a laparoscope to view the hernia and surrounding structures. Mesh is placed to reinforce the weakened area.
+# The most frequent types of hernias are:
 
-## Recovery Timeline
+Inguinal hernia (groin)
+Umbilical hernia (belly button region)
+Hiatal hernia (upper abdomen)
+Incisional hernia (at the surgical site)
 
-- Day 1: Light activities, can go home
-- Week 1: Return to desk work
-- Week 2-3: Resume normal activities
-- Month 2-3: Full recovery
+Though painless hernias do exist, they should never be considered completely harmless. If the hernia is untreated, the condition can advance and introduce more problems.
 
-## Success Rates
+# Can You Safely Postpone Hernia Surgery?
 
-Laparoscopic hernia repair has success rates of over 95% with low recurrence rates when performed by experienced surgeons.
-    `,
-    author: 'Dr. Kapil Agrawal',
-    authorImage: 'https://picsum.photos/150/150?random=50',
-    publishedDate: '2024-05-20',
-    image: 'https://picsum.photos/1200/600?random=69',
-    category: 'Hernia',
-    tags: ['Hernia', 'Laparoscopic Surgery', 'Minimally Invasive'],
-    readTime: 5
-  },
-  {
-    id: '10',
-    title: 'Gallbladder Stone Operation Cost in Delhi: Complete Guide 2025',
-    slug: 'gallbladder-stone-operation-cost-delhi',
-    excerpt: 'Comprehensive guide to gallbladder stone surgery costs in Delhi, including laparoscopic, single-port, and robotic surgery options. Learn about factors affecting pricing and treatment at Habilite Clinics.',
-    content: `
-# Gallbladder Stone Operation Cost in Delhi: Complete Guide 2025
+Your surgeon may sometimes suggest what's referred to as "watchful waiting." This is a strategy of observing the hernia over time without urgent surgery. It is more often recommended when:
 
-Gallbladder stone surgery has become a routine medical procedure, undergoing a significant transformation with the introduction of laparoscopic surgery. Patients looking for gallstone treatment frequently encounter a myriad of pricing structures, leaving them uncertain about the financial aspect of their treatment. This blog aims to shed light on the intricacies of gallbladder stone operation cost in Delhi, offering clarity and guidance to individuals facing this medical journey.
+The hernia is tiny and does not hurt
+There are no immediate symptoms, such as incarceration or even strangulation
+The patient may have underlying health conditions that make surgery unsafe
 
-## What are Gallstones?
+It's crucial to realize that delaying a hernia surgery doesn't imply neglecting the condition. Instead, it means careful watching in the presence of a best hernia doctor and staying alert to any changes.
 
-The gallbladder is a small pear-shaped organ located just beneath the liver on the right upper side of your belly. It is mainly a storage organ responsible for the storage of bile produced by the liver. Gallstones are hardened deposits of bile and cholesterol that form in the gallbladder due to multiple reasons. The size of gallstones can vary from grain to the size of a golf ball.
+# Risks of Delaying a Hernia Surgery
 
-## Best Treatment Options for Gallbladder Stones
+Postponing surgery always carries some risk, particularly if the hernia becomes worse suddenly without warning. These are some of the possible complications that can occur:
 
-### 1. Laparoscopic Cholecystectomy
+1. Incarceration
 
-Laparoscopic cholecystectomy is one of the gold standard techniques for the management of gallbladder stones and various other pathologies related to gallbladder.
+The hernia becomes trapped and cannot be pushed back into the abdomen. This can lead to intense pain, nausea, and even blockage in the intestines.
 
-In this latest and one of the most advanced techniques, the surgeon makes four tiny holes in the belly or abdomen. Long and thin specialized instruments are inserted through the abdomen along with a long tubular camera.
+2. Strangulation
 
-This camera transmits images of the gallbladder on the monitor and the surgeon, with the help of specialized instruments, dissects the gallbladder and takes out the gallbladder along with the stones.
+The trapped tissue loses its blood supply. This is a life-threatening emergency situation and needs immediate surgical intervention. Without treatment, strangulated hernias can lead to tissue death and serious infection.
 
-If you're looking for expert care, consult the best gallbladder surgeon in Delhi for a safe and effective laparoscopic cholecystectomy.
+3. Emergency Surgery
 
-### 2. Single Port Cholecystectomy
+When a hernia progresses to an urgent stage, immediate surgery is the only option. It tends to be more complex, longer to recover from, and riskier than a planned surgery.
 
-This is a more advanced form of the regular laparoscopic gallbladder removal surgery. In this procedure, your surgeon will make one tiny cut which is hidden inside the belly button.
 
-Because of this, the surgery leaves almost no visible scar and looks much better cosmetically. With only one cut, patients feel much less pain after the operation and recover faster compared to the standard 4-port laparoscopic surgery.
+# When is the Early Surgery Is a Better Choice?
 
-Single-port cholecystectomy is quite demanding and requires a lot of expertise. Only highly experienced surgeons can perform this procedure with excellent results and cosmesis. Therefore, gallbladder operation cost in Delhi, India for single port gallbladder stone surgery is higher than traditional cholecystectomy.
+Most frequently, early surgery is the better choice. Not only does it avoid complications, but it also has some good advantages:
 
-### 3. Robotic Surgery for Gallstones
+Decreased risk of emergency complications
+Shorter recovery periods
+Advanced, less-invasive surgical methods such as laparoscopy
+Fewer uses of anesthesia in stable, planned conditions
+Improved overall surgical outcomes
 
-This is a type of gallbladder removal surgery that is similar to laparoscopic surgery, but it uses a robot to help the surgeon. The robot makes the surgeon's work more precise in some cases, but the recovery time and the look of the scars are almost the same as regular laparoscopic surgery.
+Doctors usually prefer elective procedures, since they can be performed under set circumstances. Emergency procedures, however, tend to carry more risks, particularly for older patients or those with chronic illnesses.
 
-In robotic surgery, the surgeon does not stand near the patient. Instead, they sit at a special machine (console) and control robotic arms that hold the surgical instruments.
+# When Delaying a Hernia Surgery May Be Acceptable?
 
-Just like normal laparoscopic surgery, robotic gallbladder surgery also needs 4 small cuts on the abdomen. So, the scars look the same and there is no cosmetic advantage over laparoscopic surgery. Because robotic machines are very expensive, the cost of robotic gallbladder stone surgery in Delhi, India is much higher than regular laparoscopic surgery.
+There are situations wherein surgery may be delayed for a period. Some of them are:
 
-## Factors Influencing the Gallbladder Stone Surgery Cost in Delhi, India
+Tiny hernias that are not painful and have not grown in size
+Those patients with cardiac or pulmonary issues for whom surgery is more dangerous
+Pregnant women are recommended to delay until after giving birth
+Hiatal hernias that do not include reflux, where lifestyle changes can be beneficial
 
-### 1. Type of Surgery
+In these instances, continuous monitoring should be performed. This involves frequent follow-up visits, imaging exams if necessary, and lifestyle changes to prevent abdominal pressure.
 
-The price of the surgery depends a lot on which method is used.
+# Warning Signs of Hernia You Should Not Ignore
 
-- Regular laparoscopic surgery is usually the most affordable.
-- Single-port laparoscopic surgery costs more.
-- Robotic surgery is usually the most expensive.
+Even if you are on a watchful waiting path, you must understand when to intervene and act. The following signs indicate you should seek emergency medical treatment:
 
-Your surgeon can guide the best option for you.
+Severe or acute abdominal pain
+Redness or swelling around the hernia area
+Fever or chills
+Nausea or vomiting
+The hernia cannot be reduced
+The bulge becomes hard or increases quickly
 
-### 2. Hospital Facilities
+These may be signs of strangulation or bowel obstruction and need emergency surgery.
 
-The cost also changes based on the hospital you choose.
+# How to Stay Safe If You're Delaying Surgery?
 
-Hospitals with advanced facilities—like ICU, CCU, and 24/7 specialist availability—usually charge more.
+If your surgeon has recommended you to delay your hernia surgery, there are several measures you can take to decrease risks and remain vigilant:
 
-### 3. Camera Systems
+Do not engage in lifting heavy loads or straining
+Supportive clothing, if advised
+Keep your weight healthy
+Assess hernia's size or new symptoms regularly.
+Regular check-ups with your doctor
+Notify them immediately of any change
 
-Cameras play a significant role in deciding the outcome of surgery. With the progress in technology, camera systems have evolved from basic systems to high definition to 4K systems to 3D systems. As the quality of the camera increases, so does the cost of a package of surgery.
+Proactive measures can be taken by you to delay surgery safely, but this is to be done only under professional guidance.
 
-### 4. Experience and Expertise of the Surgeon
+# Conclusion
 
-In this realm, compromise is never advisable. This is one factor that stands above all in deciding the outcome of surgery. An experienced surgeon is always better equipped to handle complicated cases as well as anatomical variations. His experience and expertise should always be taken into consideration even if the package is slightly on the higher side.
+Postponing hernia surgery is safe for some, but not without potential risk. It is determined by the nature of the hernia, symptoms, health, and lifestyle. In most cases, early surgery is the intelligent and safer option. It has fewer risks and a quick recovery time.
 
-### 5. Condition of the Patient
+However, what’s most important is not to ignore the hernia condition. A hernia is a structural issue, not something that will go away on its own, and requires surgical correction. Whether you’re considering surgery now or later, make sure your decision is backed by medical advice—and not by discomfort avoidance or misinformation.
 
-The overall condition of the patient can also affect the cost of surgery. Any patient having a medical illness like cardiac ailment or respiratory problems requires a better infrastructure in terms of cardiac and ICU backups. As a result, the cost of gallbladder surgery will certainly rise.
-
-### 6. Condition of the Gallbladder
-
-The condition of the gallbladder can also affect the outcome and cost of gallbladder surgery. A gall bladder that is severely infected or has burst due to impacted stones will complicate the surgery and the patient might have to stay in the hospital for an extended period. This might affect the cost of surgery.
-
-## Key Considerations in Selecting Gallstone Treatment Options
-
-### 1. Experience and Expertise of the Surgeon
-
-When considering getting a surgery done, it is crucial to take into account surgeon experience. The years of training and experience not only make a surgeon a specialist but also equip them with the intuition and skills to avoid complications or at least handle any complications that may occur during the surgery. You must ask your surgeon about the best treatment options available and the outcomes of surgery.
-
-### 2. Infrastructure of Hospital
-
-The infrastructure of the hospital also plays a significant role in determining the cost of surgery. If the hospital has an ICU, CCU, and other amenities, the cost of surgery is going to rise significantly. A normal young patient will not require facilities like the ICU and CCU. So if you do not have medical insurance, then you can opt for a budget-friendly hospital and get the surgery done.
-
-### 3. Post-operative Care
-
-This is one aspect that is often neglected. You must ensure that you get the best post-operative care for a quick recovery, guidance of meals by expert nutritionists which helps in early recovery, and easy availability of surgical team to remove your doubts and concerns.
-
-## Gallbladder Surgery Cost in Delhi, India
-
-The average cost of laparoscopic gallstone surgery in Delhi, India varies between Rs 45,000 to Rs. 1,05,000. As discussed above, various factors can influence the cost of surgery including the infrastructure of the hospital.
-
-## Cost of Gallbladder Stone Surgery at Habilite Clinics
-
-Habilite Clinics is a super specialty clinic located in South Delhi. Dr Kapil Agrawal, principal surgeon at the clinic, is a senior consultant surgeon empanelled with some of the best hospitals in New Delhi.
-
-- Our basic package of conventional laparoscopic cholecystectomy is Rs 40,000 and above depending upon various factors discussed above.
-- The starting cost of single-port laparoscopic cholecystectomy is Rs 65,000.
-- The cost of robotic surgery for gallstones starts from Rs 2,00,000.
-
-## Choosing the Right Surgeon and Hospital
-
-Selecting the right surgeon and hospital is crucial for a successful outcome. Consider the following factors:
-
-- Surgeon's Qualifications and Experience: Look for a board-certified surgeon with extensive experience in gallbladder surgery.
-- Hospital's Reputation and Facilities: Choose a hospital with a good reputation, modern facilities, and a dedicated surgical team.
-- Patient Reviews and Testimonials: Read online reviews and testimonials to get insights into other patients' experiences.
+Always consult a qualified surgeon like Dr. Kapil Agrawal at Habilite Clinics, and make follow-up care a priority. Early action, when possible, is almost always better than emergency response at a later time.
 
 ## Why Choose Us
 
@@ -712,11 +936,11 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2025-01-15',
-    image: '/images/gallbladder-surgery-delhi.jpg',
+    image: '/images/is-it-safe-to-delay-hernia.webp',
     category: 'Gall Bladder Stone',
     tags: ['Gallbladder Surgery', 'Gallstone Cost', 'Laparoscopic Surgery', 'Cholecystectomy', 'Delhi'],
     readTime: 12,
-    seoTitle: 'Gallbladder Stone Operation Cost in Delhi 2025 | Habilite Clinics',
+    seoTitle: 'Gallbladder Stone Surgery Cost in Delhi | Habilite Clinics',
     seoDescription: 'Complete guide to gallbladder stone surgery cost in Delhi. Learn about laparoscopic, single-port, and robotic cholecystectomy pricing. Transparent packages starting from Rs 40,000 at Habilite Clinics.',
     tableOfContents: [
       { id: 'what-are-gallstones', title: 'What are Gallstones?', level: 2 },
@@ -895,7 +1119,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-07-15',
-    image: 'https://picsum.photos/1200/600?random=72',
+    image: '/images/difference-between-traditional-dieting-and-bariatric-surgery.webp',
     category: 'Bariatric Surgery',
     tags: ['Bariatric Surgery', 'Dieting', 'Weight Loss', 'Obesity Treatment'],
     readTime: 12,
@@ -938,7 +1162,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '12',
     title: 'What Are the Signs You Need Hernia Surgery?',
-    slug: 'signs-you-need-hernia-surgery',
+    slug: 'what-are-the-signs-you-need-hernia-surgery',
     excerpt:
       'Learn the 4 warning signs that indicate you need hernia surgery, red-flag emergency symptoms, and why early intervention leads to safer, simpler treatment.',
     content: `
@@ -1090,7 +1314,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-08-20',
-    image: '/images/hernia-surgery-delhi.jpg',
+    image: '/images/What-Are-the-Signs-You-Need-Hernia-Surgery.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Hernia Surgery', 'Laparoscopic Surgery', 'Hernia Treatment', 'Delhi'],
     readTime: 10,
@@ -1141,7 +1365,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '13',
     title: 'What to Eat After Laparoscopic Surgery and What to Avoid?',
-    slug: 'what-to-eat-after-laparoscopic-surgery',
+    slug: 'diet-after-laparoscopic-surgery',
     excerpt:
       'Complete guide to post-laparoscopic surgery diet: stage-wise meal plan, foods to eat and avoid, nutritional guidelines, and when to seek medical attention for safe recovery.',
     content: `
@@ -1283,7 +1507,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-09-10',
-    image: '/images/laparoscopic-surgery-delhi.jpg',
+    image: '/images/diet-after-laparoscopic-surgery.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Laparoscopic Surgery', 'Post-Surgery Diet', 'Recovery', 'Nutrition', 'Delhi'],
     readTime: 11,
@@ -1332,7 +1556,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '14',
     title: 'From Surgery Back to Daily Life - Step-by-Step Recovery Guide',
-    slug: 'from-surgery-back-to-daily-life-recovery-guide',
+    slug: 'surgery-recovery-guide',
     excerpt:
       'Complete step-by-step recovery guide after surgery: what to expect in each phase from first 72 hours to full recovery, home care tips, warning signs, and when to seek immediate medical attention.',
     content: `
@@ -1463,7 +1687,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-10-05',
-    image: '/images/laparoscopic-surgery-delhi.jpg',
+    image: '/images/surgery-recovery-guide.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Surgery Recovery', 'Post-Surgery Care', 'Recovery Guide', 'Laparoscopic Surgery', 'Delhi'],
     readTime: 12,
@@ -1512,7 +1736,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '15',
     title: 'Lipoma Surgery: What is Done During the Procedure? Step-by-Step Guide',
-    slug: 'lipoma-surgery-what-is-done-during-the-procedure',
+    slug: 'lipoma-surgery-guide',
     excerpt:
       'Complete step-by-step guide to lipoma surgery: learn what happens during the procedure, types of removal techniques, pre-surgical evaluation, post-operative care, and recovery timeline.',
     content: `
@@ -1631,7 +1855,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-10-10',
-    image: '/images/lipoma-surgery-delhi.jpg',
+    image: '/images/lipoma-surgery-guide.webp',
     category: 'Laser Surgery',
     tags: ['Lipoma', 'Lipoma Surgery', 'Laser Surgery', 'Minimal Access Surgery', 'Delhi'],
     readTime: 10,
@@ -1681,7 +1905,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '16',
     title: 'Life After Gallbladder Removal: What to Expect in 6 Months',
-    slug: 'life-after-gallbladder-removal-what-to-expect-in-6-months',
+    slug: 'life-after-gallbladder-removal',
     excerpt:
       'Complete guide to life after gallbladder removal: learn what to expect in the first 6 months, recovery timeline, dietary changes, long-term effects, and how to manage post-cholecystectomy symptoms.',
     content: `
@@ -1865,7 +2089,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-10-15',
-    image: '/images/gallbladder-surgery-delhi.jpg',
+    image: '/images/life-after-gallbladder-removal.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Gallbladder Removal', 'Cholecystectomy', 'Post-Surgery Recovery', 'Gallbladder Surgery', 'Delhi'],
     readTime: 11,
@@ -1913,7 +2137,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '17',
     title: 'Piles Treatment Without Surgery: Is It Possible?',
-    slug: 'piles-treatment-without-surgery-is-it-possible',
+    slug: 'piles-treatment-without-surgery',
     excerpt:
       'Complete guide to non-surgical piles treatment: learn about lifestyle changes, medications, and minimally invasive procedures like rubber band ligation, sclerotherapy, and infrared coagulation for hemorrhoids.',
     content: `
@@ -2074,7 +2298,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-10-20',
-    image: '/images/piles-treatment-delhi.jpg',
+    image: '/images/piles-treatment-without-surgery.webp',
     category: 'Laser Surgery',
     tags: ['Piles', 'Hemorrhoids', 'Non-Surgical Treatment', 'Laser Surgery', 'Delhi'],
     readTime: 9,
@@ -2126,7 +2350,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '18',
     title: 'Hernia in Children - Guidelines, Risks & Non‑Mesh Repair Guide for Parents',
-    slug: 'hernia-in-children-guidelines-risks-non-mesh-repair-guide',
+    slug: 'hernia-in-children',
     excerpt:
       'Complete guide for parents: learn about hernia types in children, symptoms, diagnosis, when surgery is needed, why mesh-free repair is preferred for kids, and what to expect during recovery.',
     content: `
@@ -2233,7 +2457,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-10-25',
-    image: '/images/hernia-surgery-delhi.jpg',
+    image: '/images/hernia-in-children.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Hernia in Children', 'Pediatric Hernia', 'Hernia Surgery', 'Non-Mesh Repair', 'Delhi'],
     readTime: 8,
@@ -2284,7 +2508,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '19',
     title: 'Piles During Pregnancy - Causes, Symptoms & Safe Treatments (2025)',
-    slug: 'piles-during-pregnancy-causes-symptoms-safe-treatments',
+    slug: 'piles-during-pregnancy',
     excerpt:
       'Complete guide to piles during pregnancy: learn why they occur, common symptoms, safe treatment options, when to see a doctor, and expert advice from Dr. Kapil Agrawal for pregnant women.',
     content: `
@@ -2468,7 +2692,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-10-30',
-    image: '/images/piles-treatment-delhi.jpg',
+    image: '/images/piles-during-pregnancy.webp',
     category: 'Laser Surgery',
     tags: ['Piles During Pregnancy', 'Pregnancy Piles', 'Hemorrhoids in Pregnancy', 'Laser Surgery', 'Delhi'],
     readTime: 10,
@@ -2521,7 +2745,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '20',
     title: 'Post-Cholecystectomy Syndrome - Causes & Management',
-    slug: 'post-cholecystectomy-syndrome-causes-management',
+    slug: 'post-cholecystectomy-syndrome',
     excerpt:
       'Complete guide to Post-Cholecystectomy Syndrome (PCS): learn about symptoms, causes, diagnosis, treatment options, diet tips, and expert management advice from Dr. Kapil Agrawal.',
     content: `
@@ -2651,7 +2875,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-11-05',
-    image: '/images/gallbladder-surgery-delhi.jpg',
+    image: '/images/post-cholecystectomy.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Post-Cholecystectomy Syndrome', 'PCS', 'Gallbladder Removal', 'Digestive Health', 'Delhi'],
     readTime: 9,
@@ -2707,7 +2931,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '21',
     title: 'What is Bariatric Surgery? Types, Benefits, Risks & Recovery Explained',
-    slug: 'what-is-bariatric-surgery-types-benefits-risks-recovery',
+    slug: 'what-is-bariatric-surgery',
     excerpt:
       'Complete guide to bariatric surgery: learn about types (gastric bypass, sleeve gastrectomy, mini gastric bypass), benefits, risks, recovery timeline, and who should consider weight loss surgery.',
     content: `
@@ -3028,7 +3252,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-11-10',
-    image: '/images/bariatric-surgery-delhi.jpg',
+    image: '/images/bariatric-surgery-blog.webp',
     category: 'Bariatric Surgery',
     tags: ['Bariatric Surgery', 'Weight Loss Surgery', 'Gastric Bypass', 'Sleeve Gastrectomy', 'Delhi'],
     readTime: 12,
@@ -3102,7 +3326,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '22',
     title: "Laparoscopic vs Open Gallbladder Surgery: What's Right for You?",
-    slug: 'laparoscopic-vs-open-gallbladder-surgery-whats-right-for-you',
+    slug: 'laparoscopic-vs-gallbaldder-surgery',
     excerpt:
       'Complete comparison of laparoscopic vs open gallbladder surgery: learn about differences, advantages, recovery times, risks, and which approach is right for you based on your condition.',
     content: `
@@ -3241,7 +3465,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-11-15',
-    image: '/images/gallbladder-surgery-delhi.jpg',
+    image: '/images/laparoscopic-vs-open-gallbladder-surgery.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Laparoscopic Surgery', 'Open Surgery', 'Gallbladder Surgery', 'Cholecystectomy', 'Delhi'],
     readTime: 10,
@@ -3462,7 +3686,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-11-20',
-    image: '/images/hernia-surgery-delhi.jpg',
+    image: '/images/how-to-prepare-for-a-hernia-surgery.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Hernia Surgery', 'Hernia Preparation', 'Laparoscopic Surgery', 'Surgery Preparation', 'Delhi'],
     readTime: 8,
@@ -3519,7 +3743,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
   {
     id: '24',
     title: 'Lifestyle Changes You Should Do to Manage Hernia Symptoms',
-    slug: 'lifestyle-changes-to-manage-hernia-symptoms',
+    slug: 'manage-hernia-symptoms',
     excerpt:
       'Learn lifestyle changes to manage hernia symptoms: healthy weight, high-fiber diet, gentle exercise, good posture, stress control, and when to seek medical advice.',
     content: `
@@ -3575,7 +3799,7 @@ Practice deep breathing, meditation, or hobbies to manage stress, which supports
 
 ### 8. Seek Medical Advice
 
-Follow your doctor’s instructions and schedule routine check-ups so the hernia can be monitored and managed proactively.
+Follow your doctor's instructions and schedule routine check-ups so the hernia can be monitored and managed proactively.
 
 **Read More:** [How to Prevent Hernia?](/laparoscopic-surgery/hernia-surgery)
 
@@ -3592,7 +3816,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-11-25',
-    image: '/images/hernia-surgery-delhi.jpg',
+    image: '/images/manage-hernia-symptoms.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Hernia', 'Lifestyle Changes', 'Hernia Symptoms', 'Laparoscopic Surgery', 'Delhi'],
     readTime: 9,
@@ -3764,7 +3988,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-11-30',
-    image: '/images/gallbladder-surgery-delhi.jpg',
+    image: '/images/what-to-know-about-gallbladder-surgery.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Gallbladder Surgery', 'Cholecystectomy', 'Laparoscopic Surgery', 'Gallstones', 'Delhi'],
     readTime: 9,
@@ -3903,7 +4127,7 @@ To Book an Appointment, kindly contact us at: +91-9910024564, +91-9999456455
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2024-12-05',
-    image: '/images/hernia-surgery-delhi.jpg',
+    image: '/images/how-to-prevent-hernia.webp',
     category: 'Laparoscopic Surgery',
     tags: ['Hernia Prevention', 'Lifestyle Tips', 'Hernia Surgery', 'Laparoscopic Surgery', 'Delhi'],
     readTime: 8,

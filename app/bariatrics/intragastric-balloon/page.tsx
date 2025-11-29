@@ -1,12 +1,15 @@
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, CheckCircle2, Clock, User } from 'lucide-react'
+import Link from 'next/link'
+import { Award, CheckCircle2, Clock, User, TrendingUp } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
+import IntragastricBalloonFAQ from './IntragastricBalloonFAQ'
+import { blogPosts } from '@/data/blog'
 const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline'), { ssr: false })
 
 export const metadata: Metadata = {
@@ -32,6 +35,15 @@ export const metadata: Metadata = {
 }
 
 export default function IntragastricBalloonPage() {
+  const balloonBlogs = blogPosts
+    .filter(
+      (post) =>
+        post.category?.toLowerCase().includes('balloon') ||
+        post.category?.toLowerCase().includes('weight') ||
+        post.tags?.some((tag) => tag.toLowerCase().includes('balloon') || tag.toLowerCase().includes('gastric') || tag.toLowerCase().includes('weight'))
+    )
+    .slice(0, 3)
+
   return (
     <div className="pt-20 pb-16">
       {/* Hero Image */}
@@ -70,26 +82,27 @@ export default function IntragastricBalloonPage() {
       </div>
 
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 justify-items-center">
-          <div className="lg:col-span-2 space-y-8 w-full max-w-5xl">
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">About Intragastric Balloon</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Dr. Kapil Agrawal specializes in the gastric balloon treatment for patients looking for a moderate amount of weight loss. He specializes in both Allurion and Spatz balloon treatment.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                With 23 years of experience and 7000+ successful procedures, Dr. Kapil Agrawal provides personalized treatment plans for patients seeking non-surgical weight loss solutions, ensuring optimal results and patient satisfaction.
-              </p>
-              
-              {/* Cost Calculator */}
-              <div className="my-8">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <section className="w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">About Intragastric Balloon</h2>
+            <p className="text-gray-700 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
+              Dr. Kapil Agrawal specializes in the gastric balloon treatment for patients looking for a moderate amount of weight loss. He specializes in both Allurion and Spatz balloon treatment.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
+              With 23 years of experience and 7000+ successful procedures, Dr. Kapil Agrawal provides personalized treatment plans for patients seeking non-surgical weight loss solutions, ensuring optimal results and patient satisfaction.
+            </p>
+            
+            {/* Cost Calculator */}
+            <div className="my-8 flex justify-center">
+              <div className="w-full max-w-5xl">
                 <CostCalculator serviceName="Intragastric Balloon" />
               </div>
+            </div>
           </section>
 
-            <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Types of Gastric Balloons</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
+          <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Types of Gastric Balloons</h2>
+              <p className="text-gray-700 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
                 Dr. Kapil Agrawal offers three types of gastric balloon treatments, each designed to meet different patient needs and preferences. All procedures are non-surgical and provide effective weight loss solutions.
               </p>
               <div className="space-y-6">
@@ -181,69 +194,127 @@ export default function IntragastricBalloonPage() {
               </div>
             </section>
 
-            <section className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Benefits of Gastric Balloon</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  'Non-surgical procedure',
-                  'No incisions or scars',
-                  'Moderate weight loss',
-                  'Quick recovery time',
-                  'Reversible treatment',
-                  'Lower risk than surgery',
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-start">
-                    <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <div className="flex justify-center">
-              <section className="bg-gray-50 rounded-2xl border border-[#0891b2]/10 p-8 w-full max-w-4xl">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
-                    <p className="text-gray-700 text-sm">Most patients can return to normal activities within 1-2 days after gastric balloon placement, with minimal discomfort.</p>
-                  </div>
+          <section className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Benefits of Gastric Balloon</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                'Non-surgical procedure',
+                'No incisions or scars',
+                'Moderate weight loss',
+                'Quick recovery time',
+                'Reversible treatment',
+                'Lower risk than surgery',
+              ].map((benefit, index) => (
+                <div key={index} className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-700">{benefit}</span>
                 </div>
-                <div className="flex items-start">
-                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
-                    <p className="text-gray-700 text-sm">Regular follow-up appointments with nutrition counseling help ensure optimal weight loss results and long-term success.</p>
-                  </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="w-full max-w-4xl mx-auto bg-gray-50 rounded-2xl border border-[#0891b2]/10 p-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Recovery & Aftercare</h2>
+            <div className="space-y-3">
+              <div className="flex items-start">
+                <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
+                  <p className="text-gray-700 text-sm">Most patients can return to normal activities within 1-2 days after gastric balloon placement, with minimal discomfort.</p>
                 </div>
               </div>
-              </section>
+              <div className="flex items-start">
+                <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
+                  <p className="text-gray-700 text-sm">Regular follow-up appointments with nutrition counseling help ensure optimal weight loss results and long-term success.</p>
+                </div>
+              </div>
             </div>
-            <div className="flex justify-center">
-              <section className="bg-white rounded-2xl shadow-md border border-[#0891b2]/10 p-8 w-full max-w-5xl text-center">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Aftercare Milestones</h2>
-                <RecoveryTimeline title="Gastric Balloon Recovery Timeline" />
-              </section>
-            </div>
-          </div>
+          </section>
 
-          <div className="lg:col-span-1">
-            <div className="sticky top-24">
-              <ConsultationForm 
-                serviceName="Intragastric Balloon"
-                serviceSlug="intragastric-balloon"
-              />
-            </div>
+          <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-md border border-[#0891b2]/10 p-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Aftercare Milestones</h2>
+            <RecoveryTimeline title="Gastric Balloon Recovery Timeline" />
+          </section>
+        </div>
+
+        <div className="max-w-5xl mx-auto mt-12">
+          <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
+            <ConsultationForm 
+              serviceName="Intragastric Balloon"
+              serviceSlug="intragastric-balloon"
+            />
           </div>
         </div>
 
         {/* Post-operative Care Section - Full Width Centered */}
-        <PostOperativeCare />
+        <div className="mt-12">
+          <PostOperativeCare />
+        </div>
 
         {/* WhatsApp Expert Chat - Full Width Centered */}
-        <WhatsAppExpertChat serviceName="Intragastric Balloon" />
+        <div className="mt-8">
+          <WhatsAppExpertChat serviceName="Intragastric Balloon" />
+        </div>
+
+        {/* FAQs and Blogs at the end */}
+        <div className="container-custom space-y-12 mt-12">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <IntragastricBalloonFAQ />
+            {balloonBlogs.length > 0 && (
+              <section>
+                <div className="flex items-center mb-6 justify-center">
+                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Latest Gastric Balloon & Weight Loss Blogs</h2>
+                    <p className="text-gray-600 mt-1 text-sm sm:text-base text-center">
+                      Insights on gastric balloon treatment, recovery, and weight loss journey
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {balloonBlogs.map((post) => (
+                    <Link
+                      key={post.id}
+                      href={`/post/${post.slug}`}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                    >
+                      <div className="relative h-40 overflow-hidden">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          loading="lazy"
+                          quality={80}
+                        />
+                      </div>
+                      <div className="p-5">
+                        <div className="text-xs text-[#0891b2] font-semibold mb-2">{post.category}</div>
+                        <h3 className="text-base font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <span>
+                            {new Date(post.publishedDate).toLocaleDateString('en-IN', {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                            })}
+                          </span>
+                          <span>By {post.author}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

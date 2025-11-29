@@ -370,58 +370,62 @@ export default function BestRectalProlapseSurgeonPage() {
             </div>
           </section>
 
-          <section className="max-w-5xl mx-auto space-y-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">FAQs on Rectal Prolapse Surgery</h2>
-            <div className="space-y-4">
-              {faqs.map((item) => (
-                <details key={item.question} className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm group">
-                  <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
-                    {item.question}
-                    <span className="text-[#0891b2] text-sm group-open:hidden">+</span>
-                    <span className="text-[#0891b2] text-sm hidden group-open:inline">−</span>
-                  </summary>
-                  <p className="text-gray-700 mt-3 leading-relaxed">{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </section>
+          <PostOperativeCare />
+          <WhatsAppExpertChat serviceName="Rectal Prolapse Surgery" />
+        </div>
 
-          {rectalBlogs.length > 0 && (
-            <section className="max-w-5xl mx-auto space-y-6">
-              <div className="flex items-center gap-3">
-                <TrendingUp className="text-[#0891b2]" size={32} />
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Latest Rectal Prolapse Blogs</h2>
-                  <p className="text-gray-600 text-sm">Evidence-based articles on symptoms, minimally invasive options and recovery diets.</p>
-                </div>
-              </div>
-              <div className="grid gap-6 md:grid-cols-3">
-                {rectalBlogs.map((post) => (
-                  <Link
-                    key={post.id}
-                    href={`/post/${post.slug}`}
-                    className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition"
-                  >
-                    <div className="relative h-40">
-                      <Image src={post.image} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                    </div>
-                    <div className="p-4 space-y-2">
-                      <span className="text-xs font-semibold text-[#0891b2] uppercase">{post.category}</span>
-                      <h3 className="text-lg font-bold text-gray-900 line-clamp-2">{post.title}</h3>
-                      <p className="text-sm text-gray-600 line-clamp-2">{post.excerpt}</p>
-                      <div className="text-xs text-gray-500 flex justify-between">
-                        <span>{new Date(post.publishedDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
-                        <span>By {post.author}</span>
-                      </div>
-                    </div>
-                  </Link>
+        <div className="container-custom space-y-12 mt-12">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <section className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">FAQs on Rectal Prolapse Surgery</h2>
+              <div className="space-y-4">
+                {faqs.map((item) => (
+                  <details key={item.question} className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm group">
+                    <summary className="cursor-pointer font-semibold text-gray-900 flex items-center justify-between">
+                      {item.question}
+                      <span className="text-[#0891b2] text-sm group-open:hidden">+</span>
+                      <span className="text-[#0891b2] text-sm hidden group-open:inline">−</span>
+                    </summary>
+                    <p className="text-gray-700 mt-3 leading-relaxed">{item.answer}</p>
+                  </details>
                 ))}
               </div>
             </section>
-          )}
 
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="Rectal Prolapse Surgery" />
+            {rectalBlogs.length > 0 && (
+              <section className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="text-[#0891b2]" size={32} />
+                  <div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Latest Rectal Prolapse Blogs</h2>
+                    <p className="text-gray-600 text-sm">Evidence-based articles on symptoms, minimally invasive options and recovery diets.</p>
+                  </div>
+                </div>
+                <div className="grid gap-6 md:grid-cols-3">
+                  {rectalBlogs.map((post) => (
+                    <Link
+                      key={post.id}
+                      href={`/post/${post.slug}`}
+                      className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition"
+                    >
+                      <div className="relative h-40">
+                        <Image src={post.image} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                      </div>
+                      <div className="p-4 space-y-2">
+                        <span className="text-xs font-semibold text-[#0891b2] uppercase">{post.category}</span>
+                        <h3 className="text-lg font-bold text-gray-900 line-clamp-2">{post.title}</h3>
+                        <p className="text-sm text-gray-600 line-clamp-2">{post.excerpt}</p>
+                        <div className="text-xs text-gray-500 flex justify-between">
+                          <span>{new Date(post.publishedDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                          <span>By {post.author}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
         </div>
       </div>
     </>
