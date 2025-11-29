@@ -1,306 +1,79 @@
-'use client'
+import { Metadata } from 'next'
+import TestimonialsFilter from '@/components/testimonials/TestimonialsFilter'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Star, Play, Quote } from 'lucide-react'
-import { testimonials, getVideoTestimonials } from '@/data/testimonials'
-
-// Helper function to extract YouTube video ID from various URL formats
-function getYouTubeVideoId(url: string): string | null {
-  if (!url) return null
-  
-  const patterns = [
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
-    /youtube\.com\/.*[?&]v=([^&\n?#]+)/,
-  ]
-  
-  for (const pattern of patterns) {
-    const match = url.match(pattern)
-    if (match && match[1]) {
-      return match[1]
-    }
-  }
-  
-  return null
+export const metadata: Metadata = {
+  title: 'Patient Testimonials - Dr. Kapil Agrawal | Habilite Clinics | Real Patient Stories',
+  description: 'Read real patient testimonials and success stories from Dr. Kapil Agrawal\'s patients. Video and text reviews from patients who underwent laparoscopic surgery, bariatric surgery, and laser procedures at Habilite Clinics.',
+  keywords: [
+    'patient testimonials dr kapil agrawal',
+    'habilite clinics reviews',
+    'laparoscopic surgery testimonials',
+    'bariatric surgery patient stories',
+    'patient reviews delhi',
+    'dr kapil agrawal patient feedback',
+    'surgery success stories',
+  ],
+  openGraph: {
+    title: 'Patient Testimonials - Dr. Kapil Agrawal | Habilite Clinics',
+    description: 'Read real patient testimonials and success stories from Dr. Kapil Agrawal\'s patients.',
+    url: 'https://www.habiliteclinics.com/testimonials',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'Dr. Kapil Agrawal - Patient Testimonials',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Patient Testimonials - Dr. Kapil Agrawal | Habilite Clinics',
+    description: 'Read real patient testimonials and success stories from Dr. Kapil Agrawal\'s patients.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/testimonials',
+  },
 }
 
-// Helper function to get YouTube thumbnail URL
-function getYouTubeThumbnail(videoId: string, quality: 'maxresdefault' | 'hqdefault' = 'maxresdefault'): string {
-  return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`
-}
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Testimonials', url: '/testimonials' },
+])
 
 export default function TestimonialsPage() {
-  const [selectedCategory, setSelectedCategory] = useState<'All' | 'Video' | 'Text'>('All')
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
-
-  const videoTestimonials = getVideoTestimonials()
-  const textTestimonials = testimonials.filter(t => !t.videoUrl)
-
-  const filteredTestimonials = selectedCategory === 'All'
-    ? testimonials
-    : selectedCategory === 'Video'
-    ? videoTestimonials
-    : textTestimonials
-
   return (
-    <div className="pt-20 pb-16">
-      <div className="bg-gradient-primary py-16">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Patient Testimonials</h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Real stories from patients who trusted us with their care
-          </p>
-        </div>
-      </div>
-
-      <div className="container-custom section-padding">
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 justify-center mb-8">
-          {['All', 'Video', 'Text'].map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category as 'All' | 'Video' | 'Text')}
-              className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                selectedCategory === category
-                  ? 'bg-primary-500 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="pt-20 pb-16">
+        <div className="bg-gradient-primary py-16">
+          <div className="container-custom text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Patient Testimonials</h1>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Real stories from patients who trusted us with their care
+            </p>
+          </div>
         </div>
 
-        {/* Testimonials Grid */}
-        {filteredTestimonials.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTestimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
-            >
-              {testimonial.videoUrl ? (
-                // Video Testimonial Card
-                <>
-                  <div
-                    className="relative aspect-video w-full cursor-pointer group"
-                    onClick={() => setSelectedVideo(testimonial.videoUrl || null)}
-                  >
-                    {(() => {
-                      const videoId = getYouTubeVideoId(testimonial.videoUrl || '')
-                      if (!videoId) {
-                        // Fallback to gradient if video ID can't be extracted
-                        return (
-                          <>
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-secondary-600" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 group-hover:bg-white/30 transition-colors">
-                                <Play className="text-white" size={32} fill="white" />
-                              </div>
-                            </div>
-                          </>
-                        )
-                      }
-                      
-                      return (
-                        <>
-                          <Image
-                            src={getYouTubeThumbnail(videoId)}
-                            alt={`${testimonial.patientName} - ${testimonial.treatment} testimonial video`}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            loading="lazy"
-                            quality={85}
-                            onError={(e) => {
-                              // Fallback to lower quality thumbnail if maxresdefault fails
-                              const target = e.target as HTMLImageElement
-                              if (target.src.includes('maxresdefault')) {
-                                target.src = getYouTubeThumbnail(videoId, 'hqdefault')
-                              }
-                            }}
-                          />
-                          {/* Play Button Overlay */}
-                          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                            <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 group-hover:scale-110 transition-transform shadow-lg">
-                              <Play className="text-[#0891b2] ml-1" size={32} fill="#0891b2" />
-                            </div>
-                          </div>
-                          {/* Treatment Badge */}
-                          <div className="absolute bottom-2 left-2 right-2 text-white text-sm font-semibold bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                            {testimonial.treatment}
-                          </div>
-                        </>
-                      )
-                    })()}
-                  </div>
-                  
-                  {/* Video Testimonial Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    {/* Stars */}
-                    <div className="flex items-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="text-yellow-400 fill-yellow-400"
-                          size={18}
-                        />
-                      ))}
-                    </div>
-                    
-                    {/* Review Text */}
-                    {testimonial.text && (
-                      <p className="text-gray-700 mb-4 italic line-clamp-3 text-sm leading-relaxed">
-                        &quot;{testimonial.text}&quot;
-                      </p>
-                    )}
-                    
-                    {/* Patient Info */}
-                    <div className="mt-auto pt-4 border-t border-gray-100">
-                      <div className="flex items-center">
-                        {testimonial.image && (
-                          <div className="relative w-12 h-12 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                            <Image
-                              src={testimonial.image}
-                              alt={testimonial.patientName}
-                              fill
-                              className="object-cover"
-                              sizes="48px"
-                            />
-                          </div>
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <div className="font-semibold text-gray-900 text-base truncate">
-                            {testimonial.patientName}
-                          </div>
-                          <div className="text-sm text-gray-600 truncate">
-                            {testimonial.treatment}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                // Text Testimonial Card
-                <div className="p-6 flex-1 flex flex-col">
-                  {/* Quote Icon */}
-                  <div className="mb-4">
-                    <Quote className="text-[#0891b2] opacity-20" size={40} />
-                  </div>
-                  
-                  {/* Review Text */}
-                  <p className="text-gray-700 mb-6 italic text-base leading-relaxed flex-1">
-                    &quot;{testimonial.text}&quot;
-                  </p>
-                  
-                  {/* Patient Info */}
-                  <div className="mt-auto pt-4 border-t border-gray-100">
-                    <div className="flex items-center mb-3">
-                      {testimonial.image && (
-                        <div className="relative w-14 h-14 rounded-full overflow-hidden mr-4 flex-shrink-0">
-                          <Image
-                            src={testimonial.image}
-                            alt={testimonial.patientName}
-                            fill
-                            className="object-cover"
-                            sizes="56px"
-                          />
-                        </div>
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-gray-900 text-lg mb-1">
-                          {testimonial.patientName}
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          {testimonial.treatment}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Stars */}
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="text-yellow-400 fill-yellow-400"
-                          size={18}
-                        />
-                      ))}
-                      {testimonial.verified && (
-                        <span className="ml-2 text-xs text-green-600 font-medium">
-                          ✓ Verified
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <div className="max-w-md mx-auto">
-              <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">No Testimonials Found</h3>
-              <p className="text-gray-600 mb-6">
-                {selectedCategory === 'Video' 
-                  ? 'No video testimonials available at the moment. Check back later or view text testimonials.'
-                  : selectedCategory === 'Text'
-                  ? 'No text testimonials available at the moment. Check back later or view video testimonials.'
-                  : 'No testimonials found. Please check back later.'}
-              </p>
-              {selectedCategory !== 'All' && (
-                <button
-                  onClick={() => setSelectedCategory('All')}
-                  className="inline-flex items-center px-6 py-3 bg-[#0891b2] text-white font-semibold rounded-lg hover:bg-[#06b6d4] transition-colors"
-                >
-                  View All Testimonials
-                </button>
-              )}
-            </div>
-          </div>
-        )}
+        <div className="container-custom section-padding">
+          <TestimonialsFilter />
+        </div>
       </div>
-
-      {/* Video Modal */}
-      {selectedVideo && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedVideo(null)}
-        >
-          <div
-            className="relative max-w-4xl w-full aspect-video animate-scale-in"
-            onClick={(e) => e.stopPropagation()}
-          >
-              <button
-                onClick={() => setSelectedVideo(null)}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 text-xl font-semibold"
-                aria-label="Close video"
-              >
-                ✕ Close
-              </button>
-              {(() => {
-                const videoId = getYouTubeVideoId(selectedVideo)
-                const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : selectedVideo
-                return (
-                  <iframe
-                    src={embedUrl}
-                    title="Patient Testimonial Video"
-                    className="w-full h-full rounded-lg"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                )
-              })()}
-            </div>
-          </div>
-        )}
-    </div>
+    </>
   )
 }

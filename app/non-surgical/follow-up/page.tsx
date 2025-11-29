@@ -1,13 +1,65 @@
 import { Metadata } from 'next'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
-  title: 'Follow-up Care',
-  description: 'Comprehensive post-operative care and monitoring at Habilite Clinics.',
+  title: 'Follow-up Care - Post-Operative Care & Monitoring | Dr. Kapil Agrawal | Habilite Clinics',
+  description: 'Comprehensive post-operative care and monitoring at Habilite Clinics by Dr. Kapil Agrawal. Regular check-ups, wound monitoring, medication management, and personalized recovery guidance.',
+  keywords: [
+    'post-operative care delhi',
+    'follow-up care',
+    'surgical recovery',
+    'wound monitoring',
+    'post-surgery care',
+    'recovery monitoring',
+  ],
+  openGraph: {
+    title: 'Follow-up Care - Post-Operative Care & Monitoring | Dr. Kapil Agrawal',
+    description: 'Comprehensive post-operative care and monitoring at Habilite Clinics.',
+    url: 'https://www.habiliteclinics.com/non-surgical/follow-up',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'Follow-up Care - Dr. Kapil Agrawal',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Follow-up Care - Post-Operative Care & Monitoring',
+    description: 'Comprehensive post-operative care and monitoring at Habilite Clinics.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/non-surgical/follow-up',
+  },
 }
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Non-Surgical Treatments', url: '/non-surgical' },
+  { name: 'Follow-up Care', url: '/non-surgical/follow-up' },
+])
 
 export default function FollowUpPage() {
   return (
-    <div className="pt-20 pb-16">
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="pt-20 pb-16">
       <div className="bg-gradient-to-br from-[#1a4d7a] to-[#2c5f8a] text-white py-16">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Follow-up Care</h1>
@@ -34,6 +86,7 @@ export default function FollowUpPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

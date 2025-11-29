@@ -15,6 +15,7 @@ export interface Service {
   featured: boolean
   seoTitle?: string
   seoDescription?: string
+  keywords?: string[]
   faqs: FAQ[]
 }
 

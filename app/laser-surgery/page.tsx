@@ -1,6 +1,57 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
+
+export const metadata: Metadata = {
+  title: 'Laser Surgery in Delhi - Dr. Kapil Agrawal | Advanced Laser Procedures',
+  description: 'Expert laser surgery in Delhi by Dr. Kapil Agrawal. Advanced laser treatments for piles, anal fissure, anal fistula, pilonidal sinus, and circumcision. Painless procedures with fast recovery.',
+  keywords: [
+    'laser surgery delhi',
+    'laser piles treatment delhi',
+    'laser anal fissure treatment',
+    'laser fistula surgery delhi',
+    'pilonidal sinus laser treatment',
+    'laser circumcision delhi',
+    'dr kapil agrawal laser surgery',
+  ],
+  openGraph: {
+    title: 'Laser Surgery in Delhi - Dr. Kapil Agrawal',
+    description: 'Expert laser surgery in Delhi by Dr. Kapil Agrawal. Advanced laser treatments for piles, anal fissure, anal fistula, and more.',
+    url: 'https://www.habiliteclinics.com/laser-surgery',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'Dr. Kapil Agrawal - Laser Surgeon',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Laser Surgery in Delhi - Dr. Kapil Agrawal',
+    description: 'Expert laser surgery in Delhi by Dr. Kapil Agrawal. Advanced laser treatments.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/laser-surgery',
+  },
+}
 
 const laserServices = [
   {
@@ -29,51 +80,60 @@ const laserServices = [
   },
 ]
 
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Laser Surgery', url: '/laser-surgery' },
+])
+
 export default function LaserSurgeryPage() {
   return (
-    <div className="pt-20 pb-16">
-      <div className="bg-gray-50 py-16 border-b border-gray-200">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Laser Surgery</h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Advanced laser surgery treatments with precision and minimal recovery time
-          </p>
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="pt-20 pb-16">
+        <div className="bg-gray-50 py-16 border-b border-gray-200">
+          <div className="container-custom text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Laser Surgery</h1>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Advanced laser surgery treatments with precision and minimal recovery time
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {laserServices.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={`${service.title} - Expert laser surgery treatment in Delhi, India by Dr. Kapil Agrawal`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  loading="lazy"
-                />
+        <div className="container-custom section-padding">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {laserServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} - Expert laser surgery treatment in Delhi, India by Dr. Kapil Agrawal`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    loading="lazy"
+                    quality={85}
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold mb-3 text-gray-900">{service.title}</h3>
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-3">{service.description}</p>
+                  <Link
+                    href={service.link}
+                    className="inline-flex items-center text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
+                  >
+                    View More
+                    <ArrowRight size={16} className="ml-1" />
+                  </Link>
+                </div>
               </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold mb-3 text-gray-900">{service.title}</h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-3">{service.description}</p>
-                <Link
-                  href={service.link}
-                  className="inline-flex items-center text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
-                >
-                  View More
-                  <ArrowRight size={16} className="ml-1" />
-                </Link>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

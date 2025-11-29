@@ -7,10 +7,14 @@ import { Calendar, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 import { getTestimonialsByTreatment } from '@/data/testimonials'
 import TestimonialsSection from '@/components/treatments/TestimonialsSection'
 import FAQSection from '@/components/treatments/FAQSection'
+import StructuredData from '@/components/seo/StructuredData'
+import { getFAQSchema, getBreadcrumbSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
+
+export const revalidate = 3600 // Revalidate every hour (ISR)
 
 export async function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }))
@@ -24,6 +28,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: service.seoTitle || `${service.name} | Habilite Clinics`,
     description: service.seoDescription || service.shortDescription,
+    keywords: service.keywords || [
+      service.name,
+      'laparoscopic surgery',
+      'delhi',
+      'dr kapil agrawal',
+    ],
+    openGraph: {
+      title: service.seoTitle || `${service.name} | Habilite Clinics`,
+      description: service.seoDescription || service.shortDescription,
+      url: `https://www.habiliteclinics.com/treatments/${slug}`,
+      type: 'website',
+      images: service.image ? [
+        {
+          url: service.image.startsWith('http') ? service.image : `https://www.habiliteclinics.com${service.image}`,
+          width: 1200,
+          height: 630,
+          alt: service.name,
+        },
+      ] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.seoTitle || `${service.name} | Habilite Clinics`,
+      description: service.seoDescription || service.shortDescription,
+      images: service.image ? [service.image.startsWith('http') ? service.image : `https://www.habiliteclinics.com${service.image}`] : [],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    alternates: {
+      canonical: `https://www.habiliteclinics.com/treatments/${slug}`,
+    },
   }
 }
 
@@ -34,17 +78,44 @@ export default async function TreatmentDetailPage({ params }: Props) {
 
   const testimonials = getTestimonialsByTreatment(service.name)
 
+  // Generate structured data
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Treatments', url: '/treatments' },
+    { name: service.name, url: `/treatments/${slug}` },
+  ])
+
+  const medicalProcedureSchema = getMedicalProcedureSchema({
+    name: service.name,
+    description: service.shortDescription,
+    url: `/treatments/${slug}`,
+    procedureType: service.category,
+    image: service.image,
+    areaServed: ['Delhi', 'NCR', 'India'],
+  })
+
+  const faqSchema = service.faqs.length > 0 ? getFAQSchema({
+    title: `${service.name} - Frequently Asked Questions`,
+    description: `Common questions about ${service.name} at Habilite Clinics`,
+    faqs: service.faqs,
+  }) : null
+
   return (
-    <div className="pt-20 pb-16">
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <StructuredData data={medicalProcedureSchema} />
+      {faqSchema && <StructuredData data={faqSchema} />}
+      <div className="pt-20 pb-16">
       {/* Hero Section */}
       <div className="relative h-96">
         <Image
           src={service.image}
-          alt={service.name}
+          alt={`${service.name} - Expert treatment by Dr. Kapil Agrawal at Habilite Clinics`}
           fill
           className="object-cover"
           priority
           sizes="100vw"
+          quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-700/70" />
         <div className="container-custom relative z-10 h-full flex items-center">
@@ -159,5 +230,6 @@ export default async function TreatmentDetailPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   )
 }

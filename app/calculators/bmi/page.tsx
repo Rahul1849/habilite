@@ -1,178 +1,93 @@
-'use client'
-
-import { useState } from 'react'
-import { Calculator, ArrowLeft } from 'lucide-react'
+import { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
+import BMICalculator from '@/components/calculators/BMICalculator'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
+
+export const metadata: Metadata = {
+  title: 'BMI Calculator - Free Online Tool | Dr. Kapil Agrawal | Habilite Clinics',
+  description: 'Calculate your Body Mass Index (BMI) with our free online BMI calculator. Determine if you are underweight, healthy weight, overweight, or obese. Get personalized recommendations from Dr. Kapil Agrawal.',
+  keywords: [
+    'bmi calculator',
+    'bmi calculator online',
+    'body mass index calculator',
+    'bmi calculator india',
+    'bmi calculator delhi',
+    'obesity calculator',
+    'weight calculator',
+  ],
+  openGraph: {
+    title: 'BMI Calculator - Free Online Tool | Dr. Kapil Agrawal',
+    description: 'Calculate your Body Mass Index (BMI) with our free online BMI calculator. Get personalized recommendations.',
+    url: 'https://www.habiliteclinics.com/calculators/bmi',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'BMI Calculator - Dr. Kapil Agrawal',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BMI Calculator - Free Online Tool',
+    description: 'Calculate your Body Mass Index (BMI) with our free online BMI calculator.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/calculators/bmi',
+  },
+}
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Calculators', url: '/calculators' },
+  { name: 'BMI Calculator', url: '/calculators/bmi' },
+])
 
 export default function BMICalculatorPage() {
-  const [height, setHeight] = useState('')
-  const [weight, setWeight] = useState('')
-  const [bmi, setBmi] = useState<number | null>(null)
-  const [category, setCategory] = useState('')
-
-  const calculateBMI = () => {
-    const h = parseFloat(height) / 100 // Convert cm to meters
-    const w = parseFloat(weight)
-    
-    if (h > 0 && w > 0) {
-      const bmiValue = w / (h * h)
-      setBmi(parseFloat(bmiValue.toFixed(1)))
-      
-      if (bmiValue < 18.5) {
-        setCategory('Underweight')
-      } else if (bmiValue < 25) {
-        setCategory('Normal weight')
-      } else if (bmiValue < 30) {
-        setCategory('Overweight')
-      } else {
-        setCategory('Obese')
-      }
-    }
-  }
-
   return (
-    <div className="pt-20 pb-16 min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] py-12 sm:py-16">
-        <div className="container-custom text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">BMI Calculator</h1>
-          <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto px-4">
-            A standard tool to gauge obesity levels based on ratio of height and weight
-          </p>
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="pt-20 pb-16 min-h-screen bg-gray-50">
+        <div className="bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] py-12 sm:py-16">
+          <div className="container-custom text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">BMI Calculator</h1>
+            <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto px-4">
+              A standard tool to gauge obesity levels based on ratio of height and weight
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="container-custom py-12 sm:py-16">
-        <div className="max-w-3xl mx-auto">
-          <Link
-            href="/"
-            className="inline-flex items-center text-[#f56336] hover:text-[#ff8c5a] mb-6 transition-colors text-sm sm:text-base"
-          >
-            <ArrowLeft className="mr-2" size={18} />
-            Back to Home
-          </Link>
-
-          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border border-gray-200">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center mb-8 pb-6 border-b border-gray-200">
-              <div className="bg-gradient-to-br from-[#f56336] to-[#ff8c5a] rounded-xl p-4 mb-4 sm:mb-0 sm:mr-6">
-                <Calculator className="text-white" size={32} />
-              </div>
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Calculate Your BMI</h2>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  Enter your height and weight to calculate your Body Mass Index
-                </p>
-              </div>
-            </div>
-
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault()
-                calculateBMI()
-              }}
-              className="space-y-6"
+        <div className="container-custom py-12 sm:py-16">
+          <div className="max-w-3xl mx-auto">
+            <Link
+              href="/"
+              className="inline-flex items-center text-[#f56336] hover:text-[#ff8c5a] mb-6 transition-colors text-sm sm:text-base"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="height" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Height (cm) <span className="text-[#f56336]">*</span>
-                  </label>
-                  <input
-                    id="height"
-                    type="number"
-                    value={height}
-                    onChange={(e) => setHeight(e.target.value)}
-                    min="50"
-                    max="250"
-                    step="0.1"
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-base transition-all"
-                    placeholder="e.g., 175"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="weight" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Weight (kg) <span className="text-[#f56336]">*</span>
-                  </label>
-                  <input
-                    id="weight"
-                    type="number"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    min="20"
-                    max="300"
-                    step="0.1"
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-base transition-all"
-                    placeholder="e.g., 70"
-                  />
-                </div>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Calculate BMI
-              </button>
-            </form>
+              <ArrowLeft className="mr-2" size={18} />
+              Back to Home
+            </Link>
 
-            {bmi !== null && (
-              <div className="mt-8 bg-gradient-to-br from-orange-50 via-orange-100/50 to-orange-50 rounded-xl p-6 sm:p-8 border-2 border-[#f56336]/30 animate-fade-in shadow-lg">
-                <div className="text-center">
-                  <div className="inline-block bg-white rounded-full p-4 mb-4 shadow-md">
-                    <div className="text-5xl sm:text-6xl font-bold text-[#f56336] mb-1">{bmi}</div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">BMI</div>
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">{category}</div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <p className="text-base text-gray-700 leading-relaxed">
-                      {category === 'Underweight' && 'Your BMI indicates you are underweight. Consider consulting a nutritionist for a healthy weight gain plan tailored to your needs.'}
-                      {category === 'Normal weight' && 'Great! Your BMI is within the healthy range. Maintain your healthy lifestyle with a balanced diet and regular exercise.'}
-                      {category === 'Overweight' && 'Your BMI indicates you are overweight. Consider lifestyle changes, diet modifications, and consultation with healthcare professionals for a personalized weight management plan.'}
-                      {category === 'Obese' && 'Your BMI indicates obesity. It is highly recommended to consult with a healthcare professional for a comprehensive weight management plan and medical guidance.'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            <div className="mt-10">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">BMI Categories & Reference Ranges</h3>
-              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                <table className="w-full text-sm sm:text-base">
-                  <thead>
-                    <tr className="bg-gray-50 text-left text-gray-600 uppercase text-xs tracking-wide">
-                      <th className="px-4 py-3 border-b border-gray-200">BMI Range</th>
-                      <th className="px-4 py-3 border-b border-gray-200">Category</th>
-                      <th className="px-4 py-3 border-b border-gray-200">What it Means</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      { range: '< 18.5', label: 'Underweight', desc: 'Need to gain weight with dietary support' },
-                      { range: '18.5 - 24.9', label: 'Normal weight', desc: 'Healthy range, maintain diet & activity' },
-                      { range: '25 - 29.9', label: 'Overweight', desc: 'Consider lifestyle changes & monitoring' },
-                      { range: '30 - 34.9', label: 'Obesity Class I', desc: 'Talk to a specialist about weight control' },
-                      { range: '35 - 39.9', label: 'Obesity Class II', desc: 'High risk; medical supervision recommended' },
-                      { range: '≥ 40', label: 'Obesity Class III', desc: 'Severe risk; bariatric evaluation advised' },
-                    ].map((row, index) => (
-                      <tr key={row.range} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/70'}>
-                        <td className="px-4 py-3 border-t border-gray-100 font-semibold text-gray-900">{row.range}</td>
-                        <td className="px-4 py-3 border-t border-gray-100 text-gray-800">{row.label}</td>
-                        <td className="px-4 py-3 border-t border-gray-100 text-gray-600">{row.desc}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="text-xs text-gray-500 mt-3">
-                *BMI is a screening tool, not a diagnostic measure. Consult a qualified healthcare professional for personalised guidance.
-              </p>
-            </div>
+            <BMICalculator />
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

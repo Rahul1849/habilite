@@ -77,9 +77,37 @@ export const metadata: Metadata = {
     'best surgeon in delhi',
   ],
   openGraph: {
-    title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
+    title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India',
     description: 'Dr. Kapil Agrawal - Leading laparoscopic and robotic surgeon with 23 years experience and 7000+ successful surgeries at Apollo Hospitals, Delhi.',
     url: 'https://www.habiliteclinics.com',
+    type: 'website',
+    locale: 'en_IN',
+    siteName: 'Habilite Clinics',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India',
+    description: 'Dr. Kapil Agrawal - Leading laparoscopic and robotic surgeon with 23 years experience and 7000+ successful surgeries.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   alternates: {
     canonical: 'https://www.habiliteclinics.com',

@@ -10,6 +10,8 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+export const revalidate = 86400 // Revalidate every 24 hours (ISR)
+
 export async function generateStaticParams() {
   return doctors.map((doctor) => ({ slug: doctor.slug }))
 }

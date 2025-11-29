@@ -16,6 +16,8 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+export const revalidate = 3600 // Revalidate every hour (ISR)
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }))
 }
@@ -28,13 +30,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
+    keywords: post.tags || [],
     authors: [{ name: 'Dr. Kapil Agrawal', url: 'https://www.habiliteclinics.com/dr-kapil-agrawal' }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: [post.image],
+      url: `https://www.habiliteclinics.com/post/${slug}`,
+      images: [
+        {
+          url: post.image.startsWith('http') ? post.image : `https://www.habiliteclinics.com${post.image}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
       authors: ['Dr. Kapil Agrawal'],
       type: 'article',
+      publishedTime: post.publishedDate,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image.startsWith('http') ? post.image : `https://www.habiliteclinics.com${post.image}`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     alternates: {
       canonical: `https://www.habiliteclinics.com/post/${slug}`,
@@ -73,11 +102,12 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="relative h-96">
         <Image
           src={post.image}
-          alt={post.title}
+          alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
           fill
           className="object-cover"
           priority
           sizes="100vw"
+          quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="container-custom relative z-10 h-full flex items-end pb-8">

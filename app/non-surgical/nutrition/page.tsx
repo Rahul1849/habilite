@@ -1,13 +1,65 @@
 import { Metadata } from 'next'
+import StructuredData from '@/components/seo/StructuredData'
+import { getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
-  title: 'Nutrition Counseling',
-  description: 'Personalized nutrition plans to support recovery and overall health at Habilite Clinics.',
+  title: 'Nutrition Counseling - Personalized Nutrition Plans | Dr. Kapil Agrawal | Habilite Clinics',
+  description: 'Personalized nutrition plans to support recovery and overall health at Habilite Clinics by Dr. Kapil Agrawal. Expert dietary guidance for post-surgical recovery and weight management.',
+  keywords: [
+    'nutrition counseling delhi',
+    'dietitian consultation',
+    'nutrition plans',
+    'post-surgical nutrition',
+    'weight management nutrition',
+    'diet counseling delhi',
+  ],
+  openGraph: {
+    title: 'Nutrition Counseling - Personalized Nutrition Plans | Dr. Kapil Agrawal',
+    description: 'Personalized nutrition plans to support recovery and overall health at Habilite Clinics.',
+    url: 'https://www.habiliteclinics.com/non-surgical/nutrition',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'Nutrition Counseling - Dr. Kapil Agrawal',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nutrition Counseling - Personalized Nutrition Plans',
+    description: 'Personalized nutrition plans to support recovery and overall health.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/non-surgical/nutrition',
+  },
 }
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Non-Surgical Treatments', url: '/non-surgical' },
+  { name: 'Nutrition Counseling', url: '/non-surgical/nutrition' },
+])
 
 export default function NutritionPage() {
   return (
-    <div className="pt-20 pb-16">
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="pt-20 pb-16">
       <div className="bg-gradient-to-br from-[#1a4d7a] to-[#2c5f8a] text-white py-16">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Nutrition Counseling</h1>
@@ -30,6 +82,7 @@ export default function NutritionPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
