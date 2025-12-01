@@ -185,11 +185,18 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary-400 mt-0.5" />
-                <p>
-                  M-11, Block M, Lajpat Nagar II, <br/>
-                  New Delhi – 110024
-                  <br />
-                </p>
+                <div className="space-y-2">
+                  <p>
+                    <span className="font-semibold">Lajpat Nagar:</span><br />
+                    M-11, Block M, Lajpat Nagar II, <br/>
+                    New Delhi – 110024
+                  </p>
+                  <p>
+                    <span className="font-semibold">Hauz Khas:</span><br />
+                    M C-7/186, SDA, Hauz Khas, <br/>
+                    New Delhi – 110016
+                  </p>
+                </div>
               </div>
               <div
                 className="flex items-center gap-4 pt-2"

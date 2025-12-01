@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, CheckCircle2, Clock, HeartPulse, Shield, Stethoscope, TrendingUp } from 'lucide-react'
+import { Award, CheckCircle2, Clock, HeartPulse, Shield, Stethoscope } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
-import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import RelatedBlogs from '@/components/services/RelatedBlogs'
+import HiatusHerniaFAQ from './HiatusHerniaFAQ'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
@@ -196,15 +197,6 @@ const breadcrumbSchema = getBreadcrumbSchema([
 ])
 
 export default function BestHiatusHerniaSurgeonPage() {
-  const relatedBlogs = blogPosts
-    .filter(
-      (post) =>
-        post.category.toLowerCase().includes('gerd') ||
-        post.category.toLowerCase().includes('hiatus') ||
-        post.tags.some((tag) => ['gerd', 'reflux', 'hiatus', 'hernia'].includes(tag.toLowerCase())),
-    )
-    .slice(0, 3)
-
   return (
     <>
       <StructuredData data={procedureSchema} />
@@ -407,58 +399,12 @@ export default function BestHiatusHerniaSurgeonPage() {
 
         <div className="container-custom space-y-12 mt-12">
           <div className="max-w-5xl mx-auto space-y-12">
-            <section className="space-y-6">
-              <div className="text-center space-y-2">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
-                <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base">
-                  Everything you need to know about GERD and hiatus hernia symptoms, treatment choices, recovery timelines, and insurance assistance.
-                </p>
-              </div>
-              <div className="space-y-4">
-                {faqItems.map((item) => (
-                  <div key={item.question} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.question}</h3>
-                    <p className="text-gray-700 text-sm sm:text-base">{item.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {relatedBlogs.length > 0 && (
-              <section className="max-w-6xl mx-auto">
-                <div className="flex items-center mb-6">
-                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Latest GERD &amp; Hiatus Hernia Blogs</h2>
-                    <p className="text-gray-600 mt-1 text-sm sm:text-base">
-                      Stay informed about GERD symptoms, treatment options, and recovery tips curated by Dr. Kapil Agrawal.
-                    </p>
-                  </div>
-                </div>
-                <div className="grid gap-6 md:grid-cols-3">
-                  {relatedBlogs.map((post) => (
-                    <a
-                      key={post.slug}
-                      href={`/post/${post.slug}`}
-                      className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-shadow"
-                    >
-                      <p className="text-xs uppercase tracking-widest text-[#0891b2] mb-2">{post.category}</p>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
-                      <p className="text-sm text-gray-600 line-clamp-3 mb-4">{post.excerpt}</p>
-                      <span className="text-sm font-semibold text-[#f56336]">
-                        {post.title.toLowerCase().includes('cost') || post.title.toLowerCase().includes('price')
-                          ? `Discover ${post.title.toLowerCase()}`
-                          : post.title.toLowerCase().includes('surgery') || post.title.toLowerCase().includes('treatment')
-                          ? `Learn about ${post.title.toLowerCase()}`
-                          : post.title.toLowerCase().includes('guide') || post.title.toLowerCase().includes('how to')
-                          ? `Read complete guide on ${post.title.toLowerCase()}`
-                          : `Explore ${post.title.toLowerCase()}`} →
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </section>
-            )}
+            <HiatusHerniaFAQ />
+            <RelatedBlogs
+              serviceName="GERD & Hiatus Hernia"
+              serviceKeywords={['gerd', 'hiatus hernia', 'reflux', 'hiatal hernia', 'fundoplication', 'anti reflux', 'paraesophageal hernia']}
+              maxPosts={3}
+            />
           </div>
         </div>
       </div>

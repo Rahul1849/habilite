@@ -9,8 +9,8 @@ import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import HerniaTestimonials from '@/app/laparoscopic-surgery/hernia-surgery/HerniaTestimonials'
 import HerniaFAQ from '@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ'
-import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import RelatedBlogs from '@/components/services/RelatedBlogs'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
@@ -108,9 +108,6 @@ const breadcrumbSchema = getBreadcrumbSchema([
 ])
 
 export default function BestHerniaSurgeonPage() {
-  const herniaBlogs = blogPosts
-    .filter((post) => post.category.toLowerCase().includes('hernia') || post.tags.some((tag) => tag.toLowerCase().includes('hernia')))
-    .slice(0, 3)
 
   return (
     <>
@@ -421,47 +418,11 @@ export default function BestHerniaSurgeonPage() {
         <div className="container-custom space-y-12 mt-12">
           <div className="max-w-5xl mx-auto space-y-12">
             <HerniaFAQ />
-            {herniaBlogs.length > 0 && (
-              <section>
-                <div className="flex items-center mb-6">
-                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Latest Hernia Blogs</h2>
-                    <p className="text-gray-600 mt-1 text-sm sm:text-base">Stay informed about hernia symptoms, treatments, and recovery tips</p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {herniaBlogs.map((post) => (
-                    <Link
-                      key={post.id}
-                      href={`/post/${post.slug}`}
-                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
-                    >
-                      <div className="relative h-40 overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          loading="lazy"
-                          quality={80}
-                        />
-                      </div>
-                      <div className="p-5">
-                        <div className="text-xs text-[#0891b2] font-semibold mb-2">{post.category}</div>
-                        <h3 className="text-base font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">{post.title}</h3>
-                        <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>{new Date(post.publishedDate).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                          <span>By {post.author}</span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
+            <RelatedBlogs
+              serviceName="Hernia"
+              serviceKeywords={['hernia', 'inguinal hernia', 'umbilical hernia', 'hiatal hernia', 'hiatus hernia', 'hernia repair', 'hernia surgery']}
+              maxPosts={3}
+            />
           </div>
         </div>
       </div>

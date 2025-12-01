@@ -9,8 +9,8 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import Link from 'next/link'
 import GallbladderFAQ from './GallbladderFAQ'
 import GallbladderTestimonials from './GallbladderTestimonials'
-import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+import RelatedBlogs from '@/components/services/RelatedBlogs'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
 
@@ -136,9 +136,6 @@ const breadcrumbSchema = getBreadcrumbSchema([
 ])
 
 export default function GallbladderSurgeryPage() {
-  const gallbladderBlogs = blogPosts
-    .filter((post) => post.category.toLowerCase().includes('gall') || post.tags.some((tag) => tag.toLowerCase().includes('gall')))
-    .slice(0, 3)
 
   return (
     <>
@@ -456,51 +453,11 @@ export default function GallbladderSurgeryPage() {
               <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
             </div>
             <GallbladderFAQ />
-            {gallbladderBlogs.length > 0 && (
-              <section>
-                <div className="flex items-center mb-6">
-                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Latest Gallbladder Blogs</h2>
-                    <p className="text-gray-600 mt-1 text-sm sm:text-base">
-                      Expert advice on gallstones, recovery diets, and minimally invasive surgery options
-                    </p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {gallbladderBlogs.map((post) => (
-                    <Link
-                      key={post.id}
-                      href={`/post/${post.slug}`}
-                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
-                    >
-                      <div className="relative h-40 overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          loading="lazy"
-                          quality={80}
-                        />
-                      </div>
-                      <div className="p-5">
-                        <div className="text-xs text-[#0891b2] font-semibold mb-2">{post.category}</div>
-                        <h3 className="text-base font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>{new Date(post.publishedDate).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                          <span>By {post.author}</span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
+            <RelatedBlogs
+              serviceName="Gallbladder"
+              serviceKeywords={['gallbladder', 'gall bladder', 'gallstone', 'gall stone', 'cholecystectomy', 'gallbladder stone', 'gallbladder surgery']}
+              maxPosts={3}
+            />
           </div>
         </div>
 

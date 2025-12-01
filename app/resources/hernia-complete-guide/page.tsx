@@ -69,7 +69,6 @@ const surgeryQuestions = [
 
 // Get featured blogs with images from blogPosts data
 const featuredBlogSlugs = [
-  'hernia-surgery-types-treatment-options-recovery',
   'laparoscopic-hernia-repair-modern-approach-treatment',
   'signs-you-need-hernia-surgery'
 ]

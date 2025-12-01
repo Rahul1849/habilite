@@ -151,8 +151,10 @@ export default function LipomaTreatmentPage() {
   const lipomaBlogs = blogPosts
     .filter(
       (post) =>
-        post.category.toLowerCase().includes('lipoma') ||
-        post.tags.some((tag) => tag.toLowerCase().includes('lipoma'))
+        // Exclude "Lipoma Removal: Understanding Benign Fatty Tumors"
+        post.slug !== 'lipoma-removal-understanding-benign-fatty-tumors' &&
+        (post.category.toLowerCase().includes('lipoma') ||
+        post.tags.some((tag) => tag.toLowerCase().includes('lipoma')))
     )
     .slice(0, 3)
 

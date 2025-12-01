@@ -131,8 +131,10 @@ export default function MedicalWeightLossProgramPage() {
   const weightLossBlogs = blogPosts
     .filter(
       (post) =>
-        post.category.toLowerCase().includes('weight') ||
-        post.tags.some((tag) => tag.toLowerCase().includes('weight') || tag.toLowerCase().includes('bariatric'))
+        // Exclude "Bariatric Surgery: A Complete Guide to Weight Loss Surgery"
+        post.slug !== 'bariatric-surgery-complete-guide-weight-loss' &&
+        (post.category.toLowerCase().includes('weight') ||
+        post.tags.some((tag) => tag.toLowerCase().includes('weight') || tag.toLowerCase().includes('bariatric')))
     )
     .slice(0, 3)
 

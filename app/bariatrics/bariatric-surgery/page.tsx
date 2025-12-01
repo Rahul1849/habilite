@@ -110,7 +110,11 @@ const serviceSchema = {
 
 export default function BariatricSurgeryPage() {
   const bariatricBlogs = blogPosts
-    .filter((post) => post.category.toLowerCase().includes('bariatric') || post.tags.some((tag) => tag.toLowerCase().includes('bariatric') || tag.toLowerCase().includes('weight loss')))
+    .filter((post) => 
+      // Exclude "Bariatric Surgery: A Complete Guide to Weight Loss Surgery"
+      post.slug !== 'bariatric-surgery-complete-guide-weight-loss' &&
+      (post.category.toLowerCase().includes('bariatric') || post.tags.some((tag) => tag.toLowerCase().includes('bariatric') || tag.toLowerCase().includes('weight loss')))
+    )
     .slice(0, 3)
 
   return (
