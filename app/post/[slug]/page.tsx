@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="text-primary-300 mb-2">{post.category}</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-3">{post.title}</h1>
             <p className="text-lg md:text-xl font-semibold text-white/90 mb-4">
-              By <span className="text-white font-bold">Dr. Kapil Agrawal</span> - Best Laparoscopic Surgeon in Delhi, India
+              <span className="text-white font-bold">Dr. Kapil Agrawal</span> - Senior Consultant at Apollo Group of Hospitals
             </p>
             <div className="flex items-center text-gray-300">
               <Calendar className="mr-2" size={16} />
@@ -353,7 +353,7 @@ export default async function BlogPostPage({ params }: Props) {
                 />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">{post.author}</div>
+                <div className="font-semibold text-gray-900">{post.author} - Senior Consultant at Apollo Group of Hospitals</div>
                 <div className="text-sm text-gray-600">Published on {new Date(post.publishedDate).toLocaleDateString()}</div>
               </div>
             </div>
