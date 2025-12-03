@@ -93,12 +93,10 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-hernia-surgeon-in-delhi',
   procedureType: 'Laparoscopic Hernia Repair',
   bodyLocation: 'Abdominal Wall / Groin',
-  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery'],
   followup: 'Same-day discharge with structured physiotherapy, tele-support, and in-person review within 10 days.',
   preparation: 'Pre-operative imaging, anaesthesia clearance, optimisation of comorbidities, and fasting guidelines.',
   howPerformed:
     'Hernia contents are reduced laparoscopically or robotically, followed by placement of high-quality mesh to reinforce the abdominal wall.',
-  areaServed: ['Delhi', 'Gurgaon', 'Noida', 'India'],
 })
 
 const breadcrumbSchema = getBreadcrumbSchema([

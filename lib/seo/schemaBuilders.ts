@@ -17,12 +17,9 @@ type MedicalProcedureOptions = {
   procedureType?: string
   bodyLocation?: string
   image?: string
-  medicalSpecialty?: string[]
   followup?: string
   preparation?: string
   howPerformed?: string
-  areaServed?: string | string[]
-  availableService?: string[]
 }
 
 type ArticleSchemaOptions = {
@@ -163,23 +160,14 @@ export const getMedicalProcedureSchema = (options: MedicalProcedureOptions) => {
     name: options.name,
     description: options.description,
     url: absoluteUrl(options.url),
-    provider: {
-      '@type': 'Physician',
-      name: DOCTOR_INFO.name,
-      url: DOCTOR_INFO.url,
-      image: absoluteUrl(DOCTOR_INFO.image),
-      medicalSpecialty: DOCTOR_INFO.medicalSpecialty,
-    },
-    areaServed: options.areaServed || CLINIC_INFO.areaServed,
   }
 
+  // Only include valid MedicalProcedure properties according to schema.org
   if (options.procedureType) schema.procedureType = options.procedureType
   if (options.bodyLocation) schema.bodyLocation = options.bodyLocation
-  if (options.medicalSpecialty) schema.medicalSpecialty = options.medicalSpecialty
   if (options.followup) schema.followup = options.followup
   if (options.preparation) schema.preparation = options.preparation
   if (options.howPerformed) schema.howPerformed = options.howPerformed
-  if (options.availableService) schema.availableService = options.availableService
   if (options.image) schema.image = absoluteUrl(options.image)
 
   return schema

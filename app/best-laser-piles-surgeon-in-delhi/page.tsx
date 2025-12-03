@@ -88,7 +88,6 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-laser-piles-surgeon-in-delhi',
   procedureType: 'Laser Hemorrhoidectomy',
   bodyLocation: 'Anal Canal / Rectum',
-  medicalSpecialty: ['ColorectalSurgery', 'LaserSurgery'],
   followup: 'Structured follow-up calls, fibre-rich diet plans, and pelvic floor guidance for 4 weeks.',
   preparation: 'Preoperative consultation, proctoscopy, blood work, and bowel preparation.',
   howPerformed:

@@ -78,12 +78,10 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/medical-weight-loss-program',
   procedureType: 'Medical Weight Loss Therapy',
   bodyLocation: 'Metabolic / Whole Body',
-  medicalSpecialty: ['BariatricSurgery', 'Nutrition', 'Endocrinology'],
   followup: 'Weekly check-ins, monthly medical reviews, and maintenance plans extending up to one year.',
   preparation: 'Comprehensive metabolic panel, body composition, dietary recall, and psychological screening.',
   howPerformed:
     'Combines customised diet, monitored exercise, behaviour therapy, and optional medication under a multidisciplinary team with digital accountability.',
-  areaServed: ['Delhi', 'Gurgaon', 'Noida', 'India'],
 })
 
 const breadcrumbSchema = getBreadcrumbSchema([

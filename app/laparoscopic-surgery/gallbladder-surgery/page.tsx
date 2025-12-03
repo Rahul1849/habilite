@@ -122,7 +122,6 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-gallbladder-stone-surgeon-delhi',
   procedureType: 'Laparoscopic Cholecystectomy',
   bodyLocation: 'Gallbladder',
-  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery'],
   followup: 'Tele-follow up within 48 hours and in-person review after 7–10 days.',
   preparation: 'Pre-surgery consultation, blood tests, anaesthesia clearance, and 8-hour fasting.',
   howPerformed:

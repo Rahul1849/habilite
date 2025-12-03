@@ -102,7 +102,6 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-anal-fissure-treatment',
   procedureType: 'Laser Anal Fissure Surgery',
   bodyLocation: 'Anal Canal',
-  medicalSpecialty: ['ColorectalSurgery', 'LaserSurgery'],
   followup: 'Custom diet plan, stool regulation, pelvic floor rehab, and reviews at week 1 and week 4.',
   preparation: 'Proctoscopy, blood tests, anaesthesia clearance, and counselling on fibre intake.',
   howPerformed:

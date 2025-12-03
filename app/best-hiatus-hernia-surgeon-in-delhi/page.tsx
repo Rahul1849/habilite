@@ -181,13 +181,11 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-hiatus-hernia-surgeon-in-delhi',
   procedureType: 'Laparoscopic/Robotic Fundoplication',
   bodyLocation: 'Diaphragm and Lower Esophagus',
-  medicalSpecialty: ['LaparoscopicSurgery', 'ThoracicSurgery'],
   preparation:
     'Upper GI endoscopy, barium swallow, esophageal manometry, 24-hour pH monitoring, and cross-sectional imaging for large hernias.',
   followup: 'Soft diet for 3 weeks, breathing exercises, posture training, and virtual follow-ups at 1, 3, and 6 weeks.',
   howPerformed:
     'The hiatus is tightened laparoscopically, the stomach fundus is wrapped around the oesophagus, and high-quality mesh is used when needed to prevent recurrence.',
-  areaServed: ['Delhi', 'Gurgaon', 'Noida', 'International Patients'],
 })
 
 const breadcrumbSchema = getBreadcrumbSchema([
