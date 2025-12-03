@@ -35,6 +35,8 @@ const nextConfig = {
     optimizeCss: true,
     // Optimize for mobile performance
     optimizeServerReact: true,
+    // Reduce JavaScript bundle size
+    serverMinification: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

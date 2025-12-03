@@ -1,24 +1,11 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import Hero from '@/components/home/Hero'
+import MeetDoctor from '@/components/home/MeetDoctor'
+import EducationAffiliations from '@/components/home/EducationAffiliations'
+import CareerHighlightsAndServices from '@/components/home/CareerHighlightsAndServices'
 import { testimonials } from '@/data/testimonials'
 import { getOrganizationSchema } from '@/lib/seo/schemaBuilders'
-
-// Critical above-the-fold components - load with SSR but defer hydration
-const Hero = dynamic(() => import('@/components/home/Hero'), {
-  ssr: true,
-})
-
-const MeetDoctor = dynamic(() => import('@/components/home/MeetDoctor'), {
-  ssr: true,
-})
-
-const EducationAffiliations = dynamic(() => import('@/components/home/EducationAffiliations'), {
-  ssr: true,
-})
-
-const CareerHighlightsAndServices = dynamic(() => import('@/components/home/CareerHighlightsAndServices'), {
-  ssr: true,
-})
 
 // Dynamically import below-the-fold components to improve initial page load
 const LaparoscopicServices = dynamic(() => import('@/components/home/LaparoscopicServices'), {

@@ -25,8 +25,7 @@ export default function Hero() {
                 sizes="(max-width: 640px) 180px, (max-width: 1024px) 220px, 384px"
                 priority
                 fetchPriority="high"
-                quality={75}
-                loading="eager"
+                quality={85}
               />
             </div>
           </div>
