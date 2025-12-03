@@ -127,7 +127,7 @@ export const getPhysicianSchema = () => ({
     'Best Bariatric Surgeon in India - Dr. Kapil Agrawal',
     'Best Robotic Surgeon in India - Dr. Kapil Agrawal',
   ],
-  description: 'Dr. Kapil Agrawal is the best laparoscopic, bariatric, and robotic surgeon in Delhi, India with 23+ years of experience and 7000+ successful surgeries. Expert in advanced minimally invasive procedures including laparoscopic surgery, bariatric surgery, and robotic surgery.',
+  description: `Dr. Kapil Agrawal is the best laparoscopic, bariatric, and robotic surgeon in Delhi, India with 23+ years of experience and 7000+ successful surgeries. ${DOCTOR_INFO.title} at Habilite Clinics. Expert in advanced minimally invasive procedures including laparoscopic surgery, bariatric surgery, and robotic surgery.`,
   url: DOCTOR_INFO.url,
   image: absoluteUrl(DOCTOR_INFO.image),
   medicalSpecialty: [
@@ -141,7 +141,6 @@ export const getPhysicianSchema = () => ({
   ],
   award: DOCTOR_INFO.award,
   sameAs: DOCTOR_INFO.sameAs,
-  jobTitle: DOCTOR_INFO.title,
   telephone: CLINIC_INFO.telephonePrimary,
   email: CLINIC_INFO.emails[0],
   address: {
@@ -169,11 +168,6 @@ export const getPhysicianSchema = () => ({
     'Robotic Surgery Delhi',
     'Weight Loss Surgery Delhi',
   ],
-  worksFor: {
-    '@type': 'MedicalOrganization',
-    '@id': `${SITE_URL}#organization`,
-    name: CLINIC_INFO.name,
-  },
 })
 
 export const getBreadcrumbSchema = (items: BreadcrumbItem[]) => ({

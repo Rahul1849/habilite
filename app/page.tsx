@@ -201,11 +201,6 @@ const homePageSchema = {
     'https://www.youtube.com/@drkapilagrawal',
     'https://www.facebook.com/habiliteclinics',
   ],
-  worksFor: {
-    '@type': 'MedicalOrganization',
-    '@id': 'https://www.habiliteclinics.com#organization',
-    name: 'Habilite Clinics',
-  },
 }
 
 const serviceSchema = {
