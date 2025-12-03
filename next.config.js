@@ -33,6 +33,8 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
     optimizeCss: true,
+    // Optimize for mobile performance
+    optimizeServerReact: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

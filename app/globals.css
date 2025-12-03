@@ -6,6 +6,7 @@
   --font-inter: 'Inter', system-ui, sans-serif;
 }
 
+/* Critical CSS for faster FCP - inline in layout */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -18,6 +19,8 @@
     overflow-x: hidden;
     max-width: 100vw;
     position: relative;
+    /* Prevent font blocking render */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
   
   * {

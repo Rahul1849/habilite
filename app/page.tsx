@@ -412,6 +412,36 @@ const videoTestimonialsSchema = {
 export default function HomePage() {
   return (
     <>
+      <Hero />
+      <MeetDoctor />
+      <div className="defer-section">
+        <EducationAffiliations />
+      </div>
+      <div className="defer-section">
+        <LaparoscopicServices />
+      </div>
+      <div className="defer-section">
+        <BariatricServices />
+      </div>
+      <div className="defer-section">
+        <LaserServices />
+      </div>
+      <div className="defer-section">
+        <CareerHighlightsAndServices />
+      </div>
+      <div className="defer-section">
+        <WhyChoose />
+      </div>
+      <div className="defer-section">
+        <TestimonialsSlider />
+      </div>
+      <div className="defer-section">
+        <FAQ />
+      </div>
+      <div className="defer-section">
+        <BlogPreview />
+      </div>
+      {/* StructuredData moved to bottom to prevent blocking render */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
@@ -444,35 +474,6 @@ export default function HomePage() {
           suppressHydrationWarning
         />
       )}
-      <Hero />
-      <MeetDoctor />
-      <div className="defer-section">
-        <EducationAffiliations />
-      </div>
-      <div className="defer-section">
-        <LaparoscopicServices />
-      </div>
-      <div className="defer-section">
-        <BariatricServices />
-      </div>
-      <div className="defer-section">
-        <LaserServices />
-      </div>
-      <div className="defer-section">
-        <CareerHighlightsAndServices />
-      </div>
-      <div className="defer-section">
-        <WhyChoose />
-      </div>
-      <div className="defer-section">
-        <TestimonialsSlider />
-      </div>
-      <div className="defer-section">
-        <FAQ />
-      </div>
-      <div className="defer-section">
-        <BlogPreview />
-      </div>
     </>
   )
 }

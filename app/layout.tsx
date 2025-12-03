@@ -21,7 +21,7 @@ const ScrollToTop = dynamic(() => import('@/components/common/ScrollToTop'), {
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
+  display: 'optional', // Faster FCP - shows fallback immediately if font not ready
   preload: true,
   fallback: ['system-ui', 'arial'],
   adjustFontFallback: true,
@@ -114,20 +114,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
-        {/* YouTube preconnect - Next.js handles Google Fonts preconnect automatically */}
-        <link rel="preconnect" href="https://www.youtube.com" />
+        {/* Critical CSS inline for faster FCP - prevents blank screen */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5}
+          html{scroll-behavior:smooth;overflow-x:hidden}
+          .h-20{height:5rem;min-height:5rem}
+          @media(min-width:768px){.md\\:h-32{height:8rem;min-height:8rem}}
+          @media(min-width:1024px){.lg\\:h-\\[188px\\]{height:188px;min-height:188px}}
+          *{box-sizing:border-box}
+          img{max-width:100%;height:auto;display:block}
+        `}} />
+        {/* YouTube preconnect - deferred for non-critical */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
-        <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
-        {/* Performance: Preload critical resources */}
-        <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" />
-        <link rel="preload" as="image" href="/logo.png" />
+        {/* Performance: Preload critical resources for mobile */}
+        <link rel="preload" as="image" href="/images/dr.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/logo.png" fetchPriority="high" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden`}>
-        <StructuredData data={organizationSchema} />
-        <StructuredData data={localBusinessSchema} />
-        <StructuredData data={physicianSchema} />
-        <StructuredData data={globalBreadcrumbSchema} />
+      <body className={`${inter.variable} overflow-x-hidden`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         <Header />
         {/* Spacer to prevent content from going under fixed header */}
         {/* Mobile: 80px (main header only), Tablet: 128px (top nav + main header), Desktop: 188px (all bars) */}
@@ -139,6 +143,11 @@ export default function RootLayout({
         <MobileStickyFooter />
         <ScrollToTop />
         <ToastContainer />
+        {/* StructuredData moved to bottom to prevent blocking render */}
+        <StructuredData data={organizationSchema} />
+        <StructuredData data={localBusinessSchema} />
+        <StructuredData data={physicianSchema} />
+        <StructuredData data={globalBreadcrumbSchema} />
       </body>
     </html>
   )

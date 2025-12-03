@@ -13,13 +13,23 @@ export default function Header() {
   const closeDropdownTimeout = useRef<number | null>(null)
 
   useEffect(() => {
-    setMounted(true)
+    // Defer mounting to prevent blocking initial render on mobile
+    const timer = setTimeout(() => setMounted(true), 0)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
+    // Use requestAnimationFrame for scroll handler to prevent blocking
+    let rafId: number
+    const handleScrollRAF = () => {
+      rafId = requestAnimationFrame(handleScroll)
+    }
     handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScrollRAF, { passive: true })
+    return () => {
+      clearTimeout(timer)
+      cancelAnimationFrame(rafId)
+      window.removeEventListener('scroll', handleScrollRAF)
+    }
   }, [])
 
   useEffect(() => {
@@ -168,9 +178,10 @@ export default function Header() {
 
         {/* Main Header */}
         <header
-          className={`bg-white transition-all duration-200 overflow-visible ${
-            mounted && isScrolled ? 'shadow-md' : ''
+          className={`bg-white overflow-visible ${
+            mounted && isScrolled ? 'shadow-md transition-shadow duration-200' : ''
           }`}
+          style={{ willChange: 'auto' }}
         >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible relative z-[9999]">
           <div className="flex items-center justify-between h-20">
