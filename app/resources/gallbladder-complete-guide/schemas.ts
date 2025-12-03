@@ -481,11 +481,6 @@ export const medicalSpecialtySchema = {
   '@type': 'MedicalSpecialty',
   name: 'Laparoscopic Gallbladder Surgery',
   description: 'Specialized medical field focusing on minimally invasive gallbladder surgery procedures',
-  code: {
-    '@type': 'MedicalCode',
-    codingSystem: 'SNOMED CT',
-    code: '387713003'
-  }
 }
 
 export const offerSchema = {

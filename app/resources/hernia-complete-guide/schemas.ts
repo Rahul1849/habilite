@@ -480,11 +480,6 @@ export const medicalSpecialtySchema = {
   '@type': 'MedicalSpecialty',
   name: 'Laparoscopic Hernia Surgery',
   description: 'Specialized medical field focusing on minimally invasive hernia surgery procedures',
-  code: {
-    '@type': 'MedicalCode',
-    codingSystem: 'SNOMED CT',
-    code: '387713003'
-  }
 }
 
 export const offerSchema = {
