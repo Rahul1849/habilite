@@ -21,7 +21,7 @@ const ScrollToTop = dynamic(() => import('@/components/common/ScrollToTop'), {
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap', // Better for performance - shows text immediately with fallback
+  display: 'optional', // Fastest FCP - never blocks render, uses fallback if font not ready
   preload: true,
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
   adjustFontFallback: true,
@@ -114,7 +114,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
-        {/* Critical CSS inline for faster FCP - minimal blocking */}
+        {/* Critical CSS inline for faster FCP - minimal blocking - includes Hero gradient */}
         <style dangerouslySetInnerHTML={{ __html: `
           body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
           html{scroll-behavior:smooth;overflow-x:hidden;height:100%}
@@ -124,6 +124,18 @@ export default function RootLayout({
           *{box-sizing:border-box;margin:0;padding:0}
           img{max-width:100%;height:auto;display:block}
           main{min-height:100vh;position:relative;z-index:0}
+          /* Hero section critical styles for instant render */
+          section{display:block}
+          .relative{position:relative}
+          .flex{display:flex}
+          .items-center{align-items:center}
+          .justify-center{justify-content:center}
+          .min-h-\\[600px\\]{min-height:600px}
+          @media(min-width:768px){.md\\:min-h-\\[700px\\]{min-height:700px}}
+          .bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}
+          .from-\\[\\#ffd4b3\\]{--tw-gradient-from:#ffd4b3;--tw-gradient-to:rgba(255,212,179,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
+          .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
+          .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
         `}} />
         {/* YouTube preconnect - deferred for non-critical */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
