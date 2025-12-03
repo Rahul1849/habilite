@@ -13,22 +13,34 @@ export default function Header() {
   const closeDropdownTimeout = useRef<number | null>(null)
 
   useEffect(() => {
-    // Defer mounting to prevent blocking initial render on mobile
-    const timer = setTimeout(() => setMounted(true), 0)
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+    // Defer all client-side logic to prevent blocking initial render
+    if (typeof window === 'undefined') return
+    
+    let cleanup: (() => void) | undefined
+    
+    const scheduleMount = () => {
+      setMounted(true)
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 50)
+      }
+      handleScroll()
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      cleanup = () => window.removeEventListener('scroll', handleScroll)
     }
-    // Use requestAnimationFrame for scroll handler to prevent blocking
-    let rafId: number
-    const handleScrollRAF = () => {
-      rafId = requestAnimationFrame(handleScroll)
-    }
-    handleScroll()
-    window.addEventListener('scroll', handleScrollRAF, { passive: true })
-    return () => {
-      clearTimeout(timer)
-      cancelAnimationFrame(rafId)
-      window.removeEventListener('scroll', handleScrollRAF)
+    
+    // Use requestIdleCallback if available for better performance
+    if ('requestIdleCallback' in window) {
+      const id = requestIdleCallback(scheduleMount, { timeout: 100 })
+      return () => {
+        cancelIdleCallback(id)
+        cleanup?.()
+      }
+    } else {
+      const timer = setTimeout(scheduleMount, 0)
+      return () => {
+        clearTimeout(timer)
+        cleanup?.()
+      }
     }
   }, [])
 

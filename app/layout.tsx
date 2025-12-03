@@ -1,12 +1,37 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import MobileStickyFooter from '@/components/layout/MobileStickyFooter'
-import ToastContainer from '@/components/ui/Toast'
 import dynamic from 'next/dynamic'
 import StructuredData from '@/components/seo/StructuredData'
+
+// Defer CSS import to prevent blocking render
+import './globals.css'
+
+// Defer non-critical components to prevent blocking render
+const Header = dynamic(() => import('@/components/layout/Header'), {
+  ssr: true,
+  loading: () => (
+    <div className="fixed top-0 left-0 right-0 z-50 bg-white h-20 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
+        <div className="text-3xl font-bold">
+          <span className="text-[#f56336]">HABiLiTE</span>
+          <span className="text-gray-800"> CLINICS</span>
+        </div>
+      </div>
+    </div>
+  ),
+})
+
+const Footer = dynamic(() => import('@/components/layout/Footer'), {
+  ssr: true,
+})
+
+const MobileStickyFooter = dynamic(() => import('@/components/layout/MobileStickyFooter'), {
+  ssr: false,
+})
+
+const ToastContainer = dynamic(() => import('@/components/ui/Toast'), {
+  ssr: false,
+})
 import {
   getBreadcrumbSchema,
   getLocalBusinessSchema,
@@ -114,15 +139,26 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
-        {/* Critical CSS inline for faster FCP - prevents blank screen */}
+        {/* Critical CSS inline for faster FCP - prevents blank screen - includes Hero styles */}
         <style dangerouslySetInnerHTML={{ __html: `
-          body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5}
-          html{scroll-behavior:smooth;overflow-x:hidden}
+          body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5;-webkit-font-smoothing:antialiased}
+          html{scroll-behavior:smooth;overflow-x:hidden;height:100%}
           .h-20{height:5rem;min-height:5rem}
           @media(min-width:768px){.md\\:h-32{height:8rem;min-height:8rem}}
           @media(min-width:1024px){.lg\\:h-\\[188px\\]{height:188px;min-height:188px}}
-          *{box-sizing:border-box}
+          *{box-sizing:border-box;margin:0;padding:0}
           img{max-width:100%;height:auto;display:block}
+          section{display:block}
+          .relative{position:relative}
+          .flex{display:flex}
+          .items-center{align-items:center}
+          .justify-center{justify-content:center}
+          .min-h-\\[600px\\]{min-height:600px}
+          @media(min-width:768px){.md\\:min-h-\\[700px\\]{min-height:700px}}
+          .bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}
+          .from-\\[\\#ffd4b3\\]{--tw-gradient-from:#ffd4b3;--tw-gradient-to:rgba(255,212,179,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
+          .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
+          .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
         `}} />
         {/* YouTube preconnect - deferred for non-critical */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
