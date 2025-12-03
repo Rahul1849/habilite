@@ -87,7 +87,6 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-appendix-surgeon-in-delhi',
   procedureType: 'Laparoscopic Appendectomy',
   bodyLocation: 'Appendix / Lower Right Abdomen',
-  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery'],
   followup: 'Tele follow-up within 48 hours and clinic visit after 7 days with wound review and diet guidance.',
   preparation: 'Emergency evaluation, blood work, ultrasound, and anaesthesia clearance with NPO instructions.',
   howPerformed:

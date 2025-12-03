@@ -178,7 +178,6 @@ const procedureSchema = getMedicalProcedureSchema({
   url: '/best-rectal-prolapse-surgeon-in-delhi',
   procedureType: 'Laparoscopic/Robotic Rectopexy & Perineal Procedures',
   bodyLocation: 'Rectum and Pelvic Floor',
-  medicalSpecialty: ['ColorectalSurgery', 'LaparoscopicSurgery'],
   followup: 'Structured visits with nutrition counselling, pelvic floor therapy, and tele-support at weeks 1, 4, and 12.',
   preparation: 'Comprehensive evaluation, bowel preparation, anaesthesia clearance, and pelvic floor training.',
   howPerformed:

@@ -91,7 +91,6 @@ export default async function TreatmentDetailPage({ params }: Props) {
     url: `/treatments/${slug}`,
     procedureType: service.category,
     image: service.image,
-    areaServed: ['Delhi', 'NCR', 'India'],
   })
 
   const faqSchema = service.faqs.length > 0 ? getFAQSchema({
