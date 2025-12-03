@@ -12,7 +12,7 @@ import PilesTestimonials from '@/app/laser-surgery/hemorrhoids-piles/PilesTestim
 import { blogPosts } from '@/data/blog'
 import StructuredData from '@/components/seo/StructuredData'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Surgeon for Piles in Delhi - Dr. Kapil Agrawal | Laser Piles Treatment | 23 Years Experience',
@@ -100,6 +100,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Laser Piles Treatment', url: '/best-laser-piles-surgeon-in-delhi' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Laser Piles Treatment - Hemorrhoid Surgery',
+  description: 'Expert laser piles treatment by Dr. Kapil Agrawal in Delhi, India. USFDA-approved laser, stapler, and DGHAL procedures for hemorrhoids with same-day discharge and minimal recurrence.',
+  url: '/best-laser-piles-surgeon-in-delhi',
+  serviceType: 'Medical Procedure',
+  category: 'Laser Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function BestLaserPilesSurgeonPage() {
   const pilesBlogs = blogPosts
     .filter(
@@ -112,6 +121,7 @@ export default function BestLaserPilesSurgeonPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

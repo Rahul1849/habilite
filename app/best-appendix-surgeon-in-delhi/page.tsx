@@ -12,7 +12,7 @@ import AppendixTestimonials from '@/app/laparoscopic-surgery/appendix-surgery/Ap
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import RelatedBlogs from '@/components/services/RelatedBlogs'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Appendicitis Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic Appendectomy | 23 Years Experience',
@@ -99,10 +99,20 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Appendix Surgery', url: '/best-appendix-surgeon-in-delhi' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Appendix Surgery - Laparoscopic Appendectomy',
+  description: 'Expert laparoscopic appendectomy by Dr. Kapil Agrawal in Delhi, India. Single-port and multi-port laparoscopic appendectomy with 24-hour discharge, cashless insurance, and scar-minimising techniques.',
+  url: '/best-appendix-surgeon-in-delhi',
+  serviceType: 'Medical Procedure',
+  category: 'Laparoscopic Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function BestAppendixSurgeonPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

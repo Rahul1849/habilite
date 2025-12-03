@@ -119,7 +119,16 @@ const homePageSchema = {
   '@type': 'Physician',
   '@id': 'https://www.habiliteclinics.com#physician',
   name: 'Dr. Kapil Agrawal',
-  description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery.',
+  alternateName: [
+    'Best Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
+    'Best Laparoscopic Surgeon in Delhi - Dr. Kapil Agrawal',
+    'Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal',
+    'Best Robotic Surgeon in Delhi - Dr. Kapil Agrawal',
+    'Best Laparoscopic Surgeon in India - Dr. Kapil Agrawal',
+    'Best Bariatric Surgeon in India - Dr. Kapil Agrawal',
+    'Best Robotic Surgeon in India - Dr. Kapil Agrawal',
+  ],
+  description: 'Dr. Kapil Agrawal is the best laparoscopic, bariatric, and robotic surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals. 7000+ successful surgeries. Expert in laparoscopic surgery, bariatric surgery, robotic surgery, gallbladder surgery, hernia surgery, and laser surgery.',
   url: 'https://www.habiliteclinics.com',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
   medicalSpecialty: [
@@ -127,12 +136,15 @@ const homePageSchema = {
     'Robotic Surgery',
     'Bariatric Surgery',
     'Laser Surgery',
+    'General Surgery',
+    'Colorectal Surgery',
     'Gallbladder Surgery',
     'Hernia Surgery',
     'Weight Loss Surgery',
     'Metabolic Surgery',
   ],
   telephone: '+91-99994-56455',
+  email: 'contact@habiliteclinics.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
@@ -141,6 +153,11 @@ const homePageSchema = {
     postalCode: '110024',
     addressCountry: 'IN',
   },
+  areaServed: [
+    { '@type': 'City', name: 'Delhi' },
+    { '@type': 'City', name: 'NCR' },
+    { '@type': 'Country', name: 'India' },
+  ],
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
@@ -166,9 +183,13 @@ const homePageSchema = {
   knowsAbout: [
     'Best Laparoscopic Surgeon in Delhi',
     'Best Laparoscopic Surgeon in India',
+    'Best Bariatric Surgeon in Delhi',
+    'Best Bariatric Surgeon in India',
+    'Best Robotic Surgeon in Delhi',
+    'Best Robotic Surgeon in India',
     'Laparoscopic Surgery Delhi',
-    'Robotic Surgery Delhi',
     'Bariatric Surgery Delhi',
+    'Robotic Surgery Delhi',
     'Weight Loss Surgery Delhi',
     'Gallbladder Surgery Delhi',
     'Hernia Surgery Delhi',
@@ -180,6 +201,11 @@ const homePageSchema = {
     'https://www.youtube.com/@drkapilagrawal',
     'https://www.facebook.com/habiliteclinics',
   ],
+  worksFor: {
+    '@type': 'MedicalOrganization',
+    '@id': 'https://www.habiliteclinics.com#organization',
+    name: 'Habilite Clinics',
+  },
 }
 
 const serviceSchema = {

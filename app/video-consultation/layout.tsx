@@ -56,7 +56,6 @@ const videoConsultationSchema = {
   },
   availableChannel: {
     '@type': 'ServiceChannel',
-    serviceType: 'Video Consultation',
     availableLanguage: ['English', 'Hindi'],
   },
 }

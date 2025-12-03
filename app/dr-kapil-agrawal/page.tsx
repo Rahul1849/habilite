@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import { Award, GraduationCap, Clock, Phone, Calendar, Video } from 'lucide-react'
 import { getDoctorBySlug } from '@/data/doctors'
 import { services } from '@/data/services'
+import StructuredData from '@/components/seo/StructuredData'
+import { getPhysicianSchema } from '@/lib/seo/schemaBuilders'
 
 const DOCTOR_SLUG = 'dr-kapil-agrawal'
 
@@ -59,9 +61,12 @@ export default function DrKapilAgrawalPage() {
   }
 
   const doctorServices = services.filter((service) => doctorData.treatments.includes(service.name))
+  const physicianSchema = getPhysicianSchema()
 
   return (
-    <div className="pt-20 pb-16">
+    <>
+      <StructuredData data={physicianSchema} />
+      <div className="pt-20 pb-16">
       <div className="bg-gradient-primary py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -231,6 +236,7 @@ export default function DrKapilAgrawalPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -12,7 +12,7 @@ import GallbladderTestimonials from './GallbladderTestimonials'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import RelatedBlogs from '@/components/services/RelatedBlogs'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries',
@@ -134,10 +134,20 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Gallbladder Surgery', url: '/best-gallbladder-stone-surgeon-delhi' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Gallbladder Surgery - Laparoscopic Cholecystectomy',
+  description: 'Expert laparoscopic gallbladder surgery by Dr. Kapil Agrawal in Delhi, India. Comprehensive gallbladder stone treatment featuring laparoscopic, single-port, and robotic cholecystectomy with 24-hour discharge.',
+  url: '/laparoscopic-surgery/gallbladder-surgery',
+  serviceType: 'Medical Procedure',
+  category: 'Laparoscopic Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function GallbladderSurgeryPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

@@ -11,7 +11,7 @@ import FissureFAQ from '@/app/laser-surgery/anal-fissure/FissureFAQ'
 import FissureTestimonials from '@/app/laser-surgery/anal-fissure/FissureTestimonials'
 import { blogPosts } from '@/data/blog'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
@@ -114,6 +114,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Anal Fissure Treatment', url: '/best-anal-fissure-treatment' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Anal Fissure Treatment - Laser Surgery & Botox',
+  description: 'Comprehensive anal fissure treatment by Dr. Kapil Agrawal in Delhi, India. Non-surgical options, Botox injections, and advanced laser surgery for painless recovery with same-day discharge and minimal recurrence.',
+  url: '/best-anal-fissure-treatment',
+  serviceType: 'Medical Procedure',
+  category: 'Laser Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function BestAnalFissureTreatmentPage() {
   const fissureBlogs = blogPosts
     .filter((post) => post.category.toLowerCase().includes('fissure') || post.tags.some((tag) => tag.toLowerCase().includes('fissure')))
@@ -121,6 +130,7 @@ export default function BestAnalFissureTreatmentPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

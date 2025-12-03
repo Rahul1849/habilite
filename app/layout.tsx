@@ -119,6 +119,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
+        {/* Performance: Preload critical resources */}
+        <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" />
+        <link rel="preload" as="image" href="/logo.png" />
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
         <StructuredData data={organizationSchema} />

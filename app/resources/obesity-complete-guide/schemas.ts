@@ -29,11 +29,7 @@ export const medicalConditionSchema = {
   name: 'Obesity',
   alternateName: ['Severe Obesity', 'Morbid Obesity'],
   description:
-    'A chronic metabolic condition defined by abnormal or excessive body fat accumulation that impairs health and daily functioning.',
-  cause: {
-    '@type': 'MedicalCause',
-    name: 'Genetics, sedentary lifestyle, calorie-dense diets, hormonal imbalance, stress, and certain medications',
-  },
+    'A chronic metabolic condition defined by abnormal or excessive body fat accumulation that impairs health and daily functioning. Common causes include genetics, sedentary lifestyle, calorie-dense diets, hormonal imbalance, stress, and certain medications.',
   possibleTreatment: [
     {
       '@type': 'MedicalTherapy',

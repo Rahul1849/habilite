@@ -12,7 +12,7 @@ import HerniaFAQ from '@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import RelatedBlogs from '@/components/services/RelatedBlogs'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Hernia Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic & Robotic Hernia Repair',
@@ -105,10 +105,20 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Hernia Surgery', url: '/best-hernia-surgeon-in-delhi' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Hernia Surgery - Laparoscopic & Robotic Hernia Repair',
+  description: 'Expert laparoscopic and robotic hernia surgery by Dr. Kapil Agrawal in Delhi, India. Advanced minimally invasive procedure for inguinal, umbilical, femoral, hiatus, and incisional hernia repairs with fast recovery and minimal scarring.',
+  url: '/best-hernia-surgeon-in-delhi',
+  serviceType: 'Medical Procedure',
+  category: 'Laparoscopic Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function BestHerniaSurgeonPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

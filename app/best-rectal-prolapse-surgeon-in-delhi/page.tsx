@@ -10,7 +10,7 @@ import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import { blogPosts } from '@/data/blog'
 import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Rectal Prolapse Surgeon in Delhi | Laparoscopic & STARR Repair | Dr. Kapil Agrawal',
@@ -190,6 +190,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Rectal Prolapse Surgery', url: '/best-rectal-prolapse-surgeon-in-delhi' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Rectal Prolapse Surgery - STARR, Delorme, Laparoscopic Rectopexy',
+  description: 'Comprehensive rectal prolapse treatment by Dr. Kapil Agrawal in Delhi, India. STARR, Delorme, Altemeier, laparoscopic & robotic rectopexy with cashless insurance, 24-36 hr discharge, personalised rehab and female care coordinators.',
+  url: '/best-rectal-prolapse-surgeon-in-delhi',
+  serviceType: 'Medical Procedure',
+  category: 'Laparoscopic Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function BestRectalProlapseSurgeonPage() {
   const rectalBlogs = blogPosts
     .filter((post) => post.category.toLowerCase().includes('rectal') || post.tags.some((tag) => tag.toLowerCase().includes('rectal')))
@@ -197,6 +206,7 @@ export default function BestRectalProlapseSurgeonPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

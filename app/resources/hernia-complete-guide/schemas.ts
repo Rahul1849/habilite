@@ -174,7 +174,6 @@ export const serviceSchema = {
   },
   availableChannel: {
     '@type': 'ServiceChannel',
-    serviceType: 'In-Person Consultation',
     availableLanguage: ['English', 'Hindi']
   },
   category: 'Laparoscopic Surgery',
@@ -384,11 +383,7 @@ export const medicalConditionSchema = {
   '@type': 'MedicalCondition',
   name: 'Hernia',
   alternateName: ['Abdominal Hernia', 'Inguinal Hernia', 'Umbilical Hernia'],
-  description: 'A hernia occurs when an organ or fatty tissue squeezes through a weak spot in a surrounding muscle or connective tissue. They can cause pain, discomfort, and complications if left untreated.',
-  cause: {
-    '@type': 'MedicalCause',
-    name: 'Congenital weakness, heavy lifting, chronic coughing, obesity, pregnancy, previous surgeries'
-  },
+  description: 'A hernia occurs when an organ or fatty tissue squeezes through a weak spot in a surrounding muscle or connective tissue. They can cause pain, discomfort, and complications if left untreated. Common causes include congenital weakness, heavy lifting, chronic coughing, obesity, pregnancy, and previous surgeries.',
   possibleTreatment: {
     '@type': 'MedicalTherapy',
     name: 'Laparoscopic Hernia Repair',

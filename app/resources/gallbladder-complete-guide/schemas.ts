@@ -174,7 +174,6 @@ export const serviceSchema = {
   },
   availableChannel: {
     '@type': 'ServiceChannel',
-    serviceType: 'In-Person Consultation',
     availableLanguage: ['English', 'Hindi']
   },
   category: 'Laparoscopic Surgery',
@@ -384,11 +383,7 @@ export const medicalConditionSchema = {
   '@type': 'MedicalCondition',
   name: 'Gallbladder Stones',
   alternateName: ['Cholelithiasis', 'Gallstones', 'Biliary Calculi'],
-  description: 'Gallbladder stones are hardened deposits of digestive fluid (bile) that can form in your gallbladder. They can cause pain, inflammation, and complications if left untreated.',
-  cause: {
-    '@type': 'MedicalCause',
-    name: 'High cholesterol in bile, rapid weight loss, obesity, genetics, certain medical conditions'
-  },
+  description: 'Gallbladder stones are hardened deposits of digestive fluid (bile) that can form in your gallbladder. They can cause pain, inflammation, and complications if left untreated. Common causes include high cholesterol in bile, rapid weight loss, obesity, genetics, and certain medical conditions.',
   possibleTreatment: {
     '@type': 'MedicalTherapy',
     name: 'Laparoscopic Cholecystectomy',

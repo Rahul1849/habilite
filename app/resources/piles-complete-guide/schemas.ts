@@ -25,11 +25,7 @@ export const medicalConditionSchema = {
   name: 'Piles',
   alternateName: ['Hemorrhoids'],
   description:
-    'Piles are inflamed vascular cushions in the anal canal that cause bleeding, itching, and sometimes prolapse. They can be internal or external based on location.',
-  cause: {
-    '@type': 'MedicalCause',
-    name: 'Chronic constipation, pregnancy, prolonged sitting, obesity, low-fibre diets, and genetic predisposition',
-  },
+    'Piles are inflamed vascular cushions in the anal canal that cause bleeding, itching, and sometimes prolapse. They can be internal or external based on location. Common causes include chronic constipation, pregnancy, prolonged sitting, obesity, low-fibre diets, and genetic predisposition.',
   possibleTreatment: [
     {
       '@type': 'MedicalTherapy',

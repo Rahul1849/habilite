@@ -11,7 +11,7 @@ import MedicalWeightLossFAQ from './MedicalWeightLossFAQ'
 import MedicalWeightLossTestimonials from './MedicalWeightLossTestimonials'
 import { blogPosts } from '@/data/blog'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 import RecoveryTimeline from '@/components/services/RecoveryTimeline'
 
 export const metadata: Metadata = {
@@ -90,6 +90,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Medical Weight Loss Program', url: '/medical-weight-loss-program' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'Medical Weight Loss Program - Non-Surgical Weight Loss',
+  description: 'Medically supervised weight loss program by Dr. Kapil Agrawal in Delhi, India. Non-surgical program with bariatric physicians, nutritionists, physiologists, and psychologists delivering customised plans.',
+  url: '/medical-weight-loss-program',
+  serviceType: 'Medical Service',
+  category: 'Weight Loss',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 const availableServices = [
   'Medical assessment and supervision of weight loss',
   'Measurements of metabolism and body composition',
@@ -138,6 +147,7 @@ export default function MedicalWeightLossProgramPage() {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

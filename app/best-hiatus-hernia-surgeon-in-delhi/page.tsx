@@ -10,7 +10,7 @@ import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import RelatedBlogs from '@/components/services/RelatedBlogs'
 import HiatusHerniaFAQ from './HiatusHerniaFAQ'
 import StructuredData from '@/components/seo/StructuredData'
-import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Hiatus Hernia Surgeon in Delhi | Dr. Kapil Agrawal',
@@ -194,9 +194,19 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'GERD & Hiatus Hernia Surgery', url: '/best-hiatus-hernia-surgeon-in-delhi' },
 ])
 
+const serviceSchema = getServiceSchema({
+  name: 'GERD & Hiatus Hernia Surgery - Laparoscopic Fundoplication',
+  description: 'Advanced laparoscopic and robotic GERD & hiatus hernia surgery by Dr. Kapil Agrawal in Delhi, India. Hiatal repair, mesh reinforcement, and tailored fundoplication with rapid recovery.',
+  url: '/best-hiatus-hernia-surgeon-in-delhi',
+  serviceType: 'Medical Procedure',
+  category: 'Laparoscopic Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
+
 export default function BestHiatusHerniaSurgeonPage() {
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={procedureSchema} />
       <StructuredData data={faqSchema} />
       <StructuredData data={breadcrumbSchema} />

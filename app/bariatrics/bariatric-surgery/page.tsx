@@ -11,6 +11,7 @@ import BariatricFAQ from './BariatricFAQ'
 import BariatricTestimonials from './BariatricTestimonials'
 import { blogPosts } from '@/data/blog'
 import RecoveryTimeline from '@/components/services/RecoveryTimeline'
+import { getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 export const metadata: Metadata = {
   title: 'Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries',
@@ -94,19 +95,14 @@ const faqSchema = {
 }
 
 // Service Schema
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalProcedure',
-  name: 'Bariatric Surgery',
-  description: 'Expert bariatric surgery by Dr. Kapil Agrawal in Delhi. Complete range of weight loss procedures including sleeve gastrectomy, gastric bypass, and robotic surgery.',
-  provider: {
-    '@type': 'Physician',
-    name: 'Dr. Kapil Agrawal',
-  },
-  procedureType: 'Laparoscopic Bariatric Surgery',
-  followup: 'Regular follow-up appointments and post-operative care',
-  preparation: 'Pre-surgery consultation, medical evaluation, and preparation instructions',
-}
+const serviceSchema = getServiceSchema({
+  name: 'Bariatric Surgery - Weight Loss Surgery',
+  description: 'Expert bariatric surgery by Dr. Kapil Agrawal in Delhi, India. Complete range of weight loss procedures including sleeve gastrectomy, gastric bypass, and robotic bariatric surgery with 23+ years experience and 7000+ successful surgeries.',
+  url: '/bariatrics/bariatric-surgery',
+  serviceType: 'Medical Procedure',
+  category: 'Bariatric Surgery',
+  areaServed: ['Delhi', 'NCR', 'India'],
+})
 
 export default function BariatricSurgeryPage() {
   const bariatricBlogs = blogPosts

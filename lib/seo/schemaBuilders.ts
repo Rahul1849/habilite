@@ -118,12 +118,62 @@ export const getPhysicianSchema = () => ({
   '@type': 'Physician',
   '@id': `${DOCTOR_INFO.url}#physician`,
   name: DOCTOR_INFO.name,
-  description: DOCTOR_INFO.description,
+  alternateName: [
+    'Best Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
+    'Best Laparoscopic Surgeon in Delhi - Dr. Kapil Agrawal',
+    'Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal',
+    'Best Robotic Surgeon in Delhi - Dr. Kapil Agrawal',
+    'Best Laparoscopic Surgeon in India - Dr. Kapil Agrawal',
+    'Best Bariatric Surgeon in India - Dr. Kapil Agrawal',
+    'Best Robotic Surgeon in India - Dr. Kapil Agrawal',
+  ],
+  description: 'Dr. Kapil Agrawal is the best laparoscopic, bariatric, and robotic surgeon in Delhi, India with 23+ years of experience and 7000+ successful surgeries. Expert in advanced minimally invasive procedures including laparoscopic surgery, bariatric surgery, and robotic surgery.',
   url: DOCTOR_INFO.url,
   image: absoluteUrl(DOCTOR_INFO.image),
-  medicalSpecialty: ['Laparoscopic Surgery', 'General Surgery', 'Bariatric Surgery', 'Colorectal Surgery'],
+  medicalSpecialty: [
+    'Laparoscopic Surgery',
+    'Robotic Surgery',
+    'Bariatric Surgery',
+    'General Surgery',
+    'Colorectal Surgery',
+    'Weight Loss Surgery',
+    'Metabolic Surgery',
+  ],
   award: DOCTOR_INFO.award,
   sameAs: DOCTOR_INFO.sameAs,
+  jobTitle: DOCTOR_INFO.title,
+  telephone: CLINIC_INFO.telephonePrimary,
+  email: CLINIC_INFO.emails[0],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: CLINIC_INFO.address.streetAddress,
+    addressLocality: CLINIC_INFO.address.locality,
+    addressRegion: CLINIC_INFO.address.region,
+    postalCode: CLINIC_INFO.address.postalCode,
+    addressCountry: CLINIC_INFO.address.country,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Delhi' },
+    { '@type': 'City', name: 'NCR' },
+    { '@type': 'Country', name: 'India' },
+  ],
+  knowsAbout: [
+    'Best Laparoscopic Surgeon in Delhi',
+    'Best Laparoscopic Surgeon in India',
+    'Best Bariatric Surgeon in Delhi',
+    'Best Bariatric Surgeon in India',
+    'Best Robotic Surgeon in Delhi',
+    'Best Robotic Surgeon in India',
+    'Laparoscopic Surgery Delhi',
+    'Bariatric Surgery Delhi',
+    'Robotic Surgery Delhi',
+    'Weight Loss Surgery Delhi',
+  ],
+  worksFor: {
+    '@type': 'MedicalOrganization',
+    '@id': `${SITE_URL}#organization`,
+    name: CLINIC_INFO.name,
+  },
 })
 
 export const getBreadcrumbSchema = (items: BreadcrumbItem[]) => ({
@@ -169,6 +219,75 @@ export const getMedicalProcedureSchema = (options: MedicalProcedureOptions) => {
   if (options.preparation) schema.preparation = options.preparation
   if (options.howPerformed) schema.howPerformed = options.howPerformed
   if (options.image) schema.image = absoluteUrl(options.image)
+
+  return schema
+}
+
+type ServiceSchemaOptions = {
+  name: string
+  description: string
+  url: string
+  serviceType?: string
+  category?: string
+  areaServed?: string | string[]
+  image?: string
+}
+
+export const getServiceSchema = (options: ServiceSchemaOptions) => {
+  const schema: Record<string, any> = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${absoluteUrl(options.url)}#service`,
+    name: options.name,
+    description: options.description,
+    url: absoluteUrl(options.url),
+    provider: {
+      '@type': 'Physician',
+      '@id': `${DOCTOR_INFO.url}#physician`,
+      name: DOCTOR_INFO.name,
+      alternateName: 'Best Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
+      url: DOCTOR_INFO.url,
+      image: absoluteUrl(DOCTOR_INFO.image),
+      medicalSpecialty: ['Laparoscopic Surgery', 'General Surgery', 'Bariatric Surgery', 'Colorectal Surgery'],
+      telephone: CLINIC_INFO.telephonePrimary,
+      email: CLINIC_INFO.emails[0],
+    },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      availableLanguage: ['English', 'Hindi'],
+    },
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+    },
+  }
+
+  // Only include valid Service properties according to schema.org
+  if (options.serviceType) schema.serviceType = options.serviceType
+  if (options.category) schema.category = options.category
+  if (options.image) schema.image = absoluteUrl(options.image)
+
+  // Handle areaServed - can be string, array, or object
+  if (options.areaServed) {
+    if (Array.isArray(options.areaServed)) {
+      schema.areaServed = options.areaServed.map((area) => ({
+        '@type': typeof area === 'string' && (area === 'India' || area === 'Delhi' || area === 'Delhi NCR') ? 'Country' : 'City',
+        name: area,
+      }))
+    } else {
+      schema.areaServed = {
+        '@type': options.areaServed === 'India' || options.areaServed === 'Delhi' || options.areaServed === 'Delhi NCR' ? 'Country' : 'City',
+        name: options.areaServed,
+      }
+    }
+  } else {
+    // Default area served
+    schema.areaServed = [
+      { '@type': 'City', name: 'Delhi' },
+      { '@type': 'City', name: 'NCR' },
+      { '@type': 'Country', name: 'India' },
+    ]
+  }
 
   return schema
 }

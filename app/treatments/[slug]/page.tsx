@@ -8,7 +8,7 @@ import { getTestimonialsByTreatment } from '@/data/testimonials'
 import TestimonialsSection from '@/components/treatments/TestimonialsSection'
 import FAQSection from '@/components/treatments/FAQSection'
 import StructuredData from '@/components/seo/StructuredData'
-import { getFAQSchema, getBreadcrumbSchema, getMedicalProcedureSchema } from '@/lib/seo/schemaBuilders'
+import { getFAQSchema, getBreadcrumbSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -93,6 +93,16 @@ export default async function TreatmentDetailPage({ params }: Props) {
     image: service.image,
   })
 
+  const serviceSchema = getServiceSchema({
+    name: service.name,
+    description: `${service.shortDescription} by Dr. Kapil Agrawal in Delhi, India.`,
+    url: `/treatments/${slug}`,
+    serviceType: 'Medical Procedure',
+    category: service.category,
+    areaServed: ['Delhi', 'NCR', 'India'],
+    image: service.image,
+  })
+
   const faqSchema = service.faqs.length > 0 ? getFAQSchema({
     title: `${service.name} - Frequently Asked Questions`,
     description: `Common questions about ${service.name} at Habilite Clinics`,
@@ -101,6 +111,7 @@ export default async function TreatmentDetailPage({ params }: Props) {
 
   return (
     <>
+      <StructuredData data={serviceSchema} />
       <StructuredData data={breadcrumbSchema} />
       <StructuredData data={medicalProcedureSchema} />
       {faqSchema && <StructuredData data={faqSchema} />}
