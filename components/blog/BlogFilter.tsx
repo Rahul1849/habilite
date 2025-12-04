@@ -12,6 +12,7 @@ const getAllCategories = (): string[] => {
   const serviceCategories = [
     'All',
     'Anal Fistula',
+    'Anal Fissure',
     'Appendix Surgery',
     'Bariatric Surgery',
     'Circumcision',
@@ -50,6 +51,15 @@ function matchesCategory(post: typeof blogPosts[0], category: string): boolean {
            titleLower.includes('anal fistula') ||
            tagsLower.includes('fistula') ||
            categoryLower.includes('fistula')
+  }
+  
+  // Anal Fissure
+  if (category === 'Anal Fissure') {
+    return titleLower.includes('anal fissure') || 
+           (titleLower.includes('fissure') && !titleLower.includes('fistula')) ||
+           tagsLower.includes('anal fissure') ||
+           tagsLower.includes('fissure') ||
+           categoryLower.includes('fissure')
   }
   
   // Appendix Surgery
