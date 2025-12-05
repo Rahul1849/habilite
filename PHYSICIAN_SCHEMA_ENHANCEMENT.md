@@ -230,3 +230,4 @@ To verify Physician schema appears in search:
 **Last Updated**: 2024
 **Status**: ✅ Complete - Dr. Kapil Agrawal will appear in search results for all specialty + location queries
 
+
