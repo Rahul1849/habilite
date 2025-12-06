@@ -46,9 +46,17 @@ export default function ContactForm() {
         console.error('Contact form API error:', {
           status: response.status,
           statusText: response.statusText,
-          error: errorData
+          error: errorData,
+          submittedData: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            subject: formData.subject,
+            messageLength: formData.message.length
+          }
         })
-        toast.error(errorData.error || errorData.details || `Failed to send message (${response.status}). Please try again.`)
+        const errorMessage = errorData.error || errorData.details || `Failed to send message (${response.status}). Please try again.`
+        toast.error(errorMessage)
         return
       }
 

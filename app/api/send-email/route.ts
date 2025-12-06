@@ -59,6 +59,7 @@ function validateName(name: string): { valid: boolean; error?: string } {
   if (sanitized.length > 100) {
     return { valid: false, error: 'Name must be less than 100 characters' }
   }
+  // Removed strict regex validation - allow international names with various characters
   return { valid: true }
 }
 
@@ -387,22 +388,44 @@ export async function POST(request: NextRequest) {
     // Form-specific validation
     if (body.formType === 'contact') {
       const contactData = body as ContactFormData
+      
+      // Email is required for contact form
+      if (!contactData.email || contactData.email.trim() === '') {
+        console.error('[Send Email API] Contact form validation failed: Email is required', { data: contactData })
+        return NextResponse.json(
+          { success: false, error: 'Email is required' },
+          { status: 400 }
+        )
+      }
       const emailValidation = validateEmail(contactData.email)
       if (!emailValidation.valid) {
+        console.error('[Send Email API] Contact form validation failed: Invalid email', { email: contactData.email, error: emailValidation.error })
         return NextResponse.json(
           { success: false, error: emailValidation.error },
           { status: 400 }
         )
       }
+      
+      // Phone is required for contact form
+      if (!contactData.phone || contactData.phone.trim() === '') {
+        console.error('[Send Email API] Contact form validation failed: Phone is required', { data: contactData })
+        return NextResponse.json(
+          { success: false, error: 'Phone is required' },
+          { status: 400 }
+        )
+      }
       const phoneValidation = validatePhone(contactData.phone)
       if (!phoneValidation.valid) {
+        console.error('[Send Email API] Contact form validation failed: Invalid phone', { phone: contactData.phone, error: phoneValidation.error })
         return NextResponse.json(
           { success: false, error: phoneValidation.error },
           { status: 400 }
         )
       }
+      
       const subjectValidation = validateRequired(contactData.subject, 'Subject')
       if (!subjectValidation.valid) {
+        console.error('[Send Email API] Contact form validation failed: Subject is required', { data: contactData })
         return NextResponse.json(
           { success: false, error: subjectValidation.error },
           { status: 400 }
@@ -410,6 +433,7 @@ export async function POST(request: NextRequest) {
       }
       const messageValidation = validateRequired(contactData.message, 'Message')
       if (!messageValidation.valid) {
+        console.error('[Send Email API] Contact form validation failed: Message is required', { data: contactData })
         return NextResponse.json(
           { success: false, error: messageValidation.error },
           { status: 400 }
