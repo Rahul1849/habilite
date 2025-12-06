@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone, Send } from 'lucide-react'
+import { toast } from '@/lib/utils/toast'
 
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
@@ -24,21 +25,48 @@ export default function AppointmentForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'appointment',
+          name: formData.name.trim(),
+          phone: formData.phone.trim() || undefined,
+          email: formData.email.trim() || undefined,
+          preferredDate: formData.reservationDate || undefined,
+          consultationType: formData.subject.trim() || undefined,
+          query: formData.message.trim() || undefined,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        toast.success(result.message || 'Appointment request sent successfully!')
+        setTimeout(() => {
+          setIsSubmitted(false)
+          setFormData({
+            name: '',
+            email: '',
+            reservationDate: '',
+            subject: '',
+            phone: '',
+            message: '',
+          })
+        }, 3000)
+      } else {
+        toast.error(result.error || 'Failed to send appointment request. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting appointment form:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
       setIsSubmitting(false)
-      setIsSubmitted(true)
-      setTimeout(() => {
-        setIsSubmitted(false)
-        setFormData({
-          name: '',
-          email: '',
-          reservationDate: '',
-          subject: '',
-          phone: '',
-          message: '',
-        })
-      }, 3000)
-    }, 1000)
+    }
   }
 
   return (

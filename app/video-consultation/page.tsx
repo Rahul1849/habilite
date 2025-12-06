@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Video, Calendar, CheckCircle2, Phone, MessageCircle, CreditCard, X, Clock, Shield } from 'lucide-react'
 import Link from 'next/link'
+import { toast } from '@/lib/utils/toast'
 
 interface VideoConsultationData {
   name: string
@@ -46,14 +47,45 @@ export default function VideoConsultationPage() {
     }
   }
 
+  const sendVideoConsultationEmail = async () => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'appointment',
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim() || undefined,
+          preferredDate: formData.date,
+          consultationType: formData.category || undefined,
+          query: formData.query.trim() || undefined,
+        }),
+      })
+
+      const result = await response.json()
+      if (!result.success) {
+        console.error('Failed to send video consultation email:', result.error)
+        toast.error(result.error || 'Failed to send confirmation email')
+      }
+    } catch (error) {
+      console.error('Error sending video consultation email:', error)
+      toast.error('Failed to send confirmation email. Your consultation is still booked.')
+    }
+  }
+
   const handlePayment = async (method: 'razorpay' | 'stripe') => {
     setPaymentStatus('pending')
     
     // Simulate payment processing
-    setTimeout(() => {
+    setTimeout(async () => {
       const success = Math.random() > 0.3 // 70% success rate
       if (success) {
         setPaymentStatus('success')
+        // Send email notification
+        await sendVideoConsultationEmail()
         setTimeout(() => {
           setStep('confirmation')
         }, 1000)

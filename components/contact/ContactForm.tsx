@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
+import { toast } from '@/lib/utils/toast'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -12,16 +13,46 @@ export default function ContactForm() {
     message: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulate form submission
-    setIsSubmitted(true)
-    // In real app, this would send to backend
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-    }, 3000)
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'contact',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        toast.success(result.message || 'Message sent successfully!')
+        setTimeout(() => {
+          setIsSubmitted(false)
+          setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+        }, 3000)
+      } else {
+        toast.error(result.error || 'Failed to send message. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (field: string, value: string) => {
@@ -94,9 +125,22 @@ export default function ContactForm() {
             required
           />
         </div>
-        <button type="submit" className="btn-primary w-full flex items-center justify-center">
-          <Send className="mr-2" size={20} />
-          Send Message
+        <button 
+          type="submit" 
+          disabled={isSubmitting}
+          className="btn-primary w-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send className="mr-2" size={20} />
+              Send Message
+            </>
+          )}
         </button>
       </form>
     </div>

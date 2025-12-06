@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone } from 'lucide-react'
-import { submitConsultation } from '@/lib/api/consultation'
 import { toast } from '@/lib/utils/toast'
 
 interface ConsultationFormProps {
@@ -62,17 +61,29 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
     setIsSubmitting(true)
     
     try {
-      const response = await submitConsultation({
-        name: formData.name.trim(),
-        phone: formData.phone.trim(),
-        message: message,
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'consultation',
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim() || undefined,
+          preferredDate: formData.date || undefined,
+          serviceName: serviceName || undefined,
+          message: message,
+        }),
       })
 
-      if (response.success) {
+      const result = await response.json()
+
+      if (result.success) {
         setIsSubmitted(true)
-        toast.success(response.message || 'Your consultation request has been submitted successfully!')
+        toast.success(result.message || 'Your consultation request has been submitted successfully!')
       } else {
-        toast.error(response.error || 'Failed to submit consultation request. Please try again.')
+        toast.error(result.error || 'Failed to submit consultation request. Please try again.')
       }
     } catch (error) {
       console.error('Consultation submission error:', error)

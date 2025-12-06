@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone, MessageCircle, CreditCard, Wallet, X } from 'lucide-react'
+import { toast } from '@/lib/utils/toast'
 
 interface AppointmentData {
   name: string
@@ -51,10 +52,12 @@ export default function AppointmentForm() {
     setPaymentStatus('pending')
     
     // Simulate payment processing
-    setTimeout(() => {
+    setTimeout(async () => {
       const success = Math.random() > 0.3 // 70% success rate
       if (success) {
         setPaymentStatus('success')
+        // Send email notification
+        await sendAppointmentEmail()
         setTimeout(() => {
           setStep('confirmation')
         }, 1000)
@@ -64,9 +67,40 @@ export default function AppointmentForm() {
     }, 2000)
   }
 
-  const handleSkipPayment = () => {
+  const handleSkipPayment = async () => {
     setPaymentMethod('reception')
+    // Send email notification
+    await sendAppointmentEmail()
     setStep('confirmation')
+  }
+
+  const sendAppointmentEmail = async () => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'appointment',
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim() || undefined,
+          preferredDate: formData.date,
+          consultationType: formData.category || undefined,
+          query: formData.query.trim() || undefined,
+        }),
+      })
+
+      const result = await response.json()
+      if (!result.success) {
+        console.error('Failed to send appointment email:', result.error)
+        toast.error(result.error || 'Failed to send confirmation email')
+      }
+    } catch (error) {
+      console.error('Error sending appointment email:', error)
+      toast.error('Failed to send confirmation email. Your appointment is still booked.')
+    }
   }
 
   const handleSubmit = async () => {

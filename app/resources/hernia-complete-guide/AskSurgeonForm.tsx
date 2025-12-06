@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { toast } from '@/lib/utils/toast'
 
 export default function AskSurgeonForm() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ export default function AskSurgeonForm() {
     question: ''
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
@@ -18,14 +20,43 @@ export default function AskSurgeonForm() {
     }))
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setIsSubmitted(true)
-    setFormData({
-      name: '',
-      contact: '',
-      question: ''
-    })
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'ask-surgeon',
+          name: formData.name.trim(),
+          contact: formData.contact.trim(),
+          question: formData.question.trim(),
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        toast.success(result.message || 'Your question has been submitted successfully!')
+        setFormData({
+          name: '',
+          contact: '',
+          question: ''
+        })
+      } else {
+        toast.error(result.error || 'Failed to submit question. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting question:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -98,9 +129,17 @@ export default function AskSurgeonForm() {
       <div className="md:col-span-2 flex flex-col sm:flex-row items-center gap-4 justify-center">
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-2xl bg-white text-[#0e7490] font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition"
+          disabled={isSubmitting}
+          className="inline-flex items-center justify-center rounded-2xl bg-white text-[#0e7490] font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit Question
+          {isSubmitting ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-[#0e7490] mr-2"></div>
+              Submitting...
+            </>
+          ) : (
+            'Submit Question'
+          )}
         </button>
       </div>
     </form>

@@ -1,13 +1,62 @@
 'use client'
 
 import { useState } from 'react'
+import { toast } from '@/lib/utils/toast'
 
 export default function BestTreatmentForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setIsSubmitted(true)
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    const formObject: Record<string, string> = {}
+    formData.forEach((value, key) => {
+      formObject[key] = value.toString()
+    })
+
+    // Build message from form data
+    const message = `Best Treatment Form Submission:
+- Name: ${formObject.name}
+- Age: ${formObject.age} years
+- Current Weight: ${formObject.currentWeight} kg
+- Height: ${formObject.height}
+- Weight Goal: ${formObject.weightGoal} kg
+- Conditions: ${formObject.conditions}
+- Program History: ${formObject.programHistory || 'Not specified'}`
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'consultation',
+          name: formObject.name.trim(),
+          email: undefined, // No email field in this form
+          phone: undefined, // No phone field in this form
+          serviceName: 'Weight Loss Treatment Consultation',
+          message: message,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        toast.success(result.message || 'Your details have been submitted successfully!')
+      } else {
+        toast.error(result.error || 'Failed to submit details. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting best treatment form:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -132,9 +181,17 @@ export default function BestTreatmentForm() {
       </div>
       <button
         type="submit"
-        className="w-full rounded-2xl bg-gradient-to-r from-[#22d3ee] to-[#0ea5e9] px-4 py-3 text-base font-semibold text-slate-900 shadow-lg hover:opacity-95 transition"
+        disabled={isSubmitting}
+        className="w-full rounded-2xl bg-gradient-to-r from-[#22d3ee] to-[#0ea5e9] px-4 py-3 text-base font-semibold text-slate-900 shadow-lg hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Submit Details
+        {isSubmitting ? (
+          <>
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-slate-900 mr-2 inline-block"></div>
+            Submitting...
+          </>
+        ) : (
+          'Submit Details'
+        )}
       </button>
     </form>
   )
