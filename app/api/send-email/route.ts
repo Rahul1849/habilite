@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 // Email configuration
 const FROM_EMAIL = 'Habilite Clinics <no-reply@mail.habiliteclinics.com>'
 const TO_EMAIL = 'contact@habiliteclinics.com'
@@ -468,6 +465,9 @@ export async function POST(request: NextRequest) {
     const subject = getEmailSubject(body)
     const html = buildEmailHTML(body)
     const text = buildEmailText(body)
+
+    // Initialize Resend client (inside function to avoid build-time issues)
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Send email using Resend
     try {
