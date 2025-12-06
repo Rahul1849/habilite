@@ -333,10 +333,25 @@ function getEmailSubject(data: EmailFormData): string {
 export async function POST(request: NextRequest) {
   try {
     // Check if Resend API key is configured
-    if (!process.env.RESEND_API_KEY) {
-      console.error('[Send Email API] RESEND_API_KEY is not configured')
+    const apiKey = process.env.RESEND_API_KEY
+    if (!apiKey || apiKey.trim() === '') {
+      const errorMsg = 'Email service is not configured. Please contact support.'
+      const details = process.env.NODE_ENV === 'development' 
+        ? 'RESEND_API_KEY environment variable is missing. Please add it to your Vercel environment variables.'
+        : undefined
+      
+      console.error('[Send Email API] RESEND_API_KEY is not configured', {
+        nodeEnv: process.env.NODE_ENV,
+        hasApiKey: !!apiKey,
+        apiKeyLength: apiKey?.length || 0
+      })
+      
       return NextResponse.json(
-        { success: false, error: 'Email service is not configured. Please contact support.' },
+        { 
+          success: false, 
+          error: errorMsg,
+          ...(details && { details })
+        },
         { status: 500 }
       )
     }
@@ -467,7 +482,7 @@ export async function POST(request: NextRequest) {
     const text = buildEmailText(body)
 
     // Initialize Resend client (inside function to avoid build-time issues)
-    const resend = new Resend(process.env.RESEND_API_KEY)
+    const resend = new Resend(apiKey)
 
     // Send email using Resend
     try {
@@ -480,9 +495,19 @@ export async function POST(request: NextRequest) {
       })
 
       if (result.error) {
-        console.error('[Send Email API] Resend error:', result.error)
+        console.error('[Send Email API] Resend error:', {
+          error: result.error,
+          message: result.error.message,
+          name: result.error.name
+        })
         return NextResponse.json(
-          { success: false, error: 'Failed to send email. Please try again later.' },
+          { 
+            success: false, 
+            error: 'Failed to send email. Please try again later.',
+            ...(process.env.NODE_ENV === 'development' && { 
+              debug: result.error.message || 'Unknown Resend error' 
+            })
+          },
           { status: 500 }
         )
       }
@@ -497,9 +522,20 @@ export async function POST(request: NextRequest) {
         { status: 200 }
       )
     } catch (resendError) {
-      console.error('[Send Email API] Resend exception:', resendError)
+      const error = resendError as Error
+      console.error('[Send Email API] Resend exception:', {
+        message: error.message,
+        name: error.name,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      })
       return NextResponse.json(
-        { success: false, error: 'Failed to send email. Please try again later.' },
+        { 
+          success: false, 
+          error: 'Failed to send email. Please try again later.',
+          ...(process.env.NODE_ENV === 'development' && { 
+            debug: error.message || 'Unknown error occurred' 
+          })
+        },
         { status: 500 }
       )
     }
