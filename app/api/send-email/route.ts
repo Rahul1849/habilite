@@ -336,21 +336,20 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey || apiKey.trim() === '') {
       const errorMsg = 'Email service is not configured. Please contact support.'
-      const details = process.env.NODE_ENV === 'development' 
-        ? 'RESEND_API_KEY environment variable is missing. Please add it to your Vercel environment variables.'
-        : undefined
+      const details = 'RESEND_API_KEY environment variable is missing. Please add it to your Vercel environment variables.'
       
       console.error('[Send Email API] RESEND_API_KEY is not configured', {
         nodeEnv: process.env.NODE_ENV,
         hasApiKey: !!apiKey,
-        apiKeyLength: apiKey?.length || 0
+        apiKeyLength: apiKey?.length || 0,
+        timestamp: new Date().toISOString()
       })
       
       return NextResponse.json(
         { 
           success: false, 
           error: errorMsg,
-          ...(details && { details })
+          details: details // Always include details for debugging
         },
         { status: 500 }
       )
@@ -540,11 +539,18 @@ export async function POST(request: NextRequest) {
       )
     }
   } catch (error) {
-    console.error('[Send Email API] Unexpected error:', error)
+    const err = error as Error
+    console.error('[Send Email API] Unexpected error:', {
+      message: err.message,
+      name: err.name,
+      stack: err.stack,
+      timestamp: new Date().toISOString()
+    })
     return NextResponse.json(
       {
         success: false,
         error: 'An unexpected error occurred. Please try again later.',
+        details: process.env.NODE_ENV === 'development' ? err.message : undefined
       },
       { status: 500 }
     )
