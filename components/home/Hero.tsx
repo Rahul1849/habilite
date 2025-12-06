@@ -24,6 +24,7 @@ export default function Hero() {
                 className="object-cover object-center"
                 sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 384px"
                 priority
+                fetchPriority="high"
                 quality={85}
               />
             </div>

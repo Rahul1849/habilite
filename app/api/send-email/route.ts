@@ -59,7 +59,6 @@ function validateName(name: string): { valid: boolean; error?: string } {
   if (sanitized.length > 100) {
     return { valid: false, error: 'Name must be less than 100 characters' }
   }
-  // Removed strict regex validation - allow international names with various characters
   return { valid: true }
 }
 
@@ -334,24 +333,10 @@ function getEmailSubject(data: EmailFormData): string {
 export async function POST(request: NextRequest) {
   try {
     // Check if Resend API key is configured
-    const apiKey = process.env.RESEND_API_KEY
-    if (!apiKey || apiKey.trim() === '') {
-      const errorMsg = 'Email service is not configured. Please contact support.'
-      const details = 'RESEND_API_KEY environment variable is missing. Please add it to your Vercel environment variables.'
-      
-      console.error('[Send Email API] RESEND_API_KEY is not configured', {
-        nodeEnv: process.env.NODE_ENV,
-        hasApiKey: !!apiKey,
-        apiKeyLength: apiKey?.length || 0,
-        timestamp: new Date().toISOString()
-      })
-      
+    if (!process.env.RESEND_API_KEY) {
+      console.error('[Send Email API] RESEND_API_KEY is not configured')
       return NextResponse.json(
-        { 
-          success: false, 
-          error: errorMsg,
-          details: details // Always include details for debugging
-        },
+        { success: false, error: 'Email service is not configured. Please contact support.' },
         { status: 500 }
       )
     }
@@ -388,44 +373,22 @@ export async function POST(request: NextRequest) {
     // Form-specific validation
     if (body.formType === 'contact') {
       const contactData = body as ContactFormData
-      
-      // Email is required for contact form
-      if (!contactData.email || contactData.email.trim() === '') {
-        console.error('[Send Email API] Contact form validation failed: Email is required', { data: contactData })
-        return NextResponse.json(
-          { success: false, error: 'Email is required' },
-          { status: 400 }
-        )
-      }
       const emailValidation = validateEmail(contactData.email)
       if (!emailValidation.valid) {
-        console.error('[Send Email API] Contact form validation failed: Invalid email', { email: contactData.email, error: emailValidation.error })
         return NextResponse.json(
           { success: false, error: emailValidation.error },
           { status: 400 }
         )
       }
-      
-      // Phone is required for contact form
-      if (!contactData.phone || contactData.phone.trim() === '') {
-        console.error('[Send Email API] Contact form validation failed: Phone is required', { data: contactData })
-        return NextResponse.json(
-          { success: false, error: 'Phone is required' },
-          { status: 400 }
-        )
-      }
       const phoneValidation = validatePhone(contactData.phone)
       if (!phoneValidation.valid) {
-        console.error('[Send Email API] Contact form validation failed: Invalid phone', { phone: contactData.phone, error: phoneValidation.error })
         return NextResponse.json(
           { success: false, error: phoneValidation.error },
           { status: 400 }
         )
       }
-      
       const subjectValidation = validateRequired(contactData.subject, 'Subject')
       if (!subjectValidation.valid) {
-        console.error('[Send Email API] Contact form validation failed: Subject is required', { data: contactData })
         return NextResponse.json(
           { success: false, error: subjectValidation.error },
           { status: 400 }
@@ -433,7 +396,6 @@ export async function POST(request: NextRequest) {
       }
       const messageValidation = validateRequired(contactData.message, 'Message')
       if (!messageValidation.valid) {
-        console.error('[Send Email API] Contact form validation failed: Message is required', { data: contactData })
         return NextResponse.json(
           { success: false, error: messageValidation.error },
           { status: 400 }
@@ -505,7 +467,7 @@ export async function POST(request: NextRequest) {
     const text = buildEmailText(body)
 
     // Initialize Resend client (inside function to avoid build-time issues)
-    const resend = new Resend(apiKey)
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Send email using Resend
     try {
@@ -518,19 +480,9 @@ export async function POST(request: NextRequest) {
       })
 
       if (result.error) {
-        console.error('[Send Email API] Resend error:', {
-          error: result.error,
-          message: result.error.message,
-          name: result.error.name
-        })
+        console.error('[Send Email API] Resend error:', result.error)
         return NextResponse.json(
-          { 
-            success: false, 
-            error: 'Failed to send email. Please try again later.',
-            ...(process.env.NODE_ENV === 'development' && { 
-              debug: result.error.message || 'Unknown Resend error' 
-            })
-          },
+          { success: false, error: 'Failed to send email. Please try again later.' },
           { status: 500 }
         )
       }
@@ -545,36 +497,18 @@ export async function POST(request: NextRequest) {
         { status: 200 }
       )
     } catch (resendError) {
-      const error = resendError as Error
-      console.error('[Send Email API] Resend exception:', {
-        message: error.message,
-        name: error.name,
-        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-      })
+      console.error('[Send Email API] Resend exception:', resendError)
       return NextResponse.json(
-        { 
-          success: false, 
-          error: 'Failed to send email. Please try again later.',
-          ...(process.env.NODE_ENV === 'development' && { 
-            debug: error.message || 'Unknown error occurred' 
-          })
-        },
+        { success: false, error: 'Failed to send email. Please try again later.' },
         { status: 500 }
       )
     }
   } catch (error) {
-    const err = error as Error
-    console.error('[Send Email API] Unexpected error:', {
-      message: err.message,
-      name: err.name,
-      stack: err.stack,
-      timestamp: new Date().toISOString()
-    })
+    console.error('[Send Email API] Unexpected error:', error)
     return NextResponse.json(
       {
         success: false,
         error: 'An unexpected error occurred. Please try again later.',
-        details: process.env.NODE_ENV === 'development' ? err.message : undefined
       },
       { status: 500 }
     )

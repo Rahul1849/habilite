@@ -35,31 +35,6 @@ export default function ContactForm() {
         }),
       })
 
-      // Check if response is ok before parsing JSON
-      if (!response.ok) {
-        let errorData
-        try {
-          errorData = await response.json()
-        } catch {
-          errorData = { error: `Server error: ${response.status} ${response.statusText}` }
-        }
-        console.error('Contact form API error:', {
-          status: response.status,
-          statusText: response.statusText,
-          error: errorData,
-          submittedData: {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            subject: formData.subject,
-            messageLength: formData.message.length
-          }
-        })
-        const errorMessage = errorData.error || errorData.details || `Failed to send message (${response.status}). Please try again.`
-        toast.error(errorMessage)
-        return
-      }
-
       const result = await response.json()
 
       if (result.success) {
@@ -70,13 +45,11 @@ export default function ContactForm() {
           setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
         }, 3000)
       } else {
-        console.error('Contact form submission failed:', result)
-        toast.error(result.error || result.details || 'Failed to send message. Please try again.')
+        toast.error(result.error || 'Failed to send message. Please try again.')
       }
     } catch (error) {
       console.error('Error submitting contact form:', error)
-      const errorMessage = error instanceof Error ? error.message : 'Network error'
-      toast.error(`An unexpected error occurred: ${errorMessage}. Please check your connection and try again.`)
+      toast.error('An unexpected error occurred. Please try again later.')
     } finally {
       setIsSubmitting(false)
     }
