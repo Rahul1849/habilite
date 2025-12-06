@@ -45,7 +45,18 @@ export default function ContactForm() {
           setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
         }, 3000)
       } else {
-        toast.error(result.error || 'Failed to send message. Please try again.')
+        const errorMessage = result.error || 'Failed to send message. Please try again.'
+        toast.error(errorMessage)
+        console.error('Contact form submission error:', {
+          error: result.error,
+          debug: result.debug,
+          status: response.status
+        })
+        
+        // Show debug info in console for troubleshooting
+        if (result.debug) {
+          console.error('Debug information:', result.debug)
+        }
       }
     } catch (error) {
       console.error('Error submitting contact form:', error)

@@ -591,8 +591,8 @@ export async function POST(request: NextRequest) {
           error: 'Failed to send email. Please try again later.',
           ...(process.env.NODE_ENV === 'development' && { 
             debug: error.message || 'Unknown error',
-            fromEmail: FROM_EMAIL,
-            toEmail: TO_EMAIL
+            fromEmail: fromEmail,
+            toEmail: toEmail
           })
         },
         { status: 500 }
