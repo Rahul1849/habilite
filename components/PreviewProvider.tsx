@@ -1,18 +1,42 @@
 'use client'
 
-import { ReactNode } from 'react'
+import { LiveQueryProvider } from '@sanity/preview-kit'
+import { createClient } from '@sanity/preview-kit/client'
+import { ReactNode, useMemo } from 'react'
 
 interface PreviewProviderProps {
   children: ReactNode
   token?: string
+  projectId: string
+  dataset: string
+  apiVersion?: string
 }
 
-export default function PreviewProvider({ children }: PreviewProviderProps) {
+export default function PreviewProvider({
+  children,
+  token,
+  projectId,
+  dataset,
+  apiVersion,
+}: PreviewProviderProps) {
+  const client = useMemo(
+    () =>
+      createClient({
+        projectId,
+        dataset,
+        apiVersion: apiVersion || '2023-10-20',
+        useCdn: false,
+        perspective: 'previewDrafts',
+        stega: true,
+      }),
+    [projectId, dataset, apiVersion],
+  )
+
   return (
-    <>
+    <LiveQueryProvider client={client} token={token} logger={console}>
       <PreviewBanner />
       {children}
-    </>
+    </LiveQueryProvider>
   )
 }
 

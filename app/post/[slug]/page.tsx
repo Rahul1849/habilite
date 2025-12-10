@@ -1,15 +1,21 @@
+import { Suspense as PreviewSuspense } from 'react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { draftMode } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { getBlogPostBySlug, getRelatedPosts, getRecentPosts, blogPosts } from '@/data/blog'
+import PreviewSingleBlog from '@/components/blog/PreviewSingleBlog'
 import { Calendar, Clock, ArrowLeft } from 'lucide-react'
 import TableOfContents from '@/components/blog/TableOfContents'
 import RecentPosts from '@/components/blog/RecentPosts'
 import DoctorInfoCard from '@/components/blog/DoctorInfoCard'
 import FAQSchema from '@/components/blog/FAQSchema'
 import StructuredData from '@/components/seo/StructuredData'
+import PreviewProvider from '@/components/PreviewProvider'
+import { getClient } from '@/lib/sanity/client'
+import { blogBySlugQueryWithAuthor } from '@/lib/sanity/queries'
 import { getArticleSchema, getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
 
 type Props = {
@@ -73,6 +79,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
+  const { isEnabled } = draftMode()
+
+  if (isEnabled) {
+    const initialData = await getClient(true).fetch(blogBySlugQueryWithAuthor, { slug })
+    const projectId = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+    const dataset = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET
+    const apiVersion = process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION
+    const token = process.env.SANITY_READ_TOKEN || process.env.SANITY_API_READ_TOKEN
+
+    if (!projectId || !dataset) {
+      return (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center space-y-3">
+            <p className="text-lg font-semibold text-gray-900">Preview requires Sanity config.</p>
+            <p className="text-gray-600 text-sm">Set SANITY_PROJECT_ID and SANITY_DATASET to use draft mode.</p>
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <PreviewProvider projectId={projectId} dataset={dataset} apiVersion={apiVersion} token={token}>
+        <PreviewSuspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#f56336] mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading draft...</p>
+              </div>
+            </div>
+          }
+        >
+          <PreviewSingleBlog slug={slug} initialData={initialData} />
+        </PreviewSuspense>
+      </PreviewProvider>
+    )
+  }
+
   const post = getBlogPostBySlug(slug)
   if (!post) notFound()
 
