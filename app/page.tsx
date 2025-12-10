@@ -442,13 +442,13 @@ export default async function HomePage() {
       <MeetDoctor />
       <EducationAffiliations />
       <div className="defer-section">
-        <LaparoscopicServices services={services} />
+        <LaparoscopicServices />
       </div>
       <div className="defer-section">
-        <BariatricServices services={services} />
+        <BariatricServices />
       </div>
       <div className="defer-section">
-        <LaserServices services={services} />
+        <LaserServices />
       </div>
       <CareerHighlightsAndServices />
       <div className="defer-section">
@@ -461,7 +461,7 @@ export default async function HomePage() {
         <FAQ faqs={faqData} />
       </div>
       <div className="defer-section">
-        <BlogPreview blogs={blogs} />
+        <BlogPreview />
       </div>
       {/* StructuredData moved to bottom to prevent blocking render */}
       <script

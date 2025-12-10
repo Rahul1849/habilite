@@ -1,5 +1,4 @@
 import { createClient } from "next-sanity";
-import { definePreview } from "@sanity/preview-kit";
 
 // Standard client for published content
 export const sanityClient = createClient({

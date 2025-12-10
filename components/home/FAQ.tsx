@@ -90,7 +90,7 @@ export default function FAQ({ faqs }: FAQProps) {
               
               return (
                 <div
-                  key={faq._id || index}
+                  key={(faq as any)._id ?? index}
                   className="bg-white rounded-lg border border-gray-200 overflow-hidden"
                 >
                   <button

@@ -1,9 +1,7 @@
 import type { Service, Doctor, Blog, Testimonial, FAQ } from "./types";
-import type {
-  Service as LegacyService,
-  Doctor as LegacyDoctor,
-  Testimonial as LegacyTestimonial,
-} from "@/data/services";
+import type { Service as LegacyService } from "@/data/services";
+import type { Doctor as LegacyDoctor } from "@/data/doctors";
+import type { Testimonial as LegacyTestimonial } from "@/data/testimonials";
 import { getImageUrl } from "./utils";
 
 // Transform Sanity Service to Legacy Format
@@ -42,7 +40,11 @@ export function transformDoctor(doctor: Doctor): LegacyDoctor {
     designation: doctor.designation || "",
     qualifications: doctor.qualifications || [],
     experience: doctor.experience || "",
-    specialization: doctor.specialization || "",
+    specialization: Array.isArray(doctor.specialization)
+      ? doctor.specialization
+      : doctor.specialization
+      ? [doctor.specialization]
+      : [],
     bio: doctor.bio || "",
     image: getImageUrl(doctor.image) || "",
     videoUrl: doctor.videoUrl,

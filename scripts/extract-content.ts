@@ -50,11 +50,11 @@ function extractFromFile(filePath: string): Extracted | null {
   const traverse: any = (traverseModule as any).default || traverseModule;
 
   traverse(ast, {
-    JSXText(path) {
+    JSXText(path: any) {
       const value = path.node.value.replace(/\s+/g, " ").trim();
       if (value) texts.add(value);
     },
-    StringLiteral(path) {
+    StringLiteral(path: any) {
       const val = path.node.value.replace(/\s+/g, " ").trim();
       if (!val) return;
 
@@ -81,7 +81,7 @@ function extractFromFile(filePath: string): Extracted | null {
       // Otherwise, collect as generic text
       texts.add(val);
     },
-    JSXAttribute(path) {
+    JSXAttribute(path: any) {
       const name = (path.node.name as any)?.name;
       const value = path.node.value;
       if (!name || !value) return;
