@@ -4,23 +4,27 @@ This document describes the required environment variables for the Habilite Clin
 
 ## Required Environment Variables
 
-### Email Configuration (Rackspace SMTP)
+### Email Configuration (Resend)
 
-The following environment variables are required for the consultation form email functionality:
+The application uses [Resend](https://resend.com) for sending emails from contact forms, appointment bookings, and consultation requests.
+
+The following environment variables are required:
 
 ```bash
-EMAIL_HOST=secure.emailsrvr.com
-EMAIL_PORT=465
-EMAIL_USER=your-rackspace-email@habiliteclinics.com
-EMAIL_PASS=your-rackspace-email-password
-EMAIL_SECURE=true
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxx
+RESEND_FROM_EMAIL=Habilite Clinics <no-reply@habiliteclinics.com>
+RESEND_TO_EMAIL=contact@habiliteclinics.com
 ```
 
 #### Description:
-- **EMAIL_HOST**: Rackspace SMTP server hostname (`secure.emailsrvr.com`)
-- **EMAIL_PORT**: SMTP port number (587 for TLS)
-- **EMAIL_USER**: Your Rackspace email address (e.g., `contact@habiliteclinics.com`)
-- **EMAIL_PASS**: Your Rackspace email account password
+- **RESEND_API_KEY**: Your Resend API key (starts with `re_`). Get it from [Resend Dashboard](https://resend.com/api-keys)
+- **RESEND_FROM_EMAIL**: The sender email address (format: `Name <email@domain.com>` or just `email@domain.com`)
+- **RESEND_TO_EMAIL**: The recipient email address where form submissions will be sent
+
+#### Important Notes:
+- **Domain Verification**: The domain in `RESEND_FROM_EMAIL` must be verified in Resend. For example, if using `no-reply@habiliteclinics.com`, you need to verify `habiliteclinics.com` in your Resend dashboard.
+- **Free Tier**: Resend offers 3,000 emails/month on the free tier, which is perfect for contact forms.
+- **API Key Security**: Never commit your API key to version control. Always use environment variables.
 
 ## Setting Up Environment Variables
 
@@ -30,30 +34,49 @@ EMAIL_SECURE=true
 
 ```bash
 # .env.local
-EMAIL_HOST=secure.emailsrvr.com
-EMAIL_PORT=587
-EMAIL_USER=contact@habiliteclinics.com
-EMAIL_PASS=your-actual-password-here
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxx
+RESEND_FROM_EMAIL=Habilite Clinics <no-reply@habiliteclinics.com>
+RESEND_TO_EMAIL=contact@habiliteclinics.com
 ```
 
 2. **Important**: Never commit `.env.local` to version control. It should already be in `.gitignore`.
 
+3. **Get Your Resend API Key**:
+   - Sign up at [resend.com](https://resend.com) (free account available)
+   - Go to [API Keys](https://resend.com/api-keys) in your dashboard
+   - Create a new API key
+   - Copy the key (starts with `re_`) and add it to `.env.local`
+
 ### Vercel Deployment
 
-1. Go to your Vercel project dashboard
-2. Navigate to **Settings** → **Environment Variables**
-3. Add each variable:
+1. **Get Your Resend API Key** (if you don't have one):
+   - Sign up at [resend.com](https://resend.com)
+   - Go to [API Keys](https://resend.com/api-keys) in your dashboard
+   - Create a new API key
+   - Copy the key (starts with `re_`)
+
+2. **Verify Your Domain** (required for sending emails):
+   - Go to [Domains](https://resend.com/domains) in Resend dashboard
+   - Click "Add Domain" and enter your domain (e.g., `habiliteclinics.com`)
+   - Add the DNS records provided by Resend to your domain's DNS settings
+   - Wait for verification (usually takes a few minutes)
+
+3. **Add Environment Variables in Vercel**:
+   - Go to your Vercel project dashboard: https://vercel.com/dashboard
+   - Navigate to **Settings** → **Environment Variables**
+   - Add each variable:
 
    | Name | Value | Environment |
    |------|-------|-------------|
-| `EMAIL_HOST` | `secure.emailsrvr.com` | Production, Preview, Development |
-| `EMAIL_PORT` | `465` | Production, Preview, Development |
-| `EMAIL_USER` | `contact@habiliteclinics.com` | Production, Preview, Development |
-| `EMAIL_PASS` | `[your-password]` | Production, Preview, Development |
-| `EMAIL_SECURE` | `true` | Production, Preview, Development |
+   | `RESEND_API_KEY` | `re_xxxxxxxxxxxxxxxxxxxxx` | Production, Preview, Development |
+   | `RESEND_FROM_EMAIL` | `Habilite Clinics <no-reply@habiliteclinics.com>` | Production, Preview, Development |
+   | `RESEND_TO_EMAIL` | `contact@habiliteclinics.com` | Production, Preview, Development |
 
 4. Click **Save** for each variable
-5. Redeploy your application for changes to take effect
+5. **Redeploy your application** for changes to take effect:
+   - Go to **Deployments** tab
+   - Click the three dots on the latest deployment
+   - Select **Redeploy**
 
 ### Security Notes
 
@@ -63,40 +86,80 @@ EMAIL_PASS=your-actual-password-here
 - ✅ Rotate passwords regularly
 - ✅ Use Vercel's encrypted environment variables for production
 
+## Sanity CMS Environment Variables
+
+The application also uses Sanity CMS for content management. These variables are required:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2023-10-20
+```
+
+Add these to Vercel as well if not already configured.
+
 ## Testing Email Configuration
 
 After setting up environment variables, test the email functionality:
 
-1. Submit a consultation form on your website
-2. Check that emails are received at `contact@habiliteclinics.com`
-3. Check Vercel function logs for any errors
+1. Submit a contact form on your website (https://habilite-6qce.vercel.app/contact)
+2. Check that emails are received at the address specified in `RESEND_TO_EMAIL`
+3. Check Vercel function logs for any errors:
+   - Go to Vercel dashboard → Your Project → **Functions** tab
+   - Look for `/api/send-email` function logs
 
 ## Troubleshooting
 
-### Email Not Sending
+### Email Not Sending (500 Error)
+
+**Most Common Issue**: Missing `RESEND_API_KEY` in Vercel
 
 1. **Verify environment variables are set correctly**
-   - Check Vercel dashboard → Settings → Environment Variables
-   - Ensure all 4 variables are present
+   - Go to Vercel dashboard → Settings → Environment Variables
+   - Ensure all 3 Resend variables are present:
+     - `RESEND_API_KEY`
+     - `RESEND_FROM_EMAIL`
+     - `RESEND_TO_EMAIL`
+   - Make sure they're added to **Production**, **Preview**, and **Development** environments
 
-2. **Check Rackspace credentials**
-   - Verify email and password are correct
-   - Ensure the email account is active
+2. **Check Resend API Key**
+   - Verify the API key is correct (starts with `re_`)
+   - Ensure the key is active in [Resend Dashboard](https://resend.com/api-keys)
+   - Create a new key if needed
 
-3. **Check Vercel function logs**
-   - Go to Vercel dashboard → Your Project → Functions
-   - Look for errors in the `/api/consultation` function logs
+3. **Verify Domain in Resend**
+   - Go to [Resend Domains](https://resend.com/domains)
+   - Ensure your domain (e.g., `habiliteclinics.com`) is verified
+   - The domain in `RESEND_FROM_EMAIL` must match a verified domain
+   - If not verified, add the DNS records provided by Resend
 
-4. **Test SMTP connection**
-   - Verify Rackspace SMTP is accessible from Vercel's servers
-   - Port 587 should be open for TLS connections
+4. **Check Vercel function logs**
+   - Go to Vercel dashboard → Your Project → **Functions** tab
+   - Click on `/api/send-email` function
+   - Look for error messages in the logs
+   - Common errors:
+     - `RESEND_API_KEY is not configured` → Add the API key to Vercel
+     - `Email domain not verified` → Verify domain in Resend dashboard
+     - `Invalid API key` → Check your API key is correct
+
+5. **Redeploy After Adding Variables**
+   - After adding environment variables, you MUST redeploy
+   - Go to **Deployments** → Click three dots → **Redeploy**
 
 ### Rate Limiting Issues
 
 If you see "Too many requests" errors:
+- Resend free tier: 3,000 emails/month
 - The API limits to 3 submissions per hour per IP address
 - Wait for the rate limit window to reset (1 hour)
-- For production, consider upgrading to Vercel KV for better rate limiting
+- For production, consider upgrading Resend plan or using Vercel KV for better rate limiting
+
+### Common Error Messages
+
+- **"Email service is not configured"** → `RESEND_API_KEY` is missing in Vercel
+- **"Email domain not verified"** → Verify your domain in Resend dashboard
+- **"Invalid sender email address"** → Check `RESEND_FROM_EMAIL` format and domain verification
+- **"Invalid API key"** → Verify your `RESEND_API_KEY` is correct
 
 ## Future Enhancements
 

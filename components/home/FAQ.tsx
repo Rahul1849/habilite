@@ -2,13 +2,15 @@
 
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
+import type { FAQ as FAQType } from '@/lib/sanity/types'
+import { renderPortableText } from '@/lib/sanity/portableTextComponents'
 
-interface FAQItem {
-  question: string
-  answer: string
+interface FAQProps {
+  faqs?: FAQType[]
 }
 
-const faqs: FAQItem[] = [
+// Fallback FAQs if Sanity data is not available
+const fallbackFAQs = [
   {
     question: 'Who is Dr Kapil Agrawal?',
     answer: 'Dr Kapil Agrawal is a highly qualified laparoscopic, laser & bariatric surgeon based in Delhi with over 23 years of experience, holding credentials including MBBS, MS (Surgery), MRCS (London, U.K.), MMED (Singapore), and FMAS.',
@@ -59,7 +61,7 @@ const faqs: FAQItem[] = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ faqs }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -80,11 +82,15 @@ export default function FAQ() {
 
         <div className="max-w-4xl mx-auto">
           <div className="space-y-3">
-            {faqs.map((faq, index) => {
+            {(faqs && faqs.length > 0 ? faqs : fallbackFAQs).map((faq, index) => {
               const isOpen = openIndex === index
+              const question = faq.question || (faq as any).question
+              const answer = faq.answer || (faq as any).answer
+              const answerContent = Array.isArray(answer) ? renderPortableText(answer) : answer
+              
               return (
                 <div
-                  key={index}
+                  key={faq._id || index}
                   className="bg-white rounded-lg border border-gray-200 overflow-hidden"
                 >
                   <button
@@ -94,7 +100,7 @@ export default function FAQ() {
                     aria-controls={`faq-answer-${index}`}
                   >
                     <h3 className="text-lg font-semibold text-gray-900 pr-8 flex-1">
-                      {faq.question}
+                      {question}
                     </h3>
                     <div className="flex-shrink-0">
                       {isOpen ? (
@@ -111,9 +117,15 @@ export default function FAQ() {
                     }`}
                   >
                     <div className="px-6 pb-5 pt-2">
-                      <p className="text-gray-700 leading-relaxed">
-                        {faq.answer}
-                      </p>
+                      {Array.isArray(answer) ? (
+                        <div className="text-gray-700 leading-relaxed">
+                          {answerContent}
+                        </div>
+                      ) : (
+                        <p className="text-gray-700 leading-relaxed">
+                          {answerContent}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
+// Route segment config - ensure this route is dynamic and uses Node.js runtime
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+
 // Email configuration - will be read at runtime to ensure env vars are available
 function getFromEmail(): string {
   const envValue = process.env.RESEND_FROM_EMAIL

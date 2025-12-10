@@ -4,8 +4,12 @@ import Hero from '@/components/home/Hero'
 import MeetDoctor from '@/components/home/MeetDoctor'
 import EducationAffiliations from '@/components/home/EducationAffiliations'
 import CareerHighlightsAndServices from '@/components/home/CareerHighlightsAndServices'
-import { testimonials } from '@/data/testimonials'
+import { getHomePage, getFeaturedServices, getFeaturedTestimonials, getAllFAQs, getRecentBlogs } from '@/lib/sanity/fetch'
 import { getOrganizationSchema } from '@/lib/seo/schemaBuilders'
+import { getImageUrl } from '@/lib/sanity/utils'
+
+// Always render this page on-demand so Sanity updates show immediately
+export const revalidate = 0
 
 // Dynamically import below-the-fold components to improve initial page load
 const LaparoscopicServices = dynamic(() => import('@/components/home/LaparoscopicServices'), {
@@ -369,29 +373,31 @@ const faqSchema = {
 }
 
 // Helper function to extract YouTube video ID
-function getYouTubeVideoId(url: string): string | null {
+function getYouTubeVideoId(url: string | undefined): string | null {
   if (!url) return null
   const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/)
   return match && match[1] ? match[1] : null
 }
 
-// VideoObject schema for video testimonials
-const videoTestimonialsSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Patient Video Testimonials',
-  description: 'Video testimonials from patients who received treatment from Dr. Kapil Agrawal at Habilite Clinics',
-  itemListElement: testimonials
-    .filter((t) => t.videoUrl)
-    .map((testimonial, index) => {
-      const videoId = getYouTubeVideoId(testimonial.videoUrl || '')
+// VideoObject schema for video testimonials (will be generated from Sanity data)
+function generateVideoTestimonialsSchema(testimonials: any[]) {
+  const videoTestimonials = testimonials.filter((t) => t.videoUrl)
+  if (videoTestimonials.length === 0) return null
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Patient Video Testimonials',
+    description: 'Video testimonials from patients who received treatment from Dr. Kapil Agrawal at Habilite Clinics',
+    itemListElement: videoTestimonials.map((testimonial, index) => {
+      const videoId = getYouTubeVideoId(testimonial.videoUrl)
       return {
         '@type': 'ListItem',
         position: index + 1,
         item: {
           '@type': 'VideoObject',
-          name: `${testimonial.patientName} - ${testimonial.treatment} Testimonial`,
-          description: testimonial.text,
+          name: `${testimonial.name || testimonial.patientName} - ${testimonial.treatment || ''} Testimonial`,
+          description: testimonial.message || testimonial.text,
           thumbnailUrl: videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : undefined,
           uploadDate: testimonial.date,
           contentUrl: testimonial.videoUrl,
@@ -407,35 +413,55 @@ const videoTestimonialsSchema = {
         },
       }
     }),
+  }
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Fetch data from Sanity with fallbacks
+  const [homeData, featuredServices, featuredTestimonials, faqs, recentBlogs] = await Promise.all([
+    getHomePage(),
+    getFeaturedServices(),
+    getFeaturedTestimonials(),
+    getAllFAQs(),
+    getRecentBlogs(3),
+  ]);
+
+  // Fallback to empty arrays if data is not available
+  const services = featuredServices || [];
+  const testimonials = featuredTestimonials || [];
+  const faqData = faqs || [];
+  const blogs = recentBlogs || [];
+
   return (
     <>
-      <Hero />
+      <Hero 
+        bannerTitle={homeData?.bannerTitle}
+        bannerSubtitle={homeData?.bannerSubtitle}
+        bannerImage={homeData?.bannerImage}
+      />
       <MeetDoctor />
       <EducationAffiliations />
       <div className="defer-section">
-        <LaparoscopicServices />
+        <LaparoscopicServices services={services} />
       </div>
       <div className="defer-section">
-        <BariatricServices />
+        <BariatricServices services={services} />
       </div>
       <div className="defer-section">
-        <LaserServices />
+        <LaserServices services={services} />
       </div>
       <CareerHighlightsAndServices />
       <div className="defer-section">
         <WhyChoose />
       </div>
       <div className="defer-section">
-        <TestimonialsSlider />
+        <TestimonialsSlider testimonials={testimonials} />
       </div>
       <div className="defer-section">
-        <FAQ />
+        <FAQ faqs={faqData} />
       </div>
       <div className="defer-section">
-        <BlogPreview />
+        <BlogPreview blogs={blogs} />
       </div>
       {/* StructuredData moved to bottom to prevent blocking render */}
       <script
@@ -463,13 +489,16 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         suppressHydrationWarning
       />
-      {testimonials.filter((t) => t.videoUrl).length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoTestimonialsSchema) }}
-          suppressHydrationWarning
-        />
-      )}
+      {(() => {
+        const videoSchema = generateVideoTestimonialsSchema(testimonials)
+        return videoSchema ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+            suppressHydrationWarning
+          />
+        ) : null
+      })()}
     </>
   )
 }

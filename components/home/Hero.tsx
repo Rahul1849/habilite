@@ -1,8 +1,21 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Calendar } from 'lucide-react'
+import { getImageUrl } from '@/lib/sanity/utils'
+import type { HomePage } from '@/lib/sanity/types'
 
-export default function Hero() {
+interface HeroProps {
+  bannerTitle?: string
+  bannerSubtitle?: string
+  bannerImage?: HomePage['bannerImage']
+}
+
+export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroProps) {
+  // Fallback values
+  const title = bannerTitle || "Dr. Kapil Agrawal"
+  const subtitle = bannerSubtitle || "Best Laparoscopic Surgeon in Delhi, India"
+  const imageUrl = getImageUrl(bannerImage) || "/images/dr.png"
+  const imageAlt = bannerImage?.alt || "Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] z-0">
       
@@ -18,8 +31,8 @@ export default function Hero() {
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/70 ring-4 ring-white/20">
               <Image
-                src="/images/dr.png"
-                alt="Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
+                src={imageUrl}
+                alt={imageAlt}
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 384px"
@@ -34,10 +47,10 @@ export default function Hero() {
           <div className="text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-5 lg:space-y-6">
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight sm:leading-tight text-gray-900 break-words px-2 sm:px-0">
-                Dr. <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Kapil Agrawal</span>
+                {title.includes("Dr.") ? title : `Dr. ${title}`}
               </h1>
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-snug text-gray-900 break-words px-2 sm:px-0">
-                Best Laparoscopic Surgeon in <span className="text-[#0d4a5a]">Delhi, India</span>
+                {subtitle}
               </h2>
             </div>
 

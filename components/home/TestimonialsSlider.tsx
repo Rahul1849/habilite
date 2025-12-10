@@ -4,10 +4,16 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Star, Quote, ArrowRight, Play } from 'lucide-react'
-import { testimonials } from '@/data/testimonials'
+import { testimonials as fallbackTestimonials } from '@/data/testimonials'
+import type { Testimonial } from '@/lib/sanity/types'
+import { getImageUrl } from '@/lib/sanity/utils'
+
+interface TestimonialsSliderProps {
+  testimonials?: Testimonial[]
+}
 
 // Helper function to extract YouTube video ID from various URL formats
-function getYouTubeVideoId(url: string): string | null {
+function getYouTubeVideoId(url: string | undefined): string | null {
   if (!url) return null
   
   const patterns = [
@@ -30,19 +36,43 @@ function getYouTubeThumbnail(videoId: string, quality: 'maxresdefault' | 'hqdefa
   return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`
 }
 
-export default function TestimonialsSlider() {
+// Transform Sanity testimonial to legacy format
+function transformTestimonial(t: Testimonial | any) {
+  if (!t._id) return t // Already in legacy format
+  return {
+    id: t._id,
+    patientName: t.name,
+    patientAge: t.patientAge || 0,
+    treatment: t.treatment || '',
+    rating: t.rating,
+    text: t.message,
+    image: getImageUrl(t.image) || undefined,
+    videoUrl: undefined, // Add if needed
+    date: t.date,
+    verified: t.verified || false,
+  }
+}
+
+export default function TestimonialsSlider({ testimonials: sanityTestimonials }: TestimonialsSliderProps) {
+  const testimonials = (sanityTestimonials && sanityTestimonials.length > 0 
+    ? sanityTestimonials.map(transformTestimonial)
+    : fallbackTestimonials) as typeof fallbackTestimonials
+  
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    if (testimonials.length === 0) return
     // Use setInterval for efficient auto-rotation
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [testimonials.length])
 
+  if (testimonials.length === 0) return null
+  
   const currentTestimonial = testimonials[currentIndex]
 
   // Prevent hydration mismatch by not rendering until mounted

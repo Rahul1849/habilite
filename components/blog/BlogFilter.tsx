@@ -196,6 +196,7 @@ const latestPosts = [...blogPosts]
   )
 
 export default function BlogFilter() {
+
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
