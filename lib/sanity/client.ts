@@ -5,8 +5,10 @@ export const sanityClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2023-10-20",
-  // Disable the edge CDN so publishes are visible immediately
+  // Disable CDN so we always get fresh data
   useCdn: false,
+  // Use read token when available (needed if dataset is private)
+  token: process.env.SANITY_API_READ_TOKEN,
 });
 
 // Preview client for draft content
