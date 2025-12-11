@@ -226,8 +226,24 @@ export default async function PreviewPage({ searchParams }: Props) {
     redirect('/post')
   }
 
+  const projectId = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  const dataset = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET
+  const apiVersion = process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION
+  const token = process.env.SANITY_READ_TOKEN || process.env.SANITY_API_READ_TOKEN
+
+  if (!projectId || !dataset) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-3">
+          <p className="text-lg font-semibold text-gray-900">Preview requires Sanity config.</p>
+          <p className="text-gray-600 text-sm">Set SANITY_PROJECT_ID and SANITY_DATASET to use draft mode.</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <PreviewProvider token={process.env.SANITY_API_READ_TOKEN}>
+    <PreviewProvider projectId={projectId} dataset={dataset} apiVersion={apiVersion} token={token}>
       <Suspense
         fallback={
           <div className="min-h-screen flex items-center justify-center">

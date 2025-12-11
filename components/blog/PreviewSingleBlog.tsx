@@ -34,7 +34,9 @@ export default function PreviewSingleBlog({ slug, initialData }: PreviewSingleBl
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-2">
-          <p className="text-lg font-semibold text-gray-900">No draft found for "{slug}"</p>
+          <p className="text-lg font-semibold text-gray-900">
+            No draft found for &quot;{slug}&quot;
+          </p>
           <Link href="/post" className="text-[#f56336] hover:underline font-medium">
             Back to blogs
           </Link>

@@ -7,6 +7,7 @@ import Link from 'next/link'
 import React from 'react'
 import { getBlogPostBySlug, getRelatedPosts, getRecentPosts, blogPosts } from '@/data/blog'
 import PreviewSingleBlog from '@/components/blog/PreviewSingleBlog'
+import SanitySingleBlog from '@/components/blog/SanitySingleBlog'
 import { Calendar, Clock, ArrowLeft } from 'lucide-react'
 import TableOfContents from '@/components/blog/TableOfContents'
 import RecentPosts from '@/components/blog/RecentPosts'
@@ -15,50 +16,126 @@ import FAQSchema from '@/components/blog/FAQSchema'
 import StructuredData from '@/components/seo/StructuredData'
 import PreviewProvider from '@/components/PreviewProvider'
 import { getClient } from '@/lib/sanity/client'
-import { blogBySlugQueryWithAuthor } from '@/lib/sanity/queries'
+import { blogBySlugQueryWithAuthor, blogsQuery } from '@/lib/sanity/queries'
 import { getArticleSchema, getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
+import { urlForImage } from '@/sanity/lib/image'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
 
-export const revalidate = 3600 // Revalidate every hour (ISR)
+export const revalidate = 60 // Revalidate every minute to show published changes quickly
 
 export async function generateStaticParams() {
+  // Try to fetch from Sanity first, fallback to static data
+  try {
+    const blogs = await getClient(false).fetch(blogsQuery)
+    if (blogs && blogs.length > 0) {
+      return blogs.map((blog: any) => ({ slug: blog.slug || '' })).filter((p: any) => p.slug)
+    }
+  } catch (error) {
+    console.error('Error fetching blogs for static params:', error)
+  }
+  // Fallback to static blog posts
   return blogPosts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getBlogPostBySlug(slug)
-  if (!post) return { title: 'Post Not Found' }
+  
+  // Try to fetch from Sanity first
+  let post = null
+  let imageUrl = null
+  
+  try {
+    const sanityPost = await getClient(false).fetch(blogBySlugQueryWithAuthor, { slug })
+    if (sanityPost) {
+      post = sanityPost
+      if (sanityPost.mainImage) {
+        imageUrl = urlForImage(sanityPost.mainImage).width(1200).height(630).url()
+      }
+    }
+  } catch (error) {
+    console.error('Error fetching blog for metadata:', error)
+  }
+  
+  // Fallback to static data
+  if (!post) {
+    const staticPost = getBlogPostBySlug(slug)
+    if (!staticPost) return { title: 'Post Not Found' }
+    
+    return {
+      title: staticPost.seoTitle || staticPost.title,
+      description: staticPost.seoDescription || staticPost.excerpt,
+      keywords: staticPost.tags || [],
+      authors: [{ name: 'Dr. Kapil Agrawal', url: 'https://www.habiliteclinics.com/dr-kapil-agrawal' }],
+      openGraph: {
+        title: staticPost.title,
+        description: staticPost.excerpt,
+        url: `https://www.habiliteclinics.com/post/${slug}`,
+        images: [
+          {
+            url: staticPost.image.startsWith('http') ? staticPost.image : `https://www.habiliteclinics.com${staticPost.image}`,
+            width: 1200,
+            height: 630,
+            alt: staticPost.title,
+          },
+        ],
+        authors: ['Dr. Kapil Agrawal'],
+        type: 'article',
+        publishedTime: staticPost.publishedDate,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: staticPost.title,
+        description: staticPost.excerpt,
+        images: [staticPost.image.startsWith('http') ? staticPost.image : `https://www.habiliteclinics.com${staticPost.image}`],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      },
+      alternates: {
+        canonical: `https://www.habiliteclinics.com/post/${slug}`,
+      },
+    }
+  }
 
   return {
-    title: post.seoTitle || post.title,
-    description: post.seoDescription || post.excerpt,
-    keywords: post.tags || [],
+    title: post.seoTitle || post.title || 'Blog Post',
+    description: post.seoDescription || post.excerpt || '',
+    keywords: [],
     authors: [{ name: 'Dr. Kapil Agrawal', url: 'https://www.habiliteclinics.com/dr-kapil-agrawal' }],
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: post.title || 'Blog Post',
+      description: post.excerpt || '',
       url: `https://www.habiliteclinics.com/post/${slug}`,
-      images: [
-        {
-          url: post.image.startsWith('http') ? post.image : `https://www.habiliteclinics.com${post.image}`,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: post.title || 'Blog post',
+            },
+          ]
+        : [],
       authors: ['Dr. Kapil Agrawal'],
       type: 'article',
-      publishedTime: post.publishedDate,
+      publishedTime: post.publishedAt,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: [post.image.startsWith('http') ? post.image : `https://www.habiliteclinics.com${post.image}`],
+      title: post.title || 'Blog Post',
+      description: post.excerpt || '',
+      images: imageUrl ? [imageUrl] : [],
     },
     robots: {
       index: true,
@@ -117,6 +194,43 @@ export default async function BlogPostPage({ params }: Props) {
     )
   }
 
+  // Try to fetch from Sanity first
+  let sanityPost = null
+  try {
+    sanityPost = await getClient(false).fetch(blogBySlugQueryWithAuthor, { slug })
+  } catch (error) {
+    console.error('Error fetching blog from Sanity:', error)
+  }
+
+  // If found in Sanity, render Sanity component
+  if (sanityPost) {
+    const articleSchema = getArticleSchema({
+      title: sanityPost.title || '',
+      description: sanityPost.excerpt || '',
+      url: `/post/${slug}`,
+      image: sanityPost.mainImage ? urlForImage(sanityPost.mainImage).width(1200).height(630).url() || '' : '',
+      datePublished: sanityPost.publishedAt || '',
+      dateModified: sanityPost.publishedAt || '',
+      keywords: [],
+    })
+    const breadcrumbSchema = getBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/post' },
+      { name: sanityPost.title || 'Blog Post', url: `/post/${slug}` },
+    ])
+
+    return (
+      <>
+        <StructuredData data={articleSchema} />
+        <StructuredData data={breadcrumbSchema} />
+        <div className="pt-20 pb-16">
+          <SanitySingleBlog post={sanityPost} />
+        </div>
+      </>
+    )
+  }
+
+  // Fallback to static data
   const post = getBlogPostBySlug(slug)
   if (!post) notFound()
 

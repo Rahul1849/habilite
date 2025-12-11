@@ -3,6 +3,7 @@ import { Suspense as PreviewSuspense } from 'react'
 import { draftMode } from 'next/headers'
 import BlogFilter from '@/components/blog/BlogFilter'
 import PreviewBlogList from '@/components/blog/PreviewBlogList'
+import SanityBlogList from '@/components/blog/SanityBlogList'
 import PreviewProvider from '@/components/PreviewProvider'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
@@ -63,6 +64,8 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Blog', url: '/post' },
 ])
 
+export const revalidate = 60 // Revalidate every minute to show published changes quickly
+
 export default async function BlogPage() {
   const { isEnabled } = draftMode()
 
@@ -102,6 +105,9 @@ export default async function BlogPage() {
     )
   }
 
+  // Fetch published blogs from Sanity
+  const publishedBlogs = await getClient(false).fetch(blogsQuery)
+
   return (
     <>
       <StructuredData data={breadcrumbSchema} />
@@ -120,7 +126,11 @@ export default async function BlogPage() {
         </div>
 
         <div className="container-custom section-padding">
-          <BlogFilter />
+          {publishedBlogs && publishedBlogs.length > 0 ? (
+            <SanityBlogList blogs={publishedBlogs} />
+          ) : (
+            <BlogFilter />
+          )}
         </div>
       </div>
     </>
