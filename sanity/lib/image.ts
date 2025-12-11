@@ -1,7 +1,24 @@
 import createImageUrlBuilder from "@sanity/image-url";
-import { client } from "../config/client";
+import { getSanityConfigClient } from "../config/client";
 
-const imageBuilder = createImageUrlBuilder(client);
+const sanityClient = getSanityConfigClient();
+const imageBuilder =
+  sanityClient && sanityClient.config().projectId && sanityClient.config().dataset
+    ? createImageUrlBuilder({
+        projectId: sanityClient.config().projectId,
+        dataset: sanityClient.config().dataset,
+      })
+    : null;
 
-export const urlForImage = (source: any) =>
-  imageBuilder.image(source).auto("format").fit("max");
+export const urlForImage = (source: any) => {
+  if (!imageBuilder) {
+    return {
+      width: () => ({
+        height: () => ({
+          url: () => "",
+        }),
+      }),
+    } as any;
+  }
+  return imageBuilder.image(source).auto("format").fit("max");
+};

@@ -1,9 +1,21 @@
 import { createClient } from "@sanity/client";
 
-export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  apiVersion: process.env.SANITY_API_VERSION!,
-  useCdn: false, // fetch fresh data always
-  token: process.env.SANITY_API_TOKEN
-});
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+const apiVersion = process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION;
+const token = process.env.SANITY_API_TOKEN;
+
+export const client =
+  projectId && dataset && apiVersion
+    ? createClient({
+        projectId,
+        dataset,
+        apiVersion,
+        useCdn: false, // fetch fresh data always
+        token,
+      })
+    : null;
+
+export function getSanityLibClient() {
+  return client;
+}
