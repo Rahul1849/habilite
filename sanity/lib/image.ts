@@ -2,11 +2,14 @@ import createImageUrlBuilder from "@sanity/image-url";
 import { getSanityConfigClient } from "../config/client";
 
 const sanityClient = getSanityConfigClient();
+const projectId = sanityClient?.config().projectId;
+const dataset = sanityClient?.config().dataset;
+
 const imageBuilder =
-  sanityClient && sanityClient.config().projectId && sanityClient.config().dataset
+  projectId && dataset
     ? createImageUrlBuilder({
-        projectId: sanityClient.config().projectId,
-        dataset: sanityClient.config().dataset,
+        projectId,
+        dataset,
       })
     : null;
 
