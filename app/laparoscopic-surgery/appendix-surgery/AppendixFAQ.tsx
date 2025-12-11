@@ -10,7 +10,7 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'What is the main cause of appendicitis?',
+    question: 'What is the main cause of Appendix?',
     answer: 'Appendicitis occurs due to blockage in the appendix, due to hardened stool, infection, or swollen lymph tissue. This blockage can cause inflammation and bacterial growth.',
   },
   {
