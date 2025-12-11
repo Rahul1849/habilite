@@ -29,7 +29,12 @@ import type {
 // Fetch Home Page Data
 export async function getHomePage(): Promise<HomePage | null> {
   try {
-    const data = await sanityClient.fetch<HomePage>(homePageQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getHomePage");
+      return null;
+    }
+    const data = await client.fetch<HomePage>(homePageQuery);
     return data || null;
   } catch (error) {
     console.error("Error fetching home page:", error);
@@ -40,7 +45,12 @@ export async function getHomePage(): Promise<HomePage | null> {
 // Fetch Services
 export async function getAllServices(): Promise<Service[]> {
   try {
-    const data = await sanityClient.fetch<Service[]>(allServicesQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getAllServices");
+      return [];
+    }
+    const data = await client.fetch<Service[]>(allServicesQuery);
     return data || [];
   } catch (error) {
     console.error("Error fetching services:", error);
@@ -60,7 +70,12 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
 
 export async function getFeaturedServices(): Promise<Service[]> {
   try {
-    const data = await sanityClient.fetch<Service[]>(featuredServicesQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getFeaturedServices");
+      return [];
+    }
+    const data = await client.fetch<Service[]>(featuredServicesQuery);
     return data || [];
   } catch (error) {
     console.error("Error fetching featured services:", error);
@@ -71,7 +86,12 @@ export async function getFeaturedServices(): Promise<Service[]> {
 // Fetch Doctors
 export async function getAllDoctors(): Promise<Doctor[]> {
   try {
-    const data = await sanityClient.fetch<Doctor[]>(allDoctorsQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getAllDoctors");
+      return [];
+    }
+    const data = await client.fetch<Doctor[]>(allDoctorsQuery);
     return data || [];
   } catch (error) {
     console.error("Error fetching doctors:", error);
@@ -126,7 +146,12 @@ export async function getRecentBlogs(limit: number = 3, preview: boolean = false
 // Fetch Testimonials
 export async function getAllTestimonials(): Promise<Testimonial[]> {
   try {
-    const data = await sanityClient.fetch<Testimonial[]>(allTestimonialsQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getAllTestimonials");
+      return [];
+    }
+    const data = await client.fetch<Testimonial[]>(allTestimonialsQuery);
     return data || [];
   } catch (error) {
     console.error("Error fetching testimonials:", error);
@@ -136,7 +161,12 @@ export async function getAllTestimonials(): Promise<Testimonial[]> {
 
 export async function getFeaturedTestimonials(): Promise<Testimonial[]> {
   try {
-    const data = await sanityClient.fetch<Testimonial[]>(featuredTestimonialsQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getFeaturedTestimonials");
+      return [];
+    }
+    const data = await client.fetch<Testimonial[]>(featuredTestimonialsQuery);
     return data || [];
   } catch (error) {
     console.error("Error fetching featured testimonials:", error);
@@ -147,7 +177,12 @@ export async function getFeaturedTestimonials(): Promise<Testimonial[]> {
 // Fetch FAQs
 export async function getAllFAQs(): Promise<FAQ[]> {
   try {
-    const data = await sanityClient.fetch<FAQ[]>(allFAQsQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getAllFAQs");
+      return [];
+    }
+    const data = await client.fetch<FAQ[]>(allFAQsQuery);
     return data || [];
   } catch (error) {
     console.error("Error fetching FAQs:", error);
@@ -158,7 +193,12 @@ export async function getAllFAQs(): Promise<FAQ[]> {
 // Fetch About Page
 export async function getAboutPage(): Promise<AboutPage | null> {
   try {
-    const data = await sanityClient.fetch<AboutPage | null>(aboutPageQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getAboutPage");
+      return null;
+    }
+    const data = await client.fetch<AboutPage | null>(aboutPageQuery);
     return data || null;
   } catch (error) {
     console.error("Error fetching about page:", error);
@@ -169,7 +209,12 @@ export async function getAboutPage(): Promise<AboutPage | null> {
 // Fetch Global Settings
 export async function getGlobalSettings(): Promise<GlobalSettings | null> {
   try {
-    const data = await sanityClient.fetch<GlobalSettings | null>(globalSettingsQuery);
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getGlobalSettings");
+      return null;
+    }
+    const data = await client.fetch<GlobalSettings | null>(globalSettingsQuery);
     return data || null;
   } catch (error) {
     console.error("Error fetching global settings:", error);
