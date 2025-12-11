@@ -33,9 +33,12 @@ async function PreviewContent({ slug }: { slug?: string }) {
     )
   }
 
+  // TypeScript now knows client is not null after the early return
+  const sanityClient = client
+
   if (slug) {
     // Show single blog post preview
-    const post = await client.fetch(blogBySlugQueryWithAuthor, { slug })
+    const post = await sanityClient.fetch(blogBySlugQueryWithAuthor, { slug })
 
     if (!post) {
       return (
@@ -143,7 +146,7 @@ async function PreviewContent({ slug }: { slug?: string }) {
   }
 
   // Show all blogs preview
-  const blogs = client ? await client.fetch(blogsQuery) : []
+  const blogs = await sanityClient.fetch(blogsQuery)
 
   return (
     <div className="pt-20 pb-16">
