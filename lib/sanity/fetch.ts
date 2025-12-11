@@ -60,7 +60,12 @@ export async function getAllServices(): Promise<Service[]> {
 
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
   try {
-    const data = await sanityClient.fetch<Service | null>(serviceBySlugQuery, { slug });
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getServiceBySlug");
+      return null;
+    }
+    const data = await client.fetch<Service | null>(serviceBySlugQuery, { slug });
     return data || null;
   } catch (error) {
     console.error("Error fetching service:", error);
@@ -101,7 +106,12 @@ export async function getAllDoctors(): Promise<Doctor[]> {
 
 export async function getDoctorBySlug(slug: string): Promise<Doctor | null> {
   try {
-    const data = await sanityClient.fetch<Doctor | null>(doctorBySlugQuery, { slug });
+    const client = sanityClient || getClient(false);
+    if (!client) {
+      console.warn("Sanity client not configured for getDoctorBySlug");
+      return null;
+    }
+    const data = await client.fetch<Doctor | null>(doctorBySlugQuery, { slug });
     return data || null;
   } catch (error) {
     console.error("Error fetching doctor:", error);
@@ -113,6 +123,10 @@ export async function getDoctorBySlug(slug: string): Promise<Doctor | null> {
 export async function getAllBlogs(preview: boolean = false): Promise<Blog[]> {
   try {
     const client = getClient(preview);
+    if (!client) {
+      console.warn("Sanity client not configured for getAllBlogs");
+      return [];
+    }
     const data = await client.fetch<Blog[]>(allBlogsQuery);
     return data || [];
   } catch (error) {
@@ -124,6 +138,10 @@ export async function getAllBlogs(preview: boolean = false): Promise<Blog[]> {
 export async function getBlogBySlug(slug: string, preview: boolean = false): Promise<Blog | null> {
   try {
     const client = getClient(preview);
+    if (!client) {
+      console.warn("Sanity client not configured for getBlogBySlug");
+      return null;
+    }
     const data = await client.fetch<Blog | null>(blogBySlugQuery, { slug });
     return data || null;
   } catch (error) {
@@ -135,6 +153,10 @@ export async function getBlogBySlug(slug: string, preview: boolean = false): Pro
 export async function getRecentBlogs(limit: number = 3, preview: boolean = false): Promise<Blog[]> {
   try {
     const client = getClient(preview);
+    if (!client) {
+      console.warn("Sanity client not configured for getRecentBlogs");
+      return [];
+    }
     const data = await client.fetch<Blog[]>(recentBlogsQuery, { limit });
     return data || [];
   } catch (error) {
