@@ -22,6 +22,17 @@ async function PreviewContent({ slug }: { slug?: string }) {
   const isDraft = draftMode().isEnabled
   const client = getClient(isDraft)
 
+  if (!client) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-3">
+          <p className="text-lg font-semibold text-gray-900">Sanity client not configured.</p>
+          <p className="text-gray-600 text-sm">Please set NEXT_PUBLIC_SANITY_PROJECT_ID and NEXT_PUBLIC_SANITY_DATASET.</p>
+        </div>
+      </div>
+    )
+  }
+
   if (slug) {
     // Show single blog post preview
     const post = await client.fetch(blogBySlugQueryWithAuthor, { slug })
@@ -132,7 +143,7 @@ async function PreviewContent({ slug }: { slug?: string }) {
   }
 
   // Show all blogs preview
-  const blogs = await client.fetch(blogsQuery)
+  const blogs = client ? await client.fetch(blogsQuery) : []
 
   return (
     <div className="pt-20 pb-16">
