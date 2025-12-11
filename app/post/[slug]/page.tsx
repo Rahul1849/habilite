@@ -28,13 +28,17 @@ export const revalidate = 60 // Revalidate every minute to show published change
 
 export async function generateStaticParams() {
   // Try to fetch from Sanity first, fallback to static data
-  try {
-    const blogs = await getClient(false).fetch(blogsQuery)
-    if (blogs && blogs.length > 0) {
-      return blogs.map((blog: any) => ({ slug: blog.slug || '' })).filter((p: any) => p.slug)
+  const client = getClient(false)
+  if (client) {
+    try {
+      const blogs = await client.fetch(blogsQuery)
+      if (blogs && blogs.length > 0) {
+        return blogs.map((blog: any) => ({ slug: blog.slug || '' })).filter((p: any) => p.slug)
+      }
+    } catch (error) {
+      // Silently fallback to static data if Sanity is not available
+      console.warn('Sanity not available for static params, using fallback:', error)
     }
-  } catch (error) {
-    console.error('Error fetching blogs for static params:', error)
   }
   // Fallback to static blog posts
   return blogPosts.map((post) => ({ slug: post.slug }))
@@ -47,16 +51,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   let post = null
   let imageUrl = null
   
-  try {
-    const sanityPost = await getClient(false).fetch(blogBySlugQueryWithAuthor, { slug })
-    if (sanityPost) {
-      post = sanityPost
-      if (sanityPost.mainImage) {
-        imageUrl = urlForImage(sanityPost.mainImage).width(1200).height(630).url()
+  const client = getClient(false)
+  if (client) {
+    try {
+      const sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
+      if (sanityPost) {
+        post = sanityPost
+        if (sanityPost.mainImage) {
+          imageUrl = urlForImage(sanityPost.mainImage).width(1200).height(630).url()
+        }
       }
+    } catch (error) {
+      console.error('Error fetching blog for metadata:', error)
     }
-  } catch (error) {
-    console.error('Error fetching blog for metadata:', error)
   }
   
   // Fallback to static data
@@ -159,13 +166,13 @@ export default async function BlogPostPage({ params }: Props) {
   const { isEnabled } = draftMode()
 
   if (isEnabled) {
-    const initialData = await getClient(true).fetch(blogBySlugQueryWithAuthor, { slug })
+    const previewClient = getClient(true)
     const projectId = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
     const dataset = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET
     const apiVersion = process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION
     const token = process.env.SANITY_READ_TOKEN || process.env.SANITY_API_READ_TOKEN
 
-    if (!projectId || !dataset) {
+    if (!projectId || !dataset || !previewClient) {
       return (
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center space-y-3">
@@ -174,6 +181,13 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       )
+    }
+
+    let initialData = null
+    try {
+      initialData = await previewClient.fetch(blogBySlugQueryWithAuthor, { slug })
+    } catch (error) {
+      console.error('Error fetching preview blog:', error)
     }
 
     return (
@@ -196,10 +210,13 @@ export default async function BlogPostPage({ params }: Props) {
 
   // Try to fetch from Sanity first
   let sanityPost = null
-  try {
-    sanityPost = await getClient(false).fetch(blogBySlugQueryWithAuthor, { slug })
-  } catch (error) {
-    console.error('Error fetching blog from Sanity:', error)
+  const client = getClient(false)
+  if (client) {
+    try {
+      sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
+    } catch (error) {
+      console.error('Error fetching blog from Sanity:', error)
+    }
   }
 
   // If found in Sanity, render Sanity component

@@ -70,13 +70,13 @@ export default async function BlogPage() {
   const { isEnabled } = draftMode()
 
   if (isEnabled) {
-    const initialBlogs = await getClient(true).fetch(blogsQuery)
+    const previewClient = getClient(true)
     const projectId = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
     const dataset = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET
     const apiVersion = process.env.SANITY_API_VERSION || process.env.NEXT_PUBLIC_SANITY_API_VERSION
     const token = process.env.SANITY_READ_TOKEN || process.env.SANITY_API_READ_TOKEN
 
-    if (!projectId || !dataset) {
+    if (!projectId || !dataset || !previewClient) {
       return (
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center space-y-3">
@@ -85,6 +85,13 @@ export default async function BlogPage() {
           </div>
         </div>
       )
+    }
+
+    let initialBlogs = []
+    try {
+      initialBlogs = await previewClient.fetch(blogsQuery)
+    } catch (error) {
+      console.error('Error fetching preview blogs:', error)
     }
 
     return (
@@ -106,7 +113,17 @@ export default async function BlogPage() {
   }
 
   // Fetch published blogs from Sanity
-  const publishedBlogs = await getClient(false).fetch(blogsQuery)
+  let publishedBlogs = null
+  const client = getClient(false)
+  if (client) {
+    try {
+      publishedBlogs = await client.fetch(blogsQuery)
+    } catch (error) {
+      console.error('Error fetching blogs from Sanity:', error)
+      // Fallback to static data if Sanity fetch fails
+      publishedBlogs = null
+    }
+  }
 
   return (
     <>
