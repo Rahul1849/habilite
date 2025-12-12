@@ -246,10 +246,10 @@ export default function GallbladderSurgeryPage() {
           <div className="max-w-5xl mx-auto space-y-12">
             {/* About Dr. Kapil Agrawal */}
             <section>
-              <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic &
                 Robotic Surgery by Dr Kapil Agrawal
-              </h1>
+              </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Dr Kapil Agrawal is one of the most prominent and best
                 gallbladder surgeons in Delhi. He is known for his outstanding
