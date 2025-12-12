@@ -335,7 +335,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      <strong>Signs of Infection or Inflammation (Acute Cholecystitis):</strong> If a stone completely blocks the gallbladder's outlet, it can lead to a dangerous infection. This results in constant, severe pain, fever with chills, and nausea/vomiting.
+                      <strong>Signs of Infection or Inflammation (Acute Cholecystitis):</strong> If a stone completely blocks the gallbladder&apos;s outlet, it can lead to a dangerous infection. This results in constant, severe pain, fever with chills, and nausea/vomiting.
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -366,11 +366,11 @@ export default function GallbladderSurgeryPage() {
                 Gallbladder Conditions We Treat
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                While gallbladder stones are the most common problem, the gallbladder can be affected by several conditions. Dr Kapil Agrawal's expertise enables him to deal with the full spectrum of gallbladder pathologies.
+                While gallbladder stones are the most common problem, the gallbladder can be affected by several conditions. Dr Kapil Agrawal&apos;s expertise enables him to deal with the full spectrum of gallbladder pathologies.
 Gallstones (Cholelithiasis): The presence of stones that are causing biliary colic or other symptoms. This is the most common reason for recommending laparoscopic cholecystectomy.
 Acute and Chronic Cholecystitis: This refers to inflammation of the gallbladder, due to which gallbladder stops to function. 
 Biliary Dyskinesia: This is a less common condition where the gallbladder loses its power to contract and cannot empty bile properly, causing classic gallbladder pain without the presence of stones. 
-Gallbladder Polyps: These are growths that protrude from the gallbladder's inner lining. While most are benign, certain types or large polyps (&lt;1) may have malignant potential. 
+Gallbladder Polyps: These are growths that protrude from the gallbladder&apos;s inner lining. While most are benign, certain types or large polyps (&lt;1) may have malignant potential. 
 Porcelain Gallbladder: A rare condition where the gallbladder wall becomes calcified. It is associated with a significantly increased risk of gallbladder cancer.
               </p>
             </section>
@@ -417,7 +417,7 @@ Porcelain Gallbladder: A rare condition where the gallbladder wall becomes calci
 
 <p className="mb-4">Single-port surgery for gallbladder stones is an advanced form of conventional laparoscopic surgery.  In specific individuals who meet the eligibility criteria, the technique is known to produce excellent results in terms of aesthetics and pain relief. For eligible patients seeking the ultimate in minimally invasive cosmetic results, Dr Agrawal is a pioneer in this advanced technique.
 The Innovation: Instead of 3-4 small incisions, the entire surgery is performed through a single, small incision hidden within the belly button (umbilicus).</p>
-<p className="mb-4">The Aesthetic Advantage: The result is a scar that is virtually invisible after healing. Dr Agrawal performs this procedure "mainly for gallbladder stones and bariatric surgery".</p>
+<p className="mb-4">The Aesthetic Advantage: The result is a scar that is virtually invisible after healing. Dr Agrawal performs this procedure &quot;mainly for gallbladder stones and bariatric surgery&quot;.</p>
 
 
               <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6 mb-4">
