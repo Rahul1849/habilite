@@ -204,9 +204,14 @@ export default function GallbladderSurgeryPage() {
               <span className="text-[#0891b2]">Delhi</span> | Advanced Laparoscopic & Robotic Surgery by Dr Kapil Agrawal
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
-              Expert Surgeon with Over 23 Years of Experience | Internationally
-              Trained Expert | Painless Surgery for Fast Recovery | Cashless
-              Insurance Facility Available | Discharge within 24 hours
+                Dr Kapil Agrawal is one of the most prominent and best
+                gallbladder surgeons in Delhi. He is known for his outstanding
+                surgical skills, with promising outcomes in Laparoscopic
+                Gallbladder Surgeries and Robot-Assisted Gallbladder Stone
+                Surgeries.  His huge surgical experience of 23 years includes
+                more than 7,000 gallbladder surgeries executed. This significant
+                volume speaks to his commitment to delivering the finest quality
+                of care to his patients.
             </p>
 
             {/* Key Highlights */}
@@ -244,50 +249,8 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           <div className="max-w-5xl mx-auto space-y-12">
-            {/* About Dr. Kapil Agrawal */}
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic &
-                Robotic Surgery by Dr Kapil Agrawal
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Dr Kapil Agrawal is one of the most prominent and best
-                gallbladder surgeons in Delhi. He is known for his outstanding
-                surgical skills, with promising outcomes in Laparoscopic
-                Gallbladder Surgeries and Robot-Assisted Gallbladder Stone
-                Surgeries.  His huge surgical experience of 23 years includes
-                more than 7,000 gallbladder surgeries executed. This significant
-                volume speaks to his commitment to delivering the finest quality
-                of care to his patients.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                With his association with top hospitals
-                in Delhi, Dr Kapil Agrawal delivers excellent results, combining
-                empathy and strong compassion to offer brilliant patient care.
-              </p>
-              {/* <p className="text-gray-700 leading-relaxed mb-4">
-                Dr. Kapil Agrawal has successfully executed numerous
-                laparoscopic gallbladder surgeries, earning the trust of various
-                patients with his precision, excellent surgical outcomes, and
-                best patient care. He possesses outstanding skills to
-                effectively deal with simple and complex cases ensuring a high
-                standard of patient care. With his passion to offer better
-                safety, comfort, and faster healing with admirable post-surgical
-                care, Dr. Kapil Agrawal is one of the top choices for
-                gallbladder stone surgery in Delhi.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Dr. Kapil Agrawal, a laparoscopic and robotic gallbladder
-                surgeon in Delhi, is widely regarded as the best gallbladder
-                surgeon in Delhi, India. With over 23 years of experience and
-                more than 7,000 successful gallbladder surgeries, he is known as
-                a gallbladder stone specialist in Delhi for delivering excellent
-                patient outcomes. Dr. Kapil Agrawal is also a Senior consultant
-                at Apollo group of hospitals and he is associated with many top
-                hospitals in Delhi NCR to offer safe, effective, and advanced
-                surgical care.
-              </p> */}
-            </section>
+           
+            
 
             {/* What is Gallbladder */}
             <section>
