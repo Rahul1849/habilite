@@ -201,17 +201,18 @@ export default function GallbladderSurgeryPage() {
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Best Gallbladder Surgeon in{" "}
-              <span className="text-[#0891b2]">Delhi</span> | Advanced Laparoscopic & Robotic Surgery by Dr Kapil Agrawal
+              <span className="text-[#0891b2]">Delhi</span> | Advanced
+              Laparoscopic & Robotic Surgery by Dr Kapil Agrawal
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
-                Dr Kapil Agrawal is one of the most prominent and best
-                gallbladder surgeons in Delhi. He is known for his outstanding
-                surgical skills, with promising outcomes in Laparoscopic
-                Gallbladder Surgeries and Robot-Assisted Gallbladder Stone
-                Surgeries.  His huge surgical experience of 23 years includes
-                more than 7,000 gallbladder surgeries executed. This significant
-                volume speaks to his commitment to delivering the finest quality
-                of care to his patients.
+              Dr Kapil Agrawal is one of the most prominent and best gallbladder
+              surgeons in Delhi. He is known for his outstanding surgical
+              skills, with promising outcomes in Laparoscopic Gallbladder
+              Surgeries and Robot-Assisted Gallbladder Stone Surgeries. His huge
+              surgical experience of 23 years includes more than 7,000
+              gallbladder surgeries executed. This significant volume speaks to
+              his commitment to delivering the finest quality of care to his
+              patients.
             </p>
 
             {/* Key Highlights */}
@@ -249,9 +250,6 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           <div className="max-w-5xl mx-auto space-y-12">
-           
-            
-
             {/* What is Gallbladder */}
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
@@ -262,16 +260,21 @@ export default function GallbladderSurgeryPage() {
                   What Does the Gallbladder Do?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  The gallbladder is a small pouch located beneath the liver that stores, concentrates, and releases bile. Bile is a digestive juice produced by the liver that helps in breaking down dietary fats during the digestive process after the consumption of fatty foods.
+                  The gallbladder is a small pouch located beneath the liver
+                  that stores, concentrates, and releases bile. Bile is a
+                  digestive juice produced by the liver that helps in breaking
+                  down dietary fats during the digestive process after the
+                  consumption of fatty foods.
                 </p>
               </div>
-              
+
               <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6 mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">
                   Common Symptoms of Gallbladder Problems:
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  When the gallbladder ceases to function properly, it can cause various symptoms.
+                  When the gallbladder ceases to function properly, it can cause
+                  various symptoms.
                 </p>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
@@ -280,7 +283,11 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      <strong>The Classic Symptom: Biliary Colic:</strong> This is the first major warning sign. You might experience a sudden, intense, and steady pain in the upper right abdomen or centre of your stomach, just below the breastbone.
+                      <strong>The Classic Symptom: Biliary Colic:</strong> This
+                      is the first major warning sign. You might experience a
+                      sudden, intense, and steady pain in the upper right
+                      abdomen or centre of your stomach, just below the
+                      breastbone.
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -289,7 +296,9 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      <strong>Persistent Indigestion and Bloating:</strong> You might also feel frequent bloating, gas, heartburn, and a feeling of fullness or nausea, especially after meals.
+                      <strong>Persistent Indigestion and Bloating:</strong> You
+                      might also feel frequent bloating, gas, heartburn, and a
+                      feeling of fullness or nausea, especially after meals.
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -298,7 +307,14 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      <strong>Signs of Infection or Inflammation (Acute Cholecystitis):</strong> If a stone completely blocks the gallbladder&apos;s outlet, it can lead to a dangerous infection. This results in constant, severe pain, fever with chills, and nausea/vomiting.
+                      <strong>
+                        Signs of Infection or Inflammation (Acute
+                        Cholecystitis):
+                      </strong>{" "}
+                      If a stone completely blocks the gallbladder&apos;s
+                      outlet, it can lead to a dangerous infection. This results
+                      in constant, severe pain, fever with chills, and
+                      nausea/vomiting.
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -307,7 +323,11 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      <strong>When stones slip into the bile duct:</strong> Small stones can escape the gallbladder and block the common bile duct (choledocholithiasis), or even trigger pancreatitis. This can cause jaundice, dark urine and pale stools, severe, persistent abdominal pain.
+                      <strong>When stones slip into the bile duct:</strong>{" "}
+                      Small stones can escape the gallbladder and block the
+                      common bile duct (choledocholithiasis), or even trigger
+                      pancreatitis. This can cause jaundice, dark urine and pale
+                      stools, severe, persistent abdominal pain.
                     </span>
                   </li>
                 </ul>
@@ -318,7 +338,12 @@ export default function GallbladderSurgeryPage() {
                   When You Should See a Gallbladder Specialist
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  If you experience recurrent episodes of upper abdominal pain, especially after meals, or any of the acute symptoms mentioned above, do not ignore them. Early consultation with a specialist like Dr Kapil Agrawal can prevent complications and lead to a simpler, scheduled surgery rather than an emergency procedure.
+                  If you experience recurrent episodes of upper abdominal pain,
+                  especially after meals, or any of the acute symptoms mentioned
+                  above, do not ignore them. Early consultation with a
+                  specialist like Dr Kapil Agrawal can prevent complications and
+                  lead to a simpler, scheduled surgery rather than an emergency
+                  procedure.
                 </p>
               </div>
             </section>
@@ -329,12 +354,38 @@ export default function GallbladderSurgeryPage() {
                 Gallbladder Conditions We Treat
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                While gallbladder stones are the most common problem, the gallbladder can be affected by several conditions. Dr Kapil Agrawal&apos;s expertise enables him to deal with the full spectrum of gallbladder pathologies.
-Gallstones (Cholelithiasis): The presence of stones that are causing biliary colic or other symptoms. This is the most common reason for recommending laparoscopic cholecystectomy.
-Acute and Chronic Cholecystitis: This refers to inflammation of the gallbladder, due to which gallbladder stops to function. 
-Biliary Dyskinesia: This is a less common condition where the gallbladder loses its power to contract and cannot empty bile properly, causing classic gallbladder pain without the presence of stones. 
-Gallbladder Polyps: These are growths that protrude from the gallbladder&apos;s inner lining. While most are benign, certain types or large polyps (&lt;1) may have malignant potential. 
-Porcelain Gallbladder: A rare condition where the gallbladder wall becomes calcified. It is associated with a significantly increased risk of gallbladder cancer.
+                While gallbladder stones are the most common problem, the
+                gallbladder can be affected by several conditions. Dr Kapil
+                Agrawal&apos;s expertise enables him to deal with the full
+                spectrum of gallbladder pathologies.
+                <p>
+                  <strong>Gallstones (Cholelithiasis):</strong> The presence of
+                  stones that are causing biliary colic or other symptoms. This
+                  is the most common reason for recommending laparoscopic
+                  cholecystectomy.
+                </p>
+                <p>
+                  <strong>Acute and Chronic Cholecystitis:</strong> This refers
+                  to inflammation of the gallbladder, due to which gallbladder
+                  stops to function.{" "}
+                </p>
+                <p>
+                  <strong>Biliary Dyskinesia:</strong> This is a less common
+                  condition where the gallbladder loses its power to contract
+                  and cannot empty bile properly, causing classic gallbladder
+                  pain without the presence of stones.
+                </p>
+                <p>
+                  <strong>Gallbladder Polyps:</strong> These are growths that
+                  protrude from the gallbladder&apos;s inner lining. While most
+                  are benign, certain types or large polyps (&lt;1) may have
+                  malignant potential.
+                </p>
+                <p>
+                  <strong>Porcelain Gallbladder:</strong> A rare condition where
+                  the gallbladder wall becomes calcified. It is associated with
+                  a significantly increased risk of gallbladder cancer.
+                </p>
               </p>
             </section>
 
@@ -343,152 +394,76 @@ Porcelain Gallbladder: A rare condition where the gallbladder wall becomes calci
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Advanced Gallbladder Surgery Options:
               </h2>
-<li>
-  <h3 className="font-bold text-xl mb-2">
-  Gold-Standard Laparoscopic Cholecystectomy: The Preferred Choice 
-  </h3>
-</li>
 
-  <p className="mb-4">
-  In the modern era, laparoscopic surgery has been regarded as the gold standard
-  procedure for gallbladder management. Dr Kapil Agrawal is the best laparoscopic 
-  surgeon in Delhi, known for his successful gallbladder stone surgeries.
-</p>
+              <h3 className="font-semibold text-xl mb-2">
+                Gold-Standard Laparoscopic Cholecystectomy: The Preferred Choice
+              </h3>
 
-<p className="mb-4">
-  The surgery is performed under general anaesthesia, which means the patient is 
-  completely asleep before surgery begins. In this procedure, three small holes, 
-  each 0.5 cm, are made at different abdominal sites to perform the surgery.
-  A laparoscope (a thin tube with a high-definition camera) and specialised 
-  instruments are inserted. Dr Agrawal performs the entire surgery while viewing 
-  a magnified image on a screen, enabling exceptional precision.
-</p>
+              <p className="mb-4">
+                In the modern era, laparoscopic surgery has been regarded as the
+                gold standard procedure for gallbladder management. Dr Kapil
+                Agrawal is the best laparoscopic surgeon in Delhi, known for his
+                successful gallbladder stone surgeries.
+              </p>
 
-<p className="mb-4">
-  <strong>Benefits for You:</strong> Patients experience significantly less 
-  post-operative pain, minimal scarring, a lower risk of infection, and a much 
-  faster return to everyday life—often within a week.
-</p>
+              <p className="mb-4">
+                The surgery is performed under general anaesthesia, which means
+                the patient is completely asleep before surgery begins. In this
+                procedure, three small holes, each 0.5 cm, are made at different
+                abdominal sites to perform the surgery. A laparoscope (a thin
+                tube with a high-definition camera) and specialised instruments
+                are inserted. Dr Agrawal performs the entire surgery while
+                viewing a magnified image on a screen, enabling exceptional
+                precision.
+              </p>
 
+              <p className="mb-4">
+                <strong>Benefits for You:</strong> Patients experience
+                significantly less post-operative pain, minimal scarring, a
+                lower risk of infection, and a much faster return to everyday
+                life—often within a week.
+              </p>
 
-<li>
-  <h3 className="font-bold text-xl mb-2">
-  Single-Port (SILS) Surgery: For an Almost Scarless Result 
-  </h3>
-</li>
+              <h3 className="font-semi-bold text-xl mb-2">
+                Single-Port (SILS) Surgery: For an Almost Scarless Result
+              </h3>
 
+              <p className="mb-4">
+                Single-port surgery for gallbladder stones is an advanced form
+                of conventional laparoscopic surgery.  In specific individuals
+                who meet the eligibility criteria, the technique is known to
+                produce excellent results in terms of aesthetics and pain
+                relief. For eligible patients seeking the ultimate in minimally
+                invasive cosmetic results, Dr Agrawal is a pioneer in this
+                advanced technique. The Innovation: Instead of 3-4 small
+                incisions, the entire surgery is performed through a single,
+                small incision hidden within the belly button (umbilicus).
+              </p>
+              <p className="mb-4">
+                <strong>The Aesthetic Advantage:</strong> The result is a scar
+                that is virtually invisible after healing. Dr Agrawal performs
+                this procedure &quot;mainly for gallbladder stones and bariatric
+                surgery&quot;.
+              </p>
 
-<p className="mb-4">Single-port surgery for gallbladder stones is an advanced form of conventional laparoscopic surgery.  In specific individuals who meet the eligibility criteria, the technique is known to produce excellent results in terms of aesthetics and pain relief. For eligible patients seeking the ultimate in minimally invasive cosmetic results, Dr Agrawal is a pioneer in this advanced technique.
-The Innovation: Instead of 3-4 small incisions, the entire surgery is performed through a single, small incision hidden within the belly button (umbilicus).</p>
-<p className="mb-4">The Aesthetic Advantage: The result is a scar that is virtually invisible after healing. Dr Agrawal performs this procedure &quot;mainly for gallbladder stones and bariatric surgery&quot;.</p>
-
-
-              <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6 mb-4">
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Few identifying symptoms are as follows:
-                </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
-                    <CheckCircle2
-                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
-                      size={18}
-                    />
-                    <span>
-                      <strong>Abdominal Pain:</strong> Pain can be in the right
-                      upper abdomen, central referred to back or general all
-                      over the abdomen.
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle2
-                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
-                      size={18}
-                    />
-                    <span>
-                      <strong>Nausea or Vomiting:</strong> These symptoms can be
-                      generated as the stones block the ducts.
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle2
-                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
-                      size={18}
-                    />
-                    <span>
-                      <strong>Bloating of the Abdomen:</strong> Gallstones can
-                      result in symptoms like indigestion that further led to
-                      formation and accumulation of gases in your intestines,
-                      resulting in abdominal bloating.
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle2
-                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
-                      size={18}
-                    />
-                    <span>
-                      <strong>Jaundice:</strong> A yellowish tinge in your eyes
-                      and urine, which occurs when stones outflow from the
-                      gallbladder into main ducts, blocking bile flow.
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle2
-                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
-                      size={18}
-                    />
-                    <span>
-                      <strong>High-grade Fever with Chills:</strong> Fever and
-                      shivers or chills may be a sign of infection in the
-                      gallbladder including that in either central bile duct.
-                    </span>
-                  </li>
-                </ul>
-              </div>
+          
             </section>
 
             {/* Why do Gallstones Form */}
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Why do Gallstones Form?
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Gallbladder stones are, in fact, solid pieces of cholesterol,
-                calcium salts, or bilirubin. Main risk factors for Gallstones:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {[
-                  {
-                    title: "Metabolic Disturbances",
-                    description:
-                      "Changes in cholesterol metabolism (Hyperlipidemia) - due to obesity, rapid gain or loss of weight.",
-                  },
-                  {
-                    title: "Infection of the Gallbladder",
-                    description:
-                      "Sometimes, gallbladder infection leads to loss of gallbladder function. As a result, the formation of stones starts in the gallbladder.",
-                  },
-                  {
-                    title: "Hormonal Disturbances",
-                    description:
-                      "Multiple pregnancies and obesity can result in hormonal imbalances, leading to diminished function of the gallbladder. As a result, stones start forming in the gallbladder.",
-                  },
-                ].map((factor, index) => (
-                  <div
-                    key={index}
-                    className="bg-gray-50 rounded-lg p-5 border border-gray-200"
-                  >
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      {factor.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm">
-                      {factor.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
 
+            <h3 className="font-semi-bold text-xl mb-2">
+              Robotic-Assisted Surgery: Unparalleled Precision for Complex Cases
+            </h3>
+            <p className="mb-2">
+              While not necessary for routine cases, Dr Agrawal performs robotic
+              surgery for patients who benefit from its advantages. Enhanced
+              Precision: The robotic system provides a magnified 3D view and
+              instruments that filter out hand tremor, enabling greater
+              dexterity than the human hand. This is invaluable for safely
+              navigating difficult surgical fields.
+            </p>
+            <p>Robotic approaches can mean similar recovery times and aesthetic results but may be preferred in patients having complex anatomy, severe inflammation, or scarring from previous surgeries.</p>
+           
             {/* Types of Gallbladder Surgery */}
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
