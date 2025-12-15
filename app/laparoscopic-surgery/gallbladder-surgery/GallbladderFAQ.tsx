@@ -10,55 +10,31 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'Can I live a normal life after gallbladder removal surgery?',
+    question: 'When is the right time to get gallbladder surgery?',
     answer:
-      'Yes. Most patients return to normal life within a week after gallbladder removal. Your body adapts quickly, and any dietary adjustments are temporary.',
+      'It is recommended to consult the best gallstone surgeon in Delhi as soon as you see any symptoms or complications. Any delay in surgery can create serious complications, as surgery is the only solution for gallstones. However, specific conditions like gallstone-induced pancreatitis or stones in the common bile duct can delay the surgery. For more information, read our article, "The Best Time for Gallbladder Surgery.',
   },
   {
-    question: 'Are there medicines that can dissolve gallstones?',
+    question: 'Are there any medicines that can treat gallstones?',
     answer:
-      'Medicines can dissolve cholesterol gallstones in very selective cases, but the process is slow and stones often return. Laparoscopic cholecystectomy is the most reliable and permanent treatment.',
+      'There is no proven medication that effectively treats gallstones. Laparoscopic or Robotic Gallbladder surgery is the only solution to get rid of gallstones.',
   },
   {
-    question: 'Should I undergo surgery if I have asymptomatic (silent) gallstones?',
+    question: 'How long does laparoscopic gallbladder removal surgery take?',
     answer:
-      'Silent gallstones can be monitored, but surgery may be advised for large stones, high-risk patients, or to prevent sudden attacks and complications in the future.',
+      'Laparoscopic gallbladder surgery usually takes 40 minutes. However, in complex situations, the duration of surgery can extend to several hours.',
   },
   {
-    question: 'Can gallbladder stones increase the risk of cancer?',
+    question: 'What is the recovery time after gallstone surgery?',
     answer:
-      'Gallstones themselves are not cancerous. However, long-standing or large stones can cause chronic irritation, which slightly increases gallbladder cancer risk. Early treatment reduces this risk.',
+      'We discharge our patients within 24 hours of surgery. We don’t advise any bed rest, and our patients can join their work within 5-7days of surgery.',
   },
   {
-    question: 'What are gallbladder polyps, and do they need removal?',
+    question: 'Will I have to change my diet after surgery?',
     answer:
-      'Gallbladder polyps are growths on the inner wall of the gallbladder. Polyps larger than 10 mm or those causing symptoms usually require surgery due to cancer risk. Smaller polyps are monitored regularly.',
+      'Some patients may experience temporary digestive changes after surgery, such as difficulty digesting fats. A light, low-fat diet is often recommended initially. For more information about diet, please read our article on diet after gallbladder surgery.',
   },
-  {
-    question: 'How can I prevent gallstones from forming?',
-    answer:
-      'Maintain a healthy weight, follow a balanced low-fat and high-fibre diet, exercise regularly, stay hydrated, and avoid rapid weight loss to reduce gallstone risk.',
-  },
-  {
-    question: 'What happens if a gallstone enters the common bile duct (CBD)?',
-    answer:
-      'A stone in the CBD can cause severe pain, jaundice, and infection. It is usually removed through ERCP before or during gallbladder surgery to restore normal bile flow.',
-  },
-  {
-    question: 'Can gallstones be removed without removing the gallbladder?',
-    answer:
-      'Non-surgical methods rarely work and have a high recurrence rate. Removing the gallbladder (cholecystectomy) is the only permanent solution to prevent stones from forming again.',
-  },
-  {
-    question: 'What should I avoid eating after gallbladder removal?',
-    answer:
-      'Avoid oily, fried, and high-fat foods for a few weeks. Introduce fats slowly, choose smaller meals, and stay well-hydrated to support smooth digestion.',
-  },
-  {
-    question: 'How many days of rest are needed after gallbladder surgery?',
-    answer:
-      'Most patients resume desk work within 5-7 days and normal daily activities within 10-14 days after laparoscopic surgery. Heavy lifting should be avoided for about 3-4 weeks.',
-  },
+  
 ]
 
 export default function GallbladderFAQ() {
