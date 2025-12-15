@@ -156,7 +156,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
     <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 md:p-8 border-2 border-[#0891b2] shadow-lg">
       <div className="text-center mb-6">
         <Calculator className="text-[#0891b2] mx-auto mb-4" size={48} />
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">{serviceName} Cost Calculator</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">{serviceName} Cost in Delhi</h3>
         <p className="text-gray-600">Get accurate cost estimate for your treatment</p>
       </div>
       
