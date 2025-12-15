@@ -389,127 +389,48 @@ export default function GallbladderSurgeryPage() {
               </p>
             </section>
 
-            {/* Symptoms */}
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Advanced Gallbladder Surgery Options:
-              </h2>
-
-              <h3 className="font-semibold text-xl mb-2">
-                Gold-Standard Laparoscopic Cholecystectomy: The Preferred Choice
-              </h3>
-
-              <p className="mb-4">
-                In the modern era, laparoscopic surgery has been regarded as the
-                gold standard procedure for gallbladder management. Dr Kapil
-                Agrawal is the best laparoscopic surgeon in Delhi, known for his
-                successful gallbladder stone surgeries.
-              </p>
-
-              <p className="mb-4">
-                The surgery is performed under general anaesthesia, which means
-                the patient is completely asleep before surgery begins. In this
-                procedure, three small holes, each 0.5 cm, are made at different
-                abdominal sites to perform the surgery. A laparoscope (a thin
-                tube with a high-definition camera) and specialised instruments
-                are inserted. Dr Agrawal performs the entire surgery while
-                viewing a magnified image on a screen, enabling exceptional
-                precision.
-              </p>
-
-              <p className="mb-4">
-                <strong>Benefits for You:</strong> Patients experience
-                significantly less post-operative pain, minimal scarring, a
-                lower risk of infection, and a much faster return to everyday
-                life—often within a week.
-              </p>
-
-              <h3 className="font-semi-bold text-xl mb-2">
-                Single-Port (SILS) Surgery: For an Almost Scarless Result
-              </h3>
-
-              <p className="mb-4">
-                Single-port surgery for gallbladder stones is an advanced form
-                of conventional laparoscopic surgery.  In specific individuals
-                who meet the eligibility criteria, the technique is known to
-                produce excellent results in terms of aesthetics and pain
-                relief. For eligible patients seeking the ultimate in minimally
-                invasive cosmetic results, Dr Agrawal is a pioneer in this
-                advanced technique. The Innovation: Instead of 3-4 small
-                incisions, the entire surgery is performed through a single,
-                small incision hidden within the belly button (umbilicus).
-              </p>
-              <p className="mb-4">
-                <strong>The Aesthetic Advantage:</strong> The result is a scar
-                that is virtually invisible after healing. Dr Agrawal performs
-                this procedure &quot;mainly for gallbladder stones and bariatric
-                surgery&quot;.
-              </p>
-
-          
-            </section>
-
-            {/* Why do Gallstones Form */}
-
-            <h3 className="font-semi-bold text-xl mb-2">
-              Robotic-Assisted Surgery: Unparalleled Precision for Complex Cases
-            </h3>
-            <p className="mb-2">
-              While not necessary for routine cases, Dr Agrawal performs robotic
-              surgery for patients who benefit from its advantages. Enhanced
-              Precision: The robotic system provides a magnified 3D view and
-              instruments that filter out hand tremor, enabling greater
-              dexterity than the human hand. This is invaluable for safely
-              navigating difficult surgical fields.
-            </p>
-            <p>Robotic approaches can mean similar recovery times and aesthetic results but may be preferred in patients having complex anatomy, severe inflammation, or scarring from previous surgeries.</p>
-           
+            
             {/* Types of Gallbladder Surgery */}
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Gallbladder Surgeries Done by Dr. Kapil Agrawal in Delhi, India
+                Advanced Gallbladder Surgery Options by Dr. Kapil Agrawal in Delhi, India
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Gallstone treatment has evolved outstandingly with the invention
-                of advanced surgical technologies focused on faster recovery,
-                minimal pain, and better aesthetics. At Habilite Clinics, Dr.
-                Kapil Agrawal, the Best Gallbladder Surgeon in Delhi, offers
-                highly precise, minimally invasive solutions tailored for safe
-                and effective gallstone removal.
+                Gallbladder stone treatment has advanced significantly with the use of modern surgical techniques that focus on safety, comfort, and quicker recovery. At Habilite Clinics, Dr. Kapil Agrawal offers a range of minimally invasive gallbladder surgery options, delivering precise and patient-centric care for effective stone removal.
               </p>
               <div className="space-y-6">
                 {[
                   {
-                    title: "1. Laparoscopic Gallbladder Stone Surgery",
+                    title: "1. Gold-Standard Laparoscopic Cholecystectomy: The Preferred Choice",
                     description:
-                      "Laparoscopic cholecystectomy is regarded as one of the best surgical treatments available for gallstones. This is a minimally invasive procedure that is performed with general anesthesia in which:",
+                      "Laparoscopic gallbladder surgery is widely accepted as the most effective and reliable method for treating gallstones. The operation is performed under general anaesthesia and uses modern surgical technology to ensure accuracy and patient comfort.",
                     points: [
-                      "Three small incisions are made on the abdomen of about 0.5 cm each.",
-                      "Abdomen is inflated using carbon dioxide for better visibility.",
-                      "A thin and lighted camera is inserted to assist in surgery.",
-                      "The gallbladder and stones are dissected and removed via one of the incisions precisely.",
+                      "Three very small cuts, each around 0.5 cm, are made on the abdomen.",
+                      "A slender camera-equipped scope is inserted to provide a clear, enlarged internal view.",
+                      "Fine surgical tools are used to safely remove the gallbladder under visual guidance.",
+                      "The approach results in reduced pain, minimal marks, lower chances of infection, and faster recovery, allowing most patients to return to routine activities quickly.",
                     ],
                   },
                   {
-                    title: "2. Single Port Gallbladder Stone Surgery",
+                    title: "2. Single-Port (SILS) Surgery: For an Almost Scarless Result",
                     description:
-                      "Single port laparoscopic surgery is a modern version of conventional laparoscopy. In this procedure, only a single incision is performed which is hidden within the belly button, instead of multiple incisions. This surgery is aesthetically good, making the scar invisible.",
+                      "Single-port gallbladder surgery is an advanced evolution of standard laparoscopy, designed for selected patients who qualify for this technique. It offers excellent cosmetic outcomes along with reduced discomfort. Dr. Kapil Agrawal is among the early adopters of this method, performing it primarily for gallbladder stone and bariatric procedures.",
                     points: [
-                      "Technically demanding but provides excellent cosmetic results",
-                      "Single hidden incision in the belly button",
-                      "Faster recovery with minimal visible scarring",
-                      "Ideal for patients concerned about aesthetics",
+                      "The entire surgery is carried out through one small incision placed inside the navel (belly button).",
+                      "Unlike conventional laparoscopy, no multiple abdominal cuts are required.",
+                      "The single hidden entry point leads to significantly less visible scarring after healing.",
+                      "Eligible patients benefit from minimal pain and an almost scar-free appearance post-surgery.",
                     ],
                   },
                   {
-                    title: "3. Robotic Gallbladder Surgery",
+                    title: "3. Robotic-Assisted Surgery: Unparalleled Precision for Complex Cases",
                     description:
-                      "Robotic-assisted gallbladder surgery uses advanced robotic technology for enhanced precision and control. This technique offers:",
+                      "Robotic-assisted surgery is reserved for select cases where added precision offers clear advantages. Dr. Kapil Agrawal uses this technology for patients who require greater accuracy due to surgical complexity or challenging anatomy.",
                     points: [
-                      "Enhanced 3D visualization for the surgeon",
-                      "Greater precision and dexterity",
-                      "Reduced risk of complications",
-                      "Faster recovery times",
+                      "The robotic system delivers a highly magnified three-dimensional view of the surgical area.",
+                      "Robotic instruments eliminate hand tremors, allowing extremely controlled and precise movements.",
+                      "This technique is especially useful in cases with severe inflammation, unusual anatomy, or prior surgical scarring.",
+                      "Patients can expect recovery and cosmetic outcomes comparable to laparoscopy, with added safety in complex situations.",
                     ],
                   },
                 ].map((procedure, index) => (
@@ -542,26 +463,208 @@ export default function GallbladderSurgeryPage() {
               </div>
             </section>
 
+            <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6 mb-8">
+              <p className="text-gray-700 leading-relaxed">
+                Robotic approaches can mean similar recovery times and aesthetic
+                results but may be preferred in patients having complex anatomy,
+                severe inflammation, or scarring from previous surgeries.
+              </p>
+            </div>
+
+            <section>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">
+                Determining the Best Surgical Approach for You
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                During your evaluation, Dr Kapil Agrawal reviews your medical
+                history, imaging, lifestyle goals, and recovery expectations to
+                select the safest and most aesthetic option—whether that is
+                standard laparoscopy, single-port surgery, or robotic-assisted
+                precision for complex cases.
+              </p>
+            </section>
+
+            <section className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                Why patients across Delhi, NCR choose Habilite Clinics:
+                Compassionate Care from Consultation to Recovery
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[
+                  {
+                    title: "Your First Consultation: A Comprehensive Evaluation with Dr Agrawal",
+                    description:
+                      "Dr Agrawal provides a detailed consultation and removes all your doubts and concerns regarding gallbladder treatment. This collaborative session establishes a personalised treatment plan so you feel informed and confident from day one.",
+                  },
+                  {
+                    title: "Transparent Planning: Understanding Costs, Insurance, and EMI Options",
+                    description:
+                      "We believe in complete financial clarity. Our team provides a detailed, upfront cost estimate with no hidden fees. We assist with cashless insurance claims across major providers and offer convenient, zero-interest EMI options so you can focus on recovery—not paperwork.",
+                  },
+                  {
+                    title: "World-Class Surgical Facilities",
+                    description:
+                      "Most surgeries are performed at the advanced Apollo Hospitals network in Delhi NCR. You benefit from state-of-the-art operating theatres with the latest laparoscopic and robotic technology plus best-in-class post-operative care.",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm"
+                  >
+                    <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+
+            <section className="space-y-5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                Why Choosing the Right Gallbladder Surgeon in Delhi is Critical
+                for Your Health
+              </h2>
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm space-y-3">
+                <h3 className="font-semibold text-gray-900 text-lg">
+                  The Risks of Gallbladder Disease: Why Timely, Expert
+                  Intervention Matters
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Gallbladder stones are common but should never be considered
+                  minor. Delays in treatment or choosing a non-specialist can
+                  raise complication risks.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-[#0891b2] mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Progression to emergency: severe infection can require
+                      urgent surgery with higher risks and longer stays.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-[#0891b2] mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Avoiding major complications: migrating stones can cause
+                      jaundice, life-threatening bile duct infections, or
+                      gallstone pancreatitis.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-[#0891b2] mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Preventing anatomical injuries: inexperienced surgery risks
+                      bile duct injury, leading to liver problems or repeat
+                      procedures.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-[#0891b2] mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Ensuring complete resolution: an expert removes all stones,
+                      including those that may have migrated.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-5 space-y-3">
+                <h3 className="font-semibold text-gray-900 text-lg">
+                  Beyond the Operation: How Surgical Expertise Impacts Your
+                  Recovery and Long-Term Wellbeing
+                </h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Minimising surgical trauma: advanced laparoscopic
+                      techniques use tiny incisions and precise movements to
+                      reduce pain and tissue damage.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Faster, smoother recovery: less pain supports quicker
+                      return to work and daily routines.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Superior aesthetic and functional results: proficiency in
+                      single-port laparoscopic surgery (SILS) enables a single,
+                      hidden incision.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Safeguarding digestive health: expert technique maintains
+                      proper anatomy, helping patients enjoy regular diets
+                      without persistent issues.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      Foundation for lifelong health: complication-free surgery
+                      prevents long-term risks tied to chronic gallbladder
+                      disease.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
             {/* Why Choose Dr. Kapil Agrawal */}
             <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-xl p-8">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Why Choose Dr. Kapil Agrawal for Gallbladder Surgery?
+                Dr Kapil Agrawal: The Trusted Name in Gallbladder Surgery
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Dr. Kapil Agrawal is the best surgeon for gallbladder removal
-                and gallstone surgery in Delhi, known for his accuracy,
-                patient-centric care, and expertise in advanced laparoscopic
-                procedures.
+               Dr Kapil Agrawal is a leading laparoscopic gallbladder surgeon in Delhi NCR with vast experience, refined skills, and a dedicated team focused on patient care.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  "More than 23 years of surgical excellence and performed 7000+ gallbladder surgeries with positive outcomes.",
-                  "Patient-centric approach by offering customized treatment plan and outstanding post-surgery care.",
-                  "Huge experience of performing various laparoscopic cholecystectomy with positive outcomes.",
-                  "Specialization in minimally invasive laparoscopic techniques with minimal pain, less risks for complication and quicker recovery.",
-                  "Patients get same-day discharge and can go home after 24 hours of surgery.",
-                  "Best surgical practices and latest equipment in gallbladder surgical care.",
-                  "Augmented technology and dedicated support team for high-quality surgical care.",
+                  "Vast experience: 23+ years and over 7,000 laparoscopic and robotic gallbladder surgeries, including complex cases.",
+                  "Elite training: MBBS, MS (Surgery), MRCS (London), and MMed (Singapore) ensure adherence to global best practices.",
+                  "High-volume specialist: Senior Consultant Laparoscopic Surgeon with the Apollo Group across Delhi NCR centres.",
+                  "Pioneer in advanced techniques: offers single-port laparoscopic surgery that delivers virtually scarless results.",
+                  "Multidisciplinary expertise: leads teams for complex biliary cases, including hepaticojejunostomy, complex CBD explorations, and radical cholecystectomies.",
+                  "Evidence-based protocols: globally recognised, data-driven approaches that prioritise pain control and infection prevention.",
+        
                 ].map((reason, index) => (
                   <div key={index} className="flex items-start">
                     <CheckCircle2
@@ -574,46 +677,7 @@ export default function GallbladderSurgeryPage() {
               </div>
             </section>
 
-            {/* Other Treatments */}
-            <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Other Gallbladder Treatments Offered by Dr. Kapil Agrawal
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">
-                    CBD Stones
-                  </h3>
-                  <p className="text-gray-700 text-sm mb-4">
-                    Expert Common Bile Duct stone treatment for bile duct
-                    blockages with advanced diagnosis, minimally invasive
-                    procedures, and faster recovery.
-                  </p>
-                  <Link
-                    href="/laparoscopic-surgery/gallbladder-surgery/cbd-stones"
-                    className="text-[#0891b2] font-semibold text-sm hover:underline"
-                  >
-                    Learn More →
-                  </Link>
-                </div>
-                <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">
-                    Gallbladder Polyps
-                  </h3>
-                  <p className="text-gray-700 text-sm mb-4">
-                    Advanced treatment for gallbladder polyps with expert
-                    evaluation, accurate diagnosis, and minimally invasive
-                    surgical options if needed.
-                  </p>
-                  <Link
-                    href="/laparoscopic-surgery/gallbladder-surgery/gallbladder-polyps"
-                    className="text-[#0891b2] font-semibold text-sm hover:underline"
-                  >
-                    Learn More →
-                  </Link>
-                </div>
-              </div>
-            </section>
+            
           </div>
 
           <div className="max-w-5xl mx-auto">

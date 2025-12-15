@@ -37,9 +37,9 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '3',
-    patientName: 'Amit Verma',
+    patientName: 'Ms. Tuba & her mother',
     patientAge: 52,
-    treatment: 'Robotic Surgery',
+    treatment: 'Laparoscopic Gallbladder Stone Surgery',
     rating: 5,
     text: 'The robotic surgery experience was excellent. Less pain, faster recovery, and minimal scarring. Dr. Kapil Agrawal is truly an expert in his field. The hospital facilities are top-notch.',
     videoUrl: 'https://www.youtube.com/watch?v=N09RpTwI_HY',
