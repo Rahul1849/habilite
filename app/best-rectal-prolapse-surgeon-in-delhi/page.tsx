@@ -220,7 +220,10 @@ export default function BestRectalProlapseSurgeonPage() {
               fill
               className="object-cover object-center"
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
+              fetchPriority="high"
+              quality={75}
+              loading="eager"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
             />
           </div>
         </div>
