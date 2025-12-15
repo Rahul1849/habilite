@@ -40,6 +40,7 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
                 fetchPriority="high"
                 quality={75}
                 loading="eager"
+                decoding="sync"
               />
             </div>
           </div>

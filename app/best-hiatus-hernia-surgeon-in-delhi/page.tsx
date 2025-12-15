@@ -224,6 +224,7 @@ export default function BestHiatusHerniaSurgeonPage() {
               fetchPriority="high"
               quality={75}
               loading="eager"
+              decoding="sync"
             />
           </div>
         </div>

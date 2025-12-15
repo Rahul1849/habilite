@@ -137,8 +137,10 @@ export default function RootLayout({
           .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
           .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
         `}} />
-        {/* LCP Optimization: Preload Hero image with highest priority */}
+        {/* LCP Optimization: Preload Hero image with highest priority - early hint */}
         <link rel="preload" as="image" href="/images/dr.png" fetchPriority="high" />
+        <link rel="preconnect" href="https://habilite-6qce.vercel.app" />
+        <link rel="dns-prefetch" href="https://habilite-6qce.vercel.app" />
         {/* Preconnect to Google Fonts for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

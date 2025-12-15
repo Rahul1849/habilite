@@ -38,6 +38,12 @@ const nextConfig = {
     // Reduce JavaScript bundle size
     serverMinification: true,
   },
+  // Target modern browsers to reduce legacy JS polyfills
+  transpilePackages: [],
+  // Modern browser support - remove legacy polyfills
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

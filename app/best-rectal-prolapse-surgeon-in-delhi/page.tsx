@@ -223,6 +223,7 @@ export default function BestRectalProlapseSurgeonPage() {
               fetchPriority="high"
               quality={75}
               loading="eager"
+              decoding="sync"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
             />
           </div>
