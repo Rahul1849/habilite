@@ -804,9 +804,9 @@ export default function BestHerniaSurgeonPage() {
                     pain.
                   </p>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    Dr. Kapil Aggarwal's clinic offers clear pricing with
+                    Dr. Kapil Aggarwal&apos;s clinic offers clear pricing with
                     insurance support and cost-effective packages, so you know
-                    exactly what you're paying for.
+                    exactly what you&apos;re paying for.
                   </p>
                   <p className="text-gray-700 text-sm sm:text-base">
                     Our clinic partners also offer zero interest EMI options.
