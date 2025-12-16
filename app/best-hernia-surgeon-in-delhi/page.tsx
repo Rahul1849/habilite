@@ -394,7 +394,7 @@ export default function BestHerniaSurgeonPage() {
 
             <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-2xl p-8 space-y-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Why Choose Dr. Kapil Agrawal: Delhi's Leading Expert in Hernia
+                Why Choose Dr. Kapil Agrawal: Delhi&apos;s Leading Expert in Hernia
                 Surgery
               </h2>
               <p className="text-gray-700 text-sm sm:text-base">
@@ -410,7 +410,7 @@ export default function BestHerniaSurgeonPage() {
                     of Specialized Focus
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    Dr. Agrawal's after his foundational training in India
+                    Dr. Agrawal&apos;s after his foundational training in India
                     (MBBS, MS), earned the prestigious MRCS from London, UK and
                     MMed from Singapore. These fellowships enhanced his
                     capabilities in the most current surgical techniques and
@@ -578,12 +578,12 @@ export default function BestHerniaSurgeonPage() {
 
             <section className="space-y-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Dr. Agrawal's Approach: How We Select the Perfect Procedure for
+                Dr. Agrawal&apos;s Approach: How We Select the Perfect Procedure for
                 You
               </h2>
               <p className="text-gray-700 text-sm sm:text-base">
                 Our approach is patient-centric, not procedure-centric. The
-                decision integrates your hernia's anatomy (from advanced
+                decision integrates your hernia&apos;s anatomy (from advanced
                 imaging), your health profile (age, activity, comorbidities),
                 and personal recovery goals. We then match you with the ideal
                 technique—open, laparoscopic, or robotic—from our repertoire,
@@ -652,7 +652,7 @@ export default function BestHerniaSurgeonPage() {
                     Incisional Cases
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base mb-3">
-                    A hernia is classified as "complex" in scenarios such as:
+                    A hernia is classified as &quot;complex&quot; in scenarios such as:
                   </p>
                   <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm sm:text-base">
                     <li>
@@ -780,7 +780,7 @@ export default function BestHerniaSurgeonPage() {
                     Advanced Technology
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    We perform the surgery at Delhi-NCR's premier hospitals. We
+                    We perform the surgery at Delhi-NCR&apos;s premier hospitals. We
                     always ensure the highest global standards of safety,
                     hygiene, and nursing care. These hospitals are equipped with
                     the latest generation technology including advanced 3D/4K
