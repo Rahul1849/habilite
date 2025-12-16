@@ -172,7 +172,7 @@ export default function BestHerniaSurgeonPage() {
               best-hernia-surgeon-delhi
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Best Gallbladder Surgeon in{" "}
+              Best Hernia Surgeon in{" "}
               <span className="text-[#0891b2]">Delhi</span> | Dr. Kapil Agrawal
               - Advanced Laparoscopic & Robotic Repair
             </h1>
