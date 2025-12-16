@@ -219,14 +219,14 @@ export default function BestHerniaSurgeonPage() {
 
           <div className="max-w-5xl mx-auto space-y-12">
             <section className="space-y-4 text-gray-700 leading-relaxed">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Understanding Your Hernia: A Guide to Types, Symptoms, and
                 Urgency
               </h2>
             </section>
 
             <section className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h3 className="font-semibold text-gray-900 mb-3">
                 What is a Hernia? Identifying the Bulge and Discomfort{" "}
               </h3>
               <p className="text-gray-700 text-sm sm:text-base">
@@ -261,7 +261,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Different Types of Hernia We Treat
               </h2>
 
@@ -309,7 +309,7 @@ export default function BestHerniaSurgeonPage() {
                     key={type.title}
                     className="bg-gray-50 rounded-lg p-5 border-l-4 border-[#0891b2]"
                   >
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-gray-900 mb-3">
                       {type.title}
                     </h3>
 
@@ -336,7 +336,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h3 className="font-semibold text-gray-900 mb-3">
                 Warning Signs That Require Immediate Specialist Consultation
               </h3>
 
@@ -366,7 +366,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Advantages of Laparoscopic &amp; Robotic Hernia Repair
               </h2>
               <div className="grid gap-4 md:grid-cols-2">
@@ -393,7 +393,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-2xl p-8 space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Why Choose Dr. Kapil Agrawal: Delhi&apos;s Leading Expert in Hernia
                 Surgery
               </h2>
@@ -405,7 +405,7 @@ export default function BestHerniaSurgeonPage() {
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Unmatched Credentials: MBBS, MS, MRCS (London) & 23+ Years
                     of Specialized Focus
                   </h3>
@@ -420,7 +420,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     A Track Record of Excellence: 7,000+ Successful Surgeries &
                     High Patient Satisfaction
                   </h3>
@@ -435,7 +435,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Global Techniques, Local Care: Pioneering Minimally Invasive
                     Surgery in Delhi NCR
                   </h3>
@@ -452,7 +452,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Advanced Surgical Solutions: Tailored Techniques for Every
                 Hernia
               </h2>
@@ -466,7 +466,7 @@ export default function BestHerniaSurgeonPage() {
 
               <div className="space-y-6">
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Laparoscopic (Keyhole) Hernia Repair: The Gold Standard for
                     Minimal Recovery
                   </h3>
@@ -510,7 +510,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Robotic-Assisted Surgery: Precision for Complex, Recurrent &
                     Large Abdominal Hernias
                   </h3>
@@ -555,7 +555,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 The Science of Repair: A Guide to Modern Surgical Meshes
               </h2>
               <p className="text-gray-700 text-sm sm:text-base">
@@ -577,7 +577,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Dr. Agrawal&apos;s Approach: How We Select the Perfect Procedure for
                 You
               </h2>
@@ -635,7 +635,7 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Specialized Care for Complex & Recurrent Abdominal Hernias
               </h2>
               <p className="text-gray-700 text-sm sm:text-base">
@@ -647,7 +647,7 @@ export default function BestHerniaSurgeonPage() {
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     When Hernias are Challenging: Defining Complex Ventral &
                     Incisional Cases
                   </h3>
@@ -676,7 +676,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Our Protocol for Success: Advanced Imaging, Component
                     Separation & Expert Technique
                   </h3>
@@ -731,7 +731,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Robotic Repair for complex abdominal wall hernias.
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
@@ -745,7 +745,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Restoring Confidence: Patient Success Stories of Complex
                     Hernia Recovery
                   </h3>
@@ -754,14 +754,14 @@ export default function BestHerniaSurgeonPage() {
             </section>
 
             <section className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 The Habilite Clinics Experience: Your Journey from Pain to
                 Relief
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Step-by-Step: From Your First Consultation to Full Recovery
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
@@ -775,7 +775,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     World-Class Facilities: Surgery at Premium Hospitals with
                     Advanced Technology
                   </h3>
@@ -789,7 +789,7 @@ export default function BestHerniaSurgeonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">
                     Transparent Planning: Clear Cost Estimates, Insurance & EMI
                     Assistance
                   </h3>
