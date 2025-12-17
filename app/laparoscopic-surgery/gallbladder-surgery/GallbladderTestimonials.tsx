@@ -30,8 +30,38 @@ export default function GallbladderTestimonials() {
   )
   
   const allGallbladderTestimonials = [...gallbladderTestimonials, ...additionalTestimonials]
-  const videoTestimonials = allGallbladderTestimonials.filter(t => t.videoUrl)
-  const textTestimonials = allGallbladderTestimonials.filter(t => !t.videoUrl)
+  
+  // Remove text testimonials: Rajesh Kumar (id: '1') and Sunita Devi (id: '4')
+  const filteredTestimonials = allGallbladderTestimonials.filter(t => t.id !== '1' && t.id !== '4')
+  
+  // Add the two new YouTube video testimonials
+  const newVideoTestimonials = [
+    {
+      id: 'gallbladder-video-1',
+      patientName: 'Gallbladder Stone Patient',
+      patientAge: 0,
+      treatment: 'Laparoscopic Gallbladder Surgery',
+      rating: 5,
+      text: 'Patient testimonial about gallbladder stone surgery experience with Dr. Kapil Agrawal.',
+      videoUrl: 'https://youtu.be/sBfXG1Miajs?si=pWGYzMlWajjL-GLR',
+      date: '2024-12-01',
+      verified: true
+    },
+    {
+      id: 'gallbladder-video-2',
+      patientName: 'Gallbladder Stone Patient',
+      patientAge: 0,
+      treatment: 'Laparoscopic Gallbladder Surgery',
+      rating: 5,
+      text: 'Patient testimonial about gallbladder stone surgery experience with Dr. Kapil Agrawal.',
+      videoUrl: 'https://youtu.be/-Lq2NxW1d1s?si=UrPfQt8e4mqptjha',
+      date: '2024-12-01',
+      verified: true
+    }
+  ]
+  
+  const videoTestimonials = [...filteredTestimonials.filter(t => t.videoUrl), ...newVideoTestimonials]
+  const textTestimonials = filteredTestimonials.filter(t => !t.videoUrl)
 
   // Combine all testimonials, prioritizing video ones, limit to 6 for display
   const allTestimonials = [...videoTestimonials, ...textTestimonials].slice(0, 6)
@@ -54,6 +84,17 @@ export default function GallbladderTestimonials() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {allTestimonials.map((testimonial) => {
           const videoId = testimonial.videoUrl ? getYouTubeVideoId(testimonial.videoUrl) : null
+          
+          // Normalize text and patient name for consistency (override for Ms. Tuba testimonial id '3')
+          const displayText = testimonial.id === '3' 
+            ? 'Patient testimonial about gallbladder stone surgery experience with Dr. Kapil Agrawal.'
+            : testimonial.text
+          const displayPatientName = testimonial.id === '3'
+            ? 'Gallbladder Stone Patient'
+            : testimonial.patientName
+          const displayTreatment = testimonial.id === '3'
+            ? 'Laparoscopic Gallbladder Surgery'
+            : testimonial.treatment
 
           return (
             <div
@@ -69,7 +110,7 @@ export default function GallbladderTestimonials() {
                   >
                     <Image
                       src={getYouTubeThumbnail(videoId)}
-                      alt={`${testimonial.patientName} - Video Testimonial`}
+                      alt={`${displayPatientName} - Video Testimonial`}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -94,11 +135,11 @@ export default function GallbladderTestimonials() {
                       ))}
                     </div>
                     <p className="text-gray-700 text-sm mb-4 line-clamp-3 flex-1">
-                      {testimonial.text}
+                      {displayText}
                     </p>
                     <div className="border-t pt-3">
-                      <p className="font-semibold text-gray-900 text-sm">{testimonial.patientName}</p>
-                      <p className="text-gray-600 text-xs">{testimonial.treatment}</p>
+                      <p className="font-semibold text-gray-900 text-sm">{displayPatientName}</p>
+                      <p className="text-gray-600 text-xs">{displayTreatment}</p>
                     </div>
                   </div>
                 </>

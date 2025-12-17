@@ -288,8 +288,11 @@ export default async function BlogPostPage({ params }: Props) {
               fill
               className="object-cover object-center"
               priority
+              fetchPriority="high"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
-              quality={85}
+              quality={75}
+              loading="eager"
+              decoding="sync"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             <div className="absolute inset-0 flex items-end pb-6 md:pb-8 px-4 md:px-6 lg:px-8">
@@ -327,6 +330,13 @@ export default async function BlogPostPage({ params }: Props) {
               <ArrowLeft className="mr-2" size={20} />
               Back to Blog
             </Link>
+
+            {/* Table of Contents - Mobile Only */}
+            {post.tableOfContents && post.tableOfContents.length > 0 && (
+              <div className="mb-6 lg:hidden">
+                <TableOfContents items={post.tableOfContents} />
+              </div>
+            )}
 
             {/* Content */}
             <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
@@ -569,9 +579,11 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Sidebar */}
           <aside className="lg:col-span-1 space-y-6">
-            {/* Table of Contents */}
+            {/* Table of Contents - Desktop Only */}
             {post.tableOfContents && post.tableOfContents.length > 0 && (
-              <TableOfContents items={post.tableOfContents} />
+              <div className="hidden lg:block">
+                <TableOfContents items={post.tableOfContents} />
+              </div>
             )}
 
             {/* Recent Posts */}
