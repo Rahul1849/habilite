@@ -2,10 +2,18 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import MobileStickyFooter from '@/components/layout/MobileStickyFooter'
-import ToastContainer from '@/components/ui/Toast'
 import dynamic from 'next/dynamic'
+
+// Defer non-critical components to reduce TBT
+const Footer = dynamic(() => import('@/components/layout/Footer'), {
+  ssr: true,
+})
+const MobileStickyFooter = dynamic(() => import('@/components/layout/MobileStickyFooter'), {
+  ssr: false,
+})
+const ToastContainer = dynamic(() => import('@/components/ui/Toast'), {
+  ssr: false,
+})
 import StructuredData from '@/components/seo/StructuredData'
 import {
   getBreadcrumbSchema,
@@ -139,14 +147,14 @@ export default function RootLayout({
         `}} />
         {/* LCP Optimization: Preload Hero image with highest priority - early hint */}
         <link rel="preload" as="image" href="/images/dr.png" fetchPriority="high" />
-        <link rel="preconnect" href="https://habilite-6qce.vercel.app" />
-        <link rel="dns-prefetch" href="https://habilite-6qce.vercel.app" />
-        {/* Preconnect to Google Fonts for faster font loading */}
+        <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
+        {/* Preconnect to critical domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* YouTube preconnect - deferred for non-critical */}
+        {/* DNS prefetch for non-critical external resources */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
       </head>
       <body className={`${inter.variable} overflow-x-hidden`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         <Header />

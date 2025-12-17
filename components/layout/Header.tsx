@@ -17,26 +17,46 @@ export default function Header() {
     if (typeof window === 'undefined') return
     
     let cleanup: (() => void) | undefined
+    let rafId: number | null = null
+    let ticking = false
     
     const scheduleMount = () => {
       setMounted(true)
+      
+      // Throttled scroll handler using requestAnimationFrame for better performance
       const handleScroll = () => {
-        setIsScrolled(window.scrollY > 50)
+        if (!ticking) {
+          rafId = requestAnimationFrame(() => {
+            setIsScrolled(window.scrollY > 50)
+            ticking = false
+          })
+          ticking = true
+        }
       }
+      
+      // Initial check
       handleScroll()
+      
+      // Use passive listener for better scroll performance
       window.addEventListener('scroll', handleScroll, { passive: true })
-      cleanup = () => window.removeEventListener('scroll', handleScroll)
+      cleanup = () => {
+        if (rafId !== null) {
+          cancelAnimationFrame(rafId)
+        }
+        window.removeEventListener('scroll', handleScroll)
+      }
     }
     
-    // Use requestIdleCallback if available for better performance
+    // Use requestIdleCallback with longer timeout to reduce TBT
     if ('requestIdleCallback' in window) {
-      const id = requestIdleCallback(scheduleMount, { timeout: 100 })
+      const id = requestIdleCallback(scheduleMount, { timeout: 500 })
       return () => {
         cancelIdleCallback(id)
         cleanup?.()
       }
     } else {
-      const timer = setTimeout(scheduleMount, 0)
+      // Fallback: delay more aggressively to reduce blocking
+      const timer = setTimeout(scheduleMount, 100)
       return () => {
         clearTimeout(timer)
         cleanup?.()

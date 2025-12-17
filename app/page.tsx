@@ -12,28 +12,35 @@ import { getImageUrl } from '@/lib/sanity/utils'
 export const revalidate = 0
 
 // Dynamically import below-the-fold components to improve initial page load
+// Using ssr: false for non-critical components to reduce TBT
 const LaparoscopicServices = dynamic(() => import('@/components/home/LaparoscopicServices'), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
 })
 
 const BariatricServices = dynamic(() => import('@/components/home/BariatricServices'), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
 })
 
 const LaserServices = dynamic(() => import('@/components/home/LaserServices'), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
 })
 
 const WhyChoose = dynamic(() => import('@/components/home/WhyChoose'), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
 })
 
 const FAQ = dynamic(() => import('@/components/home/FAQ'), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
 })
 
 const BlogPreview = dynamic(() => import('@/components/home/BlogPreview'), {
-  ssr: true,
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
 })
 
 // Dynamically import TestimonialsSlider to defer loading and improve initial page load

@@ -56,9 +56,6 @@ const nextConfig = {
   },
   swcMinify: true,
   // Performance optimizations
-  poweredByHeader: false,
-  reactStrictMode: true,
-  // Optimize production builds
   productionBrowserSourceMaps: false,
   async headers() {
     return [
