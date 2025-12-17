@@ -113,11 +113,26 @@ export default async function BlogPage() {
   }
 
   // Fetch published blogs from Sanity
-  let publishedBlogs = null
+  let publishedBlogs: any[] | null = null
   const client = getClient(false)
   if (client) {
     try {
-      publishedBlogs = await client.fetch(blogsQuery)
+      const fetchedBlogs = await client.fetch(blogsQuery)
+      // Only use Sanity blogs if we actually have valid blogs with required fields
+      if (
+        fetchedBlogs && 
+        Array.isArray(fetchedBlogs) && 
+        fetchedBlogs.length > 0 &&
+        fetchedBlogs.some((blog: any) => blog.title && blog.slug)
+      ) {
+        publishedBlogs = fetchedBlogs
+      } else {
+        // If Sanity returns empty or invalid blogs, fallback to static data
+        publishedBlogs = null
+        if (fetchedBlogs && Array.isArray(fetchedBlogs) && fetchedBlogs.length === 0) {
+          console.log('Sanity returned empty blog array, using static blogs')
+        }
+      }
     } catch (error) {
       console.error('Error fetching blogs from Sanity:', error)
       // Fallback to static data if Sanity fetch fails

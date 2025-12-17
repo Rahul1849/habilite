@@ -214,13 +214,18 @@ export default async function BlogPostPage({ params }: Props) {
   if (client) {
     try {
       sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
+      // Only use Sanity post if it has actual content (body)
+      if (sanityPost && !sanityPost.body) {
+        sanityPost = null // Fallback to static data if no content
+      }
     } catch (error) {
       console.error('Error fetching blog from Sanity:', error)
+      sanityPost = null
     }
   }
 
-  // If found in Sanity, render Sanity component
-  if (sanityPost) {
+  // If found in Sanity with content, render Sanity component
+  if (sanityPost && sanityPost.body) {
     const articleSchema = getArticleSchema({
       title: sanityPost.title || '',
       description: sanityPost.excerpt || '',
@@ -273,38 +278,46 @@ export default async function BlogPostPage({ params }: Props) {
       <StructuredData data={articleSchema} />
       <StructuredData data={breadcrumbSchema} />
       <div className="pt-20 pb-16">
-      {/* Hero Image */}
-      <div className="relative h-96">
-        <Image
-          src={post.image}
-          alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-          quality={85}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-        <div className="container-custom relative z-10 h-full flex items-end pb-8">
-          <div className="text-white">
-            <div className="text-primary-300 mb-2">{post.category}</div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3">{post.title}</h1>
-            <p className="text-lg md:text-xl font-semibold text-white/90 mb-4">
-              <span className="text-white font-bold">Dr. Kapil Agrawal</span> - Senior Consultant at Apollo Group of Hospitals
-            </p>
-            <div className="flex items-center text-gray-300">
-              <Calendar className="mr-2" size={16} />
-              <span>{new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-              <span className="mx-2">•</span>
-              <Clock className="mr-2" size={16} />
-              <span>{post.readTime} min read</span>
+        {/* Hero Image */}
+        {post.image && (
+        <div className="container-custom mb-8">
+          <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+            <Image
+              src={post.image.startsWith('/') ? post.image : `/images/${post.image}`}
+              alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute inset-0 flex items-end pb-6 md:pb-8 px-4 md:px-6 lg:px-8">
+              <div className="text-white relative z-10 w-full">
+                <div className="text-primary-300 mb-2 text-sm md:text-base">{post.category}</div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3">{post.title}</h1>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white/90 mb-2 md:mb-4">
+                  <span className="text-white font-bold">Dr. Kapil Agrawal</span> - Senior Consultant at Apollo Group of Hospitals
+                </p>
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-300">
+                  <div className="flex items-center">
+                    <Calendar className="mr-1 md:mr-2" size={14} />
+                    <span>{new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  </div>
+                  <span className="hidden sm:inline">•</span>
+                  <div className="flex items-center">
+                    <Clock className="mr-1 md:mr-2" size={14} />
+                    <span>{post.readTime} min read</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        )}
 
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="container-custom section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <article className="lg:col-span-3">
             <Link
@@ -317,7 +330,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Content */}
             <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
-              {(() => {
+              {post.content && post.content.trim() ? (() => {
                 const lines = post.content.split('\n')
                 let skipNext = false
                 
@@ -514,7 +527,11 @@ export default async function BlogPostPage({ params }: Props) {
                   )
                 }
                 })
-              })()}
+              })() : (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 italic">Content is being loaded...</p>
+                </div>
+              )}
             </div>
 
             {/* Author */}
@@ -579,13 +596,13 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
             )}
           </aside>
+          </div>
         </div>
-      </div>
 
-      {/* FAQ Schema */}
-      {post.faqSchema && post.faqSchema.length > 0 && (
-        <FAQSchema faqs={post.faqSchema} />
-      )}
+        {/* FAQ Schema */}
+        {post.faqSchema && post.faqSchema.length > 0 && (
+          <FAQSchema faqs={post.faqSchema} />
+        )}
       </div>
     </>
   )

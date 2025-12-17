@@ -5,6 +5,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { blogPosts } from '@/data/blog'
 import { Calendar, Clock, ArrowRight, ChevronDown, X } from 'lucide-react'
+import { slugify } from '@/lib/utils/slugify'
+
+// Helper function to normalize image paths
+const getImageSrc = (imagePath: string): string => {
+  if (!imagePath) return ''
+  // If already a full path starting with / or http, use as is
+  if (imagePath.startsWith('/') || imagePath.startsWith('http')) {
+    return imagePath
+  }
+  // Otherwise, assume it's a filename in /images folder
+  return `/images/${imagePath}`
+}
 
 // Service-based categories for blog filtering
 const getAllCategories = (): string[] => {
@@ -188,19 +200,42 @@ const excludedPostSlugs = [
   'bariatric-surgery-complete-guide-weight-loss',
 ]
 
-// Latest posts (sorted by date, most recent first, excluding featured and unwanted posts)
-const latestPosts = [...blogPosts]
-  .filter((post) => !featuredPostSlugs.includes(post.slug) && !excludedPostSlugs.includes(post.slug))
-  .sort((a, b) => 
-    new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
-  )
-
 export default function BlogFilter() {
-
-  const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
+
+  // Calculate posts inside component to ensure blogPosts is loaded
+  const latestPosts = useMemo(() => {
+    return [...blogPosts]
+      .filter((post) => !featuredPostSlugs.includes(post.slug) && !excludedPostSlugs.includes(post.slug))
+      .sort((a, b) => 
+        new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+      )
+  }, [])
+
+  // If latestPosts is empty (all posts are featured/excluded), show all posts except featured
+  // If that's also empty, show ALL posts
+  const displayPosts = useMemo(() => {
+    if (latestPosts.length > 0) {
+      return latestPosts
+    }
+    const nonFeatured = [...blogPosts]
+      .filter((post) => !featuredPostSlugs.includes(post.slug))
+      .sort((a, b) => 
+        new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+      )
+    
+    // If even non-featured is empty, show all posts
+    if (nonFeatured.length > 0) {
+      return nonFeatured
+    }
+    
+    // Last resort: show all posts sorted by date
+    return [...blogPosts].sort((a, b) => 
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    )
+  }, [latestPosts])
 
   // Get all unique categories dynamically
   const allCategories = useMemo(() => getAllCategories(), [])
@@ -245,33 +280,33 @@ export default function BlogFilter() {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isDropdownOpen])
 
-  const handleCategorySelect = (category: string) => {
-    setSelectedCategory(category)
-    setIsDropdownOpen(false)
-    // Focus back on button for accessibility
-    buttonRef.current?.focus()
-  }
 
-  // Filter posts based on selected category
-  const filteredPosts = useMemo(() => {
-    if (selectedCategory === 'All') {
-      return latestPosts
+  // Calculate post counts for each category
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    allCategories.forEach((category) => {
+      if (category === 'All') {
+        counts[category] = blogPosts.length
+      } else {
+        counts[category] = blogPosts.filter(post => matchesCategory(post, category)).length
+      }
+    })
+    return counts
+  }, [])
+
+  // Debug: Log blog posts count
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      console.log('BlogFilter - Total blogPosts:', blogPosts.length)
+      console.log('BlogFilter - Featured posts:', featuredPosts.length)
+      console.log('BlogFilter - Latest posts:', latestPosts.length)
+      console.log('BlogFilter - Display posts:', displayPosts.length)
     }
-    return latestPosts.filter(post => matchesCategory(post, selectedCategory))
-  }, [selectedCategory])
-
-  // Filter featured posts by category
-  const filteredFeaturedPosts = useMemo(() => {
-    if (selectedCategory === 'All') {
-      return featuredPosts
-    }
-    return featuredPosts.filter(post => matchesCategory(post, selectedCategory))
-  }, [selectedCategory])
-
+  }, [latestPosts.length, displayPosts.length])
 
   return (
     <>
-      {/* Professional Category Filter Dropdown */}
+      {/* Category Filter Button with Dropdown */}
       <div className="mb-12">
         <div className="flex justify-center">
           <div className="relative w-full max-w-md">
@@ -281,12 +316,10 @@ export default function BlogFilter() {
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               aria-expanded={isDropdownOpen}
               aria-haspopup="true"
-              aria-label={`Filter blogs by category. Currently selected: ${selectedCategory}`}
+              aria-label="View blog categories"
               className="w-full flex items-center justify-between px-6 py-3.5 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-[#0891b2] focus:outline-none focus:ring-2 focus:ring-[#0891b2] focus:ring-offset-2 transition-all duration-200 text-left"
             >
-              <span className="font-semibold text-gray-900">
-                {selectedCategory === 'All' ? 'All Categories' : selectedCategory}
-              </span>
+              <span className="font-semibold text-gray-900">View Categories</span>
               <ChevronDown
                 className={`ml-2 h-5 w-5 text-gray-500 transition-transform duration-200 ${
                   isDropdownOpen ? 'transform rotate-180' : ''
@@ -313,113 +346,106 @@ export default function BlogFilter() {
                 className="absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-lg shadow-xl max-h-[70vh] md:max-h-96 overflow-y-auto"
               >
                 <div className="p-2">
-                  {/* Search/Filter Header (Optional - can be added later) */}
                   <div className="px-2 py-2 mb-1 border-b border-gray-100">
                     <h3 className="text-sm font-semibold text-gray-700">Select Category</h3>
                   </div>
                   
-                  {allCategories.map((category) => {
-                    // Count posts in this category for better UX
-                    const postCount = category === 'All' 
-                      ? blogPosts.length 
-                      : blogPosts.filter(post => matchesCategory(post, category)).length
-                    
-                    return (
-                      <button
-                        key={category}
-                        type="button"
-                        role="menuitem"
-                        onClick={() => handleCategorySelect(category)}
-                        className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
-                          selectedCategory === category
-                            ? 'bg-[#0891b2] text-white shadow-md'
-                            : 'text-gray-700 hover:bg-gray-100 active:bg-gray-200'
-                        }`}
-                        tabIndex={0}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex flex-col">
-                            <span>{category === 'All' ? 'All Categories' : category}</span>
-                            <span className={`text-xs mt-0.5 ${
-                              selectedCategory === category
-                                ? 'text-white/80'
-                                : 'text-gray-500'
-                            }`}>
-                              {postCount} {postCount === 1 ? 'post' : 'posts'}
+                  {/* All Categories - Always First */}
+                  {allCategories
+                    .filter(cat => cat === 'All')
+                    .map((category) => {
+                      const postCount = categoryCounts[category]
+                      const categoryUrl = '/post'
+                      
+                      return (
+                        <Link
+                          key={category}
+                          href={categoryUrl}
+                          role="menuitem"
+                          className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200 border-b border-gray-200 mb-1"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-semibold">All Categories</span>
+                            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full font-semibold">
+                              {postCount}
                             </span>
                           </div>
-                          {selectedCategory === category && (
-                            <svg
-                              className="h-5 w-5 flex-shrink-0 ml-2"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          )}
-                        </div>
-                      </button>
-                    )
-                  })}
+                        </Link>
+                      )
+                    })}
+                  
+                  {/* Other Categories */}
+                  {allCategories
+                    .filter(cat => cat !== 'All')
+                    .sort()
+                    .map((category) => {
+                      const postCount = categoryCounts[category]
+                      const categorySlug = slugify(category)
+                      const categoryUrl = `/post/category/${categorySlug}`
+                      
+                      return (
+                        <Link
+                          key={category}
+                          href={categoryUrl}
+                          role="menuitem"
+                          className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span>{category}</span>
+                            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                              {postCount}
+                            </span>
+                          </div>
+                        </Link>
+                      )
+                    })}
                 </div>
               </div>
             )}
           </div>
         </div>
-
-        {/* Selected Category Badge (Mobile-friendly) */}
-        {selectedCategory !== 'All' && (
-          <div className="flex justify-center mt-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0891b2]/10 rounded-full">
-              <span className="text-sm font-medium text-[#0891b2]">
-                Showing: {selectedCategory}
-              </span>
-              <button
-                onClick={() => handleCategorySelect('All')}
-                aria-label="Clear category filter"
-                className="text-[#0891b2] hover:text-[#06b6d4] transition-colors"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Featured Blogs Section */}
-      {selectedCategory === 'All' && filteredFeaturedPosts.length > 0 && (
+      {featuredPosts.length > 0 && (
         <section className="mb-16">
           <div className="flex items-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Blogs</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredFeaturedPosts.map((post, index) => (
+            {featuredPosts.map((post, index) => (
               <Link
                 key={post.id}
                 href={`/post/${post.slug}`}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
               >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    quality={85}
-                  />
-                  <div className="absolute top-4 left-4 bg-[#0891b2] text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    FEATURED
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
-                    {post.category}
-                  </div>
+                <div className="relative w-full aspect-[16/9] min-h-[200px] overflow-hidden bg-gray-100 rounded-t-xl">
+                  {post.image ? (
+                    <>
+                      <Image
+                        src={getImageSrc(post.image)}
+                        alt={post.title}
+                        fill
+                        className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        quality={85}
+                        unoptimized={post.image.startsWith('http')}
+                      />
+                      <div className="absolute top-4 left-4 bg-[#0891b2] text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        FEATURED
+                      </div>
+                      <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        {post.category}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
+                      <span>No Image</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex items-center text-sm text-gray-500 mb-3 flex-wrap gap-2">
@@ -468,42 +494,43 @@ export default function BlogFilter() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              {selectedCategory === 'All' ? 'Latest Blogs' : `${selectedCategory} Blogs`}
+              Latest Blogs
             </h2>
             <p className="text-gray-600">
-              {selectedCategory === 'All' ? "Here's what we've been up to lately." : `Latest articles about ${selectedCategory.toLowerCase()}`}
+              Here&apos;s what we&apos;ve been up to lately.
             </p>
           </div>
-          {selectedCategory !== 'All' && (
-            <button
-              onClick={() => setSelectedCategory('All')}
-              className="text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors whitespace-nowrap"
-            >
-              View All
-            </button>
-          )}
         </div>
-        {filteredPosts.length > 0 ? (
+        {displayPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, index) => (
+            {displayPosts.map((post, index) => (
               <Link
                 key={post.id}
                 href={`/post/${post.slug}`}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading="lazy"
-                    quality={85}
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
-                    {post.category}
-                  </div>
+                <div className="relative w-full aspect-[16/9] min-h-[200px] overflow-hidden bg-gray-100 rounded-t-xl">
+                  {post.image ? (
+                    <>
+                      <Image
+                        src={getImageSrc(post.image)}
+                        alt={post.title}
+                        fill
+                        className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        loading="lazy"
+                        quality={85}
+                        unoptimized={post.image.startsWith('http')}
+                      />
+                      <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        {post.category}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
+                      <span>No Image</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex items-center text-sm text-gray-500 mb-3 flex-wrap gap-2">
@@ -554,14 +581,8 @@ export default function BlogFilter() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">No Blogs Found</h3>
               <p className="text-gray-600 mb-6">
-                We couldn&apos;t find any blogs for &quot;{selectedCategory}&quot; category. Try selecting a different category or check back later.
+                We couldn&apos;t find any blogs. Check back later.
               </p>
-              <button
-                onClick={() => setSelectedCategory('All')}
-                className="inline-flex items-center px-6 py-3 bg-[#0891b2] text-white font-semibold rounded-lg hover:bg-[#06b6d4] transition-colors"
-              >
-                View All Blogs
-              </button>
             </div>
           </div>
         )}
