@@ -427,20 +427,20 @@ function generateVideoTestimonialsSchema(testimonials: any[]) {
 }
 
 export default async function HomePage() {
-  // Fetch data from Sanity with fallbacks
-  const [homeData, featuredServices, featuredTestimonials, faqs, recentBlogs] = await Promise.all([
-    getHomePage(),
+  // Fetch hero data first for faster LCP, then other data in parallel
+  const homeData = await getHomePage()
+  const [featuredServices, featuredTestimonials, faqs, recentBlogs] = await Promise.all([
     getFeaturedServices(),
     getFeaturedTestimonials(),
     getAllFAQs(),
     getRecentBlogs(3),
-  ]);
+  ])
 
   // Fallback to empty arrays if data is not available
-  const services = featuredServices || [];
-  const testimonials = featuredTestimonials || [];
-  const faqData = faqs || [];
-  const blogs = recentBlogs || [];
+  const services = featuredServices || []
+  const testimonials = featuredTestimonials || []
+  const faqData = faqs || []
+  const blogs = recentBlogs || []
 
   return (
     <>

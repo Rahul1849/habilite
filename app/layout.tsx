@@ -122,6 +122,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
+        {/* LCP Optimization: Preload Hero image FIRST with highest priority - critical for mobile */}
+        <link rel="preload" as="image" href="/images/dr.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
+        {/* Preconnect to critical domains early - before CSS */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Critical CSS inline for faster FCP - minimal blocking - includes Hero gradient */}
         <style dangerouslySetInnerHTML={{ __html: `
           body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -145,12 +151,6 @@ export default function RootLayout({
           .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
           .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
         `}} />
-        {/* LCP Optimization: Preload Hero image with highest priority - early hint */}
-        <link rel="preload" as="image" href="/images/dr.png" fetchPriority="high" />
-        <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
-        {/* Preconnect to critical domains */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* DNS prefetch for non-critical external resources */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />

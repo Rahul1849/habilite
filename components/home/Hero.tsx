@@ -27,9 +27,9 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-          {/* Doctor Image */}
+          {/* Doctor Image - LCP Element - Optimized for mobile */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
-            <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/70 ring-4 ring-white/20">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/70 ring-4 ring-white/20" style={{ contain: 'layout style paint' }}>
               <Image
                 src={imageUrl}
                 alt={imageAlt}
@@ -38,9 +38,10 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
                 sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 384px"
                 priority
                 fetchPriority="high"
-                quality={70}
+                quality={60}
                 loading="eager"
                 decoding="sync"
+                unoptimized={false}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
