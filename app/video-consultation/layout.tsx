@@ -52,7 +52,7 @@ const videoConsultationSchema = {
     '@type': 'Offer',
     price: '1200',
     priceCurrency: 'INR',
-    description: 'Video consultation fee with 20% discount for online payment',
+    description: 'Video consultation fee with 20% discount when you pay online',
   },
   availableChannel: {
     '@type': 'ServiceChannel',

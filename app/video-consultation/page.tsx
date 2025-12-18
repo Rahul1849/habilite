@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Video, Calendar, CheckCircle2, Phone, MessageCircle, CreditCard, X, Clock, Shield } from 'lucide-react'
 import Link from 'next/link'
 import { toast } from '@/lib/utils/toast'
+import { initiatePayUPayment, formatProductInfo } from '@/lib/payu/payment'
 
 interface VideoConsultationData {
   name: string
@@ -76,23 +77,40 @@ export default function VideoConsultationPage() {
     }
   }
 
-  const handlePayment = async (method: 'razorpay' | 'stripe') => {
-    setPaymentStatus('pending')
-    
-    // Simulate payment processing
-    setTimeout(async () => {
-      const success = Math.random() > 0.3 // 70% success rate
-      if (success) {
-        setPaymentStatus('success')
-        // Send email notification
-        await sendVideoConsultationEmail()
-        setTimeout(() => {
-          setStep('confirmation')
-        }, 1000)
-      } else {
-        setPaymentStatus('failed')
+  const handlePayment = async () => {
+    try {
+      setPaymentStatus('pending')
+
+      // Validate required fields for payment
+      if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim()) {
+        toast.error('Please fill in all required fields (Name, Phone, and Email) for online payment')
+        setPaymentStatus(null)
+        return
       }
-    }, 2000)
+
+      // Prepare product info
+      const productInfo = formatProductInfo('video-consultation', formData.date, formData.category)
+
+      // Initiate PayU payment
+      await initiatePayUPayment({
+        amount: discountedFee,
+        firstname: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        productinfo: productInfo,
+        paymentType: 'video-consultation',
+        appointmentDate: formData.date,
+        category: formData.category || undefined,
+        query: formData.query || undefined,
+      })
+
+      // Payment form will redirect to PayU, so we don't need to handle success here
+      // The success/failure will be handled by the callback pages
+    } catch (error) {
+      console.error('Payment initiation error:', error)
+      setPaymentStatus('failed')
+      toast.error(error instanceof Error ? error.message : 'Failed to initiate payment. Please try again.')
+    }
   }
 
   const handleSubmit = async () => {
@@ -424,33 +442,19 @@ export default function VideoConsultationPage() {
                   <div className="space-y-4">
                     <h3 className="font-semibold text-gray-900">Select Payment Method</h3>
                     
-                    {/* Online Payment Options */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <button
-                        onClick={() => handlePayment('razorpay')}
-                        className="border-2 border-[#0891b2] bg-[#0891b2]/5 rounded-lg p-6 hover:bg-[#0891b2]/10 transition-all text-left relative group"
-                      >
-                        <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
-                          20% OFF
-                        </div>
-                        <div className="font-semibold mb-2 text-[#0891b2]">Pay Online (Razorpay)</div>
-                        <div className="text-sm text-gray-600 mb-2">UPI, Cards, Net Banking</div>
-                        <div className="text-lg font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</div>
-                        <div className="text-xs text-gray-500 line-through mt-1">₹{consultationFee.toLocaleString('en-IN')}</div>
-                      </button>
-                      <button
-                        onClick={() => handlePayment('stripe')}
-                        className="border-2 border-[#0891b2] bg-[#0891b2]/5 rounded-lg p-6 hover:bg-[#0891b2]/10 transition-all text-left relative group"
-                      >
-                        <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
-                          20% OFF
-                        </div>
-                        <div className="font-semibold mb-2 text-[#0891b2]">Pay Online (Stripe)</div>
-                        <div className="text-sm text-gray-600 mb-2">Credit/Debit Cards</div>
-                        <div className="text-lg font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</div>
-                        <div className="text-xs text-gray-500 line-through mt-1">₹{consultationFee.toLocaleString('en-IN')}</div>
-                      </button>
-                    </div>
+                    {/* Online Payment Option */}
+                    <button
+                      onClick={handlePayment}
+                      className="w-full border-2 border-[#0891b2] bg-[#0891b2]/5 rounded-lg p-6 hover:bg-[#0891b2]/10 transition-all text-left relative group"
+                    >
+                      <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
+                        20% OFF
+                      </div>
+                      <div className="font-semibold mb-2 text-[#0891b2]">Pay Online</div>
+                      <div className="text-sm text-gray-600 mb-2">UPI, Cards, Net Banking</div>
+                      <div className="text-lg font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</div>
+                      <div className="text-xs text-gray-500 line-through mt-1">₹{consultationFee.toLocaleString('en-IN')}</div>
+                    </button>
                   </div>
 
                   {/* Back Button */}

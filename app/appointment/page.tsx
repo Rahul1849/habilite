@@ -66,7 +66,7 @@ export default function AppointmentPage() {
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Book Appointment</h1>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-              Quick & Easy Appointment Booking with Online Payment Options
+              Quick & Easy Appointment Booking with Online Payment
             </p>
           </div>
         </div>

@@ -86,6 +86,49 @@ RESEND_TO_EMAIL=contact@habiliteclinics.com
 - ✅ Rotate passwords regularly
 - ✅ Use Vercel's encrypted environment variables for production
 
+## PayU Payment Gateway Configuration
+
+The application uses PayU payment gateway for online payments (appointment bookings and video consultations).
+
+The following environment variables are required:
+
+```bash
+PAYU_MERCHANT_KEY=your-merchant-key
+PAYU_MERCHANT_SALT=your-merchant-salt
+PAYU_BASE_URL=https://secure.payu.in
+NEXT_PUBLIC_BASE_URL=https://habilite-6qce.vercel.app
+```
+
+For local development:
+```bash
+PAYU_MERCHANT_KEY=your-merchant-key
+PAYU_MERCHANT_SALT=your-merchant-salt
+PAYU_BASE_URL=https://test.payu.in
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+#### Description:
+- **PAYU_MERCHANT_KEY**: Your PayU merchant key (get from PayU dashboard)
+- **PAYU_MERCHANT_SALT**: Your PayU merchant salt (get from PayU dashboard)
+- **PAYU_BASE_URL**: PayU API base URL
+  - Production: `https://secure.payu.in`
+  - Test/Sandbox: `https://test.payu.in`
+- **NEXT_PUBLIC_BASE_URL**: Your application base URL
+  - Production: `https://habilite-6qce.vercel.app`
+  - Local: `http://localhost:3000`
+
+#### Important Notes:
+- **Security**: `PAYU_MERCHANT_KEY` and `PAYU_MERCHANT_SALT` are server-side only and never exposed to the client
+- **Test Mode**: Use `https://test.payu.in` for testing with PayU test credentials
+- **Production**: Use `https://secure.payu.in` for live payments
+- **Client-Side Access**: Only `NEXT_PUBLIC_BASE_URL` is accessible on the client side (prefixed with `NEXT_PUBLIC_`)
+
+#### PayU Setup:
+1. Sign up for a PayU merchant account at [PayU India](https://www.payu.in/)
+2. Get your Merchant Key and Salt from the PayU dashboard
+3. Configure the environment variables in Vercel (for production) and `.env.local` (for local development)
+4. Test payments using PayU test mode before going live
+
 ## Sanity CMS Environment Variables
 
 The application also uses Sanity CMS for content management. These variables are required:
