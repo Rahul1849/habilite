@@ -22,18 +22,68 @@ export const portableTextComponents: PortableTextComponents = {
     },
   },
   block: {
-    h1: ({ children }: any) => (
-      <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{children}</h1>
-    ),
-    h2: ({ children }: any) => (
-      <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">{children}</h2>
-    ),
-    h3: ({ children }: any) => (
-      <h3 className="text-xl md:text-2xl font-semibold mb-2 text-gray-900">{children}</h3>
-    ),
-    h4: ({ children }: any) => (
-      <h4 className="text-lg md:text-xl font-semibold mb-2 text-gray-900">{children}</h4>
-    ),
+    // Convert H1 to H2 since we already have H1 in hero section (SEO best practice: only one H1 per page)
+    h1: ({ children }: any) => {
+      // Extract text from children (handle both string and React nodes)
+      const extractText = (node: any): string => {
+        if (typeof node === 'string') return node
+        if (Array.isArray(node)) return node.map(extractText).join('')
+        if (node?.props?.children) return extractText(node.props.children)
+        return ''
+      }
+      const text = extractText(children)
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+      return (
+        <h2 id={id} className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 scroll-mt-24">
+          {children}
+        </h2>
+      )
+    },
+    h2: ({ children }: any) => {
+      const extractText = (node: any): string => {
+        if (typeof node === 'string') return node
+        if (Array.isArray(node)) return node.map(extractText).join('')
+        if (node?.props?.children) return extractText(node.props.children)
+        return ''
+      }
+      const text = extractText(children)
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+      return (
+        <h2 id={id} className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 scroll-mt-24">
+          {children}
+        </h2>
+      )
+    },
+    h3: ({ children }: any) => {
+      const extractText = (node: any): string => {
+        if (typeof node === 'string') return node
+        if (Array.isArray(node)) return node.map(extractText).join('')
+        if (node?.props?.children) return extractText(node.props.children)
+        return ''
+      }
+      const text = extractText(children)
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+      return (
+        <h3 id={id} className="text-xl md:text-2xl font-semibold mb-2 text-gray-900 scroll-mt-24">
+          {children}
+        </h3>
+      )
+    },
+    h4: ({ children }: any) => {
+      const extractText = (node: any): string => {
+        if (typeof node === 'string') return node
+        if (Array.isArray(node)) return node.map(extractText).join('')
+        if (node?.props?.children) return extractText(node.props.children)
+        return ''
+      }
+      const text = extractText(children)
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+      return (
+        <h4 id={id} className="text-lg md:text-xl font-semibold mb-2 text-gray-900 scroll-mt-24">
+          {children}
+        </h4>
+      )
+    },
     normal: ({ children }: any) => (
       <p className="text-base md:text-lg leading-relaxed mb-4 text-gray-700">{children}</p>
     ),

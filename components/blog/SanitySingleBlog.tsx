@@ -4,6 +4,7 @@ import { Calendar, Clock, ArrowLeft } from 'lucide-react'
 import { PortableText } from '@portabletext/react'
 import { portableTextComponents } from '@/lib/sanity/portableTextComponents'
 import { urlForImage } from '@/sanity/lib/image'
+import BlogPostFooter from '@/components/blog/BlogPostFooter'
 
 type SanityBlog = {
   _id: string
@@ -107,11 +108,18 @@ export default function SanitySingleBlog({ post }: SanitySingleBlogProps) {
                 </div>
                 {post.publishedAt && (
                   <div className="text-sm text-gray-600">
-                    Published on {new Date(post.publishedAt).toLocaleDateString()}
+                    Published on {new Date(post.publishedAt).toLocaleDateString('en-IN', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                    })}
                   </div>
                 )}
               </div>
             </div>
+
+            {/* Blog Post Footer - Why Choose Us & Book Appointment */}
+            <BlogPostFooter category={post.category?.title} />
           </article>
         </div>
       </div>

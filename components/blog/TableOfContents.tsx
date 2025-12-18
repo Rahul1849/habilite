@@ -40,6 +40,9 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
           observedElements.push(element)
         }
       })
+
+      // Note: We don't handle initial hash navigation to keep URL clean
+      // Users can still use browser back/forward, but TOC clicks won't change URL
     }, 100)
 
     return () => {
@@ -53,20 +56,6 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
     }
   }, [items])
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault()
-    const element = document.getElementById(id)
-    if (element) {
-      const headerOffset = 100
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 lg:sticky lg:top-24">
@@ -74,18 +63,16 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
       <ul className="space-y-2">
         {items.map((item) => (
           <li key={item.id}>
-            <a
-              href={`#${item.id}`}
-              onClick={(e) => handleClick(e, item.id)}
-              className={`block py-2 px-3 rounded transition-colors cursor-default ${
+            <div
+              className={`block py-2 px-3 rounded transition-colors ${
                 activeId === item.id
                   ? 'bg-primary-100 text-primary-700 font-semibold'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  : 'text-gray-600'
               }`}
               style={{ paddingLeft: `${(item.level - 2) * 16 + 12}px` }}
             >
               {item.title}
-            </a>
+            </div>
           </li>
         ))}
       </ul>

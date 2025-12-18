@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { blogPosts } from '@/data/blog'
-import { Calendar, Clock, ArrowRight, ChevronDown, X } from 'lucide-react'
+import { Calendar, Clock, ArrowRight, ChevronDown, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { slugify } from '@/lib/utils/slugify'
 
 // Helper function to normalize image paths
@@ -202,8 +202,11 @@ const excludedPostSlugs = [
 
 export default function BlogFilter() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
+  
+  const blogsPerPage = 8
 
   // Calculate posts inside component to ensure blogPosts is loaded
   const latestPosts = useMemo(() => {
@@ -216,7 +219,7 @@ export default function BlogFilter() {
 
   // If latestPosts is empty (all posts are featured/excluded), show all posts except featured
   // If that's also empty, show ALL posts
-  const displayPosts = useMemo(() => {
+  const allLatestPosts = useMemo(() => {
     if (latestPosts.length > 0) {
       return latestPosts
     }
@@ -236,6 +239,19 @@ export default function BlogFilter() {
       new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
     )
   }, [latestPosts])
+
+  // Pagination calculations
+  const totalPages = Math.ceil(allLatestPosts.length / blogsPerPage)
+  const startIndex = (currentPage - 1) * blogsPerPage
+  const endIndex = startIndex + blogsPerPage
+  const displayPosts = useMemo(() => {
+    return allLatestPosts.slice(startIndex, endIndex)
+  }, [allLatestPosts, startIndex, endIndex])
+
+  // Reset to page 1 when posts change
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [allLatestPosts.length])
 
   // Get all unique categories dynamically
   const allCategories = useMemo(() => getAllCategories(), [])
@@ -502,8 +518,9 @@ export default function BlogFilter() {
           </div>
         </div>
         {displayPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayPosts.map((post, index) => (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {displayPosts.map((post, index) => (
               <Link
                 key={post.id}
                 href={`/post/${post.slug}`}
@@ -569,8 +586,83 @@ export default function BlogFilter() {
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
+              ))}
+            </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="mt-12 flex flex-col items-center">
+                <div className="flex items-center gap-2 flex-wrap justify-center">
+                  {/* Previous Button */}
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    aria-label="Previous page"
+                  >
+                    <ChevronLeft size={18} />
+                    <span className="hidden sm:inline">Previous</span>
+                  </button>
+
+                  {/* Page Numbers */}
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                      // Show first page, last page, current page, and pages around current
+                      const showPage = 
+                        page === 1 ||
+                        page === totalPages ||
+                        (page >= currentPage - 1 && page <= currentPage + 1)
+                      
+                      if (!showPage) {
+                        // Show ellipsis
+                        if (page === currentPage - 2 || page === currentPage + 2) {
+                          return (
+                            <span key={page} className="px-2 text-gray-400">
+                              ...
+                            </span>
+                          )
+                        }
+                        return null
+                      }
+
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => {
+                            setCurrentPage(page)
+                            window.scrollTo({ top: 0, behavior: 'smooth' })
+                          }}
+                          className={`px-4 py-2 rounded-lg border transition-colors min-w-[40px] ${
+                            currentPage === page
+                              ? 'bg-[#0891b2] text-white border-[#0891b2] font-semibold'
+                              : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                          }`}
+                          aria-label={`Go to page ${page}`}
+                          aria-current={currentPage === page ? 'page' : undefined}
+                        >
+                          {page}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  {/* Next Button */}
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    aria-label="Next page"
+                  >
+                    <span className="hidden sm:inline">Next</span>
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
+                <p className="mt-4 text-sm text-gray-600">
+                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestPosts.length)} of {allLatestPosts.length} blogs
+                </p>
+              </div>
+            )}
+          </>
         ) : (
           <div className="text-center py-16">
             <div className="max-w-md mx-auto">

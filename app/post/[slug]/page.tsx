@@ -13,11 +13,12 @@ import TableOfContents from '@/components/blog/TableOfContents'
 import RecentPosts from '@/components/blog/RecentPosts'
 import DoctorInfoCard from '@/components/blog/DoctorInfoCard'
 import FAQSchema from '@/components/blog/FAQSchema'
+import BlogPostFooter from '@/components/blog/BlogPostFooter'
 import StructuredData from '@/components/seo/StructuredData'
 import PreviewProvider from '@/components/PreviewProvider'
 import { getClient } from '@/lib/sanity/client'
 import { blogBySlugQueryWithAuthor, blogsQuery } from '@/lib/sanity/queries'
-import { getArticleSchema, getBreadcrumbSchema } from '@/lib/seo/schemaBuilders'
+import { getArticleSchema, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo/schemaBuilders'
 import { urlForImage } from '@/sanity/lib/image'
 
 type Props = {
@@ -233,18 +234,31 @@ export default async function BlogPostPage({ params }: Props) {
       image: sanityPost.mainImage ? urlForImage(sanityPost.mainImage).width(1200).height(630).url() || '' : '',
       datePublished: sanityPost.publishedAt || '',
       dateModified: sanityPost.publishedAt || '',
-      keywords: [],
+      keywords: sanityPost.tags || [],
     })
     const breadcrumbSchema = getBreadcrumbSchema([
       { name: 'Home', url: '/' },
       { name: 'Blog', url: '/post' },
       { name: sanityPost.title || 'Blog Post', url: `/post/${slug}` },
     ])
+    
+    // FAQ Schema if available in Sanity post
+    const faqSchema = sanityPost.faqs && sanityPost.faqs.length > 0
+      ? getFAQSchema({
+          title: `${sanityPost.title || 'Blog Post'} - FAQs`,
+          description: `Frequently asked questions about ${sanityPost.title || 'this topic'}`,
+          faqs: sanityPost.faqs.map((faq: any) => ({ 
+            question: faq.question || '', 
+            answer: faq.answer || '' 
+          })),
+        })
+      : null
 
     return (
       <>
         <StructuredData data={articleSchema} />
         <StructuredData data={breadcrumbSchema} />
+        {faqSchema && <StructuredData data={faqSchema} />}
         <div className="pt-20 pb-16">
           <SanitySingleBlog post={sanityPost} />
         </div>
@@ -258,6 +272,11 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = getRelatedPosts(slug)
   const recentPosts = getRecentPosts(slug, 5)
+  
+  // Generate TOC from content if not provided or if it seems incorrect
+  const tableOfContents = post.tableOfContents && post.tableOfContents.length > 0
+    ? post.tableOfContents
+    : generateTableOfContents(post.content)
   const articleSchema = getArticleSchema({
     title: post.title,
     description: post.excerpt,
@@ -272,11 +291,21 @@ export default async function BlogPostPage({ params }: Props) {
     { name: 'Blog', url: '/post' },
     { name: post.title, url: `/post/${post.slug}` },
   ])
+  
+  // FAQ Schema if available
+  const faqSchema = post.faqSchema && post.faqSchema.length > 0
+    ? getFAQSchema({
+        title: `${post.title} - FAQs`,
+        description: `Frequently asked questions about ${post.title}`,
+        faqs: post.faqSchema.map(faq => ({ question: faq.question, answer: faq.answer })),
+      })
+    : null
 
   return (
     <>
       <StructuredData data={articleSchema} />
       <StructuredData data={breadcrumbSchema} />
+      {faqSchema && <StructuredData data={faqSchema} />}
       <div className="pt-20 pb-16">
         {/* Hero Image */}
         {post.image && (
@@ -332,9 +361,9 @@ export default async function BlogPostPage({ params }: Props) {
             </Link>
 
             {/* Table of Contents - Mobile Only */}
-            {post.tableOfContents && post.tableOfContents.length > 0 && (
+            {tableOfContents && tableOfContents.length > 0 && (
               <div className="mb-6 lg:hidden">
-                <TableOfContents items={post.tableOfContents} />
+                <TableOfContents items={tableOfContents} />
               </div>
             )}
 
@@ -352,23 +381,32 @@ export default async function BlogPostPage({ params }: Props) {
                   
                   if (!line.trim()) return <br key={index} />
                   
-                  // Check for appointment booking section
+                  // Check for "Why Choose Us" section - replace with footer component
                   const lowerLine = line.toLowerCase()
-                  const hasAppointmentText = lowerLine.includes('book an appointment') || lowerLine.includes('to book an appointment')
+                  if (lowerLine.includes('## why choose us') || lowerLine.includes('## why choose')) {
+                    // Skip the list items that follow
+                    let whyChooseEndIndex = index + 1
+                    while (whyChooseEndIndex < lines.length && 
+                           (lines[whyChooseEndIndex].trim().startsWith('- ') || 
+                            lines[whyChooseEndIndex].trim() === '')) {
+                      whyChooseEndIndex++
+                    }
+                    // Skip all lines until next section
+                    skipNext = false
+                    return null // Will be replaced by footer at end
+                  }
+                  
+                  // Check for appointment booking section - replace with footer component
+                  const hasAppointmentText = lowerLine.includes('## book an appointment') || lowerLine.includes('## book appointment')
                   
                   if (hasAppointmentText) {
-                    // Check if current or next line has phone numbers
+                    // Skip the phone number line if it follows
                     const nextLine = lines[index + 1] || ''
-                    const hasPhoneNumbers = line.includes('+91') || line.includes('99100') || line.includes('99994') ||
-                                           nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994')
-                    
-                    if (hasPhoneNumbers) {
-                      // If phone numbers are in next line, skip it
-                      if (nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994')) {
-                        skipNext = true
-                      }
-                      return <DoctorInfoCard key={`cta-${index}`} authorImage={post.authorImage} category={post.category} />
+                    if (nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994') || 
+                        nextLine.toLowerCase().includes('contact us at')) {
+                      skipNext = true
                     }
+                    return null // Will be replaced by footer at end
                   }
                   
                   // Skip if this line only has phone numbers and previous was appointment
@@ -399,13 +437,14 @@ export default async function BlogPostPage({ params }: Props) {
                       {title}
                     </h2>
                   )
-                } else if (line.startsWith('#')) {
+                } else if (line.startsWith('#') && !line.startsWith('##') && !line.startsWith('###')) {
+                  // Single # should be H2 (not H1) since we already have H1 in hero section
                   const title = line.replace(/^#+\s/, '').trim()
                   const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
                   return (
-                    <h1 key={index} id={id} className="text-3xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
+                    <h2 key={index} id={id} className="text-3xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
                       {title}
-                    </h1>
+                    </h2>
                   )
                 }
                 // Lists
@@ -575,14 +614,17 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               </div>
             )}
+
+            {/* Blog Post Footer - Why Choose Us & Book Appointment */}
+            <BlogPostFooter category={post.category} />
           </article>
 
           {/* Sidebar */}
           <aside className="lg:col-span-1 space-y-6">
             {/* Table of Contents - Desktop Only */}
-            {post.tableOfContents && post.tableOfContents.length > 0 && (
+            {tableOfContents && tableOfContents.length > 0 && (
               <div className="hidden lg:block">
-                <TableOfContents items={post.tableOfContents} />
+                <TableOfContents items={tableOfContents} />
               </div>
             )}
 
