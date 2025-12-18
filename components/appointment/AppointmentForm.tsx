@@ -29,10 +29,9 @@ export default function AppointmentForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [paymentStatus, setPaymentStatus] = useState<'pending' | 'success' | 'failed' | null>(null)
   const [paymentMethod, setPaymentMethod] = useState<'online' | 'reception' | null>(null)
+  const [paymentAmount, setPaymentAmount] = useState<string>('')
 
-  const consultationFee = 1000 // Standard consultation fee
-  const discountAmount = Math.round(consultationFee * 0.3) // 30% discount
-  const discountedFee = consultationFee - discountAmount
+  const consultationFee = 1000 // Standard consultation fee (for display only)
 
   const handleInputChange = (field: keyof AppointmentData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -60,12 +59,20 @@ export default function AppointmentForm() {
         return
       }
 
+      // Validate payment amount
+      const amount = parseFloat(paymentAmount)
+      if (!paymentAmount.trim() || isNaN(amount) || amount <= 0) {
+        toast.error('Please enter a valid payment amount')
+        setPaymentStatus(null)
+        return
+      }
+
       // Prepare product info
       const productInfo = formatProductInfo('appointment', formData.date, formData.category)
 
       // Initiate PayU payment
       await initiatePayUPayment({
-        amount: discountedFee,
+        amount: amount,
         firstname: formData.name.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim(),
@@ -132,6 +139,7 @@ export default function AppointmentForm() {
     setStep('details')
     setPaymentStatus(null)
     setPaymentMethod(null)
+    setPaymentAmount('')
     setFormData({
       name: '',
       phone: '',
@@ -305,30 +313,37 @@ export default function AppointmentForm() {
           {/* Payment Status */}
           {paymentStatus === null && (
             <>
-              {/* Online Payment Discount Banner */}
+              {/* Payment Amount Input */}
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-6">
                 <div className="flex items-start space-x-3">
                   <div className="bg-green-500 text-white rounded-full p-2">
                     <CreditCard size={20} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-green-800 mb-1">Pay Online & Save 30%!</h3>
-                    <p className="text-sm text-green-700 mb-3">
-                      Get instant 30% discount when you pay online. Limited time offer!
-                    </p>
-                    <div className="bg-white rounded-lg p-4 space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Consultation Fee:</span>
-                        <span className="text-gray-500 line-through">₹{consultationFee.toLocaleString('en-IN')}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-green-600 font-semibold">Discount (30%):</span>
-                        <span className="text-green-600 font-semibold">-₹{discountAmount.toLocaleString('en-IN')}</span>
-                      </div>
-                      <div className="flex justify-between items-center pt-2 border-t">
-                        <span className="font-bold text-gray-900">Pay Now:</span>
-                        <span className="text-2xl font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</span>
-                      </div>
+                    <h3 className="font-bold text-green-800 mb-3">Enter Payment Amount</h3>
+                    <div className="bg-white rounded-lg p-4">
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Amount to Pay (₹) <span className="text-[#f56336]">*</span>
+                      </label>
+                      <input
+                        type="number"
+                        value={paymentAmount}
+                        onChange={(e) => {
+                          const value = e.target.value
+                          // Allow only positive numbers
+                          if (value === '' || (!isNaN(parseFloat(value)) && parseFloat(value) >= 0)) {
+                            setPaymentAmount(value)
+                          }
+                        }}
+                        min="1"
+                        step="0.01"
+                        placeholder="Enter amount"
+                        className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-lg font-semibold"
+                        required
+                      />
+                      <p className="text-xs text-gray-500 mt-2">
+                        Minimum amount: ₹1.00
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -341,15 +356,16 @@ export default function AppointmentForm() {
                 {/* Online Payment Option */}
                 <button
                   onClick={handlePayment}
-                  className="w-full border-2 border-[#f56336] bg-[#f56336]/5 rounded-lg p-6 hover:bg-[#f56336]/10 transition-all text-left relative group"
+                  disabled={!paymentAmount || parseFloat(paymentAmount) <= 0}
+                  className="w-full border-2 border-[#f56336] bg-[#f56336]/5 rounded-lg p-6 hover:bg-[#f56336]/10 transition-all text-left relative group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
-                    30% OFF
-                  </div>
                   <div className="font-semibold mb-2 text-[#f56336]">Pay Online</div>
                   <div className="text-sm text-gray-600 mb-2">UPI, Cards, Net Banking</div>
-                  <div className="text-lg font-bold text-green-600">₹{discountedFee.toLocaleString('en-IN')}</div>
-                  <div className="text-xs text-gray-500 line-through mt-1">₹{consultationFee.toLocaleString('en-IN')}</div>
+                  {paymentAmount && parseFloat(paymentAmount) > 0 ? (
+                    <div className="text-lg font-bold text-green-600">₹{parseFloat(paymentAmount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  ) : (
+                    <div className="text-sm text-gray-500">Enter amount above</div>
+                  )}
                 </button>
 
                 {/* Pay at Reception Option */}
@@ -394,7 +410,7 @@ export default function AppointmentForm() {
                 <CheckCircle2 className="text-green-600" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
-              <p className="text-gray-600 mb-2">You saved ₹{discountAmount.toLocaleString('en-IN')} with online payment!</p>
+              <p className="text-gray-600 mb-2">Payment of ₹{paymentAmount ? parseFloat(paymentAmount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'} received!</p>
               <p className="text-gray-600 mb-6">Your appointment has been confirmed.</p>
             </div>
           )}
@@ -439,7 +455,7 @@ export default function AppointmentForm() {
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
               <p className="text-green-800 font-semibold mb-2">✓ Payment Successful</p>
               <p className="text-sm text-green-700">
-                You saved ₹{discountAmount.toLocaleString('en-IN')} with online payment!
+                Payment of ₹{paymentAmount ? parseFloat(paymentAmount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'} received successfully!
               </p>
             </div>
           )}
