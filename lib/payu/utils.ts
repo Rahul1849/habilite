@@ -69,6 +69,12 @@ export function generatePayUHash(params: {
 /**
  * Verify PayU callback hash
  * Hash format: SHA512(status|salt|txnid|amount|key)
+ * 
+ * Note: PayU sends amount as decimal string (e.g., "1.00"), and the hash
+ * must match exactly. We normalize the amount to ensure consistent comparison.
+ * 
+ * Some PayU implementations might use slightly different formats, so we try
+ * multiple variations if the standard format fails.
  */
 export function verifyPayUHash(params: {
   status: string
@@ -80,14 +86,63 @@ export function verifyPayUHash(params: {
 }): boolean {
   const { status, salt, txnid, amount, key, receivedHash } = params
 
-  // PayU verification hash string format
-  const hashString = [status, salt, txnid, amount, key].join('|')
+  // Normalize amount: ensure it's a decimal string with 2 decimal places
+  // PayU sends amounts like "1.00", "100.00", etc.
+  let normalizedAmount = amount
+  try {
+    // Parse and reformat to ensure consistent format
+    const amountNum = parseFloat(amount)
+    if (!isNaN(amountNum)) {
+      normalizedAmount = amountNum.toFixed(2)
+    }
+  } catch (e) {
+    // If parsing fails, use original amount
+    normalizedAmount = amount
+  }
 
-  // Generate SHA512 hash
-  const calculatedHash = crypto.createHash('sha512').update(hashString).digest('hex')
+  // Try standard format first: status|salt|txnid|amount|key
+  const hashString1 = [status, salt, txnid, normalizedAmount, key].join('|')
+  const calculatedHash1 = crypto.createHash('sha512').update(hashString1).digest('hex')
+  
+  if (calculatedHash1.toLowerCase() === receivedHash.toLowerCase()) {
+    return true
+  }
 
-  // Compare hashes (case-insensitive)
-  return calculatedHash.toLowerCase() === receivedHash.toLowerCase()
+  // Try alternative format: status|salt|txnid|amount|key (with original amount if different)
+  if (normalizedAmount !== amount) {
+    const hashString2 = [status, salt, txnid, amount, key].join('|')
+    const calculatedHash2 = crypto.createHash('sha512').update(hashString2).digest('hex')
+    if (calculatedHash2.toLowerCase() === receivedHash.toLowerCase()) {
+      return true
+    }
+  }
+
+  // Try without normalizing amount (use as-is)
+  const hashString3 = [status, salt, txnid, amount, key].join('|')
+  const calculatedHash3 = crypto.createHash('sha512').update(hashString3).digest('hex')
+  
+  const isValid = calculatedHash3.toLowerCase() === receivedHash.toLowerCase()
+
+  // Log hash verification details for debugging (only in development or when verification fails)
+  if (!isValid || process.env.NODE_ENV === 'development') {
+    console.log('[PayU Hash Verification]', {
+      isValid,
+      triedFormats: 3,
+      hashString1,
+      calculatedHash1: calculatedHash1.toLowerCase().substring(0, 20) + '...',
+      receivedHash: receivedHash.toLowerCase().substring(0, 20) + '...',
+      params: {
+        status,
+        txnid,
+        originalAmount: amount,
+        normalizedAmount,
+        keyPrefix: key.substring(0, 6) + '...',
+        saltPrefix: salt.substring(0, 6) + '...',
+      },
+    })
+  }
+
+  return isValid
 }
 
 /**
