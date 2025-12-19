@@ -49,13 +49,9 @@ export default function AppointmentForm() {
 
   const handlePayment = async () => {
     try {
-      setPaymentMethod('online')
-      setPaymentStatus('pending')
-
       // Validate required fields for payment
       if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim()) {
         toast.error('Please fill in name, phone, and email for online payment')
-        setPaymentStatus(null)
         return
       }
 
@@ -63,9 +59,22 @@ export default function AppointmentForm() {
       const amount = parseFloat(paymentAmount)
       if (!paymentAmount.trim() || isNaN(amount) || amount <= 0) {
         toast.error('Please enter a valid payment amount')
-        setPaymentStatus(null)
         return
       }
+
+      // Confirm amount with user
+      const confirmed = window.confirm(
+        `You are about to pay ₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.\n\n` +
+        `This amount will be charged on PayU payment gateway.\n\n` +
+        `Click OK to proceed to payment.`
+      )
+
+      if (!confirmed) {
+        return
+      }
+
+      setPaymentMethod('online')
+      setPaymentStatus('pending')
 
       // Prepare product info
       const productInfo = formatProductInfo('appointment', formData.date, formData.category)
@@ -320,29 +329,43 @@ export default function AppointmentForm() {
                     <CreditCard size={20} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-green-800 mb-3">Enter Payment Amount</h3>
+                    <h3 className="font-bold text-green-800 mb-1">Enter Payment Amount</h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Please enter the exact amount you want to pay. This amount will be charged on PayU.
+                    </p>
                     <div className="bg-white rounded-lg p-4">
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Amount to Pay (₹) <span className="text-[#f56336]">*</span>
                       </label>
-                      <input
-                        type="number"
-                        value={paymentAmount}
-                        onChange={(e) => {
-                          const value = e.target.value
-                          // Allow only positive numbers
-                          if (value === '' || (!isNaN(parseFloat(value)) && parseFloat(value) >= 0)) {
-                            setPaymentAmount(value)
-                          }
-                        }}
-                        min="1"
-                        step="0.01"
-                        placeholder="Enter amount"
-                        className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-lg font-semibold"
-                        required
-                      />
+                      <div className="relative">
+                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-semibold text-lg">₹</span>
+                        <input
+                          type="number"
+                          value={paymentAmount}
+                          onChange={(e) => {
+                            const value = e.target.value
+                            // Allow only positive numbers
+                            if (value === '' || (!isNaN(parseFloat(value)) && parseFloat(value) >= 0)) {
+                              setPaymentAmount(value)
+                            }
+                          }}
+                          min="1"
+                          step="0.01"
+                          placeholder="0.00"
+                          className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f56336] focus:border-[#f56336] text-xl font-bold"
+                          required
+                        />
+                      </div>
+                      {paymentAmount && parseFloat(paymentAmount) > 0 && (
+                        <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                          <p className="text-sm text-gray-600 mb-1">You will be charged:</p>
+                          <p className="text-2xl font-bold text-green-600">
+                            ₹{parseFloat(paymentAmount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                          </p>
+                        </div>
+                      )}
                       <p className="text-xs text-gray-500 mt-2">
-                        Minimum amount: ₹1.00
+                        Minimum amount: ₹1.00 | Enter the exact amount you want to pay
                       </p>
                     </div>
                   </div>
