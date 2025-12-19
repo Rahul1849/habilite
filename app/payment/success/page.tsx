@@ -73,11 +73,11 @@ function PaymentSuccessContent() {
 
         if (result.success && result.verified && result.status === 'success') {
           setVerified(true)
-          // Amount from API is already in rupees (converted from paise)
+          // Amount from API is already in rupees
           const amountInRupees = result.amount 
             ? result.amount 
             : amount 
-              ? parseFloat(amount) / 100 // Convert from paise if from URL
+              ? parseFloat(amount) // Already in rupees
               : 0
 
           setPaymentData({

@@ -65,7 +65,7 @@ function PaymentFailureContent() {
           txnid: txnid || 'N/A',
           error: error || 'Payment failed',
           errorMessage: errorMessage || 'Your payment could not be processed',
-          amount: amount ? `₹${(parseFloat(amount) / 100).toLocaleString('en-IN')}` : 'N/A',
+          amount: amount ? `₹${parseFloat(amount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'N/A',
         })
       } catch (err) {
         console.error('Payment verification error:', err)

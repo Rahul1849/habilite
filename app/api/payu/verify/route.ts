@@ -145,58 +145,98 @@ export async function POST(request: NextRequest) {
     // Send email notification if payment successful
     if (isSuccess) {
       try {
-        // Get email configuration
-        const apiKey = process.env.RESEND_API_KEY
-        const fromEmail = process.env.RESEND_FROM_EMAIL?.replace(/^["']|["']$/g, '') || 'Habilite Clinics <no-reply@habiliteclinics.com>'
-        const toEmail = process.env.RESEND_TO_EMAIL?.replace(/^["']|["']$/g, '') || 'contact@habiliteclinics.com'
+        // Parse productinfo to extract payment details
+        const productInfo = body.productinfo || ''
+        let appointmentDate: string | undefined
+        let consultationType: string | undefined
 
-        if (!apiKey) {
-          console.warn('[PayU Verify API] RESEND_API_KEY not configured, skipping email notification')
-        } else {
-          // Parse productinfo to extract payment details
-          // Format: "Payment Type - Date - Category" or "Payment Type"
-          const productInfo = body.productinfo || ''
-          let appointmentDate: string | undefined
-          let consultationType: string | undefined
-
-          // Try to extract date and category from productinfo
-          // Example: "Appointment Booking - 15 Jan 2024 - General Consultation"
-          const parts = productInfo.split(' - ')
-          if (parts.length >= 2) {
-            // Try to parse date (format: "15 Jan 2024")
-            const datePart = parts[1]
-            if (datePart && datePart.match(/\d{1,2}\s+\w{3}\s+\d{4}/)) {
-              try {
-                const parsedDate = new Date(datePart)
-                if (!isNaN(parsedDate.getTime())) {
-                  appointmentDate = parsedDate.toISOString().split('T')[0]
-                }
-              } catch (e) {
-                // Date parsing failed, ignore
+        // Try to extract date and category from productinfo
+        // Example: "Appointment Booking - 15 Jan 2024 - General Consultation"
+        const parts = productInfo.split(' - ')
+        if (parts.length >= 2) {
+          // Try to parse date (format: "15 Jan 2024")
+          const datePart = parts[1]
+          if (datePart && datePart.match(/\d{1,2}\s+\w{3}\s+\d{4}/)) {
+            try {
+              const parsedDate = new Date(datePart)
+              if (!isNaN(parsedDate.getTime())) {
+                appointmentDate = parsedDate.toISOString().split('T')[0]
               }
-            }
-            // Category might be in the last part
-            if (parts.length >= 3) {
-              consultationType = parts[2]
+            } catch (e) {
+              // Date parsing failed, ignore
             }
           }
+          // Category might be in the last part
+          if (parts.length >= 3) {
+            consultationType = parts[2]
+          }
+        }
 
-          // Determine payment type from productinfo
-          const isVideoConsultation = productInfo.toLowerCase().includes('video consultation')
-          const paymentTypeLabel = isVideoConsultation ? 'Video Consultation' : 'Appointment Booking'
+        // Determine payment type from productinfo
+        const isVideoConsultation = productInfo.toLowerCase().includes('video consultation')
+        const formType = isVideoConsultation ? 'appointment' : 'appointment' // Use appointment form type for both
 
-          // Format date for display
-          const dateStr = appointmentDate
-            ? new Date(appointmentDate).toLocaleDateString('en-IN', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })
-            : 'Not specified'
+        // Prepare email data for /api/send-email (same format as other forms)
+        const emailData = {
+          formType: formType,
+          name: body.firstname,
+          phone: body.phone,
+          email: body.email,
+          preferredDate: appointmentDate,
+          consultationType: consultationType,
+          query: `[ONLINE PAYMENT SUCCESSFUL] Payment received via PayU.\n\nTransaction ID: ${body.txnid}\nAmount Paid: ₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\nPayment ID: ${body.mihpayid || 'N/A'}\nPayment Mode: ${body.payment_mode || 'N/A'}\nBank Reference: ${body.bank_ref_num || 'N/A'}`,
+        }
 
-          // Build email HTML
-          const emailHTML = `
+        // Send email using the same /api/send-email route as other forms
+        // Use internal URL for server-to-server call
+        const baseUrl = request.nextUrl.origin
+        try {
+          const emailResponse = await fetch(`${baseUrl}/api/send-email`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(emailData),
+          })
+
+          if (emailResponse.ok) {
+            const emailResult = await emailResponse.json()
+            if (emailResult.success) {
+              console.log('[PayU Verify API] Payment confirmation email sent successfully via /api/send-email')
+            } else {
+              console.error('[PayU Verify API] Failed to send email via /api/send-email:', emailResult.error)
+              // Fallback to direct Resend if /api/send-email fails
+              throw new Error('Email API failed, will try direct Resend')
+            }
+          } else {
+            const errorText = await emailResponse.text()
+            console.error('[PayU Verify API] Email API returned error status:', emailResponse.status, errorText)
+            throw new Error(`Email API returned ${emailResponse.status}`)
+          }
+        } catch (emailFetchError) {
+          console.error('[PayU Verify API] Error calling /api/send-email, will try direct Resend:', emailFetchError)
+          
+          // Fallback: Send detailed payment email directly using Resend
+          const apiKey = process.env.RESEND_API_KEY
+          const fromEmail = process.env.RESEND_FROM_EMAIL?.replace(/^["']|["']$/g, '') || 'Habilite Clinics <no-reply@habiliteclinics.com>'
+          const toEmail = process.env.RESEND_TO_EMAIL?.replace(/^["']|["']$/g, '') || 'contact@habiliteclinics.com'
+
+          if (apiKey) {
+            // Determine payment type from productinfo (already parsed above)
+            const paymentTypeLabel = isVideoConsultation ? 'Video Consultation' : 'Appointment Booking'
+
+            // Format date for display
+            const dateStr = appointmentDate
+              ? new Date(appointmentDate).toLocaleDateString('en-IN', {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })
+              : 'Not specified'
+
+            // Build email HTML
+            const emailHTML = `
             <!DOCTYPE html>
             <html>
             <head>
@@ -295,8 +335,8 @@ export async function POST(request: NextRequest) {
             </html>
           `
 
-          // Build email text (fallback)
-          const emailText = `
+            // Build email text (fallback)
+            const emailText = `
 Payment Successful - ${paymentTypeLabel}
 
 Name: ${body.firstname}
@@ -309,22 +349,23 @@ Transaction ID: ${body.txnid}
 ${body.mihpayid ? `Payment ID: ${body.mihpayid}\n` : ''}${body.payment_mode ? `Payment Mode: ${body.payment_mode}\n` : ''}${body.bank_ref_num ? `Bank Reference Number: ${body.bank_ref_num}\n` : ''}
 
 Payment received at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
-          `.trim()
+            `.trim()
 
-          // Send email using Resend
-          const resend = new Resend(apiKey)
-          const emailResult = await resend.emails.send({
-            from: fromEmail,
-            to: toEmail,
-            subject: `Payment Successful - ${paymentTypeLabel} - ${body.firstname}`,
-            html: emailHTML,
-            text: emailText,
-          })
+            // Send email using Resend
+            const resend = new Resend(apiKey)
+            const emailResult = await resend.emails.send({
+              from: fromEmail,
+              to: toEmail,
+              subject: `Payment Successful - ${paymentTypeLabel} - ${body.firstname}`,
+              html: emailHTML,
+              text: emailText,
+            })
 
-          if (emailResult.error) {
-            console.error('[PayU Verify API] Failed to send payment confirmation email:', emailResult.error)
-          } else {
-            console.log('[PayU Verify API] Payment confirmation email sent successfully:', emailResult.data?.id)
+            if (emailResult.error) {
+              console.error('[PayU Verify API] Failed to send payment confirmation email (fallback):', emailResult.error)
+            } else {
+              console.log('[PayU Verify API] Payment confirmation email sent successfully (fallback):', emailResult.data?.id)
+            }
           }
         }
       } catch (emailError) {
