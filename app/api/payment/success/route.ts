@@ -1,5 +1,5 @@
 /**
- * PayU Success Callback Route Handler
+ * PayU Success Callback API Route Handler
  * Accepts POST from PayU and redirects to the success page with GET parameters
  */
 
@@ -9,7 +9,7 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 /**
- * POST /payment/success
+ * POST /api/payment/success
  * Handles PayU POST callback and redirects to success page
  */
 export async function POST(request: NextRequest) {
@@ -31,19 +31,18 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.redirect(redirectUrl, 302)
   } catch (error) {
-    console.error('[PayU Success Route] Error handling POST:', error)
+    console.error('[PayU Success API] Error handling POST:', error)
     // Fallback: redirect to success page anyway
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || request.nextUrl.origin
     return NextResponse.redirect(`${baseUrl}/payment/success`, 302)
   }
 }
 
-/**
- * GET /payment/success
- * Allow direct access to success page
- */
+// Reject GET requests (pages handle those)
 export async function GET() {
-  // This will be handled by the page.tsx file
-  return NextResponse.next()
+  return NextResponse.json(
+    { success: false, error: 'Use /payment/success page instead' },
+    { status: 404 }
+  )
 }
 

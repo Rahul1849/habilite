@@ -21,8 +21,9 @@ export async function initiatePayUPayment(
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin
 
     // Build success and failure URLs
-    const surl = `${baseUrl}/payment/success`
-    const furl = `${baseUrl}/payment/failure`
+    // Note: PayU sends POST, so we use API routes that redirect to pages
+    const surl = `${baseUrl}/api/payment/success`
+    const furl = `${baseUrl}/api/payment/failure`
 
     // Prepare hash generation request
     const hashRequest = {
