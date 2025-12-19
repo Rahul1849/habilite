@@ -130,7 +130,8 @@ export async function POST(request: NextRequest) {
 
     // Check payment status
     const isSuccess = body.status === 'success'
-    const amount = parseFloat(body.amount) / 100 // Convert from paise to rupees
+    // PayU sends amount as decimal string in rupees (e.g., "1.00")
+    const amount = parseFloat(body.amount) // Already in rupees
 
     // Log payment verification
     console.log('[PayU Verify API] Payment verified:', {

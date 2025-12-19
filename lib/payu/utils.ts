@@ -103,12 +103,14 @@ export function sanitizeProductInfo(info: string): string {
 }
 
 /**
- * Format amount for PayU (should be in paise for INR)
- * PayU expects amount in smallest currency unit
+ * Format amount for PayU
+ * PayU expects amount as a decimal string in rupees (e.g., "1.00" for ₹1)
+ * Format: Two decimal places, as string
  */
 export function formatAmount(amount: number): string {
-  // Convert to paise (multiply by 100)
-  return Math.round(amount * 100).toString()
+  // Format as decimal string with 2 decimal places (in rupees)
+  // Example: 1 -> "1.00", 100 -> "100.00"
+  return amount.toFixed(2)
 }
 
 /**
