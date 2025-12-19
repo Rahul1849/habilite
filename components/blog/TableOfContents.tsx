@@ -56,16 +56,45 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
     }
   }, [items])
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, itemId: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, itemId: string, itemTitle: string) => {
     e.preventDefault()
-    const element = document.getElementById(itemId)
-    if (element) {
-      // Smooth scroll to the element without changing URL
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
+    
+    // Function to scroll to element with retry logic and fallback
+    const scrollToElement = (attempts = 0) => {
+      let element = document.getElementById(itemId)
+      
+      // Fallback: if element not found by ID, try to find by text content
+      if (!element && itemTitle) {
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+        headings.forEach((heading) => {
+          const headingText = heading.textContent?.trim()
+          if (headingText === itemTitle) {
+            element = heading as HTMLElement
+          }
+        })
+      }
+      
+      if (element) {
+        // Calculate the offset to account for sticky header (scroll-mt-24 = 6rem = 96px)
+        const offset = 96
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - offset
+
+        // Smooth scroll to the element without changing URL
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      } else if (attempts < 10) {
+        // Retry if element not found (might be still rendering)
+        setTimeout(() => scrollToElement(attempts + 1), 100)
+      }
     }
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      scrollToElement()
+    })
   }
 
   return (
@@ -75,7 +104,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
         {items.map((item) => (
           <li key={item.id}>
             <button
-              onClick={(e) => handleClick(e, item.id)}
+              onClick={(e) => handleClick(e, item.id, item.title)}
               className={`block w-full text-left py-2 px-3 rounded transition-colors cursor-pointer hover:bg-primary-50 hover:text-primary-600 ${
                 activeId === item.id
                   ? 'bg-primary-100 text-primary-700 font-semibold'
