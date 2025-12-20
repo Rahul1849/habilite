@@ -32,34 +32,47 @@ export interface WhatsAppFormData {
 export function formatWhatsAppMessage(data: WhatsAppFormData): string {
   const parts: string[] = []
   
-  // Add form type header
+  // Form type labels for identification
   const formTypeLabels: Record<string, string> = {
-    'consultation': '📋 Consultation Request',
-    'appointment': '📅 Appointment Request',
-    'contact': '💬 Contact Form Submission',
-    'ask-surgeon': '❓ Ask the Surgeon',
-    'best-treatment': '💊 Best Treatment Form'
+    'consultation': 'Consultation Form',
+    'appointment': 'Appointment Form',
+    'contact': 'Contact Form',
+    'ask-surgeon': 'Ask the Surgeon Form',
+    'best-treatment': 'Best Treatment Form'
   }
   
-  parts.push(`*${formTypeLabels[data.formType] || 'Form Submission'}*`)
+  // Start with greeting
+  parts.push('Hello Habilite Clinics,')
+  parts.push('')
+  parts.push('I would like to enquire through your website. Please find my details below:')
+  parts.push('')
+  
+  // Form Type - Important for identification
+  parts.push(`Form Submitted: ${formTypeLabels[data.formType] || 'Website Form'}`)
   parts.push('')
   
   // Name (always present)
-  parts.push(`*Name:* ${data.name}`)
+  parts.push(`Name: ${data.name}`)
   
-  // Phone
+  // Mobile/Phone
   if (data.phone) {
-    parts.push(`*Phone:* ${data.phone}`)
+    parts.push(`Mobile: ${data.phone}`)
+  } else if (data.contact) {
+    // For ask-surgeon form, contact field might be phone or email
+    parts.push(`Mobile: ${data.contact}`)
   }
   
   // Email
   if (data.email) {
-    parts.push(`*Email:* ${data.email}`)
+    parts.push(`Email: ${data.email}`)
+  } else if (data.contact && data.contact.includes('@')) {
+    // For ask-surgeon form, if contact is email
+    parts.push(`Email: ${data.contact}`)
   }
   
   // Service Name
   if (data.serviceName) {
-    parts.push(`*Service:* ${data.serviceName}`)
+    parts.push(`Service: ${data.serviceName}`)
   }
   
   // Preferred Date
@@ -70,58 +83,70 @@ export function formatWhatsAppMessage(data: WhatsAppFormData): string {
       month: 'long',
       day: 'numeric',
     })
-    parts.push(`*Preferred Date:* ${dateStr}`)
+    parts.push(`Preferred Date: ${dateStr}`)
   }
   
   // Consultation Type / Subject
   if (data.consultationType) {
-    parts.push(`*Consultation Type:* ${data.consultationType}`)
+    parts.push(`Consultation Type: ${data.consultationType}`)
   }
   if (data.subject) {
-    parts.push(`*Subject:* ${data.subject}`)
+    parts.push(`Subject: ${data.subject}`)
   }
   
   // Best Treatment Form specific fields
   if (data.age) {
-    parts.push(`*Age:* ${data.age} years`)
+    parts.push(`Age: ${data.age} years`)
   }
   if (data.currentWeight) {
-    parts.push(`*Current Weight:* ${data.currentWeight} kg`)
+    parts.push(`Current Weight: ${data.currentWeight} kg`)
   }
   if (data.height) {
-    parts.push(`*Height:* ${data.height}`)
+    parts.push(`Height: ${data.height}`)
   }
   if (data.weightGoal) {
-    parts.push(`*Weight Goal:* ${data.weightGoal} kg`)
+    parts.push(`Weight Goal: ${data.weightGoal} kg`)
   }
   if (data.conditions) {
-    parts.push(`*Conditions:* ${data.conditions}`)
+    parts.push(`Conditions: ${data.conditions}`)
   }
   if (data.programHistory) {
-    parts.push(`*Program History:* ${data.programHistory}`)
+    parts.push(`Program History: ${data.programHistory}`)
   }
   
-  // Ask Surgeon specific fields
+  // Ask Surgeon - Contact field (if not already used as phone/email)
+  if (data.contact && !data.phone && !data.email) {
+    parts.push(`Contact: ${data.contact}`)
+  }
+  
+  // Message section
+  const messageParts: string[] = []
+  
+  // Question (for ask-surgeon form)
   if (data.question) {
-    parts.push('')
-    parts.push(`*Question:*`)
-    parts.push(data.question)
-  }
-  if (data.contact) {
-    parts.push(`*Contact:* ${data.contact}`)
+    messageParts.push(data.question)
   }
   
-  // Message / Query
+  // Message
   if (data.message) {
-    parts.push('')
-    parts.push(`*Message:*`)
-    parts.push(data.message)
+    messageParts.push(data.message)
   }
+  
+  // Query
   if (data.query) {
-    parts.push('')
-    parts.push(`*Query:*`)
-    parts.push(data.query)
+    messageParts.push(data.query)
   }
+  
+  // Add message section if there's any message content
+  if (messageParts.length > 0) {
+    parts.push('')
+    parts.push('Message:')
+    parts.push(messageParts.join('\n\n'))
+  }
+  
+  // Closing
+  parts.push('')
+  parts.push('Thank you.')
   
   return parts.join('\n')
 }
