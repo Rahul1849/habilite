@@ -38,6 +38,7 @@ function PaymentSuccessContent() {
         const amount = searchParams.get('amount')
         const firstname = searchParams.get('firstname')
         const email = searchParams.get('email')
+        const phone = searchParams.get('phone')
         const productinfo = searchParams.get('productinfo')
         const hash = searchParams.get('hash')
 
