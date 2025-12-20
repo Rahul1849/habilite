@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone, Send } from 'lucide-react'
 import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
@@ -47,6 +48,20 @@ export default function AppointmentForm() {
       if (result.success) {
         setIsSubmitted(true)
         toast.success(result.message || 'Appointment request sent successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'appointment',
+            name: formData.name.trim(),
+            phone: formData.phone.trim() || undefined,
+            email: formData.email.trim() || undefined,
+            preferredDate: formData.reservationDate || undefined,
+            consultationType: formData.subject.trim() || undefined,
+            query: formData.message.trim() || undefined,
+          })
+        }, 1000) // Small delay to show success message
+        
         setTimeout(() => {
           setIsSubmitted(false)
           setFormData({

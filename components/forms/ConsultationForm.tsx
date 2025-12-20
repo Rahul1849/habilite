@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone } from 'lucide-react'
 import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 interface ConsultationFormProps {
   serviceName?: string
@@ -82,6 +83,19 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
       if (result.success) {
         setIsSubmitted(true)
         toast.success(result.message || 'Your consultation request has been submitted successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'consultation',
+            name: formData.name.trim(),
+            phone: formData.phone.trim(),
+            email: formData.email.trim() || undefined,
+            preferredDate: formData.date || undefined,
+            serviceName: serviceName || undefined,
+            message: message,
+          })
+        }, 1000) // Small delay to show success message
       } else {
         toast.error(result.error || 'Failed to submit consultation request. Please try again.')
       }

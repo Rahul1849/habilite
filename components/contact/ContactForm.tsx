@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
 import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -40,6 +41,19 @@ export default function ContactForm() {
       if (result.success) {
         setIsSubmitted(true)
         toast.success(result.message || 'Message sent successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'contact',
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: formData.phone.trim(),
+            subject: formData.subject.trim(),
+            message: formData.message.trim(),
+          })
+        }, 1000) // Small delay to show success message
+        
         setTimeout(() => {
           setIsSubmitted(false)
           setFormData({ name: '', email: '', phone: '', subject: '', message: '' })

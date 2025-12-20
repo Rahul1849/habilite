@@ -332,7 +332,7 @@ export default function BariatricSurgeryPage() {
                     Gastric Sleeve (Sleeve Gastrectomy): The Reliable, Most Common Choice
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatrics/bariatric-surgery/gastric-sleeve" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
+                    In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatrics/bariatric-surgery/sleeve-gastrectomy" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
                   </p>
                 </div>
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 export default function BestTreatmentForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -48,6 +49,21 @@ export default function BestTreatmentForm() {
       if (result.success) {
         setIsSubmitted(true)
         toast.success(result.message || 'Your details have been submitted successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'best-treatment',
+            name: formObject.name.trim(),
+            age: formObject.age,
+            currentWeight: formObject.currentWeight,
+            height: formObject.height,
+            weightGoal: formObject.weightGoal,
+            conditions: formObject.conditions,
+            programHistory: formObject.programHistory || undefined,
+            serviceName: 'Weight Loss Treatment Consultation',
+          })
+        }, 1000) // Small delay to show success message
       } else {
         toast.error(result.error || 'Failed to submit details. Please try again.')
       }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 export default function AskSurgeonForm() {
   const [formData, setFormData] = useState({
@@ -43,6 +44,17 @@ export default function AskSurgeonForm() {
       if (result.success) {
         setIsSubmitted(true)
         toast.success(result.message || 'Your question has been submitted successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'ask-surgeon',
+            name: formData.name.trim(),
+            contact: formData.contact.trim(),
+            question: formData.question.trim(),
+          })
+        }, 1000) // Small delay to show success message
+        
         setFormData({
           name: '',
           contact: '',

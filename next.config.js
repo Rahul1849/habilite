@@ -145,6 +145,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/bariatrics/bariatric-surgery/gastric-sleeve',
+        destination: '/bariatrics/bariatric-surgery/sleeve-gastrectomy',
+        permanent: true,
+      },
+      {
         source: '/doctors/dr-kapil-agrawal',
         destination: '/dr-kapil-agrawal',
         permanent: true,
