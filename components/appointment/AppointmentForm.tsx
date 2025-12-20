@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Calendar, CheckCircle2, Phone, MessageCircle, CreditCard, Wallet, X } from 'lucide-react'
 import { toast } from '@/lib/utils/toast'
 import { initiatePayUPayment, formatProductInfo } from '@/lib/payu/payment'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 interface AppointmentData {
   name: string
@@ -106,6 +107,19 @@ export default function AppointmentForm() {
     // Send email notification
     await sendAppointmentEmail()
     setStep('confirmation')
+    
+    // Redirect to WhatsApp with form details
+    setTimeout(() => {
+      redirectToWhatsApp({
+        formType: 'appointment',
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        email: formData.email.trim() || undefined,
+        preferredDate: formData.date || undefined,
+        consultationType: formData.category || undefined,
+        query: formData.query.trim() || undefined,
+      })
+    }, 1000) // Small delay to show confirmation
   }
 
   const sendAppointmentEmail = async () => {

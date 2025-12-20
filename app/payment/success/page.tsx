@@ -9,6 +9,7 @@ import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { CheckCircle2, Loader2, X } from 'lucide-react'
 import Link from 'next/link'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 interface PaymentData {
   txnid: string
@@ -95,6 +96,48 @@ function PaymentSuccessContent() {
           if (!result.verified) {
             console.warn('[Payment Success Page] Payment processed but hash verification failed. Payment is still valid per PayU dashboard.')
           }
+
+          // Redirect to WhatsApp with payment details
+          // Extract form type and details from productinfo
+          const isVideoConsultation = productinfo?.toLowerCase().includes('video consultation') || false
+          const formType = 'appointment' // Both appointment and video consultation use appointment form type
+          
+          // Parse date and category from productinfo
+          let appointmentDate: string | undefined
+          let consultationType: string | undefined
+          if (productinfo) {
+            const parts = productinfo.split(' - ')
+            if (parts.length >= 2) {
+              const datePart = parts[1]
+              if (datePart && datePart.match(/\d{1,2}\s+\w{3}\s+\d{4}/)) {
+                try {
+                  const parsedDate = new Date(datePart)
+                  if (!isNaN(parsedDate.getTime())) {
+                    appointmentDate = parsedDate.toISOString().split('T')[0]
+                  }
+                } catch (e) {
+                  // Date parsing failed, ignore
+                }
+              }
+              if (parts.length >= 3) {
+                consultationType = parts[2]
+              }
+            }
+          }
+
+          // Build WhatsApp message after a short delay
+          setTimeout(() => {
+            redirectToWhatsApp({
+              formType: formType,
+              name: firstname || '',
+              phone: phone || undefined,
+              email: email || undefined,
+              preferredDate: appointmentDate,
+              consultationType: consultationType,
+              serviceName: isVideoConsultation ? 'Video Consultation' : 'Appointment Booking',
+              message: `Payment successful via PayU.\nTransaction ID: ${txnid}\nAmount: ₹${amountInRupees.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+            })
+          }, 1500) // Delay to show success message first
         } else {
           setError(result.error || 'Payment verification failed')
           setVerified(false)
