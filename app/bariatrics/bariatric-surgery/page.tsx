@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india',
     images: [
       {
-        url: 'https://www.habiliteclinics.com/images/bariatric-surgeon-delhi-india.webp',
+        url: 'https://www.habiliteclinics.com/images/best-bariatric-surgeon-delhi.webp',
         width: 1200,
         height: 630,
         alt: 'Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal',
@@ -123,7 +123,7 @@ export default function BariatricSurgeryPage() {
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
             <Image
-              src="/images/bariatric-surgeon-delhi-india.webp"
+              src="/images/best-bariatric-surgeon-delhi.webp"
               alt="Best Bariatric Surgeon in Delhi - Dr. Kapil Agrawal | Expert Weight Loss Surgery | 23 Years Experience | 7000+ Surgeries"
               fill
               className="object-cover object-center"
