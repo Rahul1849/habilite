@@ -1,15 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import { UploadCloud, FileText, CheckCircle2, RefreshCcw } from 'lucide-react'
+import { UploadCloud, FileText, CheckCircle2, RefreshCcw, Loader2 } from 'lucide-react'
+import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
-type Step = 'initial' | 'uploaded' | 'otpSent' | 'verified'
+type Step = 'initial' | 'uploaded' | 'submitted'
 
 export default function UploadReportCard() {
   const [fileName, setFileName] = useState('')
   const [phone, setPhone] = useState('')
-  const [otp, setOtp] = useState('')
   const [step, setStep] = useState<Step>('initial')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -19,22 +21,60 @@ export default function UploadReportCard() {
     }
   }
 
-  const handleSendOtp = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    if (!phone.trim()) return
-    setStep('otpSent')
-  }
+    if (!phone.trim()) {
+      toast.error('Please enter your phone number')
+      return
+    }
+    
+    setIsSubmitting(true)
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'contact',
+          name: 'Report Upload',
+          phone: phone.trim(),
+          subject: 'Report Upload - Piles Treatment',
+          message: `Report/Image uploaded for review: ${fileName || 'File uploaded'}. Please contact the patient at ${phone.trim()} to discuss next steps.`,
+        }),
+      })
 
-  const handleVerifyOtp = (event: React.FormEvent) => {
-    event.preventDefault()
-    if (!otp.trim()) return
-    setStep('verified')
+      const result = await response.json()
+
+      if (result.success) {
+        setStep('submitted')
+        toast.success(result.message || 'Your report has been submitted successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'contact',
+            name: 'Report Upload',
+            phone: phone.trim(),
+            subject: 'Report Upload - Piles Treatment',
+            message: `Report/Image uploaded for review: ${fileName || 'File uploaded'}. Please contact me to discuss next steps.`,
+          })
+        }, 1000) // Small delay to show success message
+      } else {
+        toast.error(result.error || 'Failed to submit report. Please try again.')
+      }
+    } catch (error) {
+      console.error('Report upload submission error:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const resetForm = () => {
     setFileName('')
     setPhone('')
-    setOtp('')
     setStep('initial')
   }
 
@@ -70,7 +110,7 @@ export default function UploadReportCard() {
             File received. Verify your phone so our colorectal nurse can reach out.
           </div>
         )}
-        {step === 'verified' && (
+        {step === 'submitted' && (
           <div className="flex items-center gap-2 rounded-2xl bg-emerald-50 text-emerald-800 px-4 py-3 text-sm font-semibold">
             <CheckCircle2 size={18} />
             Thank you! Expect a callback within a few hours to discuss next steps.
@@ -84,7 +124,7 @@ export default function UploadReportCard() {
         )}
 
         {step === 'uploaded' && (
-          <form onSubmit={handleSendOtp} className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <label className="block text-sm font-semibold text-gray-700">Confirm contact number for updates</label>
             <input
               type="tel"
@@ -96,38 +136,22 @@ export default function UploadReportCard() {
             />
             <button
               type="submit"
-              className="w-full rounded-2xl bg-[#0891b2] text-white font-semibold py-3 hover:bg-[#06b6d4] transition"
+              disabled={isSubmitting}
+              className="w-full rounded-2xl bg-[#0891b2] text-white font-semibold py-3 hover:bg-[#06b6d4] transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              Send OTP
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="animate-spin" size={18} />
+                  <span>Submitting...</span>
+                </>
+              ) : (
+                'Submit Report'
+              )}
             </button>
           </form>
         )}
 
-        {step === 'otpSent' && (
-          <form onSubmit={handleVerifyOtp} className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <CheckCircle2 size={16} className="text-emerald-500" />
-              OTP sent to {phone}. Enter it below to confirm.
-            </div>
-            <input
-              type="text"
-              required
-              maxLength={6}
-              placeholder="Enter 6-digit OTP"
-              value={otp}
-              onChange={(event) => setOtp(event.target.value)}
-              className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-center tracking-[0.5em] text-lg font-semibold focus:border-[#0891b2] focus:ring-2 focus:ring-[#0891b2]/30 transition"
-            />
-            <button
-              type="submit"
-              className="w-full rounded-2xl bg-[#0891b2] text-white font-semibold py-3 hover:bg-[#06b6d4] transition"
-            >
-              Verify & Confirm Submission
-            </button>
-          </form>
-        )}
-
-        {step === 'verified' && (
+        {step === 'submitted' && (
           <button
             type="button"
             onClick={resetForm}

@@ -1,153 +1,115 @@
 'use client'
 
 import { useState } from 'react'
-import { Calculator, Phone, CheckCircle2, Loader2 } from 'lucide-react'
+import { Calculator, CheckCircle2, Loader2 } from 'lucide-react'
+import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
 interface CostCalculatorProps {
   serviceName: string
 }
 
 export default function CostCalculator({ serviceName }: CostCalculatorProps) {
-  const [step, setStep] = useState<'form' | 'otp' | 'verified'>('form')
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     country: 'India',
   })
-  const [otp, setOtp] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [otpSent, setOtpSent] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!formData.name.trim() || !formData.phone.trim()) {
-      alert('Please fill in all required fields')
+      toast.error('Please fill in all required fields')
       return
     }
     
     setIsLoading(true)
-    // Simulate OTP sending
-    setTimeout(() => {
-      setIsLoading(false)
-      setOtpSent(true)
-      setStep('otp')
-    }, 1500)
-  }
-
-  const handleOtpSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (otp.length !== 6) {
-      alert('Please enter a valid 6-digit OTP')
-      return
-    }
     
-    setIsLoading(true)
-    // Simulate OTP verification
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'consultation',
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          serviceName: `${serviceName} Cost Estimate - ${formData.country}`,
+          message: `Cost estimate request for ${serviceName} from ${formData.country}.`,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        toast.success(result.message || 'Your cost estimate request has been submitted successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'consultation',
+            name: formData.name.trim(),
+            phone: formData.phone.trim(),
+            serviceName: `${serviceName} Cost Estimate - ${formData.country}`,
+            message: `Cost estimate request for ${serviceName} from ${formData.country}.`,
+          })
+        }, 1000) // Small delay to show success message
+      } else {
+        toast.error(result.error || 'Failed to submit cost estimate request. Please try again.')
+      }
+    } catch (error) {
+      console.error('Cost calculator submission error:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
       setIsLoading(false)
-      setStep('verified')
-    }, 1500)
+    }
   }
 
-  const handleGetActualCost = () => {
-    // Call Habilite number
-    window.location.href = 'tel:+919999456455'
+  const handleReset = () => {
+    setIsSubmitted(false)
+    setFormData({
+      name: '',
+      phone: '',
+      country: 'India',
+    })
   }
 
-  const handleResendOtp = () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-      alert('OTP resent successfully!')
-    }, 1000)
-  }
-
-  const handleChangeNumber = () => {
-    setStep('form')
-    setOtp('')
-    setOtpSent(false)
-  }
-
-  if (step === 'verified') {
+  if (isSubmitted) {
     return (
       <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 md:p-8 border-2 border-[#0891b2] shadow-lg">
         <div className="text-center mb-6">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 className="text-green-600" size={32} />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">OTP Verified Successfully!</h3>
-          <p className="text-gray-600">Click below to get the actual cost for {serviceName}</p>
-        </div>
-        <button
-          onClick={handleGetActualCost}
-          className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white py-4 px-6 rounded-lg font-bold text-lg hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
-        >
-          <Phone size={24} />
-          <span>Get Actual Cost</span>
-        </button>
-      </div>
-    )
-  }
-
-  if (step === 'otp') {
-    return (
-      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 md:p-8 border-2 border-[#0891b2] shadow-lg">
-        <div className="text-center mb-6">
-          <Calculator className="text-[#0891b2] mx-auto mb-4" size={48} />
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">{serviceName} Cost Calculator</h3>
-          <p className="text-gray-600">Enter OTP sent to {formData.phone}</p>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">Request Submitted Successfully!</h3>
+          <p className="text-gray-600 mb-4">Thank you for your interest. Our team will contact you shortly with cost details for {serviceName}.</p>
         </div>
         
-        <form onSubmit={handleOtpSubmit} className="space-y-4">
+        <div className="bg-white rounded-lg p-4 mb-6 text-left max-w-md mx-auto space-y-2 text-sm">
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Enter OTP <span className="text-[#0891b2]">*</span>
-            </label>
-            <input
-              type="text"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-[#0891b2] text-center text-2xl font-bold tracking-widest"
-              placeholder="000000"
-              maxLength={6}
-              required
-            />
+            <span className="text-gray-600">Name:</span> <span className="font-semibold text-gray-900">{formData.name}</span>
           </div>
-          
-          <button
-            type="submit"
-            disabled={isLoading || otp.length !== 6}
-            className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white py-3 px-6 rounded-lg font-bold hover:shadow-lg hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-          >
-            {isLoading ? (
-              <>
-                <Loader2 className="animate-spin" size={20} />
-                <span>Verifying...</span>
-              </>
-            ) : (
-              'Verify OTP'
-            )}
-          </button>
-          
-          <div className="flex gap-4">
-            <button
-              type="button"
-              onClick={handleResendOtp}
-              disabled={isLoading}
-              className="flex-1 text-[#0891b2] py-2 font-medium hover:underline disabled:opacity-50"
-            >
-              Resend OTP
-            </button>
-            <button
-              type="button"
-              onClick={handleChangeNumber}
-              disabled={isLoading}
-              className="flex-1 text-gray-600 py-2 font-medium hover:underline disabled:opacity-50"
-            >
-              Change Number
-            </button>
+          <div>
+            <span className="text-gray-600">Phone:</span> <span className="font-semibold text-gray-900">{formData.phone}</span>
           </div>
-        </form>
+          <div>
+            <span className="text-gray-600">Country:</span> <span className="font-semibold text-gray-900">{formData.country}</span>
+          </div>
+          <div>
+            <span className="text-gray-600">Service:</span> <span className="font-semibold text-gray-900">{serviceName}</span>
+          </div>
+        </div>
+
+        <button
+          onClick={handleReset}
+          className="w-full bg-gradient-to-r from-[#0891b2] to-[#06b6d4] text-white py-3 px-6 rounded-lg font-bold hover:shadow-lg hover:scale-105 transition-all duration-200"
+        >
+          Submit Another Request
+        </button>
       </div>
     )
   }
@@ -217,10 +179,13 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
           {isLoading ? (
             <>
               <Loader2 className="animate-spin" size={20} />
-              <span>Sending OTP...</span>
+              <span>Submitting...</span>
             </>
           ) : (
-            'Get Cost Estimate'
+            <>
+              <Calculator size={20} />
+              <span>Get Cost Estimate</span>
+            </>
           )}
         </button>
       </form>

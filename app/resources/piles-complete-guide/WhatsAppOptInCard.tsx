@@ -1,30 +1,70 @@
 'use client'
 
 import { useState } from 'react'
-import { CheckCircle2, MessageCircle, RefreshCcw } from 'lucide-react'
+import { CheckCircle2, MessageCircle, RefreshCcw, Loader2 } from 'lucide-react'
+import { toast } from '@/lib/utils/toast'
+import { redirectToWhatsApp } from '@/lib/utils/whatsapp'
 
-type Step = 'initial' | 'otpSent' | 'verified'
+type Step = 'initial' | 'submitted'
 
 export default function WhatsAppOptInCard() {
   const [phone, setPhone] = useState('')
-  const [otp, setOtp] = useState('')
   const [step, setStep] = useState<Step>('initial')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSendOtp = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    if (!phone.trim()) return
-    setStep('otpSent')
-  }
+    if (!phone.trim()) {
+      toast.error('Please enter your phone number')
+      return
+    }
+    
+    setIsSubmitting(true)
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'contact',
+          name: 'WhatsApp Opt-In',
+          phone: phone.trim(),
+          subject: 'WhatsApp Care Reminders - Piles Treatment',
+          message: `Request to subscribe to WhatsApp care reminders for piles treatment. Phone: ${phone.trim()}`,
+        }),
+      })
 
-  const handleVerifyOtp = (event: React.FormEvent) => {
-    event.preventDefault()
-    if (!otp.trim()) return
-    setStep('verified')
+      const result = await response.json()
+
+      if (result.success) {
+        setStep('submitted')
+        toast.success(result.message || 'Your subscription request has been submitted successfully!')
+        
+        // Redirect to WhatsApp with form details
+        setTimeout(() => {
+          redirectToWhatsApp({
+            formType: 'contact',
+            name: 'WhatsApp Opt-In',
+            phone: phone.trim(),
+            subject: 'WhatsApp Care Reminders - Piles Treatment',
+            message: `I would like to subscribe to WhatsApp care reminders for piles treatment.`,
+          })
+        }, 1000) // Small delay to show success message
+      } else {
+        toast.error(result.error || 'Failed to submit subscription request. Please try again.')
+      }
+    } catch (error) {
+      console.error('WhatsApp opt-in submission error:', error)
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const resetForm = () => {
     setPhone('')
-    setOtp('')
     setStep('initial')
   }
 
@@ -44,7 +84,7 @@ export default function WhatsAppOptInCard() {
       </div>
 
       {step === 'initial' && (
-        <form onSubmit={handleSendOtp} className="flex flex-col sm:flex-row gap-3">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
           <input
             type="tel"
             required
@@ -55,38 +95,22 @@ export default function WhatsAppOptInCard() {
           />
           <button
             type="submit"
-            className="rounded-2xl bg-[#0891b2] text-white font-semibold px-6 py-3 hover:bg-[#06b6d4] transition"
+            disabled={isSubmitting}
+            className="rounded-2xl bg-[#0891b2] text-white font-semibold px-6 py-3 hover:bg-[#06b6d4] transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            Send OTP
+            {isSubmitting ? (
+              <>
+                <Loader2 className="animate-spin" size={18} />
+                <span>Submitting...</span>
+              </>
+            ) : (
+              'Subscribe'
+            )}
           </button>
         </form>
       )}
 
-      {step === 'otpSent' && (
-        <form onSubmit={handleVerifyOtp} className="space-y-3">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <CheckCircle2 size={16} className="text-emerald-500" />
-            OTP sent to {phone}. Enter it below to confirm.
-          </div>
-          <input
-            type="text"
-            required
-            maxLength={6}
-            placeholder="Enter 6-digit OTP"
-            value={otp}
-            onChange={(event) => setOtp(event.target.value)}
-            className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-center tracking-[0.5em] text-lg font-semibold focus:border-[#0891b2] focus:ring-2 focus:ring-[#0891b2]/30 transition"
-          />
-          <button
-            type="submit"
-            className="w-full rounded-2xl bg-[#0891b2] text-white font-semibold py-3 hover:bg-[#06b6d4] transition"
-          >
-            Verify & Subscribe
-          </button>
-        </form>
-      )}
-
-      {step === 'verified' && (
+      {step === 'submitted' && (
         <div className="space-y-3">
           <div className="flex items-center gap-2 rounded-2xl bg-emerald-50 text-emerald-800 px-4 py-3 text-sm font-semibold">
             <CheckCircle2 size={18} />
