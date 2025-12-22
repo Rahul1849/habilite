@@ -276,6 +276,7 @@ export default function BestHerniaSurgeonPage() {
                   {
                     title: "Inguinal Hernia",
                     desc: "An inguinal hernia occurs in the groin when abdominal tissue pushes through a weak spot in the abdominal wall. It is more common in men and may cause pain or discomfort during physical activity.",
+                    link: "/best-inguinal-hernia-surgeon-in-delhi",
                   },
                   {
                     title: "Umbilical Hernia",
@@ -284,14 +285,17 @@ export default function BestHerniaSurgeonPage() {
                   {
                     title: "Incisional Hernia",
                     desc: "An incisional hernia forms at the site of a previous surgical scar. These hernias may enlarge over time and often require specialized surgical management.",
+                    link: "/best-incisional-hernia-surgeon-in-delhi",
                   },
                   {
                     title: "Hiatus Hernia",
                     desc: "A hiatus hernia occurs when part of the stomach moves upward into the chest through the diaphragm. It may lead to symptoms such as acid reflux, heartburn, or chest discomfort.",
+                    link: "/best-hiatus-hernia-surgeon-in-delhi",
                   },
                   {
                     title: "Femoral Hernia",
                     desc: "A femoral hernia appears near the upper thigh and is more commonly seen in women. It can be difficult to detect and carries a higher risk of complications such as strangulation.",
+                    link: "/best-femoral-hernia-surgeon-in-delhi",
                   },
                   {
                     title: "Complex and Recurrent Hernias",
@@ -310,7 +314,13 @@ export default function BestHerniaSurgeonPage() {
                     className="bg-gray-50 rounded-lg p-5 border-l-4 border-[#0891b2]"
                   >
                     <h3 className="font-semibold text-gray-900 mb-3">
-                      {type.title}
+                      {type.link ? (
+                        <Link href={type.link} className="text-[#0891b2] hover:underline">
+                          {type.title}
+                        </Link>
+                      ) : (
+                        type.title
+                      )}
                     </h3>
 
                     <p className="text-gray-700 text-sm sm:text-base">

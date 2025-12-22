@@ -318,6 +318,65 @@ export default function GallbladderCompleteGuidePage() {
         </div>
       </section>
 
+      {/* Other Gallbladder Associated Problems */}
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center space-y-2">
+            <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Other Gallbladder Associated Problems</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Related Gallbladder Conditions</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Beyond gallstones, there are other gallbladder conditions that may require expert evaluation and treatment.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Link
+              href="/cbd-stone-treatment-in-delhi"
+              className="group rounded-3xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 p-6 sm:p-8"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-[#ecfeff] flex items-center justify-center text-[#0891b2] font-bold text-xl">
+                    1
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-[#0891b2] transition-colors">
+                    CBD Stones
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Expert Common Bile Duct stone treatment for bile duct blockages with advanced diagnosis, minimally invasive procedures, and faster recovery.
+                </p>
+                <div className="flex items-center text-[#0891b2] font-semibold text-sm group-hover:underline">
+                  Learn more about CBD Stone Treatment
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            </Link>
+            <Link
+              href="/gallbladder-polyps-treatment-in-delhi"
+              className="group rounded-3xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 p-6 sm:p-8"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-[#ecfeff] flex items-center justify-center text-[#0891b2] font-bold text-xl">
+                    2
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-[#0891b2] transition-colors">
+                    Gallbladder Polyps
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Advanced treatment for gallbladder polyps with expert evaluation, accurate diagnosis, and minimally invasive surgical options if needed.
+                </p>
+                <div className="flex items-center text-[#0891b2] font-semibold text-sm group-hover:underline">
+                  Learn more about Gallbladder Polyps Treatment
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <PeopleAlsoAsk />
 
       {/* Success Stories */}

@@ -22,8 +22,8 @@ type DoctorInfoCardProps = {
 
 const laparoscopicServices = [
   { label: 'Gallbladder Surgery', href: '/laparoscopic-surgery/gallbladder-surgery' },
-  { label: 'CBD Stones Removal', href: '/laparoscopic-surgery/gallbladder-surgery/cbd-stones' },
-  { label: 'Gallbladder Polyps', href: '/laparoscopic-surgery/gallbladder-surgery/gallbladder-polyps' },
+  { label: 'CBD Stones Removal', href: '/cbd-stone-treatment-in-delhi' },
+  { label: 'Gallbladder Polyps', href: '/gallbladder-polyps-treatment-in-delhi' },
   { label: 'Hernia Surgery', href: '/laparoscopic-surgery/hernia-surgery' },
   { label: 'Appendix Surgery', href: '/laparoscopic-surgery/appendix-surgery' },
   { label: 'GERD & Hiatus Hernia', href: '/laparoscopic-surgery/gerd-hiatus-hernia' },
