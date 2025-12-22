@@ -1,18 +1,38 @@
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import { Award, CheckCircle2, Clock, User, TrendingUp, Activity, Heart } from 'lucide-react'
+import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
+import MiniGastricBypassFAQ from './MiniGastricBypassFAQ'
+const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline'), { ssr: false })
 
 export const metadata: Metadata = {
-  title: 'Best Mini Gastric Bypass Surgery in Delhi | Habilite Clinics',
-  description: 'This page has moved. You will be redirected to the updated mini gastric bypass page.',
-  robots: {
-    index: false,
-    follow: true,
+  title: 'Best Mini Gastric Bypass Surgery in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
+  description: 'Expert mini gastric bypass surgery in Delhi, India by Dr. Kapil Agrawal. Simplified version of gastric bypass with similar results and fewer complications. 23 years experience, 7000+ successful surgeries. Book consultation for mini gastric bypass in Delhi.',
+  keywords: [
+    'mini gastric bypass delhi',
+    'mini gastric bypass surgery delhi',
+    'best mini gastric bypass surgeon delhi',
+    'bariatric surgery delhi',
+    'weight loss surgery delhi',
+    'mini bypass delhi',
+    'Dr. Kapil Agrawal mini gastric bypass',
+    'laparoscopic mini gastric bypass delhi',
+  ],
+  openGraph: {
+    title: 'Best Mini Gastric Bypass Surgery in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
+    description: 'Expert mini gastric bypass surgery by Dr. Kapil Agrawal in Delhi. Simplified version of gastric bypass with similar results and fewer complications.',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
   },
 }
 
-export default function LegacyMiniGastricBypassPage() {
-  redirect('/bariatric-surgeon-in-delhi-india/mini-gastric-bypass')
-}
+export default function MiniGastricBypassPage() {
   return (
     <div className="pt-20 pb-16">
       {/* Hero Content */}

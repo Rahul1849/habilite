@@ -1,18 +1,38 @@
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import { Award, CheckCircle2, Clock, User, TrendingUp, Heart, Activity, Shield } from 'lucide-react'
+import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
+import DuodenalJejunalBypassFAQ from './DuodenalJejunalBypassFAQ'
+const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline'), { ssr: false })
 
 export const metadata: Metadata = {
-  title: 'Duodenal Jejunal Bypass Surgery in Delhi | Habilite Clinics',
-  description: 'This page has moved. You will be redirected to the updated duodenal jejunal bypass page.',
-  robots: {
-    index: false,
-    follow: true,
+  title: 'Duodenal Jejunal Bypass Surgery in Delhi - Dr. Kapil Agrawal | Single Anastomosis Gastric Bypass',
+  description: 'Expert duodenal jejunal bypass surgery in Delhi, India by Dr. Kapil Agrawal. Laparoscopic sleeve gastrectomy with duodenal jejunal bypass - a safe and effective bariatric procedure. 23 years experience, 7000+ successful surgeries. Book consultation.',
+  keywords: [
+    'duodenal jejunal bypass delhi',
+    'duodenal jejunal bypass surgery delhi',
+    'single anastomosis gastric bypass delhi',
+    'sleeve gastrectomy with duodenal jejunal bypass',
+    'bariatric surgery delhi',
+    'weight loss surgery delhi',
+    'Dr. Kapil Agrawal duodenal jejunal bypass',
+    'laparoscopic duodenal jejunal bypass delhi',
+  ],
+  openGraph: {
+    title: 'Duodenal Jejunal Bypass Surgery in Delhi - Dr. Kapil Agrawal | Single Anastomosis Gastric Bypass',
+    description: 'Expert duodenal jejunal bypass surgery by Dr. Kapil Agrawal in Delhi. Safe and effective bariatric procedure combining sleeve gastrectomy with duodenal jejunal bypass.',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
   },
 }
 
-export default function LegacyDuodenalJejunalBypassPage() {
-  redirect('/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass')
-}
+export default function DuodenalJejunalBypassPage() {
   return (
     <div className="pt-20 pb-16">
       {/* Hero Content */}
@@ -314,5 +334,4 @@ export default function LegacyDuodenalJejunalBypassPage() {
     </div>
   )
 }
-
 

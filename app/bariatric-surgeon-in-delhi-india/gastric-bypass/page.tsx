@@ -1,18 +1,38 @@
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import { Award, CheckCircle2, Clock, User, TrendingUp, Heart, Activity } from 'lucide-react'
+import ConsultationForm from '@/components/forms/ConsultationForm'
+import CallUsButton from '@/components/lead-generation/CallUsButton'
+import CostCalculator from '@/components/lead-generation/CostCalculator'
+import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
+import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
+import GastricBypassFAQ from './GastricBypassFAQ'
+const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline'), { ssr: false })
 
 export const metadata: Metadata = {
-  title: 'Best Gastric Bypass Surgery in Delhi | Habilite Clinics',
-  description: 'This page has moved. You will be redirected to the updated gastric bypass page.',
-  robots: {
-    index: false,
-    follow: true,
+  title: 'Best Gastric Bypass Surgery in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
+  description: 'Expert gastric bypass surgery in Delhi, India by Dr. Kapil Agrawal. Gold standard bariatric procedure for significant weight loss and diabetes control. 23 years experience, 7000+ successful surgeries. Book consultation for gastric bypass in Delhi.',
+  keywords: [
+    'gastric bypass delhi',
+    'gastric bypass surgery delhi',
+    'best gastric bypass surgeon delhi',
+    'bariatric surgery delhi',
+    'weight loss surgery delhi',
+    'gastric bypass diabetes',
+    'Dr. Kapil Agrawal gastric bypass',
+    'laparoscopic gastric bypass delhi',
+  ],
+  openGraph: {
+    title: 'Best Gastric Bypass Surgery in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
+    description: 'Expert gastric bypass surgery by Dr. Kapil Agrawal in Delhi. Gold standard bariatric procedure for significant weight loss and diabetes control.',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/gastric-bypass',
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/gastric-bypass',
   },
 }
 
-export default function LegacyGastricBypassPage() {
-  redirect('/bariatric-surgeon-in-delhi-india/gastric-bypass')
-}
+export default function GastricBypassPage() {
   return (
     <div className="pt-20 pb-16">
       {/* Hero Content */}

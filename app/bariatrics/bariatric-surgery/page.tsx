@@ -332,7 +332,7 @@ export default function BariatricSurgeryPage() {
                     Gastric Sleeve (Sleeve Gastrectomy): The Reliable, Most Common Choice
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatrics/bariatric-surgery/sleeve-gastrectomy" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
+                    In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
                   </p>
                 </div>
 
@@ -341,7 +341,7 @@ export default function BariatricSurgeryPage() {
                     Gastric Bypass: For Significant Weight Loss & Controlling Type 2 Diabetes
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    This surgery creates a small pouch from the stomach using endo-staplers and connects it directly to the small intestine. It limits food intake and calorie absorption, leading to substantial, long-lasting weight loss. [<Link href="/bariatrics/bariatric-surgery/gastric-bypass" className="text-[#0891b2] hover:underline">Learn more about Gastric Bypass →</Link>]
+                    This surgery creates a small pouch from the stomach using endo-staplers and connects it directly to the small intestine. It limits food intake and calorie absorption, leading to substantial, long-lasting weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/gastric-bypass" className="text-[#0891b2] hover:underline">Learn more about Gastric Bypass →</Link>]
                   </p>
                 </div>
 
@@ -368,7 +368,7 @@ export default function BariatricSurgeryPage() {
                     Revisional Bariatric Surgery: Correcting and Improving Past Procedures
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    Patients who are regaining weight or facing complications after their previous bariatric procedure may need revision surgery that helps to improve or adjust the last surgery to restore its effectiveness and safety. [<Link href="/bariatrics/bariatric-surgery/revision-bariatric-surgery" className="text-[#0891b2] hover:underline">Learn more about Revision Bariatric Surgery →</Link>]
+                    Patients who are regaining weight or facing complications after their previous bariatric procedure may need revision surgery that helps to improve or adjust the last surgery to restore its effectiveness and safety. [<Link href="/bariatric-surgeon-in-delhi-india/revision-surgeries" className="text-[#0891b2] hover:underline">Learn more about Revision Bariatric Surgery →</Link>]
                   </p>
                 </div>
               </div>

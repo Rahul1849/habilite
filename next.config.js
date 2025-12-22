@@ -146,7 +146,32 @@ const nextConfig = {
       },
       {
         source: '/bariatrics/bariatric-surgery/gastric-sleeve',
-        destination: '/bariatrics/bariatric-surgery/sleeve-gastrectomy',
+        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/sleeve-gastrectomy',
+        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/gastric-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/gastric-bypass',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/mini-gastric-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/duodenal-jejunal-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/revision-bariatric-surgery',
+        destination: '/bariatric-surgeon-in-delhi-india/revision-surgeries',
         permanent: true,
       },
       {
