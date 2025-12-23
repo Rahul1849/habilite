@@ -187,7 +187,7 @@ export default function GallbladderSurgeryPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={85}
+              quality={75}
               loading="eager"
               decoding="sync"
               placeholder="blur"

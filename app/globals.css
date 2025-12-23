@@ -130,10 +130,10 @@
 
   @keyframes gradient-shift-smooth {
     0% {
-      background-position: 300% 50%;
+      background-position: 300% center;
     }
     100% {
-      background-position: -300% 50%;
+      background-position: -300% center;
     }
   }
 
@@ -145,15 +145,10 @@
   .animate-gradient-smooth {
     background-size: 300% 100%;
     animation: gradient-shift-smooth 4s linear infinite;
-    /* Use will-change: transform to hint browser for compositing */
-    will-change: transform;
+    will-change: background-position;
     transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
-    /* Force GPU acceleration for better performance */
-    isolation: isolate;
-    /* Ensure animation is composited */
-    contain: layout style paint;
   }
 
   /* Hide scrollbar for horizontal scroll */
