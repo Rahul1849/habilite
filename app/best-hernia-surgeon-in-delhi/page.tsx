@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import {
   CheckCircle2,
   Clock,
@@ -9,15 +10,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
-import ConsultationForm from "@/components/forms/ConsultationForm";
 import CallUsButton from "@/components/lead-generation/CallUsButton";
-import CostCalculator from "@/components/lead-generation/CostCalculator";
-import PostOperativeCare from "@/components/lead-generation/PostOperativeCare";
-import WhatsAppExpertChat from "@/components/lead-generation/WhatsAppExpertChat";
-import HerniaTestimonials from "@/app/laparoscopic-surgery/hernia-surgery/HerniaTestimonials";
-import HerniaFAQ from "@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ";
-import { RecoveryTimeline } from "@/components/services/RecoveryTimeline";
-import RelatedBlogs from "@/components/services/RelatedBlogs";
 import StructuredData from "@/components/seo/StructuredData";
 import {
   getBreadcrumbSchema,
@@ -25,6 +18,47 @@ import {
   getMedicalProcedureSchema,
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
+
+// Dynamically import below-the-fold components to improve initial page load and LCP
+// Using ssr: false for non-critical components to reduce TBT and improve mobile performance
+const ConsultationForm = dynamic(() => import("@/components/forms/ConsultationForm"), {
+  ssr: false,
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-2xl" />,
+});
+
+const CostCalculator = dynamic(() => import("@/components/lead-generation/CostCalculator"), {
+  ssr: false,
+  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />,
+});
+
+const PostOperativeCare = dynamic(() => import("@/components/lead-generation/PostOperativeCare"), {
+  ssr: false,
+  loading: () => <div className="min-h-[200px]" />,
+});
+
+const WhatsAppExpertChat = dynamic(() => import("@/components/lead-generation/WhatsAppExpertChat"), {
+  ssr: false,
+});
+
+const HerniaTestimonials = dynamic(() => import("@/app/laparoscopic-surgery/hernia-surgery/HerniaTestimonials"), {
+  ssr: false,
+  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />,
+});
+
+const HerniaFAQ = dynamic(() => import("@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ"), {
+  ssr: false,
+  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />,
+});
+
+const RecoveryTimeline = dynamic(() => import("@/components/services/RecoveryTimeline").then(mod => ({ default: mod.RecoveryTimeline })), {
+  ssr: false,
+  loading: () => <div className="min-h-[200px]" />,
+});
+
+const RelatedBlogs = dynamic(() => import("@/components/services/RelatedBlogs"), {
+  ssr: false,
+  loading: () => <div className="min-h-[300px]" />,
+});
 
 export const metadata: Metadata = {
   title:
@@ -141,12 +175,8 @@ const serviceSchema = getServiceSchema({
 export default function BestHerniaSurgeonPage() {
   return (
     <>
-      <StructuredData data={serviceSchema} />
-      <StructuredData data={procedureSchema} />
-      <StructuredData data={faqSchema} />
-      <StructuredData data={breadcrumbSchema} />
-
       <div className="pt-20 pb-16">
+        {/* LCP Optimization: Hero image with highest priority for mobile */}
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
             <Image
@@ -157,7 +187,7 @@ export default function BestHerniaSurgeonPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={75}
+              quality={85}
               loading="eager"
               decoding="sync"
               placeholder="blur"
@@ -210,10 +240,12 @@ export default function BestHerniaSurgeonPage() {
         <div className="container-custom space-y-12">
           <div className="max-w-5xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
-              <ConsultationForm
-                serviceName="Hernia Surgery"
-                serviceSlug="best-hernia-surgeon-in-delhi"
-              />
+              <div className="defer-section">
+                <ConsultationForm
+                  serviceName="Hernia Surgery"
+                  serviceSlug="best-hernia-surgeon-in-delhi"
+                />
+              </div>
             </div>
           </div>
 
@@ -829,11 +861,15 @@ export default function BestHerniaSurgeonPage() {
           </div>
 
           <div className="max-w-5xl mx-auto">
-            <CostCalculator serviceName="Hernia Surgery" />
+            <div className="defer-section">
+              <CostCalculator serviceName="Hernia Surgery" />
+            </div>
           </div>
 
           <div className="max-w-5xl mx-auto space-y-12">
-            <HerniaTestimonials />
+            <div className="defer-section">
+              <HerniaTestimonials />
+            </div>
             <section className="bg-gray-50 rounded-xl p-6">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Recovery & Aftercare
@@ -871,19 +907,28 @@ export default function BestHerniaSurgeonPage() {
                 </div>
               </div>
             </section>
-            <RecoveryTimeline />
+            <div className="defer-section">
+              <RecoveryTimeline />
+            </div>
           </div>
         </div>
 
         <div className="container-custom space-y-8 mt-12">
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="Hernia Surgery" />
+          <div className="defer-section">
+            <PostOperativeCare />
+          </div>
+          <div className="defer-section">
+            <WhatsAppExpertChat serviceName="Hernia Surgery" />
+          </div>
         </div>
 
         <div className="container-custom space-y-12 mt-12">
           <div className="max-w-5xl mx-auto space-y-12">
-            <HerniaFAQ />
-            <RelatedBlogs
+            <div className="defer-section">
+              <HerniaFAQ />
+            </div>
+            <div className="defer-section">
+              <RelatedBlogs
               serviceName="Hernia"
               serviceKeywords={[
                 "hernia",
@@ -895,10 +940,16 @@ export default function BestHerniaSurgeonPage() {
                 "hernia surgery",
               ]}
               maxPosts={3}
-            />
+              />
+            </div>
           </div>
         </div>
       </div>
+      {/* StructuredData moved to bottom to prevent blocking render and improve LCP */}
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
     </>
   );
 }

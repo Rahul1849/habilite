@@ -1,16 +1,78 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { CheckCircle2, Clock, User, Award, Users, TrendingUp } from 'lucide-react'
-import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
-import CostCalculator from '@/components/lead-generation/CostCalculator'
-import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
-import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
-import PilonidalSinusFAQ from '@/app/laser-surgery/pilonidal-sinus/PilonidalSinusFAQ'
-import PilonidalSinusTestimonials from '@/app/laser-surgery/pilonidal-sinus/PilonidalSinusTestimonials'
 import { blogPosts } from '@/data/blog'
-import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
+
+// Dynamically import below-the-fold components to improve initial page load and LCP
+// Using ssr: false for non-critical components to reduce TBT and improve mobile performance
+const ConsultationForm = dynamic(
+  () => import('@/components/forms/ConsultationForm'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-2xl" />
+    ),
+  }
+)
+
+const CostCalculator = dynamic(
+  () => import('@/components/lead-generation/CostCalculator'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
+  }
+)
+
+const PostOperativeCare = dynamic(
+  () => import('@/components/lead-generation/PostOperativeCare'),
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[200px]" />,
+  }
+)
+
+const WhatsAppExpertChat = dynamic(
+  () => import('@/components/lead-generation/WhatsAppExpertChat'),
+  {
+    ssr: false,
+  }
+)
+
+const PilonidalSinusFAQ = dynamic(
+  () => import('@/app/laser-surgery/pilonidal-sinus/PilonidalSinusFAQ'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
+  }
+)
+
+const PilonidalSinusTestimonials = dynamic(
+  () => import('@/app/laser-surgery/pilonidal-sinus/PilonidalSinusTestimonials'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
+  }
+)
+
+const RecoveryTimeline = dynamic(
+  () =>
+    import('@/components/services/RecoveryTimeline').then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[200px]" />,
+  }
+)
 
 export const metadata: Metadata = {
   title: 'Best Laser Pilonidal Sinus Treatment in Delhi - Dr. Kapil Agrawal | SiLaC & LA-EPSIT | 23 Years Experience',
@@ -114,11 +176,8 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
-
       <div className="pt-20 pb-16">
-        {/* Hero Image */}
+        {/* LCP Optimization: Hero image with highest priority for mobile */}
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
             <Image
@@ -129,7 +188,7 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={75}
+              quality={85}
               loading="eager"
               decoding="sync"
               placeholder="blur"
@@ -171,10 +230,12 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
         <div className="container-custom space-y-12">
           <div className="max-w-5xl mx-auto">
             <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
-              <ConsultationForm 
-                serviceName="Pilonidal Sinus Treatment"
-                serviceSlug="best-laser-pilonidal-sinus-treatment"
-              />
+              <div className="defer-section">
+                <ConsultationForm 
+                  serviceName="Pilonidal Sinus Treatment"
+                  serviceSlug="best-laser-pilonidal-sinus-treatment"
+                />
+              </div>
             </div>
           </div>
 
@@ -516,11 +577,15 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
             </section>
 
             <div className="max-w-5xl mx-auto">
-              <CostCalculator serviceName="Pilonidal Sinus Treatment" />
+              <div className="defer-section">
+                <CostCalculator serviceName="Pilonidal Sinus Treatment" />
+              </div>
             </div>
 
             <div className="max-w-5xl mx-auto space-y-12">
-              <PilonidalSinusTestimonials />
+              <div className="defer-section">
+                <PilonidalSinusTestimonials />
+              </div>
               <section className="bg-gray-50 rounded-xl p-6">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
                 <div className="space-y-3">
@@ -540,19 +605,27 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
                   </div>
                 </div>
               </section>
-              <RecoveryTimeline />
+              <div className="defer-section">
+                <RecoveryTimeline />
+              </div>
             </div>
           </div>
         </div>
 
         <div className="container-custom space-y-8 mt-12">
-          <PostOperativeCare />
-          <WhatsAppExpertChat serviceName="Pilonidal Sinus Treatment" />
+          <div className="defer-section">
+            <PostOperativeCare />
+          </div>
+          <div className="defer-section">
+            <WhatsAppExpertChat serviceName="Pilonidal Sinus Treatment" />
+          </div>
         </div>
 
         <div className="container-custom space-y-12 mt-12">
           <div className="max-w-5xl mx-auto space-y-12">
-            <PilonidalSinusFAQ />
+            <div className="defer-section">
+              <PilonidalSinusFAQ />
+            </div>
             {pilonidalBlogs.length > 0 && (
               <section>
                 <div className="flex items-center mb-6">
@@ -601,6 +674,9 @@ export default function BestLaserPilonidalSinusTreatmentPage() {
           </div>
         </div>
       </div>
+      {/* StructuredData moved to bottom to prevent blocking render and improve LCP */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} suppressHydrationWarning />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} suppressHydrationWarning />
     </>
   )
 }
