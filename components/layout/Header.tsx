@@ -248,7 +248,7 @@ export default function Header() {
                 href="/appointment" 
                 className="relative text-white px-4 xl:px-7 py-2.5 xl:py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105 transform active:scale-95 will-change-transform overflow-hidden group whitespace-nowrap"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth" style={{ willChange: 'transform', transform: 'translateZ(0)', isolation: 'isolate' }}></span>
                 <span className="relative z-10">Book an Appointment</span>
               </Link>
             </div>
@@ -454,7 +454,7 @@ export default function Header() {
                   className="relative block w-full text-white px-4 py-3.5 rounded-lg font-bold text-base text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 transform active:scale-95 overflow-hidden group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-black via-[#0e7490] via-[#0891b2] via-[#06b6d4] via-[#22d3ee] via-[#06b6d4] via-[#0891b2] via-[#0e7490] to-black bg-[length:300%_100%] animate-gradient-smooth" style={{ willChange: 'transform', transform: 'translateZ(0)', isolation: 'isolate' }}></span>
                   <span className="relative z-10">Book an Appointment</span>
                 </Link>
               </div>

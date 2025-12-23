@@ -51,6 +51,15 @@ const nextConfig = {
     // Reduce JavaScript bundle size
     serverMinification: true,
   },
+  // Modern browser support - reduce legacy JavaScript polyfills
+  // Next.js will not transpile modern JavaScript features for browsers that support them
+  // This reduces bundle size by ~12 KiB as reported by PageSpeed Insights
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+      skipDefaultConversion: true,
+    },
+  },
   // Target modern browsers to reduce legacy JS polyfills
   transpilePackages: [],
   // Modern browser support - remove legacy polyfills
