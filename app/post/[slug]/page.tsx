@@ -14,6 +14,7 @@ import RecentPosts from '@/components/blog/RecentPosts'
 import DoctorInfoCard from '@/components/blog/DoctorInfoCard'
 import FAQSchema from '@/components/blog/FAQSchema'
 import BlogPostFooter from '@/components/blog/BlogPostFooter'
+import AboutDoctorSection from '@/components/blog/AboutDoctorSection'
 import StructuredData from '@/components/seo/StructuredData'
 import { generateTableOfContents } from '@/lib/utils/generateTableOfContents'
 import PreviewProvider from '@/components/PreviewProvider'
@@ -260,9 +261,7 @@ export default async function BlogPostPage({ params }: Props) {
         <StructuredData data={articleSchema} />
         <StructuredData data={breadcrumbSchema} />
         {faqSchema && <StructuredData data={faqSchema} />}
-        <div className="pt-20 pb-16">
-          <SanitySingleBlog post={sanityPost} />
-        </div>
+        <SanitySingleBlog post={sanityPost} />
       </>
     )
   }
@@ -353,23 +352,25 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <article className="lg:col-span-3">
-            <Link
-              href="/post"
-              className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-6"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Back to Blog
-            </Link>
+            {/* Centered Article Container */}
+            <div className="max-w-[1150px] mx-auto px-4 sm:px-6">
+              <Link
+                href="/post"
+                className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-6"
+              >
+                <ArrowLeft className="mr-2" size={20} />
+                Back to Blog
+              </Link>
 
-            {/* Table of Contents - Mobile Only */}
-            {tableOfContents && tableOfContents.length > 0 && (
-              <div className="mb-6 lg:hidden">
-                <TableOfContents items={tableOfContents} />
-              </div>
-            )}
+              {/* Table of Contents - Mobile Only */}
+              {tableOfContents && tableOfContents.length > 0 && (
+                <div className="mb-6 lg:hidden">
+                  <TableOfContents items={tableOfContents} />
+                </div>
+              )}
 
-            {/* Content */}
-            <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
+              {/* Content */}
+              <div className="prose prose-lg max-w-3xl mx-auto prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
               {post.content && post.content.trim() ? (() => {
                 const lines = post.content.split('\n')
                 let skipNext = false
@@ -582,42 +583,48 @@ export default async function BlogPostPage({ params }: Props) {
                   <p className="text-gray-500 italic">Content is being loaded...</p>
                 </div>
               )}
-            </div>
-
-            {/* Author */}
-            <div className="mt-12 pt-8 border-t flex items-center">
-              <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
-                <Image
-                  src={post.authorImage}
-                  alt={post.author}
-                  fill
-                  className="object-cover"
-                />
               </div>
-              <div>
-                <div className="font-semibold text-gray-900">{post.author} - Senior Consultant at Apollo Group of Hospitals</div>
-                <div className="text-sm text-gray-600">Published on {new Date(post.publishedDate).toLocaleDateString()}</div>
-              </div>
-            </div>
 
-            {/* Tags */}
-            {post.tags.length > 0 && (
-              <div className="mt-8">
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              {/* Author */}
+              <div className="mt-12 pt-8 border-t">
+                <div className="flex items-center">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <Image
+                      src={post.authorImage}
+                      alt={post.author}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">{post.author} - Senior Consultant at Apollo Group of Hospitals</div>
+                    <div className="text-sm text-gray-600">Published on {new Date(post.publishedDate).toLocaleDateString()}</div>
+                  </div>
                 </div>
               </div>
-            )}
 
-            {/* Blog Post Footer - Why Choose Us & Book Appointment */}
-            <BlogPostFooter category={post.category} />
+              {/* Tags */}
+              {post.tags.length > 0 && (
+                <div className="mt-8">
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* About Doctor Section */}
+              <AboutDoctorSection />
+
+              {/* Blog Post Footer - Why Choose Us & Book Appointment */}
+              <BlogPostFooter category={post.category} />
+            </div>
           </article>
 
           {/* Sidebar */}

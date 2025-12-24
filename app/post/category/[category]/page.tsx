@@ -78,7 +78,10 @@ function matchesCategory(post: typeof blogPosts[0], category: string): boolean {
   
   // GallBladder
   if (category === 'gallbladder') {
-    return titleLower.includes('gallbladder') || 
+    return categoryLower === 'gallbladder' ||
+           categoryLower === 'gall bladder stone' ||
+           categoryLower === 'gallbladder surgery' ||
+           titleLower.includes('gallbladder') || 
            titleLower.includes('gall bladder') || 
            titleLower.includes('gallstone') ||
            titleLower.includes('cholecystectomy') ||
@@ -118,6 +121,8 @@ function matchesCategory(post: typeof blogPosts[0], category: string): boolean {
            titleLower.includes('weight loss program') || 
            titleLower.includes('medical weight loss') ||
            titleLower.includes('non surgical weight') ||
+           (titleLower.includes('lose weight') && !titleLower.includes('surgery')) ||
+           (titleLower.includes('weight loss') && !titleLower.includes('bariatric') && !titleLower.includes('surgery')) ||
            categoryLower === 'non-surgical weight loss'
   }
   
@@ -210,17 +215,77 @@ export default async function CategoryPage({ params }: Props) {
   let filteredBlogs: any[] = []
   let categoryTitle = getCategoryTitle(category)
 
+  // Normalize category names - consolidate all gallbladder-related categories
+  const normalizeCategory = (categoryTitle: string | undefined): string => {
+    if (!categoryTitle) return ''
+    const lower = categoryTitle.toLowerCase()
+    if (lower.includes('gallbladder') || lower.includes('gall bladder') || lower.includes('gallstone') || lower.includes('cholecystectomy')) {
+      return 'GallBladder'
+    }
+    return categoryTitle
+  }
+
+  // Always include static blogs
+  const staticFilteredBlogs = blogPosts.filter(post => matchesCategory(post, category))
+  
   if (publishedBlogs && publishedBlogs.length > 0) {
-    // Filter Sanity blogs
-    filteredBlogs = publishedBlogs.filter((blog: any) => {
+    // Filter Sanity blogs with category normalization
+    const sanityFilteredBlogs = publishedBlogs.filter((blog: any) => {
       if (category === 'all') return true
-      const blogCategory = blog.category?.title?.toLowerCase() || ''
-      const categorySlug = slugify(blogCategory)
-      return categorySlug === category || blogCategory === category
+      const blogCategory = normalizeCategory(blog.category?.title)
+      const blogCategorySlug = slugify(blogCategory)
+      // Also check if the original category matches (for backward compatibility)
+      const originalBlogCategory = blog.category?.title || ''
+      const originalBlogCategorySlug = slugify(originalBlogCategory)
+      // Check if either normalized or original category matches
+      return blogCategorySlug === category || originalBlogCategorySlug === category || 
+             blogCategory.toLowerCase() === category.toLowerCase() ||
+             originalBlogCategory.toLowerCase() === category.toLowerCase()
+    })
+    
+    // Combine Sanity and static blogs, removing duplicates by slug
+    const combinedBlogs = [...sanityFilteredBlogs]
+    const sanitySlugs = new Set(sanityFilteredBlogs.map((b: any) => b.slug || slugify(b.title || '')))
+    
+    // Add static blogs that aren't already in Sanity
+    staticFilteredBlogs.forEach(staticPost => {
+      if (!sanitySlugs.has(staticPost.slug)) {
+        // Convert static blog to Sanity format for consistency
+        combinedBlogs.push({
+          _id: staticPost.id,
+          title: staticPost.title,
+          slug: staticPost.slug,
+          excerpt: staticPost.excerpt,
+          author: staticPost.author,
+          publishedAt: staticPost.publishedDate,
+          readTime: staticPost.readTime,
+          mainImage: staticPost.image,
+          category: { title: staticPost.category },
+          body: null, // Static blogs will be handled by the static route
+        })
+      }
+    })
+    
+    // Sort combined blogs by published date (newest first)
+    filteredBlogs = combinedBlogs.sort((a: any, b: any) => {
+      const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0
+      const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0
+      return dateB - dateA
     })
   } else {
-    // Filter static blogs
-    filteredBlogs = blogPosts.filter(post => matchesCategory(post, category))
+    // Only static blogs available
+    filteredBlogs = staticFilteredBlogs.map(post => ({
+      _id: post.id,
+      title: post.title,
+      slug: post.slug,
+      excerpt: post.excerpt,
+      author: post.author,
+      publishedAt: post.publishedDate,
+      readTime: post.readTime,
+      mainImage: post.image,
+      category: { title: post.category },
+      body: null,
+    }))
   }
 
   if (filteredBlogs.length === 0 && category !== 'all') {

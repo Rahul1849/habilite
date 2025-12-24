@@ -313,6 +313,7 @@ export default function BestHerniaSurgeonPage() {
                   {
                     title: "Umbilical Hernia",
                     desc: "An umbilical hernia develops near the navel. While it is commonly seen in infants, it can also affect adults, especially those with obesity or repeated abdominal strain.",
+                    link: "/best-umbilical-hernia-surgeon-in-delhi",
                   },
                   {
                     title: "Incisional Hernia",
@@ -325,9 +326,15 @@ export default function BestHerniaSurgeonPage() {
                     link: "/best-hiatus-hernia-surgeon-in-delhi",
                   },
                   {
+                    title: "Epigastric Hernia",
+                    desc: "Epigastric hernia occurs between the umbilicus and the rib cage.",
+                    link: "/best-epigastric-hernia-surgeon-in-delhi",
+                  },
+                  {
                     title: "Femoral Hernia",
-                    desc: "A femoral hernia appears near the upper thigh and is more commonly seen in women. It can be difficult to detect and carries a higher risk of complications such as strangulation.",
+                    desc: "A femoral hernia appears near the upper thigh and is more commonly seen in women. It can be difficult to detect and carries a higher risk of complications such as strangulation. Early specialist evaluation helps prevent emergency situations and ensures timely repair. Timely laparoscopic repair offers faster recovery and lowers recurrence risk.",
                     link: "/best-femoral-hernia-surgeon-in-delhi",
+                    compact: true,
                   },
                   {
                     title: "Complex and Recurrent Hernias",
@@ -343,7 +350,7 @@ export default function BestHerniaSurgeonPage() {
                 ].map((type) => (
                   <div
                     key={type.title}
-                    className="bg-gray-50 rounded-lg p-5 border-l-4 border-[#0891b2]"
+                    className={`bg-gray-50 rounded-lg ${type.compact ? "p-4" : "p-5"} border-l-4 border-[#0891b2]`}
                   >
                     <h3 className="font-semibold text-gray-900 mb-3">
                       {type.link ? (

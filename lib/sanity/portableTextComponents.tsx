@@ -9,13 +9,13 @@ export const portableTextComponents: PortableTextComponents = {
       const imageUrl = getImageUrl(value);
       if (!imageUrl) return null;
       return (
-        <div className="my-6">
+        <div className="my-8 md:my-12">
           <Image
             src={imageUrl}
             alt={value.alt || ""}
             width={800}
             height={600}
-            className="rounded-lg w-full h-auto"
+            className="rounded-xl w-full h-auto shadow-lg"
           />
         </div>
       );
@@ -34,7 +34,7 @@ export const portableTextComponents: PortableTextComponents = {
       const text = extractText(children)
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       return (
-        <h2 id={id} className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 scroll-mt-24">
+        <h2 id={id} className="text-3xl md:text-4xl font-bold mb-6 mt-12 text-gray-900 scroll-mt-24 leading-tight">
           {children}
         </h2>
       )
@@ -49,7 +49,7 @@ export const portableTextComponents: PortableTextComponents = {
       const text = extractText(children)
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       return (
-        <h2 id={id} className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 scroll-mt-24">
+        <h2 id={id} className="text-2xl md:text-3xl font-bold mb-5 mt-10 text-gray-900 scroll-mt-24 leading-tight">
           {children}
         </h2>
       )
@@ -64,7 +64,7 @@ export const portableTextComponents: PortableTextComponents = {
       const text = extractText(children)
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       return (
-        <h3 id={id} className="text-xl md:text-2xl font-semibold mb-2 text-gray-900 scroll-mt-24">
+        <h3 id={id} className="text-xl md:text-2xl font-semibold mb-4 mt-8 text-gray-900 scroll-mt-24 leading-tight">
           {children}
         </h3>
       )
@@ -79,31 +79,31 @@ export const portableTextComponents: PortableTextComponents = {
       const text = extractText(children)
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
       return (
-        <h4 id={id} className="text-lg md:text-xl font-semibold mb-2 text-gray-900 scroll-mt-24">
+        <h4 id={id} className="text-lg md:text-xl font-semibold mb-3 mt-6 text-gray-900 scroll-mt-24 leading-tight">
           {children}
         </h4>
       )
     },
     normal: ({ children }: any) => (
-      <p className="text-base md:text-lg leading-relaxed mb-4 text-gray-700">{children}</p>
+      <p className="text-base md:text-lg leading-relaxed mb-6 text-gray-700">{children}</p>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-[#f56336] pl-4 italic my-4 text-gray-700">
+      <blockquote className="border-l-4 border-[#0891b2] pl-6 pr-4 py-4 italic my-8 text-gray-700 bg-gradient-to-r from-[#0891b2]/5 to-transparent rounded-r-lg leading-relaxed">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700">{children}</ul>
+      <ul className="list-disc list-inside mb-6 space-y-3 text-gray-700 ml-4">{children}</ul>
     ),
     number: ({ children }: any) => (
-      <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700">{children}</ol>
+      <ol className="list-decimal list-inside mb-6 space-y-3 text-gray-700 ml-4">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({ children }: any) => <li className="ml-4">{children}</li>,
-    number: ({ children }: any) => <li className="ml-4">{children}</li>,
+    bullet: ({ children }: any) => <li className="ml-2 leading-relaxed">{children}</li>,
+    number: ({ children }: any) => <li className="ml-2 leading-relaxed">{children}</li>,
   },
   marks: {
     strong: ({ children }: any) => <strong className="font-bold">{children}</strong>,

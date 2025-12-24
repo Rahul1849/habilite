@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Calendar, Clock, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { urlForImage } from '@/sanity/lib/image'
 import { slugify } from '@/lib/utils/slugify'
+import { blogPosts } from '@/data/blog'
 
 type SanityBlog = {
   _id: string
@@ -32,27 +33,98 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
   
   const blogsPerPage = 8
 
-  // Get all unique categories from blogs
+  // Normalize category names - consolidate all gallbladder-related categories
+  const normalizeCategory = (categoryTitle: string | undefined): string => {
+    if (!categoryTitle) return ''
+    const lower = categoryTitle.toLowerCase()
+    if (lower.includes('gallbladder') || lower.includes('gall bladder') || lower.includes('gallstone') || lower.includes('cholecystectomy')) {
+      return 'GallBladder'
+    }
+    return categoryTitle
+  }
+
+  // Get all unique categories from both Sanity and static blogs (with normalization)
   const allCategories = useMemo(() => {
     const categories = new Set<string>(['All'])
+    
+    // Add categories from Sanity blogs
     blogs.forEach((blog) => {
       if (blog.category?.title) {
-        categories.add(blog.category.title)
+        const normalized = normalizeCategory(blog.category.title)
+        if (normalized) {
+          categories.add(normalized)
+        }
       }
     })
+    
+    // Add categories from static blogs
+    blogPosts.forEach((post) => {
+      const normalized = normalizeCategory(post.category)
+      if (normalized) {
+        categories.add(normalized)
+      }
+    })
+    
     return Array.from(categories)
   }, [blogs])
 
-  // Calculate post counts for each category
+  // Helper function to match static posts to categories (simplified version - direct match + common patterns)
+  const matchesCategory = (post: typeof blogPosts[0], category: string): boolean => {
+    if (category === 'All') return true
+    
+    const titleLower = post.title.toLowerCase()
+    const categoryLower = post.category.toLowerCase()
+    const tagsLower = post.tags.join(' ').toLowerCase()
+    const searchCategory = category.toLowerCase()
+    
+    // Direct category match (highest priority) - this should catch most cases
+    if (categoryLower === searchCategory) return true
+    
+    // Non-Surgical Weight Loss - special handling
+    if (category === 'Non-Surgical Weight Loss') {
+      return titleLower.includes('non-surgical weight') || 
+             titleLower.includes('weight loss program') || 
+             titleLower.includes('medical weight loss') ||
+             titleLower.includes('non surgical weight') ||
+             (titleLower.includes('lose weight') && !titleLower.includes('surgery')) ||
+             (titleLower.includes('weight loss') && !titleLower.includes('bariatric') && !titleLower.includes('surgery')) ||
+             categoryLower === 'non-surgical weight loss' ||
+             tagsLower.includes('non-surgical weight loss')
+    }
+    
+    // For other categories, check if category name appears in title, tags, or exact match
+    // This is a simplified version - the full BlogFilter logic is more comprehensive
+    return categoryLower === searchCategory || 
+           titleLower.includes(searchCategory) ||
+           tagsLower.includes(searchCategory) ||
+           categoryLower.includes(searchCategory) ||
+           searchCategory.includes(categoryLower)
+  }
+
+  // Calculate post counts for each category (including both Sanity and static blogs)
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {}
     allCategories.forEach((category) => {
       if (category === 'All') {
-        counts[category] = blogs.length
+        // Count both Sanity and static blogs
+        const staticCount = blogPosts.length
+        counts[category] = blogs.length + staticCount
       } else {
-        counts[category] = blogs.filter(
-          (blog) => blog.category?.title === category
+        // Count Sanity blogs
+        const sanityCount = blogs.filter(
+          (blog) => normalizeCategory(blog.category?.title) === category
         ).length
+        
+        // Count static blogs that match this category
+        const staticCount = blogPosts.filter(post => matchesCategory(post, category)).length
+        
+        // Combine counts, but avoid double-counting if a blog exists in both
+        const sanitySlugs = new Set(blogs.map(b => b.slug || slugify(b.title || '')))
+        const uniqueStaticCount = blogPosts.filter(post => 
+          matchesCategory(post, category) && !sanitySlugs.has(post.slug)
+        ).length
+        
+        counts[category] = sanityCount + uniqueStaticCount
       }
     })
     return counts
@@ -256,38 +328,23 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredBlogs.map((blog, index) => {
-              const imageUrl = blog.mainImage
-                ? urlForImage(blog.mainImage).width(640).height(400).url()
-                : null
-
               return (
                 <Link
                   key={blog._id}
                   href={`/post/${blog.slug}`}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
                 >
-                  {imageUrl && (
-                    <div className="relative w-full aspect-[16/9] min-h-[200px] overflow-hidden bg-gray-100 rounded-t-xl">
-                      <Image
-                        src={imageUrl}
-                        alt={blog.title || 'Blog post'}
-                        fill
-                        className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        quality={85}
-                      />
-                      <div className="absolute top-4 left-4 bg-[#0891b2] text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="bg-[#0891b2] text-white px-3 py-1 rounded-full text-xs font-semibold">
                         FEATURED
                       </div>
                       {blog.category?.title && (
-                        <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        <div className="bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
                           {blog.category.title}
                         </div>
                       )}
                     </div>
-                  )}
-                  <div className="p-6">
                     <div className="flex items-center text-sm text-gray-500 mb-3 flex-wrap gap-2">
                       {blog.publishedAt && (
                         <>
@@ -350,35 +407,20 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latestBlogs.map((blog) => {
-              const imageUrl = blog.mainImage
-                ? urlForImage(blog.mainImage).width(640).height(400).url()
-                : null
-
               return (
                 <Link
                   key={blog._id}
                   href={`/post/${blog.slug}`}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
                 >
-                  {imageUrl && (
-                    <div className="relative w-full aspect-[16/9] min-h-[200px] overflow-hidden bg-gray-100 rounded-t-xl">
-                      <Image
-                        src={imageUrl}
-                        alt={blog.title || 'Blog post'}
-                        fill
-                        className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading="lazy"
-                        quality={85}
-                      />
-                      {blog.category?.title && (
-                        <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold z-10">
+                  <div className="p-6">
+                    {blog.category?.title && (
+                      <div className="mb-3">
+                        <div className="inline-block bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
                           {blog.category.title}
                         </div>
-                      )}
-                    </div>
-                  )}
-                  <div className="p-6">
+                      </div>
+                    )}
                     <div className="flex items-center text-sm text-gray-500 mb-3 flex-wrap gap-2">
                       {blog.publishedAt && (
                         <>

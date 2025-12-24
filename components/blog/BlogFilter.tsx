@@ -145,6 +145,8 @@ function matchesCategory(post: typeof blogPosts[0], category: string): boolean {
            titleLower.includes('weight loss program') || 
            titleLower.includes('medical weight loss') ||
            titleLower.includes('non surgical weight') ||
+           titleLower.includes('lose weight') && !titleLower.includes('surgery') ||
+           titleLower.includes('weight loss') && !titleLower.includes('bariatric') && !titleLower.includes('surgery') ||
            categoryLower === 'non-surgical weight loss'
   }
   
@@ -437,33 +439,15 @@ export default function BlogFilter() {
                 href={`/post/${post.slug}`}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
               >
-                <div className="relative w-full aspect-[16/9] min-h-[200px] overflow-hidden bg-gray-100 rounded-t-xl">
-                  {post.image ? (
-                    <>
-                      <Image
-                        src={getImageSrc(post.image)}
-                        alt={post.title}
-                        fill
-                        className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        quality={85}
-                        unoptimized={post.image.startsWith('http')}
-                      />
-                      <div className="absolute top-4 left-4 bg-[#0891b2] text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
-                        FEATURED
-                      </div>
-                      <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold z-10">
-                        {post.category}
-                      </div>
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
-                      <span>No Image</span>
-                    </div>
-                  )}
-                </div>
                 <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="bg-[#0891b2] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      FEATURED
+                    </div>
+                    <div className="bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
+                      {post.category}
+                    </div>
+                  </div>
                   <div className="flex items-center text-sm text-gray-500 mb-3 flex-wrap gap-2">
                     <div className="flex items-center">
                       <Calendar className="mr-1" size={14} />
@@ -526,30 +510,14 @@ export default function BlogFilter() {
                 href={`/post/${post.slug}`}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
               >
-                <div className="relative w-full aspect-[16/9] min-h-[200px] overflow-hidden bg-gray-100 rounded-t-xl">
-                  {post.image ? (
-                    <>
-                      <Image
-                        src={getImageSrc(post.image)}
-                        alt={post.title}
-                        fill
-                        className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading="lazy"
-                        quality={85}
-                        unoptimized={post.image.startsWith('http')}
-                      />
-                      <div className="absolute top-4 right-4 bg-white/90 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold z-10">
+                <div className="p-6">
+                  {post.category && (
+                    <div className="mb-3">
+                      <div className="inline-block bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold">
                         {post.category}
                       </div>
-                    </>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
-                      <span>No Image</span>
                     </div>
                   )}
-                </div>
-                <div className="p-6">
                   <div className="flex items-center text-sm text-gray-500 mb-3 flex-wrap gap-2">
                     <div className="flex items-center">
                       <Calendar className="mr-1" size={14} />
