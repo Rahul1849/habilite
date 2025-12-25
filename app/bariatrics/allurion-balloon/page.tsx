@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { CheckCircle2, Clock, User } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
@@ -46,6 +47,20 @@ export default function AllurionBalloonPage() {
       </div>
 
       <div className="container-custom section-padding">
+        {/* Service Image */}
+        <div className="mb-8">
+          <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+            <Image
+              src="/images/best-allurion-balloon-specialist-in-delhi.png"
+              alt="Best Allurion Balloon Specialist in Delhi - Dr. Kapil Agrawal | Swallowable Gastric Balloon | Non-Surgical Weight Loss | 23 Years Experience"
+              fill
+              className="object-contain object-center"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+              quality={85}
+              loading="lazy"
+            />
+          </div>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-8">
             <section>

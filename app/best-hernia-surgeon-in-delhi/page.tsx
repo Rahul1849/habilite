@@ -239,6 +239,20 @@ export default function BestHerniaSurgeonPage() {
 
         <div className="container-custom space-y-12">
           <div className="max-w-5xl mx-auto">
+            {/* Service Image */}
+            <div className="mb-8">
+              <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/best-hernia.png"
+                  alt="Best Hernia Surgeon in Delhi - Dr. Kapil Agrawal | Expert Laparoscopic & Robotic Hernia Repair | 23 Years Experience | 7000+ Successful Surgeries"
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+                  quality={85}
+                  loading="lazy"
+                />
+              </div>
+            </div>
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
               <div className="defer-section">
                 <ConsultationForm

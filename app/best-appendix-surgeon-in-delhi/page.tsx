@@ -166,6 +166,20 @@ export default function BestAppendixSurgeonPage() {
 
         <div className="container-custom space-y-12">
           <div className="max-w-5xl mx-auto">
+            {/* Service Image */}
+            <div className="mb-8">
+              <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/appendix-surgeon.png"
+                  alt="Best Appendix Surgeon in Delhi - Dr. Kapil Agrawal | Expert Laparoscopic Appendectomy | 23 Years Experience | 7000+ Successful Surgeries"
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+                  quality={85}
+                  loading="lazy"
+                />
+              </div>
+            </div>
             <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
               <ConsultationForm serviceName="Appendix Surgery" serviceSlug="best-appendix-surgeon-in-delhi" />
             </div>
