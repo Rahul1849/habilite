@@ -449,6 +449,29 @@ export default async function BlogPostPage({ params }: Props) {
                     </h2>
                   )
                 }
+                // Images - markdown format ![alt](url)
+                else if (line.trim().match(/^!\[.*?\]\(.*?\)$/)) {
+                  const imageMatch = line.trim().match(/^!\[(.*?)\]\((.*?)\)$/)
+                  if (imageMatch) {
+                    const alt = imageMatch[1] || ''
+                    const src = imageMatch[2] || ''
+                    const imageSrc = src.startsWith('/') ? src : `/images/${src}`
+                    return (
+                      <div key={index} className="my-8 flex justify-center">
+                        <div className="relative w-full max-w-2xl min-h-[300px] rounded-xl overflow-hidden shadow-lg bg-gray-50">
+                          <Image
+                            src={imageSrc}
+                            alt={alt}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    )
+                  }
+                }
                 // Lists
                 else if (line.trim().startsWith('- ')) {
                   const content = line.replace(/^-\s/, '').trim()

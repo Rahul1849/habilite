@@ -9766,6 +9766,242 @@ The serious consequences of gallstones, such as pancreatitis or the risk of canc
         answer: 'Treatment varies by size: Small stones (less than 4mm) can be managed with diet and medication. Medium stones (4-7mm) may require surgery if symptomatic. Large stones (over 7mm) typically require surgical intervention, either laparoscopic or open cholecystectomy.'
       }
     ]
+  },
+  {
+    id: '134',
+    title: '5 Best Yoga Poses for Piles: 15-Minute Routine for Haemorrhoid Relief',
+    slug: 'best-yoga-poses-for-piles',
+    excerpt: 'Discover 5 effective yoga poses for piles relief including Malasana, Setu Bandhasana, Adho Mukha Svanasana, Viparita Karani, and Paschimottanasana. Learn a simple 15-minute routine to alleviate hemorrhoid symptoms naturally.',
+    content: `
+# 5 Best Yoga Poses for Piles: 15-Minute Routine for Haemorrhoid Relief
+
+Piles are a common yet very discomforting and often painful condition among many people. A person with piles may feel pain in their anus. Whether internal or external, you will feel the swelling & pain interrupting your bowel movements. This swelling in your rectum or anus is called haemorrhoids or piles.
+
+While the exact cause for the piles is still unknown, we might get its symptoms due to excessive spicy food intake, longer bathroom sittings, indigestion, etc. If you're someone dealing with piles, these 5 yoga poses in a 15-minute routine are beneficial for you.
+
+## Malasana (Garland Pose)
+
+![Malasana (Garland Pose) - Yoga for Piles Relief](/images/garland-pose_-squat-pose-malasana-1.webp)
+
+### Why is Malasana good for Piles or Hemorrhoids?
+
+- Good digestion & improves bowel routines
+- Prevents from constipation
+- Strengthens the pelvic muscles
+- Reduces pressure on the rectal veins
+- Opens the hip movement
+
+### How do you do Malasana (Garland Pose)?
+
+1. Stand tall with your feet slightly wider than hip-width apart and your toes pointing outward.
+2. Slowly bend your knees, lowering your hips towards the floor as you squat.
+3. Bring your palms together in front of your chest (just like a prayer position).
+4. Use your elbows and gently push your knees apart, widening the stretch.
+5. Hold this position for 30 seconds to 1 minute. Keep your chest lifted & your backbone straight.
+
+## Setu Bandhasana (Bridge Pose)
+
+![Setu Bandhasana (Bridge Pose) - Yoga for Piles Relief](/images/setubandh-768x512.webp)
+
+### Why is Setu Bandhasana Yoga Pose Best for Piles and Hemorrhoids?
+
+- Strengthens the glutes, lower back, and pelvic floor muscles
+- Alleviating pressure on the veins around the anus
+- Reduces swelling in your anus internally/externally
+- Promotes blood circulation
+
+### How do you do Setu Bandhasana (Bridge Pose)?
+
+1. Lie down on your back with your knees & feet flat on the mat/ floor, hips widening apart.
+2. Press your feet onto the floor while lifting your hips towards the ceiling. It will ultimately form a straight line from your shoulders to your knees.
+3. Make sure your knees are aligned with your toes and, priorly, engage your glutes and core.
+4. Hold for 30 seconds or 1 minute, and then slowly lower your hips back to the floor.
+
+## Adho Mukha Svanasana (Downward-Facing Dog)
+
+![Adho Mukha Svanasana (Downward-Facing Dog) - Yoga for Piles Relief](/images/dog-pose.webp)
+
+### Why is Adho Mukha Svanasana important for Pile's condition?
+
+- Encourages blood's flow back to the heart
+- Reduces lower body pressure
+- Improves blood circulation in the rectal area
+- Eliminates the inflammation
+- Relieves the strain of bowel movements
+
+### How to do Adho Mukha Svanasana?
+
+1. Fix your hands and knees on the floor in a tabletop position.
+2. Tuck your toes and raise your hips toward the roof, creating an inverted V-shape.
+3. Keep your feet hip-width apart & your hands shoulder-width apart.
+4. Now press your heels toward the floor.
+5. Slowly stretch your spine along and engage your core.
+6. Hold this yoga pose for 1 minute to 3 minutes while focusing on deep breaths.
+
+## Viparita Karani (Legs-Up-The-Wall Pose)
+
+![Viparita Karani (Legs-Up-The-Wall Pose) - Yoga for Piles Relief](/images/viprati-karni.webp)
+
+### Why is Viparita Karani (Legs-Up-The-Wall) good for Hemorrhoids or Piles?
+
+Suppose you feel intense swelling in your anal area due to piles. In that case, the Viparita Karani pose is essential to be on your Yoga list. Also known as Legs-Up-The-Wall Pose, this yoga pose is known for its visible results in alleviating lower body pressure.
+
+- Relaxes the pelvic muscles
+- Provides comfort for severe Hemorrhoid sufferers
+- Ideal restorative pose for a long day
+- Reduces swelling fastly
+
+### How do you do Viparita Karani Yoga (Leg-Up-The-Wall Pose)?
+
+1. Place yourself next to a wall. Then lie back & extend your legs straight up to the wall.
+2. Slowly rest your hips as close to the wall as possible, with your feet pointing upwards.
+3. While your palms are facing up, you can rest your arms by your side.
+4. Take deep breaths and allow your body to relax and adjust to the pace.
+5. Hold for 5 - 10 minutes and feel the blood flow back towards the upper body.
+
+## Paschimottanasana (Seated Forward Bend) Pose for Piles
+
+![Paschimottanasana (Seated Forward Bend) - Yoga for Piles Relief](/images/Paschimottanasana_-_The_Forward_Bend-07032020151654-2.webp)
+
+Paschimottanasana, or Seated Forward Bend, is a forward fold that stretches the hamstrings, lower back, and digestive organs. This pose helps relieve constipation by stimulating the digestive system, a key factor in preventing piles flare-ups.
+
+### Importance of Paschimottanasana Yoga Pose for Piles
+
+- Instant relief from constipation
+- Stimulates the digestive system
+- Reduces strain
+- Helps in regular bowel movements
+- Reduce the risk of hemorrhoids
+
+### How to do Paschimottanasana:
+
+1. Sit on an even floor with your legs extended straight before you.
+2. Sitting tall, inhale and lengthen your spine.
+3. Hinge at your hips, exhale, and reach your hands toward your feet.
+4. Patiently hold your feet and ankles.
+5. Avoid rounding your back and maintain deep breath flow.
+6. Hold in the same position for 30 seconds to 1 minute.
+
+## Why is Yoga Best for Piles:
+
+Regular yoga relaxes your body, reduces the pressure on the rectal veins, and prevents piles from returning. Yoga is the only simplified and most effective way to improve overall gut-to-bowel health. Combining gentle and easy yoga poses, as discussed above, with focused breathing, yoga helps address the key problems that often make piles worse, such as poor blood circulation, stress, indigestion, etc.
+
+Read More: Cost of Piles Laser Surgery in Delhi
+
+## Quick Yogic Tip: Deep Breath for Pile Relief
+
+Yes, breathing correctly can help reduce piles discomfort. Practicing deep belly or diaphragmatic breathing during yoga or anytime can make a big difference. Deep breathing calms your nerves, which can lower stress, a typical pile trigger.
+
+### How to Practice Deep Belly Breathing?
+
+1. Sit or lie in a relaxed position. Sit in a relaxed position or in a lotus position.
+2. Put one hand on your chest and the other on your stomach.
+3. Inhale deeply through your nose, and let your stomach rise while your chest stays still.
+4. Exhale slowly through your mouth and let your stomach fall.
+5. Repeat the process for 3-5 minutes, day or night.
+
+Pairing deep belly breathing poses with Malasana (Garland Pose) and Viparita Karani (Legs-Up-The-Wall) yoga poses can give better results.
+
+Read More: Best Way to Cure Piles in 3 Days
+
+## 15-Minute Yoga Routine for Piles Relief
+
+Here's a simple routine you can follow:
+
+1. **Malasana (Garland Pose)** - 1 minute
+2. **Setu Bandhasana (Bridge Pose)** - 1 minute
+3. **Adho Mukha Svanasana (Downward-Facing Dog)** - 2 minutes
+4. **Viparita Karani (Legs-Up-The-Wall)** - 5 minutes
+5. **Paschimottanasana (Seated Forward Bend)** - 1 minute
+6. **Deep Breathing** - 5 minutes
+
+**Total Time:** 15 minutes
+
+## Additional Tips for Piles Management
+
+- Practice yoga regularly, preferably in the morning
+- Stay hydrated throughout the day
+- Maintain a fiber-rich diet
+- Avoid straining during bowel movements
+- Take breaks from prolonged sitting
+- Combine yoga with other lifestyle modifications
+
+## Conclusion
+
+Adding these 5 yoga poses for piles in your daily routine can help improve your life's quality. This simple 15-minute routine effectively improves digestion, swelling, and discomfort. Since these 5 yoga poses are beginner-friendly, anyone can practice them easily.
+
+However, if one's condition is unbearable, you might need to check with a piles specialist like Dr. Kapil Agrawal for effective and best piles treatment in Delhi. If you are experiencing mild to severe symptoms of piles longer than two weeks, consider getting the best piles and hemorrhoid treatment at Habilite Clinics, Delhi.
+
+You can visit the website to learn more: www.habiliteclinics.com about treatment facilities at Habilite Clinics or book an appointment with Dr. Kapil Agrawal online for a personalized consultation. As discussed, maintaining a healthy lifestyle and practicing yoga poses can help you live a healthy gut life.
+
+Call Now at +91 9999456455 or email us at contact@habiliteclinics.com
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: '/images/dr-kapil-agrawal.png',
+    publishedDate: '2025-02-10',
+    image: '/images/yoga-poses-for-piles.webp',
+    category: 'Piles',
+    tags: ['Piles', 'Hemorrhoids', 'Yoga for Piles', 'Piles Treatment', 'Yoga Poses', 'Natural Treatment', 'Piles Relief', 'Delhi'],
+    readTime: 8,
+    seoTitle: '5 Best Yoga Poses for Piles: 15-Minute Routine for Haemorrhoid Relief | Dr. Kapil Agrawal',
+    seoDescription: 'Discover 5 effective yoga poses for piles relief including Malasana, Setu Bandhasana, Adho Mukha Svanasana, Viparita Karani, and Paschimottanasana. Learn a simple 15-minute routine to alleviate hemorrhoid symptoms naturally.',
+    tableOfContents: [
+      { id: 'malasana', title: 'Malasana (Garland Pose)', level: 2 },
+      { id: 'why-malasana', title: 'Why is Malasana good for Piles or Hemorrhoids?', level: 3 },
+      { id: 'how-malasana', title: 'How do you do Malasana (Garland Pose)?', level: 3 },
+      { id: 'setu-bandhasana', title: 'Setu Bandhasana (Bridge Pose)', level: 2 },
+      { id: 'why-setu', title: 'Why is Setu Bandhasana Yoga Pose Best for Piles and Hemorrhoids?', level: 3 },
+      { id: 'how-setu', title: 'How do you do Setu Bandhasana (Bridge Pose)?', level: 3 },
+      { id: 'adho-mukha', title: 'Adho Mukha Svanasana (Downward-Facing Dog)', level: 2 },
+      { id: 'why-adho', title: 'Why is Adho Mukha Svanasana important for Pile\'s condition?', level: 3 },
+      { id: 'how-adho', title: 'How to do Adho Mukha Svanasana?', level: 3 },
+      { id: 'viparita-karani', title: 'Viparita Karani (Legs-Up-The-Wall Pose)', level: 2 },
+      { id: 'why-viparita', title: 'Why is Viparita Karani (Legs-Up-The-Wall) good for Hemorrhoids or Piles?', level: 3 },
+      { id: 'how-viparita', title: 'How do you do Viparita Karani Yoga (Leg-Up-The-Wall Pose)?', level: 3 },
+      { id: 'paschimottanasana', title: 'Paschimottanasana (Seated Forward Bend) Pose for Piles', level: 2 },
+      { id: 'why-paschimottanasana', title: 'Importance of Paschimottanasana Yoga Pose for Piles', level: 3 },
+      { id: 'how-paschimottanasana', title: 'How to do Paschimottanasana:', level: 3 },
+      { id: 'why-yoga-best', title: 'Why is Yoga Best for Piles:', level: 2 },
+      { id: 'deep-breathing', title: 'Quick Yogic Tip: Deep Breath for Pile Relief', level: 2 },
+      { id: 'how-deep-breathing', title: 'How to Practice Deep Belly Breathing?', level: 3 },
+      { id: '15-minute-routine', title: '15-Minute Yoga Routine for Piles Relief', level: 2 },
+      { id: 'additional-tips', title: 'Additional Tips for Piles Management', level: 2 },
+      { id: 'conclusion', title: 'Conclusion', level: 2 }
+    ],
+    faqSchema: [
+      {
+        question: 'What are the best yoga poses for piles relief?',
+        answer: 'The 5 best yoga poses for piles relief are: Malasana (Garland Pose), Setu Bandhasana (Bridge Pose), Adho Mukha Svanasana (Downward-Facing Dog), Viparita Karani (Legs-Up-The-Wall), and Paschimottanasana (Seated Forward Bend). These poses help improve digestion, reduce pressure on rectal veins, and alleviate hemorrhoid symptoms.'
+      },
+      {
+        question: 'How long should I practice yoga for piles relief?',
+        answer: 'A 15-minute daily routine is recommended. The routine includes: Malasana (1 min), Setu Bandhasana (1 min), Adho Mukha Svanasana (2 min), Viparita Karani (5 min), Paschimottanasana (1 min), and Deep Breathing (5 min). Regular practice helps improve symptoms and prevent recurrence.'
+      },
+      {
+        question: 'Why is Malasana (Garland Pose) good for piles?',
+        answer: 'Malasana improves digestion and bowel routines, prevents constipation, strengthens pelvic muscles, reduces pressure on rectal veins, and opens hip movement. This pose is particularly effective for managing piles symptoms naturally.'
+      },
+      {
+        question: 'How does Viparita Karani help with hemorrhoids?',
+        answer: 'Viparita Karani (Legs-Up-The-Wall Pose) relaxes pelvic muscles, provides comfort for severe hemorrhoid sufferers, reduces swelling quickly, and is an ideal restorative pose. It helps alleviate lower body pressure and promotes blood flow back to the upper body.'
+      },
+      {
+        question: 'Can yoga cure piles completely?',
+        answer: 'Yoga can significantly help manage piles symptoms, reduce discomfort, improve digestion, and prevent recurrence. However, severe cases may require medical treatment. It\'s best to combine yoga with lifestyle modifications and consult a specialist like Dr. Kapil Agrawal for persistent symptoms.'
+      },
+      {
+        question: 'How does deep breathing help with piles?',
+        answer: 'Deep belly or diaphragmatic breathing calms nerves, reduces stress (a common pile trigger), and can be practiced during yoga or anytime. Pairing deep breathing with yoga poses like Malasana and Viparita Karani can provide better results for piles relief.'
+      },
+      {
+        question: 'Are these yoga poses suitable for beginners?',
+        answer: 'Yes, all 5 yoga poses discussed are beginner-friendly and can be practiced easily by anyone. They are gentle poses that don\'t require advanced flexibility or experience. Start slowly and hold each pose for the recommended duration.'
+      },
+      {
+        question: 'When should I see a doctor for piles instead of just doing yoga?',
+        answer: 'If you experience severe symptoms, unbearable pain, persistent bleeding, or symptoms lasting longer than two weeks, consult a piles specialist like Dr. Kapil Agrawal. Yoga is beneficial for mild to moderate cases and prevention, but medical treatment may be necessary for severe conditions.'
+      }
+    ]
   }
 ]
 

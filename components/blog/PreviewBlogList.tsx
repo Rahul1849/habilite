@@ -43,7 +43,7 @@ export default function PreviewBlogList({ initialData }: PreviewBlogListProps) {
         <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
           <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px]">
             <Image
-              src="/images/blog-cover.png"
+              src="/images/blog-cover.webp"
               alt="Blog Cover - Medical Blogs & Articles"
               fill
               className="object-contain object-center"
