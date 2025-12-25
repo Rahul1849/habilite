@@ -324,111 +324,115 @@ export default function BlogFilter() {
 
   return (
     <>
-      {/* Category Filter Button with Dropdown */}
-      <div className="mb-12">
-        <div className="flex justify-center">
-          <div className="relative w-full max-w-md">
-            <button
-              ref={buttonRef}
-              type="button"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              aria-expanded={isDropdownOpen}
-              aria-haspopup="true"
-              aria-label="View blog categories"
-              className="w-full flex items-center justify-between px-6 py-3.5 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-[#0891b2] focus:outline-none focus:ring-2 focus:ring-[#0891b2] focus:ring-offset-2 transition-all duration-200 text-left"
-            >
-              <span className="font-semibold text-gray-900">View Categories</span>
-              <ChevronDown
-                className={`ml-2 h-5 w-5 text-gray-500 transition-transform duration-200 ${
-                  isDropdownOpen ? 'transform rotate-180' : ''
-                }`}
-                aria-hidden="true"
-              />
-            </button>
+      {/* Main Content Grid - Desktop: Left content, Right sidebar */}
+      <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+        {/* Left Column - Main Content */}
+        <div className="lg:col-span-8">
+          {/* Category Filter Button with Dropdown */}
+          <div className="mb-12">
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-md">
+                <button
+                  ref={buttonRef}
+                  type="button"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  aria-expanded={isDropdownOpen}
+                  aria-haspopup="true"
+                  aria-label="View blog categories"
+                  className="w-full flex items-center justify-between px-6 py-3.5 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-[#0891b2] focus:outline-none focus:ring-2 focus:ring-[#0891b2] focus:ring-offset-2 transition-all duration-200 text-left"
+                >
+                  <span className="font-semibold text-gray-900">View Categories</span>
+                  <ChevronDown
+                    className={`ml-2 h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                      isDropdownOpen ? 'transform rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
 
-            {/* Mobile Overlay */}
-            {isDropdownOpen && (
-              <div
-                className="fixed inset-0 bg-black/20 z-40 md:hidden"
-                onClick={() => setIsDropdownOpen(false)}
-                aria-hidden="true"
-              />
-            )}
+                {/* Mobile Overlay */}
+                {isDropdownOpen && (
+                  <div
+                    className="fixed inset-0 bg-black/20 z-40 md:hidden"
+                    onClick={() => setIsDropdownOpen(false)}
+                    aria-hidden="true"
+                  />
+                )}
 
-            {/* Dropdown Menu */}
-            {isDropdownOpen && (
-              <div
-                ref={dropdownRef}
-                role="menu"
-                aria-orientation="vertical"
-                className="absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-lg shadow-xl max-h-[70vh] md:max-h-96 overflow-y-auto"
-              >
-                <div className="p-2">
-                  <div className="px-2 py-2 mb-1 border-b border-gray-100">
-                    <h3 className="text-sm font-semibold text-gray-700">Select Category</h3>
+                {/* Dropdown Menu */}
+                {isDropdownOpen && (
+                  <div
+                    ref={dropdownRef}
+                    role="menu"
+                    aria-orientation="vertical"
+                    className="absolute z-50 w-full mt-2 bg-white border-2 border-gray-200 rounded-lg shadow-xl max-h-[70vh] md:max-h-96 overflow-y-auto"
+                  >
+                    <div className="p-2">
+                      <div className="px-2 py-2 mb-1 border-b border-gray-100">
+                        <h3 className="text-sm font-semibold text-gray-700">Select Category</h3>
+                      </div>
+                      
+                      {/* All Categories - Always First */}
+                      {allCategories
+                        .filter(cat => cat === 'All')
+                        .map((category) => {
+                          const postCount = categoryCounts[category]
+                          const categoryUrl = '/post'
+                          
+                          return (
+                            <Link
+                              key={category}
+                              href={categoryUrl}
+                              role="menuitem"
+                              className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200 border-b border-gray-200 mb-1"
+                              onClick={() => setIsDropdownOpen(false)}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="font-semibold">All Categories</span>
+                                <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full font-semibold">
+                                  {postCount}
+                                </span>
+                              </div>
+                            </Link>
+                          )
+                        })}
+                      
+                      {/* Other Categories */}
+                      {allCategories
+                        .filter(cat => cat !== 'All')
+                        .sort()
+                        .map((category) => {
+                          const postCount = categoryCounts[category]
+                          const categorySlug = slugify(category)
+                          const categoryUrl = `/post/category/${categorySlug}`
+                          
+                          return (
+                            <Link
+                              key={category}
+                              href={categoryUrl}
+                              role="menuitem"
+                              className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200"
+                              onClick={() => setIsDropdownOpen(false)}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span>{category}</span>
+                                <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                                  {postCount}
+                                </span>
+                              </div>
+                            </Link>
+                          )
+                        })}
+                    </div>
                   </div>
-                  
-                  {/* All Categories - Always First */}
-                  {allCategories
-                    .filter(cat => cat === 'All')
-                    .map((category) => {
-                      const postCount = categoryCounts[category]
-                      const categoryUrl = '/post'
-                      
-                      return (
-                        <Link
-                          key={category}
-                          href={categoryUrl}
-                          role="menuitem"
-                          className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200 border-b border-gray-200 mb-1"
-                          onClick={() => setIsDropdownOpen(false)}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-semibold">All Categories</span>
-                            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full font-semibold">
-                              {postCount}
-                            </span>
-                          </div>
-                        </Link>
-                      )
-                    })}
-                  
-                  {/* Other Categories */}
-                  {allCategories
-                    .filter(cat => cat !== 'All')
-                    .sort()
-                    .map((category) => {
-                      const postCount = categoryCounts[category]
-                      const categorySlug = slugify(category)
-                      const categoryUrl = `/post/category/${categorySlug}`
-                      
-                      return (
-                        <Link
-                          key={category}
-                          href={categoryUrl}
-                          role="menuitem"
-                          className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200"
-                          onClick={() => setIsDropdownOpen(false)}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span>{category}</span>
-                            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
-                              {postCount}
-                            </span>
-                          </div>
-                        </Link>
-                      )
-                    })}
-                </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Featured Blogs Section */}
-      {featuredPosts.length > 0 && (
-        <section className="mb-16">
+          {/* Featured Blogs Section */}
+          {featuredPosts.length > 0 && (
+            <section className="mb-16">
           <div className="flex items-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Blogs</h2>
           </div>
@@ -647,7 +651,68 @@ export default function BlogFilter() {
           </div>
         )}
       </section>
+        </div>
 
+        {/* Right Column - Category Sidebar (Desktop Only) */}
+        <div className="hidden lg:block lg:col-span-4">
+          <div className="sticky top-24">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                Category
+              </h3>
+              <div className="space-y-2">
+                {/* All Categories - Always First */}
+                {allCategories
+                  .filter(cat => cat === 'All')
+                  .map((category) => {
+                    const postCount = categoryCounts[category]
+                    const categoryUrl = '/post'
+                    
+                    return (
+                      <Link
+                        key={category}
+                        href={categoryUrl}
+                        className="block w-full text-left px-4 py-2.5 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 hover:text-[#0891b2] active:bg-gray-200"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold">All Categories</span>
+                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full font-semibold">
+                            {postCount}
+                          </span>
+                        </div>
+                      </Link>
+                    )
+                  })}
+                
+                {/* Other Categories */}
+                {allCategories
+                  .filter(cat => cat !== 'All')
+                  .sort()
+                  .map((category) => {
+                    const postCount = categoryCounts[category]
+                    const categorySlug = slugify(category)
+                    const categoryUrl = `/post/category/${categorySlug}`
+                    
+                    return (
+                      <Link
+                        key={category}
+                        href={categoryUrl}
+                        className="block w-full text-left px-4 py-2.5 rounded-lg font-medium transition-all duration-200 text-gray-700 hover:bg-gray-100 hover:text-[#0891b2] active:bg-gray-200"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>{category}</span>
+                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                            {postCount}
+                          </span>
+                        </div>
+                      </Link>
+                    )
+                  })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
