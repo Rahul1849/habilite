@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Suspense as PreviewSuspense } from 'react'
 import { draftMode } from 'next/headers'
+import Image from 'next/image'
 import BlogFilter from '@/components/blog/BlogFilter'
 import PreviewBlogList from '@/components/blog/PreviewBlogList'
 import SanityBlogList from '@/components/blog/SanityBlogList'
@@ -144,6 +145,26 @@ export default async function BlogPage() {
     <>
       <StructuredData data={breadcrumbSchema} />
       <div className="pt-20 pb-16">
+        {/* Blog Cover Image */}
+        <div className="container-custom mb-8">
+          <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
+            <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px]">
+              <Image
+                src="/images/blog-cover.webp"
+                alt="Blog Cover - Medical Blogs & Articles"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+                priority
+                fetchPriority="high"
+                quality={85}
+                loading="eager"
+                decoding="sync"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <div className="bg-gradient-primary py-16">
           <div className="container-custom text-center">

@@ -38,6 +38,26 @@ export default function PreviewBlogList({ initialData }: PreviewBlogListProps) {
 
   return (
     <div className="pt-20 pb-16">
+      {/* Blog Cover Image */}
+      <div className="container-custom mb-8">
+        <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
+          <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px]">
+            <Image
+              src="/images/blog-cover.png"
+              alt="Blog Cover - Medical Blogs & Articles"
+              fill
+              className="object-contain object-center"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+              priority
+              fetchPriority="high"
+              quality={85}
+              loading="eager"
+              decoding="sync"
+            />
+          </div>
+        </div>
+      </div>
+
       <div className="bg-gradient-primary py-16">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">The Blogs (Preview)</h1>
