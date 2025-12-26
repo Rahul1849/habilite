@@ -37,22 +37,6 @@ export const metadata: Metadata = {
 export default function SpatzBalloonPage() {
   return (
     <div className="pt-20 pb-16">
-      {/* Hero Image */}
-      <div className="container-custom mb-8">
-        <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
-          <Image
-            src="/images/intragastric-surgeon-delhi-india.webp"
-            alt="Best Spatz Balloon Expert in Delhi - Dr. Kapil Agrawal | Adjustable Gastric Balloon Treatment | 23 Years Experience"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
-            priority
-            quality={85}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          />
-        </div>
-      </div>
 
       {/* Hero Content */}
       <div className="container-custom mb-12">
@@ -97,6 +81,23 @@ export default function SpatzBalloonPage() {
       </div>
 
       <div className="container-custom section-padding">
+        <div className="max-w-5xl mx-auto">
+          {/* Service Image */}
+          <div className="mb-8">
+            <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+              <Image
+                src="/images/best-spartz-balloon-specialist-in-delhi.png"
+                alt="Top 5 Best Spatz Balloon Specialist in Delhi - Dr. Kapil Agrawal | Adjustable Gastric Balloon | Non-Surgical Weight Loss | 23 Years Experience | Apollo Hospital | Book Consultation"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+                quality={85}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-5xl mx-auto space-y-12">
           {/* About Spatz Balloon */}
           <section className="w-full">

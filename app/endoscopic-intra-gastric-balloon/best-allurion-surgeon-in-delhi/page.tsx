@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { Award, CheckCircle2, Clock, User, TrendingUp, Heart, Activity, Zap, Shield } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
@@ -80,6 +81,23 @@ export default function AllurionBalloonPage() {
       </div>
 
       <div className="container-custom section-padding">
+        <div className="max-w-5xl mx-auto">
+          {/* Service Image */}
+          <div className="mb-8">
+            <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+              <Image
+                src="/images/best-allurion-intragastric-balloon-specialist-in-delhi.png"
+                alt="Top 5 Best Allurion Intragastric Balloon Specialist in Delhi - Dr. Kapil Agrawal | Swallowable Gastric Balloon | Non-Surgical Weight Loss | 23 Years Experience | Apollo Hospital | Book Consultation"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+                quality={85}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-5xl mx-auto space-y-12">
           {/* About Allurion Balloon */}
           <section className="w-full">

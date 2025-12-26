@@ -51,8 +51,8 @@ export default function SpatzBalloonPage() {
         <div className="mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
             <Image
-              src="/images/best-spatz-balloon-specailist-in-delhi.png"
-              alt="Best Spatz Balloon Specialist in Delhi - Dr. Kapil Agrawal | Adjustable Gastric Balloon | Non-Surgical Weight Loss | 23 Years Experience"
+              src="/images/best-spartz-balloon-specialist-in-delhi.png"
+              alt="Dr Kapil Agrawal Spatz Balloon surgeon in Delhi" title='Spatz Balloon surgeon in Delhi Dr Kapil Agrawal'
               fill
               className="object-contain object-center"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
