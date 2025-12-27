@@ -290,8 +290,8 @@ export default function BestLaserPilesSurgeonPage() {
             <div className="mb-8">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
                 <Image
-                  src="/images/best-piles-surgeon-in-delhi.png"
-                  alt="Top 5 Best Piles Surgeon in Delhi - Dr. Kapil Agrawal | Expert Laser Piles Treatment | USFDA Approved Laser | 23 Years Experience | 7000+ Successful Surgeries | Apollo Hospital | Book Consultation"
+                  src="/images/best-piles-surgeon-in-delhi.webp"
+                  alt="Best Piles Surgeon in Delhi Dr Kapil Agrawal" title="Best Surgeon for Piles in Delhi Dr Kapil Agrawal"
                   fill
                   className="object-contain object-center"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"

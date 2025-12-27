@@ -54,6 +54,7 @@ const treatments = [
   { label: 'Laser Anal Fissure Surgery', href: '/laser-surgery/anal-fissure' },
   { label: 'Laser Lipoma Surgery', href: '/lipoma-treatment' },
   { label: 'Laser Circumcision', href: '/laser-zsr-circumcision' },
+  { label: 'Phimosis Treatment', href: '/best-phimosis-treatment-in-delhi' },
 ]
 
 export default function CareerHighlightsAndServices() {

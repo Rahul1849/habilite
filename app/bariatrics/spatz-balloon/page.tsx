@@ -51,7 +51,7 @@ export default function SpatzBalloonPage() {
         <div className="mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
             <Image
-              src="/images/best-spartz-balloon-specialist-in-delhi.png"
+              src="/images/best-spartz-balloon-specialist-in-delhi.webp"
               alt="Dr Kapil Agrawal Spatz Balloon surgeon in Delhi" title='Spatz Balloon surgeon in Delhi Dr Kapil Agrawal'
               fill
               className="object-contain object-center"

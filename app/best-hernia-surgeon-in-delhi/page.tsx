@@ -243,8 +243,8 @@ export default function BestHerniaSurgeonPage() {
             <div className="mb-8">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
                 <Image
-                  src="/images/best-hernia.png"
-                  alt="Top 5 Best Hernia Surgeon in Delhi - Dr. Kapil Agrawal | Expert Laparoscopic & Robotic Hernia Repair Surgery | 23 Years Experience | 7000+ Successful Surgeries | Apollo Hospital | Book Consultation"
+                  src="/images/best-hernia.webp"
+                  alt="Best Hernia Repair Surgeon in Delhi Dr Kapil Agrawal" title="Dr Kapil Agrawal Best Hernia Surgeon in Delhi"
                   fill
                   className="object-contain object-center"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"

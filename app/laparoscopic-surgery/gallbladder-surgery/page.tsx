@@ -248,7 +248,7 @@ export default function GallbladderSurgeryPage() {
             <div className="mb-8">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
                 <Image
-                  src="/images/best-gallbladder.png"
+                  src="/images/best-gallbladder.webp"
                   alt="Dr Kapil Agrawal best gallbladder specialists and surgeon in Delhi" title="best Gallbladder Surgeon in Delhi"
                   fill
                   className="object-contain object-center"

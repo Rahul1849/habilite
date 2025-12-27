@@ -170,7 +170,7 @@ export default function BestAppendixSurgeonPage() {
             <div className="mb-8">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
                 <Image
-                  src="/images/appendix-surgeon.png"
+                  src="/images/appendix-surgeon.webp"
                   alt="Appendicitis surgery specialist Doctor in Delhi Dr Kapil Agrawal" title='Dr Kapil Agrawal best Appendix surgeon in Delhi'
                   fill
                   className="object-contain object-center"
