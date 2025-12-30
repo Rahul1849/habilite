@@ -18,7 +18,7 @@ const bariatricServices = [
     title: 'Intra Gastric Balloon Expert in Delhi',
     description: 'Dr Kapil Agrawal specializes in the gastric balloon treatment for patients looking for a moderate amount of weight loss. He specializes in both Allurion and Spatz balloon treatment.',
     link: '/endoscopic-intra-gastric-balloon',
-    image: '/images/instragastricballoon-surgery-delhi.jpg',
+    image: '/images/instragastricballoon-surgery-delhi.webp',
   },
   {
     title: 'Medical Weight Loss Program',
