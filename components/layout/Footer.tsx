@@ -34,9 +34,10 @@ export default function Footer() {
   ];
 
   const services = [
-    { href: "/laparoscopic-surgery", label: "Laparoscopic & Robotic Surgery" },
-    { href: "/bariatrics", label: "Bariatric & Metabolic Surgery" },
-    { href: "/laser-surgery", label: "Laser Proctology" },
+    { href: "/", label: "Laparoscopic Surgery" },
+    { href: "/best-robotic-surgeon-in-delhi", label: "Robotic Surgery" },
+    { href: "/bariatrics", label: "Bariatric Surgery" },
+    { href: "/best-laser-surgeon-in-delhi", label: "Laser Surgery" },
     { href: "/video-consultation", label: "Video Consultation" },
   ];
 
@@ -131,7 +132,7 @@ export default function Footer() {
 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-400">
-              Specialties
+              Specialities
             </h3>
             <ul className="space-y-3">
               {services.map(({ href, label }) => (

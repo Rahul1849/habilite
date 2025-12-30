@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { table } from "@sanity/table";
 
 export default defineType({
   name: "blog",
@@ -69,6 +70,7 @@ export default defineType({
       type: "array",
       of: [
         { type: "block" },
+        table(),
         {
           type: "image",
           fields: [

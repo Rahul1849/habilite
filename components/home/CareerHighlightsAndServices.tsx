@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { CheckCircle2 } from 'lucide-react'
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
-const AppointmentForm = dynamic(() => import('./AppointmentForm'), {
+const AppointmentForm = dynamic(() => import("./AppointmentForm"), {
   ssr: false,
   loading: () => (
     <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-gray-100 animate-pulse space-y-4">
@@ -15,47 +15,71 @@ const AppointmentForm = dynamic(() => import('./AppointmentForm'), {
       <div className="h-10 bg-gray-200 rounded" />
     </div>
   ),
-})
+});
 
 const careerHighlights = [
   {
-    text: 'Senior Consultant in General and Laparoscopic Surgery at Apollo Group of Hospitals, Delhi NCR. 23 years of clinical experience in General and Laparoscopic Surgery',
+    text: "Senior Consultant in General and Laparoscopic Surgery at Apollo Group of Hospitals, Delhi NCR. 23 years of clinical experience in General and Laparoscopic Surgery",
   },
   {
-    text: 'Conducted more than 7,000+ successful surgeries, and has served as Senior Consultant at Apollo Group of Hospitals - Sarita Vihar, Greater Kailash, and Noida',
+    text: "Conducted more than 7,000+ successful surgeries, and has served as Senior Consultant at Apollo Group of Hospitals - Sarita Vihar, Greater Kailash, and Noida",
   },
   {
-    text: 'Worked in international arenas with training from London, U.K. (MRCS) and Singapore (MMED) - globally recognized qualifications',
+    text: "Worked in international arenas with training from London, U.K. (MRCS) and Singapore (MMED) - globally recognized qualifications",
   },
   {
-    text: 'Dr. Kapil Agrawal has done MBBS, MS (Surgery) from Institute of Medical Sciences, BHU, Varanasi, MRCS (London, U.K), MMED (Singapore), and FMAS',
+    text: "Dr. Kapil Agrawal has done MBBS, MS (Surgery) from Institute of Medical Sciences, BHU, Varanasi, MRCS (London, U.K), MMED (Singapore), and FMAS",
   },
   {
-    text: 'Dr. Kapil Agrawal is among India\'s most accomplished General and Laparoscopic surgeons. He has a proven track record of successfully managing complex cases, including gallbladder stone removal, hernia repair, and advanced laparoscopic procedures',
+    text: "Dr. Kapil Agrawal is among India's most accomplished General and Laparoscopic surgeons. He has a proven track record of successfully managing complex cases, including gallbladder stone removal, hernia repair, and advanced laparoscopic procedures",
   },
-]
+];
 
 const treatments = [
-  { label: 'Laparoscopic Gallbladder Surgery', href: '/best-gallbladder-stone-surgeon-delhi' },
-  { label: 'Laparoscopic Hernia Surgery', href: '/best-hernia-surgeon-in-delhi' },
-  { label: 'Laparoscopic Appendix Surgery', href: '/best-appendix-surgeon-in-delhi' },
-  { label: 'Laparoscopic Rectal Prolapse Surgery', href: '/best-rectal-prolapse-surgeon-in-delhi' },
-  { label: 'Robotic Surgery', href: '/best-robotic-surgeon-in-delhi' },
-  { label: 'Laser Surgery', href: '/best-laser-surgeon-in-delhi' },
-  { label: 'Bariatric Surgery', href: '/bariatric-surgeon-in-delhi-india' },
-  { label: 'Non-Surgical Weight Loss Program', href: '/medical-weight-loss-program' },
-  { label: 'Surgery for Diabetes', href: '/surgery-for-diabetes' },
-  { label: 'IntraGastric Balloon', href: '/endoscopic-intra-gastric-balloon' },
-  { label: 'Allurion Balloon', href: '/bariatrics/allurion-balloon' },
-  { label: 'Spatz Balloon', href: '/bariatrics/spatz-balloon' },
-  { label: 'Laser Hemorrhoids / Piles Surgery', href: '/best-laser-piles-surgeon-in-delhi' },
-  { label: 'Laser Anal Fistula Surgery', href: '/best-laser-fistula-treatment' },
-  { label: 'Laser Pilonidal Sinus Surgery', href: '/best-laser-pilonidal-sinus-treatment' },
-  { label: 'Laser Anal Fissure Surgery', href: '/laser-surgery/anal-fissure' },
-  { label: 'Laser Lipoma Surgery', href: '/lipoma-treatment' },
-  { label: 'Laser Circumcision', href: '/laser-zsr-circumcision' },
-  { label: 'Phimosis Treatment', href: '/best-phimosis-treatment-in-delhi' },
-]
+  {
+    label: "Laparoscopic Gallbladder Surgery",
+    href: "/best-gallbladder-stone-surgeon-delhi",
+  },
+  {
+    label: "Laparoscopic Hernia Surgery",
+    href: "/best-hernia-surgeon-in-delhi",
+  },
+  {
+    label: "Laparoscopic Appendix Surgery",
+    href: "/best-appendix-surgeon-in-delhi",
+  },
+  {
+    label: "Laparoscopic Rectal Prolapse Surgery",
+    href: "/best-rectal-prolapse-surgeon-in-delhi",
+  },
+  { label: "Robotic Surgery", href: "/best-robotic-surgeon-in-delhi" },
+  { label: "Laser Surgery", href: "/best-laser-surgeon-in-delhi" },
+  { label: "Bariatric Surgery", href: "/bariatric-surgeon-in-delhi-india" },
+  {
+    label: "Non-Surgical Weight Loss Program",
+    href: "/medical-weight-loss-program",
+  },
+  { label: "Surgery for Diabetes", href: "/surgery-for-diabetes" },
+  { label: "IntraGastric Balloon", href: "/endoscopic-intra-gastric-balloon" },
+  { label: "Allurion Balloon", href: "/bariatrics/allurion-balloon" },
+  { label: "Spatz Balloon", href: "/bariatrics/spatz-balloon" },
+  {
+    label: "Laser Hemorrhoids / Piles Surgery",
+    href: "/best-laser-piles-surgeon-in-delhi",
+  },
+  {
+    label: "Laser Anal Fistula Surgery",
+    href: "/best-laser-fistula-treatment",
+  },
+  {
+    label: "Laser Pilonidal Sinus Surgery",
+    href: "/best-laser-pilonidal-sinus-treatment",
+  },
+  { label: "Laser Anal Fissure Surgery", href: "/laser-surgery/anal-fissure" },
+  { label: "Laser Lipoma Surgery", href: "/lipoma-treatment" },
+  { label: "Laser Circumcision", href: "/laser-zsr-circumcision" },
+  { label: "Phimosis Treatment", href: "/best-phimosis-treatment-in-delhi" },
+];
 
 export default function CareerHighlightsAndServices() {
   return (
@@ -63,7 +87,10 @@ export default function CareerHighlightsAndServices() {
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 break-words">
-            Dr. Kapil Agrawal&apos;s <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">Career Highlights & Services</span>
+            Dr. Kapil Agrawal&apos;s{" "}
+            <span className="bg-gradient-to-r from-[#f56336] to-[#ff8c5a] bg-clip-text text-transparent">
+              Career Highlights & Services
+            </span>
           </h2>
         </div>
 
@@ -74,7 +101,9 @@ export default function CareerHighlightsAndServices() {
               <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <CheckCircle2 className="text-white" size={24} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Career Highlights</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                Career Highlights
+              </h3>
             </div>
             <ul className="space-y-4">
               {careerHighlights.map((highlight, index) => (
@@ -96,7 +125,9 @@ export default function CareerHighlightsAndServices() {
               <div className="bg-gradient-to-br from-black via-[#0891b2] to-[#06b6d4] rounded-lg p-3 mr-4">
                 <CheckCircle2 className="text-white" size={24} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">General and Laparoscopic Surgeries & Treatments</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                General and Laparoscopic Surgeries & Treatments
+              </h3>
             </div>
             <ul className="space-y-3">
               {treatments.map((treatment, index) => (
@@ -120,6 +151,5 @@ export default function CareerHighlightsAndServices() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
