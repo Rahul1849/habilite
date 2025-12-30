@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   title: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India | Top Surgeon | 23 Years Experience',
   description: 'Dr. Kapil Agrawal is the best laparoscopic surgeon in Delhi and India with 23 years experience and 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery. Senior Consultant at Apollo Hospitals, Delhi NCR. Book appointment for laparoscopic surgery, robotic surgery, weight loss surgery in Delhi.',
   other: {
-    'preload-image': '/images/dr.png',
+    'preload-image': '/images/dr.webp',
   },
   keywords: [
     'best laparoscopic surgeon delhi',

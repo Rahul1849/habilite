@@ -668,29 +668,44 @@ export default function GallbladderSurgeryPage() {
             {/* Why Choose Dr. Kapil Agrawal */}
             <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-xl p-8">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Dr Kapil Agrawal: The Trusted Name in Gallbladder Surgery
+                Dr Kapil Agrawal: Best Gallbladder Surgeon in Delhi
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                Dr Kapil Agrawal is a leading laparoscopic gallbladder surgeon in Delhi NCR with vast experience, refined skills, and a dedicated team focused on patient care.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  "Vast experience: 23+ years and over 7,000 laparoscopic and robotic gallbladder surgeries, including complex cases.",
-                  "Elite training: MBBS, MS (Surgery), MRCS (London), and MMed (Singapore) ensure adherence to global best practices.",
-                  "High-volume specialist: Senior Consultant Laparoscopic Surgeon with the Apollo Group across Delhi NCR centres.",
-                  "Pioneer in advanced techniques: offers single-port laparoscopic surgery that delivers virtually scarless results.",
-                  "Multidisciplinary expertise: leads teams for complex biliary cases, including hepaticojejunostomy, complex CBD explorations, and radical cholecystectomies.",
-                  "Evidence-based protocols: globally recognised, data-driven approaches that prioritise pain control and infection prevention.",
-        
-                ].map((reason, index) => (
-                  <div key={index} className="flex items-start">
-                    <CheckCircle2
-                      className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
-                      size={20}
-                    />
-                    <span className="text-gray-700">{reason}</span>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                {/* Left side - Bullet points */}
+                <div className="space-y-4">
+                  {[
+                    "Vast experience: 23+ years and over 7,000 laparoscopic and robotic gallbladder surgeries, including complex cases.",
+                    "Elite training: MBBS, MS (Surgery), MRCS (London), and MMed (Singapore) ensure adherence to global best practices.",
+                    "High-volume specialist: Senior Consultant Laparoscopic Surgeon with the Apollo Group across Delhi NCR centres.",
+                    "Pioneer in advanced techniques: offers single-port laparoscopic surgery that delivers virtually scarless results.",
+                    "Multidisciplinary expertise: leads teams for complex biliary cases, including hepaticojejunostomy, complex CBD explorations, and radical cholecystectomies.",
+                    "Evidence-based protocols: globally recognised, data-driven approaches that prioritise pain control and infection prevention.",
+                  ].map((reason, index) => (
+                    <div key={index} className="flex items-start">
+                      <CheckCircle2
+                        className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
+                        size={20}
+                      />
+                      <span className="text-gray-700">{reason}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Right side - Image */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
+                  <Image
+                    src="/images/best-gallbladder.webp"
+                    alt="Dr Kapil Agrawal best gallbladder specialists and surgeon in Delhi"
+                    title="best Gallbladder Surgeon in Delhi"
+                    fill
+                    className="object-contain object-center"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={85}
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </section>
 

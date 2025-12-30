@@ -14,7 +14,7 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
   // Fallback values
   const title = bannerTitle || "Dr. Kapil Agrawal"
   const subtitle = bannerSubtitle || "Best Laparoscopic Surgeon in Delhi, India"
-  const imageUrl = getImageUrl(bannerImage) || "/images/dr.png"
+  const imageUrl = getImageUrl(bannerImage) || "/images/dr.webp"
   const imageAlt = bannerImage?.alt || "Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] z-0">
