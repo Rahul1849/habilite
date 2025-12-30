@@ -427,7 +427,7 @@ export default function GallbladderSurgeryPage() {
                       Expert Insights: Advanced Gallbladder Surgery Techniques
                     </h3>
                     <p className="text-gray-700 leading-relaxed">
-                      Watch Dr. Kapil Agrawal, one of Delhi's most experienced gallbladder surgeons, explain advanced laparoscopic and robotic techniques for gallbladder stone removal. Learn about minimally invasive procedures, recovery times, and why thousands of patients trust Dr. Agrawal for their gallbladder surgery.
+                      Watch Dr. Kapil Agrawal, one of Delhi&apos;s most experienced gallbladder surgeons, explain advanced laparoscopic and robotic techniques for gallbladder stone removal. Learn about minimally invasive procedures, recovery times, and why thousands of patients trust Dr. Agrawal for their gallbladder surgery.
                     </p>
                   </div>
                 </div>
