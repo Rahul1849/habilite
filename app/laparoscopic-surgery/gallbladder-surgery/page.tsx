@@ -19,6 +19,7 @@ import GallbladderTestimonials from "./GallbladderTestimonials";
 import { RecoveryTimeline } from "@/components/services/RecoveryTimeline";
 import RelatedBlogs from "@/components/services/RelatedBlogs";
 import StructuredData from "@/components/seo/StructuredData";
+import OptimizedYouTubeVideo from "@/components/video/OptimizedYouTubeVideo";
 import {
   getBreadcrumbSchema,
   getFAQSchema,
@@ -406,6 +407,32 @@ export default function GallbladderSurgeryPage() {
               </p>
             </section>
 
+            {/* Optimized YouTube Video Section */}
+            <section className="my-12">
+              <div className="max-w-5xl mx-auto">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                  <div className="relative w-full aspect-video bg-gray-900">
+                    <iframe
+                      src="https://www.youtube.com/embed/NBP2vClykfs?si=VVlGY3EaXALUcMQH&modestbranding=1&rel=0&showinfo=0"
+                      title="Dr. Kapil Agrawal - Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic & Robotic Surgery"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                      loading="lazy"
+                      style={{ border: 0 }}
+                    />
+                  </div>
+                  <div className="p-6 bg-gradient-to-br from-[#0891b2]/5 to-[#06b6d4]/5">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                      Expert Insights: Advanced Gallbladder Surgery Techniques
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Watch Dr. Kapil Agrawal, one of Delhi's most experienced gallbladder surgeons, explain advanced laparoscopic and robotic techniques for gallbladder stone removal. Learn about minimally invasive procedures, recovery times, and why thousands of patients trust Dr. Agrawal for their gallbladder surgery.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
             
             {/* Types of Gallbladder Surgery */}
             <section>
