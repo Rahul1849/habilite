@@ -70,7 +70,7 @@ export default defineType({
       type: "array",
       of: [
         { type: "block" },
-        table(),
+        table() as any,
         {
           type: "image",
           fields: [
