@@ -7,6 +7,12 @@ import {
   Award,
   Users,
   TrendingUp,
+  Phone,
+  Building2,
+  Pill,
+  UtensilsCrossed,
+  CalendarCheck,
+  Activity,
 } from "lucide-react";
 import ConsultationForm from "@/components/forms/ConsultationForm";
 import CallUsButton from "@/components/lead-generation/CallUsButton";
@@ -366,6 +372,24 @@ export default function GallbladderSurgeryPage() {
               </div>
             </section>
 
+            {/* What is Gallbladder Image */}
+            <section className="mb-12">
+              <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl bg-gray-50">
+                <Image
+                  src="/images/what-is-gallbladder.webp"
+                  alt="What is Gallbladder Explained by Dr. Kapil Agrawal Best Gallbladder Stone Surgeon in Delhi" title="What is Gallbladder"
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
+                  quality={85}
+                  loading="lazy"
+                  decoding="async"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                />
+              </div>
+            </section>
+
             {/* What Are Gallstones */}
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
@@ -422,30 +446,29 @@ export default function GallbladderSurgeryPage() {
                       style={{ border: 0 }}
                     />
                   </div>
-                  <div className="p-6 bg-gradient-to-br from-[#0891b2]/5 to-[#06b6d4]/5">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                      Expert Insights: Advanced Gallbladder Surgery Techniques
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Watch Dr. Kapil Agrawal, one of Delhi&apos;s most experienced gallbladder surgeons, explain advanced laparoscopic and robotic techniques for gallbladder stone removal. Learn about minimally invasive procedures, recovery times, and why thousands of patients trust Dr. Agrawal for their gallbladder surgery.
-                    </p>
-                  </div>
                 </div>
               </div>
             </section>
-            
+
             {/* Types of Gallbladder Surgery */}
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Advanced Gallbladder Surgery Options by Dr. Kapil Agrawal in Delhi, India
+                Advanced Gallbladder Surgery Options by Dr. Kapil Agrawal in
+                Delhi, India
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Gallbladder stone treatment has advanced significantly with the use of modern surgical techniques that focus on safety, comfort, and quicker recovery. At Habilite Clinics, Dr. Kapil Agrawal offers a range of minimally invasive gallbladder surgery options, delivering precise and patient-centric care for effective stone removal.
+                Gallbladder stone treatment has advanced significantly with the
+                use of modern surgical techniques that focus on safety, comfort,
+                and quicker recovery. At Habilite Clinics, Dr. Kapil Agrawal
+                offers a range of minimally invasive gallbladder surgery
+                options, delivering precise and patient-centric care for
+                effective stone removal.
               </p>
               <div className="space-y-6">
                 {[
                   {
-                    title: "1. Gold-Standard Laparoscopic Cholecystectomy: The Preferred Choice",
+                    title:
+                      "1. Gold-Standard Laparoscopic Cholecystectomy: The Preferred Choice",
                     description:
                       "Laparoscopic gallbladder surgery is widely accepted as the most effective and reliable method for treating gallstones. The operation is performed under general anaesthesia and uses modern surgical technology to ensure accuracy and patient comfort.",
                     points: [
@@ -456,7 +479,8 @@ export default function GallbladderSurgeryPage() {
                     ],
                   },
                   {
-                    title: "2. Single-Port (SILS) Surgery: For an Almost Scarless Result",
+                    title:
+                      "2. Single-Port (SILS) Surgery: For an Almost Scarless Result",
                     description:
                       "Single-port gallbladder surgery is an advanced evolution of standard laparoscopy, designed for selected patients who qualify for this technique. It offers excellent cosmetic outcomes along with reduced discomfort. Dr. Kapil Agrawal is among the early adopters of this method, performing it primarily for gallbladder stone and bariatric procedures.",
                     points: [
@@ -467,7 +491,8 @@ export default function GallbladderSurgeryPage() {
                     ],
                   },
                   {
-                    title: "3. Robotic-Assisted Surgery: Unparalleled Precision for Complex Cases",
+                    title:
+                      "3. Robotic-Assisted Surgery: Unparalleled Precision for Complex Cases",
                     description:
                       "Robotic-assisted surgery is reserved for select cases where added precision offers clear advantages. Dr. Kapil Agrawal uses this technology for patients who require greater accuracy due to surgical complexity or challenging anatomy.",
                     points: [
@@ -536,12 +561,14 @@ export default function GallbladderSurgeryPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
                   {
-                    title: "Your First Consultation: A Comprehensive Evaluation with Dr Agrawal",
+                    title:
+                      "Your First Consultation: A Comprehensive Evaluation with Dr Agrawal",
                     description:
                       "Dr Agrawal provides a detailed consultation and removes all your doubts and concerns regarding gallbladder treatment. This collaborative session establishes a personalised treatment plan so you feel informed and confident from day one.",
                   },
                   {
-                    title: "Transparent Planning: Understanding Costs, Insurance, and EMI Options",
+                    title:
+                      "Transparent Planning: Understanding Costs, Insurance, and EMI Options",
                     description:
                       "We believe in complete financial clarity. Our team provides a detailed, upfront cost estimate with no hidden fees. We assist with cashless insurance claims across major providers and offer convenient, zero-interest EMI options so you can focus on recovery—not paperwork.",
                   },
@@ -565,7 +592,6 @@ export default function GallbladderSurgeryPage() {
                 ))}
               </div>
             </section>
-
 
             <section className="space-y-5">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
@@ -610,9 +636,9 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Preventing anatomical injuries: inexperienced surgery risks
-                      bile duct injury, leading to liver problems or repeat
-                      procedures.
+                      Preventing anatomical injuries: inexperienced surgery
+                      risks bile duct injury, leading to liver problems or
+                      repeat procedures.
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -621,8 +647,8 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Ensuring complete resolution: an expert removes all stones,
-                      including those that may have migrated.
+                      Ensuring complete resolution: an expert removes all
+                      stones, including those that may have migrated.
                     </span>
                   </li>
                 </ul>
@@ -698,7 +724,9 @@ export default function GallbladderSurgeryPage() {
                 Dr Kapil Agrawal: Best Gallbladder Surgeon in Delhi
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-               Dr Kapil Agrawal is a leading laparoscopic gallbladder surgeon in Delhi NCR with vast experience, refined skills, and a dedicated team focused on patient care.
+                Dr Kapil Agrawal is a leading laparoscopic gallbladder surgeon
+                in Delhi NCR with vast experience, refined skills, and a
+                dedicated team focused on patient care.
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 {/* Left side - Bullet points */}
@@ -735,8 +763,6 @@ export default function GallbladderSurgeryPage() {
                 </div>
               </div>
             </section>
-
-            
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -806,6 +832,29 @@ export default function GallbladderSurgeryPage() {
               maxPosts={3}
             />
           </div>
+
+          {/* CTA Section */}
+          <section className="my-16">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-gradient-to-br from-[#0891b2] via-[#06b6d4] to-[#22d3ee] rounded-2xl shadow-2xl p-8 sm:p-12 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                  Schedule Your Consultation with Best Gallbladder Surgeon in
+                  Delhi
+                </h2>
+                <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                  Take the first step towards expert gallbladder surgery care.
+                  Call now to book your consultation with Dr. Kapil Agrawal.
+                </p>
+                <a
+                  href="tel:+919999456455"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0891b2] rounded-xl font-bold text-lg sm:text-xl hover:bg-gray-50 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-2xl"
+                >
+                  <Phone size={24} className="fill-current" />
+                  <span>+91 99994 56455</span>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </>
