@@ -245,7 +245,7 @@ export default function GallbladderSurgeryPage() {
         <div className="container-custom space-y-12">
           <div className="max-w-5xl mx-auto">
             {/* Service Image */}
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
                 <Image
                   src="/images/best-gallbladder.webp"
@@ -257,7 +257,7 @@ export default function GallbladderSurgeryPage() {
                   loading="lazy"
                 />
               </div>
-            </div>
+            </div> */}
             <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
               <ConsultationForm
                 serviceName="Gallbladder Surgery"
