@@ -307,46 +307,58 @@ export default async function BlogPostPage({ params }: Props) {
       <StructuredData data={breadcrumbSchema} />
       {faqSchema && <StructuredData data={faqSchema} />}
       <div className="pt-20 pb-16">
-        {/* Hero Image */}
+        {/* Hero Image - No text overlay, full image display without cropping */}
         {post.image && (
         <div className="container-custom mb-8">
-          <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
-            <Image
-              src={post.image.startsWith('/') ? post.image : `/images/${post.image}`}
-              alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
-              fill
-              className="object-cover object-center"
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
-              quality={75}
-              loading="eager"
-              decoding="sync"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-            <div className="absolute inset-0 flex items-end pb-6 md:pb-8 px-4 md:px-6 lg:px-8">
-              <div className="text-white relative z-10 w-full">
-                <div className="text-primary-300 mb-2 text-sm md:text-base">{post.category}</div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3">{post.title}</h1>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white/90 mb-2 md:mb-4">
-                  <span className="text-white font-bold">Dr. Kapil Agrawal</span> - Senior Consultant at Apollo Group of Hospitals
-                </p>
-                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-300">
-                  <div className="flex items-center">
-                    <Calendar className="mr-1 md:mr-2" size={14} />
-                    <span>{new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                  </div>
-                  <span className="hidden sm:inline">•</span>
-                  <div className="flex items-center">
-                    <Clock className="mr-1 md:mr-2" size={14} />
-                    <span>{post.readTime} min read</span>
-                  </div>
-                </div>
-              </div>
+          <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
+            <div className="relative w-full" style={{ aspectRatio: 'auto' }}>
+              <Image
+                src={post.image.startsWith('/') ? post.image : `/images/${post.image}`}
+                alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
+                width={1200}
+                height={675}
+                className="w-full h-auto object-contain"
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
+                quality={85}
+                loading="eager"
+                decoding="async"
+                style={{ objectFit: 'contain' }}
+              />
             </div>
           </div>
         </div>
         )}
+
+        {/* Title and Metadata Below Image */}
+        <div className="container-custom mb-8">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            {post.category && (
+              <div className="text-[#0891b2] mb-3 text-sm md:text-base font-semibold uppercase tracking-wide">
+                {post.category}
+              </div>
+            )}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+              {post.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4 text-sm md:text-base text-gray-600 mb-6">
+              <div className="flex items-center">
+                <Calendar className="mr-2" size={16} />
+                <span>{new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              </div>
+              <span className="hidden sm:inline">•</span>
+              <div className="flex items-center">
+                <Clock className="mr-2" size={16} />
+                <span>{post.readTime} min read</span>
+              </div>
+              <span className="hidden sm:inline">•</span>
+              <div className="text-gray-700 font-semibold">
+                <span className="text-gray-900">Dr. Kapil Agrawal</span> - Senior Consultant at Apollo Group of Hospitals
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="container-custom section-padding">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
