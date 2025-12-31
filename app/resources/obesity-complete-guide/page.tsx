@@ -89,28 +89,28 @@ const featuredBlogs = featuredBlogSlugs
 
 const successStories = [
   {
-    id: 'N09RpTwI_HY',
+    id: '-Mx1uXfW1Hg',
     title: '35 kg loss after metabolic surgery',
     description: 'Corporate professional shares how structured coaching, sleeve gastrectomy, and accountability transformed her health.',
-    url: 'https://youtu.be/N09RpTwI_HY?si=Jff75poDunpnVd0Y',
+    url: 'https://youtu.be/-Mx1uXfW1Hg?si=h5GBXoIKIPNB9scD',
   },
   {
-    id: 'sBfXG1Miajs',
+    id: '6TyERhrC7rQ',
     title: 'Reversing diabetes with bariatric care',
     description: 'Patient narrates life after gastric bypass, glucose normalisation, and return to daily workouts within weeks.',
-    url: 'https://youtu.be/sBfXG1Miajs?si=JU9Ysdjk6CBXPHNA',
+    url: 'https://youtu.be/6TyERhrC7rQ?si=tNUtTBqN44GkPytm',
   },
   {
-    id: '-Lq2NxW1d1s',
+    id: 'vp-3_mAoip0',
     title: 'International patient experience',
-    description: 'A Middle East patient explains concierge travel, pre-op prep, and remote follow-up with Dr. Kapil’s team.',
-    url: 'https://youtu.be/-Lq2NxW1d1s?si=oqA2-yTLrgcGoAJv',
+    description: "A Middle East patient explains concierge travel, pre-op prep, and remote follow-up with Dr. Kapil's team.",
+    url: 'https://youtu.be/vp-3_mAoip0?si=OO7ATDc5kjAVgl2h',
   },
   {
-    id: 'DxoM1_39Xec',
+    id: 'QVc-vTgxto0',
     title: 'From diets to durable weight loss',
     description: 'Discover how biotech entrepreneur combined GLP-1 therapy, bariatric surgery, and lifestyle mentorship.',
-    url: 'https://youtu.be/DxoM1_39Xec?si=8c7s1zF06HD5qJoY',
+    url: 'https://youtu.be/QVc-vTgxto0?si=NKBlXfCpw3ea7bqd',
   },
 ]
 
@@ -411,147 +411,11 @@ export default function ObesityCompleteGuidePage() {
               </Link>
             ))}
           </div>
-          <p className="text-center text-xs text-gray-500">Videos hosted on YouTube. Opens in a new tab.</p>
         </div>
       </section>
 
       <section className="pb-12 sm:pb-16">
-        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden">
-            <div className="grid md:grid-cols-2">
-              <div className="relative min-h-[250px] bg-gray-100">
-                <Link href={metabolicVideo.url} target="_blank" rel="noopener noreferrer" className="block h-full">
-                  <Image
-                    src={`https://img.youtube.com/vi/${metabolicVideo.id}/hqdefault.jpg`}
-                    alt={metabolicVideo.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                    loading="lazy"
-                    quality={85}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
-                      Watch on YouTube
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="p-6 sm:p-8 space-y-4">
-                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Metabolic insights</p>
-                <h2 className="text-2xl font-bold text-gray-900">{metabolicVideo.title}</h2>
-                <p className="text-gray-600 text-sm leading-relaxed">{metabolicVideo.description}</p>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Understand root causes of obesity beyond calories</li>
-                  <li>• Learn when medications, injectables, or surgery are advised</li>
-                  <li>• See how multidisciplinary care ensures durable change</li>
-                </ul>
-                <Link
-                  href={metabolicVideo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0f172a] to-[#0891b2] text-white font-semibold px-5 py-3 shadow hover:shadow-lg transition"
-                >
-                  Open Video in New Tab
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-12 sm:pb-16">
-        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden">
-            <div className="grid md:grid-cols-2">
-              <div className="relative min-h-[250px] bg-gray-100">
-                <Link href={bariatricProcedureVideo.url} target="_blank" rel="noopener noreferrer" className="block h-full">
-                  <Image
-                    src={`https://img.youtube.com/vi/${bariatricProcedureVideo.id}/hqdefault.jpg`}
-                    alt={bariatricProcedureVideo.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                    loading="lazy"
-                    quality={85}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
-                      Watch on YouTube
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="p-6 sm:p-8 space-y-4">
-                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Procedure video</p>
-                <h2 className="text-2xl font-bold text-gray-900">{bariatricProcedureVideo.title}</h2>
-                <p className="text-gray-600 text-sm leading-relaxed">{bariatricProcedureVideo.description}</p>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• How the stomach sleeve is created and reinforced</li>
-                  <li>• Early recovery timelines & dietary progression</li>
-                  <li>• Safety checks that prevent leaks and deficiencies</li>
-                </ul>
-                <Link
-                  href={bariatricProcedureVideo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0f172a] to-[#0891b2] text-white font-semibold px-5 py-3 shadow hover:shadow-lg transition"
-                >
-                  Watch Procedure Video
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-12 sm:pb-16">
-        <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white border border-gray-100 shadow-lg overflow-hidden">
-            <div className="grid md:grid-cols-2">
-              <div className="relative min-h-[250px] bg-gray-100">
-                <Link href={technologyVideo.url} target="_blank" rel="noopener noreferrer" className="block h-full">
-                  <Image
-                    src={`https://img.youtube.com/vi/${technologyVideo.id}/hqdefault.jpg`}
-                    alt={technologyVideo.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                    loading="lazy"
-                    quality={85}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <div className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-[#b91c1c] shadow">
-                      Watch on YouTube
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="p-6 sm:p-8 space-y-4">
-                <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Technology insights</p>
-                <h2 className="text-2xl font-bold text-gray-900">{technologyVideo.title}</h2>
-                <p className="text-gray-600 text-sm leading-relaxed">{technologyVideo.description}</p>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Precision and recovery advantages of robotics</li>
-                  <li>• Cost comparisons and hospital stay expectations</li>
-                  <li>• How surgeons decide between robotic and lap techniques</li>
-                </ul>
-                <Link
-                  href={technologyVideo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0f172a] to-[#0891b2] text-white font-semibold px-5 py-3 shadow hover:shadow-lg transition"
-                >
-                  Watch Technology Video
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-12 sm:pb-16">
-        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="text-center space-y-2">
             <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Featured blogs</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Obesity, Bariatric & Lifestyle Resources</h2>
@@ -559,42 +423,41 @@ export default function ObesityCompleteGuidePage() {
               Dive deeper into non-surgical weight loss, modern bariatric techniques, and long-term maintenance strategies from our blog.
             </p>
           </div>
-          <div className="space-y-6 max-w-4xl mx-auto">
-            {featuredBlogs.map((blog) => {
-              const blogPost = blogPosts.find((post) => post.slug === blog.href.split('/').pop())
-              if (!blogPost) return null
-              return (
-                <Link
-                  key={blog.href}
-                  href={blog.href}
-                  className="group flex flex-col md:flex-row rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg overflow-hidden"
-                >
-                  <div className="relative w-full md:w-1/2 h-48 md:h-auto overflow-hidden">
-                    <Image
-                      src={blogPost.image}
-                      alt={blog.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      quality={85}
-                    />
-                  </div>
-                  <div className="flex-1 p-6 space-y-3 w-full md:w-1/2">
-                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0891b2]">{blog.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{blog.description}</p>
-                    <div className="text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94]">
-                      {blog.title.toLowerCase().includes('non-surgical')
-                        ? `Discover ${blog.title.toLowerCase()}`
-                        : blog.title.toLowerCase().includes('bariatric')
-                        ? `Learn about ${blog.title.toLowerCase()}`
-                        : `Explore ${blog.title.toLowerCase()}`}{' '}
-                      →
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {[
+              'what-is-bariatric-surgery',
+              'bariatric-surgery-myths',
+              'difference-between-traditional-dieting-and-bariatric-surgery',
+              'how-to-lose-weight-fast-without-surgery',
+              'what-is-the-role-of-exercise-after-bariatric-surgery',
+              'which-is-the-best-bariatric-surgery',
+              'what-are-the-benefits-of-gastric-sleeve-surgery-for-weight-loss',
+              'how-to-prepare-for-bariatric-surgery',
+              'how-to-boost-metabolism-a-prerequisite-for-weight-loss',
+            ]
+              .map((slug) => {
+                const blogPost = blogPosts.find((post) => post.slug === slug)
+                if (!blogPost) return null
+                return (
+                  <Link
+                    key={slug}
+                    href={`/post/${slug}`}
+                    className="group flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#0891b2]/30 p-5"
+                  >
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#0891b2] transition-colors">
+                        {blogPost.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{blogPost.excerpt}</p>
+                      <div className="flex items-center text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94] transition-colors pt-2">
+                        Read more
+                        <span className="ml-1 group-hover:translate-x-1 transition-transform inline-block">→</span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              )
-            })}
+                  </Link>
+                )
+              })
+              .filter(Boolean)}
           </div>
         </div>
       </section>

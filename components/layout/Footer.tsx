@@ -42,10 +42,10 @@ export default function Footer() {
   ];
 
   const insights = [
-    { href: "/testimonials", label: "Patient Testimonials" },
-    { href: "/post", label: "Insights & Outcomes" },
-    { href: "/international-patient", label: "International Patients" },
-    { href: "/contact", label: "Contact & Locations" },
+    { href: "/resources/gallbladder-complete-guide", label: "Gallbladder – A Complete Guide" },
+    { href: "/resources/hernia-complete-guide", label: "Hernia – A Complete Guide" },
+    { href: "/resources/obesity-complete-guide", label: "Obesity – A Complete Guide" },
+    { href: "/resources/piles-complete-guide", label: "Piles – A Complete Guide" },
   ];
 
   const socialLinks = [

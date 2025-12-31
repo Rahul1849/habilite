@@ -556,6 +556,44 @@ export default function HerniaCompleteGuidePage() {
         </div>
       </section>
 
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {[
+              'hernia-surgery-types-treatment-options-recovery',
+              'is-it-safe-to-delay-hernia-surgery',
+              'hernia-in-children',
+              'how-to-prepare-for-a-hernia-surgery',
+              'manage-hernia-symptoms',
+              'how-to-prevent-hernia',
+            ]
+              .map((slug) => {
+                const blogPost = blogPosts.find((post) => post.slug === slug)
+                if (!blogPost) return null
+                return (
+                  <Link
+                    key={slug}
+                    href={`/post/${slug}`}
+                    className="group flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#0891b2]/30 p-5"
+                  >
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#0891b2] transition-colors">
+                        {blogPost.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{blogPost.excerpt}</p>
+                      <div className="flex items-center text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94] transition-colors pt-2">
+                        Read more
+                        <span className="ml-1 group-hover:translate-x-1 transition-transform inline-block">→</span>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })
+              .filter(Boolean)}
+          </div>
+        </div>
+      </section>
+
       {/* Diet Chart */}
       <section className="pb-16">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">

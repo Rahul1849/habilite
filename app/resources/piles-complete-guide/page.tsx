@@ -69,50 +69,38 @@ const featuredBlogs = featuredBlogSlugs
 
 const successStories = [
   {
-    id: 'N09RpTwI_HY',
+    id: 'L7wAKZUn3s0',
     title: 'Laser piles surgery with zero recurrence',
     description: 'Learn how laser hemorrhoidoplasty provided quick relief with minimal downtime.',
-    url: 'https://youtu.be/L7wAKZUn3s0?si=IPZFR3bw-5qg4tt8',
+    url: 'https://youtu.be/L7wAKZUn3s0?si=sNDp47kitoZZ6och',
   },
   {
-    id: 'sBfXG1Miajs',
+    id: 'MrHf48vyeCA',
     title: 'Stapler surgery for Grade III piles',
     description: 'Patient explains painless recovery, day-care admission, and diet transition.',
-    url: 'https://youtu.be/sBfXG1Miajs?si=JU9Ysdjk6CBXPHNA',
-  },
-  {
-    id: '-Lq2NxW1d1s',
-    title: 'Pregnancy-safe piles management',
-    description: 'International patient shares conservative care + postnatal laser touch-up.',
-    url: 'https://youtu.be/-Lq2NxW1d1s?si=oqA2-yTLrgcGoAJv',
-  },
-  {
-    id: 'DxoM1_39Xec',
-    title: 'From chronic pain to confident life',
-    description: 'See how a busy executive balanced office work and recovery with our team.',
-    url: 'https://youtu.be/DxoM1_39Xec?si=8c7s1zF06HD5qJoY',
+    url: 'https://youtu.be/MrHf48vyeCA?si=mrf5zGUp9etG5YqP',
   },
 ]
 
 const educationVideo = {
-  id: 'NBP2vClykfs',
+  id: 'jvc97AGolT8',
   title: 'Piles & Anal Disorders: Causes, Grades, Treatment Roadmap',
   description: 'Dr. Kapil decodes hemorrhoid grades, office procedures, and when laser or stapler surgery is needed.',
-  url: 'https://youtu.be/NBP2vClykfs?si=WMdIMppYC8P6sPId',
+  url: 'https://youtu.be/jvc97AGolT8?si=vh7nKSn2RL_V463V',
 }
 
 const procedureVideo = {
-  id: 'lfhv5H9VVJ8',
+  id: 'FY8DIc9efmI',
   title: 'Laser Hemorrhoidoplasty Walkthrough',
   description: 'Get a behind-the-scenes view of laser piles surgery, safety checks, and healing timeline.',
-  url: 'https://youtu.be/lfhv5H9VVJ8?si=0BdUwl0QIV22rA39',
+  url: 'https://youtu.be/FY8DIc9efmI?si=8tYFoBE7g-1nvdQ-',
 }
 
 const techVideo = {
-  id: 'FZHmnGH0Frw',
+  id: '-izldvPcmpk',
   title: 'Stapler vs Laser vs DGHAL – Choosing the Right Technique',
   description: 'Understand pros & cons of each method and who is best suited for them.',
-  url: 'https://youtu.be/FZHmnGH0Frw?si=xcEwZ5l10eJayEew',
+  url: 'https://youtu.be/-izldvPcmpk?si=n6el4JQ4CjwJXVay',
 }
 
 const peopleAlsoAskFaqs = [
@@ -410,7 +398,7 @@ export default function PilesCompleteGuidePage() {
       ))}
 
       <section className="pb-12 sm:pb-16">
-        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="text-center space-y-2">
             <p className="text-base uppercase tracking-[0.4em] font-bold text-[#0891b2]">Featured blogs</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Piles Education & Home-Care Tips</h2>
@@ -453,6 +441,44 @@ export default function PilesCompleteGuidePage() {
                 </Link>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-12 sm:pb-16">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {[
+              'grade-4-piles-symptoms-treatments',
+              'how-to-stop-piles-bleeding',
+              'how-to-prevent-piles-at-home',
+              'best-way-to-cure-piles-in-3-days',
+              'symptoms-of-piles-in-women',
+              'foods-to-eat-and-avoid-in-piles',
+            ]
+              .map((slug) => {
+                const blogPost = blogPosts.find((post) => post.slug === slug)
+                if (!blogPost) return null
+                return (
+                  <Link
+                    key={slug}
+                    href={`/post/${slug}`}
+                    className="group flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#0891b2]/30 p-5"
+                  >
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#0891b2] transition-colors">
+                        {blogPost.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{blogPost.excerpt}</p>
+                      <div className="flex items-center text-sm font-semibold text-[#0891b2] group-hover:text-[#067a94] transition-colors pt-2">
+                        Read more
+                        <span className="ml-1 group-hover:translate-x-1 transition-transform inline-block">→</span>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })
+              .filter(Boolean)}
           </div>
         </div>
       </section>
