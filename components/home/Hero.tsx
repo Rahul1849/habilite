@@ -12,8 +12,8 @@ interface HeroProps {
 
 export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroProps) {
   // Fallback values
-  const title = bannerTitle || "Dr. Kapil Agrawal"
-  const subtitle = bannerSubtitle || "Best Laparoscopic Surgeon in Delhi, India"
+  const title = bannerTitle || "Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi"
+  const subtitle = bannerSubtitle || ""
   const imageUrl = getImageUrl(bannerImage) || "/images/dr.webp"
   const imageAlt = bannerImage?.alt || "Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
   return (

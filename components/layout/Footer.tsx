@@ -182,7 +182,7 @@ export default function Footer() {
                 href="tel:+919999456455"
                 className="inline-flex items-center gap-3 hover:text-primary-200 transition"
               >
-                <Phone size={18} className="text-primary-400" /> +91 99994 56455
+                <Phone size={18} className="text-primary-400" /> +91 99994 56455, +91 99100 24564
               </a>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary-400 mt-0.5" />

@@ -118,11 +118,11 @@ const nextConfig = {
           },
           {
             key: 'Cross-Origin-Embedder-Policy',
-            value: 'require-corp',
+            value: 'unsafe-none',
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://i.ytimg.com https://img.youtube.com https://picsum.photos https://maps.googleapis.com https://maps.gstatic.com https://cdn.sanity.io; media-src 'self' https://www.youtube.com; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com https://*.api.sanity.io https://*.apicdn.sanity.io; frame-src https://www.youtube.com https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self';",
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://i.ytimg.com https://img.youtube.com https://picsum.photos https://maps.googleapis.com https://maps.gstatic.com https://cdn.sanity.io; media-src 'self' https://www.youtube.com; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com https://*.api.sanity.io https://*.apicdn.sanity.io; frame-src https://www.youtube.com https://www.google.com https://maps.google.com https://*.google.com; base-uri 'self'; form-action 'self';",
           },
           {
             key: 'Cache-Control',

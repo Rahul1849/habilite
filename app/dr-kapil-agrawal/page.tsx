@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Award, GraduationCap, Clock, Phone, Calendar, Video, Building2, BookOpen, Users, CheckCircle2 } from 'lucide-react'
+import { Award, GraduationCap, Clock, Phone, Calendar, Video, Building2, BookOpen, Users, CheckCircle2, MapPin } from 'lucide-react'
 import { getDoctorBySlug } from '@/data/doctors'
 import { services } from '@/data/services'
 import StructuredData from '@/components/seo/StructuredData'
@@ -531,26 +531,155 @@ export default function DrKapilAgrawalPage() {
                   <Building2 className="mr-2 text-[#0891b2]" size={28} />
                   Dr. Kapil Agrawal&apos;s Affiliated Locations
                 </h2>
-                <div className="space-y-4">
-                  <div className="bg-gray-50 rounded-lg p-5">
-                    <p className="font-semibold text-gray-900 mb-1">Kailash Colony Metro Station</p>
-                    <p className="text-gray-700">A-19/A, Near, Kailash Colony Rd, New Delhi, Delhi 110048</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Kailash Colony Location */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">Kailash Colony Metro Station</h3>
+                    <div className="rounded-xl overflow-hidden shadow-lg mb-4">
+                      <iframe
+                        src="https://www.google.com/maps?q=Kailash+Colony+Metro+Station,+A-19/A,+Near,+Kailash+Colony+Rd,+New+Delhi,+Delhi+110048&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Dr. Kapil Agrawal - Kailash Colony Location"
+                        aria-label="Google Maps showing Kailash Colony location"
+                      />
+                    </div>
+                    <p className="text-gray-700 mb-2 text-sm">A-19/A, Near, Kailash Colony Rd, New Delhi, Delhi 110048</p>
+                    <div className="text-center">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Kailash+Colony+Metro+Station,+A-19/A,+Near,+Kailash+Colony+Rd,+New+Delhi,+Delhi+110048"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors text-sm"
+                      >
+                        <MapPin className="mr-2" size={18} />
+                        View on Google Maps
+                      </a>
+                    </div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-5">
-                    <p className="font-semibold text-gray-900 mb-1">Lajpat Nagar</p>
-                    <p className="text-gray-700">5A, Ring Rd, opposite Moolchand Metro station location, Block A, Lajpat Nagar 4, Kidwai Nagar, New Delhi, Delhi 110048</p>
+
+                  {/* Lajpat Nagar Location */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">Lajpat Nagar</h3>
+                    <div className="rounded-xl overflow-hidden shadow-lg mb-4">
+                      <iframe
+                        src="https://www.google.com/maps?q=5A,+Ring+Rd,+opposite+Moolchand+Metro+station+location,+Block+A,+Lajpat+Nagar+4,+Kidwai+Nagar,+New+Delhi,+Delhi+110048&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Dr. Kapil Agrawal - Lajpat Nagar Location"
+                        aria-label="Google Maps showing Lajpat Nagar location"
+                      />
+                    </div>
+                    <p className="text-gray-700 mb-2 text-sm">5A, Ring Rd, opposite Moolchand Metro station location, Block A, Lajpat Nagar 4, Kidwai Nagar, New Delhi, Delhi 110048</p>
+                    <div className="text-center">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=5A,+Ring+Rd,+opposite+Moolchand+Metro+station+location,+Block+A,+Lajpat+Nagar+4,+Kidwai+Nagar,+New+Delhi,+Delhi+110048"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors text-sm"
+                      >
+                        <MapPin className="mr-2" size={18} />
+                        View on Google Maps
+                      </a>
+                    </div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-5">
-                    <p className="font-semibold text-gray-900 mb-1">Green Park</p>
-                    <p className="text-gray-700">Gulmohar Commercial Complex, Metro station, B-5, near Green Park, Yusuf Sarai, New Delhi, Delhi 110016</p>
+
+                  {/* Green Park Location */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">Green Park</h3>
+                    <div className="rounded-xl overflow-hidden shadow-lg mb-4">
+                      <iframe
+                        src="https://www.google.com/maps?q=Gulmohar+Commercial+Complex,+Metro+station,+B-5,+near+Green+Park,+Yusuf+Sarai,+New+Delhi,+Delhi+110016&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Dr. Kapil Agrawal - Green Park Location"
+                        aria-label="Google Maps showing Green Park location"
+                      />
+                    </div>
+                    <p className="text-gray-700 mb-2 text-sm">Gulmohar Commercial Complex, Metro station, B-5, near Green Park, Yusuf Sarai, New Delhi, Delhi 110016</p>
+                    <div className="text-center">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Gulmohar+Commercial+Complex,+Metro+station,+B-5,+near+Green+Park,+Yusuf+Sarai,+New+Delhi,+Delhi+110016"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors text-sm"
+                      >
+                        <MapPin className="mr-2" size={18} />
+                        View on Google Maps
+                      </a>
+                    </div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-5">
-                    <p className="font-semibold text-gray-900 mb-1">Lajpat Nagar II</p>
-                    <p className="text-gray-700">M-11, road, Vinoba Puri, Block M, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024</p>
+
+                  {/* Lajpat Nagar II Location */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">Lajpat Nagar II</h3>
+                    <div className="rounded-xl overflow-hidden shadow-lg mb-4">
+                      <iframe
+                        src="https://www.google.com/maps?q=M-11,+road,+Vinoba+Puri,+Block+M,+Lajpat+Nagar+II,+Lajpat+Nagar,+New+Delhi,+Delhi+110024&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Dr. Kapil Agrawal - Lajpat Nagar II Location"
+                        aria-label="Google Maps showing Lajpat Nagar II location"
+                      />
+                    </div>
+                    <p className="text-gray-700 mb-2 text-sm">M-11, road, Vinoba Puri, Block M, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024</p>
+                    <div className="text-center">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=M-11,+road,+Vinoba+Puri,+Block+M,+Lajpat+Nagar+II,+Lajpat+Nagar,+New+Delhi,+Delhi+110024"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors text-sm"
+                      >
+                        <MapPin className="mr-2" size={18} />
+                        View on Google Maps
+                      </a>
+                    </div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-5">
-                    <p className="font-semibold text-gray-900 mb-1">Hauz Khas</p>
-                    <p className="text-gray-700">C-7/186, Safdarjung Development Area, Hauz Khas, New Delhi, Delhi 110016</p>
+
+                  {/* Hauz Khas Location */}
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">Hauz Khas</h3>
+                    <div className="rounded-xl overflow-hidden shadow-lg mb-4">
+                      <iframe
+                        src="https://www.google.com/maps?q=C-7/186,+Safdarjung+Development+Area,+Hauz+Khas,+New+Delhi,+Delhi+110016&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Dr. Kapil Agrawal - Hauz Khas Location"
+                        aria-label="Google Maps showing Hauz Khas location"
+                      />
+                    </div>
+                    <p className="text-gray-700 mb-2 text-sm">C-7/186, Safdarjung Development Area, Hauz Khas, New Delhi, Delhi 110016</p>
+                    <div className="text-center">
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=C-7/186,+Safdarjung+Development+Area,+Hauz+Khas,+New+Delhi,+Delhi+110016"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#0891b2] hover:text-[#06b6d4] font-semibold transition-colors text-sm"
+                      >
+                        <MapPin className="mr-2" size={18} />
+                        View on Google Maps
+                      </a>
+                    </div>
                   </div>
                 </div>
               </section>
