@@ -34,11 +34,11 @@ export default function Footer() {
   ];
 
   const services = [
-    { href: "/", label: "Laparoscopic Surgery" },
-    { href: "/best-robotic-surgeon-in-delhi", label: "Robotic Surgery" },
-    { href: "/bariatrics", label: "Bariatric Surgery" },
-    { href: "/best-laser-surgeon-in-delhi", label: "Laser Surgery" },
-    { href: "/video-consultation", label: "Video Consultation" },
+    { href: "/best-gallbladder-stone-surgeon-delhi", label: "Gallbladder Surgery in Delhi" },
+    { href: "/best-hernia-surgeon-in-delhi", label: "Hernia Surgery in Delhi" },
+    { href: "/best-appendix-surgeon-in-delhi", label: "Appendix Surgery in Delhi" },
+    { href: "/best-laser-piles-surgeon-in-delhi", label: "Hemorrhoids/Piles Surgery in Delhi" },
+    { href: "/bariatric-surgeon-in-delhi-india", label: "Bariatric Surgery in Delhi" },
   ];
 
   const insights = [
