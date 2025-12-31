@@ -5905,7 +5905,7 @@ You can request an appointment at Habilite Clinics at +91 9999-456-455 or +91 99
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: new Date().toISOString().split('T')[0],
-    image: '/images/botox-injection-for-anal-fissure-blog.webp',
+    image: '/images/botox-injection-for-anal-fissure-blog1.webp',
     category: 'Laser Surgery',
     tags: ['Anal Fissure', 'Botox Injection', 'Anal Fissure Treatment', 'Laser Surgery', 'Minimally Invasive', 'Delhi'],
     readTime: 9,
