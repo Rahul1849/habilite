@@ -20,14 +20,13 @@ import {
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
 
-// Dynamically import below-the-fold components to improve initial page load and LCP
-// Using ssr: false for non-critical components to reduce TBT and improve mobile performance
+// Lazy load heavy components to improve FCP and LCP
 const ConsultationForm = dynamic(
   () => import("@/components/forms/ConsultationForm"),
   {
-    ssr: false,
+    ssr: true,
     loading: () => (
-      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-2xl" />
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
     ),
   }
 );
@@ -35,9 +34,9 @@ const ConsultationForm = dynamic(
 const CostCalculator = dynamic(
   () => import("@/components/lead-generation/CostCalculator"),
   {
-    ssr: false,
+    ssr: true,
     loading: () => (
-      <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
     ),
   }
 );
@@ -45,8 +44,7 @@ const CostCalculator = dynamic(
 const PostOperativeCare = dynamic(
   () => import("@/components/lead-generation/PostOperativeCare"),
   {
-    ssr: false,
-    loading: () => <div className="min-h-[200px]" />,
+    ssr: true,
   }
 );
 
@@ -60,20 +58,15 @@ const WhatsAppExpertChat = dynamic(
 const PilesFAQ = dynamic(
   () => import("@/app/laser-surgery/hemorrhoids-piles/PilesFAQ"),
   {
-    ssr: false,
-    loading: () => (
-      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
-    ),
+    ssr: true,
   }
 );
 
 const PilesTestimonials = dynamic(
   () => import("@/app/laser-surgery/hemorrhoids-piles/PilesTestimonials"),
   {
-    ssr: false,
-    loading: () => (
-      <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />
-    ),
+    ssr: true,
+    loading: () => <div className="min-h-[400px] animate-pulse" />,
   }
 );
 
@@ -83,8 +76,7 @@ const RecoveryTimeline = dynamic(
       default: mod.RecoveryTimeline,
     })),
   {
-    ssr: false,
-    loading: () => <div className="min-h-[200px]" />,
+    ssr: true,
   }
 );
 
@@ -237,7 +229,7 @@ export default function BestLaserPilesSurgeonPage() {
               fetchPriority="high"
               quality={85}
               loading="eager"
-              decoding="sync"
+              decoding="async"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />

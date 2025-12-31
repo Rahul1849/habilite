@@ -1,16 +1,63 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { CheckCircle2, Clock, Award, Users, TrendingUp, Shield } from 'lucide-react'
-import ConsultationForm from '@/components/forms/ConsultationForm'
-import CallUsButton from '@/components/lead-generation/CallUsButton'
-import CostCalculator from '@/components/lead-generation/CostCalculator'
-import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
-import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
 import { blogPosts } from '@/data/blog'
-import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
+
+// Lazy load heavy components to improve FCP and LCP
+const ConsultationForm = dynamic(
+  () => import('@/components/forms/ConsultationForm'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
+    ),
+  }
+)
+
+const CallUsButton = dynamic(
+  () => import('@/components/lead-generation/CallUsButton'),
+  {
+    ssr: true,
+  }
+)
+
+const CostCalculator = dynamic(
+  () => import('@/components/lead-generation/CostCalculator'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
+    ),
+  }
+)
+
+const PostOperativeCare = dynamic(
+  () => import('@/components/lead-generation/PostOperativeCare'),
+  {
+    ssr: true,
+  }
+)
+
+const WhatsAppExpertChat = dynamic(
+  () => import('@/components/lead-generation/WhatsAppExpertChat'),
+  {
+    ssr: false,
+  }
+)
+
+const RecoveryTimeline = dynamic(
+  () =>
+    import('@/components/services/RecoveryTimeline').then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: true,
+  }
+)
 
 export const metadata: Metadata = {
   title: 'Best Rectal Prolapse Surgeon in Delhi | Laparoscopic & STARR Repair | Dr. Kapil Agrawal',
@@ -206,11 +253,6 @@ export default function BestRectalProlapseSurgeonPage() {
 
   return (
     <>
-      <StructuredData data={serviceSchema} />
-      <StructuredData data={procedureSchema} />
-      <StructuredData data={faqSchema} />
-      <StructuredData data={breadcrumbSchema} />
-
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] overflow-hidden rounded-2xl">
@@ -223,7 +265,7 @@ export default function BestRectalProlapseSurgeonPage() {
               fetchPriority="high"
               quality={75}
               loading="eager"
-              decoding="sync"
+              decoding="async"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
             />
           </div>
@@ -441,6 +483,11 @@ export default function BestRectalProlapseSurgeonPage() {
           </div>
         </div>
       </div>
+      {/* StructuredData moved to bottom to prevent blocking render */}
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
     </>
   )
 }

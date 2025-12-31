@@ -10,7 +10,6 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
-import CallUsButton from "@/components/lead-generation/CallUsButton";
 import StructuredData from "@/components/seo/StructuredData";
 import {
   getBreadcrumbSchema,
@@ -19,46 +18,79 @@ import {
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
 
-// Dynamically import below-the-fold components to improve initial page load and LCP
-// Using ssr: false for non-critical components to reduce TBT and improve mobile performance
-const ConsultationForm = dynamic(() => import("@/components/forms/ConsultationForm"), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-2xl" />,
-});
+// Lazy load heavy components to improve FCP and LCP
+const ConsultationForm = dynamic(
+  () => import("@/components/forms/ConsultationForm"),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
+    ),
+  }
+);
 
-const CostCalculator = dynamic(() => import("@/components/lead-generation/CostCalculator"), {
-  ssr: false,
-  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />,
-});
+const CallUsButton = dynamic(
+  () => import("@/components/lead-generation/CallUsButton"),
+  {
+    ssr: true,
+  }
+);
 
-const PostOperativeCare = dynamic(() => import("@/components/lead-generation/PostOperativeCare"), {
-  ssr: false,
-  loading: () => <div className="min-h-[200px]" />,
-});
+const CostCalculator = dynamic(
+  () => import("@/components/lead-generation/CostCalculator"),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
+    ),
+  }
+);
 
-const WhatsAppExpertChat = dynamic(() => import("@/components/lead-generation/WhatsAppExpertChat"), {
-  ssr: false,
-});
+const PostOperativeCare = dynamic(
+  () => import("@/components/lead-generation/PostOperativeCare"),
+  {
+    ssr: true,
+  }
+);
 
-const HerniaTestimonials = dynamic(() => import("@/app/laparoscopic-surgery/hernia-surgery/HerniaTestimonials"), {
-  ssr: false,
-  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />,
-});
+const WhatsAppExpertChat = dynamic(
+  () => import("@/components/lead-generation/WhatsAppExpertChat"),
+  {
+    ssr: false,
+  }
+);
 
-const HerniaFAQ = dynamic(() => import("@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ"), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />,
-});
+const HerniaTestimonials = dynamic(
+  () => import("@/app/laparoscopic-surgery/hernia-surgery/HerniaTestimonials"),
+  {
+    ssr: true,
+    loading: () => <div className="min-h-[400px] animate-pulse" />,
+  }
+);
 
-const RecoveryTimeline = dynamic(() => import("@/components/services/RecoveryTimeline").then(mod => ({ default: mod.RecoveryTimeline })), {
-  ssr: false,
-  loading: () => <div className="min-h-[200px]" />,
-});
+const HerniaFAQ = dynamic(
+  () => import("@/app/laparoscopic-surgery/hernia-surgery/HerniaFAQ"),
+  {
+    ssr: true,
+  }
+);
 
-const RelatedBlogs = dynamic(() => import("@/components/services/RelatedBlogs"), {
-  ssr: false,
-  loading: () => <div className="min-h-[300px]" />,
-});
+const RecoveryTimeline = dynamic(
+  () =>
+    import("@/components/services/RecoveryTimeline").then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: true,
+  }
+);
+
+const RelatedBlogs = dynamic(
+  () => import("@/components/services/RelatedBlogs"),
+  {
+    ssr: true,
+  }
+);
 
 export const metadata: Metadata = {
   title:
@@ -187,9 +219,9 @@ export default function BestHerniaSurgeonPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={85}
+              quality={75}
               loading="eager"
-              decoding="sync"
+              decoding="async"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />

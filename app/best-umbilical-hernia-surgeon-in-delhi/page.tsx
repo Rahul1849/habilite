@@ -1,16 +1,75 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { Award, CheckCircle2, Clock, User, Users, TrendingUp, Activity, Zap, Shield, Heart } from 'lucide-react'
-import ConsultationForm from '@/components/forms/ConsultationForm'
-import CallUsButton from '@/components/lead-generation/CallUsButton'
-import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
-import CostCalculator from '@/components/lead-generation/CostCalculator'
-import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
-import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
-import RelatedBlogs from '@/components/services/RelatedBlogs'
-import UmbilicalHerniaFAQ from './UmbilicalHerniaFAQ'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
+
+// Lazy load heavy components to improve FCP and LCP
+const ConsultationForm = dynamic(
+  () => import('@/components/forms/ConsultationForm'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
+    ),
+  }
+)
+
+const CallUsButton = dynamic(
+  () => import('@/components/lead-generation/CallUsButton'),
+  {
+    ssr: true,
+  }
+)
+
+const PostOperativeCare = dynamic(
+  () => import('@/components/lead-generation/PostOperativeCare'),
+  {
+    ssr: true,
+  }
+)
+
+const CostCalculator = dynamic(
+  () => import('@/components/lead-generation/CostCalculator'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
+    ),
+  }
+)
+
+const WhatsAppExpertChat = dynamic(
+  () => import('@/components/lead-generation/WhatsAppExpertChat'),
+  {
+    ssr: false,
+  }
+)
+
+const RecoveryTimeline = dynamic(
+  () =>
+    import('@/components/services/RecoveryTimeline').then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: true,
+  }
+)
+
+const RelatedBlogs = dynamic(
+  () => import('@/components/services/RelatedBlogs'),
+  {
+    ssr: true,
+  }
+)
+
+const UmbilicalHerniaFAQ = dynamic(
+  () => import('./UmbilicalHerniaFAQ'),
+  {
+    ssr: true,
+  }
+)
 
 export const metadata: Metadata = {
   title: 'Best Umbilical Hernia Surgeon in Delhi - Dr. Kapil Agrawal',
@@ -120,11 +179,6 @@ const serviceSchema = getServiceSchema({
 export default function BestUmbilicalHerniaSurgeonPage() {
   return (
     <>
-      <StructuredData data={serviceSchema} />
-      <StructuredData data={procedureSchema} />
-      <StructuredData data={faqSchema} />
-      <StructuredData data={breadcrumbSchema} />
-
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
@@ -138,7 +192,7 @@ export default function BestUmbilicalHerniaSurgeonPage() {
               fetchPriority="high"
               quality={75}
               loading="eager"
-              decoding="sync"
+              decoding="async"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
@@ -147,7 +201,7 @@ export default function BestUmbilicalHerniaSurgeonPage() {
 
         <div className="container-custom mb-12">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">best-umbilical-hernia-surgeon-delhi</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2] mb-3">best-umbilical-hernia-surgeon-delhi</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Best Umbilical Hernia Surgeon in <span className="text-[#0891b2]">Delhi</span> - Dr. Kapil Agrawal
             </h1>
@@ -425,6 +479,11 @@ export default function BestUmbilicalHerniaSurgeonPage() {
           </div>
         </div>
       </div>
+      {/* StructuredData moved to bottom to prevent blocking render */}
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
     </>
   )
 }

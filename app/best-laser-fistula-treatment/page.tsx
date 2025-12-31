@@ -6,41 +6,65 @@ import { CheckCircle2, Clock, User, Award, Users, TrendingUp } from 'lucide-reac
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import { blogPosts } from '@/data/blog'
 
-// Dynamically import below-the-fold components to improve initial page load and LCP
-// Using ssr: false for non-critical components to reduce TBT and improve mobile performance
-const ConsultationForm = dynamic(() => import('@/components/forms/ConsultationForm'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-2xl" />,
-})
+// Lazy load heavy components to improve FCP and LCP
+const ConsultationForm = dynamic(
+  () => import('@/components/forms/ConsultationForm'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
+    ),
+  }
+)
 
-const CostCalculator = dynamic(() => import('@/components/lead-generation/CostCalculator'), {
-  ssr: false,
-  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />,
-})
+const CostCalculator = dynamic(
+  () => import('@/components/lead-generation/CostCalculator'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
+    ),
+  }
+)
 
-const PostOperativeCare = dynamic(() => import('@/components/lead-generation/PostOperativeCare'), {
-  ssr: false,
-  loading: () => <div className="min-h-[200px]" />,
-})
+const PostOperativeCare = dynamic(
+  () => import('@/components/lead-generation/PostOperativeCare'),
+  {
+    ssr: true,
+  }
+)
 
-const WhatsAppExpertChat = dynamic(() => import('@/components/lead-generation/WhatsAppExpertChat'), {
-  ssr: false,
-})
+const WhatsAppExpertChat = dynamic(
+  () => import('@/components/lead-generation/WhatsAppExpertChat'),
+  {
+    ssr: false,
+  }
+)
 
-const FistulaFAQ = dynamic(() => import('@/app/laser-surgery/anal-fistula/FistulaFAQ'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />,
-})
+const FistulaFAQ = dynamic(
+  () => import('@/app/laser-surgery/anal-fistula/FistulaFAQ'),
+  {
+    ssr: true,
+  }
+)
 
-const FistulaTestimonials = dynamic(() => import('@/app/laser-surgery/anal-fistula/FistulaTestimonials'), {
-  ssr: false,
-  loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 rounded-xl" />,
-})
+const FistulaTestimonials = dynamic(
+  () => import('@/app/laser-surgery/anal-fistula/FistulaTestimonials'),
+  {
+    ssr: true,
+    loading: () => <div className="min-h-[400px] animate-pulse" />,
+  }
+)
 
-const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline').then(mod => ({ default: mod.RecoveryTimeline })), {
-  ssr: false,
-  loading: () => <div className="min-h-[200px]" />,
-})
+const RecoveryTimeline = dynamic(
+  () =>
+    import('@/components/services/RecoveryTimeline').then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: true,
+  }
+)
 
 export const metadata: Metadata = {
   title: 'Best Laser Fistula Treatment in Delhi - Dr. Kapil Agrawal | VAAFT Technology | 23 Years Experience',
@@ -158,7 +182,7 @@ export default function BestLaserFistulaTreatmentPage() {
               fetchPriority="high"
               quality={85}
               loading="eager"
-              decoding="sync"
+              decoding="async"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />

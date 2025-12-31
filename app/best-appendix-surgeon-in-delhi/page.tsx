@@ -1,18 +1,84 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { CheckCircle2, Clock, User, Award, Users, TrendingUp } from 'lucide-react'
-import ConsultationForm from '@/components/forms/ConsultationForm'
-import CallUsButton from '@/components/lead-generation/CallUsButton'
-import CostCalculator from '@/components/lead-generation/CostCalculator'
-import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
-import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
-import AppendixFAQ from '@/app/laparoscopic-surgery/appendix-surgery/AppendixFAQ'
-import AppendixTestimonials from '@/app/laparoscopic-surgery/appendix-surgery/AppendixTestimonials'
-import { RecoveryTimeline } from '@/components/services/RecoveryTimeline'
-import RelatedBlogs from '@/components/services/RelatedBlogs'
 import StructuredData from '@/components/seo/StructuredData'
 import { getBreadcrumbSchema, getFAQSchema, getMedicalProcedureSchema, getServiceSchema } from '@/lib/seo/schemaBuilders'
+
+// Lazy load heavy components to improve FCP and LCP
+const ConsultationForm = dynamic(
+  () => import('@/components/forms/ConsultationForm'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
+    ),
+  }
+)
+
+const CallUsButton = dynamic(
+  () => import('@/components/lead-generation/CallUsButton'),
+  {
+    ssr: true,
+  }
+)
+
+const CostCalculator = dynamic(
+  () => import('@/components/lead-generation/CostCalculator'),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
+    ),
+  }
+)
+
+const PostOperativeCare = dynamic(
+  () => import('@/components/lead-generation/PostOperativeCare'),
+  {
+    ssr: true,
+  }
+)
+
+const WhatsAppExpertChat = dynamic(
+  () => import('@/components/lead-generation/WhatsAppExpertChat'),
+  {
+    ssr: false,
+  }
+)
+
+const AppendixFAQ = dynamic(
+  () => import('@/app/laparoscopic-surgery/appendix-surgery/AppendixFAQ'),
+  {
+    ssr: true,
+  }
+)
+
+const AppendixTestimonials = dynamic(
+  () => import('@/app/laparoscopic-surgery/appendix-surgery/AppendixTestimonials'),
+  {
+    ssr: true,
+    loading: () => <div className="min-h-[400px] animate-pulse" />,
+  }
+)
+
+const RecoveryTimeline = dynamic(
+  () =>
+    import('@/components/services/RecoveryTimeline').then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: true,
+  }
+)
+
+const RelatedBlogs = dynamic(
+  () => import('@/components/services/RelatedBlogs'),
+  {
+    ssr: true,
+  }
+)
 
 export const metadata: Metadata = {
   title: 'Best Appendicitis Surgeon in Delhi - Dr. Kapil Agrawal | Laparoscopic Appendectomy | 23 Years Experience',
@@ -109,14 +175,8 @@ const serviceSchema = getServiceSchema({
 })
 
 export default function BestAppendixSurgeonPage() {
-
   return (
     <>
-      <StructuredData data={serviceSchema} />
-      <StructuredData data={procedureSchema} />
-      <StructuredData data={faqSchema} />
-      <StructuredData data={breadcrumbSchema} />
-
       <div className="pt-20 pb-16">
         <div className="container-custom mb-8">
           <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
@@ -130,7 +190,7 @@ export default function BestAppendixSurgeonPage() {
               fetchPriority="high"
               quality={75}
               loading="eager"
-              decoding="sync"
+              decoding="async"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
@@ -139,7 +199,7 @@ export default function BestAppendixSurgeonPage() {
 
         <div className="container-custom mb-12">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">best-appendicitis-surgeon-delhi</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2] mb-3">best-appendicitis-surgeon-delhi</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Best Appendicitis Surgeon in <span className="text-[#0891b2]">Delhi</span> - Dr. Kapil Agrawal
             </h1>
@@ -533,6 +593,11 @@ export default function BestAppendixSurgeonPage() {
           </div>
         </div>
       </div>
+      {/* StructuredData moved to bottom to prevent blocking render */}
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
     </>
   )
 }
