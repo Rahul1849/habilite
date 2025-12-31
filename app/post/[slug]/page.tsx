@@ -310,21 +310,21 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Hero Image - No text overlay, full image display without cropping */}
         {post.image && (
         <div className="container-custom mb-8">
-          <div className="relative w-full rounded-xl bg-gray-50 p-2">
-            <div className="relative w-full">
+          <div className="relative w-full rounded-xl bg-gray-50 overflow-visible">
+            <div className="relative w-full max-w-5xl mx-auto">
               <Image
                 src={post.image.startsWith('/') ? post.image : `/images/${post.image}`}
                 alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-full h-auto"
+                width={1200}
+                height={675}
+                className="w-full h-auto object-contain"
                 priority
                 fetchPriority="high"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
                 quality={85}
                 loading="eager"
                 decoding="async"
-                unoptimized={false}
+                style={{ objectFit: 'contain', display: 'block' }}
               />
             </div>
           </div>
