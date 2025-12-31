@@ -25,22 +25,6 @@ type SanityBlogListProps = {
   showCategoryFilter?: boolean
 }
 
-// Helper function to format dates consistently (prevents hydration errors)
-const formatDate = (dateString: string | undefined): string => {
-  if (!dateString) return 'N/A'
-  try {
-    const date = new Date(dateString)
-    if (isNaN(date.getTime())) return 'N/A'
-    // Use a consistent format that works on both server and client
-    const year = date.getFullYear()
-    const month = date.toLocaleString('en-US', { month: 'long' })
-    const day = date.getDate()
-    return `${month} ${day}, ${year}`
-  } catch {
-    return 'N/A'
-  }
-}
-
 export default function SanityBlogList({ blogs, showCategoryFilter = true }: SanityBlogListProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
@@ -371,7 +355,11 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
                           <div className="flex items-center">
                             <Calendar className="mr-1" size={14} />
                             <span className="text-xs">
-                              {formatDate(blog.publishedAt)}
+                              {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                              })}
                             </span>
                           </div>
                           {blog.readTime && (
@@ -443,7 +431,11 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
                           <div className="flex items-center">
                             <Calendar className="mr-1" size={14} />
                             <span className="text-xs">
-                              {formatDate(blog.publishedAt)}
+                              {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                              })}
                             </span>
                           </div>
                           {blog.readTime && (
@@ -552,7 +544,7 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
                   </button>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">
-                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestBlogs.length)} of {(blogs?.length || 0) + (blogPosts?.length || 0)} blogs
+                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestBlogs.length)} of {blogs.length} blogs
                 </p>
               </div>
             )}

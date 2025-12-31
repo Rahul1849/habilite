@@ -18,22 +18,6 @@ const getImageSrc = (imagePath: string): string => {
   return `/images/${imagePath}`
 }
 
-// Helper function to format dates consistently (prevents hydration errors)
-const formatDate = (dateString: string | undefined): string => {
-  if (!dateString) return 'N/A'
-  try {
-    const date = new Date(dateString)
-    if (isNaN(date.getTime())) return 'N/A'
-    // Use a consistent format that works on both server and client
-    const year = date.getFullYear()
-    const month = date.toLocaleString('en-US', { month: 'long' })
-    const day = date.getDate()
-    return `${month} ${day}, ${year}`
-  } catch {
-    return 'N/A'
-  }
-}
-
 // Service-based categories for blog filtering
 const getAllCategories = (): string[] => {
   // Define service-based categories
@@ -227,20 +211,12 @@ export default function BlogFilter() {
   const blogsPerPage = 8
 
   // Calculate posts inside component to ensure blogPosts is loaded
-  // Filter out only invalid posts (missing slug or title), but include all valid posts
   const latestPosts = useMemo(() => {
     return [...blogPosts]
-      .filter((post) => post && post.slug && post.title) // Only filter invalid posts
       .filter((post) => !featuredPostSlugs.includes(post.slug) && !excludedPostSlugs.includes(post.slug))
-      .sort((a, b) => {
-        try {
-          const dateA = a.publishedDate ? new Date(a.publishedDate).getTime() : 0
-          const dateB = b.publishedDate ? new Date(b.publishedDate).getTime() : 0
-          return dateB - dateA
-        } catch {
-          return 0
-        }
-      })
+      .sort((a, b) => 
+        new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+      )
   }, [])
 
   // If latestPosts is empty (all posts are featured/excluded), show all posts except featured
@@ -250,16 +226,10 @@ export default function BlogFilter() {
       return latestPosts
     }
     const nonFeatured = [...blogPosts]
-      .filter((post) => post && post.slug && post.title && !featuredPostSlugs.includes(post.slug))
-      .sort((a, b) => {
-        try {
-          const dateA = a.publishedDate ? new Date(a.publishedDate).getTime() : 0
-          const dateB = b.publishedDate ? new Date(b.publishedDate).getTime() : 0
-          return dateB - dateA
-        } catch {
-          return 0
-        }
-      })
+      .filter((post) => !featuredPostSlugs.includes(post.slug))
+      .sort((a, b) => 
+        new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+      )
     
     // If even non-featured is empty, show all posts
     if (nonFeatured.length > 0) {
@@ -267,17 +237,9 @@ export default function BlogFilter() {
     }
     
     // Last resort: show all posts sorted by date
-    return [...blogPosts]
-      .filter((post) => post && post.slug && post.title)
-      .sort((a, b) => {
-        try {
-          const dateA = a.publishedDate ? new Date(a.publishedDate).getTime() : 0
-          const dateB = b.publishedDate ? new Date(b.publishedDate).getTime() : 0
-          return dateB - dateA
-        } catch {
-          return 0
-        }
-      })
+    return [...blogPosts].sort((a, b) => 
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    )
   }, [latestPosts])
 
   // Pagination calculations
@@ -355,12 +317,10 @@ export default function BlogFilter() {
     if (typeof window !== 'undefined') {
       console.log('BlogFilter - Total blogPosts:', blogPosts.length)
       console.log('BlogFilter - Featured posts:', featuredPosts.length)
-      console.log('BlogFilter - Excluded posts:', excludedPostSlugs.length)
-      console.log('BlogFilter - Latest posts (after filter):', latestPosts.length)
-      console.log('BlogFilter - All latest posts:', allLatestPosts.length)
+      console.log('BlogFilter - Latest posts:', latestPosts.length)
       console.log('BlogFilter - Display posts:', displayPosts.length)
     }
-  }, [latestPosts.length, allLatestPosts.length, displayPosts.length])
+  }, [latestPosts.length, displayPosts.length])
 
   return (
     <>
@@ -496,7 +456,7 @@ export default function BlogFilter() {
                     <div className="flex items-center">
                       <Calendar className="mr-1" size={14} />
                       <span className="text-xs">
-                        {formatDate(post.publishedDate)}
+                        {new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </span>
                     </div>
                     <span className="hidden sm:inline">•</span>
@@ -566,7 +526,7 @@ export default function BlogFilter() {
                     <div className="flex items-center">
                       <Calendar className="mr-1" size={14} />
                       <span className="text-xs">
-                        {formatDate(post.publishedDate)}
+                        {new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </span>
                     </div>
                     <span className="hidden sm:inline">•</span>
@@ -670,7 +630,7 @@ export default function BlogFilter() {
                   </button>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">
-                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestPosts.length)} of {blogPosts?.length || 0} blogs
+                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestPosts.length)} of {blogPosts.length} blogs
                 </p>
               </div>
             )}
