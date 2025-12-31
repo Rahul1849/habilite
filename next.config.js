@@ -44,13 +44,21 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-accordion', '@radix-ui/react-dialog'],
     optimizeCss: true,
     // Optimize for mobile performance
     optimizeServerReact: true,
     // Reduce JavaScript bundle size
     serverMinification: true,
+    // Enable partial prerendering for faster initial load
+    ppr: false,
   },
+  // Optimize output
+  output: 'standalone',
+  // Compress output
+  compress: true,
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
   // Target modern browsers to reduce legacy JS polyfills
   transpilePackages: [],
   // Modern browser support - remove legacy polyfills
@@ -105,8 +113,20 @@ const nextConfig = {
             value: 'camera=(), microphone=(), geolocation=()',
           },
           {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'Cross-Origin-Embedder-Policy',
+            value: 'require-corp',
+          },
+          {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://i.ytimg.com https://img.youtube.com https://picsum.photos https://maps.googleapis.com https://maps.gstatic.com https://cdn.sanity.io; media-src 'self' https://www.youtube.com; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com https://*.api.sanity.io https://*.apicdn.sanity.io; frame-src https://www.youtube.com https://www.google.com https://maps.google.com;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://i.ytimg.com https://img.youtube.com https://picsum.photos https://maps.googleapis.com https://maps.gstatic.com https://cdn.sanity.io; media-src 'self' https://www.youtube.com; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com https://*.api.sanity.io https://*.apicdn.sanity.io; frame-src https://www.youtube.com https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self';",
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

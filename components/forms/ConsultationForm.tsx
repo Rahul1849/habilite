@@ -208,78 +208,90 @@ export default function ConsultationForm({ serviceName, serviceSlug }: Consultat
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Name - Required */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="consultation-name" className="block text-sm font-semibold text-gray-700 mb-2">
             Full Name <span className="text-[#0891b2]">*</span>
           </label>
           <input
+            id="consultation-name"
             type="text"
             value={formData.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all"
             placeholder="Enter your full name"
             required
+            aria-required="true"
           />
         </div>
 
         {/* Phone - Required */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="consultation-phone" className="block text-sm font-semibold text-gray-700 mb-2">
             Phone Number <span className="text-[#0891b2]">*</span>
           </label>
           <input
+            id="consultation-phone"
             type="tel"
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all"
             placeholder="+91 98765 43210"
             required
+            aria-required="true"
           />
         </div>
 
         {/* Email - Optional */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
-            Email Address <span className="text-gray-400 text-xs">(Optional)</span>
+          <label htmlFor="consultation-email" className="block text-sm font-semibold text-gray-700 mb-2">
+            Email Address <span className="text-gray-500 text-xs">(Optional)</span>
           </label>
           <input
+            id="consultation-email"
             type="email"
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all"
             placeholder="your.email@example.com"
+            aria-required="false"
           />
         </div>
 
         {/* Date Selection - Optional */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
-            Preferred Date <span className="text-gray-400 text-xs">(Optional)</span>
+          <label htmlFor="consultation-date" className="block text-sm font-semibold text-gray-700 mb-2">
+            Preferred Date <span className="text-gray-500 text-xs">(Optional)</span>
           </label>
           <input
+            id="consultation-date"
             type="date"
             value={formData.date}
             onChange={(e) => handleInputChange('date', e.target.value)}
             min={today}
             max={maxDateStr}
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all"
+            aria-describedby="date-help"
+            aria-required="false"
           />
-          <p className="text-xs text-gray-500 mt-1">Select a date within the next 3 months</p>
+          <p id="date-help" className="text-xs text-gray-600 mt-1">Select a date within the next 3 months</p>
         </div>
 
         {/* Message - Optional but recommended */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
-            Message <span className="text-gray-400 text-xs">(Optional)</span>
+          <label htmlFor="consultation-message" className="block text-sm font-semibold text-gray-700 mb-2">
+            Message <span className="text-gray-500 text-xs">(Optional)</span>
           </label>
           <textarea
+            id="consultation-message"
             value={formData.message}
             onChange={(e) => handleInputChange('message', e.target.value)}
             rows={4}
             className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-transparent text-sm transition-all resize-none"
             placeholder="Please share any additional details about your consultation needs..."
             maxLength={2000}
+            aria-describedby="message-count"
+            aria-required="false"
           />
-          <p className="text-xs text-gray-500 mt-1">
+          <p id="message-count" className="text-xs text-gray-600 mt-1">
             {formData.message.length}/2000 characters
           </p>
         </div>

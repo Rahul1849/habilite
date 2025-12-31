@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import {
   CheckCircle2,
   Clock,
@@ -8,30 +9,86 @@ import {
   Users,
   TrendingUp,
   Phone,
-  Building2,
-  Pill,
-  UtensilsCrossed,
-  CalendarCheck,
-  Activity,
 } from "lucide-react";
-import ConsultationForm from "@/components/forms/ConsultationForm";
-import CallUsButton from "@/components/lead-generation/CallUsButton";
-import CostCalculator from "@/components/lead-generation/CostCalculator";
-import PostOperativeCare from "@/components/lead-generation/PostOperativeCare";
-import WhatsAppExpertChat from "@/components/lead-generation/WhatsAppExpertChat";
 import Link from "next/link";
-import GallbladderFAQ from "./GallbladderFAQ";
-import GallbladderTestimonials from "./GallbladderTestimonials";
-import { RecoveryTimeline } from "@/components/services/RecoveryTimeline";
-import RelatedBlogs from "@/components/services/RelatedBlogs";
 import StructuredData from "@/components/seo/StructuredData";
-import OptimizedYouTubeVideo from "@/components/video/OptimizedYouTubeVideo";
 import {
   getBreadcrumbSchema,
   getFAQSchema,
   getMedicalProcedureSchema,
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
+
+// Lazy load heavy components to improve FCP and LCP
+const ConsultationForm = dynamic(
+  () => import("@/components/forms/ConsultationForm"),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
+    ),
+  }
+);
+
+const CallUsButton = dynamic(
+  () => import("@/components/lead-generation/CallUsButton"),
+  {
+    ssr: true,
+  }
+);
+
+const CostCalculator = dynamic(
+  () => import("@/components/lead-generation/CostCalculator"),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
+    ),
+  }
+);
+
+const PostOperativeCare = dynamic(
+  () => import("@/components/lead-generation/PostOperativeCare"),
+  {
+    ssr: true,
+  }
+);
+
+const WhatsAppExpertChat = dynamic(
+  () => import("@/components/lead-generation/WhatsAppExpertChat"),
+  {
+    ssr: false,
+  }
+);
+
+const GallbladderFAQ = dynamic(() => import("./GallbladderFAQ"), {
+  ssr: true,
+});
+
+const GallbladderTestimonials = dynamic(
+  () => import("./GallbladderTestimonials"),
+  {
+    ssr: true,
+    loading: () => <div className="min-h-[400px] animate-pulse" />,
+  }
+);
+
+const RecoveryTimeline = dynamic(
+  () =>
+    import("@/components/services/RecoveryTimeline").then((mod) => ({
+      default: mod.RecoveryTimeline,
+    })),
+  {
+    ssr: true,
+  }
+);
+
+const RelatedBlogs = dynamic(
+  () => import("@/components/services/RelatedBlogs"),
+  {
+    ssr: true,
+  }
+);
 
 export const metadata: Metadata = {
   title:
@@ -70,6 +127,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical:
       "https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi",
+  },
+  other: {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
   },
 };
 
@@ -177,11 +240,6 @@ const serviceSchema = getServiceSchema({
 export default function GallbladderSurgeryPage() {
   return (
     <>
-      <StructuredData data={serviceSchema} />
-      <StructuredData data={procedureSchema} />
-      <StructuredData data={faqSchema} />
-      <StructuredData data={breadcrumbSchema} />
-
       <div className="pt-20 pb-16">
         {/* Hero Image */}
         <div className="container-custom mb-8">
@@ -206,7 +264,7 @@ export default function GallbladderSurgeryPage() {
         {/* Hero Content */}
         <div className="container-custom mb-12">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2] mb-3">
               best-gallbladder-surgeon-delhi
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
@@ -377,7 +435,8 @@ export default function GallbladderSurgeryPage() {
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl bg-gray-50">
                 <Image
                   src="/images/what-is-gallbladder.webp"
-                  alt="What is Gallbladder Explained by Dr. Kapil Agrawal Best Gallbladder Stone Surgeon in Delhi" title="What is Gallbladder"
+                  alt="What is Gallbladder Explained by Dr. Kapil Agrawal Best Gallbladder Stone Surgeon in Delhi"
+                  title="What is Gallbladder"
                   fill
                   className="object-contain object-center"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
@@ -431,13 +490,13 @@ export default function GallbladderSurgeryPage() {
               </p>
             </section>
 
-            {/* Optimized YouTube Video Section */}
+            {/* Optimized YouTube Video Section - Lazy loaded */}
             <section className="my-12">
               <div className="max-w-5xl mx-auto">
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                   <div className="relative w-full aspect-video bg-gray-900">
                     <iframe
-                      src="https://www.youtube.com/embed/NBP2vClykfs?si=VVlGY3EaXALUcMQH&modestbranding=1&rel=0&showinfo=0"
+                      src="https://www.youtube.com/embed/NBP2vClykfs?si=VVlGY3EaXALUcMQH&modestbranding=1&rel=0&showinfo=0&loading=lazy"
                       title="Dr. Kapil Agrawal - Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic & Robotic Surgery"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
@@ -507,7 +566,7 @@ export default function GallbladderSurgeryPage() {
                     key={index}
                     className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0891b2]"
                   >
-                    <h3 className="font-bold text-gray-900 mb-3 text-lg">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {procedure.title}
                     </h3>
                     <p className="text-gray-700 mb-3">
@@ -541,9 +600,9 @@ export default function GallbladderSurgeryPage() {
             </div>
 
             <section>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">
+              <h2 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">
                 Determining the Best Surgical Approach for You
-              </h3>
+              </h2>
               <p className="text-gray-700 leading-relaxed">
                 During your evaluation, Dr Kapil Agrawal reviews your medical
                 history, imaging, lifestyle goals, and recovery expectations to
@@ -582,7 +641,7 @@ export default function GallbladderSurgeryPage() {
                     key={index}
                     className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm"
                   >
-                    <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {item.title}
                     </h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -599,7 +658,7 @@ export default function GallbladderSurgeryPage() {
                 for Your Health
               </h2>
               <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm space-y-3">
-                <h3 className="font-semibold text-gray-900 text-lg">
+                <h3 className="text-lg font-semibold text-gray-900">
                   The Risks of Gallbladder Disease: Why Timely, Expert
                   Intervention Matters
                 </h3>
@@ -655,7 +714,7 @@ export default function GallbladderSurgeryPage() {
               </div>
 
               <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-5 space-y-3">
-                <h3 className="font-semibold text-gray-900 text-lg">
+                <h3 className="text-lg font-semibold text-gray-900">
                   Beyond the Operation: How Surgical Expertise Impacts Your
                   Recovery and Long-Term Wellbeing
                 </h3>
@@ -759,6 +818,8 @@ export default function GallbladderSurgeryPage() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     quality={85}
                     loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                   />
                 </div>
               </div>
@@ -857,6 +918,11 @@ export default function GallbladderSurgeryPage() {
           </section>
         </div>
       </div>
+      {/* StructuredData moved to bottom to prevent blocking render */}
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={procedureSchema} />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
     </>
   );
 }

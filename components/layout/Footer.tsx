@@ -194,7 +194,7 @@ export default function Footer() {
                   </p>
                   <p>
                     <span className="font-semibold">Hauz Khas:</span><br />
-                    M C-7/186, SDA, Hauz Khas, <br/>
+                    C-7/186, SDA, Hauz Khas, <br/>
                     New Delhi – 110016
                   </p>
                 </div>

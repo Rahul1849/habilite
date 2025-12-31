@@ -124,28 +124,32 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
       
       <form onSubmit={handleFormSubmit} className="space-y-4">
         <div>
-          <label className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="cost-name" className="block text-gray-700 font-medium mb-2">
             Patient Name <span className="text-[#0891b2]">*</span>
           </label>
           <input
+            id="cost-name"
             type="text"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-[#0891b2]"
             placeholder="Enter your name"
             required
+            aria-required="true"
           />
         </div>
         
         <div>
-          <label className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="cost-country" className="block text-gray-700 font-medium mb-2">
             Select Country <span className="text-[#0891b2]">*</span>
           </label>
           <select
+            id="cost-country"
             value={formData.country}
             onChange={(e) => setFormData({ ...formData, country: e.target.value })}
             className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0891b2] focus:border-[#0891b2]"
             required
+            aria-required="true"
           >
             <option value="India">India</option>
             <option value="USA">USA</option>
@@ -157,10 +161,11 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
         </div>
         
         <div>
-          <label className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="cost-phone" className="block text-gray-700 font-medium mb-2">
             Mobile Number <span className="text-[#0891b2]">*</span>
           </label>
           <input
+            id="cost-phone"
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
@@ -168,6 +173,7 @@ export default function CostCalculator({ serviceName }: CostCalculatorProps) {
             placeholder="Enter 10-digit mobile number"
             maxLength={10}
             required
+            aria-required="true"
           />
         </div>
         
