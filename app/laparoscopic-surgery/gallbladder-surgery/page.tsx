@@ -445,43 +445,7 @@ export default function GallbladderSurgeryPage() {
             {/* What is Gallbladder Image */}
             <section className="mb-12">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl bg-gray-50">
-                <Image3
-on-recoverable-error.js:20 Uncaught Error: Hydration failed because the initial UI does not match what was rendered on the server.
-See more info here: https://nextjs.org/docs/messages/react-hydration-error
-    at throwOnHydrationMismatch (react-dom.development.js:6981:9)
-    at tryToClaimNextHydratableInstance (react-dom.development.js:7040:7)
-    at updateHostComponent$1 (react-dom.development.js:16621:5)
-    at beginWork$1 (react-dom.development.js:18503:14)
-    at beginWork (react-dom.development.js:26927:14)
-    at performUnitOfWork (react-dom.development.js:25748:12)
-    at workLoopConcurrent (react-dom.development.js:25734:5)
-    at renderRootConcurrent (react-dom.development.js:25690:9)
-    at performConcurrentWorkOnRoot (react-dom.development.js:24504:38)
-    at workLoop (scheduler.development.js:256:34)
-    at flushWork (scheduler.development.js:225:14)
-    at MessagePort.performWorkUntilDeadline (scheduler.development.js:534:21)
-react-dom.development.js:16571 Uncaught Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
-See more info here: https://nextjs.org/docs/messages/react-hydration-error
-    at updateHostRoot (react-dom.development.js:16571:57)
-    at beginWork$1 (react-dom.development.js:18486:14)
-    at beginWork (react-dom.development.js:26927:14)
-    at performUnitOfWork (react-dom.development.js:25748:12)
-    at workLoopSync (react-dom.development.js:25464:5)
-    at renderRootSync (react-dom.development.js:25419:7)
-    at recoverFromConcurrentError (react-dom.development.js:24597:20)
-    at performConcurrentWorkOnRoot (react-dom.development.js:24542:26)
-    at workLoop (scheduler.development.js:256:34)
-    at flushWork (scheduler.development.js:225:14)
-    at MessagePort.performWorkUntilDeadline (scheduler.development.js:534:21)
-favicon.ico:1 
- GET http://localhost:3000/favicon.ico 404 (Not Found)
-post:1 The resource http://localhost:3000/images/dr.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
-
-post:1 The resource http://localhost:3000/images/gallbladder-surgeon-delhi-india.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
-post:1 The resource http://localhost:3000/images/dr-kapil-agrawal.png was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
-﻿
-
-
+                <Image
                   src="/images/what-is-gallbladder.webp"
                   alt="What is Gallbladder Explained by Dr. Kapil Agrawal Best Gallbladder Stone Surgeon in Delhi"
                   title="What is Gallbladder"
