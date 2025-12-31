@@ -544,7 +544,7 @@ export default function SanityBlogList({ blogs, showCategoryFilter = true }: San
                   </button>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">
-                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestBlogs.length)} of {allLatestBlogs.length} blogs
+                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestBlogs.length)} of {blogs.length} blogs
                 </p>
               </div>
             )}

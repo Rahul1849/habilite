@@ -311,20 +311,20 @@ export default async function BlogPostPage({ params }: Props) {
         {post.image && (
         <div className="container-custom mb-8">
           <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
-            <div className="relative w-full" style={{ aspectRatio: 'auto' }}>
+            <div className="relative w-full max-h-[70vh] md:max-h-[600px] flex items-center justify-center">
               <Image
                 src={post.image.startsWith('/') ? post.image : `/images/${post.image}`}
                 alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
                 width={1200}
                 height={675}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto max-h-[70vh] md:max-h-[600px] object-contain"
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
                 quality={85}
                 loading="eager"
                 decoding="async"
-                style={{ objectFit: 'contain' }}
+                style={{ objectFit: 'contain', maxHeight: '70vh' }}
               />
             </div>
           </div>

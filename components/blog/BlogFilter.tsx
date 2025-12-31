@@ -630,7 +630,7 @@ export default function BlogFilter() {
                   </button>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">
-                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestPosts.length)} of {allLatestPosts.length} blogs
+                  Showing {startIndex + 1}-{Math.min(endIndex, allLatestPosts.length)} of {blogPosts.length} blogs
                 </p>
               </div>
             )}
