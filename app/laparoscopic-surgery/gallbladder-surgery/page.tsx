@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+// Import only needed icons to reduce bundle size
 import {
   CheckCircle2,
   Clock,
@@ -10,8 +11,10 @@ import {
   TrendingUp,
   Phone,
 } from "lucide-react";
-import Link from "next/link";
 import StructuredData from "@/components/seo/StructuredData";
+
+// Export revalidate for ISR - helps with caching and performance
+export const revalidate = 3600; // Revalidate every hour
 import {
   getBreadcrumbSchema,
   getFAQSchema,
@@ -19,7 +22,7 @@ import {
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
 
-// Lazy load heavy components to improve FCP and LCP
+// Lazy load heavy components to improve FCP and LCP - defer below fold content
 const ConsultationForm = dynamic(
   () => import("@/components/forms/ConsultationForm"),
   {
@@ -62,13 +65,13 @@ const WhatsAppExpertChat = dynamic(
 );
 
 const GallbladderFAQ = dynamic(() => import("./GallbladderFAQ"), {
-  ssr: true,
+  ssr: false, // Defer FAQ accordion to reduce initial JS
 });
 
 const GallbladderTestimonials = dynamic(
   () => import("./GallbladderTestimonials"),
   {
-    ssr: true,
+    ssr: false, // Defer client-side testimonials to reduce initial JS
     loading: () => <div className="min-h-[400px] animate-pulse" />,
   }
 );
@@ -87,6 +90,21 @@ const RelatedBlogs = dynamic(
   () => import("@/components/services/RelatedBlogs"),
   {
     ssr: true,
+  }
+);
+
+// Lazy load YouTube embed to reduce initial JavaScript bundle
+const LazyYouTubeEmbed = dynamic(
+  () => import("@/components/common/LazyYouTubeEmbed"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="absolute inset-0 w-full h-full bg-gray-900 flex items-center justify-center">
+        <div className="text-white text-center">
+          <div className="animate-pulse mb-2">Loading video...</div>
+        </div>
+      </div>
+    ),
   }
 );
 
@@ -252,9 +270,9 @@ export default function GallbladderSurgeryPage() {
   return (
     <>
       <div className="pt-20 pb-16">
-        {/* Hero Image - LCP Element */}
+        {/* Hero Image - LCP Element - Optimized for fastest load */}
         <div className="container-custom mb-8">
-          <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
+          <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl bg-gray-100">
             <Image
               src="/images/gallbladder-surgeon-delhi-india.webp"
               alt="Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | Expert Gallbladder Stone Removal | 23 Years Experience | 7000+ Surgeries"
@@ -263,7 +281,7 @@ export default function GallbladderSurgeryPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={75}
+              quality={82}
               loading="eager"
               decoding="async"
               unoptimized={false}
@@ -344,8 +362,8 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           <div className="max-w-5xl mx-auto space-y-12">
-            {/* What is Gallbladder */}
-            <section>
+            {/* What is Gallbladder - Use content-visibility for below-fold sections */}
+            <section className="defer-section">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Understanding Gallbladder Diseases
               </h2>
@@ -443,7 +461,7 @@ export default function GallbladderSurgeryPage() {
             </section>
 
             {/* What is Gallbladder Image */}
-            <section className="mb-12">
+            <section className="mb-12 defer-section">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl bg-gray-50">
                 <Image
                   src="/images/what-is-gallbladder.webp"
@@ -462,7 +480,7 @@ export default function GallbladderSurgeryPage() {
             </section>
 
             {/* What Are Gallstones */}
-            <section>
+            <section className="defer-section">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Gallbladder Conditions We Treat
               </h2>
@@ -502,19 +520,14 @@ export default function GallbladderSurgeryPage() {
               </p>
             </section>
 
-            {/* Optimized YouTube Video Section - Lazy loaded */}
-            <section className="my-12">
+            {/* Optimized YouTube Video Section - Deferred loading to reduce initial bundle */}
+            <section className="my-12 defer-section">
               <div className="max-w-5xl mx-auto">
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                   <div className="relative w-full aspect-video bg-gray-900">
-                    <iframe
-                      src="https://www.youtube.com/embed/NBP2vClykfs?si=VVlGY3EaXALUcMQH&modestbranding=1&rel=0&showinfo=0&loading=lazy"
+                    <LazyYouTubeEmbed
+                      videoId="NBP2vClykfs"
                       title="Dr. Kapil Agrawal - Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic & Robotic Surgery"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                      loading="lazy"
-                      style={{ border: 0 }}
                     />
                   </div>
                 </div>
@@ -522,7 +535,7 @@ export default function GallbladderSurgeryPage() {
             </section>
 
             {/* Types of Gallbladder Surgery */}
-            <section>
+            <section className="defer-section">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Advanced Gallbladder Surgery Options by Dr. Kapil Agrawal in
                 Delhi, India
@@ -611,7 +624,7 @@ export default function GallbladderSurgeryPage() {
               </p>
             </div>
 
-            <section>
+            <section className="defer-section">
               <h2 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">
                 Determining the Best Surgical Approach for You
               </h2>
@@ -624,7 +637,7 @@ export default function GallbladderSurgeryPage() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section className="space-y-6 defer-section">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
                 Why patients across Delhi, NCR choose Habilite Clinics:
                 Compassionate Care from Consultation to Recovery
@@ -664,7 +677,7 @@ export default function GallbladderSurgeryPage() {
               </div>
             </section>
 
-            <section className="space-y-5">
+            <section className="space-y-5 defer-section">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
                 Why Choosing the Right Gallbladder Surgeon in Delhi is Critical
                 for Your Health
@@ -790,7 +803,7 @@ export default function GallbladderSurgeryPage() {
             </section>
 
             {/* Why Choose Dr. Kapil Agrawal */}
-            <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-xl p-8">
+            <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-xl p-8 defer-section">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Dr Kapil Agrawal: Best Gallbladder Surgeon in Delhi
               </h2>
@@ -828,7 +841,7 @@ export default function GallbladderSurgeryPage() {
                     fill
                     className="object-contain object-center"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={85}
+                    quality={80}
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
@@ -907,7 +920,7 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           {/* CTA Section */}
-          <section className="my-16">
+          <section className="my-16 defer-section">
             <div className="max-w-4xl mx-auto">
               <div className="bg-gradient-to-br from-[#0891b2] via-[#06b6d4] to-[#22d3ee] rounded-2xl shadow-2xl p-8 sm:p-12 text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
