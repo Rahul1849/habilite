@@ -4920,7 +4920,7 @@ By following these tips, you can achieve your weight loss goals without surgery.
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: new Date().toISOString().split('T')[0],
-    image: '/images/circumcision-surgeon-delhi-india.webp',
+    image: '/images/cost of zsr circumcision.webp',
     category: 'Circumcision',
     tags: ['Circumcision', 'Laser Circumcision', 'ZSR', 'Adult Circumcision', 'Painless Surgery', 'Delhi'],
 readTime: 6,
