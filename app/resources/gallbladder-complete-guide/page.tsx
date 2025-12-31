@@ -32,6 +32,25 @@ export const metadata: Metadata = {
   title: 'Gallbladder – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
   description:
     'Gallbladder awareness hub by Dr. Kapil Agrawal. Take a 30-second gallbladder self-check, decode ultrasound reports, and follow a doctor-approved diet chart.',
+  keywords: [
+    'gallbladder guide',
+    'gallbladder stones guide',
+    'gallbladder treatment delhi',
+    'gallbladder surgery guide',
+    'gallbladder symptoms',
+    'dr kapil agrawal gallbladder',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://www.habiliteclinics.com/resources/gallbladder-complete-guide',
   },

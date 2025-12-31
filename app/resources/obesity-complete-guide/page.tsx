@@ -20,6 +20,25 @@ export const metadata: Metadata = {
   title: 'Obesity – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
   description:
     'Obesity awareness hub by Dr. Kapil Agrawal. Check your metabolic risk, upload reports for review, learn about GLP-1 injectables, bariatric surgery, and personalised weight-loss roadmaps.',
+  keywords: [
+    'obesity guide',
+    'obesity treatment delhi',
+    'bariatric surgery guide',
+    'weight loss guide',
+    'obesity management',
+    'dr kapil agrawal obesity',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://www.habiliteclinics.com/resources/obesity-complete-guide',
   },

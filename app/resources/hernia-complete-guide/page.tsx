@@ -32,6 +32,25 @@ export const metadata: Metadata = {
   title: 'Hernia – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
   description:
     'Hernia awareness hub by Dr. Kapil Agrawal. Take a 30-second hernia self-check, decode ultrasound reports, and follow a doctor-approved diet chart.',
+  keywords: [
+    'hernia guide',
+    'hernia treatment delhi',
+    'hernia surgery guide',
+    'hernia symptoms',
+    'laparoscopic hernia surgery',
+    'dr kapil agrawal hernia',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://www.habiliteclinics.com/resources/hernia-complete-guide',
   },

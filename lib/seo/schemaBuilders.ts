@@ -103,13 +103,16 @@ export const getLocalBusinessSchema = () => ({
     latitude: CLINIC_INFO.geo.latitude,
     longitude: CLINIC_INFO.geo.longitude,
   },
-  openingHoursSpecification: {
+  openingHoursSpecification: CLINIC_INFO.openingHours.dayOfWeek.map((day) => ({
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: CLINIC_INFO.openingHours.dayOfWeek,
+    dayOfWeek: `https://schema.org/${day}`,
     opens: CLINIC_INFO.openingHours.opens,
     closes: CLINIC_INFO.openingHours.closes,
-  },
-  areaServed: CLINIC_INFO.areaServed,
+  })),
+  areaServed: CLINIC_INFO.areaServed.map((area) => ({
+    '@type': area === 'India' ? 'Country' : 'City',
+    name: area,
+  })),
   sameAs: CLINIC_INFO.socialProfiles,
 })
 

@@ -3,8 +3,51 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, Building2, ExternalLink } fr
 import ContactForm from '@/components/contact/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Habilite Clinics',
-  description: 'Get in touch with Habilite Clinics. Visit us, call us, or send us a message. We\'re here to help with your surgical care needs.',
+  title: 'Contact Us - Habilite Clinics | Book Appointment | Delhi NCR',
+  description: 'Contact Habilite Clinics in Delhi NCR. Book appointment with Dr. Kapil Agrawal. Visit our clinics in Lajpat Nagar, Hauz Khas, or call +91-99994-56455. Expert laparoscopic, bariatric, and laser surgery consultations.',
+  keywords: [
+    'contact habilite clinics',
+    'book appointment dr kapil agrawal',
+    'habilite clinics delhi',
+    'laparoscopic surgeon contact',
+    'appointment booking delhi',
+    'habilite clinics phone number',
+    'dr kapil agrawal consultation',
+  ],
+  openGraph: {
+    title: 'Contact Us - Habilite Clinics | Book Appointment',
+    description: 'Contact Habilite Clinics in Delhi NCR. Book appointment with Dr. Kapil Agrawal. Expert laparoscopic, bariatric, and laser surgery consultations.',
+    url: 'https://www.habiliteclinics.com/contact',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
+        width: 800,
+        height: 1000,
+        alt: 'Dr. Kapil Agrawal - Contact Habilite Clinics',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us - Habilite Clinics | Book Appointment',
+    description: 'Contact Habilite Clinics in Delhi NCR. Book appointment with Dr. Kapil Agrawal.',
+    images: ['https://www.habiliteclinics.com/images/dr-kapil-agrawal.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.habiliteclinics.com/contact',
+  },
 }
 
 export default function ContactPage() {

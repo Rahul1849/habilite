@@ -19,6 +19,25 @@ export const metadata: Metadata = {
   title: 'Piles – A Complete Guide | Dr. Kapil Agrawal | Habilite Clinics',
   description:
     'Doctor-approved piles care hub: symptom self-check, report upload, home-care tips, and when to choose laser or stapler surgery. Curated by Dr. Kapil Agrawal.',
+  keywords: [
+    'piles guide',
+    'hemorrhoids guide',
+    'piles treatment delhi',
+    'laser piles surgery',
+    'piles symptoms',
+    'dr kapil agrawal piles',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://www.habiliteclinics.com/resources/piles-complete-guide',
   },

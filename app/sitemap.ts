@@ -80,10 +80,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  // Service detail pages
+  // Service detail pages - Laparoscopic Surgery
   const laparoscopicServiceRoutes = [
     { slug: 'gallbladder-surgery', priority: 0.9 },
     { slug: 'hernia-surgery', priority: 0.9 },
+    { slug: 'appendix-surgery', priority: 0.9 },
+    { slug: 'rectal-prolapse-surgery', priority: 0.9 },
+    { slug: 'gerd-hiatus-hernia', priority: 0.9 },
+    { slug: 'gerd-hiatus-surgery', priority: 0.9 },
   ].map((service) => ({
     url: `${baseUrl}/laparoscopic-surgery/${service.slug}`,
     lastModified: staticPageDate,
@@ -91,10 +95,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: service.priority as 0.8 | 0.9,
   }))
 
+  // Additional laparoscopic surgery sub-pages
+  const laparoscopicSubRoutes = [
+    { path: '/laparoscopic-surgery/gallbladder-surgery/gallbladder-polyps', priority: 0.8 },
+    { path: '/laparoscopic-surgery/gallbladder-surgery/cbd-stones', priority: 0.8 },
+    { path: '/gallbladder-polyps-treatment-in-delhi', priority: 0.8 },
+    { path: '/cbd-stone-treatment-in-delhi', priority: 0.8 },
+  ].map((route) => ({
+    url: `${baseUrl}${route.path}`,
+    lastModified: staticPageDate,
+    changeFrequency: 'monthly' as const,
+    priority: route.priority as 0.7 | 0.8,
+  }))
+
+  // Bariatric service routes
   const bariatricServiceRoutes = [
     { path: '/bariatric-surgeon-in-delhi-india', priority: 0.9 },
     { path: '/surgery-for-diabetes', priority: 0.8 },
     { path: '/endoscopic-intra-gastric-balloon', priority: 0.8 },
+    { path: '/bariatrics/bariatric-surgery', priority: 0.9 },
+    { path: '/bariatrics/intragastric-balloon', priority: 0.8 },
+    { path: '/bariatrics/allurion-balloon', priority: 0.8 },
+    { path: '/bariatrics/spatz-balloon', priority: 0.8 },
+    { path: '/bariatrics/non-surgical-weight-loss', priority: 0.8 },
+    { path: '/bariatrics/surgery-for-diabetes', priority: 0.8 },
+    { path: '/bariatrics/bariatric-surgery/sleeve-gastrectomy', priority: 0.9 },
+    { path: '/bariatrics/bariatric-surgery/mini-gastric-bypass', priority: 0.9 },
+    { path: '/bariatrics/bariatric-surgery/gastric-bypass', priority: 0.9 },
+    { path: '/bariatrics/bariatric-surgery/duodenal-jejunal-bypass', priority: 0.8 },
+    { path: '/bariatrics/bariatric-surgery/revision-bariatric-surgery', priority: 0.8 },
+    { path: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy', priority: 0.9 },
+    { path: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass', priority: 0.9 },
+    { path: '/bariatric-surgeon-in-delhi-india/gastric-bypass', priority: 0.9 },
+    { path: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass', priority: 0.8 },
+    { path: '/bariatric-surgeon-in-delhi-india/revision-surgeries', priority: 0.8 },
+    { path: '/endoscopic-intra-gastric-balloon/best-allurion-surgeon-in-delhi', priority: 0.8 },
+    { path: '/endoscopic-intra-gastric-balloon/best-spatz-surgeon-in-delhi', priority: 0.8 },
   ].map((service) => ({
     url: `${baseUrl}${service.path}`,
     lastModified: staticPageDate,
@@ -102,13 +138,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: service.priority as 0.7 | 0.8 | 0.9,
   }))
 
+  // Laser service routes
   const laserServiceRoutes = [
     { slug: 'anal-fissure', priority: 0.8 },
+    { slug: 'anal-fistula', priority: 0.8 },
+    { slug: 'hemorrhoids-piles', priority: 0.9 },
+    { slug: 'pilonidal-sinus', priority: 0.8 },
+    { slug: 'circumcision', priority: 0.8 },
+    { slug: 'lipoma', priority: 0.7 },
   ].map((service) => ({
     url: `${baseUrl}/laser-surgery/${service.slug}`,
     lastModified: staticPageDate,
     changeFrequency: 'monthly' as const,
     priority: service.priority as 0.7 | 0.8 | 0.9,
+  }))
+
+  // Additional service pages
+  const additionalServiceRoutes = [
+    { path: '/best-umbilical-hernia-surgeon-in-delhi', priority: 0.9 },
+    { path: '/best-epigastric-hernia-surgeon-in-delhi', priority: 0.9 },
+    { path: '/best-femoral-hernia-surgeon-in-delhi', priority: 0.9 },
+    { path: '/best-incisional-hernia-surgeon-in-delhi', priority: 0.9 },
+    { path: '/best-inguinal-hernia-surgeon-in-delhi', priority: 0.9 },
+    { path: '/best-phimosis-treatment-in-delhi', priority: 0.8 },
+    { path: '/best-laser-surgeon-in-delhi', priority: 0.9 },
+    { path: '/best-robotic-surgeon-in-delhi', priority: 0.9 },
+  ].map((route) => ({
+    url: `${baseUrl}${route.path}`,
+    lastModified: staticPageDate,
+    changeFrequency: 'monthly' as const,
+    priority: route.priority as 0.7 | 0.8 | 0.9,
+  }))
+
+  // Resource guide pages
+  const resourceRoutes = [
+    { path: '/resources/obesity-complete-guide', priority: 0.7 },
+    { path: '/resources/piles-complete-guide', priority: 0.7 },
+    { path: '/resources/hernia-complete-guide', priority: 0.7 },
+    { path: '/resources/gallbladder-complete-guide', priority: 0.7 },
+  ].map((route) => ({
+    url: `${baseUrl}${route.path}`,
+    lastModified: staticPageDate,
+    changeFrequency: 'monthly' as const,
+    priority: route.priority as 0.7,
   }))
 
   return [
@@ -117,7 +189,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...doctorRoutes,
     ...blogRoutes,
     ...laparoscopicServiceRoutes,
+    ...laparoscopicSubRoutes,
     ...bariatricServiceRoutes,
     ...laserServiceRoutes,
+    ...additionalServiceRoutes,
+    ...resourceRoutes,
   ]
 }
