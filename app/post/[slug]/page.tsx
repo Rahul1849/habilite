@@ -405,10 +405,13 @@ export default async function BlogPostPage({ params }: Props) {
                     return null
                   }
                   
-                  if (!line.trim()) return <br key={index} />
+                  // Handle empty lines with proper spacing
+                  if (!line.trim()) {
+                    return <div key={index} className="h-4" />
+                  }
                   
                   // Check for "Why Choose Us" section - replace with footer component
-                  const lowerLine = line.toLowerCase()
+                  const lowerLine = line.toLowerCase().trim()
                   if (lowerLine.includes('## why choose us') || lowerLine.includes('## why choose')) {
                     // Skip the list items that follow
                     let whyChooseEndIndex = index + 1
@@ -446,32 +449,39 @@ export default async function BlogPostPage({ params }: Props) {
                     }
                   }
                 
-                // Headers
-                if (line.startsWith('###')) {
-                  const title = line.replace(/^###+\s/, '').trim()
-                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                  return (
-                    <h3 key={index} id={id} className="text-xl font-bold mt-6 mb-3 text-gray-900 scroll-mt-24">
-                      {title}
-                    </h3>
-                  )
-                } else if (line.startsWith('##')) {
-                  const title = line.replace(/^##+\s/, '').trim()
-                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                  return (
-                    <h2 key={index} id={id} className="text-2xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
-                      {title}
-                    </h2>
-                  )
-                } else if (line.startsWith('#') && !line.startsWith('##') && !line.startsWith('###')) {
+                // Headers - check in order from most specific to least
+                const trimmedLine = line.trim()
+                if (trimmedLine.startsWith('###')) {
+                  const title = trimmedLine.replace(/^###+\s*/, '').trim()
+                  if (title) {
+                    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+                    return (
+                      <h3 key={index} id={id} className="text-xl md:text-2xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24 leading-tight">
+                        {title}
+                      </h3>
+                    )
+                  }
+                } else if (trimmedLine.startsWith('##') && !trimmedLine.startsWith('###')) {
+                  const title = trimmedLine.replace(/^##+\s*/, '').trim()
+                  if (title) {
+                    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+                    return (
+                      <h2 key={index} id={id} className="text-2xl md:text-3xl font-bold mt-10 mb-5 text-gray-900 scroll-mt-24 leading-tight">
+                        {title}
+                      </h2>
+                    )
+                  }
+                } else if (trimmedLine.startsWith('#') && !trimmedLine.startsWith('##') && !trimmedLine.startsWith('###')) {
                   // Single # should be H2 (not H1) since we already have H1 in hero section
-                  const title = line.replace(/^#+\s/, '').trim()
-                  const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                  return (
-                    <h2 key={index} id={id} className="text-3xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24">
-                      {title}
-                    </h2>
-                  )
+                  const title = trimmedLine.replace(/^#+\s*/, '').trim()
+                  if (title) {
+                    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+                    return (
+                      <h2 key={index} id={id} className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-gray-900 scroll-mt-24 leading-tight">
+                        {title}
+                      </h2>
+                    )
+                  }
                 }
                 // Images - markdown format ![alt](url)
                 else if (line.trim().match(/^!\[.*?\]\(.*?\)$/)) {
@@ -481,16 +491,20 @@ export default async function BlogPostPage({ params }: Props) {
                     const src = imageMatch[2] || ''
                     const imageSrc = src.startsWith('/') ? src : `/images/${src}`
                     return (
-                      <div key={index} className="my-8 flex justify-center">
-                        <div className="relative w-full max-w-2xl min-h-[300px] rounded-xl overflow-hidden shadow-lg bg-gray-50">
-                          <Image
-                            src={imageSrc}
-                            alt={alt}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
-                            loading="lazy"
-                          />
+                      <div key={index} className="my-8 md:my-12 w-full flex justify-center">
+                        <div className="relative w-full max-w-4xl mx-auto">
+                          <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
+                            <Image
+                              src={imageSrc}
+                              alt={alt}
+                              width={1200}
+                              height={800}
+                              className="w-full h-auto object-contain"
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+                              quality={85}
+                              loading="lazy"
+                            />
+                          </div>
                         </div>
                       </div>
                     )
@@ -547,8 +561,8 @@ export default async function BlogPostPage({ params }: Props) {
                   }
                   
                   return (
-                    <ul key={index} className="list-disc list-inside mb-4 ml-4 space-y-2">
-                      <li className="text-gray-700 leading-relaxed">
+                    <ul key={index} className="list-disc list-inside mb-6 ml-4 space-y-3">
+                      <li className="text-gray-700 leading-relaxed text-base md:text-lg">
                         {linkParts.length > 0 ? linkParts : parseMarkdown(content)}
                       </li>
                     </ul>
@@ -619,7 +633,7 @@ export default async function BlogPostPage({ params }: Props) {
                   }
                   
                   return (
-                    <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+                    <p key={index} className="mb-6 text-gray-700 leading-relaxed text-base md:text-lg">
                       {parseMarkdown(line)}
                     </p>
                   )
@@ -688,14 +702,17 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Related Posts</h3>
-                <ul className="space-y-4">
+              <div className="bg-gradient-to-br from-[#0891b2]/5 to-[#06b6d4]/5 rounded-xl p-6 border border-[#0891b2]/20 shadow-md">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 flex items-center gap-2">
+                  <span className="text-[#0891b2]">📚</span>
+                  Related Posts
+                </h3>
+                <ul className="space-y-3">
                   {relatedPosts.map((relatedPost) => (
                     <li key={relatedPost.id}>
                       <Link
                         href={`/post/${relatedPost.slug}`}
-                        className="text-primary-600 hover:text-primary-700 hover:underline font-medium"
+                        className="block text-gray-700 hover:text-[#0891b2] hover:underline font-medium transition-colors py-2 px-3 rounded-lg hover:bg-white/50"
                       >
                         {relatedPost.title}
                       </Link>

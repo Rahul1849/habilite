@@ -163,6 +163,30 @@
     display: none;
   }
 
+  /* Custom scrollbar for table of contents */
+  .toc-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+  
+  .toc-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .toc-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+  }
+  
+  .toc-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+  
+  .toc-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
   /* Ensure no horizontal overflow */
   .container-custom {
     width: 100%;

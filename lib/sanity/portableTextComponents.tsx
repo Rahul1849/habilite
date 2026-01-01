@@ -9,14 +9,21 @@ export const portableTextComponents: PortableTextComponents = {
       const imageUrl = getImageUrl(value);
       if (!imageUrl) return null;
       return (
-        <div className="my-8 md:my-12">
-          <Image
-            src={imageUrl}
-            alt={value.alt || ""}
-            width={800}
-            height={600}
-            className="rounded-xl w-full h-auto shadow-lg"
-          />
+        <div className="my-8 md:my-12 w-full flex justify-center">
+          <div className="relative w-full max-w-4xl mx-auto">
+            <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
+              <Image
+                src={imageUrl}
+                alt={value.alt || ""}
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+                quality={85}
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       );
     },

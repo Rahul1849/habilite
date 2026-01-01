@@ -100,23 +100,25 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 lg:sticky lg:top-24">
       <h3 className="text-lg md:text-xl font-bold mb-4 text-gray-900">Table of Contents</h3>
-      <ul className="space-y-2">
-        {items.map((item) => (
-          <li key={item.id}>
-            <button
-              onClick={(e) => handleClick(e, item.id, item.title)}
-              className={`block w-full text-left py-2 px-3 rounded transition-colors cursor-pointer hover:bg-primary-50 hover:text-primary-600 ${
-                activeId === item.id
-                  ? 'bg-primary-100 text-primary-700 font-semibold'
-                  : 'text-gray-600'
-              }`}
-              style={{ paddingLeft: `${(item.level - 2) * 16 + 12}px` }}
-            >
-              {item.title}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="max-h-[calc(100vh-200px)] overflow-y-auto pr-2 toc-scrollbar">
+        <ul className="space-y-2">
+          {items.map((item) => (
+            <li key={item.id}>
+              <button
+                onClick={(e) => handleClick(e, item.id, item.title)}
+                className={`block w-full text-left py-2 px-3 rounded transition-colors cursor-pointer hover:bg-primary-50 hover:text-primary-600 ${
+                  activeId === item.id
+                    ? 'bg-primary-100 text-primary-700 font-semibold'
+                    : 'text-gray-600'
+                }`}
+                style={{ paddingLeft: `${(item.level - 2) * 16 + 12}px` }}
+              >
+                {item.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
