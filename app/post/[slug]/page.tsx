@@ -31,24 +31,8 @@ type Props = {
 export const revalidate = 0
 export const dynamic = 'force-dynamic'
 export const fetchCache = 'force-no-store'
-
-export async function generateStaticParams() {
-  // Try to fetch from Sanity first, fallback to static data
-  const client = getClient(false)
-  if (client) {
-    try {
-      const blogs = await client.fetch(blogsQuery)
-      if (blogs && blogs.length > 0) {
-        return blogs.map((blog: any) => ({ slug: blog.slug || '' })).filter((p: any) => p.slug)
-      }
-    } catch (error) {
-      // Silently fallback to static data if Sanity is not available
-      console.warn('Sanity not available for static params, using fallback:', error)
-    }
-  }
-  // Fallback to static blog posts
-  return blogPosts.map((post) => ({ slug: post.slug }))
-}
+// Disable static generation - pages are rendered on-demand
+export const dynamicParams = true
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
