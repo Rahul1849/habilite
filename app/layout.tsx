@@ -123,16 +123,17 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
         {/* LCP Optimization: Preload Hero images FIRST with highest priority - critical for mobile */}
+        {/* Preload LCP image immediately - must be first resource hint to reduce 1.3s delay */}
         <link rel="preload" as="image" href="/images/dr.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
         {/* Preload gallbladder surgery hero image for LCP optimization */}
         <link rel="preload" as="image" href="/images/gallbladder-surgeon-delhi-india.webp" fetchPriority="high" />
-        {/* Preconnect to critical domains early - before CSS */}
+        {/* DNS prefetch for fonts before preconnect to reduce delay */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Preconnect to critical domains early - after DNS prefetch */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preconnect to Vercel for faster asset delivery */}
-        <link rel="dns-prefetch" href="https://vercel.app" />
-        <link rel="dns-prefetch" href="https://habilite-6qce.vercel.app" />
         {/* Critical CSS inline for faster FCP - minimal blocking - includes Hero gradient */}
         <style dangerouslySetInnerHTML={{ __html: `
           body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -143,7 +144,7 @@ export default function RootLayout({
           *{box-sizing:border-box;margin:0;padding:0}
           img{max-width:100%;height:auto;display:block}
           main{min-height:100vh;position:relative;z-index:0}
-          /* Hero section critical styles for instant render */
+          /* Hero section critical styles for instant render - LCP optimization */}
           section{display:block}
           .relative{position:relative}
           .flex{display:flex}
@@ -155,14 +156,13 @@ export default function RootLayout({
           .from-\\[\\#ffd4b3\\]{--tw-gradient-from:#ffd4b3;--tw-gradient-to:rgba(255,212,179,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
           .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
           .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
+          /* LCP image container - prevent layout shift */
+          .relative img{width:100%;height:100%;object-fit:cover}
         `}} />
-        {/* DNS prefetch for non-critical external resources - defer YouTube to reduce initial load */}
+        {/* DNS prefetch for non-critical external resources */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
-        {/* Resource hints for faster loading */}
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="preconnect" href="https://i.ytimg.com" />
       </head>
       <body className={`${inter.variable} overflow-x-hidden`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         <Header />

@@ -6,7 +6,6 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  // Tailwind v3+ automatically purges unused CSS based on content paths above
   theme: {
     extend: {
       colors: {
