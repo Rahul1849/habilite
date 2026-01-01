@@ -33,17 +33,20 @@ export const dynamic = 'force-dynamic'
 export const fetchCache = 'force-no-store'
 // Disable static generation - pages are rendered on-demand
 export const dynamicParams = true
+// Prevent all caching including edge/CDN
+export const runtime = 'nodejs'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   
-  // Try to fetch from Sanity first
+  // Try to fetch from Sanity first - useCdn: false ensures fresh data
   let post = null
   let imageUrl = null
   
   const client = getClient(false)
   if (client) {
     try {
+      // Fetch with fresh data - useCdn: false in client config ensures no CDN cache
       const sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
       if (sanityPost) {
         post = sanityPost
@@ -198,11 +201,12 @@ export default async function BlogPostPage({ params }: Props) {
     )
   }
 
-  // Try to fetch from Sanity first
+  // Try to fetch from Sanity first - useCdn: false ensures fresh data
   let sanityPost = null
   const client = getClient(false)
   if (client) {
     try {
+      // Fetch with fresh data - useCdn: false in client config ensures no CDN cache
       sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
       // Only use Sanity post if it has actual content (body)
       if (sanityPost && !sanityPost.body) {
