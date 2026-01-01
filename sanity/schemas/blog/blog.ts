@@ -79,6 +79,18 @@ export default defineType({
       title: "Full Content (Legacy - Markdown/Text)",
       type: "text",
       description: "Legacy field for markdown/text content. Use 'Full Content (Blocks)' below for new content with tables and charts.",
+      validation: (Rule) =>
+        Rule.custom((value: any) => {
+          // If value is undefined or null, it's valid (field is optional)
+          if (value === undefined || value === null) {
+            return true;
+          }
+          // If value is not a string, return error
+          if (typeof value !== "string") {
+            return "This field only accepts text. If you see this error, the field may contain invalid data. Please clear this field and use 'Full Content (Blocks)' instead.";
+          }
+          return true;
+        }),
     }),
 
     // ✅ NEW PORTABLE TEXT FIELD WITH TABLE & CHART SUPPORT
