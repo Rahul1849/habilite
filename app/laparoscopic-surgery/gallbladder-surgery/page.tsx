@@ -19,11 +19,11 @@ import {
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
 
-// Lazy load heavy components to improve FCP and LCP
+// Lazy load heavy components to improve FCP and LCP - defer to reduce TBT and unused JS
 const ConsultationForm = dynamic(
   () => import("@/components/forms/ConsultationForm"),
   {
-    ssr: true,
+    ssr: false,
     loading: () => (
       <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
     ),
@@ -33,14 +33,14 @@ const ConsultationForm = dynamic(
 const CallUsButton = dynamic(
   () => import("@/components/lead-generation/CallUsButton"),
   {
-    ssr: true,
+    ssr: true, // Keep SSR for above-the-fold CTA
   }
 );
 
 const CostCalculator = dynamic(
   () => import("@/components/lead-generation/CostCalculator"),
   {
-    ssr: true,
+    ssr: false,
     loading: () => (
       <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
     ),
@@ -50,7 +50,7 @@ const CostCalculator = dynamic(
 const PostOperativeCare = dynamic(
   () => import("@/components/lead-generation/PostOperativeCare"),
   {
-    ssr: true,
+    ssr: false,
   }
 );
 
@@ -62,14 +62,19 @@ const WhatsAppExpertChat = dynamic(
 );
 
 const GallbladderFAQ = dynamic(() => import("./GallbladderFAQ"), {
-  ssr: true,
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
+  ),
 });
 
 const GallbladderTestimonials = dynamic(
   () => import("./GallbladderTestimonials"),
   {
-    ssr: true,
-    loading: () => <div className="min-h-[400px] animate-pulse" />,
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
   }
 );
 
@@ -79,14 +84,17 @@ const RecoveryTimeline = dynamic(
       default: mod.RecoveryTimeline,
     })),
   {
-    ssr: true,
+    ssr: false,
   }
 );
 
 const RelatedBlogs = dynamic(
   () => import("@/components/services/RelatedBlogs"),
   {
-    ssr: true,
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
   }
 );
 
@@ -263,12 +271,10 @@ export default function GallbladderSurgeryPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={75}
+              quality={85}
               loading="eager"
               decoding="async"
               unoptimized={false}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
           </div>
         </div>
@@ -336,10 +342,12 @@ export default function GallbladderSurgeryPage() {
               </div>
             </div> */}
             <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
-              <ConsultationForm
-                serviceName="Gallbladder Surgery"
-                serviceSlug="gallbladder-surgery"
-              />
+              <div className="defer-section">
+                <ConsultationForm
+                  serviceName="Gallbladder Surgery"
+                  serviceSlug="gallbladder-surgery"
+                />
+              </div>
             </div>
           </div>
 
@@ -839,11 +847,15 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           <div className="max-w-5xl mx-auto">
-            <CostCalculator serviceName="Gallbladder Surgery" />
+            <div className="defer-section">
+              <CostCalculator serviceName="Gallbladder Surgery" />
+            </div>
           </div>
 
           <div className="max-w-5xl mx-auto space-y-12">
-            <GallbladderTestimonials />
+            <div className="defer-section">
+              <GallbladderTestimonials />
+            </div>
             <section className="bg-gray-50 rounded-xl p-6">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
                 Recovery & Aftercare
@@ -883,27 +895,37 @@ export default function GallbladderSurgeryPage() {
                 </div>
               </div>
             </section>
-            <RecoveryTimeline />
-            <div className="max-w-5xl mx-auto">
-              <PostOperativeCare />
+            <div className="defer-section">
+              <RecoveryTimeline />
             </div>
             <div className="max-w-5xl mx-auto">
-              <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
+              <div className="defer-section">
+                <PostOperativeCare />
+              </div>
             </div>
-            <GallbladderFAQ />
-            <RelatedBlogs
-              serviceName="Gallbladder"
-              serviceKeywords={[
-                "gallbladder",
-                "gall bladder",
-                "gallstone",
-                "gall stone",
-                "cholecystectomy",
-                "gallbladder stone",
-                "gallbladder surgery",
-              ]}
-              maxPosts={3}
-            />
+            <div className="max-w-5xl mx-auto">
+              <div className="defer-section">
+                <WhatsAppExpertChat serviceName="Gallbladder Surgery" />
+              </div>
+            </div>
+            <div className="defer-section">
+              <GallbladderFAQ />
+            </div>
+            <div className="defer-section">
+              <RelatedBlogs
+                serviceName="Gallbladder"
+                serviceKeywords={[
+                  "gallbladder",
+                  "gall bladder",
+                  "gallstone",
+                  "gall stone",
+                  "cholecystectomy",
+                  "gallbladder stone",
+                  "gallbladder surgery",
+                ]}
+                maxPosts={3}
+              />
+            </div>
           </div>
 
           {/* CTA Section */}
