@@ -70,43 +70,19 @@ export default defineType({
         Rule.max(200).warning("Keep it under 200 characters"),
     }),
 
-    // ⚠️ LEGACY CONTENT FIELD - DO NOT MODIFY
-    // This field is kept for backward compatibility with existing blog posts.
-    // It stores content as markdown/text strings.
-    // Editors should gradually migrate content to the new "portableContent" field below.
-    defineField({
-      name: "content",
-      title: "Full Content (Legacy - Markdown/Text)",
-      type: "text",
-      description: "Legacy field for markdown/text content. Use 'Full Content (Blocks)' below for new content with tables and charts.",
-      validation: (Rule) =>
-        Rule.custom((value: any) => {
-          // If value is undefined or null, it's valid (field is optional)
-          if (value === undefined || value === null) {
-            return true;
-          }
-          // If value is not a string, return error
-          if (typeof value !== "string") {
-            return "This field only accepts text. If you see this error, the field may contain invalid data. Please clear this field and use 'Full Content (Blocks)' instead.";
-          }
-          return true;
-        }),
-    }),
-
-    // ✅ NEW PORTABLE TEXT FIELD WITH TABLE & CHART SUPPORT
+    // ✅ PORTABLE TEXT FIELD WITH TABLE & CHART SUPPORT
     // This field enables rich content editing with the "+" button in Sanity Studio.
     // Editors can add text blocks, images, tables, and charts.
-    // Migration path: Copy content from "content" field to this field, then add tables/charts as needed.
     // 
     // HOW TO USE:
-    // 1. Click in the "Full Content (Blocks)" field below
+    // 1. Click in the "Full Content" field below
     // 2. Type some text to create a block
     // 3. Press Enter to create a new line - the "+" button will appear
     // 4. Click the "+" button to see options: Text, Image, Table, Chart
     // 5. You can also click between existing blocks to insert new blocks
     defineField({
-      name: "portableContent",
-      title: "Full Content (Blocks)",
+      name: "content",
+      title: "Full Content",
       type: "array",
       description: "Rich content editor with support for text, images, tables, and charts. Type some text, then press Enter and click the '+' button that appears to add tables or charts.",
       of: [
