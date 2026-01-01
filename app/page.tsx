@@ -1,14 +1,14 @@
 import { Metadata } from 'next'
-import dynamic from 'next/dynamic'
+import dynamicImport from 'next/dynamic'
 import Hero from '@/components/home/Hero'
 // Below-the-fold components converted to dynamic imports to reduce initial JS bundle
-const MeetDoctor = dynamic(() => import('@/components/home/MeetDoctor'), {
+const MeetDoctor = dynamicImport(() => import('@/components/home/MeetDoctor'), {
   ssr: true, // Keep SSR for SEO, but load after initial render
 })
-const EducationAffiliations = dynamic(() => import('@/components/home/EducationAffiliations'), {
+const EducationAffiliations = dynamicImport(() => import('@/components/home/EducationAffiliations'), {
   ssr: true, // Keep SSR for SEO
 })
-const CareerHighlightsAndServices = dynamic(() => import('@/components/home/CareerHighlightsAndServices'), {
+const CareerHighlightsAndServices = dynamicImport(() => import('@/components/home/CareerHighlightsAndServices'), {
   ssr: false, // Below fold, defer to reduce TBT
   loading: () => <div className="min-h-[600px] animate-pulse bg-gray-50" />,
 })
@@ -24,38 +24,38 @@ export const fetchCache = 'force-no-store'
 
 // Dynamically import below-the-fold components to improve initial page load
 // Using ssr: false for non-critical components to reduce TBT
-const LaparoscopicServices = dynamic(() => import('@/components/home/LaparoscopicServices'), {
+const LaparoscopicServices = dynamicImport(() => import('@/components/home/LaparoscopicServices'), {
   ssr: false,
   loading: () => <div className="min-h-[400px]" />,
 })
 
-const BariatricServices = dynamic(() => import('@/components/home/BariatricServices'), {
+const BariatricServices = dynamicImport(() => import('@/components/home/BariatricServices'), {
   ssr: false,
   loading: () => <div className="min-h-[400px]" />,
 })
 
-const LaserServices = dynamic(() => import('@/components/home/LaserServices'), {
+const LaserServices = dynamicImport(() => import('@/components/home/LaserServices'), {
   ssr: false,
   loading: () => <div className="min-h-[400px]" />,
 })
 
-const WhyChoose = dynamic(() => import('@/components/home/WhyChoose'), {
+const WhyChoose = dynamicImport(() => import('@/components/home/WhyChoose'), {
   ssr: false,
   loading: () => <div className="min-h-[400px]" />,
 })
 
-const FAQ = dynamic(() => import('@/components/home/FAQ'), {
+const FAQ = dynamicImport(() => import('@/components/home/FAQ'), {
   ssr: false,
   loading: () => <div className="min-h-[400px]" />,
 })
 
-const BlogPreview = dynamic(() => import('@/components/home/BlogPreview'), {
+const BlogPreview = dynamicImport(() => import('@/components/home/BlogPreview'), {
   ssr: false,
   loading: () => <div className="min-h-[400px]" />,
 })
 
 // Dynamically import TestimonialsSlider to defer loading and improve initial page load
-const TestimonialsSlider = dynamic(() => import('@/components/home/TestimonialsSlider'), {
+const TestimonialsSlider = dynamicImport(() => import('@/components/home/TestimonialsSlider'), {
   ssr: false,
   loading: () => (
     <section id="testimonials" className="section-padding bg-gradient-to-b from-white via-orange-50/30 to-white">
