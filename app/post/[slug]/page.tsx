@@ -50,8 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       const sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
       if (sanityPost) {
         post = sanityPost
-        if (sanityPost.mainImage) {
-          imageUrl = urlForImage(sanityPost.mainImage).width(1200).height(630).url()
+        if (sanityPost.image) {
+          imageUrl = urlForImage(sanityPost.image).width(1200).height(630).url()
         }
       }
     } catch (error) {
@@ -245,7 +245,7 @@ export default async function BlogPostPage({ params }: Props) {
       title: sanityPost.title || '',
       description: sanityPost.excerpt || '',
       url: `/post/${slug}`,
-      image: sanityPost.mainImage ? urlForImage(sanityPost.mainImage).width(1200).height(630).url() || '' : '',
+      image: sanityPost.image ? urlForImage(sanityPost.image).width(1200).height(630).url() || '' : '',
       datePublished: sanityPost.publishedAt || '',
       dateModified: sanityPost.publishedAt || '',
       keywords: sanityPost.tags || [],

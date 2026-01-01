@@ -13,8 +13,8 @@ type SanityBlog = {
   _id: string
   title?: string
   slug?: string
-  mainImage?: any
-  body?: any
+  image?: any
+  content?: any
   author?: string
   publishedAt?: string
   readTime?: number
@@ -40,7 +40,7 @@ export default function SanitySingleBlog({ post }: SanitySingleBlogProps) {
     )
   }
 
-  const imageUrl = post.mainImage ? urlForImage(post.mainImage).width(1600).height(900).url() : null
+  const imageUrl = post.image ? urlForImage(post.image).width(1600).height(900).url() : null
   const postUrl = `/post/${post.slug}`
 
   return (
@@ -183,8 +183,8 @@ export default function SanitySingleBlog({ post }: SanitySingleBlogProps) {
                     prose-li:text-gray-700 prose-li:leading-relaxed
                     prose-blockquote:border-l-4 prose-blockquote:border-[#0891b2] prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:my-8
                     prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8">
-                    {post.body ? (
-                      <PortableText value={post.body} components={portableTextComponents} />
+                    {post.content ? (
+                      <PortableText value={post.content} components={portableTextComponents} />
                     ) : (
                       <p className="text-gray-500 italic">No content available</p>
                     )}
