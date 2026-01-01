@@ -65,7 +65,10 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Blog', url: '/post' },
 ])
 
-export const revalidate = 60 // Revalidate every minute to show published changes quickly
+// Always render this page on-demand so Sanity updates show immediately
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 export default async function BlogPage() {
   const { isEnabled } = draftMode()

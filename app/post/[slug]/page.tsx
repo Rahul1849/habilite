@@ -27,7 +27,10 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
-export const revalidate = 60 // Revalidate every minute to show published changes quickly
+// Always render this page on-demand so Sanity updates show immediately
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 export async function generateStaticParams() {
   // Try to fetch from Sanity first, fallback to static data

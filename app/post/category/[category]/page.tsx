@@ -16,7 +16,10 @@ type Props = {
   params: Promise<{ category: string }>
 }
 
-export const revalidate = 60
+// Always render this page on-demand so Sanity updates show immediately
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 // Helper function to match posts to categories
 function matchesCategory(post: typeof blogPosts[0], category: string): boolean {
