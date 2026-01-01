@@ -127,10 +127,12 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
         {/* Preload gallbladder surgery hero image for LCP optimization */}
         <link rel="preload" as="image" href="/images/gallbladder-surgeon-delhi-india.webp" fetchPriority="high" />
-        {/* Preconnect to critical domains early - before CSS */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Critical CSS inline for faster FCP - minimal blocking - includes Hero gradient */}
+        {/* Preload piles surgeon hero image for LCP optimization */}
+        <link rel="preload" as="image" href="/images/piles-surgeon-delhi-india.webp" fetchPriority="high" />
+        {/* DNS prefetch for fonts (preconnect moved after critical CSS) */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Critical CSS inline for faster FCP - minimal blocking - includes Hero gradient and LCP image styles */}
         <style dangerouslySetInnerHTML={{ __html: `
           body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
           html{scroll-behavior:smooth;overflow-x:hidden;height:100%}
@@ -152,7 +154,19 @@ export default function RootLayout({
           .from-\\[\\#ffd4b3\\]{--tw-gradient-from:#ffd4b3;--tw-gradient-to:rgba(255,212,179,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
           .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
           .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
+          /* LCP image container styles */
+          .container-custom{max-width:1280px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+          @media(min-width:640px){.container-custom{padding-left:1.5rem;padding-right:1.5rem}}
+          @media(min-width:1024px){.container-custom{padding-left:2rem;padding-right:2rem}}
+          .aspect-\\[21\\/9\\]{aspect-ratio:21/9}
+          .overflow-hidden{overflow:hidden}
+          .rounded-xl{border-radius:0.75rem}
+          .object-cover{object-fit:cover}
+          .object-center{object-position:center}
         `}} />
+        {/* Preconnect to fonts after critical CSS loads */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* DNS prefetch for non-critical external resources */}
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />

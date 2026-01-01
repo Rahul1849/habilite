@@ -78,6 +78,7 @@
     contain-intrinsic-size: 600px;
   }
 
+  /* Non-critical animations - loaded after initial render to reduce CSS blocking */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -137,6 +138,7 @@
     }
   }
 
+  /* Gradient animations - non-critical, can be deferred */
   .animate-gradient {
     background-size: 200% 100%;
     animation: gradient-shift 3s linear infinite;

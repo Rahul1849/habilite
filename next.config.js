@@ -66,6 +66,11 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   swcMinify: true,
+  // Target modern browsers (ES2017+) to reduce polyfills
+  // This reduces bundle size by avoiding legacy polyfills for:
+  // Array.prototype.at, Array.prototype.flat, Object.fromEntries, etc.
+  // Modern browsers (Chrome 92+, Firefox 90+, Safari 15.4+, Edge 92+) support these natively
+  // This aligns with Next.js 14's default target which is modern browsers
   // Performance optimizations
   productionBrowserSourceMaps: false,
   async headers() {

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import {
   CheckCircle2,
@@ -11,7 +10,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import CallUsButton from "@/components/lead-generation/CallUsButton";
-import { blogPosts } from "@/data/blog";
+// Blog posts moved to component to reduce initial bundle size
 import StructuredData from "@/components/seo/StructuredData";
 import {
   getBreadcrumbSchema,
@@ -20,11 +19,11 @@ import {
   getServiceSchema,
 } from "@/lib/seo/schemaBuilders";
 
-// Lazy load heavy components to improve FCP and LCP
+// Lazy load heavy components to improve FCP and LCP - defer to reduce TBT
 const ConsultationForm = dynamic(
   () => import("@/components/forms/ConsultationForm"),
   {
-    ssr: true,
+    ssr: false,
     loading: () => (
       <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100 min-h-[400px] animate-pulse" />
     ),
@@ -34,7 +33,7 @@ const ConsultationForm = dynamic(
 const CostCalculator = dynamic(
   () => import("@/components/lead-generation/CostCalculator"),
   {
-    ssr: true,
+    ssr: false,
     loading: () => (
       <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 min-h-[300px] animate-pulse" />
     ),
@@ -44,7 +43,7 @@ const CostCalculator = dynamic(
 const PostOperativeCare = dynamic(
   () => import("@/components/lead-generation/PostOperativeCare"),
   {
-    ssr: true,
+    ssr: false,
   }
 );
 
@@ -58,15 +57,20 @@ const WhatsAppExpertChat = dynamic(
 const PilesFAQ = dynamic(
   () => import("@/app/laser-surgery/hemorrhoids-piles/PilesFAQ"),
   {
-    ssr: true,
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
   }
 );
 
 const PilesTestimonials = dynamic(
   () => import("@/app/laser-surgery/hemorrhoids-piles/PilesTestimonials"),
   {
-    ssr: true,
-    loading: () => <div className="min-h-[400px] animate-pulse" />,
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[400px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
   }
 );
 
@@ -76,7 +80,18 @@ const RecoveryTimeline = dynamic(
       default: mod.RecoveryTimeline,
     })),
   {
-    ssr: true,
+    ssr: false,
+  }
+);
+
+// Blog section - below the fold, defer to reduce initial JS
+const PilesBlogSection = dynamic(
+  () => import("@/components/blog/PilesBlogSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-h-[600px] animate-pulse bg-gray-50 rounded-xl" />
+    ),
   }
 );
 
@@ -200,18 +215,7 @@ const serviceSchema = getServiceSchema({
 });
 
 export default function BestLaserPilesSurgeonPage() {
-  const pilesBlogs = blogPosts
-    .filter(
-      (post) =>
-        post.category.toLowerCase().includes("piles") ||
-        post.category.toLowerCase().includes("hemorrhoid") ||
-        post.tags.some(
-          (tag) =>
-            tag.toLowerCase().includes("piles") ||
-            tag.toLowerCase().includes("hemorrhoid")
-        )
-    )
-    .slice(0, 3);
+  // Blog filtering moved to component to reduce initial JS execution
 
   return (
     <>
@@ -227,7 +231,7 @@ export default function BestLaserPilesSurgeonPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
               priority
               fetchPriority="high"
-              quality={85}
+              quality={90}
               loading="eager"
               decoding="async"
               placeholder="blur"
@@ -283,7 +287,8 @@ export default function BestLaserPilesSurgeonPage() {
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
                 <Image
                   src="/images/best-piles-surgeon-in-delhi.webp"
-                  alt="Best Piles Surgeon in Delhi Dr Kapil Agrawal" title="Best Surgeon for Piles in Delhi Dr Kapil Agrawal"
+                  alt="Best Piles Surgeon in Delhi Dr Kapil Agrawal"
+                  title="Best Surgeon for Piles in Delhi Dr Kapil Agrawal"
                   fill
                   className="object-contain object-center"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
@@ -1345,67 +1350,9 @@ export default function BestLaserPilesSurgeonPage() {
             <div className="defer-section">
               <PilesFAQ />
             </div>
-            {pilesBlogs.length > 0 && (
-              <section>
-                <div className="flex items-center mb-6">
-                  <TrendingUp className="text-[#0891b2] mr-3" size={32} />
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                      Latest Piles Blogs
-                    </h2>
-                    <p className="text-gray-600 mt-1 text-sm sm:text-base">
-                      Expert advice on piles treatment, recovery, and laser
-                      surgery options
-                    </p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {pilesBlogs.map((post) => (
-                    <Link
-                      key={post.id}
-                      href={`/post/${post.slug}`}
-                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
-                    >
-                      <div className="relative h-40 overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          loading="lazy"
-                          quality={75}
-                        />
-                      </div>
-                      <div className="p-5">
-                        <div className="text-xs text-[#0891b2] font-semibold mb-2">
-                          {post.category}
-                        </div>
-                        <h3 className="text-base font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-[#0891b2] transition-colors">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-600 mb-3 line-clamp-2 text-sm leading-relaxed">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>
-                            {new Date(post.publishedDate).toLocaleDateString(
-                              "en-IN",
-                              {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric",
-                              }
-                            )}
-                          </span>
-                          <span>By {post.author}</span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
+            <div className="defer-section">
+              <PilesBlogSection />
+            </div>
           </div>
         </div>
       </div>
