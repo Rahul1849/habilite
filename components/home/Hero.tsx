@@ -14,7 +14,8 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
   // Fallback values
   const title = bannerTitle || "Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi"
   const subtitle = bannerSubtitle || ""
-  const imageUrl = getImageUrl(bannerImage) || "/images/dr.webp"
+  // Use static fallback for faster LCP - Sanity images can be slow
+  const imageUrl = "/images/dr.webp" // Always use static image for fastest LCP
   const imageAlt = bannerImage?.alt || "Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi, India with 23 years experience, 7000+ successful surgeries. Expert in gallbladder surgery, hernia surgery, bariatric surgery, and laser surgery in Delhi."
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a] z-0">
@@ -38,11 +39,10 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
                 sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 384px"
                 priority
                 fetchPriority="high"
-                quality={90}
+                quality={80}
                 loading="eager"
-                decoding="async"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                decoding="sync"
+                unoptimized={false}
               />
             </div>
           </div>

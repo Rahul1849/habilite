@@ -123,16 +123,17 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
         {/* LCP Optimization: Preload Hero images FIRST with highest priority - critical for mobile */}
-        {/* Homepage hero image - LCP element */}
+        {/* Homepage hero image - LCP element - MUST be first resource */}
         <link rel="preload" as="image" href="/images/dr.webp" fetchPriority="high" />
+        {/* Additional hero images for other pages */}
         <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
-        {/* Preload gallbladder surgery hero image for LCP optimization */}
         <link rel="preload" as="image" href="/images/gallbladder-surgeon-delhi-india.webp" fetchPriority="high" />
-        {/* Preload piles surgeon hero image for LCP optimization */}
         <link rel="preload" as="image" href="/images/piles-surgeon-delhi-india.webp" fetchPriority="high" />
         {/* DNS prefetch for fonts (preconnect moved after critical CSS) */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Preconnect to image domain for faster LCP image loading */}
+        <link rel="preconnect" href="https://habilite-6qce.vercel.app" />
         {/* Critical CSS inline for faster FCP - minimal blocking - includes Hero gradient and LCP image styles */}
         <style dangerouslySetInnerHTML={{ __html: `
           body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111827;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -143,7 +144,7 @@ export default function RootLayout({
           *{box-sizing:border-box;margin:0;padding:0}
           img{max-width:100%;height:auto;display:block}
           main{min-height:100vh;position:relative;z-index:0}
-          /* Hero section critical styles for instant render */
+          /* Hero section critical styles for instant render - LCP optimization */
           section{display:block}
           .relative{position:relative}
           .flex{display:flex}
@@ -155,7 +156,7 @@ export default function RootLayout({
           .from-\\[\\#ffd4b3\\]{--tw-gradient-from:#ffd4b3;--tw-gradient-to:rgba(255,212,179,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}
           .via-\\[\\#ffc49e\\]{--tw-gradient-to:rgba(255,196,158,0);--tw-gradient-stops:var(--tw-gradient-from),#ffc49e,var(--tw-gradient-to)}
           .to-\\[\\#ffa07a\\]{--tw-gradient-to:#ffa07a}
-          /* LCP image container styles */
+          /* LCP image container styles - critical for image discovery */
           .container-custom{max-width:1280px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
           @media(min-width:640px){.container-custom{padding-left:1.5rem;padding-right:1.5rem}}
           @media(min-width:1024px){.container-custom{padding-left:2rem;padding-right:2rem}}
@@ -164,6 +165,12 @@ export default function RootLayout({
           .rounded-xl{border-radius:0.75rem}
           .object-cover{object-fit:cover}
           .object-center{object-position:center}
+          /* Hero image specific styles for faster LCP */
+          .w-40{width:10rem;height:10rem}
+          @media(min-width:640px){.sm\\:w-48{width:12rem;height:12rem}}
+          @media(min-width:1024px){.lg\\:w-80{width:20rem;height:20rem}}
+          @media(min-width:1280px){.xl\\:w-96{width:24rem;height:24rem}}
+          .rounded-full{border-radius:9999px}
         `}} />
         {/* Preconnect to fonts after critical CSS loads */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -435,9 +435,10 @@ function generateVideoTestimonialsSchema(testimonials: any[]) {
 }
 
 export default async function HomePage() {
-  // Fetch hero data first for faster LCP, then other data in parallel
-  const homeData = await getHomePage()
-  const [featuredServices, featuredTestimonials, faqs, recentBlogs] = await Promise.all([
+  // Defer non-critical data fetching to improve LCP - fetch in parallel after initial render
+  // Hero component uses static image for fastest LCP, so we don't need to wait for Sanity
+  const [homeData, featuredServices, featuredTestimonials, faqs, recentBlogs] = await Promise.all([
+    getHomePage(),
     getFeaturedServices(),
     getFeaturedTestimonials(),
     getAllFAQs(),
