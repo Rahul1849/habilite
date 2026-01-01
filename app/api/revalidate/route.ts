@@ -1,5 +1,6 @@
 import { revalidatePath, revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
+import { getClient } from '@/lib/sanity/client'
 
 // This endpoint handles webhooks from Sanity to revalidate pages when content changes
 // Set up in Sanity Studio: Webhooks → Create Webhook → POST to this URL
@@ -55,19 +56,91 @@ export async function POST(request: NextRequest) {
         // Revalidate blog pages
         revalidatePath('/post', 'page')
         revalidatePath('/post/category', 'page')
-        // Try multiple ways to get the slug
-        const slug = body.slug?.current || body.slug || body.slug?.slug?.current
+        
+        // Log the full body to debug slug extraction
+        console.log('Blog webhook payload:', JSON.stringify(body, null, 2))
+        
+        // Try multiple ways to get the slug from Sanity webhook payload
+        // Sanity webhook sends: { slug: { current: "slug-value" } } or { slug: "slug-value" }
+        let slug = null
+        if (body.slug) {
+          if (typeof body.slug === 'string') {
+            slug = body.slug
+          } else if (body.slug.current) {
+            slug = body.slug.current
+          } else if (body.slug.slug?.current) {
+            slug = body.slug.slug.current
+          }
+        }
+        
+        // If slug not in payload, fetch it from Sanity using document ID
+        if (!slug && body._id) {
+          console.log(`🔍 Slug not in payload, fetching from document: ${body._id}`)
+          const client = getClient(false)
+          if (client) {
+            try {
+              const doc = await client.fetch(
+                `*[_id == $id][0]{ "slug": slug.current }`,
+                { id: body._id }
+              )
+              if (doc?.slug) {
+                slug = doc.slug
+                console.log(`✅ Fetched slug from document: ${slug}`)
+              } else {
+                console.warn(`⚠️ Document found but no slug field: ${body._id}`)
+              }
+            } catch (error) {
+              console.error('❌ Error fetching slug from document:', error)
+            }
+          } else {
+            console.warn('⚠️ Sanity client not available to fetch slug')
+          }
+        }
+        
         if (slug) {
           revalidatePath(`/post/${slug}`, 'page')
-          console.log(`Revalidated blog post: /post/${slug}`)
+          console.log(`✅ Revalidated blog post: /post/${slug}`)
+        } else {
+          console.warn('⚠️ Could not extract slug from webhook payload, revalidating all blog pages')
+          // Revalidate all blog listing pages as fallback
+          revalidatePath('/post', 'page')
         }
+        
         // Also revalidate category pages that might show this blog
-        if (body.category?.title) {
-          const categorySlug = body.category.title.toLowerCase().replace(/\s+/g, '-')
-          revalidatePath(`/post/category/${categorySlug}`, 'page')
-          console.log(`Revalidated blog category: /post/category/${categorySlug}`)
+        if (body.category) {
+          let categoryTitle = null
+          if (typeof body.category === 'string') {
+            categoryTitle = body.category
+          } else if (body.category.title) {
+            categoryTitle = body.category.title
+          } else if (body.category._ref) {
+            // Category is a reference - fetch it
+            console.log(`🔍 Category is a reference, fetching: ${body.category._ref}`)
+            const client = getClient(false)
+            if (client) {
+              try {
+                const categoryDoc = await client.fetch(
+                  `*[_id == $id][0]{ title }`,
+                  { id: body.category._ref }
+                )
+                if (categoryDoc?.title) {
+                  categoryTitle = categoryDoc.title
+                  console.log(`✅ Fetched category title: ${categoryTitle}`)
+                }
+              } catch (error) {
+                console.error('❌ Error fetching category:', error)
+              }
+            }
+          }
+          
+          if (categoryTitle) {
+            const categorySlug = categoryTitle.toLowerCase().replace(/\s+/g, '-')
+            revalidatePath(`/post/category/${categorySlug}`, 'page')
+            console.log(`✅ Revalidated blog category: /post/category/${categorySlug}`)
+          }
         }
-        console.log('Revalidated blog pages')
+        
+        console.log('✅ Revalidated blog pages')
         break
 
       case 'testimonial':

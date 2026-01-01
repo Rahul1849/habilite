@@ -26,32 +26,46 @@ This is the **best and most reliable method**. Once set up, changes appear autom
 5. Fill in these details:
 
    **Name:** `Next.js Blog Revalidation`
-   
-   **URL:** 
+
+   **URL:**
+
    ```
    https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET_HERE
    ```
+
    (Replace `YOUR_SECRET_HERE` with the secret from Step 1)
-   
+
    **Dataset:** `production` (or your dataset name)
-   
-   **Trigger on:** 
+
+   **Trigger on:**
    - ✅ Create
-   - ✅ Update  
+   - ✅ Update
    - ✅ Delete
-   
+
    **HTTP method:** `POST`
-   
+
    **API version:** `v2021-06-07` or later
-   
+
    **Filter:** (Leave empty OR use):
+
    ```
    _type == "blog" || _type == "post"
    ```
-   
+
    **Secret:** (Leave empty - we're using query param)
-   
-   **Projection:** (Leave empty)
+
+   **Projection:** (IMPORTANT - Add this to include slug in webhook payload):
+
+   ```json
+   {
+     "_id": _id,
+     "_type": _type,
+     "slug": slug,
+     "category": category->{ title, _id }
+   }
+   ```
+
+   This ensures the webhook includes the slug so individual blog pages can be revalidated.
 
 6. Click **Save**
 
@@ -78,6 +92,7 @@ If webhook isn't set up yet, use this method:
 2. **Get your secret** (from Vercel Environment Variables)
 
 3. **Visit this URL** (replace `YOUR_SECRET` and `your-slug`):
+
    ```
    https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET&path=/post/anal-fistula-surgery-cost-in-delhi
    ```
@@ -101,9 +116,9 @@ https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET&path=/post/bo
 
 ## 🎯 Which Method to Use?
 
-| Method | Speed | Setup Time | Best For |
-|--------|-------|------------|----------|
-| **Webhook (Automatic)** | ⚡ Instant | 5 minutes | ✅ **Long-term use** |
+| Method                  | Speed      | Setup Time | Best For             |
+| ----------------------- | ---------- | ---------- | -------------------- |
+| **Webhook (Automatic)** | ⚡ Instant | 5 minutes  | ✅ **Long-term use** |
 | **Manual Revalidation** | ⚡ Instant | 30 seconds | Quick fixes, testing |
 
 **Recommendation:** Set up the webhook once, then forget about it. Changes will appear automatically!
@@ -152,16 +167,19 @@ Your blog posts are already configured for dynamic rendering:
 ## 📝 Quick Reference
 
 **Webhook URL Format:**
+
 ```
 https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET
 ```
 
 **Manual Revalidation URL Format:**
+
 ```
 https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET&path=/post/your-slug
 ```
 
 **Revalidate All Blogs:**
+
 ```
 https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET&type=blog
 ```
@@ -171,15 +189,16 @@ https://habilite-6qce.vercel.app/api/revalidate?secret=YOUR_SECRET&type=blog
 ## 🎉 Summary
 
 **Best Method:** Set up the webhook (5 minutes, one-time setup)
+
 - ✅ Automatic - no manual steps needed
 - ✅ Instant updates when you publish
 - ✅ Works for all blog posts
 - ✅ Most reliable solution
 
 **Quick Fix:** Use manual revalidation
+
 - ✅ Works immediately
 - ✅ Good for testing
 - ⚠️ Requires manual step each time
 
 **Choose the webhook method for the best experience!**
-
