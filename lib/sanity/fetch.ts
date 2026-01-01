@@ -34,6 +34,7 @@ export async function getHomePage(): Promise<HomePage | null> {
       console.warn("Sanity client not configured for getHomePage");
       return null;
     }
+    // useCdn: false in client config ensures fresh data
     const data = await client.fetch<HomePage>(homePageQuery);
     return data || null;
   } catch (error) {

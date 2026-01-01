@@ -18,6 +18,9 @@ import { getImageUrl } from '@/lib/sanity/utils'
 
 // Always render this page on-demand so Sanity updates show immediately
 export const revalidate = 0
+// Force dynamic rendering - prevents any caching at edge/CDN level
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 // Dynamically import below-the-fold components to improve initial page load
 // Using ssr: false for non-critical components to reduce TBT
