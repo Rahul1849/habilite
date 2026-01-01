@@ -92,6 +92,24 @@ const nextConfig = {
         ],
       },
       {
+        // Prevent caching for blog posts to ensure Sanity updates show immediately
+        source: '/post/:slug*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
         // Standard headers for all other routes
         source: '/:path*',
         headers: [

@@ -54,8 +54,18 @@ export async function POST(request: NextRequest) {
       case 'post':
         // Revalidate blog pages
         revalidatePath('/post', 'page')
-        if (body.slug?.current) {
-          revalidatePath(`/post/${body.slug.current}`, 'page')
+        revalidatePath('/post/category', 'page')
+        // Try multiple ways to get the slug
+        const slug = body.slug?.current || body.slug || body.slug?.slug?.current
+        if (slug) {
+          revalidatePath(`/post/${slug}`, 'page')
+          console.log(`Revalidated blog post: /post/${slug}`)
+        }
+        // Also revalidate category pages that might show this blog
+        if (body.category?.title) {
+          const categorySlug = body.category.title.toLowerCase().replace(/\s+/g, '-')
+          revalidatePath(`/post/category/${categorySlug}`, 'page')
+          console.log(`Revalidated blog category: /post/category/${categorySlug}`)
         }
         console.log('Revalidated blog pages')
         break
@@ -107,11 +117,59 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Allow GET for testing
+// Allow GET for manual revalidation
 export async function GET(request: NextRequest) {
+  const secret = request.nextUrl.searchParams.get('secret')
+  const expectedSecret = process.env.SANITY_REVALIDATE_SECRET
+  const path = request.nextUrl.searchParams.get('path')
+  const type = request.nextUrl.searchParams.get('type') || 'blog'
+
+  if (!expectedSecret) {
+    return NextResponse.json({
+      message: 'SANITY_REVALIDATE_SECRET not set',
+      usage: 'POST to this endpoint with ?secret=YOUR_SECRET',
+    })
+  }
+
+  if (secret !== expectedSecret) {
+    return NextResponse.json(
+      { message: 'Invalid secret' },
+      { status: 401 }
+    )
+  }
+
+  // Manual revalidation for a specific path
+  if (path) {
+    revalidatePath(path, 'page')
+    return NextResponse.json({
+      revalidated: true,
+      path,
+      now: Date.now(),
+    })
+  }
+
+  // Revalidate based on type
+  switch (type) {
+    case 'blog':
+      revalidatePath('/post', 'page')
+      revalidatePath('/post/category', 'page')
+      break
+    case 'home':
+      revalidatePath('/', 'page')
+      break
+    default:
+      revalidatePath('/', 'page')
+  }
+
   return NextResponse.json({
     message: 'Sanity revalidation webhook endpoint',
-    usage: 'POST to this endpoint with ?secret=YOUR_SECRET',
+    revalidated: true,
+    type,
+    now: Date.now(),
+    usage: {
+      manual: 'GET /api/revalidate?secret=YOUR_SECRET&path=/post/your-slug',
+      webhook: 'POST to this endpoint with ?secret=YOUR_SECRET',
+    },
     note: 'Set SANITY_REVALIDATE_SECRET in your environment variables',
   })
 }
