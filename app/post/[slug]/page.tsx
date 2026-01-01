@@ -322,9 +322,9 @@ export default async function BlogPostPage({ params }: Props) {
     
     const tableOfContents = sanityBlogContent 
       ? (isMarkdownString 
-          ? generateTableOfContents(sanityBlogContent)
+          ? generateTableOfContents(sanityBlogContent as string) // Type assertion: we know it's a string here
           : isPortableText
-            ? generateTOCFromPortableText(sanityBlogContent)
+            ? generateTOCFromPortableText(sanityBlogContent as any[]) // Type assertion: we know it's an array here
             : [])
       : []
 
