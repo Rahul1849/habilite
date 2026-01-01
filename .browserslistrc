@@ -1,0 +1,22 @@
+# Target modern browsers to reduce legacy JS polyfills
+# This configuration tells Next.js/SWC to target browsers that natively support:
+# - Array.prototype.at, flat, flatMap
+# - Object.fromEntries, Object.hasOwn
+# - String.prototype.trimStart, trimEnd
+# This reduces bundle size by ~12KB (as reported by Lighthouse)
+
+# Modern browsers (last 2 versions of major browsers)
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
+
+# Mobile browsers
+iOS >= 15.4
+ChromeAndroid >= 92
+Samsung >= 16
+
+# Exclude very old browsers to reduce polyfills
+not dead
+not op_mini all
+

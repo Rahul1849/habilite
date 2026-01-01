@@ -1,9 +1,17 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Hero from '@/components/home/Hero'
-import MeetDoctor from '@/components/home/MeetDoctor'
-import EducationAffiliations from '@/components/home/EducationAffiliations'
-import CareerHighlightsAndServices from '@/components/home/CareerHighlightsAndServices'
+// Below-the-fold components converted to dynamic imports to reduce initial JS bundle
+const MeetDoctor = dynamic(() => import('@/components/home/MeetDoctor'), {
+  ssr: true, // Keep SSR for SEO, but load after initial render
+})
+const EducationAffiliations = dynamic(() => import('@/components/home/EducationAffiliations'), {
+  ssr: true, // Keep SSR for SEO
+})
+const CareerHighlightsAndServices = dynamic(() => import('@/components/home/CareerHighlightsAndServices'), {
+  ssr: false, // Below fold, defer to reduce TBT
+  loading: () => <div className="min-h-[600px] animate-pulse bg-gray-50" />,
+})
 import { getHomePage, getFeaturedServices, getFeaturedTestimonials, getAllFAQs, getRecentBlogs } from '@/lib/sanity/fetch'
 import { getOrganizationSchema } from '@/lib/seo/schemaBuilders'
 import { getImageUrl } from '@/lib/sanity/utils'

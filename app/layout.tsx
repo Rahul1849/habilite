@@ -123,6 +123,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} overflow-x-hidden`}>
       <head>
         {/* LCP Optimization: Preload Hero images FIRST with highest priority - critical for mobile */}
+        {/* Homepage hero image - LCP element */}
         <link rel="preload" as="image" href="/images/dr.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/images/dr-kapil-agrawal.png" fetchPriority="high" />
         {/* Preload gallbladder surgery hero image for LCP optimization */}

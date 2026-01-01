@@ -52,6 +52,8 @@ const nextConfig = {
     serverMinification: true,
     // Enable partial prerendering for faster initial load
     ppr: false,
+    // Reduce legacy polyfills by targeting modern browsers
+    // Browserslist config in .browserslistrc targets modern browsers
   },
   // Optimize output
   output: 'standalone',
