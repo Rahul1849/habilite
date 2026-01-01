@@ -17,6 +17,7 @@ import BlogPostFooter from '@/components/blog/BlogPostFooter'
 import AboutDoctorSection from '@/components/blog/AboutDoctorSection'
 import StructuredData from '@/components/seo/StructuredData'
 import { generateTableOfContents } from '@/lib/utils/generateTableOfContents'
+import { generateTOCFromPortableText } from '@/lib/utils/generateTOCFromPortableText'
 import PreviewProvider from '@/components/PreviewProvider'
 import { getClient } from '@/lib/sanity/client'
 import { blogBySlugQueryWithAuthor, blogsQuery } from '@/lib/sanity/queries'
@@ -241,6 +242,44 @@ export default async function BlogPostPage({ params }: Props) {
   // If found in Sanity, ALWAYS use it (even if body is missing - title/image changes should show)
   // This ensures changes in Sanity Studio always appear, even if body is empty
   if (sanityPost && sanityPost._id) {
+    // Generate TOC from PortableText content
+    const tableOfContents = sanityPost.content 
+      ? generateTOCFromPortableText(sanityPost.content)
+      : []
+
+    // Fetch related posts from Sanity
+    let relatedPosts: any[] = []
+    if (client && (sanityPost.categoryId || sanityPost.category?._id)) {
+      try {
+        const { relatedBlogsQuery } = await import('@/lib/sanity/queries')
+        relatedPosts = await client.fetch(relatedBlogsQuery, {
+          currentSlug: slug,
+          categoryId: sanityPost.categoryId || sanityPost.category?._id,
+          limit: 3
+        })
+      } catch (error) {
+        console.error('Error fetching related posts:', error)
+      }
+    }
+
+    // Also try to get related posts from static data as fallback
+    if (relatedPosts.length === 0) {
+      const staticPost = getBlogPostBySlug(slug)
+      if (staticPost) {
+        const staticRelated = getRelatedPosts(slug, 3)
+        relatedPosts = staticRelated.map(post => ({
+          _id: post.id,
+          title: post.title,
+          slug: post.slug,
+          excerpt: post.excerpt,
+          image: post.image,
+          category: { title: post.category },
+          publishedAt: post.publishedDate,
+          readTime: post.readTime,
+        }))
+      }
+    }
+
     const articleSchema = getArticleSchema({
       title: sanityPost.title || '',
       description: sanityPost.excerpt || '',
@@ -273,7 +312,7 @@ export default async function BlogPostPage({ params }: Props) {
         <StructuredData data={articleSchema} />
         <StructuredData data={breadcrumbSchema} />
         {faqSchema && <StructuredData data={faqSchema} />}
-        <SanitySingleBlog post={sanityPost} />
+        <SanitySingleBlog post={sanityPost} tableOfContents={tableOfContents} relatedPosts={relatedPosts} />
       </>
     )
   }

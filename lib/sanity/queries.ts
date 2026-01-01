@@ -221,6 +221,7 @@ export const blogBySlugQueryWithAuthor = groq`*[_type == "blog" && slug.current 
     _id,
     title,
   },
+  "categoryId": category._ref,
   seoTitle,
   seoDescription,
 }`;
@@ -241,6 +242,20 @@ export const recentBlogsQuery = groq`*[_type == "blog"] | order(publishedAt desc
   excerpt,
   seoTitle,
   seoDescription,
+}`;
+
+export const relatedBlogsQuery = groq`*[_type == "blog" && slug.current != $currentSlug && category._ref == $categoryId] | order(publishedAt desc)[0...$limit]{
+  _id,
+  title,
+  "slug": slug.current,
+  image,
+  excerpt,
+  category->{
+    _id,
+    title,
+  },
+  publishedAt,
+  readTime,
 }`;
 
 // Testimonials Queries
