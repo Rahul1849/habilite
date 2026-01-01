@@ -202,24 +202,45 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   // Try to fetch from Sanity first - useCdn: false ensures fresh data
+  // Try to fetch from Sanity first - ALWAYS prioritize Sanity data over static data
   let sanityPost = null
   const client = getClient(false)
   if (client) {
     try {
       // Fetch with fresh data - useCdn: false in client config ensures no CDN cache
       sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
-      // Only use Sanity post if it has actual content (body)
-      if (sanityPost && !sanityPost.body) {
-        sanityPost = null // Fallback to static data if no content
+      
+      // Log what we got from Sanity for debugging
+      if (sanityPost) {
+        console.log('✅ Sanity post found:', {
+          title: sanityPost.title,
+          slug: sanityPost.slug,
+          requestedSlug: slug,
+          slugMatch: sanityPost.slug === slug,
+          hasBody: !!sanityPost.body,
+          bodyLength: sanityPost.body?.length || 0,
+          _id: sanityPost._id
+        })
+        // Warn if slug doesn't match (this is the most common issue!)
+        if (sanityPost.slug !== slug) {
+          console.warn('⚠️ SLUG MISMATCH! Requested:', slug, 'but Sanity has:', sanityPost.slug)
+          console.warn('💡 Update the slug in Sanity Studio or visit the correct URL!')
+        }
+      } else {
+        console.log('⚠️ No Sanity post found for slug:', slug, '- Will use static data/blog.ts')
+        console.log('💡 Tip: Check if the slug in Sanity Studio matches the URL slug exactly!')
       }
     } catch (error) {
-      console.error('Error fetching blog from Sanity:', error)
+      console.error('❌ Error fetching blog from Sanity:', error)
       sanityPost = null
     }
+  } else {
+    console.warn('⚠️ Sanity client not available')
   }
 
-  // If found in Sanity with content, render Sanity component
-  if (sanityPost && sanityPost.body) {
+  // If found in Sanity, ALWAYS use it (even if body is missing - title/image changes should show)
+  // This ensures changes in Sanity Studio always appear, even if body is empty
+  if (sanityPost && sanityPost._id) {
     const articleSchema = getArticleSchema({
       title: sanityPost.title || '',
       description: sanityPost.excerpt || '',
