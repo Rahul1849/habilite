@@ -213,6 +213,7 @@ export const blogBySlugQueryWithAuthor = groq`*[_type == "blog" && slug.current 
   "slug": slug.current,
   image,
   content,
+  portableContent,
   author,
   publishedAt,
   readTime,

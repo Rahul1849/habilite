@@ -1,7 +1,7 @@
 import { defineConfig } from "sanity";
 import { visionTool } from "@sanity/vision";
 import { deskTool } from "sanity/desk";
-import { table } from "@sanity/table"; // ✅ REQUIRED
+import { table } from "@sanity/table"; // ✅ REQUIRED for table support in Portable Text
 import { schemaTypes } from "./sanity/schemas/schema";
 
 // Read env vars (expected to be provided by CLI/runtime)
@@ -24,7 +24,7 @@ export default defineConfig({
   plugins: [
     deskTool(),
     visionTool(),
-    table(), // ✅ THIS LINE FIXES EVERYTHING
+    table(), // ✅ Enables table blocks in Portable Text (required for blog.portableContent)
   ],
   schema: {
     types: schemaTypes,

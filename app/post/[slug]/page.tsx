@@ -18,6 +18,7 @@ import AboutDoctorSection from '@/components/blog/AboutDoctorSection'
 import StructuredData from '@/components/seo/StructuredData'
 import { generateTableOfContents } from '@/lib/utils/generateTableOfContents'
 import { generateTOCFromPortableText } from '@/lib/utils/generateTOCFromPortableText'
+import MarkdownContent from '@/components/blog/MarkdownContent'
 import PreviewProvider from '@/components/PreviewProvider'
 import { getClient } from '@/lib/sanity/client'
 import { blogBySlugQueryWithAuthor, blogsQuery } from '@/lib/sanity/queries'
@@ -213,19 +214,31 @@ export default async function BlogPostPage({ params }: Props) {
       
       // Log what we got from Sanity for debugging
       if (sanityPost) {
+        const hasContent = !!(sanityPost.content || sanityPost.portableContent)
+        const hasValidContent = (
+          (typeof sanityPost.content === 'string' && sanityPost.content.trim().length > 0) ||
+          (Array.isArray(sanityPost.portableContent) && sanityPost.portableContent.length > 0)
+        )
+        const contentType = sanityPost.portableContent ? 'portableContent (blocks)' : sanityPost.content ? 'content (markdown)' : 'none'
         console.log('✅ Sanity post found:', {
           title: sanityPost.title,
           slug: sanityPost.slug,
           requestedSlug: slug,
           slugMatch: sanityPost.slug === slug,
-          hasBody: !!sanityPost.body,
-          bodyLength: sanityPost.body?.length || 0,
+          hasContent,
+          hasValidContent,
+          contentType,
+          contentLength: typeof sanityPost.content === 'string' ? sanityPost.content.length : Array.isArray(sanityPost.portableContent) ? sanityPost.portableContent.length : 0,
           _id: sanityPost._id
         })
         // Warn if slug doesn't match (this is the most common issue!)
         if (sanityPost.slug !== slug) {
           console.warn('⚠️ SLUG MISMATCH! Requested:', slug, 'but Sanity has:', sanityPost.slug)
           console.warn('💡 Update the slug in Sanity Studio or visit the correct URL!')
+        }
+        // Warn if no content or empty content
+        if (!hasValidContent) {
+          console.warn('⚠️ Sanity post has no valid content (empty or missing) - will fall back to static data/blog.ts')
         }
       } else {
         console.log('⚠️ No Sanity post found for slug:', slug, '- Will use static data/blog.ts')
@@ -239,24 +252,85 @@ export default async function BlogPostPage({ params }: Props) {
     console.warn('⚠️ Sanity client not available')
   }
 
-  // If found in Sanity, ALWAYS use it (even if body is missing - title/image changes should show)
-  // This ensures changes in Sanity Studio always appear, even if body is empty
+  // Check if Sanity post exists AND has valid content
+  // If Sanity post exists but has no content, fall back to static data
+  let shouldUseSanity = false
+  let sanityBlogContent: string | any[] | null = null
+  
   if (sanityPost && sanityPost._id) {
-    // Generate TOC from content - check if it's markdown string or PortableText blocks
-    const isMarkdownString = typeof sanityPost.content === 'string'
-    const isPortableText = Array.isArray(sanityPost.content) && sanityPost.content.length > 0 && sanityPost.content[0]?._type
+    // Prioritize portableContent over content (new field over legacy)
+    const portableContent = sanityPost.portableContent
+    let legacyContent = sanityPost.content
     
-    const tableOfContents = sanityPost.content 
+    // Handle edge case: if legacyContent is an array (incorrectly stored), try to convert it
+    // This can happen if data was migrated incorrectly
+    if (Array.isArray(legacyContent)) {
+      console.warn('⚠️ Legacy content field contains array instead of string - this is invalid data')
+      console.warn('💡 The content field should be a text string, not an array. Falling back to static data.')
+      legacyContent = null // Treat as invalid
+    }
+    
+    // STRICT check: must have actual content, not just empty strings/arrays
+    const hasPortableContent = Array.isArray(portableContent) && portableContent.length > 0
+    const hasLegacyContent = typeof legacyContent === 'string' && legacyContent.trim().length > 0
+    
+    // Only use Sanity if we have valid content
+    if (hasPortableContent) {
+      sanityBlogContent = portableContent
+      shouldUseSanity = true
+      console.log('✅ Using Sanity post with portableContent (blocks)')
+    } else if (hasLegacyContent) {
+      sanityBlogContent = legacyContent
+      shouldUseSanity = true
+      console.log('✅ Using Sanity post with legacy content (markdown)')
+    } else {
+      // NO valid content - force fallback
+      shouldUseSanity = false
+      sanityBlogContent = null
+      console.log('⚠️ Sanity post exists but has NO valid content - FORCING fallback to static data')
+      console.log('📋 Content check:', {
+        portableContentExists: !!portableContent,
+        portableContentType: Array.isArray(portableContent) ? 'array' : typeof portableContent,
+        portableContentLength: Array.isArray(portableContent) ? portableContent.length : (typeof portableContent === 'string' ? portableContent.length : 0),
+        legacyContentExists: !!legacyContent,
+        legacyContentType: typeof legacyContent,
+        legacyContentLength: typeof legacyContent === 'string' ? legacyContent.length : 0,
+        legacyContentIsArray: Array.isArray(legacyContent),
+        shouldUseSanity: false // Explicitly set
+      })
+    }
+  } else {
+    console.log('📄 No Sanity post found - using static data/blog.ts')
+    shouldUseSanity = false
+  }
+  
+  // CRITICAL: Double-check before using Sanity
+  if (shouldUseSanity && !sanityBlogContent) {
+    console.error('🚨 ERROR: shouldUseSanity is true but sanityBlogContent is null/empty - forcing fallback')
+    shouldUseSanity = false
+  }
+  
+  // If Sanity post has valid content, use it
+  // CRITICAL CHECK: Only proceed if we have confirmed valid content
+  if (shouldUseSanity && sanityBlogContent && (
+    (typeof sanityBlogContent === 'string' && sanityBlogContent.trim().length > 0) ||
+    (Array.isArray(sanityBlogContent) && sanityBlogContent.length > 0)
+  )) {
+    // Generate TOC from content - check if it's markdown string or PortableText blocks
+    const isMarkdownString = typeof sanityBlogContent === 'string'
+    const isPortableText = Array.isArray(sanityBlogContent) && sanityBlogContent.length > 0 && sanityBlogContent[0]?._type
+    
+    const tableOfContents = sanityBlogContent 
       ? (isMarkdownString 
-          ? generateTableOfContents(sanityPost.content)
+          ? generateTableOfContents(sanityBlogContent)
           : isPortableText
-            ? generateTOCFromPortableText(sanityPost.content)
+            ? generateTOCFromPortableText(sanityBlogContent)
             : [])
       : []
 
     // Fetch related posts from Sanity
     let relatedPosts: any[] = []
-    if (client && (sanityPost.categoryId || sanityPost.category?._id)) {
+    if (client && sanityPost && (sanityPost.categoryId || sanityPost.category?._id)) {
       try {
         const { relatedBlogsQuery } = await import('@/lib/sanity/queries')
         relatedPosts = await client.fetch(relatedBlogsQuery, {
@@ -288,26 +362,26 @@ export default async function BlogPostPage({ params }: Props) {
     }
 
     const articleSchema = getArticleSchema({
-      title: sanityPost.title || '',
-      description: sanityPost.excerpt || '',
+      title: sanityPost!.title || '',
+      description: sanityPost!.excerpt || '',
       url: `/post/${slug}`,
-      image: sanityPost.image ? urlForImage(sanityPost.image).width(1200).height(630).url() || '' : '',
-      datePublished: sanityPost.publishedAt || '',
-      dateModified: sanityPost.publishedAt || '',
-      keywords: sanityPost.tags || [],
+      image: sanityPost!.image ? urlForImage(sanityPost.image).width(1200).height(630).url() || '' : '',
+      datePublished: sanityPost!.publishedAt || '',
+      dateModified: sanityPost!.publishedAt || '',
+      keywords: sanityPost!.tags || [],
     })
     const breadcrumbSchema = getBreadcrumbSchema([
       { name: 'Home', url: '/' },
       { name: 'Blog', url: '/post' },
-      { name: sanityPost.title || 'Blog Post', url: `/post/${slug}` },
+      { name: sanityPost!.title || 'Blog Post', url: `/post/${slug}` },
     ])
     
     // FAQ Schema if available in Sanity post
-    const faqSchema = sanityPost.faqs && sanityPost.faqs.length > 0
+    const faqSchema = sanityPost!.faqs && sanityPost.faqs.length > 0
       ? getFAQSchema({
-          title: `${sanityPost.title || 'Blog Post'} - FAQs`,
-          description: `Frequently asked questions about ${sanityPost.title || 'this topic'}`,
-          faqs: sanityPost.faqs.map((faq: any) => ({ 
+          title: `${sanityPost!.title || 'Blog Post'} - FAQs`,
+          description: `Frequently asked questions about ${sanityPost!.title || 'this topic'}`,
+          faqs: sanityPost!.faqs.map((faq: any) => ({ 
             question: faq.question || '', 
             answer: faq.answer || '' 
           })),
@@ -319,14 +393,37 @@ export default async function BlogPostPage({ params }: Props) {
         <StructuredData data={articleSchema} />
         <StructuredData data={breadcrumbSchema} />
         {faqSchema && <StructuredData data={faqSchema} />}
-        <SanitySingleBlog post={sanityPost} tableOfContents={tableOfContents} relatedPosts={relatedPosts} />
+        <SanitySingleBlog 
+          post={{
+            ...sanityPost!,
+            // Use the validated content we checked above
+            content: sanityBlogContent
+          }} 
+          tableOfContents={tableOfContents} 
+          relatedPosts={relatedPosts} 
+        />
       </>
     )
   }
 
-  // Fallback to static data
+  // Fallback to static data - THIS SHOULD ALWAYS EXECUTE IF SANITY POST HAS NO CONTENT
+  console.log('📄 ===== FALLBACK TO STATIC DATA =====')
+  console.log('📄 Looking for static blog post with slug:', slug)
+  
   const post = getBlogPostBySlug(slug)
-  if (!post) notFound()
+  if (!post) {
+    console.error('❌ Static blog post not found for slug:', slug)
+    console.error('💡 Available slugs (first 10):', blogPosts.slice(0, 10).map(p => p.slug))
+    notFound()
+  }
+  
+  console.log('✅ Static blog post found:', {
+    title: post.title,
+    slug: post.slug,
+    hasContent: !!post.content,
+    contentLength: post.content?.length || 0,
+    contentPreview: post.content?.substring(0, 100) || 'N/A'
+  })
 
   const relatedPosts = getRelatedPosts(slug)
   const recentPosts = getRecentPosts(slug, 5)
@@ -441,255 +538,13 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Content */}
               <div className="prose prose-lg max-w-3xl mx-auto prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
-              {post.content && post.content.trim() ? (() => {
-                const lines = post.content.split('\n')
-                let skipNext = false
-                
-                return lines.map((line, index) => {
-                  if (skipNext) {
-                    skipNext = false
-                    return null
-                  }
-                  
-                  // Handle empty lines with proper spacing
-                  if (!line.trim()) {
-                    return <div key={index} className="h-4" />
-                  }
-                  
-                  // Check for "Why Choose Us" section - replace with footer component
-                  const lowerLine = line.toLowerCase().trim()
-                  if (lowerLine.includes('## why choose us') || lowerLine.includes('## why choose')) {
-                    // Skip the list items that follow
-                    let whyChooseEndIndex = index + 1
-                    while (whyChooseEndIndex < lines.length && 
-                           (lines[whyChooseEndIndex].trim().startsWith('- ') || 
-                            lines[whyChooseEndIndex].trim() === '')) {
-                      whyChooseEndIndex++
-                    }
-                    // Skip all lines until next section
-                    skipNext = false
-                    return null // Will be replaced by footer at end
-                  }
-                  
-                  // Check for appointment booking section - replace with footer component
-                  const hasAppointmentText = lowerLine.includes('## book an appointment') || lowerLine.includes('## book appointment')
-                  
-                  if (hasAppointmentText) {
-                    // Skip the phone number line if it follows
-                    const nextLine = lines[index + 1] || ''
-                    if (nextLine.includes('+91') || nextLine.includes('99100') || nextLine.includes('99994') || 
-                        nextLine.toLowerCase().includes('contact us at')) {
-                      skipNext = true
-                    }
-                    return null // Will be replaced by footer at end
-                  }
-                  
-                  // Skip if this line only has phone numbers and previous was appointment
-                  if (index > 0) {
-                    const prevLine = lines[index - 1] || ''
-                    const prevLower = prevLine.toLowerCase()
-                    if ((prevLower.includes('book an appointment') || prevLower.includes('to book an appointment')) && 
-                        (line.includes('+91') || line.includes('99100') || line.includes('99994')) &&
-                        !line.toLowerCase().includes('book')) {
-                      return null
-                    }
-                  }
-                
-                // Headers - check in order from most specific to least
-                const trimmedLine = line.trim()
-                if (trimmedLine.startsWith('###')) {
-                  const title = trimmedLine.replace(/^###+\s*/, '').trim()
-                  if (title) {
-                    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                    return (
-                      <h3 key={index} id={id} className="text-xl md:text-2xl font-bold mt-8 mb-4 text-gray-900 scroll-mt-24 leading-tight">
-                        {title}
-                      </h3>
-                    )
-                  }
-                } else if (trimmedLine.startsWith('##') && !trimmedLine.startsWith('###')) {
-                  const title = trimmedLine.replace(/^##+\s*/, '').trim()
-                  if (title) {
-                    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                    return (
-                      <h2 key={index} id={id} className="text-2xl md:text-3xl font-bold mt-10 mb-5 text-gray-900 scroll-mt-24 leading-tight">
-                        {title}
-                      </h2>
-                    )
-                  }
-                } else if (trimmedLine.startsWith('#') && !trimmedLine.startsWith('##') && !trimmedLine.startsWith('###')) {
-                  // Single # should be H2 (not H1) since we already have H1 in hero section
-                  const title = trimmedLine.replace(/^#+\s*/, '').trim()
-                  if (title) {
-                    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-                    return (
-                      <h2 key={index} id={id} className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-gray-900 scroll-mt-24 leading-tight">
-                        {title}
-                      </h2>
-                    )
-                  }
-                }
-                // Images - markdown format ![alt](url)
-                else if (line.trim().match(/^!\[.*?\]\(.*?\)$/)) {
-                  const imageMatch = line.trim().match(/^!\[(.*?)\]\((.*?)\)$/)
-                  if (imageMatch) {
-                    const alt = imageMatch[1] || ''
-                    const src = imageMatch[2] || ''
-                    const imageSrc = src.startsWith('/') ? src : `/images/${src}`
-                    return (
-                      <div key={index} className="my-8 md:my-12 w-full flex justify-center">
-                        <div className="relative w-full max-w-4xl mx-auto">
-                          <div className="relative w-full rounded-xl overflow-hidden bg-gray-50">
-                            <Image
-                              src={imageSrc}
-                              alt={alt}
-                              width={1200}
-                              height={800}
-                              className="w-full h-auto object-contain"
-                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-                              quality={85}
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  }
-                }
-                // Lists
-                else if (line.trim().startsWith('- ')) {
-                  const content = line.replace(/^-\s/, '').trim()
-                  // Parse markdown in list items
-                  const parseMarkdown = (text: string) => {
-                    let result: React.ReactNode[] = []
-                    let currentIndex = 0
-                    // Handle bold **text**
-                    const boldRegex = /\*\*(.*?)\*\*/g
-                    let match
-                    let lastIndex = 0
-                    
-                    while ((match = boldRegex.exec(text)) !== null) {
-                      if (match.index > lastIndex) {
-                        result.push(text.substring(lastIndex, match.index))
-                      }
-                      result.push(<strong key={`bold-${currentIndex++}`} className="font-semibold text-gray-900">{match[1]}</strong>)
-                      lastIndex = match.index + match[0].length
-                    }
-                    if (lastIndex < text.length) {
-                      result.push(text.substring(lastIndex))
-                    }
-                    return result.length > 0 ? result : text
-                  }
-                  
-                  // Handle links [text](url)
-                  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
-                  const linkParts: React.ReactNode[] = []
-                  let linkMatch
-                  let linkLastIndex = 0
-                  const textToParse = typeof parseMarkdown(content) === 'string' ? content : content
-                  let linkIndex = 0
-                  
-                  while ((linkMatch = linkRegex.exec(textToParse)) !== null) {
-                    if (linkMatch.index > linkLastIndex) {
-                      const beforeLink = textToParse.substring(linkLastIndex, linkMatch.index)
-                      linkParts.push(parseMarkdown(beforeLink))
-                    }
-                    linkParts.push(
-                      <Link key={`list-link-${index}-${linkIndex++}`} href={linkMatch[2]} className="text-primary-600 hover:text-primary-700 underline">
-                        {linkMatch[1]}
-                      </Link>
-                    )
-                    linkLastIndex = linkMatch.index + linkMatch[0].length
-                  }
-                  if (linkLastIndex < textToParse.length) {
-                    const afterLink = textToParse.substring(linkLastIndex)
-                    linkParts.push(parseMarkdown(afterLink))
-                  }
-                  
-                  return (
-                    <ul key={index} className="list-disc list-inside mb-6 ml-4 space-y-3">
-                      <li className="text-gray-700 leading-relaxed text-base md:text-lg">
-                        {linkParts.length > 0 ? linkParts : parseMarkdown(content)}
-                      </li>
-                    </ul>
-                  )
-                }
-                // Regular paragraphs
-                else {
-                  // Parse markdown in paragraphs
-                  const parseMarkdown = (text: string) => {
-                    const parts: React.ReactNode[] = []
-                    let currentIndex = 0
-                    
-                    // Handle links [text](url)
-                    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
-                    let linkMatch
-                    let lastIndex = 0
-                    
-                    while ((linkMatch = linkRegex.exec(text)) !== null) {
-                      if (linkMatch.index > lastIndex) {
-                        const beforeLink = text.substring(lastIndex, linkMatch.index)
-                        // Handle bold in text before link
-                        const boldRegex = /\*\*(.*?)\*\*/g
-                        let boldMatch
-                        let boldLastIndex = 0
-                        const boldParts: React.ReactNode[] = []
-                        
-                        while ((boldMatch = boldRegex.exec(beforeLink)) !== null) {
-                          if (boldMatch.index > boldLastIndex) {
-                            boldParts.push(beforeLink.substring(boldLastIndex, boldMatch.index))
-                          }
-                          boldParts.push(<strong key={`bold-${currentIndex++}`} className="font-semibold text-gray-900">{boldMatch[1]}</strong>)
-                          boldLastIndex = boldMatch.index + boldMatch[0].length
-                        }
-                        if (boldLastIndex < beforeLink.length) {
-                          boldParts.push(beforeLink.substring(boldLastIndex))
-                        }
-                        parts.push(...(boldParts.length > 0 ? boldParts : [beforeLink]))
-                      }
-                      parts.push(
-                        <Link key={`link-${currentIndex++}`} href={linkMatch[2]} className="text-primary-600 hover:text-primary-700 underline">
-                          {linkMatch[1]}
-                        </Link>
-                      )
-                      lastIndex = linkMatch.index + linkMatch[0].length
-                    }
-                    if (lastIndex < text.length) {
-                      const afterLink = text.substring(lastIndex)
-                      // Handle bold in remaining text
-                      const boldRegex = /\*\*(.*?)\*\*/g
-                      let boldMatch
-                      let boldLastIndex = 0
-                      const boldParts: React.ReactNode[] = []
-                      
-                      while ((boldMatch = boldRegex.exec(afterLink)) !== null) {
-                        if (boldMatch.index > boldLastIndex) {
-                          boldParts.push(afterLink.substring(boldLastIndex, boldMatch.index))
-                        }
-                        boldParts.push(<strong key={`bold-${currentIndex++}`} className="font-semibold text-gray-900">{boldMatch[1]}</strong>)
-                        boldLastIndex = boldMatch.index + boldMatch[0].length
-                      }
-                      if (boldLastIndex < afterLink.length) {
-                        boldParts.push(afterLink.substring(boldLastIndex))
-                      }
-                      parts.push(...(boldParts.length > 0 ? boldParts : [afterLink]))
-                    }
-                    
-                    return parts.length > 0 ? parts : text
-                  }
-                  
-                  return (
-                    <p key={index} className="mb-6 text-gray-700 leading-relaxed text-base md:text-lg">
-                      {parseMarkdown(line)}
-                    </p>
-                  )
-                }
-                })
-              })() : (
-                <div className="text-center py-12">
-                  <p className="text-gray-500 italic">Content is being loaded...</p>
-                </div>
-              )}
+                {post.content && post.content.trim() ? (
+                  <MarkdownContent content={post.content} />
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500 italic">Content is being loaded...</p>
+                  </div>
+                )}
               </div>
 
               {/* Author */}

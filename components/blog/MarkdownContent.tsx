@@ -13,7 +13,10 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
     return <p className="text-gray-500 italic">No content available</p>
   }
 
-  const lines = content.split('\n')
+  // Remove escape characters from markdown (e.g., \# becomes #)
+  const cleanedContent = content.replace(/\\([#*_`\[\]()])/g, '$1')
+  
+  const lines = cleanedContent.split('\n')
   let skipNext = false
   let inList = false
   let listItems: string[] = []

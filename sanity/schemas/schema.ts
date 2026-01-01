@@ -4,6 +4,7 @@ import service from "./services/service";
 import serviceCategory from "./services/serviceCategory";
 import blog from "./blog/blog";
 import blogCategory from "./blog/blogCategory";
+import chart from "./blog/chart"; // ✅ Chart schema for blog.portableContent
 import doctor from "./doctors/doctor";
 import faq from "./faq/faq";
 import testimonial from "./testimonials/testimonial";
@@ -17,6 +18,7 @@ export const schemaTypes = [
   serviceCategory,
   blog,
   blogCategory,
+  chart, // ✅ Required for chart blocks in blog.portableContent
   doctor,
   faq,
   testimonial,

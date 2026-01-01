@@ -11,7 +11,11 @@ export interface TableOfContentsItem {
  */
 export function generateTableOfContents(content: string): TableOfContentsItem[] {
   const toc: TableOfContentsItem[] = []
-  const lines = content.split('\n')
+  if (!content) return toc
+  
+  // Remove escape characters from markdown (e.g., \# becomes #)
+  const cleanedContent = content.replace(/\\([#*_`\[\]()])/g, '$1')
+  const lines = cleanedContent.split('\n')
   
   for (const line of lines) {
     const trimmedLine = line.trim()
@@ -26,7 +30,7 @@ export function generateTableOfContents(content: string): TableOfContentsItem[] 
     
     // Match H3 headings (###)
     if (trimmedLine.startsWith('###')) {
-      const title = trimmedLine.replace(/^###+\s/, '').trim()
+      const title = trimmedLine.replace(/^###+\s*/, '').trim()
       if (title) {
         const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
         toc.push({ id, title, level: 3 })
@@ -34,7 +38,7 @@ export function generateTableOfContents(content: string): TableOfContentsItem[] 
     }
     // Match H2 headings (##)
     else if (trimmedLine.startsWith('##') && !trimmedLine.startsWith('###')) {
-      const title = trimmedLine.replace(/^##+\s/, '').trim()
+      const title = trimmedLine.replace(/^##+\s*/, '').trim()
       if (title && !title.toLowerCase().includes('why choose us') && 
           !title.toLowerCase().includes('book an appointment')) {
         const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -43,7 +47,7 @@ export function generateTableOfContents(content: string): TableOfContentsItem[] 
     }
     // Match H1 headings (#) - these are rendered as H2 in content
     else if (trimmedLine.startsWith('#') && !trimmedLine.startsWith('##') && !trimmedLine.startsWith('###')) {
-      const title = trimmedLine.replace(/^#+\s/, '').trim()
+      const title = trimmedLine.replace(/^#+\s*/, '').trim()
       if (title && !title.toLowerCase().includes('why choose us') && 
           !title.toLowerCase().includes('book an appointment')) {
         const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')

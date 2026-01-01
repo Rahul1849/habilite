@@ -27,6 +27,185 @@ export const portableTextComponents: PortableTextComponents = {
         </div>
       );
     },
+    table: ({ value }: { value: any }) => {
+      if (!value) return null;
+
+      // @sanity/table plugin structure: value.rows is an array of row objects
+      // Each row has a cells array containing cell objects with text content
+      const rows = value.rows || [];
+      if (rows.length === 0) return null;
+
+      // Check if first row should be treated as header (common pattern)
+      const firstRow = rows[0];
+      const hasHeader = firstRow && firstRow.cells && firstRow.cells.length > 0;
+      const dataRows = hasHeader ? rows.slice(1) : rows;
+
+      return (
+        <div className="my-8 md:my-12 w-full overflow-x-auto">
+          <div className="inline-block min-w-full align-middle">
+            <table className="min-w-full border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+              {hasHeader && (
+                <thead>
+                  <tr className="bg-[#0891b2]/10">
+                    {firstRow.cells.map((cell: any, idx: number) => {
+                      // Extract text from cell - can be string or object with text property
+                      const cellText = typeof cell === 'string' 
+                        ? cell 
+                        : cell?.text || cell?.value || cell?.content || '';
+                      return (
+                        <th
+                          key={idx}
+                          className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900"
+                        >
+                          {cellText}
+                        </th>
+                      );
+                    })}
+                  </tr>
+                </thead>
+              )}
+              <tbody>
+                {dataRows.map((row: any, rowIdx: number) => (
+                  <tr
+                    key={rowIdx}
+                    className={rowIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  >
+                    {(row.cells || []).map((cell: any, cellIdx: number) => {
+                      // Extract text from cell - can be string or object with text property
+                      const cellText = typeof cell === 'string' 
+                        ? cell 
+                        : cell?.text || cell?.value || cell?.content || '';
+                      return (
+                        <td
+                          key={cellIdx}
+                          className="border border-gray-300 px-4 py-3 text-gray-700"
+                        >
+                          {cellText}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    },
+    chart: ({ value }: { value: any }) => {
+      if (!value || !value.data || value.data.length === 0) return null;
+
+      const { title, chartType, data, description } = value;
+      const maxValue = Math.max(...data.map((item: any) => item.value || 0));
+
+      return (
+        <div className="my-8 md:my-12 w-full">
+          {title && (
+            <h3 className="text-xl font-bold mb-4 text-gray-900">{title}</h3>
+          )}
+          
+          {chartType === "table" ? (
+            <div className="overflow-x-auto">
+              <table className="min-w-full border-collapse border border-gray-300">
+                <thead>
+                  <tr className="bg-[#0891b2]/10">
+                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+                      Label
+                    </th>
+                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">
+                      Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item: any, idx: number) => (
+                    <tr
+                      key={idx}
+                      className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    >
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                        {item.label || ""}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-gray-700 font-semibold">
+                        {item.value || 0}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="space-y-4">
+                {data.map((item: any, idx: number) => {
+                  const percentage = maxValue > 0 ? (item.value / maxValue) * 100 : 0;
+                  const color = item.color || "#0891b2";
+                  
+                  return (
+                    <div key={idx} className="space-y-1">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-gray-700">
+                          {item.label || `Item ${idx + 1}`}
+                        </span>
+                        <span className="text-sm font-semibold text-gray-900">
+                          {item.value}
+                        </span>
+                      </div>
+                      {chartType === "bar" && (
+                        <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
+                          <div
+                            className="h-full rounded-full transition-all duration-500"
+                            style={{
+                              width: `${percentage}%`,
+                              backgroundColor: color,
+                            }}
+                          />
+                        </div>
+                      )}
+                      {chartType === "line" && (
+                        <div className="relative h-2 bg-gray-200 rounded-full">
+                          <div
+                            className="absolute top-0 left-0 h-full rounded-full"
+                            style={{
+                              width: `${percentage}%`,
+                              backgroundColor: color,
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {chartType === "pie" && (
+                <div className="mt-6 flex flex-wrap gap-4 justify-center">
+                  {data.map((item: any, idx: number) => {
+                    const percentage = maxValue > 0 ? (item.value / maxValue) * 100 : 0;
+                    const color = item.color || "#0891b2";
+                    return (
+                      <div key={idx} className="flex items-center gap-2">
+                        <div
+                          className="w-4 h-4 rounded"
+                          style={{ backgroundColor: color }}
+                        />
+                        <span className="text-sm text-gray-700">
+                          {item.label}: {item.value} ({percentage.toFixed(1)}%)
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+          
+          {description && (
+            <p className="mt-4 text-sm text-gray-600 italic">{description}</p>
+          )}
+        </div>
+      );
+    },
   },
   block: {
     // Convert H1 to H2 since we already have H1 in hero section (SEO best practice: only one H1 per page)
