@@ -98,6 +98,32 @@ const RelatedBlogs = dynamic(
   }
 );
 
+// Lazy YouTube component - only loads when user scrolls near it (saves 1.5MB of JS)
+const LazyYouTubeVideo = dynamic(
+  () => import("@/components/video/LazyYouTubeVideo"),
+  {
+    ssr: false,
+    loading: () => (
+      <section className="my-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+            <div className="relative w-full aspect-video bg-gray-900 flex items-center justify-center">
+              <div className="text-white text-center">
+                <div className="mb-4">
+                  <svg className="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </div>
+                <p className="text-sm">Click to load video</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ),
+  }
+);
+
 export const metadata: Metadata = {
   title:
     "Best Gallbladder Surgeon in Delhi - Dr. Kapil Agrawal | 23 Years Experience | 7000+ Surgeries",
@@ -450,7 +476,7 @@ export default function GallbladderSurgeryPage() {
               </div>
             </section>
 
-            {/* What is Gallbladder Image */}
+            {/* What is Gallbladder Image - Optimized sizes to reduce 25 KiB */}
             <section className="mb-12">
               <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl bg-gray-50">
                 <Image
@@ -460,11 +486,10 @@ export default function GallbladderSurgeryPage() {
                   fill
                   className="object-contain object-center"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
-                  quality={85}
+                  quality={70}
                   loading="lazy"
                   decoding="async"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                  fetchPriority="low"
                 />
               </div>
             </section>
@@ -510,24 +535,11 @@ export default function GallbladderSurgeryPage() {
               </p>
             </section>
 
-            {/* Optimized YouTube Video Section - Lazy loaded */}
-            <section className="my-12">
-              <div className="max-w-5xl mx-auto">
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-                  <div className="relative w-full aspect-video bg-gray-900">
-                    <iframe
-                      src="https://www.youtube.com/embed/NBP2vClykfs?si=VVlGY3EaXALUcMQH&modestbranding=1&rel=0&showinfo=0&loading=lazy"
-                      title="Dr. Kapil Agrawal - Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic & Robotic Surgery"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                      loading="lazy"
-                      style={{ border: 0 }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
+            {/* YouTube Video Section - Deferred to reduce TBT and unused JS (1.5MB) */}
+            <LazyYouTubeVideo
+              videoId="NBP2vClykfs"
+              title="Dr. Kapil Agrawal - Best Gallbladder Surgeon in Delhi | Advanced Laparoscopic & Robotic Surgery"
+            />
 
             {/* Types of Gallbladder Surgery */}
             <section>
@@ -836,7 +848,7 @@ export default function GallbladderSurgeryPage() {
                     fill
                     className="object-contain object-center"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={85}
+                    quality={75}
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
