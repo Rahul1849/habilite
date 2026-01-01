@@ -10,13 +10,15 @@ import KeyTakeaways from '@/components/blog/KeyTakeaways'
 import AboutDoctorSection from '@/components/blog/AboutDoctorSection'
 import TableOfContents from '@/components/blog/TableOfContents'
 import { TableOfContentsItem } from '@/lib/utils/generateTOCFromPortableText'
+import MarkdownContent from '@/components/blog/MarkdownContent'
+import { generateTableOfContents } from '@/lib/utils/generateTableOfContents'
 
 type SanityBlog = {
   _id: string
   title?: string
   slug?: string
   image?: any
-  content?: any
+  content?: any // Can be PortableText blocks or markdown string
   author?: string
   publishedAt?: string
   readTime?: number
@@ -57,6 +59,17 @@ export default function SanitySingleBlog({ post, tableOfContents = [], relatedPo
 
   const imageUrl = post.image ? urlForImage(post.image).width(1600).height(900).url() : null
   const postUrl = `/post/${post.slug}`
+
+  // Check if content is a markdown string or PortableText blocks
+  const isMarkdownString = typeof post.content === 'string'
+  const isPortableText = Array.isArray(post.content) && post.content.length > 0 && post.content[0]?._type
+
+  // Generate TOC from markdown if content is a string and TOC is empty
+  const finalTableOfContents = tableOfContents.length > 0 
+    ? tableOfContents 
+    : (isMarkdownString && post.content) 
+      ? generateTableOfContents(post.content)
+      : []
 
   return (
     <article className="min-h-screen bg-white">
@@ -141,9 +154,9 @@ export default function SanitySingleBlog({ post, tableOfContents = [], relatedPo
                 </Link>
 
                 {/* Table of Contents - Mobile Only */}
-                {tableOfContents && tableOfContents.length > 0 && (
+                {finalTableOfContents && finalTableOfContents.length > 0 && (
                   <div className="mb-6 lg:hidden">
-                    <TableOfContents items={tableOfContents} />
+                    <TableOfContents items={finalTableOfContents} />
                   </div>
                 )}
 
@@ -166,7 +179,13 @@ export default function SanitySingleBlog({ post, tableOfContents = [], relatedPo
                     prose-blockquote:border-l-4 prose-blockquote:border-[#0891b2] prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:my-8
                     prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8">
                     {post.content ? (
-                      <PortableText value={post.content} components={portableTextComponents} />
+                      isMarkdownString ? (
+                        <MarkdownContent content={post.content} />
+                      ) : isPortableText ? (
+                        <PortableText value={post.content} components={portableTextComponents} />
+                      ) : (
+                        <p className="text-gray-500 italic">No content available</p>
+                      )
                     ) : (
                       <p className="text-gray-500 italic">No content available</p>
                     )}
@@ -213,9 +232,9 @@ export default function SanitySingleBlog({ post, tableOfContents = [], relatedPo
             {/* Sidebar */}
             <aside className="lg:col-span-1 space-y-6">
               {/* Table of Contents - Desktop Only */}
-              {tableOfContents && tableOfContents.length > 0 && (
+              {finalTableOfContents && finalTableOfContents.length > 0 && (
                 <div className="hidden lg:block">
-                  <TableOfContents items={tableOfContents} />
+                  <TableOfContents items={finalTableOfContents} />
                 </div>
               )}
 

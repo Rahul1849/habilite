@@ -242,9 +242,16 @@ export default async function BlogPostPage({ params }: Props) {
   // If found in Sanity, ALWAYS use it (even if body is missing - title/image changes should show)
   // This ensures changes in Sanity Studio always appear, even if body is empty
   if (sanityPost && sanityPost._id) {
-    // Generate TOC from PortableText content
+    // Generate TOC from content - check if it's markdown string or PortableText blocks
+    const isMarkdownString = typeof sanityPost.content === 'string'
+    const isPortableText = Array.isArray(sanityPost.content) && sanityPost.content.length > 0 && sanityPost.content[0]?._type
+    
     const tableOfContents = sanityPost.content 
-      ? generateTOCFromPortableText(sanityPost.content)
+      ? (isMarkdownString 
+          ? generateTableOfContents(sanityPost.content)
+          : isPortableText
+            ? generateTOCFromPortableText(sanityPost.content)
+            : [])
       : []
 
     // Fetch related posts from Sanity
