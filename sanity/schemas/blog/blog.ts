@@ -70,21 +70,21 @@ export default defineType({
         Rule.max(200).warning("Keep it under 200 characters"),
     }),
 
-    // ✅ PORTABLE TEXT FIELD WITH TABLE & CHART SUPPORT
+    // ✅ PORTABLE TEXT FIELD WITH TABLE, CHART & YOUTUBE VIDEO SUPPORT
     // This field enables rich content editing with the "+" button in Sanity Studio.
-    // Editors can add text blocks, images, tables, and charts.
+    // Editors can add text blocks, images, tables, charts, and YouTube videos.
     // 
     // HOW TO USE:
     // 1. Click in the "Full Content" field below
     // 2. Type some text to create a block
     // 3. Press Enter to create a new line - the "+" button will appear
-    // 4. Click the "+" button to see options: Text, Image, Table, Chart
+    // 4. Click the "+" button to see options: Text, Image, Table, Chart, YouTube Video
     // 5. You can also click between existing blocks to insert new blocks
     defineField({
       name: "content",
       title: "Full Content",
       type: "array",
-      description: "Rich content editor with support for text, images, tables, and charts. Type some text, then press Enter and click the '+' button that appears to add tables or charts.",
+      description: "Rich content editor with support for text, images, tables, charts, and YouTube videos. Type some text, then press Enter and click the '+' button that appears to add tables, charts, or videos.",
       of: [
         { 
           type: "block",
@@ -142,6 +142,10 @@ export default defineType({
               type: "string",
             }),
           ],
+        },
+        {
+          type: "youtube",
+          title: "YouTube Video",
         },
       ],
     }),

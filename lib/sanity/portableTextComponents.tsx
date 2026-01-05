@@ -2,9 +2,56 @@ import Image from "next/image";
 import { PortableTextComponents, PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@portabletext/types";
 import { getImageUrl } from "./utils";
+import OptimizedYouTubeVideo from "@/components/video/OptimizedYouTubeVideo";
+
+// Helper function to extract YouTube video ID from URL
+function getYouTubeVideoId(url: string): string | null {
+  if (!url) return null;
+  
+  // Match various YouTube URL formats
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/,
+  ];
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
+  }
+  
+  return null;
+}
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
+    youtube: ({ value }: { value: any }) => {
+      if (!value?.url) return null;
+      
+      const videoId = getYouTubeVideoId(value.url);
+      if (!videoId) {
+        console.warn('Invalid YouTube URL:', value.url);
+        return (
+          <div className="my-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <p className="text-red-700 text-sm">Invalid YouTube URL. Please check the video URL.</p>
+          </div>
+        );
+      }
+      
+      return (
+        <div className="my-8 md:my-12 w-full flex justify-center">
+          <div className="w-full max-w-4xl mx-auto px-4">
+            <OptimizedYouTubeVideo
+              videoId={videoId}
+              title={value.title || "YouTube Video"}
+              description={value.description}
+            />
+          </div>
+        </div>
+      );
+    },
     image: ({ value }: { value: any }) => {
       const imageUrl = getImageUrl(value);
       if (!imageUrl) return null;
