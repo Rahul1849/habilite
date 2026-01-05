@@ -414,23 +414,40 @@ export default async function BlogPostPage({ params }: Props) {
     )
   }
 
-  // Fallback to static data - THIS SHOULD ALWAYS EXECUTE IF SANITY POST HAS NO CONTENT
-  console.log('📄 ===== FALLBACK TO STATIC DATA =====')
+  // Fallback to static data for CONTENT ONLY, but use Sanity data for metadata (title, etc.)
+  console.log('📄 ===== FALLBACK TO STATIC DATA FOR CONTENT =====')
   console.log('📄 Looking for static blog post with slug:', slug)
   
-  const post = getBlogPostBySlug(slug)
-  if (!post) {
+  const staticPost = getBlogPostBySlug(slug)
+  if (!staticPost) {
     console.error('❌ Static blog post not found for slug:', slug)
     console.error('💡 Available slugs (first 10):', blogPosts.slice(0, 10).map(p => p.slug))
     notFound()
   }
   
-  console.log('✅ Static blog post found:', {
+  // Use Sanity post data if available (for title, metadata, etc.), but static data for content
+  const post = sanityPost && sanityPost._id ? {
+    ...staticPost,
+    // Override with Sanity data for title and metadata
+    title: sanityPost.title || staticPost.title,
+    excerpt: sanityPost.excerpt || staticPost.excerpt,
+    seoTitle: sanityPost.seoTitle || staticPost.seoTitle,
+    seoDescription: sanityPost.seoDescription || staticPost.seoDescription,
+    author: sanityPost.author || staticPost.author,
+    publishedDate: sanityPost.publishedAt || staticPost.publishedDate,
+    readTime: sanityPost.readTime || staticPost.readTime,
+    image: sanityPost.image ? urlForImage(sanityPost.image).url() : staticPost.image,
+    category: sanityPost.category?.title || staticPost.category,
+    // Keep static content since Sanity has no content
+    content: staticPost.content,
+  } : staticPost
+  
+  console.log('✅ Using blog post data:', {
     title: post.title,
     slug: post.slug,
+    source: sanityPost && sanityPost._id ? 'Sanity (title) + Static (content)' : 'Static (all)',
     hasContent: !!post.content,
     contentLength: post.content?.length || 0,
-    contentPreview: post.content?.substring(0, 100) || 'N/A'
   })
 
   const relatedPosts = getRelatedPosts(slug)
