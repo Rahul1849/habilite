@@ -266,31 +266,35 @@ export default async function BlogPostPage({ params }: Props) {
   let sanityBlogContent: string | any[] | null = null
   
   if (sanityPost && sanityPost._id) {
-    // Prioritize portableContent over content (new field over legacy)
+    // Check both portableContent and content fields
+    // content field is an array (Portable Text blocks) in the current schema
     const portableContent = sanityPost.portableContent
-    let legacyContent = sanityPost.content
+    const contentField = sanityPost.content
     
-    // Handle edge case: if legacyContent is an array (incorrectly stored), try to convert it
-    // This can happen if data was migrated incorrectly
-    if (Array.isArray(legacyContent)) {
-      console.warn('⚠️ Legacy content field contains array instead of string - this is invalid data')
-      console.warn('💡 The content field should be a text string, not an array. Falling back to static data.')
-      legacyContent = null // Treat as invalid
-    }
+    // Check if content is Portable Text array (current schema format)
+    const hasPortableTextContent = Array.isArray(contentField) && contentField.length > 0 && contentField[0]?._type
     
-    // STRICT check: must have actual content, not just empty strings/arrays
-    const hasPortableContent = Array.isArray(portableContent) && portableContent.length > 0
-    const hasLegacyContent = typeof legacyContent === 'string' && legacyContent.trim().length > 0
+    // Check if content is markdown string (legacy format)
+    const hasMarkdownContent = typeof contentField === 'string' && contentField.trim().length > 0
     
-    // Only use Sanity if we have valid content
-    if (hasPortableContent) {
+    // Check if portableContent field exists (alternative field name)
+    const hasPortableContentField = Array.isArray(portableContent) && portableContent.length > 0
+    
+    // Use content in priority: portableContent field > content array (Portable Text) > content string (markdown)
+    if (hasPortableContentField) {
       sanityBlogContent = portableContent
       shouldUseSanity = true
-      console.log('✅ Using Sanity post with portableContent (blocks)')
-    } else if (hasLegacyContent) {
-      sanityBlogContent = legacyContent
+      console.log('✅ Using Sanity post with portableContent field (blocks)')
+    } else if (hasPortableTextContent) {
+      // content field is Portable Text array (current schema)
+      sanityBlogContent = contentField
       shouldUseSanity = true
-      console.log('✅ Using Sanity post with legacy content (markdown)')
+      console.log('✅ Using Sanity post with content field (Portable Text blocks)')
+    } else if (hasMarkdownContent) {
+      // content field is markdown string (legacy format)
+      sanityBlogContent = contentField
+      shouldUseSanity = true
+      console.log('✅ Using Sanity post with content field (markdown string)')
     } else {
       // NO valid content - force fallback
       shouldUseSanity = false
@@ -300,11 +304,12 @@ export default async function BlogPostPage({ params }: Props) {
         portableContentExists: !!portableContent,
         portableContentType: Array.isArray(portableContent) ? 'array' : typeof portableContent,
         portableContentLength: Array.isArray(portableContent) ? portableContent.length : (typeof portableContent === 'string' ? portableContent.length : 0),
-        legacyContentExists: !!legacyContent,
-        legacyContentType: typeof legacyContent,
-        legacyContentLength: typeof legacyContent === 'string' ? legacyContent.length : 0,
-        legacyContentIsArray: Array.isArray(legacyContent),
-        shouldUseSanity: false // Explicitly set
+        contentFieldExists: !!contentField,
+        contentFieldType: Array.isArray(contentField) ? 'array' : typeof contentField,
+        contentFieldLength: Array.isArray(contentField) ? contentField.length : (typeof contentField === 'string' ? contentField.length : 0),
+        hasPortableTextContent,
+        hasMarkdownContent,
+        shouldUseSanity: false
       })
     }
   } else {
