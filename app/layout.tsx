@@ -124,9 +124,7 @@ export default function RootLayout({
       <head>
         {/* LCP Optimization: Preload hero images - critical for mobile */}
         {/* Homepage hero image - LCP element - MUST be first resource */}
-        <link rel="preload" as="image" href="/images/dr.webp" fetchPriority="high" />
-        {/* Gallbladder page hero image - LCP element */}
-        <link rel="preload" as="image" href="/images/gallbladder-surgeon-delhi-india.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/dr.webp" fetchPriority="high" imagesrcset="/images/dr.webp 1x" />
         {/* DNS prefetch for fonts (preconnect moved after critical CSS) */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />

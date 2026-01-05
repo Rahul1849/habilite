@@ -139,9 +139,13 @@
   }
 
   /* Gradient animations - non-critical, can be deferred */
+  /* Use composited properties for better performance */
   .animate-gradient {
     background-size: 200% 100%;
     animation: gradient-shift 3s linear infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   .animate-gradient-smooth {
