@@ -459,11 +459,32 @@ export default async function BlogPostPage({ params }: Props) {
   const tableOfContents = post.tableOfContents && post.tableOfContents.length > 0
     ? post.tableOfContents
     : generateTableOfContents(post.content)
+  
+  // Process image URL - handle both Sanity image objects and string paths
+  let imageSrc: string | null = null
+  if (post.image) {
+    try {
+      if (typeof post.image === 'string') {
+        // Static image path
+        imageSrc = post.image.startsWith('/') ? post.image : `/images/${post.image}`
+      } else if (post.image && typeof post.image === 'object' && 'asset' in post.image) {
+        // Sanity image object - convert to URL
+        const imageUrl = urlForImage(post.image).width(1600).height(900).url()
+        if (imageUrl) {
+          imageSrc = imageUrl
+        }
+      }
+    } catch (error) {
+      console.error('Error processing image:', error)
+      imageSrc = null
+    }
+  }
+  
   const articleSchema = getArticleSchema({
     title: post.title,
     description: post.excerpt,
     url: `/post/${post.slug}`,
-    image: post.image,
+    image: imageSrc || post.image,
     datePublished: post.publishedDate,
     dateModified: post.updatedDate,
     keywords: post.tags,
@@ -490,42 +511,28 @@ export default async function BlogPostPage({ params }: Props) {
       {faqSchema && <StructuredData data={faqSchema} />}
       <div className="pt-20 pb-16">
         {/* Hero Image - No text overlay, full image display without cropping */}
-        {post.image && (() => {
-          // Handle both Sanity image objects and string paths
-          let imageSrc: string
-          if (typeof post.image === 'string') {
-            // Static image path
-            imageSrc = post.image.startsWith('/') ? post.image : `/images/${post.image}`
-          } else if (post.image && typeof post.image === 'object' && post.image.asset) {
-            // Sanity image object - convert to URL
-            imageSrc = urlForImage(post.image).width(1600).height(900).url()
-          } else {
-            return null
-          }
-          
-          return (
-            <div className="container-custom mb-8">
-              <div className="relative w-full rounded-xl bg-gray-50 overflow-visible">
-                <div className="relative w-full max-w-5xl mx-auto">
-                  <Image
-                    src={imageSrc}
-                    alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
-                    width={1200}
-                    height={675}
-                    className="w-full h-auto object-contain"
-                    priority
-                    fetchPriority="high"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
-                    quality={85}
-                    loading="eager"
-                    decoding="async"
-                    style={{ objectFit: 'contain', display: 'block' }}
-                  />
-                </div>
+        {imageSrc && (
+          <div className="container-custom mb-8">
+            <div className="relative w-full rounded-xl bg-gray-50 overflow-visible">
+              <div className="relative w-full max-w-5xl mx-auto">
+                <Image
+                  src={imageSrc}
+                  alt={`${post.title} - Expert medical article by Dr. Kapil Agrawal`}
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto object-contain"
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
+                  quality={85}
+                  loading="eager"
+                  decoding="async"
+                  style={{ objectFit: 'contain', display: 'block' }}
+                />
               </div>
             </div>
-          )
-        })()}
+          </div>
+        )}
 
         {/* Title and Metadata Below Image */}
         <div className="container-custom mb-8">
