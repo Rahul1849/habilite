@@ -328,17 +328,203 @@ async function seedBlogs() {
   }
 }
 
+/**
+ * Converts markdown text to Portable Text blocks
+ * Handles headings, paragraphs, lists, bold, italic
+ */
 function toBlocks(texts) {
   if (!texts) return [];
-  const arr = Array.isArray(texts) ? texts : [texts];
-  const filtered = arr.filter((t) => typeof t === "string" && t.trim().length > 0);
-  if (!filtered.length) return [];
-  return filtered.map((t, idx) => ({
-    _type: "block",
-    _key: makeKey("blk", idx),
-    style: "normal",
-    children: [{ _type: "span", text: t || "" }],
-  }));
+  
+  // If it's an array (for services), use simple conversion
+  if (Array.isArray(texts)) {
+    const filtered = texts.filter((t) => typeof t === "string" && t.trim().length > 0);
+    if (!filtered.length) return [];
+    return filtered.map((t, idx) => ({
+      _type: "block",
+      _key: makeKey("blk", idx),
+      style: "normal",
+      children: [{ _type: "span", text: t || "" }],
+    }));
+  }
+  
+  // If it's a string (for blogs), convert markdown to portable text
+  if (typeof texts !== "string") return [];
+  
+  const text = texts.trim();
+  if (!text) return [];
+  
+  const lines = text.split('\n');
+  const blocks = [];
+  let currentParagraph = [];
+  let inList = false;
+  let listType = null;
+  let listItems = [];
+  let blockIndex = 0;
+  
+  function flushParagraph() {
+    if (currentParagraph.length > 0) {
+      const paraText = currentParagraph.join(' ').trim();
+      if (paraText) {
+        blocks.push(createTextBlock(paraText, 'normal', blockIndex++));
+      }
+      currentParagraph = [];
+    }
+  }
+  
+  function flushList() {
+    if (listItems.length > 0 && listType) {
+      listItems.forEach((item) => {
+        const cleanItem = item.replace(/^[-*]\s+|^\d+\.\s+/, '').trim();
+        if (cleanItem) {
+          blocks.push({
+            _type: 'block',
+            _key: makeKey('blk', blockIndex++),
+            style: 'normal',
+            listItem: listType,
+            children: parseInlineText(cleanItem),
+          });
+        }
+      });
+      listItems = [];
+      listType = null;
+      inList = false;
+    }
+  }
+  
+  function parseInlineText(text) {
+    if (!text) return [{ _type: 'span', text: '' }];
+    
+    const children = [];
+    let i = 0;
+    let currentText = '';
+    
+    while (i < text.length) {
+      // Check for bold **text**
+      if (i < text.length - 1 && text[i] === '*' && text[i + 1] === '*') {
+        if (currentText) {
+          children.push({ _type: 'span', text: currentText });
+          currentText = '';
+        }
+        const endBold = text.indexOf('**', i + 2);
+        if (endBold !== -1) {
+          const boldText = text.substring(i + 2, endBold);
+          children.push({
+            _type: 'span',
+            text: boldText,
+            marks: ['strong'],
+          });
+          i = endBold + 2;
+          continue;
+        }
+      }
+      
+      // Check for italic *text*
+      if (text[i] === '*' && (i === 0 || text[i - 1] !== '*') && (i === text.length - 1 || text[i + 1] !== '*')) {
+        if (currentText) {
+          children.push({ _type: 'span', text: currentText });
+          currentText = '';
+        }
+        const endItalic = text.indexOf('*', i + 1);
+        if (endItalic !== -1 && (endItalic === text.length - 1 || text[endItalic + 1] !== '*')) {
+          const italicText = text.substring(i + 1, endItalic);
+          children.push({
+            _type: 'span',
+            text: italicText,
+            marks: ['em'],
+          });
+          i = endItalic + 1;
+          continue;
+        }
+      }
+      
+      currentText += text[i];
+      i++;
+    }
+    
+    if (currentText) {
+      children.push({ _type: 'span', text: currentText });
+    }
+    
+    return children.length > 0 ? children : [{ _type: 'span', text: text }];
+  }
+  
+  function createTextBlock(text, style = 'normal', keyIndex = 0) {
+    return {
+      _type: 'block',
+      _key: makeKey('blk', keyIndex),
+      style,
+      children: parseInlineText(text),
+    };
+  }
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    if (!line) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+    
+    // Headings
+    if (line.startsWith('####')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^####+\s*/, '').trim();
+      if (text) {
+        blocks.push(createTextBlock(text, 'h4', blockIndex++));
+      }
+    } else if (line.startsWith('###')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^###+\s*/, '').trim();
+      if (text) {
+        blocks.push(createTextBlock(text, 'h3', blockIndex++));
+      }
+    } else if (line.startsWith('##')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^##+\s*/, '').trim();
+      if (text) {
+        blocks.push(createTextBlock(text, 'h2', blockIndex++));
+      }
+    } else if (line.startsWith('#')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^#+\s*/, '').trim();
+      if (text) {
+        blocks.push(createTextBlock(text, 'h1', blockIndex++));
+      }
+    }
+    // Lists
+    else if (line.match(/^[-*]\s+/)) {
+      flushParagraph();
+      if (!inList || listType !== 'bullet') {
+        flushList();
+        inList = true;
+        listType = 'bullet';
+      }
+      listItems.push(line);
+    } else if (line.match(/^\d+\.\s+/)) {
+      flushParagraph();
+      if (!inList || listType !== 'number') {
+        flushList();
+        inList = true;
+        listType = 'number';
+      }
+      listItems.push(line);
+    }
+    // Regular paragraph
+    else {
+      flushList();
+      currentParagraph.push(line);
+    }
+  }
+  
+  flushParagraph();
+  flushList();
+  
+  return blocks.length > 0 ? blocks : [createTextBlock('', 'normal', blockIndex)];
 }
 
 async function seedPages() {

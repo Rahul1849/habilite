@@ -76,15 +76,243 @@ async function uploadImage(url?: string, label?: string) {
   }
 }
 
-function toBlocks(text?: string) {
+/**
+ * Converts markdown text to Portable Text blocks
+ * Handles headings, paragraphs, lists, bold, italic, and tables
+ */
+// Helper to generate unique keys
+function makeKey(prefix = 'k', idx = 0): string {
+  return `${prefix}-${idx}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function toBlocks(text?: string): any[] {
   if (!text) return [];
-  return [
-    {
-      _type: "block",
-      style: "normal",
-      children: [{ _type: "span", text }],
-    },
-  ];
+  
+  const lines = text.trim().split('\n');
+  const blocks: any[] = [];
+  let currentParagraph: string[] = [];
+  let inList = false;
+  let listType: 'bullet' | 'number' | null = null;
+  let listItems: string[] = [];
+  let blockIndex = 0;
+  
+  function flushParagraph() {
+    if (currentParagraph.length > 0) {
+      const text = currentParagraph.join(' ').trim();
+      if (text) {
+        blocks.push(createTextBlock(text, 'normal', blockIndex++));
+      }
+      currentParagraph = [];
+    }
+  }
+  
+  function flushList() {
+    if (listItems.length > 0 && listType) {
+      listItems.forEach((item, index) => {
+        const cleanItem = item.replace(/^[-*]\s+|^\d+\.\s+/, '').trim();
+        if (cleanItem) {
+          blocks.push({
+            _type: 'block',
+            _key: makeKey('blk', blockIndex++),
+            style: 'normal',
+            listItem: listType,
+            children: parseInlineText(cleanItem),
+          });
+        }
+      });
+      listItems = [];
+      listType = null;
+      inList = false;
+    }
+  }
+  
+  function parseInlineText(text: string): any[] {
+    if (!text) return [{ _type: 'span', text: '' }];
+    
+    const children: any[] = [];
+    let i = 0;
+    let currentText = '';
+    
+    while (i < text.length) {
+      // Check for bold **text**
+      if (i < text.length - 1 && text[i] === '*' && text[i + 1] === '*') {
+        // Flush current text
+        if (currentText) {
+          children.push({ _type: 'span', text: currentText });
+          currentText = '';
+        }
+        
+        // Find closing **
+        const endBold = text.indexOf('**', i + 2);
+        if (endBold !== -1) {
+          const boldText = text.substring(i + 2, endBold);
+          children.push({
+            _type: 'span',
+            text: boldText,
+            marks: ['strong'],
+          });
+          i = endBold + 2;
+          continue;
+        }
+      }
+      
+      // Check for italic *text* (single asterisk, not part of **)
+      if (text[i] === '*' && (i === 0 || text[i - 1] !== '*') && (i === text.length - 1 || text[i + 1] !== '*')) {
+        // Flush current text
+        if (currentText) {
+          children.push({ _type: 'span', text: currentText });
+          currentText = '';
+        }
+        
+        // Find closing *
+        const endItalic = text.indexOf('*', i + 1);
+        if (endItalic !== -1 && (endItalic === text.length - 1 || text[endItalic + 1] !== '*')) {
+          const italicText = text.substring(i + 1, endItalic);
+          children.push({
+            _type: 'span',
+            text: italicText,
+            marks: ['em'],
+          });
+          i = endItalic + 1;
+          continue;
+        }
+      }
+      
+      currentText += text[i];
+      i++;
+    }
+    
+    // Add remaining text
+    if (currentText) {
+      children.push({ _type: 'span', text: currentText });
+    }
+    
+    return children.length > 0 ? children : [{ _type: 'span', text: text }];
+  }
+  
+  function createTextBlock(text: string, style: string = 'normal', keyIndex: number = 0): any {
+    return {
+      _type: 'block',
+      _key: makeKey('blk', keyIndex),
+      style,
+      children: parseInlineText(text),
+    };
+  }
+  
+  function parseTable(tableLines: string[]): any {
+    if (tableLines.length < 2) return null;
+    
+    // For now, convert table to a simple text representation
+    // Tables can be manually recreated in Sanity Studio using the table block
+    const tableText = tableLines.join('\n');
+    return createTextBlock(tableText, 'normal', blockIndex++);
+  }
+  
+  let i = 0;
+  let tableLines: string[] = [];
+  let inTable = false;
+  
+  while (i < lines.length) {
+    const line = lines[i].trim();
+    const nextLine = i + 1 < lines.length ? lines[i + 1].trim() : '';
+    
+    // Skip empty lines
+    if (!line) {
+      flushParagraph();
+      flushList();
+      i++;
+      continue;
+    }
+    
+    // Check for table (starts with | and has separator line with ---)
+    if (line.startsWith('|') && nextLine.includes('---')) {
+      flushParagraph();
+      flushList();
+      inTable = true;
+      tableLines = [line];
+      i++;
+      continue;
+    }
+    
+    if (inTable) {
+      if (line.startsWith('|')) {
+        tableLines.push(line);
+        i++;
+        continue;
+      } else {
+        // End of table
+        const tableBlock = parseTable(tableLines);
+        if (tableBlock) {
+          blocks.push(tableBlock);
+        }
+        tableLines = [];
+        inTable = false;
+        // Continue processing this line
+      }
+    }
+    
+    // Headings
+    if (line.startsWith('####')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^####+\s*/, '').trim();
+      if (text) blocks.push(createTextBlock(text, 'h4', blockIndex++));
+    } else if (line.startsWith('###')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^###+\s*/, '').trim();
+      if (text) blocks.push(createTextBlock(text, 'h3', blockIndex++));
+    } else if (line.startsWith('##')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^##+\s*/, '').trim();
+      if (text) blocks.push(createTextBlock(text, 'h2', blockIndex++));
+    } else if (line.startsWith('#')) {
+      flushParagraph();
+      flushList();
+      const text = line.replace(/^#+\s*/, '').trim();
+      if (text) blocks.push(createTextBlock(text, 'h1', blockIndex++));
+    }
+    // Lists
+    else if (line.match(/^[-*]\s+/)) {
+      flushParagraph();
+      if (!inList || listType !== 'bullet') {
+        flushList();
+        inList = true;
+        listType = 'bullet';
+      }
+      listItems.push(line);
+    } else if (line.match(/^\d+\.\s+/)) {
+      flushParagraph();
+      if (!inList || listType !== 'number') {
+        flushList();
+        inList = true;
+        listType = 'number';
+      }
+      listItems.push(line);
+    }
+    // Regular paragraph
+    else {
+      flushList();
+      currentParagraph.push(line);
+    }
+    
+    i++;
+  }
+  
+  // Flush any remaining content
+  flushParagraph();
+  flushList();
+  
+  // If we ended in a table, add it
+  if (inTable && tableLines.length > 0) {
+    const tableBlock = parseTable(tableLines);
+    if (tableBlock) {
+      blocks.push(tableBlock);
+    }
+  }
+  
+  return blocks.length > 0 ? blocks : [createTextBlock('', 'normal', blockIndex)];
 }
 
 async function upsert(doc: any) {

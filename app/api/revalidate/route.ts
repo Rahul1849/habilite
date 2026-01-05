@@ -97,13 +97,62 @@ export async function POST(request: NextRequest) {
           }
         }
         
+        // Always revalidate the listing page
+        revalidatePath('/post', 'page')
+        console.log('✅ Revalidated blog listing page: /post')
+        
+        // Revalidate individual blog post page if we have the slug
         if (slug) {
           revalidatePath(`/post/${slug}`, 'page')
           console.log(`✅ Revalidated blog post: /post/${slug}`)
-        } else {
-          console.warn('⚠️ Could not extract slug from webhook payload, revalidating all blog pages')
-          // Revalidate all blog listing pages as fallback
-          revalidatePath('/post', 'page')
+        }
+        
+        // ALWAYS try to fetch and revalidate the specific blog post by document ID
+        // This ensures the individual page gets revalidated even if slug extraction fails
+        const client = getClient(false)
+        if (client && body._id) {
+          try {
+            // Fetch the blog post to get its slug
+            const blogDoc = await client.fetch(
+              `*[_id == $id][0]{ "slug": slug.current }`,
+              { id: body._id }
+            )
+            if (blogDoc?.slug) {
+              revalidatePath(`/post/${blogDoc.slug}`, 'page')
+              console.log(`✅ Revalidated blog post by ID: /post/${blogDoc.slug}`)
+            } else {
+              console.warn(`⚠️ Could not get slug for document: ${body._id}`)
+              // Fallback: revalidate all blog posts
+              const allBlogs = await client.fetch(
+                `*[_type == "blog"]{ "slug": slug.current }`
+              )
+              for (const blog of allBlogs) {
+                if (blog.slug) {
+                  revalidatePath(`/post/${blog.slug}`, 'page')
+                }
+              }
+              console.log(`✅ Revalidated all ${allBlogs.length} blog posts as fallback`)
+            }
+          } catch (error) {
+            console.error('❌ Error fetching blog document:', error)
+            // Last resort: revalidate all blog posts
+            try {
+              const allBlogs = await client.fetch(
+                `*[_type == "blog"]{ "slug": slug.current }`
+              )
+              for (const blog of allBlogs) {
+                if (blog.slug) {
+                  revalidatePath(`/post/${blog.slug}`, 'page')
+                }
+              }
+              console.log(`✅ Revalidated all ${allBlogs.length} blog posts as last resort`)
+            } catch (fallbackError) {
+              console.error('❌ Error in fallback revalidation:', fallbackError)
+            }
+          }
+        } else if (!slug) {
+          console.warn('⚠️ Could not extract slug and no document ID available')
+          console.warn('💡 Make sure webhook projection includes: { "_id": _id, "slug": slug }')
         }
         
         // Also revalidate category pages that might show this blog

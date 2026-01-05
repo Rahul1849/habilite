@@ -49,7 +49,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (client) {
     try {
       // Fetch with fresh data - useCdn: false in client config ensures no CDN cache
-      const sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
+      // Add timestamp to force fresh fetch (cache busting)
+      const sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { 
+        slug,
+        _timestamp: Date.now() // Cache busting
+      })
       if (sanityPost) {
         post = sanityPost
         if (sanityPost.image) {
@@ -210,7 +214,11 @@ export default async function BlogPostPage({ params }: Props) {
   if (client) {
     try {
       // Fetch with fresh data - useCdn: false in client config ensures no CDN cache
-      sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { slug })
+      // Force fresh fetch by adding timestamp to params (cache busting)
+      sanityPost = await client.fetch(blogBySlugQueryWithAuthor, { 
+        slug,
+        _timestamp: Date.now() // Cache busting parameter
+      })
       
       // Log what we got from Sanity for debugging
       if (sanityPost) {
