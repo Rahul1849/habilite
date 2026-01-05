@@ -4,6 +4,7 @@ export default defineType({
   name: "youtube",
   title: "YouTube Video",
   type: "object",
+  icon: () => "▶️", // YouTube play icon
   fields: [
     defineField({
       name: "url",
