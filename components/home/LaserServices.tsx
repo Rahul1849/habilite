@@ -66,7 +66,7 @@ export default function LaserServices() {
                   href={service.link}
                   className="inline-flex text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
                 >
-                  {`Read about ${service.title} treatment options`}
+                  {`Read about ${service.title}`}
                 </Link>
               </div>
             </div>

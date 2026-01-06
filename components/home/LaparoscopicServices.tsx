@@ -66,7 +66,7 @@ export default function LaparoscopicServices() {
                   href={service.link}
                   className="inline-flex text-sm font-semibold text-[#f56336] hover:text-[#ff8c5a] transition-colors"
                 >
-                  {`Learn more about ${service.title} in Delhi`}
+                  {`Learn more about ${service.title}`}
                 </Link>
               </div>
             </div>
