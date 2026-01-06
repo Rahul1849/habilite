@@ -461,8 +461,12 @@ export default async function HomePage() {
         bannerSubtitle={homeData?.bannerSubtitle}
         bannerImage={homeData?.bannerImage}
       />
-      <MeetDoctor />
-      <EducationAffiliations />
+      <div className="defer-section">
+        <MeetDoctor />
+      </div>
+      <div className="defer-section">
+        <EducationAffiliations />
+      </div>
       <div className="defer-section">
         <LaparoscopicServices />
       </div>

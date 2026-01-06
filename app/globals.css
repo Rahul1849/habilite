@@ -78,6 +78,11 @@
     contain-intrinsic-size: 600px;
   }
 
+  /* Optimize rendering for below-the-fold content */
+  .defer-section > * {
+    content-visibility: auto;
+  }
+
   /* Non-critical animations - loaded after initial render to reduce CSS blocking */
   @keyframes fadeIn {
     from {

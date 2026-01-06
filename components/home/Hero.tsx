@@ -39,7 +39,7 @@ export default function Hero({ bannerTitle, bannerSubtitle, bannerImage }: HeroP
                 sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 384px"
                 priority
                 fetchPriority="high"
-                quality={75}
+                quality={70}
                 loading="eager"
                 decoding="sync"
                 unoptimized={false}
