@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { PlayIcon } from "@sanity/icons";
 
 export default defineType({
   name: "youtube",
@@ -50,9 +51,8 @@ export default defineType({
       return {
         title: title || "YouTube Video",
         subtitle: videoId ? `Video ID: ${videoId}` : url || "No URL",
-        media: videoId
-          ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
-          : undefined,
+        // Use PlayIcon instead of thumbnail URL to avoid React component error
+        media: PlayIcon,
       };
     },
   },

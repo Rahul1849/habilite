@@ -1,4 +1,6 @@
 import { defineType, defineField } from "sanity";
+import { PlayIcon } from "@sanity/icons";
+import React from "react";
 
 export default defineType({
   name: "blog",
@@ -80,11 +82,52 @@ export default defineType({
     // 3. Press Enter to create a new line - the "+" button will appear
     // 4. Click the "+" button to see options: Text, Image, Table, Chart, YouTube Video
     // 5. You can also click between existing blocks to insert new blocks
+    // 6. Use the YouTube button in the toolbar to quickly insert YouTube videos
     defineField({
       name: "content",
       title: "Full Content",
       type: "array",
       description: "Rich content editor with support for text, images, tables, charts, and YouTube videos. Type some text, then press Enter and click the '+' button that appears to add tables, charts, or videos.",
+      components: {
+        input: (props: any) => {
+          // Extend the default Portable Text input without fully overriding it
+          // We use renderDefault which is the recommended way to extend components
+          return props.renderDefault({
+            ...props,
+            // Add custom block insertion handler
+            // The Portable Text editor will use this to add toolbar actions
+            schema: {
+              ...props.schema,
+              // Extend schema options to include custom block actions
+              options: {
+                ...props.schema?.options,
+                // Custom block actions for the toolbar
+                blockActions: [
+                  ...(props.schema?.options?.blockActions || []),
+                  {
+                    icon: PlayIcon,
+                    title: "Insert YouTube Video",
+                    action: (editor: any) => {
+                      // Insert YouTube block at current cursor position
+                      if (editor?.insert) {
+                        editor.insert({
+                          _type: "youtube",
+                          url: "",
+                        });
+                      } else if (editor?.insertBlock) {
+                        editor.insertBlock({
+                          _type: "youtube",
+                          url: "",
+                        });
+                      }
+                    },
+                  },
+                ],
+              },
+            },
+          });
+        },
+      },
       of: [
         { 
           type: "block",
