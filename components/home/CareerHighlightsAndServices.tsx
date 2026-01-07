@@ -37,48 +37,48 @@ const careerHighlights = [
 
 const treatments = [
   {
-    label: "Laparoscopic Gallbladder Surgery",
+    label: "Gallbladder Surgery in Delhi",
     href: "/best-gallbladder-stone-surgeon-delhi",
   },
   {
-    label: "Laparoscopic Hernia Surgery",
-    href: "/best-hernia-surgeon-in-delhi",
+    label: "Inguinal Hernia Surgery in Delhi",
+    href: "/best-inguinal-hernia-surgeon-in-delhi",
   },
   {
-    label: "Laparoscopic Appendix Surgery",
+    label: "Umbilical Hernia Surgery in Delhi",
+    href: "/best-umbilical-hernia-surgeon-in-delhi",
+  },
+  {
+    label: "Appendix Surgery in Delhi",
     href: "/best-appendix-surgeon-in-delhi",
   },
+ 
+  { label: "Robotic Surgery in Delhi", href: "/best-robotic-surgeon-in-delhi" },
+  
+  { label: "Gastric Sleeve Surgery in Delhi", href: "/bariatric-surgeon-in-delhi-india" },
+  { label: "Mini Gastric Bypass Surgery in Delhi", href: "/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy" },
+
+  { label: "Surgery for Diabetes in Delhi", href: "/surgery-for-diabetes" },
+  { label: "Allurion Balloon Treatment in Delhi", href: "/bariatrics/allurion-balloon" },
+  { label: "Spatz Balloon Treatment in Delhi", href: "/bariatrics/spatz-balloon" },
   {
-    label: "Laparoscopic Rectal Prolapse Surgery",
-    href: "/best-rectal-prolapse-surgeon-in-delhi",
-  },
-  { label: "Robotic Surgery", href: "/best-robotic-surgeon-in-delhi" },
-  { label: "Laser Surgery", href: "/best-laser-surgeon-in-delhi" },
-  { label: "Bariatric Surgery", href: "/bariatric-surgeon-in-delhi-india" },
-  {
-    label: "Non-Surgical Weight Loss Program",
-    href: "/medical-weight-loss-program",
-  },
-  { label: "Surgery for Diabetes", href: "/surgery-for-diabetes" },
-  { label: "IntraGastric Balloon", href: "/endoscopic-intra-gastric-balloon" },
-  { label: "Allurion Balloon", href: "/bariatrics/allurion-balloon" },
-  { label: "Spatz Balloon", href: "/bariatrics/spatz-balloon" },
-  {
-    label: "Laser Hemorrhoids / Piles Surgery",
+    label: "Laser Piles Surgery in Delhi",
     href: "/best-laser-piles-surgeon-in-delhi",
   },
   {
-    label: "Laser Anal Fistula Surgery",
+    label: "Laser Anal Fistula Surgery in Delhi",
     href: "/best-laser-fistula-treatment",
   },
   {
-    label: "Laser Pilonidal Sinus Surgery",
+    label: "Laser Pilonidal Sinus Surgery in Delhi",
     href: "/best-laser-pilonidal-sinus-treatment",
   },
-  { label: "Laser Anal Fissure Surgery", href: "/laser-surgery/anal-fissure" },
-  { label: "Laser Lipoma Surgery", href: "/lipoma-treatment" },
-  { label: "Laser Circumcision", href: "/laser-zsr-circumcision" },
-  { label: "Phimosis Treatment", href: "/best-phimosis-treatment-in-delhi" },
+  { label: "Laser Anal Fissure Surgery in Delhi", href: "/laser-surgery/anal-fissure" },
+  { label: "Laser Lipoma Surgery in Delhi", href: "/lipoma-treatment" },
+  { label: "ZSR Circumcision in Delhi", href: "/laser-zsr-circumcision" },
+  { label: "Phimosis Treatment in Delhi", href: "/best-phimosis-treatment-in-delhi" },
+    { label: "Botox Treatment for Anal Fissure in Delhi", href: "/best-phimosis-treatment-in-delhi" },
+
 ];
 
 export default function CareerHighlightsAndServices() {
