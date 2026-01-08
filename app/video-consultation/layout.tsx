@@ -37,12 +37,8 @@ const videoConsultationSchema = {
     description: 'Best Laparoscopic and Robotic Surgeon in Delhi, India with 23 years experience. Senior Consultant at Apollo Group of Hospitals.',
     url: 'https://www.habiliteclinics.com',
     telephone: '+91-99994-56455',
-    medicalSpecialty: [
-      'Laparoscopic Surgery',
-      'Robotic Surgery',
-      'Bariatric Surgery',
-      'Laser Surgery',
-    ],
+    // Use schema.org MedicalSpecialty enumeration values
+    medicalSpecialty: ['Surgical', 'Gastroenterologic', 'DietNutrition'],
   },
   areaServed: {
     '@type': 'Country',

@@ -184,7 +184,7 @@ export default function LipomaTreatmentPage() {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">best-lipoma-treatment-delhi</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Best Lipoma Treatment in <span className="text-[#0891b2]">Delhi</span>
+              Best Lipoma Treatment in <span className="text-[#0891b2]">Delhi </span> | Dr Kapil Agrawal
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
               Minimal Cuts & No Stitches | Trusted Doctors & Clinics | 0% Interest EMI Facility | All Insurance Covered | Same Day Discharge | Complete Recovery in 1-2 Days

@@ -60,13 +60,8 @@ export const medicalOrganizationSchema = {
     '@type': 'City',
     name: 'Delhi'
   },
-  medicalSpecialty: [
-    'Laparoscopic Surgery',
-    'Hernia Surgery',
-    'Bariatric Surgery',
-    'Robotic Surgery',
-    'Laser Surgery'
-  ]
+  // Use schema.org MedicalSpecialty enumeration values
+  medicalSpecialty: ['Surgical', 'Gastroenterologic', 'DietNutrition']
 }
 
 export const physicianSchema = {
@@ -78,13 +73,8 @@ export const physicianSchema = {
   description: 'Dr. Kapil Agrawal is a renowned laparoscopic and robotic surgeon in Delhi, India, with 23+ years of experience and 7000+ successful surgeries. Specializes in hernia surgery, bariatric surgery, and advanced minimally invasive procedures.',
   url: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
   image: 'https://www.habiliteclinics.com/images/dr-kapil-agrawal.png',
-  medicalSpecialty: [
-    'Laparoscopic Surgery',
-    'Robotic Surgery',
-    'Hernia Surgery',
-    'Bariatric Surgery',
-    'Laser Surgery'
-  ],
+  // Use schema.org MedicalSpecialty enumeration values
+  medicalSpecialty: ['Surgical', 'Gastroenterologic', 'DietNutrition'],
   telephone: '+91-99994-56455',
   email: 'contact@habiliteclinics.com',
   knowsAbout: [

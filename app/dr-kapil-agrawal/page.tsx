@@ -186,7 +186,7 @@ export default function DrKapilAgrawalPage() {
                 </Link>
               </div>
 
-              {doctorServices.length > 0 && (
+              {/* {doctorServices.length > 0 && (
                 <div className="bg-white rounded-xl shadow-lg p-6">
                   <h3 className="text-xl font-bold mb-4 text-gray-900">Treatments Offered</h3>
                   <ul className="space-y-2">
@@ -202,18 +202,9 @@ export default function DrKapilAgrawalPage() {
                     ))}
                   </ul>
                 </div>
-              )}
+              )} */}
 
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Languages</h3>
-                <div className="flex flex-wrap gap-2">
-                  {doctorData.languages.map((lang, index) => (
-                    <span key={index} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                      {lang}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              
             </div>
           </div>
 

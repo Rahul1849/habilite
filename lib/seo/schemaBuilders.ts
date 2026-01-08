@@ -138,14 +138,11 @@ export const getPhysicianSchema = () => ({
   description: `Dr. Kapil Agrawal is the best laparoscopic, bariatric, and robotic surgeon in Delhi, India with 23+ years of experience and 7000+ successful surgeries. ${DOCTOR_INFO.title} at Habilite Clinics. Expert in advanced minimally invasive procedures including laparoscopic surgery, bariatric surgery, and robotic surgery.`,
   url: DOCTOR_INFO.url,
   image: absoluteUrl(DOCTOR_INFO.image),
+  // Use schema.org enumeration values (MedicalSpecialty)
   medicalSpecialty: [
-    'Laparoscopic Surgery',
-    'Robotic Surgery',
-    'Bariatric Surgery',
-    'General Surgery',
-    'Colorectal Surgery',
-    'Weight Loss Surgery',
-    'Metabolic Surgery',
+    'Surgical',
+    'Gastroenterologic',
+    'DietNutrition', // closest match for bariatric / weight-loss focus
   ],
   award: DOCTOR_INFO.award,
   sameAs: DOCTOR_INFO.sameAs,
@@ -250,7 +247,8 @@ export const getServiceSchema = (options: ServiceSchemaOptions) => {
       alternateName: 'Dr. Kapil Agrawal - Best Laparoscopic Surgeon in Delhi',
       url: DOCTOR_INFO.url,
       image: absoluteUrl(DOCTOR_INFO.image),
-      medicalSpecialty: ['Laparoscopic Surgery', 'General Surgery', 'Bariatric Surgery', 'Colorectal Surgery'],
+      // Use schema.org MedicalSpecialty enumeration values
+      medicalSpecialty: ['Surgical', 'Gastroenterologic', 'DietNutrition'],
       telephone: CLINIC_INFO.telephonePrimary,
       email: CLINIC_INFO.emails[0],
     },

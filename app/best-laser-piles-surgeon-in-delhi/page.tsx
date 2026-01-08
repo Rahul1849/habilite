@@ -246,9 +246,8 @@ export default function BestLaserPilesSurgeonPage() {
               best-piles-surgeon-delhi
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Best Piles Surgeon in{" "}
-              <span className="text-[#0891b2]">Delhi</span> | Advanced Laser
-              Treatment for Piles
+              Best Surgeon for Piles in{" "}
+              <span className="text-[#0891b2]">Delhi</span> - Dr. Kapil Agrawal
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
               Dr. Kapil Agrawal is the best piles surgeon in Delhi. With his

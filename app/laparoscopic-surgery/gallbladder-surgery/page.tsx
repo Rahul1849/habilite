@@ -317,8 +317,7 @@ export default function GallbladderSurgeryPage() {
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Best Gallbladder Surgeon in{" "}
-              <span className="text-[#0891b2]">Delhi</span> | Advanced
-              Laparoscopic & Robotic Surgery by Dr Kapil Agrawal
+              <span className="text-[#0891b2]">Delhi</span> - Dr. Kapil Agrawal
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
               Dr Kapil Agrawal is one of the most prominent and best gallbladder

@@ -46,7 +46,8 @@ export const DOCTOR_INFO = {
     'https://www.youtube.com/@drkapilagrawal',
     'https://www.facebook.com/habiliteclinics',
   ],
-  medicalSpecialty: ['LaparoscopicSurgery', 'GeneralSurgery', 'BariatricSurgery', 'ColorectalSurgery'],
+  // Use schema.org MedicalSpecialty enumeration values
+  medicalSpecialty: ['Surgical', 'Gastroenterologic', 'DietNutrition'],
   education: ['Apollo Hospitals Group', 'Royal College of Surgeons (Hon)'],
   award: 'Best Laparoscopic Surgeon in Delhi NCR',
   worksFor: `${SITE_URL}#organization`,
