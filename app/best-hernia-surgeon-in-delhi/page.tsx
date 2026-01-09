@@ -190,7 +190,6 @@ const procedureSchema = getMedicalProcedureSchema({
 
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "/" },
-  { name: "Treatments", url: "/treatments" },
   { name: "Hernia Surgery", url: "/best-hernia-surgeon-in-delhi" },
 ]);
 

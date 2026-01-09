@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sleeve Gastrectomy Surgeon in Delhi - Dr. Kapil Agrawal | Gastric Sleeve Surgery',
     description: 'Expert sleeve gastrectomy surgery by Dr. Kapil Agrawal in Delhi. Popular, low maintenance bariatric procedure with excellent weight loss results.',
-    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery',
   },
 }
 

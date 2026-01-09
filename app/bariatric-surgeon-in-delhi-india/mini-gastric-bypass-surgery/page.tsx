@@ -25,10 +25,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Mini Gastric Bypass Surgery in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
     description: 'Expert mini gastric bypass surgery by Dr. Kapil Agrawal in Delhi. Simplified version of gastric bypass with similar results and fewer complications.',
-    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/mini-gastric-bypass-surgery',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/mini-gastric-bypass-surgery',
   },
 }
 

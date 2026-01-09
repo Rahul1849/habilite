@@ -1,77 +1,77 @@
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, CheckCircle2, Clock, User, TrendingUp, Heart, Activity, Zap, Shield, Users } from 'lucide-react'
+import { Award, CheckCircle2, Clock, User, TrendingUp, Heart, Activity, Zap, Shield } from 'lucide-react'
 import ConsultationForm from '@/components/forms/ConsultationForm'
 import CallUsButton from '@/components/lead-generation/CallUsButton'
 import CostCalculator from '@/components/lead-generation/CostCalculator'
 import PostOperativeCare from '@/components/lead-generation/PostOperativeCare'
 import WhatsAppExpertChat from '@/components/lead-generation/WhatsAppExpertChat'
-import SpatzBalloonFAQ from './SpatzBalloonFAQ'
+import AllurionBalloonFAQ from './AllurionBalloonFAQ'
 const RecoveryTimeline = dynamic(() => import('@/components/services/RecoveryTimeline'), { ssr: false })
 
 export const metadata: Metadata = {
-  title: 'Best Spatz Balloon Expert in Delhi – Dr. Kapil Agrawal | Adjustable Gastric Balloon',
-  description: 'Expert Spatz Adjustable Gastric Balloon treatment in Delhi, India by Dr. Kapil Agrawal. Adjustable gastric balloon that stays up to 8 months. 23 years experience, internationally trained expert. Book consultation.',
+  title: 'Best Allurion Balloon Surgeon in Delhi - Dr. Kapil Agrawal | Swallowable Gastric Balloon',
+  description: 'Expert Allurion Balloon treatment in Delhi, India by Dr. Kapil Agrawal. Swallowable gastric balloon that doesn\'t require endoscopy or anesthesia. Automatically deflates after 16 weeks. 23 years experience, 7000+ successful procedures. Book consultation.',
   keywords: [
-    'spatz balloon delhi',
-    'spatz balloon surgeon delhi',
-    'best spatz balloon specialist delhi',
-    'adjustable gastric balloon delhi',
-    'spatz balloon treatment delhi',
-    'adjustable intragastric balloon delhi',
+    'allurion balloon delhi',
+    'allurion balloon surgeon delhi',
+    'best allurion balloon specialist delhi',
+    'swallowable gastric balloon delhi',
+    'allurion balloon treatment delhi',
+    'gastric balloon without endoscopy delhi',
     'non-surgical weight loss delhi',
-    'Dr. Kapil Agrawal spatz balloon',
-    'spatz balloon india',
+    'Dr. Kapil Agrawal allurion balloon',
+    'allurion balloon india',
   ],
   openGraph: {
-    title: 'Best Spatz Balloon Expert in Delhi – Dr. Kapil Agrawal | Adjustable Gastric Balloon',
-    description: 'Expert Spatz Adjustable Gastric Balloon treatment by Dr. Kapil Agrawal in Delhi. Adjustable gastric balloon that stays up to 8 months. 23 years experience.',
-    url: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon/best-spatz-surgeon-in-delhi',
+    title: 'Best Allurion Balloon Surgeon in Delhi - Dr. Kapil Agrawal | Swallowable Gastric Balloon',
+    description: 'Expert Allurion Balloon treatment by Dr. Kapil Agrawal in Delhi. Swallowable gastric balloon without endoscopy or anesthesia. 23 years experience.',
+    url: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon/allurion-balloon-treatment',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon/best-spatz-surgeon-in-delhi',
+    canonical: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon/allurion-balloon-treatment',
   },
 }
 
-export default function SpatzBalloonPage() {
+export default function AllurionBalloonPage() {
   return (
     <div className="pt-20 pb-16">
-
       {/* Hero Content */}
       <div className="container-custom mb-12">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">best-spatz-balloon-surgeon-delhi</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-[#0891b2]/80 mb-3">best-allurion-balloon-surgeon-delhi</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Best Spatz Balloon Expert in <span className="text-[#0891b2]">Delhi</span> – Dr. Kapil Agrawal
+            Best Allurion Balloon Surgeon in <span className="text-[#0891b2]">Delhi</span>
           </h1>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fef3c7] border border-[#f59e0b]/40 text-sm font-semibold text-[#92400e] mb-4">
             <Award size={16} className="text-[#f59e0b]" />
-            <span>Expert Surgeon with Over 23 Years of Experience</span>
+            <span>Dr. Kapil Agrawal - Expert Surgeon with Over 23 Years of Experience</span>
           </div>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
-            Dr. Kapil Agrawal is famous throughout the Delhi NCR region for offering the Spatz Adjustable Gastric Balloon procedure. With experience of 23+ years in both surgical and non-surgical obesity care, he offers advanced treatment to patients seeking flexible, long-lasting weight loss solutions.
+            Dr. Kapil Agrawal is well known across Delhi for handling the Allurion Balloon with experience and care. He got more than 23 years of experience doing both surgery and non-surgery weight loss. Many patients have already taken help from him and lost weight safely, with modern methods that don&apos;t need cuts or operations. His advanced training and results in swallowable, no-endoscopy balloon therapy have made him a leading name in the field of obesity treatment in India.
           </p>
           
           {/* Key Features */}
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            {[
-              { icon: Award, text: 'Expert Surgeon with Over 23 Years of Experience' },
-              { icon: Users, text: 'Internationally Trained Expert - Dr. Kapil Agrawal' },
-              { icon: Clock, text: 'Painless Surgery for Fast Recovery' },
-              { icon: CheckCircle2, text: 'Cashless Insurance Facility Available' },
-              { icon: TrendingUp, text: 'Discharge within 24 hours' },
-            ].map((highlight) => (
-              <div
-                key={highlight.text}
-                className="flex items-center gap-2 bg-[#0891b2]/10 px-4 py-2 rounded-full"
-              >
-                <highlight.icon className="text-[#0891b2] w-5 h-5" />
-                <span className="text-sm font-medium text-gray-700">
-                  {highlight.text}
-                </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+              <div className="flex items-center justify-center mb-2">
+                <Award className="text-[#0891b2]" size={24} />
               </div>
-            ))}
+              <p className="text-sm font-semibold text-gray-900">Internationally Trained Expert</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+              <div className="flex items-center justify-center mb-2">
+                <Clock className="text-[#0891b2]" size={24} />
+              </div>
+              <p className="text-sm font-semibold text-gray-900">Discharge within 24 hours</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+              <div className="flex items-center justify-center mb-2">
+                <CheckCircle2 className="text-[#0891b2]" size={24} />
+              </div>
+              <p className="text-sm font-semibold text-gray-900">Cashless Insurance Facility</p>
+            </div>
           </div>
           
           <div className="mt-6">
@@ -86,8 +86,8 @@ export default function SpatzBalloonPage() {
           <div className="mb-8">
             <div className="relative w-full aspect-[21/9] sm:aspect-[21/9] md:aspect-[21/8] lg:aspect-[21/8] overflow-hidden rounded-xl">
               <Image
-                src="/images/best-spartz-balloon-specialist-in-delhi.png"
-                alt="Top 5 Best Spatz Balloon Specialist in Delhi - Dr. Kapil Agrawal | Adjustable Gastric Balloon | Non-Surgical Weight Loss | 23 Years Experience | Apollo Hospital | Book Consultation"
+                src="/images/best-allurion-intragastric-balloon-specialist-in-delhi.webp"
+                alt="Top 5 Best Allurion Intragastric Balloon Specialist in Delhi - Dr. Kapil Agrawal | Swallowable Gastric Balloon | Non-Surgical Weight Loss | 23 Years Experience | Apollo Hospital | Book Consultation"
                 fill
                 className="object-contain object-center"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
@@ -99,123 +99,123 @@ export default function SpatzBalloonPage() {
         </div>
 
         <div className="max-w-5xl mx-auto space-y-12">
-          {/* About Spatz Balloon */}
+          {/* About Allurion Balloon */}
           <section className="w-full">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">What Is a Spatz Intragastric Balloon?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">What Is Allurion Intragastric Balloon</h2>
             <p className="text-gray-700 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
-              Spatz is a special type of weight loss balloon that goes inside the stomach through endoscopy and stays up to 8 months. The main difference? It is adjustable. That means if a patient feels too full or not full enough, the balloon size can be changed later. This helps in improving results and reducing early side effects.
+              Allurion Intragastric Balloon is a non-surgical, swallow-type balloon that helps with weight loss by reducing hunger and helping with portion control. The person swallows a small capsule that has a balloon inside, deflated. After it reaches the stomach, the balloon is filled with gas and takes up space, so the person starts feeling full quickly.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
-              Unlike swallowable balloons, Spatz requires light sedation and endoscopy for placing and removing the balloon. Once inside, it takes up space in the stomach, reducing how much you can eat and making you feel full faster.
+              This balloon is different from the regular ones used before—there&apos;s no need for anaesthesia or endoscopy to put it in or take it out. It stays in the stomach for about 16 weeks, then slowly deflates on its own and leaves the body through the digestive system.
             </p>
             
             {/* Cost Calculator */}
             <div className="my-8 flex justify-center">
               <div className="w-full max-w-5xl">
-                <CostCalculator serviceName="Spatz Balloon" />
+                <CostCalculator serviceName="Allurion Balloon" />
               </div>
             </div>
           </section>
 
-          {/* Who Can Consider */}
+          {/* Who Can Benefit */}
           <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Who Can Consider a Spatz Balloon?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Who Can Benefit from the Allurion Balloon</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              According to Dr. Kapil Agrawal, the Spatz Balloon is ideal for:
+              According to Dr. Kapil Agrawal, ideal candidates for the Allurion Balloon procedure include:
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex items-start">
                 <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700">Those with a BMI of 27 to 40+</span>
+                <span className="text-gray-700">Individuals with a BMI between 27 and 40+</span>
               </div>
               <div className="flex items-start">
                 <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700">Individuals seeking longer assistance (up to 8 months)</span>
+                <span className="text-gray-700">People who have struggled with long-term weight loss</span>
               </div>
               <div className="flex items-start">
                 <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700">Failed previous weight reduction programs</span>
+                <span className="text-gray-700">Those who want to avoid surgery</span>
               </div>
               <div className="flex items-start">
                 <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700">Individuals getting ready for bariatric surgery</span>
+                <span className="text-gray-700">Patients preparing for future bariatric surgery</span>
               </div>
               <div className="flex items-start">
                 <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                <span className="text-gray-700">Those who are comfortable with endoscopy and desire increased control of outcomes</span>
+                <span className="text-gray-700">People at risk of diabetes, high BP, joint pain, PCOS, or sleep apnea</span>
               </div>
             </div>
             
             <div className="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
               <p className="text-gray-700 text-sm">
-                <strong>Note:</strong> Individuals suffering from stomach ulcers, bleeding disorders, or previous stomach surgery are not good candidates.
+                <strong>Note:</strong> Patients should not have active ulcers, strictures, or gastrointestinal bleeding disorders.
               </p>
             </div>
           </section>
 
-          {/* How the Procedure Works */}
+          {/* Step-by-Step Process */}
           <section className="w-full max-w-5xl mx-auto bg-gradient-to-br from-[#0891b2]/5 to-[#06b6d4]/5 rounded-2xl border border-[#0891b2]/10 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900 text-center">How the Spatz Balloon Procedure Works</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900 text-center">Step-by-Step Process of the Allurion Balloon Treatment</h2>
             
             <div className="space-y-6">
               <div className="bg-white rounded-lg p-6 border-l-4 border-[#0891b2]">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                   <Activity className="text-[#0891b2] mr-2" size={24} />
-                  Check-up First
+                  Pre-treatment Evaluation
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Your BMI, medical history, and fitness for endoscopy are reviewed.
+                  Complete medical history review, blood tests, and BMI check to determine eligibility
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-6 border-l-4 border-[#0891b2]">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                   <Zap className="text-[#0891b2] mr-2" size={24} />
-                  Balloon Placement
+                  Swallowing the Capsule
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  The balloon is inserted into the stomach via endoscopy under light sedation.
+                  Patient swallows a capsule containing the deflated balloon under supervision
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-6 border-l-4 border-[#0891b2]">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                   <TrendingUp className="text-[#0891b2] mr-2" size={24} />
-                  Balloon Filling
+                  Inflation Phase
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  The balloon is inflated with sterile saline once placed in the stomach.
+                  The balloon is expanded with gas after it settles in the stomach.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-6 border-l-4 border-[#0891b2]">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                   <Shield className="text-[#0891b2] mr-2" size={24} />
-                  Adjustment
+                  X-ray Confirmation
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Later, the size can be changed to improve comfort or boost results.
+                  Imaging is done to verify proper placement and inflation
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-6 border-l-4 border-[#0891b2]">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                   <Clock className="text-[#0891b2] mr-2" size={24} />
-                  Monitoring
+                  Observation
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Regular check-ins to see weight, side effects, and progress.
+                  Patient is monitored for up to 2 hours before discharge
                 </p>
               </div>
 
               <div className="bg-white rounded-lg p-6 border-l-4 border-[#0891b2]">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                   <Heart className="text-[#0891b2] mr-2" size={24} />
-                  Balloon Removal
+                  Natural Expulsion
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  After 8 months, the balloon is removed by another endoscopy.
+                  Around the 4-month mark, the balloon deflates by itself and passes out naturally through the gastrointestinal tract.
                 </p>
               </div>
             </div>
@@ -223,15 +223,15 @@ export default function SpatzBalloonPage() {
 
           {/* Benefits */}
           <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Benefits of the Spatz Adjustable Balloon</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Benefits of the Allurion Gastric Balloon</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Longer Duration</p>
-                    <p className="text-gray-700 text-sm">Balloon stays up to 8 months for extended weight loss</p>
+                    <p className="font-semibold text-gray-900 mb-1">No Anaesthesia or Surgery</p>
+                    <p className="text-gray-700 text-sm">Entirely non-invasive procedure with no cuts, stitches, or hospital stay</p>
                   </div>
                 </div>
               </div>
@@ -240,8 +240,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Adjustable Volume</p>
-                    <p className="text-gray-700 text-sm">Unique feature to increase or decrease size based on need</p>
+                    <p className="font-semibold text-gray-900 mb-1">Quick Placement</p>
+                    <p className="text-gray-700 text-sm">The procedure takes less than 30 minutes and is completed in a single outpatient visit</p>
                   </div>
                 </div>
               </div>
@@ -250,8 +250,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Higher Average Weight Loss</p>
-                    <p className="text-gray-700 text-sm">Many patients lose 15–25 kg</p>
+                    <p className="font-semibold text-gray-900 mb-1">Natural Exit</p>
+                    <p className="text-gray-700 text-sm">No endoscopic removal needed as the balloon exits on its own</p>
                   </div>
                 </div>
               </div>
@@ -260,8 +260,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Better Tolerability</p>
-                    <p className="text-gray-700 text-sm">If discomfort happens, the size can be reduced</p>
+                    <p className="font-semibold text-gray-900 mb-1">Reduces Appetite</p>
+                    <p className="text-gray-700 text-sm">The balloon limits stomach space, making the patient feel full with less food</p>
                   </div>
                 </div>
               </div>
@@ -270,8 +270,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Non-Surgical</p>
-                    <p className="text-gray-700 text-sm">Still doesn&apos;t need any cutting or stitches</p>
+                    <p className="font-semibold text-gray-900 mb-1">Improves Portion Control</p>
+                    <p className="text-gray-700 text-sm">Encourages better calorie intake habits and mindful eating</p>
                   </div>
                 </div>
               </div>
@@ -280,8 +280,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Custom Plans</p>
-                    <p className="text-gray-700 text-sm">Diet and follow-up care personalised as per weight goals</p>
+                    <p className="font-semibold text-gray-900 mb-1">Helps Rewire Eating Patterns</p>
+                    <p className="text-gray-700 text-sm">The 4-month support program aids in resetting long-term behaviours</p>
                   </div>
                 </div>
               </div>
@@ -290,8 +290,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Global Results</p>
-                    <p className="text-gray-700 text-sm">Used in more than 45 countries, with good safety profile</p>
+                    <p className="font-semibold text-gray-900 mb-1">Effective Weight Loss</p>
+                    <p className="text-gray-700 text-sm">Average weight loss is 10–15 kg within 16 weeks, depending on compliance</p>
                   </div>
                 </div>
               </div>
@@ -300,8 +300,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Advanced Endoscopic Care</p>
-                    <p className="text-gray-700 text-sm">Done by trained gastro-bariatric experts only</p>
+                    <p className="font-semibold text-gray-900 mb-1">Globally Recognised Technology</p>
+                    <p className="text-gray-700 text-sm">Developed in Europe and widely adopted in the US</p>
                   </div>
                 </div>
               </div>
@@ -310,19 +310,29 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Now Accessible Across Delhi NCR</p>
-                    <p className="text-gray-700 text-sm">The procedure is offered at various Habilite locations</p>
+                    <p className="font-semibold text-gray-900 mb-1">Smart Monitoring Tools</p>
+                    <p className="text-gray-700 text-sm">Supported by Allurion&apos;s AI-powered app, digital scales, and trackers</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg p-6">
+                <div className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Care Continuity via Habilite Clinics</p>
+                    <p className="text-gray-700 text-sm">Coordinated by Habilite&apos;s clinical team for seamless scheduling, care follow-ups, and emergency assistance</p>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Aftercare and Patient Support */}
+          {/* Post-Treatment Support */}
           <section className="w-full max-w-5xl mx-auto bg-gradient-to-br from-[#0891b2]/5 to-[#06b6d4]/5 rounded-2xl border border-[#0891b2]/10 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Aftercare and Patient Support</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Post-Treatment Support and Monitoring</h2>
             <p className="text-gray-700 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
-              Once the balloon is inside, the journey doesn&apos;t stop. Dr. Kapil Agrawal&apos;s team supports with:
+              Once the balloon is placed, Dr. Kapil Agrawal&apos;s team offers structured aftercare:
             </p>
             
             <div className="space-y-4">
@@ -330,8 +340,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Meal Planning</p>
-                    <p className="text-gray-700 text-sm">Weekly diet changes by experienced nutritionists</p>
+                    <p className="font-semibold text-gray-900 mb-1">Tailored Meal Planning</p>
+                    <p className="text-gray-700 text-sm">Personalised nutrition plans designed by in-house dietitians</p>
                   </div>
                 </div>
               </div>
@@ -340,8 +350,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Lifestyle Coaching</p>
-                    <p className="text-gray-700 text-sm">Experts to help change patterns that cause weight gain</p>
+                    <p className="font-semibold text-gray-900 mb-1">Lifestyle Tracking Tools</p>
+                    <p className="text-gray-700 text-sm">Allurion&apos;s mobile app and Bluetooth-connected devices help monitor food intake, weight, and activity</p>
                   </div>
                 </div>
               </div>
@@ -350,8 +360,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Medical Follow-Ups</p>
-                    <p className="text-gray-700 text-sm">Regular checks and blood work</p>
+                    <p className="font-semibold text-gray-900 mb-1">Routine Medical Check-ins</p>
+                    <p className="text-gray-700 text-sm">Follow-up consultations with behavioural and medical specialists to track adherence and provide guidance</p>
                   </div>
                 </div>
               </div>
@@ -360,8 +370,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Balloon Adjustments</p>
-                    <p className="text-gray-700 text-sm">Extra visits allowed for filling or deflating the balloon</p>
+                    <p className="font-semibold text-gray-900 mb-1">24/7 Helpline Access</p>
+                    <p className="text-gray-700 text-sm">Patients can connect with the clinic team for any questions or concerns</p>
                   </div>
                 </div>
               </div>
@@ -370,18 +380,8 @@ export default function SpatzBalloonPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">Emergency Care</p>
-                    <p className="text-gray-700 text-sm">On-call help available for side effects or queries</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg p-6">
-                <div className="flex items-start">
-                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Clinic-Based Monitoring</p>
-                    <p className="text-gray-700 text-sm">All tools under one roof, from ECG to diet tracking</p>
+                    <p className="font-semibold text-gray-900 mb-1">Consistent Support from Habilite Clinics</p>
+                    <p className="text-gray-700 text-sm">The clinic&apos;s infrastructure ensures proper follow-up appointments and comprehensive wellness tracking</p>
                   </div>
                 </div>
               </div>
@@ -392,7 +392,7 @@ export default function SpatzBalloonPage() {
           <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Are There Any Side Effects?</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Most side effects typically occur in the first few days and can be managed with medication:
+              Mild side effects may occur during the first few days and generally resolve without intervention:
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -402,38 +402,38 @@ export default function SpatzBalloonPage() {
               </div>
               <div className="flex items-center">
                 <CheckCircle2 className="text-[#0891b2] mr-3 flex-shrink-0" size={18} />
-                <span className="text-gray-700">Upper belly discomfort</span>
+                <span className="text-gray-700">Mild abdominal cramps</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle2 className="text-[#0891b2] mr-3 flex-shrink-0" size={18} />
+                <span className="text-gray-700">Acid reflux</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle2 className="text-[#0891b2] mr-3 flex-shrink-0" size={18} />
+                <span className="text-gray-700">Temporary bloating</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle2 className="text-[#0891b2] mr-3 flex-shrink-0" size={18} />
                 <span className="text-gray-700">Vomiting</span>
               </div>
-              <div className="flex items-center">
-                <CheckCircle2 className="text-[#0891b2] mr-3 flex-shrink-0" size={18} />
-                <span className="text-gray-700">Mild bloating or reflux</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle2 className="text-[#0891b2] mr-3 flex-shrink-0" size={18} />
-                <span className="text-gray-700">Balloon intolerance (rare)</span>
-              </div>
             </div>
             
             <p className="text-gray-700 leading-relaxed mt-4">
-              Balloon volume can be reduced to ease symptoms.
+              These can be effectively managed with medication and rest.
             </p>
           </section>
 
           {/* Why Choose Dr. Kapil Agrawal */}
           <section className="w-full max-w-5xl mx-auto bg-gradient-to-br from-[#0891b2]/5 to-[#06b6d4]/5 rounded-2xl border border-[#0891b2]/10 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Why Choose Dr. Kapil Agrawal for Spatz Balloon in Delhi?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Why Choose Dr. Kapil Agrawal for the Allurion Balloon Treatment in Delhi</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Dr. Kapil is one of the few in Delhi trained in adjustable balloon therapy like Spatz. With deep endoscopic skills and an obesity care background, he handles both simple and complex cases with care. He&apos;s not just doing the balloon placement—he offers full support before and after, including diet changes, activity coaching, and emotional guidance.
+              With years of work in obesity care, Dr. Kapil Agrawal stands out in Delhi, among specialists offering Allurion Balloon treatment. He has been doing bariatric and endoscopy work for more than 23 years now. Many patients come to him who don&apos;t want surgery but still want proper weight loss treatment. He is trained in advanced global methods, so he follows safe and updated techniques.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              His clinic setup is supported by Habilite Clinics so appointments, emergencies, and follow-ups are well handled. He also listens. Plans are made not just from reports, but from what the patient feels, needs, and can manage long-term.
+              His team also helps a lot—it includes dieticians, hormone doctors, fitness people, and behaviour experts too. They all work together so that patient care is complete, not just one part. Dr. Kapil also listens to what the patient needs and makes the plan according to that. He doesn&apos;t just do the procedure and leave. He supports till the patient gets real, long-term results.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              He works with top hospitals in Delhi NCR like Apollo Group of Hospitals and has a full team of dieticians, bariatric-trained nurses, behaviour experts, and fitness guides. This makes the treatment well-rounded from placement to aftercare.
+              He is affiliated with premier hospitals all over Delhi NCR, with centres in South Delhi, Noida and Gurugram. His organization consists of trained bariatric personnel, nutritionists certified by their respective organizations, and behaviour counsellors, who assist patients at every stage of the treatment to ensure that outcomes are long-lasting and life-changing.
             </p>
           </section>
 
@@ -445,30 +445,24 @@ export default function SpatzBalloonPage() {
                 <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
-                  <p className="text-gray-700 text-sm">Most patients can return to normal activities within 1-2 days after Spatz balloon placement, with minimal discomfort. Discharge within 24 hours.</p>
+                  <p className="text-gray-700 text-sm">The Allurion Balloon is a daycare procedure. You can go home within a couple of hours after placement. Most patients can return to normal activities immediately with minimal discomfort.</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
-                  <p className="text-gray-700 text-sm">Regular follow-up appointments with nutrition counseling, balloon adjustments, and medical monitoring help ensure optimal weight loss results and long-term success.</p>
+                  <p className="text-gray-700 text-sm">Regular follow-up appointments with nutrition counseling, lifestyle tracking through Allurion&apos;s app, and medical monitoring help ensure optimal weight loss results and long-term success.</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Heart className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Lifestyle Support</p>
-                  <p className="text-gray-700 text-sm">Our team provides comprehensive support including tailored meal planning, lifestyle coaching, balloon adjustments, and 24/7 helpline access to help you achieve and maintain successful weight loss.</p>
+                  <p className="text-gray-700 text-sm">Our team provides comprehensive support including tailored meal planning, lifestyle tracking tools, and 24/7 helpline access to help you achieve and maintain successful weight loss.</p>
                 </div>
               </div>
             </div>
-          </section>
-
-          {/* Recovery Timeline */}
-          <section className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-md border border-[#0891b2]/10 p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Aftercare Milestones</h2>
-            <RecoveryTimeline title="Spatz Balloon Recovery Timeline" />
           </section>
         </div>
 
@@ -476,8 +470,8 @@ export default function SpatzBalloonPage() {
         <div className="max-w-5xl mx-auto mt-12">
           <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
             <ConsultationForm 
-              serviceName="Spatz Balloon"
-              serviceSlug="best-spatz-surgeon-in-delhi"
+              serviceName="Allurion Balloon"
+              serviceSlug="best-allurion-surgeon-in-delhi"
             />
           </div>
         </div>
@@ -489,14 +483,14 @@ export default function SpatzBalloonPage() {
 
         {/* WhatsApp Expert Chat */}
         <div className="mt-8">
-          <WhatsAppExpertChat serviceName="Spatz Balloon" />
+          <WhatsAppExpertChat serviceName="Allurion Balloon" />
         </div>
 
         {/* Contact Section */}
         <div className="max-w-5xl mx-auto mt-12 bg-white rounded-2xl shadow-lg border border-[#0891b2]/10 p-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 text-center">Contact Dr. Kapil Agrawal Today</h2>
           <p className="text-gray-700 leading-relaxed text-center max-w-3xl mx-auto mb-4">
-            Book your appointment with Dr. Kapil Agrawal, one of the best Spatz Balloon specialists in Delhi, India today to schedule your consultation.
+            Book your appointment with Dr. Kapil Agrawal, one of the best Allurion Balloon specialists in Delhi, India today to schedule your consultation.
           </p>
           <div className="text-center mt-6">
             <p className="text-gray-700 font-semibold mb-2">You can contact us on:</p>
@@ -507,12 +501,13 @@ export default function SpatzBalloonPage() {
         {/* FAQs */}
         <div className="container-custom space-y-12 mt-12">
           <div className="max-w-5xl mx-auto space-y-12">
-            <SpatzBalloonFAQ />
+            <AllurionBalloonFAQ />
           </div>
         </div>
       </div>
     </div>
   )
 }
+
 
 

@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 }
 
 export default function LegacyDuodenalJejunalBypassPage() {
-  redirect('/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass')
+  redirect('/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass-surgery')
 }

@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     title: 'Best Umbilical Hernia Surgeon in Delhi - Dr. Kapil Agrawal',
     description:
       'Expert laparoscopic and robotic umbilical hernia repair by Dr. Kapil Agrawal in Delhi. Painless surgery, high-quality mesh, 24-hour discharge.',
-    url: 'https://www.habiliteclinics.com/best-umbilical-hernia-surgeon-in-delhi',
+    url: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/umbilical-hernia-surgery',
     images: [
       {
         url: 'https://www.habiliteclinics.com/images/hernia-surgeon-delhi-india.webp',

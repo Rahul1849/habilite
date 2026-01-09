@@ -272,7 +272,7 @@ const procedureSchema = getMedicalProcedureSchema({
 
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "/" },
-  { name: "Treatments", url: "/treatments" },
+  
   { name: "Gallbladder Surgery", url: "/best-gallbladder-stone-surgeon-delhi" },
 ]);
 

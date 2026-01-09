@@ -104,7 +104,7 @@ export default function IntragastricBalloonPage() {
                   
                   </h3>
                   <p className="text-gray-700 mb-4">
-                    The <Link href="/endoscopic-intra-gastric-balloon/best-allurion-surgeon-in-delhi" className="text-[#0891b2] hover:underline font-semibold">Allurion Balloon</Link> is a revolutionary swallowable gastric balloon that doesn&apos;t require endoscopy, anesthesia, or surgical procedures. It offers the most convenient and comfortable gastric balloon experience.
+                    The <Link href="/endoscopic-intra-gastric-balloon/allurion-balloon-treatment" className="text-[#0891b2] hover:underline font-semibold">Allurion Balloon</Link> is a revolutionary swallowable gastric balloon that doesn&apos;t require endoscopy, anesthesia, or surgical procedures. It offers the most convenient and comfortable gastric balloon experience.
                   </p>
                   <div className="space-y-3">
                     <div>
@@ -135,7 +135,7 @@ export default function IntragastricBalloonPage() {
                     Spatz Balloon
                   </h3>
                   <p className="text-gray-700 mb-4">
-                    The <Link href="/endoscopic-intra-gastric-balloon/best-spatz-surgeon-in-delhi" className="text-[#0891b2] hover:underline font-semibold">Spatz Balloon</Link> is an advanced adjustable gastric balloon system that offers flexibility and extended treatment duration. It can be adjusted in size during the treatment period for personalized weight loss management.
+                    The <Link href="/endoscopic-intra-gastric-balloon/spatz-balloon-treatment" className="text-[#0891b2] hover:underline font-semibold">Spatz Balloon</Link> is an advanced adjustable gastric balloon system that offers flexibility and extended treatment duration. It can be adjusted in size during the treatment period for personalized weight loss management.
                   </p>
                   <div className="space-y-3">
                     <div>

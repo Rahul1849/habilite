@@ -11,6 +11,6 @@ export const metadata: Metadata = {
 }
 
 export default function LegacyRevisionSurgeryPage() {
-  redirect('/bariatric-surgeon-in-delhi-india/revision-surgeries')
+  redirect('/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery')
 }
 

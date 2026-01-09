@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Best Incisional Hernia Surgeon in Delhi - Dr. Kapil Agrawal',
     description:
       'Expert laparoscopic and robotic incisional hernia repair by Dr. Kapil Agrawal in Delhi. Painless surgery, high-quality mesh, 24-hour discharge.',
-    url: 'https://www.habiliteclinics.com/best-incisional-hernia-surgeon-in-delhi',
+    url: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/incisional-hernia-surgery',
     images: [
       {
         url: 'https://www.habiliteclinics.com/images/hernia-surgeon-delhi-india.webp',

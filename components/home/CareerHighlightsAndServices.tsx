@@ -55,12 +55,12 @@ const treatments = [
  
   { label: "Robotic Surgery in Delhi", href: "/best-robotic-surgeon-in-delhi" },
   
-  { label: "Gastric Sleeve Surgery in Delhi", href: "/bariatric-surgeon-in-delhi-india" },
-  { label: "Mini Gastric Bypass Surgery in Delhi", href: "/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy" },
+  { label: "Gastric Sleeve Surgery in Delhi", href: "/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery" },
+  { label: "Mini Gastric Bypass Surgery in Delhi", href: "/bariatric-surgeon-in-delhi-india/mini-gastric-bypass-surgery" },
 
   { label: "Surgery for Diabetes in Delhi", href: "/surgery-for-diabetes" },
-  { label: "Allurion Balloon Treatment in Delhi", href: "/bariatrics/allurion-balloon" },
-  { label: "Spatz Balloon Treatment in Delhi", href: "/bariatrics/spatz-balloon" },
+  { label: "Allurion Balloon Treatment in Delhi", href: "/endoscopic-intra-gastric-balloon/allurion-balloon-treatment" },
+  { label: "Spatz Balloon Treatment in Delhi", href: "/endoscopic-intra-gastric-balloon/spatz-balloon-treatment" },
   {
     label: "Laser Piles Surgery in Delhi",
     href: "/best-laser-piles-surgeon-in-delhi",

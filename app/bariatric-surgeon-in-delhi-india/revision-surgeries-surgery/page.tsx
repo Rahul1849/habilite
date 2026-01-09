@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Revision Bariatric Surgery in Delhi - Dr. Kapil Agrawal | Correcting Previous Weight Loss Surgery',
     description: 'Expert revision bariatric surgery by Dr. Kapil Agrawal in Delhi. Correcting and improving previous weight loss surgeries for better outcomes.',
-    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/revision-surgeries',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/revision-surgeries',
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery',
   },
 }
 

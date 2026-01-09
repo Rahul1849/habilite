@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Laparoscopic Surgery in Delhi - Dr. Kapil Agrawal',
     description: 'Expert laparoscopic surgery in Delhi by Dr. Kapil Agrawal. Advanced minimally invasive procedures with 23+ years experience.',
-    url: 'https://www.habiliteclinics.com/laparoscopic-surgery',
+    url: 'https://www.habiliteclinics.com',
     type: 'website',
     images: [
       {
@@ -48,13 +48,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/laparoscopic-surgery',
+    canonical: 'https://www.habiliteclinics.com',
   },
 }
 
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Home', url: '/' },
-  { name: 'Laparoscopic Surgery', url: '/laparoscopic-surgery' },
 ])
 
 export default function LaparoscopicSurgeryPage() {

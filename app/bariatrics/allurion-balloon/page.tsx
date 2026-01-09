@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   },
 }
 
+
+
 export default function AllurionBalloonPage() {
   return (
     <div className="pt-20 pb-16">

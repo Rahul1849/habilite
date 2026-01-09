@@ -286,98 +286,82 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Who is Dr Kapil Agrawal?',
+      name: 'Why is Dr. Kapil Agrawal considered one of the best laparoscopic surgeons in Delhi-NCR?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Dr Kapil Agrawal is a highly qualified laparoscopic, laser & bariatric surgeon based in Delhi with over 23 years of experience, holding credentials including MBBS, MS (Surgery), MRCS (London, U.K.), MMED (Singapore), and FMAS.',
+        text: 'Dr. Agrawal is recognized among the best laparoscopic surgeons in Delhi and the NCR due to his exclusive focus on advanced laparoscopic techniques, his high volume of successful complex procedures, continuous adoption of the latest robotic-assisted technology, and consistent positive outcomes documented by patient testimonials from across the region.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What kind of treatments does Dr Kapil Agrawal specialise in?',
+      name: 'What laparoscopic procedures does Dr. Agrawal perform for patients from Delhi and the NCR?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'He specialises in minimally invasive (laparoscopic and robotic) surgeries and laser treatments including gallbladder and hernia surgery, advanced bariatric and metabolic surgery, anorectal laser surgeries (for piles, fistula, fissure, pilonidal sinus), single-port and robot-assisted techniques.',
+        text: 'Dr. Agrawal offers a full spectrum of advanced laparoscopic surgeries, catering to the diverse needs of patients from Delhi, Noida, Gurgaon, Faridabad, and Ghaziabad. This includes bariatric surgery for weight loss, hernia repair, gallbladder removal, anti-reflux surgery for hiatus hernia and appendix surgery.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Where does he practise / where can I consult him?',
+      name: 'How does Dr. Agrawal ensure the best results for laparoscopic surgery in Delhi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Dr Agrawal is senior consultant in the Department of Laparoscopic & Bariatric Surgery at the Apollo Group of Hospitals, New Delhi, and founder of Habilite Clinics (South Delhi, Green Park & Lajpat Nagar) where he offers consultations.',
+        text: 'Dr Kapil Agrawal extensive experience of 23 years and expertise to perform complex cases ensures the best results. Dr. Agrawal employs high-definition laparoscopic and robotic systems for superior visualization, follows evidence-based surgical protocols, and provides personalized pre- and post-operative guidance to ensure a smooth and successful recovery for every patient.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How do I book an appointment?',
+      name: 'As a top laparoscopic surgeon in South Delhi, how accessible is your clinic?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'You can book a consultation with Dr Agrawal via Habilite Clinics\' contact number, email, or enquiry form on the website, with tele-consultations (video/online) also available in many cases.',
+        text: 'Our clinic in South Delhi is easily accessible from across the NCR. We are strategically located with ample parking and are well-connected by metro and road. We understand the importance of convenience for our patients and have designed the patient journey to be as seamless as possible.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you accept insurance and financing (EMI) options?',
+      name: 'Do you offer second opinions for complex laparoscopic surgery cases in Delhi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — major health insurance cash-less facilities are supported at his affiliated hospitals, and easy EMI / payment-plans are offered for selected surgical procedures.',
+        text: 'Yes, Dr. Agrawal frequently provides expert second opinions for complex laparoscopic surgery cases from patients across Delhi-NCR. If you have been advised surgery and want to explore a minimally invasive option or seek further clarity, a consultation can provide a comprehensive review of your case.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What are the benefits of minimally invasive / laser surgery under Dr Agrawal?',
+      name: 'What should I look for when choosing the best laparoscopic surgeon for hernia repair in Delhi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Minimally invasive and laser techniques offer smaller incisions, less pain, quicker recovery, minimal scarring, faster return to work and normal life — all of which Dr Agrawal emphasises in his practice.',
+        text: "When searching for the best surgeon for laparoscopic hernia repair in Delhi, key factors include the surgeon's specific experience and volume in hernia surgery, their use of advanced mesh and fixation techniques, their complication and recurrence rates, and their philosophy on patient education and recovery support.",
       },
     },
     {
       '@type': 'Question',
-      name: 'Is single-port laparoscopic surgery or robotic surgery available?',
+      name: 'For someone in Gurgaon/Noida considering Robotic or Laparoscopic bariatric surgery, why travel to see Dr. Agrawal in Delhi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Dr Agrawal offers single-port laparoscopic and robot-assisted techniques for suitable cases (for example gallbladder surgery, hernia, bariatric surgery) to maximise cosmetic and recovery advantages.',
+        text: 'While there are options closer by, patients from Gurgaon, Noida, and beyond choose Dr. Agrawal for his specialized expertise as a bariatric and metabolic surgeon. His focus on long-term patient success & has multidisciplinary support team. He has the mastery of the latest laparoscopic and robotic techniques for weight loss surgery and offers a distinct advantage for a life-changing procedure.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What kinds of weight loss / bariatric treatments are offered?',
+      name: 'How do consultations work for patients from outside Delhi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'He offers a full range: sleeve gastrectomy, mini gastric bypass, Roux-en-Y bypass, revisional bariatric surgery, as well as non-surgical treatments like intragastric balloons (Allurion, Spatz) plus medically supervised weight-management programmes.',
+        text: 'We welcome patients from all over the NCR and beyond. For preliminary discussions, teleconsultation options are also available to provide guidance and plan your visit efficiently.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What should I bring / how should I prepare for the first consultation?',
+      name: 'What is Single Port Laparoscopic Surgery, and how is it different?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Bring previous imaging/reports (if any), list of current medications, any existing comorbidities (e.g., diabetes, hypertension). The consultation will include clinical evaluation, discussion of treatment options, expected outcomes and costs. Prepare questions in advance about risks, recovery time, and expected results.',
+        text: 'Single-port laparoscopic surgery is an advanced form of Laparoscopic surgery where, instead of 3-4 tiny incisions, a single incision is made inside the umbilicus or belly button. This makes the scar almost invisible after surgery. Dr Kapil Agrawal performs single-port surgery mainly for gallbladder stones and bariatric surgery.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Post-surgery care: what is the typical recovery & follow-up like?',
+      name: 'Are Teleconsultations available with Dr Kapil Agrawal',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Recovery and follow-up depend on the specific procedure. Minimally invasive surgeries typically lead to shorter hospital stays, faster mobilisation and fewer complications. A follow-up plan will be provided including wound check-ups, diet and lifestyle advice, and long-term surveillance if needed.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are international patients / tele-consultations catered to?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes — Habilite Clinics supports international patients and online consultations. Dr Agrawal and his team coordinate care, treatment planning, and post-operative follow-up for patients coming from abroad.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I know if I need surgery or a less invasive option?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'During the consultation, Dr Agrawal will assess your condition (symptoms, investigations, overall health) and advise whether surgery is the best option or if a conservative, non-surgical treatment may suffice. The decision will be personalised based on your health, lifestyle, and goals.',
+        text: 'Yes, you can book a video consultation with Dr. Kapil Agrawal. You can simply share your medical reports or documents in advance, and then connect with him online for a detailed discussion about your health concerns.',
       },
     },
   ],

@@ -25,10 +25,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Gastric Bypass Surgery in Delhi - Dr. Kapil Agrawal | 23 Years Experience',
     description: 'Expert gastric bypass surgery by Dr. Kapil Agrawal in Delhi. Gold standard bariatric procedure for significant weight loss and diabetes control.',
-    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/gastric-bypass',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/gastric-bypass',
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery',
   },
 }
 

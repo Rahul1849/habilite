@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  trailingSlash: false,
   images: {
     remotePatterns: [
       {
@@ -57,8 +58,6 @@ const nextConfig = {
   },
   // Optimize output
   output: 'standalone',
-  // Compress output
-  compress: true,
   // Optimize production builds
   productionBrowserSourceMaps: false,
   // Target modern browsers to reduce legacy JS polyfills
@@ -74,7 +73,6 @@ const nextConfig = {
   // Modern browsers (Chrome 92+, Firefox 90+, Safari 15.4+, Edge 92+) support these natively
   // This aligns with Next.js 14's default target which is modern browsers
   // Performance optimizations
-  productionBrowserSourceMaps: false,
   async headers() {
     return [
       {
@@ -159,6 +157,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Existing redirects
       {
         source: '/laser-surgery/lipoma',
         destination: '/lipoma-treatment',
@@ -191,32 +190,97 @@ const nextConfig = {
       },
       {
         source: '/bariatrics/bariatric-surgery/gastric-sleeve',
-        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery',
         permanent: true,
       },
       {
         source: '/bariatrics/bariatric-surgery/sleeve-gastrectomy',
-        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/sleeve-gastrectomy-surgery',
+        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy',
+        destination: '/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-surgeon-in-delhi-india/gastric-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-surgeon-in-delhi-india/revision-surgeries',
+        destination: '/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery',
         permanent: true,
       },
       {
         source: '/bariatrics/bariatric-surgery/gastric-bypass',
-        destination: '/bariatric-surgeon-in-delhi-india/gastric-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/gastric-bypass-surgery',
+        destination: '/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery',
         permanent: true,
       },
       {
         source: '/bariatrics/bariatric-surgery/mini-gastric-bypass',
-        destination: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/mini-gastric-bypass-surgery',
+        destination: '/bariatric-surgeon-in-delhi-india/mini-gastric-bypass-surgery',
         permanent: true,
       },
       {
         source: '/bariatrics/bariatric-surgery/duodenal-jejunal-bypass',
-        destination: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
+        destination: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass-surgery',
+        permanent: true,
+      },
+      {
+        source: '/bariatrics/bariatric-surgery/duodenal-jejunal-bypass-surgery',
+        destination: '/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass-surgery',
         permanent: true,
       },
       {
         source: '/bariatrics/bariatric-surgery/revision-bariatric-surgery',
-        destination: '/bariatric-surgeon-in-delhi-india/revision-surgeries',
+        destination: '/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery',
+        permanent: true,
+      },
+      {
+        source: '/endoscopic-intra-gastric-balloon/best-allurion-surgeon-in-delhi',
+        destination: '/endoscopic-intra-gastric-balloon/allurion-balloon-treatment',
+        permanent: true,
+      },
+      {
+        source: '/endoscopic-intra-gastric-balloon/allurion-balloon',
+        destination: '/endoscopic-intra-gastric-balloon/allurion-balloon-treatment',
+        permanent: true,
+      },
+      {
+        source: '/endoscopic-intra-gastric-balloon/best-spatz-surgeon-in-delhi',
+        destination: '/endoscopic-intra-gastric-balloon/spatz-balloon-treatment',
+        permanent: true,
+      },
+      {
+        source: '/endoscopic-intra-gastric-balloon/spatz-balloon',
+        destination: '/endoscopic-intra-gastric-balloon/spatz-balloon-treatment',
         permanent: true,
       },
       {
@@ -232,6 +296,263 @@ const nextConfig = {
       {
         source: '/about',
         destination: '/habilite-clinic',
+        permanent: true,
+      },
+      
+      // New redirects from Apache .htaccess file
+      // RewriteRule redirects
+      {
+        source: '/cost-of-bariatric-surgery-in-delhi-india',
+        destination: 'https://www.habiliteclinics.com/post/bariatric-surgery-cost-in-delhi-india/',
+        permanent: true,
+      },
+      {
+        source: '/cost-of-bariatric-surgery-in-delhi-india/',
+        destination: 'https://www.habiliteclinics.com/post/bariatric-surgery-cost-in-delhi-india/',
+        permanent: true,
+      },
+      {
+        source: '/single-incision-laparoscopic-surgery.html',
+        destination: 'https://www.habiliteclinics.com/post/sils-single-incision-laparoscopic-surgery/',
+        permanent: true,
+      },
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/benefits-beyond-weight-loss.html',
+        destination: 'https://www.habiliteclinics.com/post/life-after-bariatric-surgery/',
+        permanent: true,
+      },
+      {
+        source: '/weight-loss-in-three-months/',
+        destination: 'https://www.habiliteclinics.com/post/what-are-the-benefits-of-gastric-sleeve-surgery-for-weight-loss/',
+        permanent: true,
+      },
+      {
+        source: '/best-bariatric-surgery-in-india/',
+        destination: 'https://www.habiliteclinics.com/post/which-is-the-best-bariatric-surgery/',
+        permanent: true,
+      },
+      {
+        source: '/evolving-techniques-for-the-management-of-hernia/',
+        destination: 'https://www.habiliteclinics.com/post/mesh-in-hernia-repair-an-overview/',
+        permanent: true,
+      },
+      {
+        source: '/evolving-techniques-for-the-management-of-hernia/index.html',
+        destination: 'https://www.habiliteclinics.com/post/mesh-in-hernia-repair-an-overview/',
+        permanent: true,
+      },
+      
+      // Redirect directives (all standardized to www)
+      {
+        source: '/habilite-clinic.html',
+        destination: 'https://www.habiliteclinics.com/habilite-clinic',
+        permanent: true,
+      },
+      {
+        source: '/dr-kapil-agrawal.html',
+        destination: 'https://www.habiliteclinics.com/dr-kapil-agrawal',
+        permanent: true,
+      },
+      {
+        source: '/gall-stone-surgery.html',
+        destination: 'https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi',
+        permanent: true,
+      },
+      {
+        source: '/lipoma-treatment.html',
+        destination: 'https://www.habiliteclinics.com/lipoma-treatment',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-weight-loss-surgery.html',
+        destination: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india',
+        permanent: true,
+      },
+      {
+        source: '/medical-weight-loss-program.html',
+        destination: 'https://www.habiliteclinics.com/medical-weight-loss-program',
+        permanent: true,
+      },
+      {
+        source: '/surgery-for-diabetes.html',
+        destination: 'https://www.habiliteclinics.com/surgery-for-diabetes',
+        permanent: true,
+      },
+      {
+        source: '/endoscopic-intra-gastric-balloon.html',
+        destination: 'https://www.habiliteclinics.com/endoscopic-intra-gastric-balloon',
+        permanent: true,
+      },
+      {
+        source: '/international-patient.html',
+        destination: 'https://www.habiliteclinics.com/international-patient',
+        permanent: true,
+      },
+      {
+        source: '/contact.html',
+        destination: 'https://www.habiliteclinics.com/contact',
+        permanent: true,
+      },
+      {
+        source: '/appointment.html',
+        destination: 'https://www.habiliteclinics.com/appointment',
+        permanent: true,
+      },
+      {
+        source: '/bmi-calculator.html',
+        destination: 'https://www.habiliteclinics.com/bmi-calculator',
+        permanent: true,
+      },
+      {
+        source: '/piles-treatment',
+        destination: 'https://www.habiliteclinics.com/best-laser-piles-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/calorie-calculator.html',
+        destination: 'https://www.habiliteclinics.com/calorie-calculator',
+        permanent: true,
+      },
+      {
+        source: '/exercise-calculator.html',
+        destination: 'https://www.habiliteclinics.com/exercise-calculator',
+        permanent: true,
+      },
+      {
+        source: '/testimonials.html',
+        destination: 'https://www.habiliteclinics.com/testimonials',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy.html',
+        destination: 'https://www.habiliteclinics.com/privacy-policy',
+        permanent: true,
+      },
+      {
+        source: '/cost-of-hernia-surgery-in-delhi/',
+        destination: 'https://www.habiliteclinics.com/cost-of-hernia-surgery-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/appendix',
+        destination: 'https://www.habiliteclinics.com/best-appendicitis-surgery-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/fistula-treatment-in-delhi',
+        destination: 'https://www.habiliteclinics.com/best-laser-fistula-treatment',
+        permanent: true,
+      },
+      {
+        source: '/pilonidal-sinus.php',
+        destination: 'https://www.habiliteclinics.com/best-laser-pilonidal-sinus-treatment',
+        permanent: true,
+      },
+      {
+        source: '/anal-fissure',
+        destination: 'https://www.habiliteclinics.com/best-anal-fissure-treatment',
+        permanent: true,
+      },
+      {
+        source: '/bariatric-weight-loss-surgery',
+        destination: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india',
+        permanent: true,
+      },
+      {
+        source: '/gall-stone-surgery',
+        destination: 'https://www.habiliteclinics.com/best-gallbladder-stone-surgeon-delhi',
+        permanent: true,
+      },
+      {
+        source: '/rectal-prolapse.html',
+        destination: 'https://www.habiliteclinics.com/rectal-prolapse',
+        permanent: true,
+      },
+      {
+        source: '/gastric-bypass.html',
+        destination: 'https://www.habiliteclinics.com/gastric-bypass',
+        permanent: true,
+      },
+      {
+        source: '/single-port-surgeries.html',
+        destination: 'https://www.habiliteclinics.com/single-port-surgeries',
+        permanent: true,
+      },
+      {
+        source: '/gastric-plication-surgery.html',
+        destination: 'https://www.habiliteclinics.com/gastric-plication-surgery',
+        permanent: true,
+      },
+      {
+        source: '/rectal-prolapse',
+        destination: 'https://www.habiliteclinics.com/rectal-prolapse',
+        permanent: true,
+      },
+      
+      // 301 Redirect directives
+      {
+        source: '/best-appendicitis-surgery-in-delhi',
+        destination: 'https://www.habiliteclinics.com/best-appendix-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/gerd',
+        destination: 'https://www.habiliteclinics.com/best-hiatus-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/post/hiatal-hernia-specialist',
+        destination: 'https://www.habiliteclinics.com/best-hiatus-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/inguinal-hernia-treatment',
+        destination: 'https://www.habiliteclinics.com/best-inguinal-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/gallbladder-polyps',
+        destination: 'https://www.habiliteclinics.com/gallbladder-polyps-treatment-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/cbd-stone-treatment-delhi',
+        destination: 'https://www.habiliteclinics.com/cbd-stone-treatment-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/incisional-hernia-treatment',
+        destination: 'https://www.habiliteclinics.com/best-incisional-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/femoral-hernia-treatment',
+        destination: 'https://www.habiliteclinics.com/best-femoral-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/umbilical-hernia-surgeon-specialist-doctor',
+        destination: 'https://www.habiliteclinics.com/best-umbilical-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/epigastric-hernia-treatment',
+        destination: 'https://www.habiliteclinics.com/best-epigastric-hernia-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/post/best-laparoscopic-surgeon-in-delhi-ncr',
+        destination: 'https://www.habiliteclinics.com/best-laparoscopic-surgeon-in-delhi',
+        permanent: true,
+      },
+      {
+        source: '/single-incision-laparoscopic-surgery',
+        destination: 'https://www.habiliteclinics.com/post/sils-single-incision-laparoscopic-surgery/',
         permanent: true,
       },
     ]

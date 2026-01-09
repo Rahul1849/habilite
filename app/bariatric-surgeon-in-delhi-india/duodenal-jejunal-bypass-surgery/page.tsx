@@ -25,10 +25,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Duodenal Jejunal Bypass Surgery in Delhi - Dr. Kapil Agrawal | Single Anastomosis Gastric Bypass',
     description: 'Expert duodenal jejunal bypass surgery by Dr. Kapil Agrawal in Delhi. Safe and effective bariatric procedure combining sleeve gastrectomy with duodenal jejunal bypass.',
-    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
+    url: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass-surgery',
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass',
+    canonical: 'https://www.habiliteclinics.com/bariatric-surgeon-in-delhi-india/duodenal-jejunal-bypass-surgery',
   },
 }
 

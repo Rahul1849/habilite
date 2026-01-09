@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 }
 
 export default function LegacyGastricBypassPage() {
-  redirect('/bariatric-surgeon-in-delhi-india/gastric-bypass')
+  redirect('/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery')
 }

@@ -346,7 +346,7 @@ export default function BariatricSurgeryPage() {
                     Gastric Sleeve (Sleeve Gastrectomy): The Reliable, Most Common Choice
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
+                    In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
                   </p>
                 </div>
 
@@ -355,7 +355,7 @@ export default function BariatricSurgeryPage() {
                     Gastric Bypass: For Significant Weight Loss & Controlling Type 2 Diabetes
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    This surgery creates a small pouch from the stomach using endo-staplers and connects it directly to the small intestine. It limits food intake and calorie absorption, leading to substantial, long-lasting weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/gastric-bypass" className="text-[#0891b2] hover:underline">Learn more about Gastric Bypass →</Link>]
+                    This surgery creates a small pouch from the stomach using endo-staplers and connects it directly to the small intestine. It limits food intake and calorie absorption, leading to substantial, long-lasting weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery" className="text-[#0891b2] hover:underline">Learn more about Gastric Bypass →</Link>]
                   </p>
                 </div>
 
@@ -364,7 +364,7 @@ export default function BariatricSurgeryPage() {
                     Mini Gastric Bypass: Better and Safer than Gastric Bypass
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    This is a shorter version of the traditional gastric bypass. This process involves creating a long gastric pouch and attaching it to the lower part of the small intestine. It is a faster process with quicker weight-loss solutions and minimal risks. [<Link href="/bariatrics/bariatric-surgery/mini-gastric-bypass" className="text-[#0891b2] hover:underline">Learn more about Mini gastric Bypass →</Link>]
+                    This is a shorter version of the traditional gastric bypass. This process involves creating a long gastric pouch and attaching it to the lower part of the small intestine. It is a faster process with quicker weight-loss solutions and minimal risks. [<Link href="/bariatrics/bariatric-surgery/mini-gastric-bypass-surgery" className="text-[#0891b2] hover:underline">Learn more about Mini gastric Bypass →</Link>]
                   </p>
                 </div>
 
@@ -373,7 +373,7 @@ export default function BariatricSurgeryPage() {
                     Duodenal Jejunal Bypass: Alternative to Mini Gastric Bypass
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    This surgical process is best for people dealing with Type 2 Diabetes and less obesity. This procedure bypasses the first part of the small intestine (duodenum), even without reducing the stomach size. It helps to control blood sugar and promotes modest weight loss. [<Link href="/bariatrics/bariatric-surgery/duodenal-jejunal-bypass" className="text-[#0891b2] hover:underline">Learn more about Duodenal Jejunal Bypass →</Link>]
+                    This surgical process is best for people dealing with Type 2 Diabetes and less obesity. This procedure bypasses the first part of the small intestine (duodenum), even without reducing the stomach size. It helps to control blood sugar and promotes modest weight loss. [<Link href="/bariatrics/bariatric-surgery/duodenal-jejunal-bypass-surgery" className="text-[#0891b2] hover:underline">Learn more about Duodenal Jejunal Bypass →</Link>]
                   </p>
                 </div>
 
@@ -382,7 +382,7 @@ export default function BariatricSurgeryPage() {
                     Revisional Bariatric Surgery: Correcting and Improving Past Procedures
                   </h3>
                   <p className="text-gray-700 text-sm sm:text-base">
-                    Patients who are regaining weight or facing complications after their previous bariatric procedure may need revision surgery that helps to improve or adjust the last surgery to restore its effectiveness and safety. [<Link href="/bariatric-surgeon-in-delhi-india/revision-surgeries" className="text-[#0891b2] hover:underline">Learn more about Revision Bariatric Surgery →</Link>]
+                    Patients who are regaining weight or facing complications after their previous bariatric procedure may need revision surgery that helps to improve or adjust the last surgery to restore its effectiveness and safety. [<Link href="/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery" className="text-[#0891b2] hover:underline">Learn more about Revision Bariatric Surgery →</Link>]
                   </p>
                 </div>
               </div>
