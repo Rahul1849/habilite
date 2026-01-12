@@ -15,6 +15,8 @@ import DoctorInfoCard from '@/components/blog/DoctorInfoCard'
 import FAQSchema from '@/components/blog/FAQSchema'
 import BlogPostFooter from '@/components/blog/BlogPostFooter'
 import AboutDoctorSection from '@/components/blog/AboutDoctorSection'
+import KeyTakeaways from '@/components/blog/KeyTakeaways'
+import BlogShareButtons from '@/components/blog/BlogShareButtons'
 import StructuredData from '@/components/seo/StructuredData'
 import { generateTableOfContents } from '@/lib/utils/generateTableOfContents'
 import { generateTOCFromPortableText } from '@/lib/utils/generateTOCFromPortableText'
@@ -589,50 +591,60 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               )}
 
-              {/* Content */}
-              <div className="prose prose-lg max-w-3xl mx-auto prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-headings:font-bold prose-strong:text-gray-900">
-                {post.content && post.content.trim() ? (
-                  <MarkdownContent content={post.content} />
-                ) : (
-                  <div className="text-center py-12">
-                    <p className="text-gray-500 italic">Content is being loaded...</p>
-                  </div>
-                )}
-              </div>
+              {/* Key Takeaways Section */}
+              {post.excerpt && <KeyTakeaways excerpt={post.excerpt} />}
 
-              {/* Author */}
-              <div className="mt-12 pt-8 border-t">
-                <div className="flex items-center">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
-                    <Image
-                      src={post.authorImage}
-                      alt={post.author}
-                      fill
-                      className="object-cover"
-                    />
+              {/* Content Section with improved typography */}
+              <section>
+                <div className="prose prose-lg prose-slate max-w-3xl mx-auto
+                  prose-headings:text-gray-900 prose-headings:font-bold prose-headings:leading-tight
+                  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg
+                  prose-a:text-[#0891b2] prose-a:no-underline hover:prose-a:underline
+                  prose-strong:text-gray-900 prose-strong:font-semibold
+                  prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:mt-12 prose-h2:mb-6
+                  prose-h3:text-2xl md:prose-h3:text-3xl prose-h3:mt-8 prose-h3:mb-4
+                  prose-h4:text-xl md:prose-h4:text-2xl prose-h4:mt-6 prose-h4:mb-3
+                  prose-ul:my-6 prose-ul:space-y-2
+                  prose-ol:my-6 prose-ol:space-y-2
+                  prose-li:text-gray-700 prose-li:leading-relaxed
+                  prose-blockquote:border-l-4 prose-blockquote:border-[#0891b2] prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:my-8
+                  prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8">
+                  {post.content && post.content.trim() ? (
+                    <MarkdownContent content={post.content} />
+                  ) : (
+                    <div className="text-center py-12">
+                      <p className="text-gray-500 italic">Content is being loaded...</p>
+                    </div>
+                  )}
+                </div>
+              </section>
+
+              {/* Divider */}
+              <div className="my-12 border-t border-gray-200"></div>
+
+              {/* Author Section */}
+              <section className="mb-12">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0891b2] to-[#06b6d4] flex items-center justify-center text-white text-xl font-bold">
+                      {post.author.charAt(0)}
+                    </div>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">{post.author} - Senior Consultant at Apollo Group of Hospitals</div>
-                    <div className="text-sm text-gray-600">Published on {new Date(post.publishedDate).toLocaleDateString()}</div>
+                    <h3 className="font-semibold text-gray-900 text-lg mb-1">
+                      {post.author}
+                    </h3>
+                    <p className="text-gray-600 mb-2">Senior Consultant at Apollo Group of Hospitals</p>
+                    <div className="text-sm text-gray-500">
+                      Published on {new Date(post.publishedDate).toLocaleDateString('en-IN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Tags */}
-              {post.tags.length > 0 && (
-                <div className="mt-8">
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+              </section>
 
               {/* About Doctor Section */}
               <AboutDoctorSection />
@@ -650,6 +662,14 @@ export default async function BlogPostPage({ params }: Props) {
                 <TableOfContents items={tableOfContents} />
               </div>
             )}
+
+            {/* Share Buttons */}
+            <BlogShareButtons
+              title={post.title}
+              url={`/post/${post.slug}`}
+              excerpt={post.excerpt}
+              variant="sidebar"
+            />
 
             {/* Recent Posts */}
             <RecentPosts posts={recentPosts} />
@@ -684,6 +704,14 @@ export default async function BlogPostPage({ params }: Props) {
           <FAQSchema faqs={post.faqSchema} />
         )}
       </div>
+
+      {/* Mobile Share Bar */}
+      <BlogShareButtons
+        title={post.title}
+        url={`/post/${post.slug}`}
+        excerpt={post.excerpt}
+        variant="mobile"
+      />
     </>
   )
 }

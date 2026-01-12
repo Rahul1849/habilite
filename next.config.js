@@ -157,6 +157,19 @@ const nextConfig = {
   },
   async redirects() {
     return [
+
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'habilite-6qce.vercel.app',
+          },
+        ],
+        destination: 'https://www.habiliteclinics.com/:path*',
+        permanent: true,
+      },
+      
       // Existing redirects
       {
         source: '/laser-surgery/lipoma',

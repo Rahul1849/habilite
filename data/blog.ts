@@ -10002,6 +10002,377 @@ Call Now at +91 9999456455 or email us at contact@habiliteclinics.com
         answer: 'If you experience severe symptoms, unbearable pain, persistent bleeding, or symptoms lasting longer than two weeks, consult a piles specialist like Dr. Kapil Agrawal. Yoga is beneficial for mild to moderate cases and prevention, but medical treatment may be necessary for severe conditions.'
       }
     ]
+  },
+  {
+    id: 'piles-laser-surgery-cost-delhi',
+    title: 'Cost of Laser Surgery for Piles in Delhi, India',
+    slug: 'piles-laser-surgery-cost-in-delhi',
+    excerpt: 'Learn about the cost of laser surgery for piles in Delhi, India. Dr. Kapil Agrawal provides advanced laser surgeries for piles at competitive costs. Understand factors affecting pricing and treatment options.',
+    content: `
+# Cost of Laser Surgery for Piles in Delhi, India
+
+With the advent of laser surgery, patients can now experience a minimally invasive procedure that offers quicker recovery and reduced pain compared to traditional methods. In Delhi, renowned surgeon Dr. Kapil Agrawal provides the most advanced laser surgeries for piles at competitive costs. Dr. Kapil Agrawal, one of the best piles surgeon in Delhi, discusses the different variables influencing the piles laser surgery cost in Delhi. This introduction aims to walk you through the various options for piles laser surgery in Delhi so that you can fully comprehend the process and associated costs.
+
+Piles, also known as haemorrhoids, are swollen veins in the rectum and anus, resulting in discomfort and bleeding. It is a common disease and usually affects people due to their inactive lifestyle, poor food habits, and irregular physical activity. It is found in both males and females, but women have higher chances due to their pregnancy phase.
+
+## Symptoms of Piles:
+
+i. **Bleeding:** A person can notice unusual bleeding during bowel movements, which is usually the most common symptom.
+
+ii. **Pain:** Due to swelling and bleeding, it can become painful and create discomfort in people who notice these unusual symptoms.
+
+iii. **Itching:** The area around the anus can become highly irritated or itchy, resulting in more discomfort.
+
+iv. **Incomplete bowel movement:** Piles can make it extremely difficult to finish the bowel movement, resulting in ingestion and heaviness.
+
+## What is Laser Piles Surgery?
+
+Laser surgery is a highly effective and advanced treatment for haemorrhoids. This procedure successfully alleviates discomfort, bleeding, and other symptoms connected to haemorrhoids without any pain. Laser treatment reduces the severity of the disease and provides satisfactory results for the patient, ensuring proper consultation and assessment, pre-and post-surgical care, and a speedy recovery.
+
+**Read More:** [Best Way to Cure Piles in 3 Days](/post/best-way-to-cure-piles-in-3-days)
+
+## Benefits of Piles Laser Surgery:
+
+The most effective and reliable treatment to cure piles is advanced laser surgery. It is a long-lasting, painless, and minimally invasive technique to provide relief to patients. Patients who have gone through Laser Surgery for Piles have been cured effectively with a fast recovery around the globe. According to an international report, the success rate for laser operation for piles is 98%. Therefore, laser surgery for piles is a safe procedure for experienced hands. Although sometimes the cost of piles laser surgery in Delhi can be a bit high, the results regarding recovery and pain are fascinating.
+
+### Minimal Invasive
+
+It is a minimally invasive technique that uses a beam to cut off and remove the haemorrhoids without affecting surrounding tissues, with minimal pain and bleeding. It is effective due to its fast recovery period compared to traditional techniques.
+
+### Minimal to No Discomfort
+
+The precision and advanced laser surgery technique produces positive results and lessens pain and discomfort during recovery. Patients successfully find relief from pain and extreme discomfort, which makes the overall procedure more successful and effective.
+
+### Minimal Bleeding
+
+The laser beam in laser surgery completely seals or cuts off the blood supply to haemorrhoid tissue, resulting in minimal bleeding. This is a significant advantage when opting for laser surgery and utilising advanced techniques. It is beneficial for patients who are struggling due to severe discomfort and swelling, resulting in incomplete bowel movements.
+
+### Fast Recovery
+
+The most significant advantage of laser surgery is its speedy recovery compared to traditional methods, which take time and do not guarantee complete elimination of the disease. On the other hand, laser surgery is more effective and helps patients get back to their routine as soon as possible.
+
+### Slight Risk of Infection
+
+The precision of the advanced technique in laser surgery reduces the risk of infection. This is the most significant and fruitful result of laser surgery: to maintain hygiene and prevent the patient from any future complications.
+
+### Outpatient Technique
+
+The best and most beneficial reason to opt for laser surgery is that it doesn't affect or hinder the patient's regular life. A patient can be discharged right after the surgery, eliminating the need to stay overnight. Hence, it makes the laser operation convenient and cost-effective.
+
+### Highly Satisfied Results
+
+Patients who have opted for laser treatment for their piles found it satisfactory due to its effectiveness, minimal discomfort and bleeding, and fast recovery compared to the old traditional methods. According to the international report, the successful ratio is 98%. So, there is no need to worry and consult with a practitioner for an effective and advanced technological treatment.
+
+## Cost of Laser Surgery for Piles in Delhi, India:
+
+The cost of laser surgery for piles in Delhi, India, depends on various factors. Some of the common factors that can influence the cost of laser surgery for piles include:
+
+### Infrastructure of the Hospital:
+
+The surgery cost can rise significantly depending on the hospital's infrastructure and the type of facilities available. Choosing a state-of-the-art hospital is not a problem if you have medical insurance. However, if you don't have a cashless insurance facility, you must ask your surgeon about ways to reduce the cost of surgery without compromising the quality of the surgery.
+
+### Quality of Laser Machines & Fibres:
+
+Many hospitals have low-quality laser machines, which can result in poor surgical outcomes and high chances of recurrence. You must always ensure the quality of laser machines, the manufacturer, and the quality of laser fibre used. In addition, the type of laser fibre used also impacts the surgery cost. Conical fibres are costlier and yield better results when compared to bare fibres, which are cheaper and can result in recurrence.
+
+### Experience and Expertise of the Surgeon:
+
+An experienced surgeon usually charges higher professional fees, which can escalate packages. However, it is worthwhile to pay a bit more to prevent unnecessary complications arising due to a lack of experience.
+
+### Medical insurance:
+
+The cost of laser surgery for piles significantly depends upon the severity of your haemorrhoids, the types of lasers used, the experience of a surgeon, and the hospital where the surgery is being performed. In general, you can expect between ₹60,000 and ₹80,000 for a laser hemorrhoidectomy in Delhi while availing of a cashless insurance facility at a state-of-the-art hospital.
+
+## Cost of Laser Operation for Piles at Habilite Clinics:
+
+Habilite Clinics is a super specialty clinic located in South Delhi. Dr. Kapil Agrawal, the principal surgeon, is one of the best laparoscopic and laser surgeons in New Delhi.
+
+At Habilite Clinics, we are committed to providing the best, highest-quality treatment at affordable prices. The complete package for laser surgery for piles starts at Rs 35,000 and can vary depending on the patient's condition and the type of hospital.
+
+If the patient has medical insurance, we provide complete cashless facilities at some of the best hospitals in New Delhi. Our team is committed to providing hassle-free services and managing all the paperwork on your behalf so that you can avail yourself of cashless facilities.
+
+**Read More:** [Piles: Causes, Treatment and Surgery](/post/piles-causes-treatment-and-surgery)
+
+## People Also Ask:
+
+### Is laser surgery harmful to the body?
+
+Laser surgery machines are diode lasers and are USFDA-approved. They are entirely unharmful to the body and have no side effects.
+
+### What is the best quality of laser machines?
+
+The best quality laser machines are USFDA-approved, 1980 nm frequency machines like Neo and Lasotronix. Conical fibres are the best fibres for the management of haemorrhoids.
+
+### Is laser surgery beneficial for all types of hemorrhoids?
+
+No, laser surgery is not beneficial for all types of haemorrhoids. There are four grades or stages of piles, with stage IV being the most advanced stage. The best advantages and results of laser surgery are in grade II and III haemorrhoids. The results of Grade II and III haemorrhoids are long-lasting, and the procedure is almost painless.
+
+### What are the other types of the latest and painless haemorrhoid treatment options?
+
+DG-Hal and stapled haemorrhoidopexy are the two latest and painless treatment options for managing haemorrhoids. The DG-HAL procedure is usually indicated for recurrent bleeding haemorrhoids, whereas Stapled haemorrhoidopexy is indicated for Grade IV haemorrhoids.
+
+## Why Choose Us:
+
+### Best Cost of Laser Surgery for Piles
+
+Habilite Clinics is committed to providing the best quality laser machines and fibres and never compromises on the quality of services. The cost of piles laser surgery in Delhi can be high, but our centre offers the most advanced and best-in-class laser treatment for piles.
+
+We have affiliations with some of the best hospitals in the business, offering entirely cashless insurance services. We also have partnerships with hospitals that are more reasonably priced for patients paying cash, where we offer similarly satisfying outcomes at fixed, reasonable rates.
+
+We have partnered with specific companies that provide EMI facilities at zero percent interest to make surgery affordable for all patient groups.
+
+Our principal surgeon, Dr. Kapil Agrawal, has 22 years of experience and can easily manage the most complicated cases.
+
+We always provide you with the best treatment option depending on the symptoms and grade of piles to minimise the chances of recurrence. Our team of dedicated nutritionists ensures a faster recovery and provides guidelines to minimise constipation and other factors to prevent recurrence.
+
+## About Dr. Kapil Agrawal:
+
+Dr. Kapil Agrawal is a highly experienced surgeon. In his 22 years of experience, he has performed more than 7,000 laser surgeries for different stages of piles.
+
+He has been performing a full range of advanced procedures for managing piles, including laser surgeries, stapler surgeries, and DGHAL procedures.
+
+His cornerstone of treatment has been early recovery, minimal pain, and nearly zero recurrence.
+
+His approach to client service and use of innovative technology make him one of the best laser surgeons for piles in Delhi, India. He believes in catering to and tailoring to his patients' needs and concerns.
+
+He is associated with Indraprastha Apollo Hospital, New Delhi, and Apollo Spectra Hospital, Kailash Colony, New Delhi. They are well known for offering quality services to patients from around the globe. Apart from that, he is also performing services at some budget-friendly hospitals for patients without insurance and looking for the best services at affordable prices. At these hospitals, he provides laser surgery at best cost of laser piles surgery in delhi, India.
+
+We have covered all your queries and concerns. To know about the best cost of piles laser surgery in Delhi, kindly contact us at 91-9999-446-455 or visit our website: https://www.habiliteclinics.com
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: '/images/dr-kapil-agrawal.png',
+    publishedDate: '2025-01-15',
+    image: '/images/piles-laser-surgery-cost-delhi.webp',
+    category: 'Piles',
+    tags: ['Piles', 'Laser Surgery', 'Piles Treatment', 'Hemorrhoids', 'Laser Surgery Cost', 'Piles Surgery Delhi', 'Dr. Kapil Agrawal', 'Habilite Clinics'],
+    readTime: 10,
+    seoTitle: 'Cost of Laser Surgery for Piles in Delhi, India | Dr. Kapil Agrawal',
+    seoDescription: 'Learn about the cost of laser surgery for piles in Delhi, India. Dr. Kapil Agrawal provides advanced laser surgeries for piles starting at Rs 35,000. Understand factors affecting pricing, benefits, and treatment options.',
+    tableOfContents: [
+      { id: 'symptoms-of-piles', title: 'Symptoms of Piles', level: 2 },
+      { id: 'what-is-laser-piles-surgery', title: 'What is Laser Piles Surgery?', level: 2 },
+      { id: 'benefits-of-piles-laser-surgery', title: 'Benefits of Piles Laser Surgery', level: 2 },
+      { id: 'minimal-invasive', title: 'Minimal Invasive', level: 3 },
+      { id: 'minimal-to-no-discomfort', title: 'Minimal to No Discomfort', level: 3 },
+      { id: 'minimal-bleeding', title: 'Minimal Bleeding', level: 3 },
+      { id: 'fast-recovery', title: 'Fast Recovery', level: 3 },
+      { id: 'slight-risk-of-infection', title: 'Slight Risk of Infection', level: 3 },
+      { id: 'outpatient-technique', title: 'Outpatient Technique', level: 3 },
+      { id: 'highly-satisfied-results', title: 'Highly Satisfied Results', level: 3 },
+      { id: 'cost-of-laser-surgery-for-piles-in-delhi-india', title: 'Cost of Laser Surgery for Piles in Delhi, India', level: 2 },
+      { id: 'infrastructure-of-the-hospital', title: 'Infrastructure of the Hospital', level: 3 },
+      { id: 'quality-of-laser-machines-fibres', title: 'Quality of Laser Machines & Fibres', level: 3 },
+      { id: 'experience-and-expertise-of-the-surgeon', title: 'Experience and Expertise of the Surgeon', level: 3 },
+      { id: 'medical-insurance', title: 'Medical insurance', level: 3 },
+      { id: 'cost-of-laser-operation-for-piles-at-habilite-clinics', title: 'Cost of Laser Operation for Piles at Habilite Clinics', level: 2 },
+      { id: 'people-also-ask', title: 'People Also Ask', level: 2 },
+      { id: 'why-choose-us', title: 'Why Choose Us', level: 2 },
+      { id: 'about-dr-kapil-agrawal', title: 'About Dr. Kapil Agrawal', level: 2 }
+    ],
+    faqSchema: [
+      {
+        question: 'Is laser surgery harmful to the body?',
+        answer: 'Laser surgery machines are diode lasers and are USFDA-approved. They are entirely unharmful to the body and have no side effects.'
+      },
+      {
+        question: 'What is the best quality of laser machines?',
+        answer: 'The best quality laser machines are USFDA-approved, 1980 nm frequency machines like Neo and Lasotronix. Conical fibres are the best fibres for the management of haemorrhoids.'
+      },
+      {
+        question: 'Is laser surgery beneficial for all types of hemorrhoids?',
+        answer: 'No, laser surgery is not beneficial for all types of haemorrhoids. There are four grades or stages of piles, with stage IV being the most advanced stage. The best advantages and results of laser surgery are in grade II and III haemorrhoids. The results of Grade II and III haemorrhoids are long-lasting, and the procedure is almost painless.'
+      },
+      {
+        question: 'What are the other types of the latest and painless haemorrhoid treatment options?',
+        answer: 'DG-Hal and stapled haemorrhoidopexy are the two latest and painless treatment options for managing haemorrhoids. The DG-HAL procedure is usually indicated for recurrent bleeding haemorrhoids, whereas Stapled haemorrhoidopexy is indicated for Grade IV haemorrhoids.'
+      },
+      {
+        question: 'What is the cost of laser surgery for piles in Delhi?',
+        answer: 'The cost of laser surgery for piles in Delhi depends on various factors including hospital infrastructure, quality of laser machines, surgeon experience, and medical insurance. At Habilite Clinics, the complete package for laser surgery for piles starts at Rs 35,000. With cashless insurance at state-of-the-art hospitals, the cost ranges between ₹60,000 and ₹80,000.'
+      },
+      {
+        question: 'What factors affect the cost of laser surgery for piles?',
+        answer: 'The cost of laser surgery for piles depends on several factors: hospital infrastructure and facilities, quality of laser machines and fibres used, experience and expertise of the surgeon, severity of haemorrhoids, and whether you have medical insurance coverage.'
+      },
+      {
+        question: 'What is the success rate of laser surgery for piles?',
+        answer: 'According to international reports, the success rate for laser operation for piles is 98%. Laser surgery for piles is a safe procedure when performed by experienced surgeons like Dr. Kapil Agrawal.'
+      },
+      {
+        question: 'How long does recovery take after laser surgery for piles?',
+        answer: 'Laser surgery offers fast recovery compared to traditional methods. Patients can typically be discharged right after the surgery (outpatient procedure) and can get back to their routine as soon as possible. The recovery is much faster than traditional surgical methods.'
+      }
+    ]
+  },
+  {
+    id: 'bariatric-surgery-cost-delhi',
+    title: 'Cost of Bariatric Surgery in Delhi, India',
+    slug: 'bariatric-surgery-cost-in-delhi-india',
+    excerpt: 'Complete guide to bariatric surgery cost in Delhi, India. Learn about factors affecting weight loss surgery pricing, types of procedures, and transparent packages starting from Rs 200,000 at Habilite Clinics.',
+    content: `
+# Cost of Bariatric Surgery in Delhi, India
+
+Bariatric surgery is a transformative and life altering procedure meant for people suffering from obesity and obesity related health problems. However, one of the critical considerations for anyone is the high cost of bariatric surgery. Cost of weight loss surgery is one of the key factors for majority of the patients undergoing bariatric surgery. In this article, Dr. Kapil Agrawal, one of the best bariatric surgeon in Delhi describes about various factors influencing the bariatric surgery cost in Delhi, India.
+
+## What is Bariatric Surgery?
+
+Bariatric surgery is a type of weight loss surgery and is the only proven surgery for significant and sustainable weight loss. It is usually performed for patients who are morbidly obese or individuals who have tried other weight loss methods without any success.
+
+No other treatment or modality has shown such promising results as bariatric surgery in terms of treatment of obesity and obesity-related health problems like diabetes, hypertension, joint pain, asthma, snoring, or obstructive sleep apnea. In females, it is shown to resolve PCOS, and menstrual abnormalities and even enhances the pregnancy rate in obese patients who are unable to conceive because of hormonal imbalances.
+
+## How Bariatric Surgery Works?
+
+The patient undergoes different types of bariatric surgery procedures based on a thorough examination and consideration of various factors. Broadly, bariatric surgery achieves weight loss through 3 methods:
+
+### 1. Reducing the stomach size
+
+This component is present in almost every type of weight loss surgery. This reduces the amount of food a person can consume at a time. Normally the capacity of the stomach is 1.5 litres which is reduced to 150-200 ml during surgery.
+
+### 2. Rerouting the intestines
+
+This component involves rerouting the intestines so that the food does not travel to the portion of the intestine responsible for the absorption of fats. This process is known as malabsorption and is known to cause better and longer-term weight loss.
+
+### 3. Hormonal changes
+
+Bariatric surgery also causes alteration of various hormones like ghrelin, leptin, etc which brings appetite suppression, early satiety, and better regulation of sugar levels.
+
+## Different Types of Bariatric Surgery:
+
+### Commonly Performed Bariatric Surgeries:
+
+There are several weight loss procedures available, each with its own indication and benefits. You must always ask your surgeon about different weight loss procedures and the reason for choosing a particular procedure for you.
+
+### 1. Sleeve Gastrectomy
+
+This procedure is also known as gastric sleeve surgery. In this procedure, we use staplers to remove approximately 75% of the stomach. This leaves behind a smaller sleeve-shaped stomach that now accommodates only 150-200 ml of food instead of the normal 1.5 litres. This type of food restriction along with hormonal changes produces significant weight loss.
+
+### 2. Mini Gastric Bypass
+
+This procedure is one of the best and most popular procedures for long-term weight loss and resolution of medical illnesses like diabetes & hypertension. This involves reducing the size of the stomach and rerouting the intestines to significantly reduce the absorption of fats. This is one of the most effective procedures to produce sustainable weight loss.
+
+### 3. Roux en Y Gastric Bypass
+
+This procedure is similar to a Mini Gastric Bypass. However, compared to MGB, the results are similar and prove to be more effective in patients with acid reflux problems. This procedure involves creating two joints between the stomach and bowel.
+
+### 4. Duodeno-jejunal Bypass
+
+This procedure is also quite similar to Mini Gastric Bypass. This procedure involves a single anastomosis or joint between the bowel and stomach and prevents acid reflux.
+
+**Read More:** [Which is the Best Bariatric Surgery](/post/which-is-the-best-bariatric-surgery)
+
+## Factors Influencing Bariatric Surgery Cost in Delhi, India:
+
+### Infrastructure of the Hospital:
+
+The infrastructure of the hospital significantly impacts the cost of surgery. Advanced camera systems, ICU and CCU backups, specialized instruments, and tables to handle morbidly obese patients add to the cost of surgery. You must always consult your surgeon who can guide you in making decisions. Looking at the age, weight, and associated co-morbidities, they can decide which setup is the best option without unnecessarily escalating the charges.
+
+### Condition of the Patient:
+
+As previously mentioned, the condition of the patient, weight of the patient, associated medical illnesses like diabetes, and hypertension, and condition of the heart and lungs can affect the total cost of the procedure. Depending upon the condition of the patient, the package might increase because of an extended stay, the requirement of ICU, and the requirement of the multi-disciplinary team.
+
+### Experience and Expertise of the Surgeon:
+
+The experience and expertise of the surgeon play a significant role in the cost of the total package. Highly experienced and successful surgeons with a proven track record generally command higher fees for their services. Their specialized skills and higher proficiency in dealing with complex procedures ensure a better outcome.
+
+### Quality of the Staplers:
+
+Surgeons use Endo staplers to reduce the size of the stomach and reroute intestines. These staplers create new surgical connections and help minimize the risk of leaks and bleeding during the procedure. High-quality staplers have a lower risk of malfunction leading to better surgical outcomes. You must ask your surgeon specifically about the type of staplers to be used during surgery and must ensure that they are of the best quality.
+
+### Type of Bariatric Surgery:
+
+There are several types of weight loss surgery such as sleeve gastrectomy, gastric bypass, mini gastric bypass, or duodenal jejunal bypass. Procedures like sleeve gastrectomy may have lower costs when compared to bypass surgeries because of fewer anatomical modifications and less operating time. Hence, different bariatric or weight loss procedures vary in terms of complexity and duration, and so affect the price of surgery.
+
+## Cost of Bariatric Surgery in Delhi, India:
+
+In Delhi, navigating the cost of bariatric surgery can be a difficult task. However, on average, bariatric surgery costs in Delhi typically range from INR 3,00,000 to INR 5,00,000. However, this can fluctuate based on individual circumstances and additional services required.
+
+We at Habilite Clinics offer a package ranging between Rs 200,000 and Rs 275,000 depending upon the type of surgery, condition of the patient, and associated medical illnesses. The final package is always given after a complete evaluation of the patient.
+
+## Why Choose Us for Bariatric Surgery?
+
+### Best Bariatric Surgery Cost in Delhi, India
+
+Habilite Clinics is committed to providing the best combination of quality, suitability, and affordability for patients. We have specially approved packages with some of the best hospitals to give our patients the best experience without compromising the quality. Dr Kapil Agrawal is a renowned, internationally trained Bariatric Surgeon with a rich experience of 22 years. He is well known for performing a complete range of bariatric surgeries with excellent results. He is working as a senior consultant surgeon at Apollo Group of Hospitals, New Delhi.
+
+Your journey of weight loss just starts after bariatric surgery and we understand the importance of support and guidance throughout the process. That's why we offer free post-operative consultations so that you get the desired attention and advice needed for the best outcomes. We have a multi-disciplinary team of physicians, endocrinologists, and physiotherapists to take care of your health in a holistic manner. The team under one roof ensures complete care of associated medical illnesses in a hassle-free manner.
+
+Habilite Clinics has a team of dedicated nutritionists to guide and help you in your weight loss journey. They work diligently to ensure the best outcomes and provide regular support so that there is no weight regain. We have partnered with some of the premier hospitals in New Delhi. These hospitals have built a reputation for their cutting-edge facilities and top-notch patient care services.
+
+We understand that Bariatric Surgery comes with a high financial commitment and the financial aspect can be daunting. Therefore, we offer interest-free EMI options allowing you to spread the cost of your surgery over manageable installments.
+
+Habilite Clinics partners with some of the best hospitals where complete cashless insurance facilities are also available. Our well-trained team works seamlessly with insurance providers to ensure a smooth and hassle-free process for our patients.
+    `,
+    author: 'Dr. Kapil Agrawal',
+    authorImage: '/images/dr-kapil-agrawal.png',
+    publishedDate: '2025-01-18',
+    image: '',
+    category: 'Bariatric Surgery',
+    tags: ['Bariatric Surgery', 'Weight Loss Surgery', 'Bariatric Surgery Cost', 'Gastric Bypass', 'Sleeve Gastrectomy', 'Delhi', 'Habilite Clinics'],
+    readTime: 12,
+    seoTitle: 'Cost of Bariatric Surgery in Delhi, India | Habilite Clinics',
+    seoDescription: 'Complete guide to bariatric surgery cost in Delhi, India. Learn about factors affecting weight loss surgery pricing, types of procedures, and transparent packages starting from Rs 200,000 at Habilite Clinics.',
+    tableOfContents: [
+      { id: 'what-is-bariatric-surgery', title: 'What is Bariatric Surgery?', level: 2 },
+      { id: 'how-bariatric-surgery-works', title: 'How Bariatric Surgery Works?', level: 2 },
+      { id: 'reducing-the-stomach-size', title: 'Reducing the stomach size', level: 3 },
+      { id: 'rerouting-the-intestines', title: 'Rerouting the intestines', level: 3 },
+      { id: 'hormonal-changes', title: 'Hormonal changes', level: 3 },
+      { id: 'different-types-of-bariatric-surgery', title: 'Different Types of Bariatric Surgery', level: 2 },
+      { id: 'sleeve-gastrectomy', title: 'Sleeve Gastrectomy', level: 3 },
+      { id: 'mini-gastric-bypass', title: 'Mini Gastric Bypass', level: 3 },
+      { id: 'roux-en-y-gastric-bypass', title: 'Roux en Y Gastric Bypass', level: 3 },
+      { id: 'duodeno-jejunal-bypass', title: 'Duodeno-jejunal Bypass', level: 3 },
+      { id: 'factors-influencing-bariatric-surgery-cost', title: 'Factors Influencing Bariatric Surgery Cost in Delhi, India', level: 2 },
+      { id: 'infrastructure-of-the-hospital', title: 'Infrastructure of the Hospital', level: 3 },
+      { id: 'condition-of-the-patient', title: 'Condition of the Patient', level: 3 },
+      { id: 'experience-and-expertise-of-the-surgeon', title: 'Experience and Expertise of the Surgeon', level: 3 },
+      { id: 'quality-of-the-staplers', title: 'Quality of the Staplers', level: 3 },
+      { id: 'type-of-bariatric-surgery', title: 'Type of Bariatric Surgery', level: 3 },
+      { id: 'cost-of-bariatric-surgery-in-delhi-india', title: 'Cost of Bariatric Surgery in Delhi, India', level: 2 },
+      { id: 'why-choose-us-for-bariatric-surgery', title: 'Why Choose Us for Bariatric Surgery?', level: 2 }
+    ],
+    faqSchema: [
+      {
+        question: 'What is bariatric surgery?',
+        answer: 'Bariatric surgery is a type of weight loss surgery and is the only proven surgery for significant and sustainable weight loss. It is usually performed for patients who are morbidly obese or individuals who have tried other weight loss methods without any success.'
+      },
+      {
+        question: 'How does bariatric surgery work?',
+        answer: 'Bariatric surgery achieves weight loss through three main methods: reducing the stomach size (from 1.5 litres to 150-200 ml), rerouting the intestines to reduce fat absorption (malabsorption), and causing hormonal changes that suppress appetite and regulate sugar levels.'
+      },
+      {
+        question: 'What are the different types of bariatric surgery?',
+        answer: 'The commonly performed bariatric surgeries include: Sleeve Gastrectomy (gastric sleeve surgery), Mini Gastric Bypass, Roux en Y Gastric Bypass, and Duodeno-jejunal Bypass. Each procedure has its own indication and benefits, and the choice depends on individual patient factors.'
+      },
+      {
+        question: 'What is the cost of bariatric surgery in Delhi, India?',
+        answer: 'On average, bariatric surgery costs in Delhi typically range from INR 3,00,000 to INR 5,00,000. At Habilite Clinics, we offer packages ranging between Rs 200,000 and Rs 275,000 depending upon the type of surgery, condition of the patient, and associated medical illnesses.'
+      },
+      {
+        question: 'What factors influence the cost of bariatric surgery?',
+        answer: 'Several factors influence the cost including: hospital infrastructure (ICU, CCU, advanced camera systems), patient condition (weight, associated medical illnesses), surgeon experience and expertise, quality of staplers used, and the type of bariatric surgery procedure chosen.'
+      },
+      {
+        question: 'Is bariatric surgery covered by insurance?',
+        answer: 'Yes, Habilite Clinics partners with some of the best hospitals where complete cashless insurance facilities are available. Our well-trained team works seamlessly with insurance providers to ensure a smooth and hassle-free process for our patients.'
+      },
+      {
+        question: 'What is the difference between sleeve gastrectomy and gastric bypass?',
+        answer: 'Sleeve gastrectomy involves removing approximately 75% of the stomach, leaving a smaller sleeve-shaped stomach. Gastric bypass involves both reducing stomach size and rerouting the intestines to reduce fat absorption. Bypass procedures are generally more complex and may cost more than sleeve gastrectomy.'
+      },
+      {
+        question: 'Do you offer EMI options for bariatric surgery?',
+        answer: 'Yes, Habilite Clinics offers interest-free EMI options allowing you to spread the cost of your surgery over manageable installments, making bariatric surgery more financially accessible.'
+      },
+      {
+        question: 'What post-operative support is provided after bariatric surgery?',
+        answer: 'Habilite Clinics offers free post-operative consultations, a multi-disciplinary team of physicians, endocrinologists, and physiotherapists, and dedicated nutritionists to guide and support your weight loss journey. The team ensures complete care of associated medical illnesses in a hassle-free manner.'
+      },
+      {
+        question: 'Who is Dr. Kapil Agrawal?',
+        answer: 'Dr. Kapil Agrawal is a renowned, internationally trained Bariatric Surgeon with 22 years of experience. He is well known for performing a complete range of bariatric surgeries with excellent results and is working as a senior consultant surgeon at Apollo Group of Hospitals, New Delhi.'
+      }
+    ]
   }
 ]
 
