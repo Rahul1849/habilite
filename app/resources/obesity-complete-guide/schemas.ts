@@ -60,7 +60,7 @@ export const medicalProcedureSchema = {
   description:
     'Sleeve gastrectomy, gastric bypass, and SADI-S procedures performed at Habilite Clinics for chronic obesity with supervised pre- and post-operative care.',
   bodyLocation: 'Stomach / Digestive System',
-  procedureType: 'Bariatric Surgery',
+  procedureType: 'http://schema.org/PercutaneousProcedure',
   followup: 'Comprehensive rehabilitation including diet modification, supplements, psychological support, and metabolic labs.',
 }
 

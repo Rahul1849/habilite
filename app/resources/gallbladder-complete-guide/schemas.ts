@@ -77,6 +77,17 @@ export const physicianSchema = {
   medicalSpecialty: ['Surgical', 'Gastroenterologic', 'DietNutrition'],
   telephone: '+91-99994-56455',
   email: 'contact@habiliteclinics.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'M 11, Block M, Lajpat Nagar Road, Lajpat Nagar 2',
+    addressLocality: 'New Delhi',
+    addressRegion: 'Delhi',
+    postalCode: '110024',
+    addressCountry: {
+      '@type': 'Country',
+      name: 'India',
+    },
+  },
   knowsAbout: [
     'Gallbladder Stones',
     'Cholecystectomy',
@@ -395,7 +406,7 @@ export const medicalProcedureSchema = {
   name: 'Laparoscopic Cholecystectomy',
   alternateName: ['Laparoscopic Gallbladder Removal', 'Keyhole Gallbladder Surgery'],
   description: 'Minimally invasive surgical procedure to remove the gallbladder using small incisions and a laparoscope. Performed by Dr. Kapil Agrawal with 23+ years of experience.',
-  procedureType: 'Surgical Procedure',
+  procedureType: 'http://schema.org/PercutaneousProcedure',
   preparation: 'Fasting, blood tests, ultrasound, pre-operative evaluation',
   followup: 'Post-operative care, diet modifications, activity restrictions',
   bodyLocation: 'Gallbladder',

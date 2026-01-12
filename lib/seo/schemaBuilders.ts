@@ -154,7 +154,10 @@ export const getPhysicianSchema = () => ({
     addressLocality: CLINIC_INFO.address.locality,
     addressRegion: CLINIC_INFO.address.region,
     postalCode: CLINIC_INFO.address.postalCode,
-    addressCountry: CLINIC_INFO.address.country,
+    addressCountry: {
+      '@type': 'Country',
+      name: 'India',
+    },
   },
   areaServed: [
     { '@type': 'City', name: 'Delhi' },
@@ -212,7 +215,13 @@ export const getMedicalProcedureSchema = (options: MedicalProcedureOptions) => {
   }
 
   // Only include valid MedicalProcedure properties according to schema.org
-  if (options.procedureType) schema.procedureType = options.procedureType
+  // procedureType must be one of: http://schema.org/NoninvasiveProcedure or http://schema.org/PercutaneousProcedure
+  if (options.procedureType) {
+    // Convert procedureType to valid schema.org enumeration
+    // All surgical procedures (laparoscopic, laser, etc.) use PercutaneousProcedure
+    // as they involve incisions, even if minimally invasive
+    schema.procedureType = 'http://schema.org/PercutaneousProcedure'
+  }
   if (options.bodyLocation) schema.bodyLocation = options.bodyLocation
   if (options.followup) schema.followup = options.followup
   if (options.preparation) schema.preparation = options.preparation

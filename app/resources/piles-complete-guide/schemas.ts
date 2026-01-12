@@ -56,7 +56,7 @@ export const medicalProcedureSchema = {
   description:
     'Minimally invasive laser, DGHAL, and stapler procedures performed by Dr. Kapil Agrawal for grades II–IV hemorrhoids with fast recovery and minimal recurrence.',
   bodyLocation: 'Anal Canal / Rectum',
-  procedureType: 'Hemorrhoidectomy',
+  procedureType: 'http://schema.org/PercutaneousProcedure',
   followup: 'Pain control, fibre guidance, stool regulation, physical activity plan, and follow-up visits at 1 and 4 weeks.',
 }
 
