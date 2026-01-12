@@ -10142,7 +10142,7 @@ We have covered all your queries and concerns. To know about the best cost of pi
     author: 'Dr. Kapil Agrawal',
     authorImage: '/images/dr-kapil-agrawal.png',
     publishedDate: '2025-01-15',
-    image: '/images/piles-laser-surgery-cost-delhi.webp',
+    image: '',
     category: 'Piles',
     tags: ['Piles', 'Laser Surgery', 'Piles Treatment', 'Hemorrhoids', 'Laser Surgery Cost', 'Piles Surgery Delhi', 'Dr. Kapil Agrawal', 'Habilite Clinics'],
     readTime: 10,
