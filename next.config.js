@@ -447,8 +447,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/cost-of-hernia-surgery-in-delhi',
+        destination: '/post/cost-of-hernia-surgery-in-delhi',
+        permanent: true,
+      },
+      {
         source: '/cost-of-hernia-surgery-in-delhi/',
-        destination: 'https://www.habiliteclinics.com/cost-of-hernia-surgery-in-delhi',
+        destination: '/post/cost-of-hernia-surgery-in-delhi',
         permanent: true,
       },
       {
