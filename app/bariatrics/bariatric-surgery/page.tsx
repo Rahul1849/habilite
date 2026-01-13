@@ -271,7 +271,7 @@ export default function BariatricSurgeryPage() {
 
             {/* What is Bariatric Surgery */}
             <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">What Is Bariatric Surgery? A Simple Explanation</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">What Is Bariatric Surgery?</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Bariatric surgery is not a cosmetic surgery but a Metabolic procedure. Bariatric surgery involves a suite of 4-5 distinct surgical procedures. Each operation has specific benefits and is indicated for different patient profiles.
               </p>
@@ -365,7 +365,7 @@ export default function BariatricSurgeryPage() {
 
             {/* Our Advanced, Patient-Tailored Weight Loss Procedures */}
             <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Our Advanced, Patient-Tailored Weight Loss Procedures</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Our Advanced Weight Loss Surgeries</h2>
               
               <div className="space-y-4">
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
@@ -651,40 +651,40 @@ export default function BariatricSurgeryPage() {
                   <p className="text-gray-700 leading-relaxed mb-4">
                     If your BMI is 30 or more, you are considered obese. Sometimes, Waist Circumference & Waist-to-Hip Ratio are also taken into account to assess obesity levels.
                   </p>
-                  <div className="bg-white border border-gray-200 rounded-lg p-6 overflow-x-auto">
+                  <div className="bg-gradient-to-br from-cyan-50 to-blue-50 border border-[#0891b2]/20 rounded-lg p-6 overflow-x-auto">
                     <table className="w-full text-sm text-gray-700">
                       <thead>
-                        <tr className="border-b border-gray-200">
-                          <th className="text-left py-3 px-4 font-semibold text-gray-900">BMI Range-kg/m2</th>
-                          <th className="text-left py-3 px-4 font-semibold text-gray-900">Category</th>
+                        <tr className="bg-[#0891b2]">
+                          <th className="text-left py-3 px-4 font-semibold text-white">BMI Range-kg/m2</th>
+                          <th className="text-left py-3 px-4 font-semibold text-white">Category</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="border-b border-gray-100">
+                        <tr className="border-b border-[#0891b2]/20 bg-white/50">
                           <td className="py-3 px-4">&lt;18.5</td>
                           <td className="py-3 px-4">Underweight</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
+                        <tr className="border-b border-[#0891b2]/20 bg-white/50">
                           <td className="py-3 px-4">18.5 - 23.5</td>
                           <td className="py-3 px-4">Normal</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
+                        <tr className="border-b border-[#0891b2]/20 bg-white/50">
                           <td className="py-3 px-4">23.5 - 27.5</td>
                           <td className="py-3 px-4">Overweight</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
+                        <tr className="border-b border-[#0891b2]/20 bg-white/50">
                           <td className="py-3 px-4">27.5 - 37.5</td>
                           <td className="py-3 px-4">Obese</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
+                        <tr className="border-b border-[#0891b2]/20 bg-white/50">
                           <td className="py-3 px-4">&gt;37.5</td>
                           <td className="py-3 px-4">Morbidly Obese</td>
                         </tr>
-                        <tr className="border-b border-gray-100">
+                        <tr className="border-b border-[#0891b2]/20 bg-white/50">
                           <td className="py-3 px-4">&gt;50</td>
                           <td className="py-3 px-4">Super Obese</td>
                         </tr>
-                        <tr>
+                        <tr className="bg-white/50">
                           <td className="py-3 px-4">&gt;60</td>
                           <td className="py-3 px-4">Super Super Obese</td>
                         </tr>
@@ -695,7 +695,7 @@ export default function BariatricSurgeryPage() {
 
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Who can undergo Bariatric Surgery: An ideal candidate
+                    Who can undergo Bariatric Surgery?
                   </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
                     While bariatric surgery is a powerful tool, it&apos;s not the right choice for everyone. To ensure safety and long-term success, we carefully evaluate patients against established medical criteria. Key requirements typically include:
@@ -726,14 +726,6 @@ export default function BariatricSurgeryPage() {
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Ensuring Safety: Who May Need Extra Evaluation Before Surgery
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Your safety is our top priority. Certain pre-existing conditions, such as complex heart or lung issues, specific nutritional deficiencies, or unmanaged mental health concerns, may require a more thorough evaluation with our multidisciplinary team. It ensures we design the safest possible surgical plan and provide the proper support for you, both before and after your procedure.
-                  </p>
-                </div>
               </div>
             </section>
 
@@ -800,7 +792,7 @@ export default function BariatricSurgeryPage() {
 
             {/* Benefits Beyond Weight Loss: Reclaiming Your Health & Life */}
             <section>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Benefits Beyond Weight Loss: Reclaiming Your Health & Life</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Benefits of Bariatric Surgery</h2>
               
               <div className="space-y-6">
                 <div>
@@ -862,7 +854,7 @@ export default function BariatricSurgeryPage() {
             {/* Why Choose Dr. Kapil Agrawal */}
             <section className="bg-gradient-to-r from-[#0891b2]/10 to-[#06b6d4]/10 rounded-xl p-8">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Why Choose Dr. Kapil Agrawal for Bariatric Surgery?
+                Why Choose Dr. Kapil Agrawal for Bariatric Surgery in Delhi?
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Dr. Kapil Agrawal is the best bariatric surgeon in Delhi, known for his surgical excellence, patient-centric care, and expertise in advanced laparoscopic and robotic procedures.
@@ -893,25 +885,7 @@ export default function BariatricSurgeryPage() {
 
           <div className="max-w-5xl mx-auto space-y-12">
             <BariatricTestimonials />
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Recovery & Aftercare</h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Recovery Time</p>
-                    <p className="text-gray-700 text-sm">Most patients can return to normal activities within 2-4 weeks after bariatric surgery, with full recovery in 6-8 weeks. Most patients are sent home by 24-48 hours after surgery.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Follow-up Care</p>
-                    <p className="text-gray-700 text-sm">Regular follow-up appointments ensure optimal recovery and address any concerns. Dr. Kapil Agrawal provides comprehensive post-operative care including nutritional guidance and lifestyle modifications.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
+            
             <RecoveryTimeline />
           </div>
         </div>
