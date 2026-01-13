@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/best-inguinal-hernia-surgeon-in-delhi',
+    canonical: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/inguinal-hernia-surgery',
   },
 }
 

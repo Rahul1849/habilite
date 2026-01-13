@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Best Epigastric Hernia Surgeon in Delhi - Dr. Kapil Agrawal',
     description:
       'Expert laparoscopic and robotic epigastric hernia repair by Dr. Kapil Agrawal in Delhi. Painless surgery, high-quality mesh, 24-hour discharge.',
-    url: 'https://www.habiliteclinics.com/best-epigastric-hernia-surgeon-in-delhi',
+    url: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/epigastric-hernia-surgery',
     images: [
       {
         url: 'https://www.habiliteclinics.com/images/hernia-surgeon-delhi-india.webp',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/best-epigastric-hernia-surgeon-in-delhi',
+    canonical: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/epigastric-hernia-surgery',
   },
 }
 

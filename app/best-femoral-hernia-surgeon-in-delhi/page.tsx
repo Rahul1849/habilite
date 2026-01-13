@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://www.habiliteclinics.com/best-femoral-hernia-surgeon-in-delhi',
+    canonical: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/femoral-hernia-surgery',
   },
 }
 
