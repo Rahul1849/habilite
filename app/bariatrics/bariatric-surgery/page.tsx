@@ -202,57 +202,71 @@ export default function BariatricSurgeryPage() {
               
             </section>
 
-            <section className="space-y-4">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <section className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Your Health at Stake: How Excess Weight Affects Your Body
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-700 leading-relaxed mb-3">
                 Severe obesity is not just about how you look; it&apos;s about how your body works.
               </p>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm sm:text-base">
-                  It affects all your vital organs. Your heart works harder, leading to high blood pressure, heart disease, and stroke.
-                </p>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Excessive fat interferes with insulin action, leading to Type II diabetes.
-                </p>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Excessive fat around the chest and neck can lead to breathing problems, resulting in poor sleep, fatigue, and low oxygen levels.
-                </p>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Obesity causes early damage to weight-bearing joints, leading to arthritis and loss of stamina.
-                </p>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Hormonal disturbances due to obesity cause infertility, irregular menstrual cycles, and low testosterone levels.
-                </p>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Fatty liver disease, acidity, gallstones, and increased cancer risk are also linked to severe obesity.
-                </p>
-              </div>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>It affects all your vital organs. Your heart works harder, leading to high blood pressure, heart disease, and stroke.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Excessive fat interferes with insulin action, leading to Type II diabetes.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Excessive fat around the chest and neck can lead to breathing problems, resulting in poor sleep, fatigue, and low oxygen levels.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Obesity causes early damage to weight-bearing joints, leading to arthritis and loss of stamina.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Hormonal disturbances due to obesity cause infertility, irregular menstrual cycles, and low testosterone levels.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Fatty liver disease, acidity, gallstones, and increased cancer risk are also linked to severe obesity.</span>
+                </li>
+              </ul>
             </section>
 
-            <section className="space-y-4">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <section className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 You Are Not Alone: Why Diets Often Fail and What Comes Next
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Dieting results in temporary weight loss because our body always resists weight loss.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                When we diet, our metabolism slows down, and the levels of hunger hormones increase, leading to failure and weight regain.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Effective medical solutions include structured medical weight-loss programs, medications, and bariatric surgery, which address the biological causes of obesity.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Bariatric surgery addresses the root cause of obesity. Apart from reducing stomach size and altering fat absorption, it modifies the gut hormone levels.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Bariatric surgery alters the body&apos;s weight set point, making effective, sustainable weight loss easier for you.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                The next step is not another fad diet, but a scientific, long-term treatment plan tailored to your body, health conditions, and lifestyle—so weight loss becomes achievable and sustainable.
-              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Dieting results in temporary weight loss because our body always resists weight loss.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>When we diet, our metabolism slows down, and the levels of hunger hormones increase, leading to failure and weight regain.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Effective medical solutions include structured medical weight-loss programs, medications, and bariatric surgery, which address the biological causes of obesity.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Bariatric surgery addresses the root cause of obesity. Apart from reducing stomach size and altering fat absorption, it modifies the gut hormone levels.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Bariatric surgery alters the body&apos;s weight set point, making effective, sustainable weight loss easier for you.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>The next step is not another fad diet, but a scientific, long-term treatment plan tailored to your body, health conditions, and lifestyle—so weight loss becomes achievable and sustainable.</span>
+                </li>
+              </ul>
             </section>
 
             {/* What is Bariatric Surgery */}
@@ -263,43 +277,56 @@ export default function BariatricSurgeryPage() {
               </p>
             </section>
 
-            <section className="space-y-4">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <section className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 More Than Just Weight Loss: A Tool to Reset Your Metabolism
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Bariatric or weight loss surgery changes how your stomach and gut work to reduce hunger and improve fullness.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                The surgery helps balance hormones that control appetite and blood sugar.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Patients experience improvement or resolution of diabetes, hypertension, and sleep apnea.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                By correcting the body&apos;s weight-regulation system, long-term weight loss becomes achievable.
-              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Bariatric or weight loss surgery changes how your stomach and gut work to reduce hunger and improve fullness.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>The surgery helps balance hormones that control appetite and blood sugar.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Patients experience improvement or resolution of diabetes, hypertension, and sleep apnea.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>By correcting the body&apos;s weight-regulation system, long-term weight loss becomes achievable.</span>
+                </li>
+              </ul>
             </section>
 
-            <section className="space-y-4">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <section className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Key Difference: Bariatric Surgery vs. Medical Weight Loss Plans
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Medical weight loss focuses on diet, exercise, counselling, and medications.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                These plans work best for mild to moderate obesity and may yield limited results in patients with higher BMIs.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Bariatric surgery is recommended for severe obesity or when medical plans fail.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Surgery produces greater hormonal and metabolic changes.
-              </p>
-              <p className="text-gray-700 text-sm sm:text-base">
-                It offers greater, more sustained weight loss with better control of obesity-related diseases.
-              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Medical weight loss focuses on diet, exercise, counselling, and medications.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>These plans work best for mild to moderate obesity and may yield limited results in patients with higher BMIs.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Bariatric surgery is recommended for severe obesity or when medical plans fail.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>Surgery produces greater hormonal and metabolic changes.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="text-[#0891b2] mr-3 mt-1 flex-shrink-0" size={18} />
+                  <span>It offers greater, more sustained weight loss with better control of obesity-related diseases.</span>
+                </li>
+              </ul>
             </section>
 
             {/* Why Dr. Kapil Agrawal */}
@@ -308,28 +335,28 @@ export default function BariatricSurgeryPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Elite Credentials: MBBS, MS, MRCS (London) & Advanced Bariatric Training
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Dr. Agrawal&apos;s educational journey is a strong foundation of excellence. He has pursued advanced, specialised training in bariatric and metabolic surgery at leading international centres, ensuring you are in the hands of a globally competent surgeon.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     A Legacy of Success: 23+ Years & Leadership in Weight Loss Surgery
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     For over 23 years, Dr. Kapil Agrawal has been at the forefront of weight loss surgery in India. His extensive experience and thousands of successful bariatric surgeries represent a track record you can rely on. He has helped people from all over India lose weight and regain their health. This vast experience means he has likely encountered and expertly managed almost every possible surgical scenario. His reputation is so strong that other surgeons often invite him to teach and share his knowledge. This legacy is built on a simple promise: providing safe, effective care that earns the deep, lasting trust of every patient who walks through his door.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Pioneer in Minimally Invasive Techniques: Robotic & Single-Port Surgery
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Dr. Agrawal believes your recovery should be as smooth as our surgical precision. He is a champion of the most advanced minimally invasive techniques. He is a leading authority in Laparoscopic Surgery in Delhi, using tiny &quot;keyhole&quot; incisions for faster healing. He has taken this further by mastering Robotic Bariatric Surgery, where a state-of-the-art robotic system gives him very high precision and control, especially in complex cases.
                   </p>
                 </div>
@@ -340,48 +367,48 @@ export default function BariatricSurgeryPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Our Advanced, Patient-Tailored Weight Loss Procedures</h2>
               
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+              <div className="space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Gastric Sleeve (Sleeve Gastrectomy): The Reliable, Most Common Choice
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     In this surgical procedure, 75-80% of the stomach is removed, resulting in a banana-shaped &quot;sleeve&quot;. It reduces hunger by lowering ghrelin (the hunger hormone) levels and limits food intake, resulting in effective weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/sleeve-gastrectomy-surgery" className="text-[#0891b2] hover:underline">Learn more about Gastric Sleeve Surgery →</Link>]
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Gastric Bypass: For Significant Weight Loss & Controlling Type 2 Diabetes
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     This surgery creates a small pouch from the stomach using endo-staplers and connects it directly to the small intestine. It limits food intake and calorie absorption, leading to substantial, long-lasting weight loss. [<Link href="/bariatric-surgeon-in-delhi-india/gastric-bypass-surgery" className="text-[#0891b2] hover:underline">Learn more about Gastric Bypass →</Link>]
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Mini Gastric Bypass: Better and Safer than Gastric Bypass
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     This is a shorter version of the traditional gastric bypass. This process involves creating a long gastric pouch and attaching it to the lower part of the small intestine. It is a faster process with quicker weight-loss solutions and minimal risks. [<Link href="/bariatrics/bariatric-surgery/mini-gastric-bypass-surgery" className="text-[#0891b2] hover:underline">Learn more about Mini gastric Bypass →</Link>]
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Duodenal Jejunal Bypass: Alternative to Mini Gastric Bypass
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     This surgical process is best for people dealing with Type 2 Diabetes and less obesity. This procedure bypasses the first part of the small intestine (duodenum), even without reducing the stomach size. It helps to control blood sugar and promotes modest weight loss. [<Link href="/bariatrics/bariatric-surgery/duodenal-jejunal-bypass-surgery" className="text-[#0891b2] hover:underline">Learn more about Duodenal Jejunal Bypass →</Link>]
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Revisional Bariatric Surgery: Correcting and Improving Past Procedures
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     Patients who are regaining weight or facing complications after their previous bariatric procedure may need revision surgery that helps to improve or adjust the last surgery to restore its effectiveness and safety. [<Link href="/bariatric-surgeon-in-delhi-india/revision-surgeries-surgery" className="text-[#0891b2] hover:underline">Learn more about Revision Bariatric Surgery →</Link>]
                   </p>
                 </div>
@@ -394,28 +421,28 @@ export default function BariatricSurgeryPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Safer Surgery & Minimal Complications
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Dr Kapil Agrawal is an experienced & high-volume surgeon. His expertise in advanced minimally invasive techniques significantly lowers the risk of complications. You benefit from precise surgical skill, meticulous pre-operative planning, and a dedicated team focused on your well-being. This approach ensures the highest standard of care for a smooth surgical journey.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Choosing the Best Bariatric Surgery
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Dr Kapil Agrawal offers a complete spectrum of weight-loss or bariatric surgeries. After detailed evaluation and consultation, he guides you in selecting the most effective and sustainable procedure.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Laparoscopic vs Robotic Bariatric Surgery
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Both are advanced minimally invasive techniques offering faster recovery than open surgery. Dr. Agrawal will recommend the best approach for you based on his expertise with both technologies.
                   </p>
                 </div>
@@ -429,48 +456,48 @@ export default function BariatricSurgeryPage() {
                 Dr. Kapil Agrawal specializes in advanced, minimally invasive bariatric surgeries and primarily uses Laparoscopic and Robotic-assisted techniques. Dr. Kapil Agrawal performs a thorough evaluation of every patient to determine the safest, most effective, and personalized surgical approach.
               </p>
               
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+              <div className="space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Laparoscopic Bariatric Surgery: Still the Gold Standard
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     For most patients, laparoscopic surgery is the established and preferred technique.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     Through 3-4 tiny incisions, Dr. Kapil Agrawal uses a slender camera to see inside with clarity.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     He then performs the surgery using advanced instruments while monitoring a screen.
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Robotic Bariatric Surgery: Unmatched Precision for Complex Cases
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     Robotic surgery in obese patients is mainly indicated for patients with very high BMI and previous abdominal surgeries.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     Dr. Agrawal performs the procedure using a console that guides the robotic arms. The robotic arms translate his hand movements into ultra-precise motions.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     The 3D visualization of internal organs enables him to perform surgery more efficiently and precisely.
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-[#0891b2]/20">
                   <h3 className="font-semibold text-gray-900 mb-3">
                     Why &apos;Keyhole&apos; Surgery Means Less Pain and a Faster Recovery for You
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base font-semibold mb-2">
+                  <p className="text-gray-700 text-sm font-semibold mb-2">
                     Robotic vs Laparoscopic Bariatric Surgery:
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     Patients enjoy similar practical benefits with both techniques, including scars and recovery. In fact, hospital stays and postoperative pain are the same in both methods.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 text-sm">
                     Robot-assisted surgery offers enhanced precision, flexibility, and range of motion, making it ideal for complex anatomy. It is even beneficial for patients with very high BMI or who have a history of previous major abdominal surgeries.
                   </p>
                 </div>
@@ -615,13 +642,13 @@ export default function BariatricSurgeryPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Understanding BMI and Other Health Indicators
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base mb-4">
+                  <p className="text-gray-700 leading-relaxed mb-3">
                     The first and foremost step in managing obesity is to assess its severity. The most common and reliable tool for determining obesity is BMI. The BMI is a statistical measurement of your weight and height.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base mb-4">
+                  <p className="text-gray-700 leading-relaxed mb-4">
                     If your BMI is 30 or more, you are considered obese. Sometimes, Waist Circumference & Waist-to-Hip Ratio are also taken into account to assess obesity levels.
                   </p>
                   <div className="bg-white border border-gray-200 rounded-lg p-6 overflow-x-auto">
@@ -667,10 +694,10 @@ export default function BariatricSurgeryPage() {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Who can undergo Bariatric Surgery: An ideal candidate
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base mb-4">
+                  <p className="text-gray-700 leading-relaxed mb-4">
                     While bariatric surgery is a powerful tool, it&apos;s not the right choice for everyone. To ensure safety and long-term success, we carefully evaluate patients against established medical criteria. Key requirements typically include:
                   </p>
                   <div className="bg-white border border-gray-200 rounded-lg p-6">
@@ -700,10 +727,10 @@ export default function BariatricSurgeryPage() {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Ensuring Safety: Who May Need Extra Evaluation Before Surgery
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Your safety is our top priority. Certain pre-existing conditions, such as complex heart or lung issues, specific nutritional deficiencies, or unmanaged mental health concerns, may require a more thorough evaluation with our multidisciplinary team. It ensures we design the safest possible surgical plan and provide the proper support for you, both before and after your procedure.
                   </p>
                 </div>
@@ -716,55 +743,55 @@ export default function BariatricSurgeryPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Step 1: Comprehensive Pre-Surgery Evaluation & Personalised Planning
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base mb-3">
+                  <p className="text-gray-700 leading-relaxed mb-2">
                     Your journey begins with a thoughtful, thorough assessment and the necessary medical tests.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base mb-3">
+                  <p className="text-gray-700 leading-relaxed mb-2">
                     You&apos;ll have a detailed one-on-one consultation with Dr. Kapil Agrawal. Together, you&apos;ll discuss your health profile and goals to determine which surgical option is safest and best suited to you.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base mb-3">
+                  <p className="text-gray-700 leading-relaxed mb-2">
                     Finally, you&apos;ll meet with our dedicated dietician to prepare your mind and body for the changes ahead.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Our dedicated patient care coordinator will handle all the details, from paperwork and insurance coordination to hospital admission.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Step 2: Surgery Day: Safety, Advanced Technology, and Expert Hands
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed mb-2">
                     Dr Kapil Agrawal and his team perform the surgery using the most advanced laparoscopic or robotic technology with precision.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Our team adheres to the highest standards of care in a modern operating room.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Step 3: Your Recovery: In-Hospital Care and Going Home
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base mb-3">
+                  <p className="text-gray-700 leading-relaxed mb-2">
                     You&apos;ll recover in a supportive environment where our nursing and medical staff closely monitor your progress.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Before you leave, you&apos;ll receive clear, personalised instructions for wound care, medications, and initial diet.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Step 4: Lifelong Success: Nutrition, Lifestyle Support & Regular Follow-Ups
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base mb-3">
+                  <p className="text-gray-700 leading-relaxed mb-2">
                     Our team will guide you through your evolving dietary needs and activity plans.
                   </p>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Dr. Kapil Agrawal will see you for regular follow-ups to track your progress and adjust your plan as needed.
                   </p>
                 </div>
@@ -777,55 +804,55 @@ export default function BariatricSurgeryPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Health Benefits Beyond the Scale: Improving Diabetes, Blood Pressure, and More
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     One of the most potent effects of bariatric surgery is its ability to transform your metabolic health. Many patients see a dramatic improvement in their diabetes. High blood pressure also often decreases, reducing your risk of heart disease and stroke. This means managing fewer medications and focusing on living a fuller, healthier life.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Rediscovering Energy and Vitality
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Within a few weeks post-surgery, you will experience better stamina for daily tasks and feel like you&apos;re getting your spark back in life.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Moving Without Pain: Enhancing Mobility
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Losing weight significantly reduces pressure on your joints and spine. This relief allows you to walk farther, climb stairs comfortably, and enjoy activities.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Boosting Confidence and Self-Esteem
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     Losing weight and regaining health gives you a powerful sense of accomplishment and self-control. You will face and engage with the world with renewed confidence and positivity.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Participating Fully in Life Again
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     After surgery, you can fully engage in family vacations, social gatherings, and everyday adventures. You no longer need to watch from the sidelines; you can actively create and enjoy memories.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     The Ripple Effect: How Improved Health Changes Everything
                   </h3>
-                  <p className="text-gray-700 text-sm sm:text-base">
+                  <p className="text-gray-700 leading-relaxed">
                     When your health transforms, the benefits touch every part of your life. Better sleep improves your mood. More energy brings more happiness. This positive shift often inspires healthier choices in your whole family, creating a lasting legacy of wellness.
                   </p>
                 </div>
