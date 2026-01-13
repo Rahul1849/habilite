@@ -42,11 +42,11 @@ const treatments = [
   },
   {
     label: "Inguinal Hernia Surgery in Delhi",
-    href: "/best-inguinal-hernia-surgeon-in-delhi",
+    href: "/best-hernia-surgeon-in-delhi/inguinal-hernia-surgery",
   },
   {
     label: "Umbilical Hernia Surgery in Delhi",
-    href: "/best-umbilical-hernia-surgeon-in-delhi",
+    href: "/best-hernia-surgeon-in-delhi/umbilical-hernia-surgery",
   },
   {
     label: "Appendix Surgery in Delhi",

@@ -353,12 +353,12 @@ export default function BestHerniaSurgeonPage() {
                   {
                     title: "Inguinal Hernia",
                     desc: "An inguinal hernia occurs in the groin when abdominal tissue pushes through a weak spot in the abdominal wall. It is more common in men and may cause pain or discomfort during physical activity.",
-                    link: "/best-inguinal-hernia-surgeon-in-delhi",
+                    link: "/best-hernia-surgeon-in-delhi/inguinal-hernia-surgery",
                   },
                   {
                     title: "Umbilical Hernia",
                     desc: "An umbilical hernia develops near the navel. While it is commonly seen in infants, it can also affect adults, especially those with obesity or repeated abdominal strain.",
-                    link: "/best-umbilical-hernia-surgeon-in-delhi",
+                    link: "/best-hernia-surgeon-in-delhi/umbilical-hernia-surgery",
                   },
                   {
                     title: "Incisional Hernia",
@@ -373,12 +373,12 @@ export default function BestHerniaSurgeonPage() {
                   {
                     title: "Epigastric Hernia",
                     desc: "Epigastric hernia occurs between the umbilicus and the rib cage.",
-                    link: "/best-epigastric-hernia-surgeon-in-delhi",
+                    link: "/best-hernia-surgeon-in-delhi/epigastric-hernia-surgery",
                   },
                   {
                     title: "Femoral Hernia",
                     desc: "A femoral hernia appears near the upper thigh and is more commonly seen in women. It can be difficult to detect and carries a higher risk of complications such as strangulation. Early specialist evaluation helps prevent emergency situations and ensures timely repair. Timely laparoscopic repair offers faster recovery and lowers recurrence risk.",
-                    link: "/best-femoral-hernia-surgeon-in-delhi",
+                    link: "/best-hernia-surgeon-in-delhi/femoral-hernia-surgery",
                     compact: true,
                   },
                   {

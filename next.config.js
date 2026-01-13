@@ -530,7 +530,7 @@ const nextConfig = {
       },
       {
         source: '/inguinal-hernia-treatment',
-        destination: 'https://www.habiliteclinics.com/best-inguinal-hernia-surgeon-in-delhi',
+        destination: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/inguinal-hernia-surgery',
         permanent: true,
       },
       {
@@ -550,17 +550,57 @@ const nextConfig = {
       },
       {
         source: '/femoral-hernia-treatment',
-        destination: 'https://www.habiliteclinics.com/best-femoral-hernia-surgeon-in-delhi',
+        destination: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/femoral-hernia-surgery',
         permanent: true,
       },
       {
         source: '/umbilical-hernia-surgeon-specialist-doctor',
-        destination: 'https://www.habiliteclinics.com/best-umbilical-hernia-surgeon-in-delhi',
+        destination: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/umbilical-hernia-surgery',
         permanent: true,
       },
       {
         source: '/epigastric-hernia-treatment',
-        destination: 'https://www.habiliteclinics.com/best-epigastric-hernia-surgeon-in-delhi',
+        destination: 'https://www.habiliteclinics.com/best-hernia-surgeon-in-delhi/epigastric-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-inguinal-hernia-surgeon-in-delhi',
+        destination: '/best-hernia-surgeon-in-delhi/inguinal-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-inguinal-hernia-surgeon-in-delhi/',
+        destination: '/best-hernia-surgeon-in-delhi/inguinal-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-femoral-hernia-surgeon-in-delhi',
+        destination: '/best-hernia-surgeon-in-delhi/femoral-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-femoral-hernia-surgeon-in-delhi/',
+        destination: '/best-hernia-surgeon-in-delhi/femoral-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-umbilical-hernia-surgeon-in-delhi',
+        destination: '/best-hernia-surgeon-in-delhi/umbilical-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-umbilical-hernia-surgeon-in-delhi/',
+        destination: '/best-hernia-surgeon-in-delhi/umbilical-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-epigastric-hernia-surgeon-in-delhi',
+        destination: '/best-hernia-surgeon-in-delhi/epigastric-hernia-surgery',
+        permanent: true,
+      },
+      {
+        source: '/best-epigastric-hernia-surgeon-in-delhi/',
+        destination: '/best-hernia-surgeon-in-delhi/epigastric-hernia-surgery',
         permanent: true,
       },
       {
