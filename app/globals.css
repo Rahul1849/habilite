@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
 }
 
 /* Critical CSS for faster FCP - inline in layout */
@@ -13,26 +13,38 @@
     overflow-x: hidden;
     max-width: 100vw;
   }
-  
+
   body {
     @apply bg-white text-gray-900 antialiased;
     overflow-x: hidden;
     max-width: 100vw;
     position: relative;
     /* Prevent font blocking render */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
   }
-  
+
   * {
     box-sizing: border-box;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold;
     word-wrap: break-word;
   }
-  
-  img, video {
+
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }
@@ -42,27 +54,27 @@
   .btn-primary {
     @apply bg-gradient-to-r from-black via-[#0891b2] to-[#06b6d4] hover:from-[#06b6d4] hover:to-[#22d3ee] text-white font-semibold px-6 py-3 rounded transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-cyan-500/50;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary-500 hover:bg-secondary-600 text-white font-semibold px-6 py-3 rounded transition-colors duration-200;
   }
-  
+
   .btn-outline {
     @apply border-2 border-[#1a4d7a] text-[#1a4d7a] hover:bg-[#1a4d7a] hover:text-white font-semibold px-6 py-3 rounded transition-colors duration-200;
   }
-  
+
   .section-padding {
     @apply py-16 md:py-20;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .gradient-primary {
     @apply bg-gradient-to-r from-[#ffd4b3] via-[#ffc49e] to-[#ffa07a];
   }
-  
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#f56336] to-[#ff8c5a];
   }
@@ -113,7 +125,8 @@
   }
 
   @keyframes pulse-slow {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0;
     }
     50% {
@@ -167,7 +180,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
@@ -177,21 +190,21 @@
     scrollbar-width: thin;
     scrollbar-color: #cbd5e1 #f1f5f9;
   }
-  
+
   .toc-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   .toc-scrollbar::-webkit-scrollbar-track {
     background: #f1f5f9;
     border-radius: 10px;
   }
-  
+
   .toc-scrollbar::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 10px;
   }
-  
+
   .toc-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
   }

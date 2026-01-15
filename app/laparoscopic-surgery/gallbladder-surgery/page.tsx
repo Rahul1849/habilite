@@ -709,7 +709,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Progression to emergency: severe infection can require
+                      <strong>Progression to emergency:</strong> Severe infection can require
                       urgent surgery with higher risks and longer stays.
                     </span>
                   </li>
@@ -719,7 +719,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Avoiding major complications: migrating stones can cause
+                      <strong>Avoiding major complications:</strong> Migrating stones can cause
                       jaundice, life-threatening bile duct infections, or
                       gallstone pancreatitis.
                     </span>
@@ -730,7 +730,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Preventing anatomical injuries: inexperienced surgery
+                      <strong>Preventing anatomical injuries:</strong> Inexperienced surgery
                       risks bile duct injury, leading to liver problems or
                       repeat procedures.
                     </span>
@@ -741,7 +741,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Ensuring complete resolution: an expert removes all
+                      <strong>Ensuring complete resolution:</strong> An expert removes all
                       stones, including those that may have migrated.
                     </span>
                   </li>
@@ -760,7 +760,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Minimising surgical trauma: advanced laparoscopic
+                     <strong>Minimising surgical trauma:</strong>  Advanced laparoscopic
                       techniques use tiny incisions and precise movements to
                       reduce pain and tissue damage.
                     </span>
@@ -771,7 +771,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Faster, smoother recovery: less pain supports quicker
+                     <strong>Faster, smoother recovery:</strong>  Less pain supports quicker
                       return to work and daily routines.
                     </span>
                   </li>
@@ -781,7 +781,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Superior aesthetic and functional results: proficiency in
+                     <strong>Superior aesthetic and functional results:</strong>  Proficiency in
                       single-port laparoscopic surgery (SILS) enables a single,
                       hidden incision.
                     </span>
@@ -792,7 +792,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Safeguarding digestive health: expert technique maintains
+                     <strong>Safeguarding digestive health:</strong>  Expert technique maintains
                       proper anatomy, helping patients enjoy regular diets
                       without persistent issues.
                     </span>
@@ -803,7 +803,7 @@ export default function GallbladderSurgeryPage() {
                       size={18}
                     />
                     <span>
-                      Foundation for lifelong health: complication-free surgery
+                     <strong>Foundation for lifelong health:</strong>  Complication-free surgery
                       prevents long-term risks tied to chronic gallbladder
                       disease.
                     </span>
@@ -829,18 +829,24 @@ export default function GallbladderSurgeryPage() {
                     "Vast experience: 23+ years and over 7,000 laparoscopic and robotic gallbladder surgeries, including complex cases.",
                     "Elite training: MBBS, MS (Surgery), MRCS (London), and MMed (Singapore) ensure adherence to global best practices.",
                     "High-volume specialist: Senior Consultant Laparoscopic Surgeon with the Apollo Group across Delhi NCR centres.",
-                    "Pioneer in advanced techniques: offers single-port laparoscopic surgery that delivers virtually scarless results.",
-                    "Multidisciplinary expertise: leads teams for complex biliary cases, including hepaticojejunostomy, complex CBD explorations, and radical cholecystectomies.",
-                    "Evidence-based protocols: globally recognised, data-driven approaches that prioritise pain control and infection prevention.",
-                  ].map((reason, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle2
-                        className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
-                        size={20}
-                      />
-                      <span className="text-gray-700">{reason}</span>
-                    </div>
-                  ))}
+                    "Pioneer in advanced techniques: Offers single-port laparoscopic surgery that delivers virtually scarless results.",
+                    "Multidisciplinary expertise: Leads teams for complex biliary cases, including hepaticojejunostomy, complex CBD explorations, and radical cholecystectomies.",
+                    "Evidence-based protocols: Globally recognised, data-driven approaches that prioritise pain control and infection prevention.",
+                  ].map((reason, index) => {
+                    const [boldPart, ...restParts] = reason.split(": ");
+                    const remainingText = restParts.join(": ");
+                    return (
+                      <div key={index} className="flex items-start">
+                        <CheckCircle2
+                          className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
+                          size={20}
+                        />
+                        <span className="text-gray-700">
+                          <strong>{boldPart}:</strong> {remainingText}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
                 {/* Right side - Image */}
                 <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
@@ -871,45 +877,7 @@ export default function GallbladderSurgeryPage() {
             <div className="defer-section">
               <GallbladderTestimonials />
             </div>
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Recovery & Aftercare
-              </h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock
-                    className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">
-                      Recovery Time
-                    </p>
-                    <p className="text-gray-700 text-sm">
-                      Most patients can return to normal activities within 1-2
-                      weeks after laparoscopic gallbladder surgery. Many
-                      patients are discharged within 24 hours.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User
-                    className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">
-                      Follow-up Care
-                    </p>
-                    <p className="text-gray-700 text-sm">
-                      Regular follow-up appointments ensure optimal recovery and
-                      address any concerns. Dr. Kapil Agrawal provides
-                      comprehensive post-operative care.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
+            
             <div className="defer-section">
               <RecoveryTimeline />
             </div>
