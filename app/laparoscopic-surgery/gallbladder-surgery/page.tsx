@@ -553,7 +553,11 @@ export default function GallbladderSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mb-6">
                 Gallbladder stone treatment has advanced significantly with the
                 use of modern surgical techniques that focus on safety, comfort,
-                and quicker recovery. At Habilite Clinics, Dr. Kapil Agrawal
+                and quicker recovery. <Link
+                        href="https://www.habiliteclinics.com/dr-kapil-agrawal"
+                        className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
+                      >
+                      Dr. Kapil Agrawal - Gallbladder Specialist Surgeon </Link>{" "}
                 offers a range of minimally invasive gallbladder surgery
                 options, delivering precise and patient-centric care for
                 effective stone removal.
@@ -639,7 +643,11 @@ export default function GallbladderSurgeryPage() {
                 Determining the Best Surgical Approach for You
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                During your evaluation, Dr Kapil Agrawal reviews your medical
+                During your evaluation, Dr Kapil Agrawal at <Link
+                        href="https://www.habiliteclinics.com/habilite-clinic"
+                        className="text-[#0891b2] hover:text-[#06b6d4]  font-semibold"
+                      >
+                      Habilite Clinics </Link>{" "}in Delhi reviews your medical
                 history, imaging, lifestyle goals, and recovery expectations to
                 select the safest and most aesthetic option—whether that is
                 standard laparoscopy, single-port surgery, or robotic-assisted
@@ -868,9 +876,107 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           <div className="max-w-5xl mx-auto">
+            <section className="bg-gray-50 rounded-xl p-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
+                Recovery & Aftercare
+              </h2>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <Clock
+                    className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
+                    size={20}
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">
+                      Recovery Time
+                    </p>
+                    <p className="text-gray-700 text-sm">
+                      <Link
+                        href="https://www.habiliteclinics.com/post/gallbladder-surgery-recovery-tips"
+                        className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
+                      >
+                        Recovery after Laparoscopic Gallbladder Surgery
+                      </Link>{" "}
+                      is very fast. Most patients can return to normal
+                      activities within 1-2 weeks after laparoscopic
+                      gallbladder surgery. Many patients are discharged within
+                      24 hours.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <User
+                    className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
+                    size={20}
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">
+                      Follow-up Care
+                    </p>
+                    <p className="text-gray-700 text-sm">
+                      Regular follow-up appointments ensure optimal recovery and
+                      address any concerns. Dr. Kapil Agrawal provides
+                      comprehensive post-operative care.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
             <div className="defer-section">
               <CostCalculator serviceName="Gallbladder Surgery" />
             </div>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <section className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mt-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
+                Understanding the Cost of Gallbladder Surgery in Delhi
+              </h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  The cost of gallbladder surgery in Delhi depends on the
+                  surgical approach, disease complexity, and overall care
+                  required.
+                </p>
+                <p>
+                  Under the expertise of Dr Kapil Agrawal, most patients are
+                  treated with advanced laparoscopic gallbladder surgery,
+                  ensuring faster recovery and minimal discomfort. We believe
+                  in complete cost transparency, with no hidden or surprise
+                  charges.
+                </p>
+                <p>
+                  The final expense may vary based on hospital stay, anaesthesia,
+                  investigations, and post-operative support.
+                </p>
+                <p>
+                  Our team explains the expected costs clearly before surgery,
+                  allowing patients to make informed decisions.
+                </p>
+                <p>
+                  With experienced hands and modern techniques, complications and
+                  extended hospital stays are minimized.
+                </p>
+                <p>
+                  This patient-first approach ensures both clinical excellence
+                  and cost efficiency.
+                </p>
+                <p>
+                  For a clear estimate and treatment guidance, explore the
+                  detailed{" "}
+                  <Link
+                    href="https://www.habiliteclinics.com/post/gallbladder-stone-surgery-cost-in-delhi-india-habilite-clinics"
+                    className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
+                  >
+                    cost of gallbladder surgery in Delhi
+                  </Link>{" "}
+                  at Habilite Clinics.
+                </p>
+              </div>
+            </section>
           </div>
 
           <div className="max-w-5xl mx-auto space-y-12">
