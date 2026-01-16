@@ -536,6 +536,16 @@ export default function GallbladderSurgeryPage() {
                   a significantly increased risk of gallbladder cancer.
                 </p>
               </p>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                For more information, you can refer to our{" "}
+                <Link
+                  href="https://www.habiliteclinics.com/post/when-is-the-right-time-for-gallbladder-surgery"
+                  className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
+                >
+                  complete guide to gallbladder treatment
+                </Link>
+                .
+              </p>
             </section>
 
             {/* YouTube Video Section - Deferred to reduce TBT and unused JS (1.5MB) */}
@@ -557,7 +567,7 @@ export default function GallbladderSurgeryPage() {
                         href="https://www.habiliteclinics.com/dr-kapil-agrawal"
                         className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
                       >
-                      Dr. Kapil Agrawal - Gallbladder Specialist Surgeon </Link>{" "}
+                      Dr. Kapil Agrawal -  </Link>{" "}Gallbladder Specialist Surgeon
                 offers a range of minimally invasive gallbladder surgery
                 options, delivering precise and patient-centric care for
                 effective stone removal.
@@ -814,6 +824,23 @@ export default function GallbladderSurgeryPage() {
                      <strong>Foundation for lifelong health:</strong>  Complication-free surgery
                       prevents long-term risks tied to chronic gallbladder
                       disease.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="text-amber-600 mr-2 mt-1 flex-shrink-0"
+                      size={18}
+                    />
+                    <span>
+                      <strong>Ideal time for Gallbladder Surgery:</strong> A good surgeon always
+                      ensures the best and{" "}
+                      <Link
+                        href="https://www.habiliteclinics.com/post/when-is-the-right-time-for-gallbladder-surgery"
+                        className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
+                      >
+                        ideal time for gallbladder surgery
+                      </Link>{" "}
+                      to prevent any complications.
                     </span>
                   </li>
                 </ul>
