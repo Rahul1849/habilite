@@ -539,7 +539,7 @@ export default function GallbladderSurgeryPage() {
               <p className="text-gray-700 leading-relaxed mt-4">
                 For more information, you can refer to our{" "}
                 <Link
-                  href="https://www.habiliteclinics.com/post/when-is-the-right-time-for-gallbladder-surgery"
+                  href="https://www.habiliteclinics.com/resources/gallbladder-complete-guide"
                   className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
                 >
                   complete guide to gallbladder treatment
@@ -903,55 +903,6 @@ export default function GallbladderSurgeryPage() {
           </div>
 
           <div className="max-w-5xl mx-auto">
-            <section className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-                Recovery & Aftercare
-              </h2>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Clock
-                    className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">
-                      Recovery Time
-                    </p>
-                    <p className="text-gray-700 text-sm">
-                      <Link
-                        href="https://www.habiliteclinics.com/post/gallbladder-surgery-recovery-tips"
-                        className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
-                      >
-                        Recovery after Laparoscopic Gallbladder Surgery
-                      </Link>{" "}
-                      is very fast. Most patients can return to normal
-                      activities within 1-2 weeks after laparoscopic
-                      gallbladder surgery. Many patients are discharged within
-                      24 hours.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <User
-                    className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">
-                      Follow-up Care
-                    </p>
-                    <p className="text-gray-700 text-sm">
-                      Regular follow-up appointments ensure optimal recovery and
-                      address any concerns. Dr. Kapil Agrawal provides
-                      comprehensive post-operative care.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
             <div className="defer-section">
               <CostCalculator serviceName="Gallbladder Surgery" />
             </div>
@@ -1009,6 +960,55 @@ export default function GallbladderSurgeryPage() {
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="defer-section">
               <GallbladderTestimonials />
+            </div>
+            
+            <div className="max-w-5xl mx-auto">
+              <section className="bg-gray-50 rounded-xl p-6">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
+                  Recovery after Gallbladder Surgery
+                </h2>
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <Clock
+                      className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
+                      size={20}
+                    />
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">
+                        Recovery Time
+                      </p>
+                      <p className="text-gray-700 text-sm">
+                        <Link
+                          href="https://www.habiliteclinics.com/post/gallbladder-surgery-recovery-tips"
+                          className="text-[#0891b2] hover:text-[#06b6d4] font-semibold"
+                        >
+                          Recovery after Laparoscopic Gallbladder Surgery
+                        </Link>{" "}
+                        is very fast. Most patients can return to normal
+                        activities within 1-2 weeks after laparoscopic
+                        gallbladder surgery. Many patients are discharged within
+                        24 hours.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <User
+                      className="text-[#0891b2] mr-3 mt-1 flex-shrink-0"
+                      size={20}
+                    />
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">
+                        Follow-up Care
+                      </p>
+                      <p className="text-gray-700 text-sm">
+                        Regular follow-up appointments ensure optimal recovery and
+                        address any concerns. Dr. Kapil Agrawal provides
+                        comprehensive post-operative care.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
             
             <div className="defer-section">
